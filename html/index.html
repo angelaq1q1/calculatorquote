@@ -1,0 +1,812 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CalculatorQuote: Free Online Calculators - Math, Fitness, Finance, Science</title>
+    <meta name="description" content="Free online calculators for all your needs. Math, finance, fitness, health, and over 200 other calculators at CalculatorQuote.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        :root {
+            --primary-color: #2c8a8a;
+            --secondary-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --white: #ffffff;
+            --gray: #95a5a6;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        /* Header Styles */
+        #headerout {
+            background-color: var(--dark-color);
+            padding: 10px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        #header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #logo a {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        #login a {
+            color: var(--white);
+            padding: 5px 10px;
+            border: 1px solid var(--white);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        #login a:hover {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+        
+        /* Calculator Panel */
+        #homecaldiv {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        
+        #sciout {
+            background-color: var(--white);
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        #sciInPut, #sciOutPut {
+            text-align: right;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            background-color: #f8f8f8;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+        
+        #sciInPut {
+            font-size: 14px;
+            color: var(--gray);
+            min-height: 20px;
+        }
+        
+        #sciOutPut {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .scifunc, .scinm, .sciop, .scieq, .scird {
+            display: inline-block;
+            padding: 10px;
+            margin: 2px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        
+        .scifunc {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .scinm {
+            background-color: var(--light-color);
+        }
+        
+        .sciop {
+            background-color: var(--gray);
+            color: white;
+        }
+        
+        .scieq {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .scird {
+            background-color: #9b59b6;
+            color: white;
+        }
+        
+        .scifunc:hover, .scinm:hover, .sciop:hover, .scieq:hover, .scird:hover {
+            opacity: 0.8;
+        }
+        
+        /* Search Box */
+        #homesch {
+            padding: 15px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        #homesch h1 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .inlongest {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        
+        #bluebtn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        /* Calculator Categories */
+        #homelistdiv {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        #homelistwrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .homelisttile {
+            width: 24%;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .hicon {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary-color);
+        }
+        
+        .hicon img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        
+        .hh {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hh a {
+            color: var(--dark-color);
+        }
+        
+        .hl {
+            list-style: none;
+            padding: 15px;
+        }
+        
+        .hl li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .hl li:last-child {
+            border-bottom: none;
+        }
+        
+        .hl li a {
+            color: var(--text-color);
+            display: block;
+            padding: 5px 0;
+            transition: all 0.2s;
+        }
+        
+        .hl li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        /* Footer */
+        #footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        
+        #footerin {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        #footer a {
+            color: var(--white);
+        }
+        
+        #footernav {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .homelisttile {
+                width: 48%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .homelisttile {
+                width: 100%;
+            }
+            
+            #homefunbtn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="headerout">
+        <div id="header">
+            <div id="logo"><a href="/">CalculatorQuote.com</a></div>
+            <div id="login"><a href="/sign-in">sign in</a></div>
+        </div>
+    </div>
+
+    <div id="homecaldiv">
+        <div id="contentout">
+            <div id="sciout">
+                <div>
+                    <div id="sciInPut">&nbsp;</div>
+                    <div id="sciOutPut">0</div>
+                </div>
+                <table width="100%" cellpadding="0" cellspacing="2">
+                    <tr>
+                        <td>
+                            <div style="padding-top:3px;width:100%;" id="homefunbtn">
+                                <div>
+                                    <span onclick="calcFunction('sin')" class="scifunc">sin</span>
+                                    <span onclick="calcFunction('cos')" class="scifunc">cos</span>
+                                    <span onclick="calcFunction('tan')" class="scifunc">tan</span>
+                                    <span class="scird">
+                                        <label><input type="radio" name="degreeRad" value="deg" checked> Deg</label>
+                                        <label><input type="radio" name="degreeRad" value="rad"> Rad</label>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span onclick="calcFunction('asin')" class="scifunc">sin<sup>-1</sup></span>
+                                    <span onclick="calcFunction('acos')" class="scifunc">cos<sup>-1</sup></span>
+                                    <span onclick="calcFunction('atan')" class="scifunc">tan<sup>-1</sup></span>
+                                    <span onclick="calcFunction('pi')" class="scifunc">π</span>
+                                    <span onclick="calcFunction('e')" class="scifunc">e</span>
+                                </div>
+                                <div>
+                                    <span onclick="calcFunction('pow')" class="scifunc">x<sup>y</sup></span>
+                                    <span onclick="calcFunction('x3')" class="scifunc">x<sup>3</sup></span>
+                                    <span onclick="calcFunction('x2')" class="scifunc">x<sup>2</sup></span>
+                                    <span onclick="calcFunction('ex')" class="scifunc">e<sup>x</sup></span>
+                                    <span onclick="calcFunction('10x')" class="scifunc">10<sup>x</sup></span>
+                                </div>
+                                <div>
+                                    <span onclick="calcFunction('apow')" class="scifunc"><sup>y</sup>√x</span>
+                                    <span onclick="calcFunction('3x')" class="scifunc"><sup>3</sup>√x</span>
+                                    <span onclick="calcFunction('sqrt')" class="scifunc">√x</span>
+                                    <span onclick="calcFunction('ln')" class="scifunc">ln</span>
+                                    <span onclick="calcFunction('log')" class="scifunc">log</span>
+                                </div>
+                                <div>
+                                    <span onclick="calcFunction('(')" class="scifunc">(</span>
+                                    <span onclick="calcFunction(')')" class="scifunc">)</span>
+                                    <span onclick="calcFunction('1/x')" class="scifunc">1/x</span>
+                                    <span onclick="calcFunction('%')" class="scifunc">%</span>
+                                    <span onclick="calcFunction('n!')" class="scifunc">n!</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="padding-top:3px;">
+                                <div>
+                                    <span onclick="calcInput('7')" class="scinm">7</span>
+                                    <span onclick="calcInput('8')" class="scinm">8</span>
+                                    <span onclick="calcInput('9')" class="scinm">9</span>
+                                    <span onclick="calcFunction('+')" class="sciop">+</span>
+                                    <span onclick="backspace()" class="sciop">Back</span>
+                                </div>
+                                <div>
+                                    <span onclick="calcInput('4')" class="scinm">4</span>
+                                    <span onclick="calcInput('5')" class="scinm">5</span>
+                                    <span onclick="calcInput('6')" class="scinm">6</span>
+                                    <span onclick="calcFunction('-')" class="sciop">-</span>
+                                    <span onclick="recallAnswer()" class="sciop">Ans</span>
+                                </div>
+                                <div>
+                                    <span onclick="calcInput('1')" class="scinm">1</span>
+                                    <span onclick="calcInput('2')" class="scinm">2</span>
+                                    <span onclick="calcInput('3')" class="scinm">3</span>
+                                    <span onclick="calcFunction('*')" class="sciop">×</span>
+                                    <span onclick="memoryAdd()" class="sciop">M+</span>
+                                </div>
+                                <div>
+                                    <span onclick="calcInput('0')" class="scinm">0</span>
+                                    <span onclick="calcInput('.')" class="scinm">.</span>
+                                    <span onclick="calcFunction('EXP')" class="sciop">EXP</span>
+                                    <span onclick="calcFunction('/')" class="sciop">/</span>
+                                    <span onclick="memorySubtract()" class="sciop">M-</span>
+                                </div>
+                                <div>
+                                    <span onclick="toggleSign()" class="sciop">±</span>
+                                    <span onclick="randomNumber()" class="sciop">RND</span>
+                                    <span onclick="clearAll()" class="scieq">AC</span>
+                                    <span onclick="calculate()" class="scieq">=</span>
+                                    <span onclick="memoryRecall()" class="sciop" id="scimrc">MR</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div id="scihistory"></div>
+            </div>
+
+            <div id="homesch">
+                <h1>Free Online Calculators</h1>
+                <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off">
+                    <div style="display: flex;">
+                        <input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" placeholder="Search calculators...">
+                        <span id="bluebtn" onclick="calcSearch()">Search</span>
+                    </div>
+                    <div id="calcSearchOut"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="homelistdiv">
+        <div id="contentout">
+            <div id="homelistwrap">
+                <div class="homelisttile">
+                    <div class="hicon">
+                        <a href="/financial-calculator.html">
+                            <i class="fas fa-coins" style="font-size: 60px; color: white;"></i>
+                        </a>
+                    </div>
+                    <div class="hh"><a href="/financial-calculator.html">Financial Calculators</a></div>
+                    <ul class="hl" id="hl1">
+                        <li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="/interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="/payment-calculator.html">Payment Calculator</a></li>
+                        <li><a href="/retirement-calculator.html">Retirement Calculator</a></li>
+                        <li><a href="/amortization-calculator.html">Amortization Calculator</a></li>
+                        <li><a href="/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="/inflation-calculator.html">Inflation Calculator</a></li>
+                        <li><a href="/finance-calculator.html">Finance Calculator</a></li>
+                        <li><a href="/tax-calculator.html">Income Tax Calculator</a></li>
+                        <li><a href="/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                        <li><a href="/salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="/interest-rate-calculator.html">Interest Rate Calculator</a></li>
+                        <li><a href="/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="homelisttile">
+                    <div class="hicon">
+                        <a href="/fitness-and-health-calculator.html">
+                            <i class="fas fa-heartbeat" style="font-size: 60px; color: white;"></i>
+                        </a>
+                    </div>
+                    <div class="hh"><a href="/fitness-and-health-calculator.html">Fitness &amp; Health Calculators</a></div>
+                    <ul class="hl" id="hl2">
+                        <li><a href="/bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="/calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="/bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="/ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
+                        <li><a href="/pace-calculator.html">Pace Calculator</a></li>
+                        <li><a href="/pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                        <li><a href="/pregnancy-conception-calculator.html">Pregnancy Conception Calculator</a></li>
+                        <li><a href="/due-date-calculator.html">Due Date Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="homelisttile">
+                    <div class="hicon">
+                        <a href="/math-calculator.html">
+                            <i class="fas fa-square-root-alt" style="font-size: 60px; color: white;"></i>
+                        </a>
+                    </div>
+                    <div class="hh"><a href="/math-calculator.html">Math Calculators</a></div>
+                    <ul class="hl" id="hl3">
+                        <li><a href="/scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="/fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="/percent-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="/random-number-generator.html">Random Number Generator</a></li>
+                        <li><a href="/triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="homelisttile">
+                    <div class="hicon">
+                        <a href="/other-calculator.html">
+                            <i class="fas fa-calculator" style="font-size: 60px; color: white;"></i>
+                        </a>
+                    </div>
+                    <div class="hh"><a href="/other-calculator.html">Other Calculators</a></div>
+                    <ul class="hl" id="hl5">
+                        <li><a href="/age-calculator.html">Age Calculator</a></li>
+                        <li><a href="/date-calculator.html">Date Calculator</a></li>
+                        <li><a href="/time-calculator.html">Time Calculator</a></li>
+                        <li><a href="/hours-calculator.html">Hours Calculator</a></li>
+                        <li><a href="/gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="/grade-calculator.html">Grade Calculator</a></li>
+                        <li><a href="/concrete-calculator.html">Concrete Calculator</a></li>
+                        <li><a href="/ip-subnet-calculator.html">Subnet Calculator</a></li>
+                        <li><a href="/password-generator.html">Password Generator</a></li>
+                        <li><a href="/conversion-calculator.html">Conversion Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align:center;padding-top:30px;">
+                <a href="/sitemap.html" style="display:inline-block;padding:10px 20px;background-color:var(--primary-color);color:white;border-radius:5px;">
+                    <i class="fas fa-calculator"></i> All Calculators
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="footerin">
+            CalculatorQuote.com's sole focus is to provide fast, comprehensive, convenient, free online calculators in a plethora of areas. Currently, we have around 200 calculators to help you "do the math" quickly in areas such as finance, fitness, health, math, and others, and we are still developing more. Our goal is to become the one-stop, go-to site for people who need to make quick calculations. Additionally, we believe the internet should be a source of free information. Therefore, all of our tools and services are completely free, with no registration required.
+            <br><br>
+            We coded and developed each calculator individually and put each one through strict, comprehensive testing. However, please inform us if you notice even the slightest error &ndash; your input is extremely valuable to us. While most calculators on CalculatorQuote.com are designed to be universally applicable for worldwide usage, some are for specific countries only.
+            <br><br>
+            <div id="footernav">
+                <a href="/about-us.html">about us</a> | 
+                <a href="/sitemap.html">sitemap</a> | 
+                <a href="/terms.html">terms of use</a> | 
+                <a href="/privacy.html">privacy policy</a> &nbsp;  
+                &copy; 2023 <a href="/">CalculatorQuote.com</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calculator functionality
+        let currentInput = '0';
+        let previousInput = '';
+        let operation = null;
+        let resetScreen = false;
+        let memoryValue = 0;
+        let lastAnswer = 0;
+        let degreeMode = true;
+
+        // Update calculator display
+        function updateDisplay() {
+            document.getElementById('sciOutPut').textContent = currentInput;
+        }
+
+        // Handle number input
+        function calcInput(number) {
+            if (currentInput === '0' || resetScreen) {
+                currentInput = '';
+                resetScreen = false;
+            }
+            currentInput += number;
+            updateDisplay();
+        }
+
+        // Handle function buttons
+        function calcFunction(func) {
+            switch(func) {
+                case 'C':
+                    clearAll();
+                    break;
+                case '=':
+                    calculate();
+                    break;
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    setOperation(func);
+                    break;
+                case 'bk':
+                    backspace();
+                    break;
+                case 'ans':
+                    recallAnswer();
+                    break;
+                case 'M+':
+                    memoryAdd();
+                    break;
+                case 'M-':
+                    memorySubtract();
+                    break;
+                case 'MR':
+                    memoryRecall();
+                    break;
+                case '±':
+                    toggleSign();
+                    break;
+                case 'RND':
+                    randomNumber();
+                    break;
+                case 'sin':
+                case 'cos':
+                case 'tan':
+                case 'asin':
+                case 'acos':
+                case 'atan':
+                    trigonometricFunction(func);
+                    break;
+                case 'pi':
+                    currentInput = Math.PI.toString();
+                    updateDisplay();
+                    break;
+                case 'e':
+                    currentInput = Math.E.toString();
+                    updateDisplay();
+                    break;
+                case 'x2':
+                    currentInput = (parseFloat(currentInput) ** 2).toString();
+                    updateDisplay();
+                    break;
+                case 'x3':
+                    currentInput = (parseFloat(currentInput) ** 3).toString();
+                    updateDisplay();
+                    break;
+                case 'sqrt':
+                    currentInput = Math.sqrt(parseFloat(currentInput)).toString();
+                    updateDisplay();
+                    break;
+                case 'log':
+                    currentInput = Math.log10(parseFloat(currentInput)).toString();
+                    updateDisplay();
+                    break;
+                case 'ln':
+                    currentInput = Math.log(parseFloat(currentInput)).toString();
+                    updateDisplay();
+                    break;
+                case '1/x':
+                    currentInput = (1 / parseFloat(currentInput)).toString();
+                    updateDisplay();
+                    break;
+                case '%':
+                    currentInput = (parseFloat(currentInput) / 100).toString();
+                    updateDisplay();
+                    break;
+                case 'n!':
+                    currentInput = factorial(parseInt(currentInput)).toString();
+                    updateDisplay();
+                    break;
+                case '(':
+                case ')':
+                    currentInput += func;
+                    updateDisplay();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // Set operation
+        function setOperation(op) {
+            if (operation !== null) calculate();
+            previousInput = currentInput;
+            operation = op;
+            resetScreen = true;
+        }
+
+        // Perform calculation
+        function calculate() {
+            let result;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            
+            if (isNaN(prev) return;
+            
+            switch(operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    result = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            
+            lastAnswer = result;
+            currentInput = result.toString();
+            operation = null;
+            resetScreen = true;
+            updateDisplay();
+        }
+
+        // Clear all
+        function clearAll() {
+            currentInput = '0';
+            previousInput = '';
+            operation = null;
+            updateDisplay();
+        }
+
+        // Backspace
+        function backspace() {
+            if (currentInput.length === 1) {
+                currentInput = '0';
+            } else {
+                currentInput = currentInput.slice(0, -1);
+            }
+            updateDisplay();
+        }
+
+        // Memory functions
+        function memoryAdd() {
+            memoryValue += parseFloat(currentInput);
+        }
+
+        function memorySubtract() {
+            memoryValue -= parseFloat(currentInput);
+        }
+
+        function memoryRecall() {
+            currentInput = memoryValue.toString();
+            updateDisplay();
+        }
+
+        // Recall last answer
+        function recallAnswer() {
+            currentInput = lastAnswer.toString();
+            updateDisplay();
+        }
+
+        // Toggle sign
+        function toggleSign() {
+            currentInput = (parseFloat(currentInput) * -1).toString();
+            updateDisplay();
+        }
+
+        // Random number
+        function randomNumber() {
+            currentInput = Math.random().toString();
+            updateDisplay();
+        }
+
+        // Trigonometric functions
+        function trigonometricFunction(func) {
+            let value = parseFloat(currentInput);
+            let result;
+            
+            if (!degreeMode) {
+                value = value * Math.PI / 180;
+            }
+            
+            switch(func) {
+                case 'sin':
+                    result = Math.sin(value);
+                    break;
+                case 'cos':
+                    result = Math.cos(value);
+                    break;
+                case 'tan':
+                    result = Math.tan(value);
+                    break;
+                case 'asin':
+                    result = Math.asin(value);
+                    if (!degreeMode) {
+                        result = result * 180 / Math.PI;
+                    }
+                    break;
+                case 'acos':
+                    result = Math.acos(value);
+                    if (!degreeMode) {
+                        result = result * 180 / Math.PI;
+                    }
+                    break;
+                case 'atan':
+                    result = Math.atan(value);
+                    if (!degreeMode) {
+                        result = result * 180 / Math.PI;
+                    }
+                    break;
+            }
+            
+            currentInput = result.toString();
+            updateDisplay();
+        }
+
+        // Factorial
+        function factorial(n) {
+            if (n < 0) return NaN;
+            if (n === 0 || n === 1) return 1;
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        // Degree/Radians toggle
+        document.querySelectorAll('input[name="degreeRad"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                degreeMode = (this.value === 'deg');
+            });
+        });
+
+        // Search functionality
+        function calcSearch() {
+            const term = document.getElementById('calcSearchTerm').value.toLowerCase();
+            const resultsDiv = document.getElementById('calcSearchOut');
+            
+            if (!term) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+            
+            // In a real implementation, this would search your calculator database
+            resultsDiv.innerHTML = '<p>Search functionality would display results for: ' + term + '</p>';
+        }
+
+        // Initialize
+        updateDisplay();
+    </script>
+</body>
+</html>
