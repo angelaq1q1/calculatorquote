@@ -1,35 +1,91 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CalculatorQuote: Free Online Calculators - Math, Fitness, Finance, Science</title>
-    <meta name="description" content="Free online calculators for all your needs. Math, finance, fitness, health, and over 200 other calculators at CalculatorQuote.com">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="headerout">
-        <div id="header">
-            <div id="logo"><a href="/">CalculatorQuote.com</a></div>
-            <div id="login"><a href="/sign-in">sign in</a></div>
+    <div class="app-bar">
+        <span class="material-icons">calculate</span>
+        <h1>Calculator Tools</h1>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Free Online Calculators</h1>
+            <p>Simple and powerful calculators for your daily needs</p>
+        </div>
+
+        <div class="grid">
+            <!-- Math Calculators -->
+            <div class="card" data-category="math">
+                <div class="category-header">
+                    <span class="material-icons">functions</span>
+                    <h2>Math Calculators</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">Basic Calculator</li>
+                    <li class="tool-item">Scientific Calculator</li>
+                    <li class="tool-item">Fraction Calculator</li>
+                    <li class="tool-item">Statistics Calculator</li>
+                    <li class="tool-item">Matrix Calculator</li>
+                    <li class="tool-item">Unit Converter</li>
+                </ul>
+            </div>
+
+            <!-- Financial Tools -->
+            <div class="card" data-category="financial">
+                <div class="category-header">
+                    <span class="material-icons">account_balance</span>
+                    <h2>Financial Tools</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">Mortgage Calculator</li>
+                    <li class="tool-item">Investment Calculator</li>
+                    <li class="tool-item">Loan Payment Calculator</li>
+                    <li class="tool-item">Currency Converter</li>
+                    <li class="tool-item">Compound Interest</li>
+                    <li class="tool-item">Tax Calculator</li>
+                </ul>
+            </div>
+
+            <!-- Health & Fitness -->
+            <div class="card" data-category="health">
+                <div class="category-header">
+                    <span class="material-icons">fitness_center</span>
+                    <h2>Health & Fitness</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">BMI Calculator</li>
+                    <li class="tool-item">Calorie Calculator</li>
+                    <li class="tool-item">Body Fat Calculator</li>
+                    <li class="tool-item">Ideal Weight Calculator</li>
+                    <li class="tool-item">Pregnancy Calculator</li>
+                    <li class="tool-item">Blood Pressure Tracker</li>
+                </ul>
+            </div>
+
+            <!-- Other Tools -->
+            <div class="card" data-category="other">
+                <div class="category-header">
+                    <span class="material-icons">build</span>
+                    <h2>Other Tools</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">Date Calculator</li>
+                    <li class="tool-item">Time Zone Converter</li>
+                    <li class="tool-item">Random Number Generator</li>
+                    <li class="tool-item">Age Calculator</li>
+                    <li class="tool-item">Percentage Calculator</li>
+                    <li class="tool-item">Area Calculator</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div id="homecaldiv">
-        <!-- Calculator panel content remains the same -->
-        <!-- ... (keep all the HTML structure from the original) ... -->
-    </div>
-
-    <div id="homelistdiv">
-        <!-- Calculator categories content remains the same -->
-        <!-- ... (keep all the HTML structure from the original) ... -->
-    </div>
-
-    <div id="footer">
-        <!-- Footer content remains the same -->
-        <!-- ... (keep all the HTML structure from the original) ... -->
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
