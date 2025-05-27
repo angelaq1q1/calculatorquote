@@ -1,286 +1,129 @@
-/* Reset and Base Styles */
-:root {
-    --primary-color: #2c8a8a;
-    --secondary-color: #e74c3c;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
-    --text-color: #333;
-    --white: #ffffff;
-    --gray: #95a5a6;
-    --shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     background-color: #f5f5f5;
-    color: var(--text-color);
-    line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-}
-
-/* Header Styles */
-#headerout {
-    background-color: var(--dark-color);
-    padding: 10px 0;
-    box-shadow: var(--shadow);
-}
-
-#header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+.app-bar {
+    background-color: #1976d2;
+    color: white;
+    padding: 1rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-#logo a {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: bold;
+.app-bar .material-icons {
+    margin-right: 1rem;
 }
 
-#login a {
-    color: var(--white);
-    padding: 5px 10px;
-    border: 1px solid var(--white);
-    border-radius: 3px;
-    transition: all 0.3s;
-}
-
-#login a:hover {
-    background-color: var(--white);
-    color: var(--dark-color);
-}
-
-/* Calculator Panel */
-#homecaldiv {
+.container {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 15px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-#sciout {
-    background-color: var(--white);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-}
-
-#sciInPut, #sciOutPut {
-    text-align: right;
-    padding: 10px;
-    font-family: 'Courier New', monospace;
-    background-color: #f8f8f8;
-    margin-bottom: 5px;
-    border-radius: 3px;
-}
-
-#sciInPut {
-    font-size: 14px;
-    color: var(--gray);
-    min-height: 20px;
-}
-
-#sciOutPut {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.scifunc, .scinm, .sciop, .scieq, .scird {
-    display: inline-block;
-    padding: 10px;
-    margin: 2px;
+.header {
     text-align: center;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: all 0.2s;
-    user-select: none;
+    margin-bottom: 2rem;
 }
 
-.scifunc {
-    background-color: #3498db;
-    color: white;
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
 }
 
-.scinm {
-    background-color: var(--light-color);
+.header p {
+    color: #666;
+    font-size: 1.1rem;
 }
 
-.sciop {
-    background-color: var(--gray);
-    color: white;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.scieq {
-    background-color: var(--secondary-color);
-    color: white;
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
-.scird {
-    background-color: #9b59b6;
-    color: white;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.scifunc:hover, .scinm:hover, .sciop:hover, .scieq:hover, .scird:hover {
-    opacity: 0.8;
-}
-
-/* Search Box */
-#homesch {
-    padding: 15px;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-}
-
-#homesch h1 {
-    color: var(--dark-color);
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.inlongest {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-#bluebtn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-/* Calculator Categories */
-#homelistdiv {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-#homelistwrap {
+.category-header {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1976d2;
 }
 
-.homelisttile {
-    width: 24%;
-    background-color: var(--white);
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-    overflow: hidden;
+.category-header .material-icons {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    color: #1976d2;
 }
 
-.hicon {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--primary-color);
+.category-header h2 {
+    font-size: 1.5rem;
+    color: #333;
 }
 
-.hicon img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.hh {
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-}
-
-.hh a {
-    color: var(--dark-color);
-}
-
-.hl {
+.tool-list {
     list-style: none;
-    padding: 15px;
 }
 
-.hl li {
-    padding: 5px 0;
-    border-bottom: 1px dashed #eee;
+.tool-item {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-.hl li:last-child {
-    border-bottom: none;
-}
-
-.hl li a {
-    color: var(--text-color);
-    display: block;
-    padding: 5px 0;
-    transition: all 0.2s;
-}
-
-.hl li a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
-}
-
-/* Footer */
-#footer {
-    background-color: var(--dark-color);
-    color: var(--white);
-    padding: 30px 0;
-    margin-top: 30px;
-}
-
-#footerin {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-#footer a {
-    color: var(--white);
-}
-
-#footernav {
-    margin-top: 20px;
-    text-align: center;
+.tool-item:hover {
+    background-color: rgba(25, 118, 210, 0.08);
+    color: #1976d2;
+    padding-left: 1rem;
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
-    .homelisttile {
-        width: 48%;
-        margin-bottom: 20px;
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .category-header h2 {
+        font-size: 1.3rem;
     }
 }
 
-@media (max-width: 768px) {
-    .homelisttile {
-        width: 100%;
-    }
-    
-    #homefunbtn {
-        display: none;
-    }
+/* Animation Classes */
+.card.highlight {
+    border: 2px solid #1976d2;
+    transform: scale(1.02);
+}
+
+.tool-item.active {
+    background-color: rgba(25, 118, 210, 0.15);
+    color: #1976d2;
+    font-weight: 500;
 }
