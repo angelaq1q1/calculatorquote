@@ -1,4 +1,9 @@
- document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Calculator Tools JavaScript
+ * Handles all interactive features of the calculator tools website
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
     // Get all calculator tools
     const toolItems = document.querySelectorAll('.tool-item');
     const cards = document.querySelectorAll('.card');
