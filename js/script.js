@@ -1,4 +1,4 @@
- /**
+/**
  * Main JavaScript for Calculator Tools Homepage
  */
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,19 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add click handlers for tool items
+    // Add click handlers for tool items without links
     toolItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            const link = this.querySelector('a');
-            if (!link) {
-                // Remove active class from all tools
-                toolItems.forEach(tool => tool.classList.remove('active'));
-                // Add active class to clicked tool
-                this.classList.add('active');
+        // Only add click handler if the item doesn't have an <a> tag
+        if (!item.querySelector('a')) {
+            item.addEventListener('click', function() {
                 // Show coming soon message for tools without links
                 alert('This calculator will be available soon!');
-            }
-        });
+            });
+        }
     });
 
     // Optional: Add category filtering
