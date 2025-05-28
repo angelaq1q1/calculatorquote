@@ -1,0 +1,25 @@
+/* Calculator Tools Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 保持现有样式 */
+// ... existing code ...
+
+.tool-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.tool-item:hover a {
+    color: #1976d2;
+}
+
+/* 保持其他现有样式 */
+// ... existing code ...
