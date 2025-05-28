@@ -19,13 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add click handlers for tool items without links
+    // Add click handlers only for items without links
     toolItems.forEach(item => {
-        // Only add click handler if the item doesn't have an <a> tag
+        // Check if the item has no anchor tag inside
         if (!item.querySelector('a')) {
-            item.addEventListener('click', function() {
-                // Show coming soon message for tools without links
-                alert('This calculator will be available soon!');
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function(e) {
+                // Prevent event from bubbling if the item was clicked directly
+                if (e.target === this) {
+                    alert('This calculator will be available soon!');
+                }
             });
         }
     });
