@@ -6,14 +6,108 @@
     <title>Calculator Tools</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #2196F3;
+        }
+
+        .category-header .material-icons {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .category-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Tool List Styles */
+        .tool-list {
+            list-style: none;
+        }
+
+        .tool-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .tool-item:last-child {
+            border-bottom: none;
+        }
+
+        .tool-item:hover {
+            color: #2196F3;
+        }
+
+        .tool-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-bar">
-        <span class="material-icons">calculate</span>
-        <h1>Calculator Tools</h1>
-    </div>
-
     <div class="container">
         <div class="header">
             <h1>Free Online Calculators</h1>
@@ -28,7 +122,7 @@
                     <h2>Math Calculators</h2>
                 </div>
                 <ul class="tool-list">
-                    <li class="tool-item">Basic Calculator</li>
+                    <li class="tool-item"><a href="/calculators/basic.html">Basic Calculator</a></li>
                     <li class="tool-item">Scientific Calculator</li>
                     <li class="tool-item">Fraction Calculator</li>
                     <li class="tool-item">Statistics Calculator</li>
@@ -86,6 +180,7 @@
             </div>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
