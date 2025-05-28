@@ -39,72 +39,98 @@
         }
 
         .calculator {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-top: 60px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
             width: 100%;
-            max-width: 320px;
+            max-width: 380px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
         #display {
             width: 100%;
-            height: 60px;
-            margin-bottom: 20px;
-            font-size: 2em;
+            height: 120px;
+            margin-bottom: 25px;
+            font-size: 3em;
             text-align: right;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+            padding: 40px 20px 20px;
+            background-color: white;
+            color: #333;
+            border: none;
+            outline: none;
+            font-weight: 300;
         }
 
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 15px;
+            padding: 5px;
+            margin: 0 -5px;
         }
 
         button {
-            padding: 15px;
-            font-size: 1.2em;
+            width: 65px;
+            height: 65px;
+            font-size: 1.8em;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
-            background-color: #e9ecef;
-            transition: background-color 0.2s;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: 400;
         }
 
-        button:hover {
-            background-color: #dee2e6;
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .number {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .number:hover {
+            background-color: #e0e0e0;
         }
 
         .operator {
             background-color: #2196F3;
-            color: white;
+            font-weight: 500;
         }
 
         .operator:hover {
             background-color: #1976D2;
         }
 
+        .function {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .function:hover {
+            background-color: #d0d0d0;
+        }
+
         .equals {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #2196F3;
         }
 
         .equals:hover {
-            background-color: #388E3C;
+            background-color: #1976D2;
         }
 
-        .clear {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .clear:hover {
-            background-color: #d32f2f;
+        .zero {
+            grid-column: span 2;
+            width: 142px;
+            border-radius: 35px;
+            justify-content: flex-start;
+            padding-left: 25px;
         }
     </style>
 </head>
@@ -114,71 +140,148 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">AC</button>
-            <button class="operator" onclick="appendToDisplay('(')">(</button>
-            <button class="operator" onclick="appendToDisplay(')')">)</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">×</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="deleteLastChar()">DEL</button>
+            <button class="function" onclick="clearDisplay()">AC</button>
+            <button class="function" onclick="toggleSign()">+/-</button>
+            <button class="function" onclick="percentage()">%</button>
+            <button class="operator" onclick="setOperation('÷')">÷</button>
+            
+            <button class="number" onclick="appendNumber('7')">7</button>
+            <button class="number" onclick="appendNumber('8')">8</button>
+            <button class="number" onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="setOperation('×')">×</button>
+            
+            <button class="number" onclick="appendNumber('4')">4</button>
+            <button class="number" onclick="appendNumber('5')">5</button>
+            <button class="number" onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="setOperation('-')">-</button>
+            
+            <button class="number" onclick="appendNumber('1')">1</button>
+            <button class="number" onclick="appendNumber('2')">2</button>
+            <button class="number" onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="setOperation('+')">+</button>
+            
+            <button class="number zero" onclick="appendNumber('0')">0</button>
+            <button class="number" onclick="appendNumber('.')">.</button>
             <button class="equals" onclick="calculate()">=</button>
         </div>
     </div>
 
     <script>
         let display = document.getElementById('display');
+        let currentNumber = '0';
+        let previousNumber = '';
+        let operation = null;
+        let shouldResetScreen = false;
 
-        function appendToDisplay(value) {
-            display.value += value;
+        function updateDisplay() {
+            display.value = currentNumber;
+        }
+
+        function appendNumber(number) {
+            if (shouldResetScreen) {
+                currentNumber = '';
+                shouldResetScreen = false;
+            }
+            if (currentNumber === '0' && number !== '.') {
+                currentNumber = number;
+            } else {
+                if (number === '.' && currentNumber.includes('.')) return;
+                currentNumber += number;
+            }
+            updateDisplay();
         }
 
         function clearDisplay() {
-            display.value = '';
+            currentNumber = '0';
+            previousNumber = '';
+            operation = null;
+            updateDisplay();
         }
 
-        function deleteLastChar() {
-            display.value = display.value.slice(0, -1);
+        function toggleSign() {
+            currentNumber = (parseFloat(currentNumber) * -1).toString();
+            updateDisplay();
+        }
+
+        function percentage() {
+            if (previousNumber && operation) {
+                // If we're in the middle of an operation, calculate percentage of the first number
+                currentNumber = (parseFloat(currentNumber) * parseFloat(previousNumber) / 100).toString();
+            } else {
+                // Otherwise, just convert to percentage
+                currentNumber = (parseFloat(currentNumber) / 100).toString();
+            }
+            updateDisplay();
+        }
+
+        function setOperation(op) {
+            if (operation !== null) calculate();
+            previousNumber = currentNumber;
+            operation = op;
+            shouldResetScreen = true;
         }
 
         function calculate() {
-            try {
-                display.value = eval(display.value);
-            } catch (error) {
-                display.value = 'Error';
-                setTimeout(clearDisplay, 1000);
+            if (!operation || !previousNumber) return;
+            
+            let result;
+            const prev = parseFloat(previousNumber);
+            const current = parseFloat(currentNumber);
+            
+            switch(operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '×':
+                    result = prev * current;
+                    break;
+                case '÷':
+                    if (current === 0) {
+                        result = 'Error';
+                    } else {
+                        result = prev / current;
+                    }
+                    break;
             }
+            
+            currentNumber = result.toString();
+            operation = null;
+            previousNumber = '';
+            shouldResetScreen = true;
+            updateDisplay();
         }
 
         // Add keyboard support
         document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            
-            if (/[0-9\+\-\*\/\(\)\.]/.test(key)) {
+            if (event.key >= '0' && event.key <= '9' || event.key === '.') {
                 event.preventDefault();
-                appendToDisplay(key);
-            } else if (key === 'Enter') {
+                appendNumber(event.key);
+            } else if (event.key === '+' || event.key === '-') {
+                event.preventDefault();
+                setOperation(event.key);
+            } else if (event.key === '*') {
+                event.preventDefault();
+                setOperation('×');
+            } else if (event.key === '/') {
+                event.preventDefault();
+                setOperation('÷');
+            } else if (event.key === 'Enter' || event.key === '=') {
                 event.preventDefault();
                 calculate();
-            } else if (key === 'Backspace') {
-                event.preventDefault();
-                deleteLastChar();
-            } else if (key === 'Escape') {
+            } else if (event.key === 'Escape') {
                 event.preventDefault();
                 clearDisplay();
+            } else if (event.key === '%') {
+                event.preventDefault();
+                percentage();
             }
         });
+
+        // Initialize display
+        updateDisplay();
     </script>
 </body>
 </html> 
