@@ -3,167 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Calculator - Calculator Tools</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: #003d82;
-        }
-
-        .calculator {
-            width: 320px;
-            margin: 50px auto;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        #display {
-            width: 100%;
-            height: 60px;
-            margin-bottom: 20px;
-            font-size: 2em;
-            text-align: right;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        button {
-            padding: 15px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #e9ecef;
-            transition: background-color 0.2s;
-        }
-
-        button:hover {
-            background-color: #dee2e6;
-        }
-
-        .operator {
-            background-color: #0056b3;
-            color: white;
-        }
-
-        .operator:hover {
-            background-color: #003d82;
-        }
-
-        .equals {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .equals:hover {
-            background-color: #1e7e34;
-        }
-
-        .clear {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        .clear:hover {
-            background-color: #bd2130;
-        }
-    </style>
+    <title>Calculator Tools - Free Online Calculators</title>
+    <meta name="description" content="Free online calculators for math, finance, health, and more. Simple and powerful tools for your daily calculations.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <a href="../index.html" class="back-button">← Back</a>
-    
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-        <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">AC</button>
-            <button class="operator" onclick="appendToDisplay('(')">(</button>
-            <button class="operator" onclick="appendToDisplay(')')">)</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">×</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="deleteLastChar()">DEL</button>
-            <button class="equals" onclick="calculate()">=</button>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Free Online Calculators</h1>
+            <p>Simple and powerful calculators for your daily needs</p>
+        </div>
+
+        <!-- Main Grid Section -->
+        <div class="grid">
+            <!-- Math Calculators -->
+            <div class="card" data-category="math">
+                <div class="category-header">
+                    <span class="material-icons">functions</span>
+                    <h2>Math Calculators</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item"><a href="./calculators/basic.html">Basic Calculator</a></li>
+                    <li class="tool-item">Scientific Calculator</li>
+                    <li class="tool-item">Fraction Calculator</li>
+                    <li class="tool-item">Statistics Calculator</li>
+                    <li class="tool-item">Matrix Calculator</li>
+                    <li class="tool-item">Unit Converter</li>
+                </ul>
+            </div>
+
+            <!-- Financial Tools -->
+            <div class="card" data-category="financial">
+                <div class="category-header">
+                    <span class="material-icons">account_balance</span>
+                    <h2>Financial Tools</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">Mortgage Calculator</li>
+                    <li class="tool-item">Investment Calculator</li>
+                    <li class="tool-item">Loan Payment Calculator</li>
+                    <li class="tool-item">Currency Converter</li>
+                    <li class="tool-item">Compound Interest</li>
+                    <li class="tool-item">Tax Calculator</li>
+                </ul>
+            </div>
+
+            <!-- Health & Fitness -->
+            <div class="card" data-category="health">
+                <div class="category-header">
+                    <span class="material-icons">fitness_center</span>
+                    <h2>Health & Fitness</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">BMI Calculator</li>
+                    <li class="tool-item">Calorie Calculator</li>
+                    <li class="tool-item">Body Fat Calculator</li>
+                    <li class="tool-item">Ideal Weight Calculator</li>
+                    <li class="tool-item">Pregnancy Calculator</li>
+                    <li class="tool-item">Blood Pressure Tracker</li>
+                </ul>
+            </div>
+
+            <!-- Other Tools -->
+            <div class="card" data-category="other">
+                <div class="category-header">
+                    <span class="material-icons">build</span>
+                    <h2>Other Tools</h2>
+                </div>
+                <ul class="tool-list">
+                    <li class="tool-item">Date Calculator</li>
+                    <li class="tool-item">Time Zone Converter</li>
+                    <li class="tool-item">Random Number Generator</li>
+                    <li class="tool-item">Age Calculator</li>
+                    <li class="tool-item">Percentage Calculator</li>
+                    <li class="tool-item">Area Calculator</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <script>
-        let display = document.getElementById('display');
-
-        function appendToDisplay(value) {
-            display.value += value;
-        }
-
-        function clearDisplay() {
-            display.value = '';
-        }
-
-        function deleteLastChar() {
-            display.value = display.value.slice(0, -1);
-        }
-
-        function calculate() {
-            try {
-                display.value = eval(display.value);
-            } catch (error) {
-                display.value = 'Error';
-                setTimeout(clearDisplay, 1000);
-            }
-        }
-
-        // Add keyboard support
-        document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            if (/[0-9\+\-\*\/\(\)\.]/.test(key)) {
-                event.preventDefault();
-                appendToDisplay(key);
-            } else if (key === 'Enter') {
-                event.preventDefault();
-                calculate();
-            } else if (key === 'Backspace') {
-                event.preventDefault();
-                deleteLastChar();
-            } else if (key === 'Escape') {
-                event.preventDefault();
-                clearDisplay();
-            }
-        });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="./js/script.js"></script>
 </body>
 </html>
