@@ -53,6 +53,23 @@ body {
     margin: 0 auto;
 }
 
+/* 控制卡片顺序 */
+.card[data-category="math"] {
+    order: 1;
+}
+
+.card[data-category="financial"] {
+    order: 2;
+}
+
+.card[data-category="health"] {
+    order: 3;
+}
+
+.card[data-category="other"] {
+    order: 4;
+}
+
 .card {
     background: white;
     border-radius: 8px;
@@ -129,6 +146,11 @@ body {
 
     .container {
         padding: 0 1.5rem;
+    }
+
+    /* 在移动端重置卡片顺序 */
+    .card[data-category] {
+        order: unset;
     }
 }
 
