@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Calculators - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .calculator-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        .calculator-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .calculator-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .calculator-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .calculator-item .material-icons {
+            font-size: 24px;
+            color: #2196F3;
+        }
+
+        .calculator-item h2 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .calculator-item p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-button">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Math Calculators</h1>
+            <p>Simple and powerful mathematical tools for your calculations</p>
+        </div>
+
+        <ul class="calculator-list">
+            <li class="calculator-item">
+                <a href="basic-calculator.html">
+                    <span class="material-icons">calculate</span>
+                    <div>
+                        <h2>Basic Calculator</h2>
+                        <p>Perform basic arithmetic operations with this simple calculator</p>
+                    </div>
+                </a>
+            </li>
+            <!-- Add more calculator items here as they become available -->
+        </ul>
+    </div>
+</body>
+</html>
