@@ -10,7 +10,7 @@
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,28 +18,33 @@
             background-color: #f5f5f5;
         }
 
+        .breadcrumb {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
         .calculator-container {
             position: relative;
             padding: 20px;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: #1976D2;
+            margin-top: 20px;
         }
 
         .calculator {
@@ -50,7 +55,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 25px;
             box-sizing: border-box;
-            margin-top: 60px;
         }
 
         /* 其他样式保持不变 */
@@ -191,8 +195,15 @@
     </style>
 </head>
 <body>
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="../index.html">Math</a>
+        <span>/</span>
+        Scientific Calculator
+    </div>
+
     <div class="calculator-container">
-        <a href="../index.html" class="back-button">← Back</a>
         <div class="calculator">
             <div class="display-container">
                 <input type="text" id="display" readonly>
@@ -387,4 +398,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
