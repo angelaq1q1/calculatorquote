@@ -1,1 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .breadcrumb {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 1em;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #0B2F6B;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .display-area {
+            background: #2196F3;
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .count-display {
+            font-size: 0.9em;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+
+        .number-display {
+            font-size: 2em;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .calculator-button {
+            background: #fff;
+            border: 2px solid #2196F3;
+            padding: 15px 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: #2196F3;
+            border-radius: 5px;
+        }
+
+        .calculator-button:hover {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .calculator-button.light {
+            background: #fff;
+            border: 2px solid #2196F3;
+            color: #2196F3;
+        }
+
+        .calculator-button.light:hover {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .calculator-button.add {
+            color: #f44336;
+            border-color: #f44336;
+        }
+
+        .calculator-button.add:hover {
+            background: #f44336;
+            color: #fff;
+        }
+
+        .input-section {
+            margin-top: 40px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .input-section h2 {
+            color: #2196F3;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #2196F3;
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 1em;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        .action-button {
+            padding: 10px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+        }
+
+        .calculate-button {
+            background: #2196F3;
+            color: white;
+            margin-right: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .calculate-button:hover {
+            background: #1976D2;
+        }
+
+        .clear-button {
+            background: #757575;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .clear-button:hover {
+            background: #616161;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Math</a>
+            <span>/</span>
+            Statistics Calculator
+        </div>
+
+        <div class="display-area">
+            <div class="count-display">Count=0</div>
+            <div class="number-display">0</div>
+        </div>
+
+        <div class="calculator-grid">
+            <button class="calculator-button">7</button>
+            <button class="calculator-button">8</button>
+            <button class="calculator-button">9</button>
+            <button class="calculator-button light">x̄</button>
+            <button class="calculator-button light">x̄²</button>
+
+            <button class="calculator-button">4</button>
+            <button class="calculator-button">5</button>
+            <button class="calculator-button">6</button>
+            <button class="calculator-button light">Σx</button>
+            <button class="calculator-button light">Σx²</button>
+
+            <button class="calculator-button">1</button>
+            <button class="calculator-button">2</button>
+            <button class="calculator-button">3</button>
+            <button class="calculator-button light">σ</button>
+            <button class="calculator-button light">σ²</button>
+
+            <button class="calculator-button">0</button>
+            <button class="calculator-button">.</button>
+            <button class="calculator-button">EXP</button>
+            <button class="calculator-button light">s</button>
+            <button class="calculator-button light">s²</button>
+
+            <button class="calculator-button">CAD</button>
+            <button class="calculator-button">C</button>
+            <button class="calculator-button add">ADD</button>
+            <button class="calculator-button light">±</button>
+            <button class="calculator-button light">GM</button>
+        </div>
+
+        <div class="input-section">
+            <h2>Enter multiple numbers separated by commas for statistical analysis</h2>
+            <textarea placeholder="10, 2, 38, 23, 38, 23, 21, 23"></textarea>
+            <div class="button-group">
+                <button class="action-button calculate-button">Calculate ▶</button>
+                <button class="action-button clear-button">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM元素
+        const display = document.querySelector('.number-display');
+        const countDisplay = document.querySelector('.count-display');
+        const textarea = document.querySelector('textarea');
+        const calculateButton = document.querySelector('.calculate-button');
+        const clearButton = document.querySelector('.clear-button');
+        const buttons = document.querySelectorAll('.calculator-button');
+        
+        let currentNumber = '0';
+        let numbers = [];
+
+        // 更新显示
+        function updateDisplay() {
+            display.textContent = currentNumber;
+            countDisplay.textContent = `Count=${numbers.length}`;
+        }
+
+        // 添加数字到列表
+        function addNumber() {
+            if (currentNumber && currentNumber !== '0') {
+                numbers.push(parseFloat(currentNumber));
+                currentNumber = '0';
+                updateDisplay();
+            }
+        }
+
+        // 清除所有数据
+        function clearAll() {
+            numbers = [];
+            currentNumber = '0';
+            textarea.value = '';
+            updateDisplay();
+        }
+
+        // 处理按钮点击
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+                
+                if (value === 'C' || value === 'Clear') {
+                    clearAll();
+                } else if (value === 'ADD') {
+                    addNumber();
+                } else if (!isNaN(value) || value === '.') {
+                    if (currentNumber === '0' && value !== '.') {
+                        currentNumber = value;
+                    } else {
+                        currentNumber += value;
+                    }
+                    updateDisplay();
+                }
+            });
+        });
+
+        // 处理文本框输入
+        calculateButton.addEventListener('click', () => {
+            const input = textarea.value.trim();
+            if (input) {
+                numbers = input.split(',')
+                    .map(num => num.trim())
+                    .filter(num => num !== '')
+                    .map(num => parseFloat(num))
+                    .filter(num => !isNaN(num));
+                currentNumber = '0';
+                updateDisplay();
+            }
+        });
+
+        // 清除按钮
+        clearButton.addEventListener('click', clearAll);
+
+        // 初始化显示
+        updateDisplay();
+    </script>
+</body>
+</html> 
