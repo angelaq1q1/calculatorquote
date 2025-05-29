@@ -18,6 +18,9 @@
             min-height: 100vh;
             padding: 40px 20px;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
         .breadcrumb {
@@ -26,6 +29,7 @@
             left: 40px;
             font-size: 1em;
             color: #666;
+            z-index: 100;
         }
 
         .breadcrumb a {
@@ -50,21 +54,22 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 30px;
+            width: 100%;
         }
 
         h1 {
             color: #2196F3;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-size: 2em;
             text-align: center;
         }
 
         .calculator-section {
             margin-bottom: 40px;
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #e0e0e0;
             border-radius: 10px;
-            min-width: 0;
+            background-color: #fff;
         }
 
         .calculator-container {
@@ -81,11 +86,9 @@
 
         .calculator-title {
             color: #2196F3;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             font-size: 1.5em;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-weight: 500;
         }
 
         .fraction-input {
@@ -192,34 +195,6 @@
         .big-number-input {
             width: 160px !important;
             font-size: 0.9em !important;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: background-color 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button:hover {
-            background-color: #1976D2;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-arrow {
-            font-size: 1.2em;
-            line-height: 1;
         }
 
         @media (max-width: 768px) {
