@@ -1,1 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 1em;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #2196F3;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .calculator-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .matrix-input-section {
+            width: 100%;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .matrix-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2196F3;
+            text-align: center;
+        }
+
+        .matrix-title {
+            font-size: 1.2em;
+            color: #2196F3;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .dimension-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dimension-input {
+            width: 50px;
+            height: 30px;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .matrix-grid {
+            display: grid;
+            gap: 5px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .matrix-input {
+            width: 50px;
+            height: 30px;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .matrix-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+            align-items: center;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .matrix-button {
+            padding: 6px 12px;
+            background: #fff;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            color: #2196F3;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85em;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .matrix-button:hover {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .matrix-button.number-input {
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+
+        .power-input,
+        .scalar-input {
+            width: 40px;
+            height: 30px;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 4px;
+        }
+
+        .operations-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .operation-button {
+            padding: 8px 15px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .operation-button:hover {
+            background: #1976D2;
+        }
+
+        .result-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .result-title {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .result-grid {
+            display: grid;
+            gap: 5px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .result-cell {
+            width: 50px;
+            height: 30px;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            font-size: 0.9em;
+        }
+
+        .error {
+            color: #f44336;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-layout {
+                gap: 20px;
+            }
+
+            .matrix-buttons {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Math</a>
+            <span>/</span>
+            Matrix Calculator
+        </div>
+
+        <h1>Matrix Calculator</h1>
+
+        <div class="calculator-layout">
+            <!-- Matrix A Section -->
+            <div class="matrix-input-section">
+                <div class="matrix-header">
+                    <div class="matrix-title">Matrix A</div>
+                    <div class="dimension-control">
+                        <label>Rows:</label>
+                        <input type="number" class="dimension-input" id="matrix-a-rows" value="2" min="1" max="10">
+                        <label>Cols:</label>
+                        <input type="number" class="dimension-input" id="matrix-a-cols" value="2" min="1" max="10">
+                    </div>
+                </div>
+                <div id="matrix-a-grid" class="matrix-grid"></div>
+                <div class="matrix-buttons">
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="clearMatrix('a')">Clear</button>
+                        <button class="matrix-button" onclick="fillMatrix('a', 0)">All 0</button>
+                        <button class="matrix-button" onclick="fillMatrix('a', 1)">All 1</button>
+                        <button class="matrix-button" onclick="randomMatrix('a')">Random</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="transposeMatrix('a')">Transpose</button>
+                        <button class="matrix-button" onclick="powerMatrix('a')">Power of</button>
+                        <input type="number" class="power-input" id="matrix-a-power" value="2" min="1" max="10">
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="calculateDeterminant('a')">Determinant</button>
+                        <button class="matrix-button" onclick="calculateInverse('a')">Inverse</button>
+                        <button class="matrix-button" onclick="multiplyByScalar('a')">×</button>
+                        <input type="number" class="scalar-input" id="matrix-a-scalar" value="3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matrix B Section -->
+            <div class="matrix-input-section">
+                <div class="matrix-header">
+                    <div class="matrix-title">Matrix B</div>
+                    <div class="dimension-control">
+                        <label>Rows:</label>
+                        <input type="number" class="dimension-input" id="matrix-b-rows" value="2" min="1" max="10">
+                        <label>Cols:</label>
+                        <input type="number" class="dimension-input" id="matrix-b-cols" value="2" min="1" max="10">
+                    </div>
+                </div>
+                <div id="matrix-b-grid" class="matrix-grid"></div>
+                <div class="matrix-buttons">
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="clearMatrix('b')">Clear</button>
+                        <button class="matrix-button" onclick="fillMatrix('b', 0)">All 0</button>
+                        <button class="matrix-button" onclick="fillMatrix('b', 1)">All 1</button>
+                        <button class="matrix-button" onclick="randomMatrix('b')">Random</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="transposeMatrix('b')">Transpose</button>
+                        <button class="matrix-button" onclick="powerMatrix('b')">Power of</button>
+                        <input type="number" class="power-input" id="matrix-b-power" value="2" min="1" max="10">
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="calculateDeterminant('b')">Determinant</button>
+                        <button class="matrix-button" onclick="calculateInverse('b')">Inverse</button>
+                        <button class="matrix-button" onclick="multiplyByScalar('b')">×</button>
+                        <input type="number" class="scalar-input" id="matrix-b-scalar" value="3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="operations-section">
+            <button class="operation-button" onclick="addMatrices()">A + B</button>
+            <button class="operation-button" onclick="subtractMatrices()">A - B</button>
+            <button class="operation-button" onclick="multiplyMatrices()">A × B</button>
+            <button class="operation-button" onclick="swapMatrices()">A ↔ B</button>
+        </div>
+
+        <div class="result-section">
+            <div class="result-title">Result</div>
+            <div id="result-grid" class="result-grid"></div>
+            <div id="error-message" class="error"></div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化矩阵
+        function initializeMatrix(matrixId, rows, cols) {
+            const grid = document.getElementById(`matrix-${matrixId}-grid`);
+            grid.style.gridTemplateColumns = `repeat(${cols}, 60px)`;
+            grid.innerHTML = '';
+
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.className = 'matrix-input';
+                    input.dataset.row = i;
+                    input.dataset.col = j;
+                    input.value = '0';
+                    grid.appendChild(input);
+                }
+            }
+        }
+
+        // 获取矩阵值
+        function getMatrixValues(matrixId) {
+            const rows = parseInt(document.getElementById(`matrix-${matrixId}-rows`).value);
+            const cols = parseInt(document.getElementById(`matrix-${matrixId}-cols`).value);
+            const matrix = [];
+
+            for (let i = 0; i < rows; i++) {
+                matrix[i] = [];
+                for (let j = 0; j < cols; j++) {
+                    const input = document.querySelector(`#matrix-${matrixId}-grid input[data-row="${i}"][data-col="${j}"]`);
+                    matrix[i][j] = parseFloat(input.value) || 0;
+                }
+            }
+
+            return matrix;
+        }
+
+        // 设置矩阵值
+        function setMatrixValues(matrixId, matrix) {
+            const rows = matrix.length;
+            const cols = matrix[0].length;
+            
+            document.getElementById(`matrix-${matrixId}-rows`).value = rows;
+            document.getElementById(`matrix-${matrixId}-cols`).value = cols;
+            
+            initializeMatrix(matrixId, rows, cols);
+            
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const input = document.querySelector(`#matrix-${matrixId}-grid input[data-row="${i}"][data-col="${j}"]`);
+                    input.value = matrix[i][j];
+                }
+            }
+        }
+
+        // 显示结果
+        function displayResult(matrix) {
+            const resultGrid = document.getElementById('result-grid');
+            resultGrid.style.gridTemplateColumns = `repeat(${matrix[0].length}, 60px)`;
+            resultGrid.innerHTML = '';
+
+            for (let i = 0; i < matrix.length; i++) {
+                for (let j = 0; j < matrix[0].length; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'result-cell';
+                    cell.textContent = matrix[i][j].toFixed(2);
+                    resultGrid.appendChild(cell);
+                }
+            }
+        }
+
+        // 清除矩阵
+        function clearMatrix(matrixId) {
+            const inputs = document.querySelectorAll(`#matrix-${matrixId}-grid input`);
+            inputs.forEach(input => input.value = '0');
+        }
+
+        // 填充矩阵
+        function fillMatrix(matrixId, value) {
+            const inputs = document.querySelectorAll(`#matrix-${matrixId}-grid input`);
+            inputs.forEach(input => input.value = value.toString());
+        }
+
+        // 随机矩阵
+        function randomMatrix(matrixId) {
+            const inputs = document.querySelectorAll(`#matrix-${matrixId}-grid input`);
+            inputs.forEach(input => input.value = Math.floor(Math.random() * 10));
+        }
+
+        // 转置矩阵
+        function transposeMatrix(matrixId) {
+            const matrix = getMatrixValues(matrixId);
+            const transposed = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
+            setMatrixValues(matrixId, transposed);
+        }
+
+        // 计算行列式
+        function calculateDeterminant(matrixId) {
+            const matrix = getMatrixValues(matrixId);
+            if (matrix.length !== matrix[0].length) {
+                document.getElementById('error-message').textContent = 'Matrix must be square to calculate determinant';
+                return;
+            }
+
+            const det = determinant(matrix);
+            const resultGrid = document.getElementById('result-grid');
+            resultGrid.innerHTML = `<div class="result-cell">Determinant = ${det.toFixed(2)}</div>`;
+        }
+
+        // 计算逆矩阵
+        function calculateInverse(matrixId) {
+            const matrix = getMatrixValues(matrixId);
+            if (matrix.length !== matrix[0].length) {
+                document.getElementById('error-message').textContent = 'Matrix must be square to calculate inverse';
+                return;
+            }
+
+            const det = determinant(matrix);
+            if (Math.abs(det) < 1e-10) {
+                document.getElementById('error-message').textContent = 'Matrix is not invertible';
+                return;
+            }
+
+            try {
+                const inverse = inverseMatrix(matrix);
+                displayResult(inverse);
+                document.getElementById('error-message').textContent = '';
+            } catch (e) {
+                document.getElementById('error-message').textContent = e.message;
+            }
+        }
+
+        // 矩阵加法
+        function addMatrices() {
+            const matrixA = getMatrixValues('a');
+            const matrixB = getMatrixValues('b');
+
+            if (matrixA.length !== matrixB.length || matrixA[0].length !== matrixB[0].length) {
+                document.getElementById('error-message').textContent = 'Matrices must have the same dimensions for addition';
+                return;
+            }
+
+            const result = matrixA.map((row, i) => row.map((val, j) => val + matrixB[i][j]));
+            displayResult(result);
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // 矩阵减法
+        function subtractMatrices() {
+            const matrixA = getMatrixValues('a');
+            const matrixB = getMatrixValues('b');
+
+            if (matrixA.length !== matrixB.length || matrixA[0].length !== matrixB[0].length) {
+                document.getElementById('error-message').textContent = 'Matrices must have the same dimensions for subtraction';
+                return;
+            }
+
+            const result = matrixA.map((row, i) => row.map((val, j) => val - matrixB[i][j]));
+            displayResult(result);
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // 矩阵乘法
+        function multiplyMatrices() {
+            const matrixA = getMatrixValues('a');
+            const matrixB = getMatrixValues('b');
+
+            if (matrixA[0].length !== matrixB.length) {
+                document.getElementById('error-message').textContent = 'Number of columns in first matrix must equal number of rows in second matrix';
+                return;
+            }
+
+            const result = matrixA.map((row, i) => 
+                matrixB[0].map((_, j) => 
+                    row.reduce((sum, val, k) => sum + val * matrixB[k][j], 0)
+                )
+            );
+
+            displayResult(result);
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // 交换矩阵
+        function swapMatrices() {
+            const matrixA = getMatrixValues('a');
+            const matrixB = getMatrixValues('b');
+            setMatrixValues('a', matrixB);
+            setMatrixValues('b', matrixA);
+        }
+
+        // 计算行列式
+        function determinant(matrix) {
+            if (matrix.length === 1) return matrix[0][0];
+            if (matrix.length === 2) {
+                return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+            }
+
+            let det = 0;
+            for (let i = 0; i < matrix.length; i++) {
+                det += Math.pow(-1, i) * matrix[0][i] * determinant(minor(matrix, 0, i));
+            }
+            return det;
+        }
+
+        // 计算余子式
+        function minor(matrix, row, col) {
+            return matrix
+                .filter((_, index) => index !== row)
+                .map(row => row.filter((_, index) => index !== col));
+        }
+
+        // 计算逆矩阵
+        function inverseMatrix(matrix) {
+            const det = determinant(matrix);
+            if (Math.abs(det) < 1e-10) {
+                throw new Error('Matrix is not invertible');
+            }
+
+            if (matrix.length === 2) {
+                return [
+                    [matrix[1][1] / det, -matrix[0][1] / det],
+                    [-matrix[1][0] / det, matrix[0][0] / det]
+                ];
+            }
+
+            const cofactors = matrix.map((row, i) =>
+                row.map((_, j) => Math.pow(-1, i + j) * determinant(minor(matrix, i, j)))
+            );
+
+            const adjugate = cofactors[0].map((_, i) =>
+                cofactors.map(row => row[i])
+            );
+
+            return adjugate.map(row =>
+                row.map(val => val / det)
+            );
+        }
+
+        // 添加新的矩阵幂运算函数
+        function powerMatrix(matrixId) {
+            const matrix = getMatrixValues(matrixId);
+            const power = parseInt(document.getElementById(`matrix-${matrixId}-power`).value);
+            
+            if (matrix.length !== matrix[0].length) {
+                document.getElementById('error-message').textContent = 'Matrix must be square for power operation';
+                return;
+            }
+
+            if (power < 1) {
+                document.getElementById('error-message').textContent = 'Power must be positive';
+                return;
+            }
+
+            let result = matrix;
+            for (let i = 1; i < power; i++) {
+                result = multiplyMatricesHelper(result, matrix);
+            }
+
+            displayResult(result);
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // 添加新的标量乘法函数
+        function multiplyByScalar(matrixId) {
+            const matrix = getMatrixValues(matrixId);
+            const scalar = parseFloat(document.getElementById(`matrix-${matrixId}-scalar`).value);
+
+            const result = matrix.map(row => row.map(val => val * scalar));
+            displayResult(result);
+            document.getElementById('error-message').textContent = '';
+        }
+
+        // 辅助函数：矩阵乘法计算
+        function multiplyMatricesHelper(matrixA, matrixB) {
+            return matrixA.map((row, i) => 
+                matrixB[0].map((_, j) => 
+                    row.reduce((sum, val, k) => sum + val * matrixB[k][j], 0)
+                )
+            );
+        }
+
+        // 监听维度变化
+        ['a', 'b'].forEach(matrixId => {
+            ['rows', 'cols'].forEach(dim => {
+                document.getElementById(`matrix-${matrixId}-${dim}`).addEventListener('change', function() {
+                    const rows = parseInt(document.getElementById(`matrix-${matrixId}-rows`).value);
+                    const cols = parseInt(document.getElementById(`matrix-${matrixId}-cols`).value);
+                    initializeMatrix(matrixId, rows, cols);
+                });
+            });
+        });
+
+        // 初始化矩阵
+        initializeMatrix('a', 2, 2);
+        initializeMatrix('b', 2, 2);
+    </script>
+</body>
+</html> 
