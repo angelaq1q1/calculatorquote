@@ -238,7 +238,7 @@
                     <select id="fromCurrency"></select>
                     <div class="currency-input-wrapper">
                         <span class="currency-symbol" id="fromSymbol"></span>
-                        <input type="number" id="fromAmount" value="1">
+                        <input type="number" id="fromAmount" value="1" min="0" step="any">
                     </div>
                 </div>
                 <button class="swap-button" onclick="swapCurrencies()">
@@ -289,16 +289,13 @@
             CNY: 1
         };
 
-        // 获取中国银行外汇牌价
         async function fetchBOCExchangeRates() {
             try {
                 document.getElementById('exchangeRate').innerHTML = '<div class="loading">Fetching latest exchange rates...</div>';
                 
-                // Using Exchange Rate API
                 const response = await fetch('https://api.exchangerate-api.com/v4/latest/CNY');
                 const data = await response.json();
                 
-                // Update exchange rates
                 exchangeRates = {
                     CNY: 1,
                     USD: data.rates.USD,
@@ -312,14 +309,13 @@
                     SGD: data.rates.SGD
                 };
 
-                // Update display
                 updatePopularCurrencies();
                 convert();
                 
-                // Show last update time
                 const now = new Date();
-                document.getElementById('exchangeRate').innerHTML += 
-                    `<div style="margin-top: 10px; font-size: 0.8em; color: #666;">
+                document.getElementById('exchangeRate').innerHTML = `
+                    <div>1 ${document.getElementById('fromCurrency').value} = ${(exchangeRates[document.getElementById('toCurrency').value] / exchangeRates[document.getElementById('fromCurrency').value]).toFixed(4)} ${document.getElementById('toCurrency').value}</div>
+                    <div style="margin-top: 10px; font-size: 0.8em; color: #666;">
                         Last Updated: ${now.toLocaleString('en-US')}
                     </div>`;
             } catch (error) {
@@ -336,12 +332,11 @@
             Object.keys(currencies).forEach(code => {
                 const option = document.createElement('option');
                 option.value = code;
-                option.text = `${code} - ${currencies[code].name}`;
+                option.text = `${code} (${currencies[code].name})`;
                 fromSelect.add(option.cloneNode(true));
                 toSelect.add(option);
             });
 
-            // 设置默认值
             fromSelect.value = 'USD';
             toSelect.value = 'CNY';
             
@@ -366,19 +361,18 @@
             const fromRate = exchangeRates[fromCurrency];
             const toRate = exchangeRates[toCurrency];
             
-            // Calculate conversion
-            // 1. Convert source amount to CNY
-            // 2. Convert CNY amount to target currency
             const result = fromAmount * (1 / fromRate) * toRate;
             
             document.getElementById('toAmount').value = result.toFixed(4);
             
-            // Display exchange rate information
             const rate = toRate / fromRate;
             document.getElementById('exchangeRate').innerHTML = `
                 <div>1 ${fromCurrency} = ${rate.toFixed(4)} ${toCurrency}</div>
                 <div style="margin-top: 5px; font-size: 0.9em;">
                     ${currencies[fromCurrency].name} to ${currencies[toCurrency].name}
+                </div>
+                <div style="margin-top: 10px; font-size: 0.8em; color: #666;">
+                    Last Updated: ${new Date().toLocaleString('en-US')}
                 </div>
             `;
         }
@@ -408,7 +402,6 @@
             popularPairs.forEach(([from, to]) => {
                 const fromRate = exchangeRates[from];
                 const toRate = exchangeRates[to];
-                // 修正汇率显示
                 const rate = toRate / fromRate;
 
                 const card = document.createElement('div');
