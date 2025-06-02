@@ -1,1 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
+        /* 隐藏所有可能的问号图标 */
+        [title]:after,
+        [data-title]:after,
+        [data-tooltip]:after,
+        .tooltip:after,
+        .has-tooltip:after,
+        label:after,
+        label:before,
+        *:after,
+        *:before {
+            content: none !important;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .print-link {
+            float: right;
+            color: #2196F3;
+            text-decoration: none;
+        }
+        
+        .print-link:hover {
+            color: #1976D2;
+        }
+        
+        .instruction-bar {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .instruction-bar .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #2196F3;
+            margin-right: 15px;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .input-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        }
+        
+        .calculator-type {
+            margin-bottom: 20px;
+        }
+        
+        .calculator-type label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .calculator-type select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #fff;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .input-field-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-group input, .input-group select {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .input-group .unit {
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #e3f2fd;
+            border-radius: 0 5px 5px 0;
+            margin-left: -1px;
+            color: #2196F3;
+        }
+        
+        .buttons {
+            margin-top: 20px;
+        }
+        
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        
+        .results-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        }
+        
+        .final-value {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            font-size: 1.5em;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+        }
+        
+        .save-icon {
+            cursor: pointer;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .results-table th, .results-table td {
+            padding: 10px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-table th:first-child, .results-table td:first-child {
+            text-align: left;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #e3f2fd;
+        }
+        
+        .chart-container {
+            margin: 20px 0;
+            height: 250px;
+        }
+        
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .investment-table th, .investment-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .investment-table th {
+            background-color: #2196F3;
+            color: white;
+        }
+        
+        .investment-table tr:nth-child(even) {
+            background-color: #e3f2fd;
+        }
+        
+        .interpretation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            border-left: 5px solid #2196F3;
+        }
+        
+        .interpretation h3 {
+            margin-bottom: 10px;
+            color: #1976D2;
+        }
+        
+        .interpretation p {
+            margin-bottom: 5px;
+        }
+        
+        .rate-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        
+        .rate-box h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .rate-box a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .rate-box a:hover {
+            color: #1976D2;
+        }
+        
+        .rate-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .rate-button:hover {
+            background-color: #1976D2;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-field-container {
+                width: 100%;
+            }
+            
+            .input-group input, .input-group select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Financial</a>
+            <span>/</span>
+            Investment Calculator
+            <a href="#" class="print-link">Print</a>
+        </div>
+        
+        <h1>Investment Calculator</h1>
+        
+        <div class="instruction-bar">
+            <div class="triangle"></div>
+            <div>Modify the values and click the Calculate button to use</div>
+        </div>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="calculator-type">
+                    <label for="calculation-type">Calculate:</label>
+                    <select id="calculation-type" onchange="toggleCalculationFields()">
+                        <option value="future-value" selected>Future Account Value</option>
+                        <option value="investment-amount">Required Investment Amount</option>
+                        <option value="interest-rate">Required Interest Rate</option>
+                        <option value="contributions">Required Contributions</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="initial-investment-group">
+                    <label for="initial-investment">Investment Amount:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="initial-investment" value="25,000">
+                        <div class="unit">$</div>
+                    </div>
+                    <small>Starting Balance</small>
+                </div>
+                
+                <div class="input-group" id="future-value-group" style="display: none;">
+                    <label for="future-value">Future Account Value:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="future-value" value="100,000">
+                        <div class="unit">$</div>
+                    </div>
+                    <small>Target Amount</small>
+                </div>
+                
+                <div class="input-group">
+                    <label for="investment-length">Number of Years:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="investment-length" value="20">
+                    </div>
+                </div>
+                
+                <div class="input-group" id="interest-rate-group">
+                    <label for="interest-rate">Interest Rate:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="interest-rate" value="7">
+                        <div class="unit">%</div>
+                    </div>
+                    <small>per year</small>
+                </div>
+                
+                <div class="input-group">
+                    <label for="compound-frequency">Compounding:</label>
+                    <div class="input-field-container">
+                        <select id="compound-frequency">
+                            <option value="daily-365">Daily (365/Yr)</option>
+                            <option value="daily-360">Daily (360/Yr)</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Biweekly</option>
+                            <option value="semimonthly">Semimonthly</option>
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="bimonthly">Bimonthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semiannually">Semiannually</option>
+                            <option value="annually">Annually</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group" id="contribution-group">
+                    <label for="contribution-amount">Contributions:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="contribution-amount" value="500">
+                        <div class="unit">$</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="contribution-frequency">Frequency:</label>
+                    <div class="input-field-container">
+                        <select id="contribution-frequency">
+                            <option value="daily-365">Daily 365</option>
+                            <option value="daily-360">Daily 360</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Bi-Weekly</option>
+                            <option value="semimonthly">Semi-Monthly</option>
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semiannually">Semi-Annually</option>
+                            <option value="annually">Annually</option>
+                        </select>
+                    </div>
+                    <small>of Contributions</small>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateInvestment()">Calculate</button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                </div>
+
+                <div class="final-value">
+                    <div>Future Account Value = <span id="final-value">$361,431.80</span></div>
+                    <div class="save-icon"><img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" title="Save this calculation"></div>
+                </div>
+            </div>
+            
+            <div class="results-section" id="results-section">
+                <div class="chart-container" id="chart-container">
+                    <!-- Chart will be inserted here -->
+                </div>
+                
+                <h3>Year-by-Year Breakdown</h3>
+                <div style="overflow-x: auto;">
+                    <table class="investment-table" id="investment-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Starting Balance</th>
+                                <th>Annual Contribution</th>
+                                <th>Interest Earned</th>
+                                <th>Ending Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="investment-body">
+                            <!-- Will be filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rate-box">
+            <h3>Current Average Investment Returns:</h3>
+            <p>S&P 500: <a href="#">9.8%</a> &nbsp;&nbsp; Bonds: <a href="#">3.5%</a> &nbsp;&nbsp; Real Estate: <a href="#">7.1%</a></p>
+            <button class="rate-button">Compare Investment Options</button>
+        </div>
+    </div>
+    
+    <script>
+        // Format numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Parse input with commas
+        function parseInput(input) {
+            return parseFloat(input.replace(/,/g, ''));
+        }
+        
+        // Toggle calculation fields based on selected calculation type
+        function toggleCalculationFields() {
+            const calculationType = document.getElementById('calculation-type').value;
+            
+            // Hide all variable fields first
+            document.getElementById('initial-investment-group').style.display = 'flex';
+            document.getElementById('future-value-group').style.display = 'none';
+            document.getElementById('interest-rate-group').style.display = 'flex';
+            document.getElementById('contribution-group').style.display = 'flex';
+            
+            // Show/hide fields based on calculation type
+            switch(calculationType) {
+                case 'future-value':
+                    // All fields visible except future value
+                    break;
+                case 'investment-amount':
+                    // Hide initial investment, show future value
+                    document.getElementById('initial-investment-group').style.display = 'none';
+                    document.getElementById('future-value-group').style.display = 'flex';
+                    break;
+                case 'interest-rate':
+                    // Hide interest rate, show future value
+                    document.getElementById('interest-rate-group').style.display = 'none';
+                    document.getElementById('future-value-group').style.display = 'flex';
+                    break;
+                case 'contributions':
+                    // Hide contributions, show future value
+                    document.getElementById('contribution-group').style.display = 'none';
+                    document.getElementById('future-value-group').style.display = 'flex';
+                    break;
+            }
+        }
+        
+        // Calculate investment and update display
+        function calculateInvestment() {
+            // Get calculation type
+            const calculationType = document.getElementById('calculation-type').value;
+            
+            // Get input values
+            const initialInvestment = parseInput(document.getElementById('initial-investment').value || '0');
+            const futureValue = parseInput(document.getElementById('future-value').value || '0');
+            const investmentLength = parseInt(document.getElementById('investment-length').value);
+            const expectedReturn = parseFloat(document.getElementById('interest-rate').value) / 100;
+            const compoundFrequency = document.getElementById('compound-frequency').value;
+            const contributionAmount = parseInput(document.getElementById('contribution-amount').value || '0');
+            const contributionFrequency = document.getElementById('contribution-frequency').value;
+            
+            // Calculate number of contributions per year
+            let contributionsPerYear = 12; // Default monthly
+            if (contributionFrequency.includes('daily')) contributionsPerYear = 365;
+            if (contributionFrequency === 'weekly') contributionsPerYear = 52;
+            if (contributionFrequency === 'biweekly') contributionsPerYear = 26;
+            if (contributionFrequency === 'semimonthly') contributionsPerYear = 24;
+            if (contributionFrequency === 'quarterly') contributionsPerYear = 4;
+            if (contributionFrequency === 'semiannually') contributionsPerYear = 2;
+            if (contributionFrequency === 'annually') contributionsPerYear = 1;
+            
+            // Calculate number of compounds per year
+            let compoundsPerYear = 12; // Default monthly
+            if (compoundFrequency.includes('daily')) compoundsPerYear = 365;
+            if (compoundFrequency === 'weekly') compoundsPerYear = 52;
+            if (compoundFrequency === 'biweekly') compoundsPerYear = 26;
+            if (compoundFrequency === 'semimonthly') compoundsPerYear = 24;
+            if (compoundFrequency === 'bimonthly') compoundsPerYear = 6;
+            if (compoundFrequency === 'quarterly') compoundsPerYear = 4;
+            if (compoundFrequency === 'semiannually') compoundsPerYear = 2;
+            if (compoundFrequency === 'annually') compoundsPerYear = 1;
+            
+            // Calculate effective interest rate per compound period
+            const ratePerPeriod = Math.pow(1 + expectedReturn, 1 / compoundsPerYear) - 1;
+            
+            // Calculate total periods
+            const totalPeriods = investmentLength * compoundsPerYear;
+            
+            // Calculate contribution per compound period
+            const contributionPerPeriod = contributionAmount * contributionsPerYear / compoundsPerYear;
+            
+            // Initialize variables for calculation
+            let balance = initialInvestment;
+            let totalContributions = 0;
+            let totalInterest = 0;
+            let yearlyData = [];
+            
+            // Calculate year by year
+            for (let year = 1; year <= investmentLength; year++) {
+                let startBalance = balance;
+                let yearlyContribution = 0;
+                let yearlyInterest = 0;
+                
+                // Calculate for each compound period within the year
+                for (let period = 1; period <= compoundsPerYear; period++) {
+                    // Add contribution
+                    balance += contributionPerPeriod;
+                    yearlyContribution += contributionPerPeriod;
+                    totalContributions += contributionPerPeriod;
+                    
+                    // Calculate interest
+                    let interest = balance * ratePerPeriod;
+                    balance += interest;
+                    yearlyInterest += interest;
+                    totalInterest += interest;
+                }
+                
+                // Store yearly data
+                yearlyData.push({
+                    year: year,
+                    startBalance: startBalance,
+                    contribution: yearlyContribution,
+                    interest: yearlyInterest,
+                    endBalance: balance
+                });
+            }
+            
+            // Update results
+            document.getElementById('final-value').textContent = `$${formatNumber(balance.toFixed(2))}`;
+            
+            // Generate investment table
+            generateInvestmentTable(yearlyData);
+            
+            // Initialize chart with the calculated values
+            initChart(initialInvestment, totalContributions, totalInterest, balance);
+            
+            // Show results
+            document.getElementById('results-section').style.display = 'block';
+        }
+        
+        // Generate investment table
+        function generateInvestmentTable(yearlyData) {
+            const investmentBody = document.getElementById('investment-body');
+            investmentBody.innerHTML = '';
+            
+            for (const data of yearlyData) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${data.year}</td>
+                    <td>$${formatNumber(data.startBalance.toFixed(0))}</td>
+                    <td>$${formatNumber(data.contribution.toFixed(0))}</td>
+                    <td>$${formatNumber(data.interest.toFixed(0))}</td>
+                    <td>$${formatNumber(data.endBalance.toFixed(0))}</td>
+                `;
+                investmentBody.appendChild(row);
+            }
+        }
+        
+        // Clear all inputs
+        function clearInputs() {
+            document.getElementById('initial-investment').value = '';
+            document.getElementById('future-value').value = '';
+            document.getElementById('investment-length').value = '';
+            document.getElementById('interest-rate').value = '';
+            document.getElementById('contribution-amount').value = '';
+            document.getElementById('results-section').style.display = 'none';
+        }
+        
+        // Initialize with a calculation on page load
+        window.onload = function() {
+            toggleCalculationFields();
+            calculateInvestment();
+        };
+        
+        // Initialize chart with calculated values
+        function initChart(initialInvestment, totalContributions, totalInterest, totalAmount) {
+            const chartContainer = document.getElementById('chart-container');
+            chartContainer.innerHTML = `
+                <div style="text-align: center; height: 100%;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <div style="width: 20px; height: 20px; background-color: #2196F3; margin-right: 8px;"></div>
+                            <span>Starting Amount</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <div style="width: 20px; height: 20px; background-color: #64b5f6; margin-right: 8px;"></div>
+                            <span>Total Contributions</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 20px; height: 20px; background-color: #1976D2; margin-right: 8px;"></div>
+                            <span>Total Interest</span>
+                        </div>
+                    </div>
+                    <div style="height: 160px; position: relative; background-color: #f5f5f5; display: flex; justify-content: center; align-items: center;">
+                        <svg width="200" height="200" viewBox="-100 -100 200 200">
+                            <circle cx="0" cy="0" r="90" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+            `;
+
+            // Calculate percentages
+            const startingPercentage = (initialInvestment / totalAmount) * 100;
+            const contributionsPercentage = (totalContributions / totalAmount) * 100;
+            const interestPercentage = (totalInterest / totalAmount) * 100;
+
+            // Create pie chart
+            const svg = chartContainer.querySelector('svg');
+            
+            // Convert percentages to angles (360 degrees total)
+            const startingAngle = (startingPercentage / 100) * 360;
+            const contributionsAngle = (contributionsPercentage / 100) * 360;
+            const interestAngle = (interestPercentage / 100) * 360;
+
+            // Helper function to create pie slice path
+            function createPieSlice(startAngle, endAngle, color) {
+                // Convert angles to radians
+                const start = (startAngle - 90) * (Math.PI / 180);
+                const end = (endAngle - 90) * (Math.PI / 180);
+
+                // Calculate points
+                const x1 = Math.cos(start) * 90;
+                const y1 = Math.sin(start) * 90;
+                const x2 = Math.cos(end) * 90;
+                const y2 = Math.sin(end) * 90;
+
+                // Determine which arc to use (large or small)
+                const largeArc = endAngle - startAngle <= 180 ? 0 : 1;
+
+                // Create path
+                const d = `
+                    M 0 0
+                    L ${x1} ${y1}
+                    A 90 90 0 ${largeArc} 1 ${x2} ${y2}
+                    Z
+                `;
+
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", d);
+                path.setAttribute("fill", color);
+                return path;
+            }
+
+            // Create and add pie slices
+            let currentAngle = 0;
+
+            // Starting Amount slice
+            if (startingPercentage > 0) {
+                svg.appendChild(createPieSlice(currentAngle, currentAngle + startingAngle, '#2196F3'));
+                currentAngle += startingAngle;
+            }
+
+            // Contributions slice
+            if (contributionsPercentage > 0) {
+                svg.appendChild(createPieSlice(currentAngle, currentAngle + contributionsAngle, '#64b5f6'));
+                currentAngle += contributionsAngle;
+            }
+
+            // Interest slice
+            if (interestPercentage > 0) {
+                svg.appendChild(createPieSlice(currentAngle, currentAngle + interestAngle, '#1976D2'));
+            }
+        }
+    </script>
+</body>
+</html> 
