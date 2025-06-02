@@ -13,6 +13,41 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        /* 隐藏所有可能的问号图标 */
+        [title]:after,
+        [data-title]:after,
+        [data-tooltip]:after,
+        .tooltip:after,
+        .has-tooltip:after,
+        label:after,
+        label:before,
+        *:after,
+        *:before {
+            content: none !important;
+        }
+        
+        /* 专门针对标签的伪元素 */
+        label[for="down-payment"]:after,
+        label[for="down-payment"]:before,
+        label[for="loan-term"]:after,
+        label[for="loan-term"]:before,
+        label[for="interest-rate"]:after,
+        label[for="interest-rate"]:before,
+        label[for="property-taxes"]:after,
+        label[for="property-taxes"]:before,
+        label[for="home-insurance"]:after,
+        label[for="home-insurance"]:before,
+        label[for="pmi-insurance"]:after,
+        label[for="pmi-insurance"]:before,
+        label[for="hoa-fee"]:after,
+        label[for="hoa-fee"]:before,
+        label[for="other-costs"]:after,
+        label[for="other-costs"]:before {
+            display: none !important;
+            content: none !important;
+            visibility: hidden !important;
+        }
+
         body {
             background-color: #f5f5f5;
             min-height: 100vh;
@@ -356,7 +391,7 @@
                 </div>
                 
                 <div class="input-group">
-                    <label for="down-payment">Down Payment</label>
+                    <label for="down-payment" data-tooltip="" title="">Down Payment</label>
                     <div class="input-field-container">
                         <input type="text" id="down-payment" value="20">
                         <div class="unit">%</div>
@@ -364,7 +399,7 @@
                 </div>
                 
                 <div class="input-group">
-                    <label for="loan-term">Loan Term</label>
+                    <label for="loan-term" data-tooltip="" title="">Loan Term</label>
                     <div class="input-field-container">
                         <input type="text" id="loan-term" value="30">
                         <div class="unit">years</div>
@@ -372,7 +407,7 @@
                 </div>
                 
                 <div class="input-group">
-                    <label for="interest-rate">Interest Rate</label>
+                    <label for="interest-rate" data-tooltip="" title="">Interest Rate</label>
                     <div class="input-field-container">
                         <input type="text" id="interest-rate" value="6.734">
                         <div class="unit">%</div>
@@ -411,7 +446,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <label for="property-taxes">Property Taxes</label>
+                        <label for="property-taxes" data-tooltip="" title="">Property Taxes</label>
                         <div class="input-field-container">
                             <input type="text" id="property-taxes" value="1.2">
                             <div class="unit">%</div>
@@ -419,7 +454,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <label for="home-insurance">Home Insurance</label>
+                        <label for="home-insurance" data-tooltip="" title="">Home Insurance</label>
                         <div class="input-field-container">
                             <input type="text" id="home-insurance" value="1,500">
                             <div class="unit">$</div>
@@ -427,7 +462,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <label for="pmi-insurance">PMI Insurance</label>
+                        <label for="pmi-insurance" data-tooltip="" title="">PMI Insurance</label>
                         <div class="input-field-container">
                             <input type="text" id="pmi-insurance" value="0">
                             <div class="unit">$</div>
@@ -435,7 +470,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <label for="hoa-fee">HOA Fee</label>
+                        <label for="hoa-fee" data-tooltip="" title="">HOA Fee</label>
                         <div class="input-field-container">
                             <input type="text" id="hoa-fee" value="0">
                             <div class="unit">$</div>
@@ -443,7 +478,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <label for="other-costs">Other Costs</label>
+                        <label for="other-costs" data-tooltip="" title="">Other Costs</label>
                         <div class="input-field-container">
                             <input type="text" id="other-costs" value="4,000">
                             <div class="unit">$</div>
@@ -565,6 +600,22 @@
         // Parse input with commas
         function parseInput(input) {
             return parseFloat(input.replace(/,/g, ''));
+        }
+        
+        // 移除所有可能的问号图标
+        function removeQuestionMarks() {
+            // 移除所有可能的问号元素
+            const questionMarks = document.querySelectorAll('.help-icon, .question-mark, .tooltip, .has-tooltip');
+            questionMarks.forEach(el => el.remove());
+            
+            // 移除所有标签上的特定属性
+            const labels = document.querySelectorAll('label');
+            labels.forEach(label => {
+                label.removeAttribute('data-tooltip');
+                label.removeAttribute('title');
+                label.removeAttribute('aria-describedby');
+                label.removeAttribute('data-original-title');
+            });
         }
         
         // Initialize chart (placeholder - would use a chart library in production)
@@ -734,6 +785,7 @@
         
         // Initialize with a calculation on page load
         window.onload = function() {
+            removeQuestionMarks(); // 移除所有问号
             calculateMortgage();
         };
     </script>
