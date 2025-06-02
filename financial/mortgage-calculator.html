@@ -286,19 +286,6 @@
             background-color: #e3f2fd;
         }
         
-        .more-options {
-            color: #2196F3;
-            text-decoration: none;
-            display: block;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .more-options:hover {
-            color: #1976D2;
-        }
-        
         .rate-box {
             border: 1px solid #ddd;
             padding: 20px;
@@ -485,8 +472,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <a href="#" class="more-options" id="more-options-link">+ More Options</a>
                 
                 <div class="buttons">
                     <button class="btn-calculate" onclick="calculateMortgage()">Calculate</button>
@@ -769,13 +754,6 @@
             document.getElementById('other-costs').value = '';
             document.getElementById('results-section').style.display = 'none';
         }
-        
-        // Toggle more options
-        document.getElementById('more-options-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            // This would toggle additional options in a full implementation
-            alert('Additional options would appear here');
-        });
         
         // Toggle taxes section based on checkbox
         document.getElementById('include-taxes').addEventListener('change', function() {
