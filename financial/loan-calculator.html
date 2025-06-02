@@ -170,8 +170,41 @@
             text-align: center;
         }
         
-        .buttons {
+        .result-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
             margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 200px;
+            margin-top: 25px;
+        }
+        
+        .payment-results {
+            flex: 1;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .payment-results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .payment-results .value {
+            color: #2196F3;
+            font-weight: 500;
+            margin-left: 8px;
         }
         
         .btn-calculate {
@@ -354,13 +387,16 @@
                     </div>
                 </div>
                 
-                <div class="buttons" style="margin-bottom: 30px;">
-                    <button class="btn-calculate" onclick="calculateLoan()">Calculate</button>
-                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
-                </div>
-
-                <div class="final-value">
-                    <div>Monthly Payment = <span id="monthly-payment">$0.00</span></div>
+                <div class="result-section">
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateLoan()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+                    <div class="payment-results">
+                        <p>Monthly Payment: <span id="monthly-payment" class="value">$0.00</span></p>
+                        <p>Bi-Weekly Payment: <span id="biweekly-payment" class="value">$0.00</span></p>
+                        <p>Weekly Payment: <span id="weekly-payment" class="value">$0.00</span></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -462,6 +498,8 @@
             switch(calculationType) {
                 case 'monthly-payment':
                     document.getElementById('monthly-payment').textContent = `$${formatNumber(calculatedValue.toFixed(2))}`;
+                    document.getElementById('biweekly-payment').textContent = `$${formatNumber((calculatedValue * 12 / 26).toFixed(2))}`;
+                    document.getElementById('weekly-payment').textContent = `$${formatNumber((calculatedValue * 12 / 52).toFixed(2))}`;
                     break;
                 case 'loan-amount':
                     document.getElementById('loan-amount').value = formatNumber(calculatedValue.toFixed(2));
@@ -482,6 +520,8 @@
             document.getElementById('loan-term').value = '';
             document.getElementById('start-date').value = '';
             document.getElementById('monthly-payment').textContent = '$0.00';
+            document.getElementById('biweekly-payment').textContent = '$0.00';
+            document.getElementById('weekly-payment').textContent = '$0.00';
             document.getElementById('monthly-payment-input').value = '';
         }
         
