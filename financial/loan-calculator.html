@@ -89,6 +89,8 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1.2em;
+            white-space: nowrap;
         }
         
         .instruction-bar .triangle {
@@ -151,7 +153,9 @@
             width: 100%;
         }
         
-        .input-group input, .input-group select {
+        .input-group input[type="text"],
+        .input-group input[type="number"],
+        .input-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -304,6 +308,40 @@
             .input-group input, .input-group select {
                 width: 100%;
             }
+            
+            .instruction-bar {
+                font-size: 1em;
+            }
+        }
+
+        .input-group input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+
+        .input-group input[type="date"] {
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .input-group input[type="date"]::-webkit-datetime-edit,
+        .input-group input[type="date"]::-webkit-inner-spin-button,
+        .input-group input[type="date"]::-webkit-clear-button {
+            appearance: none;
+            -webkit-appearance: none;
+            display: none;
+        }
+
+        .input-group input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            position: relative;
         }
     </style>
 </head>
@@ -321,8 +359,7 @@
         <h1>Loan Calculator</h1>
         
         <div class="instruction-bar">
-            <div class="triangle"></div>
-            <div>Enter your loan details and click Calculate to see your payment schedule</div>
+            Enter your loan details and click Calculate to see your payment
         </div>
         
         <div class="calculator-grid">
@@ -377,13 +414,6 @@
                             <option value="biweekly">Bi-Weekly</option>
                             <option value="weekly">Weekly</option>
                         </select>
-                    </div>
-                </div>
-                
-                <div class="input-group">
-                    <label for="start-date">Start Date:</label>
-                    <div class="input-field-container">
-                        <input type="date" id="start-date">
                     </div>
                 </div>
                 
@@ -518,21 +548,14 @@
             document.getElementById('loan-amount').value = '';
             document.getElementById('interest-rate').value = '';
             document.getElementById('loan-term').value = '';
-            document.getElementById('start-date').value = '';
             document.getElementById('monthly-payment').textContent = '$0.00';
             document.getElementById('biweekly-payment').textContent = '$0.00';
             document.getElementById('weekly-payment').textContent = '$0.00';
             document.getElementById('monthly-payment-input').value = '';
         }
         
-        // Set default start date to today
+        // Initialize calculator
         window.onload = function() {
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const dd = String(today.getDate()).padStart(2, '0');
-            document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
-            
             calculateLoan();
         };
     </script>
