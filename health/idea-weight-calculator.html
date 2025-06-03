@@ -1,1 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Weight Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .unit-toggle {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .unit-toggle button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #2196F3;
+            background: white;
+            color: #2196F3;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            max-width: 150px;
+        }
+
+        .unit-toggle button.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            max-width: 120px;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+
+        .unit {
+            padding: 12px;
+            background-color: #e3f2fd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #2196F3;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .result-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .result-table th,
+        .result-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .result-table th {
+            font-weight: 500;
+            color: #495057;
+            background-color: #e9ecef;
+        }
+
+        .result-table td {
+            color: #2196F3;
+            font-weight: 500;
+        }
+
+        .reference-section {
+            margin-top: 40px;
+        }
+
+        .reference-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .reference-section h3 {
+            color: #495057;
+            margin: 20px 0 10px;
+        }
+
+        .reference-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .frame-size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .frame-size-table th,
+        .frame-size-table td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .frame-size-table th {
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-field-container {
+                flex-wrap: wrap;
+            }
+
+            .input-field-container input {
+                max-width: none;
+            }
+
+            .unit-toggle button {
+                max-width: none;
+            }
+        }
+
+        .converter-section {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .converter-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .converter-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .converter-tab {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #2196F3;
+            color: #2196F3;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            flex: 1;
+            text-align: center;
+            min-width: 120px;
+            font-size: 0.9em;
+        }
+
+        .converter-tab:hover {
+            background: #e3f2fd;
+        }
+
+        .converter-tab.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .converter-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .converter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .converter-group label {
+            font-weight: 500;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .converter-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            margin-top: 5px;
+        }
+
+        .converter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .converter-group input:focus,
+        .converter-group select:focus {
+            border-color: #2196F3;
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .converter-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .converter-tab {
+                min-width: calc(50% - 5px);
+                font-size: 0.85em;
+            }
+
+            .converter-section h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Health</a>
+            <span>/</span>
+            Ideal Weight Calculator
+        </div>
+
+        <h1>Ideal Weight Calculator</h1>
+        
+        <div class="description">
+            The Ideal Weight Calculator computes ideal body weight (IBW) ranges based on height, gender, and age. 
+            The calculator uses several popular formulas to give you a comprehensive view of your ideal weight range.
+        </div>
+
+        <div class="unit-toggle">
+            <button onclick="setUnit('standard')" id="btn-standard" class="active">US Units</button>
+            <button onclick="setUnit('metric')" id="btn-metric">Metric Units</button>
+            <button onclick="setUnit('other')" id="btn-other">Other Units</button>
+        </div>
+
+        <div id="converter-section" class="converter-section" style="display: none;">
+            <h3>Use this converter to convert to the unit accepted by the calculator.</h3>
+            <div class="converter-tabs">
+                <button class="converter-tab active" onclick="setConverterType('length')">Length</button>
+                <button class="converter-tab" onclick="setConverterType('weight')">Weight</button>
+                <button class="converter-tab" onclick="setConverterType('temperature')">Temperature</button>
+                <button class="converter-tab" onclick="setConverterType('area')">Area</button>
+                <button class="converter-tab" onclick="setConverterType('volume')">Volume</button>
+            </div>
+            <div class="converter-inputs">
+                <div class="converter-group">
+                    <label>From:</label>
+                    <input type="number" id="converter-from-value" placeholder="Enter value">
+                    <select id="converter-from-unit">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="converter-group">
+                    <label>To:</label>
+                    <input type="number" id="converter-to-value" readonly>
+                    <select id="converter-to-unit">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="standard-inputs">
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <div class="input-field-container">
+                    <input type="number" id="age" min="2" max="80" value="25">
+                    <div class="unit">years</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <div class="input-field-container">
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="height-ft">Height:</label>
+                <div class="input-field-container">
+                    <input type="number" id="height-ft" min="4" max="8" value="5">
+                    <div class="unit">ft</div>
+                    <input type="number" id="height-in" min="0" max="11" value="10">
+                    <div class="unit">in</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="metric-inputs" style="display: none;">
+            <div class="input-group">
+                <label for="age-metric">Age:</label>
+                <div class="input-field-container">
+                    <input type="number" id="age-metric" min="2" max="80" value="25">
+                    <div class="unit">years</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender-metric">Gender:</label>
+                <div class="input-field-container">
+                    <select id="gender-metric">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="height-cm">Height:</label>
+                <div class="input-field-container">
+                    <input type="number" id="height-cm" min="100" value="178">
+                    <div class="unit">cm</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-calculate" onclick="calculateIdealWeight()">Calculate</button>
+            <button class="btn-clear" onclick="clearInputs()">Clear</button>
+        </div>
+
+        <div class="result-section" id="results" style="display: none;">
+            <h2>Results</h2>
+            <p>The ideal weight based on popular formulas:</p>
+            <table class="result-table">
+                <tr>
+                    <th>Formula</th>
+                    <th>Ideal Weight</th>
+                </tr>
+                <tr>
+                    <td>Robinson (1983)</td>
+                    <td id="robinson-result">156.5 lbs</td>
+                </tr>
+                <tr>
+                    <td>Miller (1983)</td>
+                    <td id="miller-result">155.0 lbs</td>
+                </tr>
+                <tr>
+                    <td>Devine (1974)</td>
+                    <td id="devine-result">160.9 lbs</td>
+                </tr>
+                <tr>
+                    <td>Hamwi (1964)</td>
+                    <td id="hamwi-result">165.3 lbs</td>
+                </tr>
+                <tr>
+                    <td>Healthy BMI Range</td>
+                    <td id="bmi-range">128.9 - 174.2 lbs</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="reference-section">
+            <h2>Reference Information</h2>
+            
+            <h3>Body Frame Size</h3>
+            <p>Body frame size can significantly impact ideal weight. It is measured based on wrist circumference in relation to height:</p>
+            
+            <h4>For Women:</h4>
+            <table class="frame-size-table">
+                <tr>
+                    <th>Height</th>
+                    <th>Small Frame</th>
+                    <th>Medium Frame</th>
+                    <th>Large Frame</th>
+                </tr>
+                <tr>
+                    <td>Under 5'2"</td>
+                    <td>< 5.5"</td>
+                    <td>5.5" - 5.75"</td>
+                    <td>> 5.75"</td>
+                </tr>
+                <tr>
+                    <td>5'2" - 5'5"</td>
+                    <td>< 6"</td>
+                    <td>6" - 6.25"</td>
+                    <td>> 6.25"</td>
+                </tr>
+                <tr>
+                    <td>Over 5'5"</td>
+                    <td>< 6.25"</td>
+                    <td>6.25" - 6.5"</td>
+                    <td>> 6.5"</td>
+                </tr>
+            </table>
+
+            <h4>For Men:</h4>
+            <table class="frame-size-table">
+                <tr>
+                    <th>Height</th>
+                    <th>Small Frame</th>
+                    <th>Medium Frame</th>
+                    <th>Large Frame</th>
+                </tr>
+                <tr>
+                    <td>Over 5'5"</td>
+                    <td>5.5" - 6.5"</td>
+                    <td>6.5" - 7.5"</td>
+                    <td>> 7.5"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let currentUnit = 'standard';
+        let currentConverterType = 'length';
+
+        const conversions = {
+            length: {
+                units: ['m', 'km', 'cm', 'mm', 'in', 'ft', 'yd', 'mi', 'nmi'],
+                names: ['Meter', 'Kilometer', 'Centimeter', 'Millimeter', 'Inch', 'Foot', 'Yard', 'Mile', 'Nautical Mile'],
+                toBase: {
+                    'm': 1,
+                    'km': 1000,
+                    'cm': 0.01,
+                    'mm': 0.001,
+                    'in': 0.0254,
+                    'ft': 0.3048,
+                    'yd': 0.9144,
+                    'mi': 1609.344,
+                    'nmi': 1852
+                }
+            },
+            weight: {
+                units: ['kg', 'g', 'mg', 'lb', 'oz', 'st', 't', 'gr'],
+                names: ['Kilogram', 'Gram', 'Milligram', 'Pound', 'Ounce', 'Stone', 'Metric Ton', 'Grain'],
+                toBase: {
+                    'kg': 1,
+                    'g': 0.001,
+                    'mg': 0.000001,
+                    'lb': 0.453592,
+                    'oz': 0.0283495,
+                    'st': 6.35029,
+                    't': 1000,
+                    'gr': 0.0000647989
+                }
+            },
+            temperature: {
+                units: ['c', 'f', 'k'],
+                names: ['Celsius', 'Fahrenheit', 'Kelvin'],
+                convert: function(value, from, to) {
+                    // First convert to Celsius
+                    let celsius;
+                    if (from === 'c') celsius = value;
+                    else if (from === 'f') celsius = (value - 32) * 5/9;
+                    else if (from === 'k') celsius = value - 273.15;
+
+                    // Then convert to target unit
+                    if (to === 'c') return celsius;
+                    else if (to === 'f') return celsius * 9/5 + 32;
+                    else if (to === 'k') return celsius + 273.15;
+                }
+            },
+            area: {
+                units: ['m2', 'km2', 'cm2', 'mm2', 'ha', 'ac', 'ft2', 'in2', 'yd2', 'mi2'],
+                names: ['Square Meter', 'Square Kilometer', 'Square Centimeter', 'Square Millimeter', 'Hectare', 'Acre', 'Square Foot', 'Square Inch', 'Square Yard', 'Square Mile'],
+                toBase: {
+                    'm2': 1,
+                    'km2': 1000000,
+                    'cm2': 0.0001,
+                    'mm2': 0.000001,
+                    'ha': 10000,
+                    'ac': 4046.86,
+                    'ft2': 0.092903,
+                    'in2': 0.00064516,
+                    'yd2': 0.836127,
+                    'mi2': 2589988.11
+                }
+            },
+            volume: {
+                units: ['m3', 'l', 'ml', 'gal', 'qt', 'pt', 'cup', 'fl_oz', 'tbsp', 'tsp', 'ft3', 'in3'],
+                names: ['Cubic Meter', 'Liter', 'Milliliter', 'Gallon (US)', 'Quart (US)', 'Pint (US)', 'Cup (US)', 'Fluid Ounce (US)', 'Tablespoon (US)', 'Teaspoon (US)', 'Cubic Foot', 'Cubic Inch'],
+                toBase: {
+                    'm3': 1000,
+                    'l': 1,
+                    'ml': 0.001,
+                    'gal': 3.78541,
+                    'qt': 0.946353,
+                    'pt': 0.473176,
+                    'cup': 0.236588,
+                    'fl_oz': 0.0295735,
+                    'tbsp': 0.0147868,
+                    'tsp': 0.00492892,
+                    'ft3': 28.3168,
+                    'in3': 0.0163871
+                }
+            }
+        };
+
+        function setConverterType(type) {
+            currentConverterType = type;
+            const tabs = document.querySelectorAll('.converter-tab');
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.textContent.toLowerCase() === type);
+            });
+
+            // Update select options
+            const fromSelect = document.getElementById('converter-from-unit');
+            const toSelect = document.getElementById('converter-to-unit');
+            fromSelect.innerHTML = '';
+            toSelect.innerHTML = '';
+
+            const conversionType = conversions[type];
+            if (conversionType && conversionType.units) {
+                conversionType.units.forEach((unit, index) => {
+                    const name = conversionType.names[index];
+                    const fromOption = new Option(`${name} (${unit})`, unit);
+                    const toOption = new Option(`${name} (${unit})`, unit);
+                    fromSelect.add(fromOption);
+                    toSelect.add(toOption);
+                });
+            }
+
+            // Reset input values
+            document.getElementById('converter-from-value').value = '';
+            document.getElementById('converter-to-value').value = '';
+        }
+
+        function convert() {
+            const fromValue = parseFloat(document.getElementById('converter-from-value').value) || 0;
+            const fromUnit = document.getElementById('converter-from-unit').value;
+            const toUnit = document.getElementById('converter-to-unit').value;
+            
+            if (!fromUnit || !toUnit) return;
+
+            let result;
+            if (currentConverterType === 'temperature') {
+                result = conversions.temperature.convert(fromValue, fromUnit, toUnit);
+            } else {
+                const conversionType = conversions[currentConverterType];
+                if (!conversionType || !conversionType.toBase) return;
+                const baseValue = fromValue * conversionType.toBase[fromUnit];
+                result = baseValue / conversionType.toBase[toUnit];
+            }
+            
+            document.getElementById('converter-to-value').value = result.toFixed(6);
+        }
+
+        function setUnit(unit) {
+            currentUnit = unit;
+            document.getElementById('btn-standard').classList.toggle('active', unit === 'standard');
+            document.getElementById('btn-metric').classList.toggle('active', unit === 'metric');
+            document.getElementById('btn-other').classList.toggle('active', unit === 'other');
+            document.getElementById('standard-inputs').style.display = unit === 'standard' ? 'block' : 'none';
+            document.getElementById('metric-inputs').style.display = unit === 'metric' ? 'block' : 'none';
+            document.getElementById('converter-section').style.display = unit === 'other' ? 'block' : 'none';
+            
+            if (unit === 'other') {
+                setConverterType('length');
+            } else {
+                calculateIdealWeight();
+            }
+        }
+
+        function calculateIdealWeight() {
+            // Get input values
+            let height, gender, age;
+            
+            if (currentUnit === 'standard') {
+                const heightFt = parseFloat(document.getElementById('height-ft').value);
+                const heightIn = parseFloat(document.getElementById('height-in').value);
+                height = (heightFt * 12 + heightIn) * 2.54; // Convert to cm
+                gender = document.getElementById('gender').value;
+                age = parseFloat(document.getElementById('age').value);
+            } else {
+                height = parseFloat(document.getElementById('height-cm').value);
+                gender = document.getElementById('gender-metric').value;
+                age = parseFloat(document.getElementById('age-metric').value);
+            }
+
+            // Calculate ideal weights using different formulas
+            const heightInInches = height / 2.54;
+            const inchesOver5Feet = Math.max(0, heightInInches - 60);
+
+            // Robinson Formula
+            let robinsonWeight;
+            if (gender === 'male') {
+                robinsonWeight = (52 + (1.9 * inchesOver5Feet)) * 2.20462;
+            } else {
+                robinsonWeight = (49 + (1.7 * inchesOver5Feet)) * 2.20462;
+            }
+
+            // Miller Formula
+            let millerWeight;
+            if (gender === 'male') {
+                millerWeight = (56.2 + (1.41 * inchesOver5Feet)) * 2.20462;
+            } else {
+                millerWeight = (53.1 + (1.36 * inchesOver5Feet)) * 2.20462;
+            }
+
+            // Devine Formula
+            let devineWeight;
+            if (gender === 'male') {
+                devineWeight = (50 + (2.3 * inchesOver5Feet)) * 2.20462;
+            } else {
+                devineWeight = (45.5 + (2.3 * inchesOver5Feet)) * 2.20462;
+            }
+
+            // Hamwi Formula
+            let hamwiWeight;
+            if (gender === 'male') {
+                hamwiWeight = (48 + (2.7 * inchesOver5Feet)) * 2.20462;
+            } else {
+                hamwiWeight = (45.5 + (2.2 * inchesOver5Feet)) * 2.20462;
+            }
+
+            // Calculate BMI range (18.5 - 25)
+            const heightInMeters = height / 100;
+            const minWeight = 18.5 * (heightInMeters * heightInMeters) * 2.20462;
+            const maxWeight = 25 * (heightInMeters * heightInMeters) * 2.20462;
+
+            // Update results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('robinson-result').textContent = `${robinsonWeight.toFixed(1)} lbs`;
+            document.getElementById('miller-result').textContent = `${millerWeight.toFixed(1)} lbs`;
+            document.getElementById('devine-result').textContent = `${devineWeight.toFixed(1)} lbs`;
+            document.getElementById('hamwi-result').textContent = `${hamwiWeight.toFixed(1)} lbs`;
+            document.getElementById('bmi-range').textContent = `${minWeight.toFixed(1)} - ${maxWeight.toFixed(1)} lbs`;
+        }
+
+        function clearInputs() {
+            if (currentUnit === 'standard') {
+                document.getElementById('age').value = '';
+                document.getElementById('height-ft').value = '';
+                document.getElementById('height-in').value = '';
+            } else {
+                document.getElementById('age-metric').value = '';
+                document.getElementById('height-cm').value = '';
+            }
+            
+            document.getElementById('results').style.display = 'none';
+        }
+
+        // Add event listeners for conversion
+        document.getElementById('converter-from-value').addEventListener('input', convert);
+        document.getElementById('converter-from-unit').addEventListener('change', convert);
+        document.getElementById('converter-to-unit').addEventListener('change', convert);
+
+        // Initialize calculator
+        window.onload = function() {
+            calculateIdealWeight();
+        };
+    </script>
+</body>
+</html> 
