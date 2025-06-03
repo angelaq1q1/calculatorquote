@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-options {
+            margin-bottom: 20px;
+        }
+
+        .calculator-options label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .calculator-options select {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-field-container input[type="date"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            max-width: 200px;
+        }
+
+        /* Force English format for date input */
+        .input-field-container input[type="date"]::-webkit-datetime-edit-text,
+        .input-field-container input[type="date"]::-webkit-inner-spin-button,
+        .input-field-container input[type="date"]::-webkit-calendar-picker-indicator {
+            color: #2196F3;
+        }
+
+        .input-field-container input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .input-field-container input[type="date"]:before {
+            content: attr(placeholder);
+            color: #999;
+        }
+
+        .input-field-container input[type="date"]:focus:before,
+        .input-field-container input[type="date"]:valid:before {
+            content: "";
+        }
+
+        .input-field-container select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .result-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .result-table th,
+        .result-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .result-table th {
+            font-weight: 500;
+            color: #495057;
+            background-color: #e9ecef;
+            width: 40%;
+        }
+
+        .result-table td {
+            color: #2196F3;
+            font-weight: 500;
+        }
+
+        .reference-section {
+            margin-top: 40px;
+        }
+
+        .reference-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .reference-section h3 {
+            color: #495057;
+            margin: 20px 0 10px;
+        }
+
+        .reference-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-field-container {
+                flex-wrap: wrap;
+            }
+
+            .input-field-container input[type="date"] {
+                max-width: none;
+            }
+        }
+
+        .calendar-popup {
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .calendar-popup select,
+        .calendar-popup input {
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .calendar-popup button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .calendar-popup button:hover {
+            background: #1976D2;
+        }
+
+        .input-field-container {
+            position: relative;
+        }
+
+        .date-select-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            background-color: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            padding-right: 35px;
+        }
+
+        .date-select:hover {
+            border-color: #90caf9;
+        }
+
+        .date-select:focus {
+            border-color: #2196F3;
+        }
+
+        #due-date-month {
+            min-width: 140px;
+        }
+
+        #due-date-day {
+            min-width: 100px;
+        }
+
+        #due-date-year {
+            min-width: 100px;
+        }
+
+        .date-select option {
+            padding: 8px;
+        }
+
+        .date-select option:disabled {
+            color: #999;
+        }
+
+        .year-input {
+            width: 100px !important;
+            text-align: center;
+        }
+
+        .year-input::-webkit-inner-spin-button,
+        .year-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .year-input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .date-select, .year-input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            background-color: white;
+            transition: border-color 0.3s;
+        }
+
+        .date-select:hover, .year-input:hover {
+            border-color: #90caf9;
+        }
+
+        .date-select:focus, .year-input:focus {
+            border-color: #2196F3;
+        }
+
+        .date-select {
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            padding-right: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Health</a>
+            <span>/</span>
+            Pregnancy Calculator
+        </div>
+
+        <h1>Pregnancy Calculator</h1>
+        
+        <div class="description">
+            Calculate your pregnancy timeline including conception date, gestational age, and due date based on different starting points. This calculator helps you track important pregnancy milestones and plan accordingly.
+        </div>
+
+        <div class="calculator-options">
+            <label for="calculation-method">Calculate Based On:</label>
+            <select id="calculation-method" onchange="toggleInputs()">
+                <option value="due-date">Due Date</option>
+                <option value="last-period">Last Period</option>
+                <option value="ultrasound">Ultrasound</option>
+                <option value="conception">Conception Date</option>
+                <option value="ivf">IVF Transfer Date</option>
+            </select>
+        </div>
+
+        <div id="due-date-inputs" class="input-group">
+            <label>Due Date:</label>
+            <div class="input-field-container date-select-group">
+                <select id="due-date-month" class="date-select">
+                    <option value="" disabled>Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select id="due-date-day" class="date-select">
+                    <option value="" disabled>Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <input type="number" id="due-date-year" class="date-select year-input" placeholder="Year" min="2024" max="2100">
+            </div>
+        </div>
+
+        <div id="last-period-inputs" class="input-group" style="display: none;">
+            <label>First Day of Last Period:</label>
+            <div class="input-field-container">
+                <input type="date" id="last-period-date">
+            </div>
+            <label>Average Length of Cycles:</label>
+            <div class="input-field-container">
+                <select id="cycle-length">
+                    <option value="28">28 days</option>
+                    <option value="21">21 days</option>
+                    <option value="22">22 days</option>
+                    <option value="23">23 days</option>
+                    <option value="24">24 days</option>
+                    <option value="25">25 days</option>
+                    <option value="26">26 days</option>
+                    <option value="27">27 days</option>
+                    <option value="29">29 days</option>
+                    <option value="30">30 days</option>
+                    <option value="31">31 days</option>
+                    <option value="32">32 days</option>
+                    <option value="33">33 days</option>
+                    <option value="34">34 days</option>
+                    <option value="35">35 days</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="ultrasound-inputs" class="input-group" style="display: none;">
+            <label>Ultrasound Date:</label>
+            <div class="input-field-container">
+                <input type="date" id="ultrasound-date">
+            </div>
+            <label>Length of Pregnancy at Time of Ultrasound:</label>
+            <div class="input-field-container">
+                <input type="number" id="ultrasound-weeks" min="0" max="42" placeholder="Weeks" style="width: 100px;">
+                <input type="number" id="ultrasound-days" min="0" max="6" placeholder="Days" style="width: 100px;">
+            </div>
+        </div>
+
+        <div id="conception-inputs" class="input-group" style="display: none;">
+            <label>Conception Date:</label>
+            <div class="input-field-container">
+                <input type="date" id="conception-date">
+            </div>
+        </div>
+
+        <div id="ivf-inputs" class="input-group" style="display: none;">
+            <label>Transfer Date:</label>
+            <div class="input-field-container">
+                <input type="date" id="transfer-date">
+            </div>
+            <label>Embryo Age:</label>
+            <div class="input-field-container">
+                <select id="embryo-age">
+                    <option value="3">3 days</option>
+                    <option value="5">5 days</option>
+                    <option value="6">6 days</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-calculate" onclick="calculateDates()">Calculate</button>
+            <button class="btn-clear" onclick="clearInputs()">Clear</button>
+        </div>
+
+        <div class="result-section" id="results" style="display: none;">
+            <h2>Pregnancy Timeline</h2>
+            <table class="result-table">
+                <tr>
+                    <th>Due Date</th>
+                    <td id="result-due-date">-</td>
+                </tr>
+                <tr>
+                    <th>Conception Date</th>
+                    <td id="result-conception-date">-</td>
+                </tr>
+                <tr>
+                    <th>Last Period Date</th>
+                    <td id="result-last-period">-</td>
+                </tr>
+                <tr>
+                    <th>Current Gestational Age</th>
+                    <td id="result-gestational-age">-</td>
+                </tr>
+                <tr>
+                    <th>First Trimester</th>
+                    <td id="result-first-trimester">-</td>
+                </tr>
+                <tr>
+                    <th>Second Trimester</th>
+                    <td id="result-second-trimester">-</td>
+                </tr>
+                <tr>
+                    <th>Third Trimester</th>
+                    <td id="result-third-trimester">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="reference-section">
+            <h2>Reference Information</h2>
+            
+            <h3>Pregnancy Term & Due Date</h3>
+            <p>Pregnancy typically lasts about 40 weeks (280 days) from the first day of your last menstrual period (LMP) to childbirth. The due date is an estimate, with only about 4% of births occurring on the exact due date. About 90% of births occur within two weeks of the due date.</p>
+            
+            <h3>Pregnancy Timeline</h3>
+            <p>• First Trimester: Weeks 1-13<br>
+               • Second Trimester: Weeks 14-26<br>
+               • Third Trimester: Weeks 27-40</p>
+
+            <h3>Important Notes</h3>
+            <p>• The due date is an estimate based on average pregnancy length<br>
+               • Only about 4% of babies are born on their exact due date<br>
+               • About 60% of babies are born within one week of their due date<br>
+               • About 90% of babies are born within two weeks of their due date<br>
+               • A pregnancy is considered full term between 37 and 42 weeks</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleInputs() {
+            const method = document.getElementById('calculation-method').value;
+            const allInputs = ['due-date-inputs', 'last-period-inputs', 'ultrasound-inputs', 'conception-inputs', 'ivf-inputs'];
+            
+            allInputs.forEach(inputId => {
+                document.getElementById(inputId).style.display = 'none';
+            });
+            
+            document.getElementById(`${method}-inputs`).style.display = 'block';
+        }
+
+        function formatDate(date) {
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            
+            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+        }
+
+        function addDays(date, days) {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
+        function subtractDays(date, days) {
+            return addDays(date, -days);
+        }
+
+        function calculateGestationalAge(startDate) {
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const weeks = Math.floor(diffDays / 7);
+            const days = diffDays % 7;
+            return `${weeks} weeks and ${days} days`;
+        }
+
+        // Set today's date as min date for inputs and placeholder
+        const today = new Date().toISOString().split('T')[0];
+        const dueDateInput = document.getElementById('due-date');
+        dueDateInput.min = today;
+        dueDateInput.placeholder = "YYYY/MM/DD";
+
+        // Format the date input display
+        document.getElementById('due-date').addEventListener('change', function(e) {
+            const date = new Date(this.value);
+            if (!isNaN(date.getTime())) {
+                this.type = 'text';
+                this.value = formatDate(date);
+            }
+        });
+
+        // Keep the original date value for calculations
+        let actualDueDate;
+
+        function calculateDates() {
+            const method = document.getElementById('calculation-method').value;
+            let dueDate, conceptionDate, lastPeriodDate;
+
+            switch(method) {
+                case 'due-date':
+                    const month = parseInt(document.getElementById('due-date-month').value) - 1;
+                    const day = parseInt(document.getElementById('due-date-day').value);
+                    const year = parseInt(document.getElementById('due-date-year').value);
+                    
+                    if (!year || year < 2024 || year > 2100) {
+                        alert('Please enter a valid year between 2024 and 2100');
+                        return;
+                    }
+                    
+                    dueDate = new Date(year, month, day);
+                    lastPeriodDate = subtractDays(dueDate, 280);
+                    conceptionDate = addDays(lastPeriodDate, 14);
+                    break;
+
+                case 'last-period':
+                    lastPeriodDate = new Date(document.getElementById('last-period-date').value);
+                    const cycleLength = parseInt(document.getElementById('cycle-length').value);
+                    const ovulationDay = cycleLength - 14;
+                    conceptionDate = addDays(lastPeriodDate, ovulationDay);
+                    dueDate = addDays(lastPeriodDate, 280);
+                    break;
+
+                case 'ultrasound':
+                    const ultrasoundDate = new Date(document.getElementById('ultrasound-date').value);
+                    const weeks = parseInt(document.getElementById('ultrasound-weeks').value) || 0;
+                    const days = parseInt(document.getElementById('ultrasound-days').value) || 0;
+                    const totalDays = (weeks * 7) + days;
+                    lastPeriodDate = subtractDays(ultrasoundDate, totalDays);
+                    conceptionDate = addDays(lastPeriodDate, 14);
+                    dueDate = addDays(lastPeriodDate, 280);
+                    break;
+
+                case 'conception':
+                    conceptionDate = new Date(document.getElementById('conception-date').value);
+                    lastPeriodDate = subtractDays(conceptionDate, 14);
+                    dueDate = addDays(lastPeriodDate, 280);
+                    break;
+
+                case 'ivf':
+                    const transferDate = new Date(document.getElementById('transfer-date').value);
+                    const embryoAge = parseInt(document.getElementById('embryo-age').value);
+                    conceptionDate = subtractDays(transferDate, embryoAge);
+                    lastPeriodDate = subtractDays(conceptionDate, 14);
+                    dueDate = addDays(lastPeriodDate, 280);
+                    break;
+            }
+
+            // Calculate trimesters
+            const firstTrimesterEnd = addDays(lastPeriodDate, 13 * 7);
+            const secondTrimesterEnd = addDays(lastPeriodDate, 26 * 7);
+            const thirdTrimesterEnd = dueDate;
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('result-due-date').textContent = formatDate(dueDate);
+            document.getElementById('result-conception-date').textContent = formatDate(conceptionDate);
+            document.getElementById('result-last-period').textContent = formatDate(lastPeriodDate);
+            document.getElementById('result-gestational-age').textContent = calculateGestationalAge(lastPeriodDate);
+            document.getElementById('result-first-trimester').textContent = 
+                `${formatDate(lastPeriodDate)} to ${formatDate(firstTrimesterEnd)}`;
+            document.getElementById('result-second-trimester').textContent = 
+                `${formatDate(addDays(firstTrimesterEnd, 1))} to ${formatDate(secondTrimesterEnd)}`;
+            document.getElementById('result-third-trimester').textContent = 
+                `${formatDate(addDays(secondTrimesterEnd, 1))} to ${formatDate(thirdTrimesterEnd)}`;
+        }
+
+        function clearInputs() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+            document.getElementById('results').style.display = 'none';
+        }
+
+        document.getElementById('due-date').addEventListener('click', function() {
+            const calendar = document.getElementById('due-date-calendar');
+            calendar.style.display = calendar.style.display === 'none' ? 'block' : 'none';
+        });
+
+        function setDueDate() {
+            const month = parseInt(document.getElementById('due-date-month').value);
+            const day = parseInt(document.getElementById('due-date-day').value);
+            const year = parseInt(document.getElementById('due-date-year').value);
+            
+            if (isNaN(month) || isNaN(day) || isNaN(year)) {
+                alert('Please fill in all date fields');
+                return;
+            }
+
+            const date = new Date(year, month, day);
+            document.getElementById('due-date').value = formatDate(date);
+            document.getElementById('due-date-calendar').style.display = 'none';
+        }
+
+        // Initialize date selectors
+        function initializeDateSelectors() {
+            const today = new Date();
+            const daySelect = document.getElementById('due-date-day');
+            const yearInput = document.getElementById('due-date-year');
+            const monthSelect = document.getElementById('due-date-month');
+
+            // Update days based on month and year
+            function updateDays() {
+                const year = parseInt(yearInput.value) || today.getFullYear();
+                const month = parseInt(monthSelect.value) || 1;
+                const daysInMonth = new Date(year, month, 0).getDate();
+                const currentDay = daySelect.value;
+                
+                daySelect.innerHTML = '<option value="" disabled>Day</option>';
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    daySelect.appendChild(option);
+                }
+
+                // Restore previously selected day if valid
+                if (currentDay && currentDay <= daysInMonth) {
+                    daySelect.value = currentDay;
+                }
+            }
+
+            // Set default values
+            monthSelect.value = today.getMonth() + 1;
+            yearInput.value = today.getFullYear();
+            updateDays();
+            daySelect.value = today.getDate();
+
+            // Add event listeners
+            monthSelect.addEventListener('change', updateDays);
+            yearInput.addEventListener('change', updateDays);
+            yearInput.addEventListener('input', function() {
+                if (this.value.length > 4) {
+                    this.value = this.value.slice(0, 4);
+                }
+            });
+        }
+
+        // Call initialization on page load
+        window.onload = function() {
+            initializeDateSelectors();
+        };
+
+        // Close calendar when clicking outside
+        document.addEventListener('click', function(event) {
+            const calendar = document.getElementById('due-date-calendar');
+            const input = document.getElementById('due-date');
+            if (!calendar.contains(event.target) && event.target !== input) {
+                calendar.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> 
