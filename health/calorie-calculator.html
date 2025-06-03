@@ -1,1 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .instruction-bar {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .unit-toggle {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .unit-toggle button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #2196F3;
+            background: white;
+            color: #2196F3;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .unit-toggle button.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+
+        .unit {
+            padding: 12px;
+            background-color: #e3f2fd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #2196F3;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .activity-group {
+            margin-bottom: 20px;
+        }
+
+        .activity-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .activity-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .activity-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .activity-option:hover {
+            border-color: #2196F3;
+            background-color: #e3f2fd;
+        }
+
+        .activity-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .activity-option .activity-label {
+            flex: 1;
+        }
+
+        .activity-option .activity-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 4px;
+        }
+
+        .settings-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .settings-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .settings-group {
+            margin-bottom: 15px;
+        }
+
+        .settings-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .result-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 200px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .results {
+            flex: 1;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #2196F3;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .instruction-bar {
+                font-size: 1em;
+            }
+            
+            .result-section {
+                flex-direction: column;
+            }
+            
+            .buttons {
+                max-width: 100%;
+            }
+        }
+
+        .converter-section {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .converter-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .converter-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .converter-tab {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #2196F3;
+            color: #2196F3;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            flex: 1;
+            text-align: center;
+            max-width: 150px;
+        }
+
+        .converter-tab.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .converter-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .converter-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .converter-group label {
+            font-weight: 500;
+            color: #333;
+            min-width: 60px;
+        }
+
+        .converter-group .input-wrapper {
+            display: flex;
+            flex: 1;
+            gap: 10px;
+        }
+
+        .converter-group input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            min-width: 0;
+        }
+
+        .converter-group select {
+            width: 150px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .converter-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .converter-group label {
+                margin-bottom: 8px;
+            }
+
+            .converter-group select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Health</a>
+            <span>/</span>
+            Calorie Calculator
+        </div>
+
+        <h1>Calorie Calculator</h1>
+
+        <div class="instruction-bar">
+            Enter your details and click Calculate
+        </div>
+
+        <div class="unit-toggle">
+            <button onclick="setUnit('standard')" id="btn-standard" class="active">US Units</button>
+            <button onclick="setUnit('metric')" id="btn-metric">Metric Units</button>
+            <button onclick="setUnit('other')" id="btn-other">Other Units</button>
+        </div>
+
+        <div id="converter-section" class="converter-section" style="display: none;">
+            <h3>Use this converter to convert to the unit accepted by the calculator.</h3>
+            <div class="converter-tabs">
+                <button class="converter-tab" onclick="setConverterType('energy')">Food Energy</button>
+                <button class="converter-tab active" onclick="setConverterType('length')">Length</button>
+                <button class="converter-tab" onclick="setConverterType('temperature')">Temperature</button>
+                <button class="converter-tab" onclick="setConverterType('area')">Area</button>
+                <button class="converter-tab" onclick="setConverterType('volume')">Volume</button>
+                <button class="converter-tab" onclick="setConverterType('weight')">Weight</button>
+            </div>
+            <div class="converter-inputs">
+                <div class="converter-group">
+                    <label>From:</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="converter-from-value" placeholder="Enter value">
+                        <select id="converter-from-unit">
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="cm">Centimeter</option>
+                            <option value="mm">Millimeter</option>
+                            <option value="μm">Micrometer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="converter-group">
+                    <label>To:</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="converter-to-value" readonly>
+                        <select id="converter-to-unit">
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="cm">Centimeter</option>
+                            <option value="mm">Millimeter</option>
+                            <option value="μm">Micrometer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="standard-inputs">
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <div class="input-field-container">
+                    <input type="number" id="age" min="15" max="80" value="25">
+                    <div class="unit">years</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <div class="input-field-container">
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="height-ft">Height:</label>
+                <div class="input-field-container">
+                    <input type="number" id="height-ft" min="4" max="8" value="5">
+                    <div class="unit">ft</div>
+                    <input type="number" id="height-in" min="0" max="11" value="10">
+                    <div class="unit">in</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="weight-lb">Weight:</label>
+                <div class="input-field-container">
+                    <input type="number" id="weight-lb" min="50" value="165">
+                    <div class="unit">lbs</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="metric-inputs" style="display: none;">
+            <div class="input-group">
+                <label for="age-metric">Age:</label>
+                <div class="input-field-container">
+                    <input type="number" id="age-metric" min="15" max="80" value="25">
+                    <div class="unit">years</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender-metric">Gender:</label>
+                <div class="input-field-container">
+                    <select id="gender-metric">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="height-cm">Height:</label>
+                <div class="input-field-container">
+                    <input type="number" id="height-cm" min="130" value="180">
+                    <div class="unit">cm</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="weight-kg">Weight:</label>
+                <div class="input-field-container">
+                    <input type="number" id="weight-kg" min="20" value="75">
+                    <div class="unit">kg</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="other-inputs" style="display: none;">
+            <div class="input-group">
+                <label for="age-other">Age:</label>
+                <div class="input-field-container">
+                    <input type="number" id="age-other" min="15" max="80" value="25">
+                    <div class="unit">years</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender-other">Gender:</label>
+                <div class="input-field-container">
+                    <select id="gender-other">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="height-other">Height:</label>
+                <div class="input-field-container">
+                    <input type="number" id="height-other" min="1" value="1.78">
+                    <select id="height-other-unit">
+                        <option value="m">Meters</option>
+                        <option value="cm">Centimeters</option>
+                        <option value="km">Kilometers</option>
+                        <option value="mm">Millimeters</option>
+                        <option value="μm">Micrometers</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="weight-other">Weight:</label>
+                <div class="input-field-container">
+                    <input type="number" id="weight-other" min="1" value="73">
+                    <select id="weight-other-unit">
+                        <option value="kg">Kilograms</option>
+                        <option value="g">Grams</option>
+                        <option value="mg">Milligrams</option>
+                        <option value="lb">Pounds</option>
+                        <option value="oz">Ounces</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Activity Level:</label>
+            <div class="input-field-container">
+                <select id="activity-level" onchange="calculateCalories()">
+                    <option value="1.2">Sedentary - Little or no exercise</option>
+                    <option value="1.375">Light - Exercise 1-3 times/week</option>
+                    <option value="1.55">Moderate - Exercise 4-5 times/week</option>
+                    <option value="1.725">Active - Daily exercise or intense exercise 3-4 times/week</option>
+                    <option value="1.9">Very Active - Intense exercise 6-7 times/week</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Settings</h3>
+            <div class="settings-group">
+                <label>Results Unit:</label>
+                <select id="results-unit">
+                    <option value="calories">Calories</option>
+                    <option value="kilojoules">Kilojoules</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label>BMR Estimation Formula:</label>
+                <select id="bmr-formula">
+                    <option value="mifflin">Mifflin-St Jeor</option>
+                    <option value="harris">Revised Harris-Benedict</option>
+                    <option value="katch">Katch-McArdle</option>
+                </select>
+            </div>
+            <div class="settings-group" id="body-fat-group" style="display: none;">
+                <label for="body-fat">Body Fat Percentage:</label>
+                <input type="number" id="body-fat" min="1" max="100" step="0.1" value="20">
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateCalories()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+            <div class="results">
+                <h2>Results</h2>
+                <p>Basal Metabolic Rate (BMR): <span id="bmr-value" class="value">0</span></p>
+                <p>Maintenance Calories: <span id="maintenance-calories" class="value">0</span></p>
+                <p>Weight Loss (0.5 kg/week): <span id="weight-loss" class="value">0</span></p>
+                <p>Weight Loss (1 kg/week): <span id="weight-loss-extreme" class="value">0</span></p>
+                <p>Weight Gain (0.5 kg/week): <span id="weight-gain" class="value">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUnit = 'standard';
+        let currentConverterType = 'length';
+
+        const conversions = {
+            length: {
+                units: ['m', 'km', 'cm', 'mm', 'μm'],
+                names: ['Meter', 'Kilometer', 'Centimeter', 'Millimeter', 'Micrometer'],
+                toBase: {
+                    'm': 1,
+                    'km': 1000,
+                    'cm': 0.01,
+                    'mm': 0.001,
+                    'μm': 0.000001
+                }
+            },
+            temperature: {
+                units: ['°C', '°F', 'K'],
+                names: ['Celsius', 'Fahrenheit', 'Kelvin']
+            },
+            area: {
+                units: ['m²', 'km²', 'cm²', 'mm²', 'ha', 'acre', 'ft²'],
+                names: ['Square Meter', 'Square Kilometer', 'Square Centimeter', 'Square Millimeter', 'Hectare', 'Acre', 'Square Foot'],
+                toBase: {
+                    'm²': 1,
+                    'km²': 1000000,
+                    'cm²': 0.0001,
+                    'mm²': 0.000001,
+                    'ha': 10000,
+                    'acre': 4046.86,
+                    'ft²': 0.092903
+                }
+            },
+            volume: {
+                units: ['m³', 'L', 'mL', 'cm³', 'mm³', 'gal', 'qt', 'pt', 'cup', 'fl oz'],
+                names: ['Cubic Meter', 'Liter', 'Milliliter', 'Cubic Centimeter', 'Cubic Millimeter', 'Gallon', 'Quart', 'Pint', 'Cup', 'Fluid Ounce'],
+                toBase: {
+                    'm³': 1000,
+                    'L': 1,
+                    'mL': 0.001,
+                    'cm³': 0.001,
+                    'mm³': 0.000001,
+                    'gal': 3.78541,
+                    'qt': 0.946353,
+                    'pt': 0.473176,
+                    'cup': 0.236588,
+                    'fl oz': 0.0295735
+                }
+            },
+            weight: {
+                units: ['kg', 'g', 'mg', 'lb', 'oz', 't', 'st'],
+                names: ['Kilogram', 'Gram', 'Milligram', 'Pound', 'Ounce', 'Metric Ton', 'Stone'],
+                toBase: {
+                    'kg': 1,
+                    'g': 0.001,
+                    'mg': 0.000001,
+                    'lb': 0.453592,
+                    'oz': 0.0283495,
+                    't': 1000,
+                    'st': 6.35029
+                }
+            },
+            energy: {
+                units: ['cal', 'kcal', 'J', 'kJ'],
+                names: ['Calories', 'Kilocalories', 'Joules', 'Kilojoules'],
+                toBase: {
+                    'cal': 0.001,    // Convert to kcal (base unit)
+                    'kcal': 1,       // Base unit
+                    'J': 0.000239,   // 1 Joule = 0.239 calories
+                    'kJ': 0.239      // 1 Kilojoule = 0.239 kilocalories
+                }
+            }
+        };
+
+        function setConverterType(type) {
+            currentConverterType = type;
+            const tabs = document.querySelectorAll('.converter-tab');
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.textContent.toLowerCase().includes(type));
+            });
+
+            // Update select options
+            const fromSelect = document.getElementById('converter-from-unit');
+            const toSelect = document.getElementById('converter-to-unit');
+            fromSelect.innerHTML = '';
+            toSelect.innerHTML = '';
+
+            // Add description for food energy converter
+            const converterDescription = document.querySelector('.converter-section h3');
+            if (type === 'energy') {
+                converterDescription.textContent = 'Convert between different food energy units (calories, joules, etc.).';
+            } else {
+                converterDescription.textContent = 'Use this converter to convert to the unit accepted by the calculator.';
+            }
+
+            conversions[type].units.forEach((unit, index) => {
+                const name = conversions[type].names[index];
+                fromSelect.add(new Option(`${name} (${unit})`, unit));
+                toSelect.add(new Option(`${name} (${unit})`, unit));
+            });
+
+            convert();
+        }
+
+        function convert() {
+            const fromValue = parseFloat(document.getElementById('converter-from-value').value) || 0;
+            const fromUnit = document.getElementById('converter-from-unit').value;
+            const toUnit = document.getElementById('converter-to-unit').value;
+            
+            let result;
+            if (currentConverterType === 'temperature') {
+                // Temperature conversions require special formulas
+                if (fromUnit === toUnit) {
+                    result = fromValue;
+                } else if (fromUnit === '°C' && toUnit === '°F') {
+                    result = (fromValue * 9/5) + 32;
+                } else if (fromUnit === '°F' && toUnit === '°C') {
+                    result = (fromValue - 32) * 5/9;
+                } else if (fromUnit === '°C' && toUnit === 'K') {
+                    result = fromValue + 273.15;
+                } else if (fromUnit === 'K' && toUnit === '°C') {
+                    result = fromValue - 273.15;
+                } else if (fromUnit === '°F' && toUnit === 'K') {
+                    result = (fromValue - 32) * 5/9 + 273.15;
+                } else if (fromUnit === 'K' && toUnit === '°F') {
+                    result = (fromValue - 273.15) * 9/5 + 32;
+                }
+            } else if (currentConverterType === 'energy') {
+                // Convert to base unit (kcal) first
+                const baseValue = fromValue * conversions.energy.toBase[fromUnit];
+                // Then convert to target unit
+                result = baseValue / conversions.energy.toBase[toUnit];
+            } else {
+                // For other conversions, use the toBase conversion method
+                const conversionType = conversions[currentConverterType];
+                const baseValue = fromValue * conversionType.toBase[fromUnit];
+                result = baseValue / conversionType.toBase[toUnit];
+            }
+            
+            // Format the result based on the unit type
+            let formattedResult;
+            if (currentConverterType === 'energy') {
+                // Show more decimal places for small energy values
+                formattedResult = result < 1 ? result.toFixed(4) : result.toFixed(2);
+            } else {
+                formattedResult = result.toFixed(6);
+            }
+            
+            document.getElementById('converter-to-value').value = formattedResult;
+        }
+
+        // Add event listeners for conversion
+        document.getElementById('converter-from-value').addEventListener('input', convert);
+        document.getElementById('converter-from-unit').addEventListener('change', convert);
+        document.getElementById('converter-to-unit').addEventListener('change', convert);
+
+        function setUnit(unit) {
+            currentUnit = unit;
+            document.getElementById('btn-standard').classList.toggle('active', unit === 'standard');
+            document.getElementById('btn-metric').classList.toggle('active', unit === 'metric');
+            document.getElementById('btn-other').classList.toggle('active', unit === 'other');
+            document.getElementById('standard-inputs').style.display = unit === 'standard' ? 'block' : 'none';
+            document.getElementById('metric-inputs').style.display = unit === 'metric' ? 'block' : 'none';
+            document.getElementById('other-inputs').style.display = unit === 'other' ? 'block' : 'none';
+            document.getElementById('converter-section').style.display = unit === 'other' ? 'block' : 'none';
+            
+            // Show/hide settings section based on unit mode
+            const settingsSection = document.querySelector('.settings-section');
+            if (settingsSection) {
+                settingsSection.style.display = unit === 'other' ? 'block' : 'none';
+            }
+            
+            calculateCalories();
+        }
+
+        document.getElementById('bmr-formula').addEventListener('change', function() {
+            const showBodyFat = this.value === 'katch';
+            document.getElementById('body-fat-group').style.display = showBodyFat ? 'block' : 'none';
+        });
+
+        function calculateCalories() {
+            let weight, height, age, gender, activityLevel;
+            
+            if (currentUnit === 'standard') {
+                const heightFt = parseFloat(document.getElementById('height-ft').value);
+                const heightIn = parseFloat(document.getElementById('height-in').value);
+                const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                
+                // Convert to metric for calculations
+                height = ((heightFt * 12) + heightIn) * 2.54; // Convert to cm
+                weight = weightLb * 0.453592; // Convert to kg
+                age = parseFloat(document.getElementById('age').value);
+                gender = document.getElementById('gender').value;
+            } else if (currentUnit === 'metric') {
+                height = parseFloat(document.getElementById('height-cm').value);
+                weight = parseFloat(document.getElementById('weight-kg').value);
+                age = parseFloat(document.getElementById('age-metric').value);
+                gender = document.getElementById('gender-metric').value;
+            } else if (currentUnit === 'other') {
+                let heightValue = parseFloat(document.getElementById('height-other').value);
+                let weightValue = parseFloat(document.getElementById('weight-other').value);
+                const heightUnit = document.getElementById('height-other-unit').value;
+                const weightUnit = document.getElementById('weight-other-unit').value;
+
+                // Convert height to centimeters
+                const heightToMeters = conversions.length.toBase;
+                height = heightValue * heightToMeters[heightUnit] * 100; // Convert to cm
+
+                // Convert weight to kilograms
+                const weightToKg = conversions.weight.toBase;
+                weight = weightValue * weightToKg[weightUnit];
+
+                age = parseFloat(document.getElementById('age-other').value);
+                gender = document.getElementById('gender-other').value;
+            }
+
+            activityLevel = parseFloat(document.getElementById('activity-level').value);
+            const formula = document.getElementById('bmr-formula').value;
+            const resultsUnit = document.getElementById('results-unit').value;
+
+            let bmr;
+            if (formula === 'mifflin') {
+                // Mifflin-St Jeor Equation
+                bmr = (10 * weight) + (6.25 * height) - (5 * age);
+                bmr = gender === 'male' ? bmr + 5 : bmr - 161;
+            } else if (formula === 'harris') {
+                // Revised Harris-Benedict Equation
+                if (gender === 'male') {
+                    bmr = 13.397 * weight + 4.799 * height - 5.677 * age + 88.362;
+                } else {
+                    bmr = 9.247 * weight + 3.098 * height - 4.330 * age + 447.593;
+                }
+            } else if (formula === 'katch') {
+                // Katch-McArdle Formula
+                const bodyFat = parseFloat(document.getElementById('body-fat').value) / 100;
+                const leanMass = weight * (1 - bodyFat);
+                bmr = 370 + (21.6 * leanMass);
+            }
+
+            const maintenance = bmr * activityLevel;
+            
+            // Convert to kilojoules if selected
+            const convert = resultsUnit === 'kilojoules' ? 4.184 : 1;
+            
+            document.getElementById('bmr-value').textContent = 
+                Math.round(bmr * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+            document.getElementById('maintenance-calories').textContent = 
+                Math.round(maintenance * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+            document.getElementById('weight-loss').textContent = 
+                Math.round((maintenance - 500) * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+            document.getElementById('weight-loss-extreme').textContent = 
+                Math.round((maintenance - 1000) * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+            document.getElementById('weight-gain').textContent = 
+                Math.round((maintenance + 500) * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+        }
+
+        function clearInputs() {
+            if (currentUnit === 'standard') {
+                document.getElementById('age').value = '';
+                document.getElementById('height-ft').value = '';
+                document.getElementById('height-in').value = '';
+                document.getElementById('weight-lb').value = '';
+            } else if (currentUnit === 'metric') {
+                document.getElementById('age-metric').value = '';
+                document.getElementById('height-cm').value = '';
+                document.getElementById('weight-kg').value = '';
+            } else if (currentUnit === 'other') {
+                document.getElementById('age-other').value = '';
+                document.getElementById('height-other').value = '';
+                document.getElementById('weight-other').value = '';
+            }
+            
+            document.getElementById('bmr-value').textContent = '0';
+            document.getElementById('maintenance-calories').textContent = '0';
+            document.getElementById('weight-loss').textContent = '0';
+            document.getElementById('weight-loss-extreme').textContent = '0';
+            document.getElementById('weight-gain').textContent = '0';
+        }
+
+        // Initialize calculator
+        window.onload = function() {
+            calculateCalories();
+        };
+    </script>
+</body>
+</html> 
