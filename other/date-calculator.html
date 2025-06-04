@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculator | Days and Business Days - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .date-inputs select,
+        .date-inputs input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .date-inputs input {
+            width: 80px;
+        }
+
+        .date-inputs input[type="number"] {
+            width: 100px;
+        }
+
+        .operator-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .operator-section select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #2196F3;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+            min-width: 120px;
+        }
+
+        .operator-section select:hover,
+        .operator-section select:focus {
+            border-color: #2196F3;
+        }
+
+        .operator-section input[type="number"] {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 150px;
+        }
+
+        .operator-section input[type="number"]:hover,
+        .operator-section input[type="number"]:focus {
+            border-color: #2196F3;
+            outline: none;
+        }
+
+        .checkbox-group {
+            margin-top: 15px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-date {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .format-toggle {
+            margin-bottom: 20px;
+        }
+
+        .format-toggle button {
+            padding: 8px 15px;
+            border: 1px solid #2196F3;
+            background: white;
+            color: #2196F3;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .format-toggle button:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .format-toggle button:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+
+        .format-toggle button.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .date-inputs {
+                flex-wrap: wrap;
+            }
+
+            .date-inputs input,
+            .date-inputs select {
+                flex: 1;
+                min-width: 70px;
+            }
+        }
+
+        .today-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .today-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .today-section select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #2196F3;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .today-section select:hover,
+        .today-section select:focus {
+            border-color: #2196F3;
+        }
+
+        .today-section label {
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .result-date {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/calculatorquote/index.html">Home</a>
+            <span>/</span>
+            <a href="/calculatorquote/index.html#other">Other</a>
+            <span>/</span>
+            Date Calculator
+        </div>
+
+        <h1>Date Calculator | Days and Business Days</h1>
+        
+        <div class="description">
+            Calculate a future or past date by adding or subtracting days from a given date. 
+            You can choose to count business days only (Monday through Friday) and include or exclude Saturdays.
+        </div>
+
+        <div class="input-section">
+            <div class="input-group today-group">
+                <div class="today-section">
+                    <label>Today is:</label>
+                    <select id="dateFormat" onchange="setDateFormat(this.value)">
+                        <option value="mm/dd/yyyy">mm/dd/yyyy</option>
+                        <option value="dd/mm/yyyy">dd/mm/yyyy</option>
+                        <option value="yyyy-mm-dd">yyyy-mm-dd</option>
+                    </select>
+                </div>
+                <div id="today-date" class="result-date"></div>
+            </div>
+
+            <div class="input-group">
+                <label>Date:</label>
+                <div class="date-inputs">
+                    <input type="number" id="month" placeholder="MM" min="1" max="12">
+                    <input type="number" id="day" placeholder="DD" min="1" max="31">
+                    <input type="number" id="year" placeholder="YYYY" min="1900" max="2100">
+                </div>
+            </div>
+
+            <div class="operator-section">
+                <select id="operator" onchange="setOperator(this.value)">
+                    <option value="add">Add (+)</option>
+                    <option value="subtract">Subtract (-)</option>
+                </select>
+                <input type="number" id="days" placeholder="Number of days" min="1">
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="businessDays"> Business Days Only
+                </label>
+                <label>
+                    <input type="checkbox" id="includeSaturday"> Include Saturday as Business Day
+                </label>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateDate()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Result</h2>
+            <div class="result-date" id="result-date"></div>
+            <div id="repeat-link"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentDateFormat = 'mm/dd/yyyy';
+        let currentOperator = 'add';
+
+        // Initialize today's date
+        function initTodayDate() {
+            const today = new Date();
+            document.getElementById('today-date').textContent = formatDate(today);
+            
+            // Set default date inputs
+            document.getElementById('month').value = today.getMonth() + 1;
+            document.getElementById('day').value = today.getDate();
+            document.getElementById('year').value = today.getFullYear();
+        }
+
+        function setDateFormat(format) {
+            currentDateFormat = format;
+            document.getElementById('dateFormat').value = format;
+            // Update displayed dates
+            initTodayDate();
+            const resultSection = document.getElementById('results');
+            if (resultSection.style.display === 'block') {
+                calculateDate();
+            }
+        }
+
+        function setOperator(op) {
+            currentOperator = op;
+            document.getElementById('operator').value = op;
+        }
+
+        function formatDate(date) {
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const year = date.getFullYear();
+            
+            switch(currentDateFormat) {
+                case 'mm/dd/yyyy':
+                    return `${month}/${day}/${year}`;
+                case 'dd/mm/yyyy':
+                    return `${day}/${month}/${year}`;
+                case 'yyyy-mm-dd':
+                    return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                default:
+                    return `${month}/${day}/${year}`;
+            }
+        }
+
+        function isBusinessDay(date) {
+            const day = date.getDay();
+            const includeSaturday = document.getElementById('includeSaturday').checked;
+            
+            if (includeSaturday) {
+                return day !== 0; // Not Sunday
+            }
+            return day !== 0 && day !== 6; // Not Saturday or Sunday
+        }
+
+        function addDays(date, days, countBusinessDays) {
+            const result = new Date(date);
+            
+            if (!countBusinessDays) {
+                result.setDate(result.getDate() + days);
+                return result;
+            }
+
+            let addedDays = 0;
+            let daysToAdd = days;
+
+            while (addedDays < daysToAdd) {
+                result.setDate(result.getDate() + 1);
+                if (isBusinessDay(result)) {
+                    addedDays++;
+                }
+            }
+
+            return result;
+        }
+
+        function subtractDays(date, days, countBusinessDays) {
+            const result = new Date(date);
+            
+            if (!countBusinessDays) {
+                result.setDate(result.getDate() - days);
+                return result;
+            }
+
+            let subtractedDays = 0;
+            let daysToSubtract = days;
+
+            while (subtractedDays < daysToSubtract) {
+                result.setDate(result.getDate() - 1);
+                if (isBusinessDay(result)) {
+                    subtractedDays++;
+                }
+            }
+
+            return result;
+        }
+
+        function calculateDate() {
+            const month = parseInt(document.getElementById('month').value);
+            const day = parseInt(document.getElementById('day').value);
+            const year = parseInt(document.getElementById('year').value);
+            const days = parseInt(document.getElementById('days').value);
+            const countBusinessDays = document.getElementById('businessDays').checked;
+
+            if (!month || !day || !year || !days) {
+                alert('Please fill in all date fields and number of days.');
+                return;
+            }
+
+            const startDate = new Date(year, month - 1, day);
+            let resultDate;
+
+            if (currentOperator === 'add') {
+                resultDate = addDays(startDate, days, countBusinessDays);
+            } else {
+                resultDate = subtractDays(startDate, days, countBusinessDays);
+            }
+
+            const resultSection = document.getElementById('results');
+            const resultDateElement = document.getElementById('result-date');
+            const repeatLink = document.getElementById('repeat-link');
+
+            resultSection.style.display = 'block';
+            resultDateElement.textContent = formatDate(resultDate);
+
+            // Add repeat link
+            repeatLink.innerHTML = `<a href="#" onclick="repeatCalculation(${days}); return false;" style="color: #2196F3; text-decoration: none;">Repeat ${currentOperator === 'add' ? '+' : '-'}${days} Days</a>`;
+        }
+
+        function repeatCalculation(days) {
+            const resultDate = document.getElementById('result-date').textContent;
+            const [month, day, year] = resultDate.split('/');
+            
+            document.getElementById('month').value = month;
+            document.getElementById('day').value = day;
+            document.getElementById('year').value = year;
+            document.getElementById('days').value = days;
+            
+            calculateDate();
+        }
+
+        function clearInputs() {
+            document.getElementById('month').value = '';
+            document.getElementById('day').value = '';
+            document.getElementById('year').value = '';
+            document.getElementById('days').value = '';
+            document.getElementById('businessDays').checked = false;
+            document.getElementById('includeSaturday').checked = false;
+            document.getElementById('results').style.display = 'none';
+        }
+
+        // Initialize the calculator
+        window.onload = function() {
+            initTodayDate();
+        };
+    </script>
+</body>
+</html> 
