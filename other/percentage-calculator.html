@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calc-type-selector {
+            margin-bottom: 20px;
+        }
+
+        .calc-type-selector select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .calc-type-selector select:hover,
+        .calc-type-selector select:focus {
+            border-color: #2196F3;
+        }
+
+        .calc-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .calc-option {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 1em;
+            width: 100px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+
+        .input-group input:hover,
+        .input-group input:focus {
+            border-color: #2196F3;
+        }
+
+        .input-group span {
+            color: #333;
+            font-size: 1em;
+            white-space: nowrap;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .example-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .example-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .example-section p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .input-group input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/calculatorquote/index.html">Home</a>
+            <span>/</span>
+            <a href="/calculatorquote/index.html#other">Other</a>
+            <span>/</span>
+            Percentage Calculator
+        </div>
+
+        <h1>Percentage Calculator</h1>
+        
+        <div class="description">
+            Calculate percentages easily with this calculator. Find what percent one number is of another, calculate percentage of a number, or find the whole amount from a percentage.
+        </div>
+
+        <div class="calculator-section">
+            <div class="calc-type-selector">
+                <select id="calcType" onchange="updateCalculator()">
+                    <option value="">Quick Solutions</option>
+                    <option value="whatIsPercentOf">What is % of ?</option>
+                    <option value="isWhatPercentOf">is what % of ?</option>
+                    <option value="isPercentOfWhat">is % of what?</option>
+                    <option value="plusPercent">X plus P% is what?</option>
+                    <option value="plusWhatPercent">X plus what % is Y?</option>
+                    <option value="whatPlusPercent">What plus P% is Y?</option>
+                    <option value="minusPercent">X minus P% is what?</option>
+                    <option value="minusWhatPercent">X minus what % is Y?</option>
+                    <option value="whatMinusPercent">What minus P% is Y?</option>
+                </select>
+            </div>
+
+            <div id="calculatorInputs">
+                <!-- Inputs will be dynamically updated based on selection -->
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculate()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Result</h2>
+            <div class="result-value" id="result-value"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding Percentage</h2>
+            <p>A percentage is part of a whole. It is a way to express a number as a fraction of 100, and it is denoted using the percent symbol %.</p>
+            <p>Calculating percentage allows you to compare ratios when sets are different sizes. If you see an example of 25% it means 25 out of 100, or a quarter of the whole.</p>
+
+            <h3>Common Percentage Calculations</h3>
+            
+            <div class="example-section">
+                <h4>Basic Percentage Calculations</h4>
+                <p>1. What is P% of X?</p>
+                <p>Formula: Y = (P/100) × X</p>
+                <p>Example: What is 15% of $80? Answer: 15/100 × $80 = $12</p>
+                
+                <p>2. Y is what % of X?</p>
+                <p>Formula: P = (Y/X) × 100</p>
+                <p>Example: 15 is what percent of 60? Answer: (15/60) × 100 = 25%</p>
+                
+                <p>3. Y is P% of what?</p>
+                <p>Formula: X = Y ÷ (P/100)</p>
+                <p>Example: 20 is 40% of what? Answer: 20 ÷ (40/100) = 50</p>
+            </div>
+
+            <div class="example-section">
+                <h4>Percentage Addition and Subtraction</h4>
+                <p>1. X plus P%</p>
+                <p>Formula: Result = X + (X × P/100)</p>
+                <p>Example: 100 plus 20% = 100 + (100 × 20/100) = 120</p>
+                
+                <p>2. X minus P%</p>
+                <p>Formula: Result = X - (X × P/100)</p>
+                <p>Example: 100 minus 20% = 100 - (100 × 20/100) = 80</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateCalculator() {
+            const calcType = document.getElementById('calcType').value;
+            const inputsContainer = document.getElementById('calculatorInputs');
+            let html = '';
+
+            if (!calcType) {
+                // If Quick Solutions is selected, show empty calculator
+                html = '';
+                inputsContainer.style.display = 'none';
+            } else {
+                // Show calculator for other options
+                inputsContainer.style.display = 'block';
+                
+                // Show the selected calculation type
+                switch(calcType) {
+                    case 'whatIsPercentOf':
+                        html = `
+                            <div class="input-group">
+                                <span>What is</span>
+                                <input type="number" id="percent" step="any" placeholder="">
+                                <span>% of</span>
+                                <input type="number" id="number" step="any" placeholder="">
+                                <span>?</span>
+                            </div>
+                        `;
+                        break;
+                    case 'isWhatPercentOf':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number1" step="any" placeholder="">
+                                <span>is what % of</span>
+                                <input type="number" id="number2" step="any" placeholder="">
+                                <span>?</span>
+                            </div>
+                        `;
+                        break;
+                    case 'isPercentOfWhat':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number" step="any" placeholder="">
+                                <span>is</span>
+                                <input type="number" id="percent" step="any" placeholder="">
+                                <span>% of what?</span>
+                            </div>
+                        `;
+                        break;
+                    case 'plusPercent':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number" step="any" placeholder="Enter number">
+                                <span>plus</span>
+                                <input type="number" id="percent" step="any" placeholder="Enter %">
+                                <span>% is what?</span>
+                            </div>
+                        `;
+                        break;
+                    case 'plusWhatPercent':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number" step="any" placeholder="Enter number">
+                                <span>plus what % is</span>
+                                <input type="number" id="target" step="any" placeholder="Enter target">
+                            </div>
+                        `;
+                        break;
+                    case 'whatPlusPercent':
+                        html = `
+                            <div class="input-group">
+                                <span>What plus</span>
+                                <input type="number" id="percent" step="any" placeholder="Enter %">
+                                <span>% is</span>
+                                <input type="number" id="target" step="any" placeholder="Enter target">
+                            </div>
+                        `;
+                        break;
+                    case 'minusPercent':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number" step="any" placeholder="Enter number">
+                                <span>minus</span>
+                                <input type="number" id="percent" step="any" placeholder="Enter %">
+                                <span>% is what?</span>
+                            </div>
+                        `;
+                        break;
+                    case 'minusWhatPercent':
+                        html = `
+                            <div class="input-group">
+                                <input type="number" id="number" step="any" placeholder="Enter number">
+                                <span>minus what % is</span>
+                                <input type="number" id="target" step="any" placeholder="Enter target">
+                            </div>
+                        `;
+                        break;
+                    case 'whatMinusPercent':
+                        html = `
+                            <div class="input-group">
+                                <span>What minus</span>
+                                <input type="number" id="percent" step="any" placeholder="Enter %">
+                                <span>% is</span>
+                                <input type="number" id="target" step="any" placeholder="Enter target">
+                            </div>
+                        `;
+                        break;
+                }
+            }
+
+            inputsContainer.innerHTML = html;
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function calculate() {
+            const calcType = document.getElementById('calcType').value;
+            let result;
+
+            if (!calcType) {
+                // No calculation needed for Quick Solutions
+                return;
+            }
+
+            switch(calcType) {
+                case 'whatIsPercentOf':
+                    const percent1 = parseFloat(document.getElementById('percent').value);
+                    const number1 = parseFloat(document.getElementById('number').value);
+                    if (isNaN(percent1) || isNaN(number1)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    result = (percent1 / 100) * number1;
+                    displayResult(`${percent1}% of ${number1} is ${formatResult(result)}`);
+                    break;
+
+                case 'isWhatPercentOf':
+                    const num1 = parseFloat(document.getElementById('number1').value);
+                    const num2 = parseFloat(document.getElementById('number2').value);
+                    if (isNaN(num1) || isNaN(num2)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (num2 === 0) {
+                        alert('Cannot divide by zero');
+                        return;
+                    }
+                    result = (num1 / num2) * 100;
+                    displayResult(`${num1} is ${formatResult(result)}% of ${num2}`);
+                    break;
+
+                case 'isPercentOfWhat':
+                    const number = parseFloat(document.getElementById('number').value);
+                    const percent2 = parseFloat(document.getElementById('percent').value);
+                    if (isNaN(number) || isNaN(percent2)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (percent2 === 0) {
+                        alert('Percentage cannot be zero');
+                        return;
+                    }
+                    result = number / (percent2 / 100);
+                    displayResult(`${number} is ${percent2}% of ${formatResult(result)}`);
+                    break;
+
+                case 'plusPercent':
+                    const baseNum = parseFloat(document.getElementById('number').value);
+                    const addPercent = parseFloat(document.getElementById('percent').value);
+                    if (isNaN(baseNum) || isNaN(addPercent)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    result = baseNum + (baseNum * addPercent / 100);
+                    displayResult(`${baseNum} plus ${addPercent}% is ${formatResult(result)}`);
+                    break;
+
+                case 'plusWhatPercent':
+                    const startNum = parseFloat(document.getElementById('number').value);
+                    const targetNum = parseFloat(document.getElementById('target').value);
+                    if (isNaN(startNum) || isNaN(targetNum)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (startNum === 0) {
+                        alert('Starting number cannot be zero');
+                        return;
+                    }
+                    result = ((targetNum - startNum) / startNum) * 100;
+                    displayResult(`${startNum} plus ${formatResult(result)}% is ${targetNum}`);
+                    break;
+
+                case 'whatPlusPercent':
+                    const targetVal = parseFloat(document.getElementById('target').value);
+                    const plusPercent = parseFloat(document.getElementById('percent').value);
+                    if (isNaN(targetVal) || isNaN(plusPercent)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (plusPercent === -100) {
+                        alert('Percentage cannot be -100%');
+                        return;
+                    }
+                    result = targetVal / (1 + plusPercent / 100);
+                    displayResult(`${formatResult(result)} plus ${plusPercent}% is ${targetVal}`);
+                    break;
+
+                case 'minusPercent':
+                    const baseVal = parseFloat(document.getElementById('number').value);
+                    const minusPercent = parseFloat(document.getElementById('percent').value);
+                    if (isNaN(baseVal) || isNaN(minusPercent)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    result = baseVal - (baseVal * minusPercent / 100);
+                    displayResult(`${baseVal} minus ${minusPercent}% is ${formatResult(result)}`);
+                    break;
+
+                case 'minusWhatPercent':
+                    const startVal = parseFloat(document.getElementById('number').value);
+                    const targetVal2 = parseFloat(document.getElementById('target').value);
+                    if (isNaN(startVal) || isNaN(targetVal2)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (startVal === 0) {
+                        alert('Starting number cannot be zero');
+                        return;
+                    }
+                    result = ((startVal - targetVal2) / startVal) * 100;
+                    displayResult(`${startVal} minus ${formatResult(result)}% is ${targetVal2}`);
+                    break;
+
+                case 'whatMinusPercent':
+                    const finalVal = parseFloat(document.getElementById('target').value);
+                    const minusPercent2 = parseFloat(document.getElementById('percent').value);
+                    if (isNaN(finalVal) || isNaN(minusPercent2)) {
+                        alert('Please enter valid numbers');
+                        return;
+                    }
+                    if (minusPercent2 === 100) {
+                        alert('Percentage cannot be 100%');
+                        return;
+                    }
+                    result = finalVal / (1 - minusPercent2 / 100);
+                    displayResult(`${formatResult(result)} minus ${minusPercent2}% is ${finalVal}`);
+                    break;
+            }
+        }
+
+        function formatResult(value) {
+            // 如果是整数，直接返回整数
+            if (Number.isInteger(value)) {
+                return value.toString();
+            }
+            // 如果是小数，且小数部分不是0，则保留两位小数
+            if (Math.abs(value - Math.round(value)) > 0.000001) {
+                return value.toFixed(2);
+            }
+            // 如果小数部分是0，返回整数部分
+            return Math.round(value).toString();
+        }
+
+        function displayResult(text) {
+            const resultSection = document.getElementById('results');
+            const resultValue = document.getElementById('result-value');
+            resultSection.style.display = 'block';
+            resultValue.textContent = text;
+        }
+
+        function clearInputs() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+            document.getElementById('results').style.display = 'none';
+        }
+
+        // Initialize calculator on page load
+        window.onload = function() {
+            updateCalculator();
+            // Hide calculator inputs initially if Quick Solutions is selected
+            const calcType = document.getElementById('calcType').value;
+            const inputsContainer = document.getElementById('calculatorInputs');
+            if (!calcType) {
+                inputsContainer.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html> 
