@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+            width: 200px;
+        }
+
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-generate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-generate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-numbers {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .example-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .example-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .example-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-section li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .input-group input,
+            .input-group select {
+                width: 100%;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/calculatorquote/index.html">Home</a>
+            <span>/</span>
+            <a href="/calculatorquote/index.html#other">Other</a>
+            <span>/</span>
+            Random Number Generator
+        </div>
+
+        <h1>Random Number Generator</h1>
+        
+        <div class="description">
+            Generate one or more random numbers within your custom range. You can generate positive or negative random numbers with or without repeats, and sort them according to your preference.
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label>Minimum Number:</label>
+                <input type="number" id="minNumber" value="1">
+            </div>
+
+            <div class="input-group">
+                <label>Maximum Number:</label>
+                <input type="number" id="maxNumber" value="100">
+            </div>
+
+            <div class="input-group">
+                <label>How Many Numbers:</label>
+                <input type="number" id="count" value="5" min="1">
+            </div>
+
+            <div class="input-group">
+                <label>Allow Repeats:</label>
+                <select id="allowRepeats">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Sort Numbers:</label>
+                <select id="sortOrder">
+                    <option value="none">Do not sort</option>
+                    <option value="asc">Low to High</option>
+                    <option value="desc">High to Low</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-generate" onclick="generateNumbers()">Generate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Generated Numbers</h2>
+            <div class="result-numbers" id="result-numbers"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>About Random Number Generators</h2>
+            <p>There are two main types of random number generators: pseudo-random and true random.</p>
+            
+            <p>A pseudo-random number generator (PRNG) uses a mathematical algorithm to generate numbers that appear random. While these numbers are not truly random, they are sufficient for most purposes.</p>
+            
+            <p>A true random number generator (TRNG) uses physical phenomena (like atmospheric noise or radioactive decay) to generate truly random numbers.</p>
+
+            <h3>Examples of Use</h3>
+
+            <div class="example-section">
+                <h4>Generate a 6-digit PIN</h4>
+                <ul>
+                    <li>Set Min = 0, Max = 9</li>
+                    <li>Generate 6 numbers</li>
+                    <li>Allow repeats = yes (for all possible combinations)</li>
+                    <li>Sort = Do not sort</li>
+                </ul>
+            </div>
+
+            <div class="example-section">
+                <h4>Lottery Number Generator</h4>
+                <ul>
+                    <li>Set Min = 1, Max = 49</li>
+                    <li>Generate 5 numbers</li>
+                    <li>Allow repeats = no</li>
+                    <li>Sort = Low to High</li>
+                </ul>
+            </div>
+
+            <div class="example-section">
+                <h4>Randomize Order of Items</h4>
+                <ul>
+                    <li>Set Min = 1, Max = [number of items]</li>
+                    <li>Generate [number of items] numbers</li>
+                    <li>Allow repeats = no</li>
+                    <li>Sort = Do not sort</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateNumbers() {
+            const min = parseInt(document.getElementById('minNumber').value);
+            const max = parseInt(document.getElementById('maxNumber').value);
+            const count = parseInt(document.getElementById('count').value);
+            const allowRepeats = document.getElementById('allowRepeats').value === 'yes';
+            const sortOrder = document.getElementById('sortOrder').value;
+
+            // Validation
+            if (isNaN(min) || isNaN(max) || isNaN(count)) {
+                alert('Please enter valid numbers.');
+                return;
+            }
+
+            if (min > max) {
+                alert('Minimum number must be less than or equal to maximum number.');
+                return;
+            }
+
+            if (count < 1) {
+                alert('Number of items must be at least 1.');
+                return;
+            }
+
+            if (!allowRepeats && (max - min + 1) < count) {
+                alert('Cannot generate ' + count + ' unique numbers in the range ' + min + ' to ' + max + '.');
+                return;
+            }
+
+            // Generate numbers
+            let numbers = [];
+            if (allowRepeats) {
+                for (let i = 0; i < count; i++) {
+                    numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+                }
+            } else {
+                let pool = Array.from({length: max - min + 1}, (_, i) => min + i);
+                for (let i = 0; i < count; i++) {
+                    const index = Math.floor(Math.random() * pool.length);
+                    numbers.push(pool[index]);
+                    pool.splice(index, 1);
+                }
+            }
+
+            // Sort if requested
+            if (sortOrder === 'asc') {
+                numbers.sort((a, b) => a - b);
+            } else if (sortOrder === 'desc') {
+                numbers.sort((a, b) => b - a);
+            }
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('result-numbers').textContent = numbers.join(' ');
+        }
+
+        function clearInputs() {
+            document.getElementById('minNumber').value = '1';
+            document.getElementById('maxNumber').value = '100';
+            document.getElementById('count').value = '5';
+            document.getElementById('allowRepeats').value = 'yes';
+            document.getElementById('sortOrder').value = 'none';
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
