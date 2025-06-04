@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .input-group input[type="date"],
+        .input-group input[type="time"] {
+            width: 200px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-time {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .input-group label {
+                margin-bottom: 0;
+            }
+
+            .input-group select {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/calculatorquote/index.html">Home</a>
+            <span>/</span>
+            <a href="/calculatorquote/index.html#other">Other</a>
+            <span>/</span>
+            Time Zone Calculator
+        </div>
+
+        <h1>Time Zone Calculator</h1>
+        
+        <div class="description">
+            Convert time between different time zones around the world. Simply enter the date, time, and select the time zones you want to convert between.
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label>Date:</label>
+                <input type="date" id="date">
+            </div>
+
+            <div class="input-group">
+                <label>Time:</label>
+                <input type="time" id="time" step="1" placeholder="HH:mm:ss">
+            </div>
+
+            <div class="input-group">
+                <label>From:</label>
+                <select id="fromZone">
+                    <option value="-12">(UTC-12) International Date Line West</option>
+                    <option value="-11">(UTC-11) Midway Island, Samoa</option>
+                    <option value="-10">(UTC-10) Hawaii</option>
+                    <option value="-9">(UTC-09) Alaska</option>
+                    <option value="-8">(UTC-08) Pacific Time (US/Canada), Los Angeles</option>
+                    <option value="-7">(UTC-07) Mountain Time (US/Canada), Denver</option>
+                    <option value="-6">(UTC-06) Central Time (US/Canada), Chicago</option>
+                    <option value="-5">(UTC-05) Eastern Time (US/Canada), New York</option>
+                    <option value="-4">(UTC-04) Atlantic Time (Canada), Halifax</option>
+                    <option value="-3">(UTC-03) Brasilia, Buenos Aires, Santiago</option>
+                    <option value="-2">(UTC-02) Mid-Atlantic</option>
+                    <option value="-1">(UTC-01) Azores, Cape Verde Islands</option>
+                    <option value="0">(UTC±00) London, Dublin, Edinburgh</option>
+                    <option value="1">(UTC+01) Paris, Rome, Berlin, Madrid</option>
+                    <option value="2">(UTC+02) Athens, Istanbul, Cairo, Jerusalem</option>
+                    <option value="3">(UTC+03) Moscow, Riyadh, Nairobi</option>
+                    <option value="3.5">(UTC+03:30) Tehran</option>
+                    <option value="4">(UTC+04) Dubai, Abu Dhabi, Muscat</option>
+                    <option value="4.5">(UTC+04:30) Kabul</option>
+                    <option value="5">(UTC+05) Karachi, Tashkent, Maldives</option>
+                    <option value="5.5">(UTC+05:30) New Delhi, Mumbai, Colombo</option>
+                    <option value="5.75">(UTC+05:45) Kathmandu</option>
+                    <option value="6">(UTC+06) Dhaka, Almaty, Astana</option>
+                    <option value="6.5">(UTC+06:30) Yangon (Rangoon)</option>
+                    <option value="7">(UTC+07) Bangkok, Hanoi, Jakarta</option>
+                    <option value="8">(UTC+08) Beijing, Hong Kong, Singapore</option>
+                    <option value="9">(UTC+09) Tokyo, Seoul, Osaka</option>
+                    <option value="10">(UTC+10) Sydney, Melbourne, Brisbane</option>
+                    <option value="11">(UTC+11) Solomon Islands, New Caledonia</option>
+                    <option value="12">(UTC+12) Auckland, Wellington, Fiji</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>To:</label>
+                <select id="toZone">
+                    <option value="-12">(UTC-12) International Date Line West</option>
+                    <option value="-11">(UTC-11) Midway Island, Samoa</option>
+                    <option value="-10">(UTC-10) Hawaii</option>
+                    <option value="-9">(UTC-09) Alaska</option>
+                    <option value="-8">(UTC-08) Pacific Time (US/Canada), Los Angeles</option>
+                    <option value="-7">(UTC-07) Mountain Time (US/Canada), Denver</option>
+                    <option value="-6">(UTC-06) Central Time (US/Canada), Chicago</option>
+                    <option value="-5">(UTC-05) Eastern Time (US/Canada), New York</option>
+                    <option value="-4">(UTC-04) Atlantic Time (Canada), Halifax</option>
+                    <option value="-3">(UTC-03) Brasilia, Buenos Aires, Santiago</option>
+                    <option value="-2">(UTC-02) Mid-Atlantic</option>
+                    <option value="-1">(UTC-01) Azores, Cape Verde Islands</option>
+                    <option value="0">(UTC±00) London, Dublin, Edinburgh</option>
+                    <option value="1">(UTC+01) Paris, Rome, Berlin, Madrid</option>
+                    <option value="2">(UTC+02) Athens, Istanbul, Cairo, Jerusalem</option>
+                    <option value="3">(UTC+03) Moscow, Riyadh, Nairobi</option>
+                    <option value="3.5">(UTC+03:30) Tehran</option>
+                    <option value="4">(UTC+04) Dubai, Abu Dhabi, Muscat</option>
+                    <option value="4.5">(UTC+04:30) Kabul</option>
+                    <option value="5">(UTC+05) Karachi, Tashkent, Maldives</option>
+                    <option value="5.5">(UTC+05:30) New Delhi, Mumbai, Colombo</option>
+                    <option value="5.75">(UTC+05:45) Kathmandu</option>
+                    <option value="6">(UTC+06) Dhaka, Almaty, Astana</option>
+                    <option value="6.5">(UTC+06:30) Yangon (Rangoon)</option>
+                    <option value="7">(UTC+07) Bangkok, Hanoi, Jakarta</option>
+                    <option value="8">(UTC+08) Beijing, Hong Kong, Singapore</option>
+                    <option value="9">(UTC+09) Tokyo, Seoul, Osaka</option>
+                    <option value="10">(UTC+10) Sydney, Melbourne, Brisbane</option>
+                    <option value="11">(UTC+11) Solomon Islands, New Caledonia</option>
+                    <option value="12">(UTC+12) Auckland, Wellington, Fiji</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateTime()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Result</h2>
+            <div class="result-time" id="result-time"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>About Time Zones</h2>
+            <p>A time zone is a region on Earth that uses a uniform standard time. Time zones are generally based on the mean solar time of a particular meridian located in the middle of that zone. Most time zones are exactly one hour apart, and by convention compute their local time as an offset from UTC (Coordinated Universal Time).</p>
+            
+            <p>Time zones are usually defined by the boundaries of countries and their subdivisions rather than strictly by longitude, because it is convenient for areas in frequent communication to keep the same time. Many time zones are adjusted by one hour during summer time (also known as "daylight saving time").</p>
+            
+            <p><strong>Note:</strong> This calculator does not account for daylight saving time (DST). The times shown are based on standard time zones only.</p>
+        </div>
+    </div>
+
+    <script>
+        // Set default date and time to current
+        window.onload = function() {
+            const now = new Date();
+            document.getElementById('date').valueAsDate = now;
+            document.getElementById('time').value = now.toTimeString().substring(0,8);
+        }
+
+        function calculateTime() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const fromZone = parseFloat(document.getElementById('fromZone').value);
+            const toZone = parseFloat(document.getElementById('toZone').value);
+
+            if (!date || !time) {
+                alert('Please enter both date and time.');
+                return;
+            }
+
+            // Create Date object from input
+            const [hours, minutes, seconds] = time.split(':').map(Number);
+            const dateObj = new Date(date);
+            dateObj.setHours(hours, minutes, seconds || 0);
+
+            // Convert to target timezone
+            const utc = dateObj.getTime() + (dateObj.getTimezoneOffset() * 60000);
+            const fromTime = utc + (3600000 * fromZone);
+            const toTime = utc + (3600000 * toZone);
+
+            const resultDate = new Date(toTime);
+
+            // Format the result with explicit English weekday
+            const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const weekday = weekdays[resultDate.getDay()];
+            const month = months[resultDate.getMonth()];
+            const day = resultDate.getDate();
+            const year = resultDate.getFullYear();
+            const hour = resultDate.getHours() % 12 || 12;
+            const minute = resultDate.getMinutes().toString().padStart(2, '0');
+            const second = resultDate.getSeconds().toString().padStart(2, '0');
+            const ampm = resultDate.getHours() >= 12 ? 'PM' : 'AM';
+
+            const formattedDate = `${weekday}, ${month} ${day}, ${year} ${hour}:${minute}:${second} ${ampm}`;
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('result-time').textContent = formattedDate;
+        }
+
+        function clearInputs() {
+            document.getElementById('date').value = '';
+            document.getElementById('time').value = '';
+            document.getElementById('fromZone').selectedIndex = 0;
+            document.getElementById('toZone').selectedIndex = 0;
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
