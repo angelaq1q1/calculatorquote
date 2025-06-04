@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Calculator - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input-section {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .input-row select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: white;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-calculate:hover {
+            background-color: #388E3C;
+        }
+
+        .btn-clear {
+            background-color: #9E9E9E;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #757575;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .tab.active {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .calculator-title {
+            font-size: 24px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 0 8px 12px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-section {
+                flex-direction: column;
+            }
+
+            .image-section {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/calculatorquote/index.html">Home</a>
+            <span>/</span>
+            <a href="/calculatorquote/index.html#other">Other</a>
+            <span>/</span>
+            Roofing Calculator
+        </div>
+
+        <h1 class="calculator-title">Roofing Area Calculator</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('pitch')">Roof Pitch</button>
+            <button class="tab" onclick="switchTab('angle')">Roof Angle</button>
+        </div>
+
+        <div class="calculator-section">
+            <div class="input-section">
+                <!-- Pitch Input Section -->
+                <div id="pitchInputs">
+                    <div class="input-group">
+                        <label>House Base Area</label>
+                        <div class="input-row">
+                            <input type="number" id="baseArea" min="0" step="0.01" value="200">
+                            <select id="baseAreaUnit">
+                                <option value="sqm">square meters</option>
+                                <option value="sqft">square feet</option>
+                                <option value="sqyd">square yards</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Roof Pitch</label>
+                        <div class="input-row">
+                            <select id="roofPitch">
+                                <option value="6">6/12</option>
+                                <option value="1">1/12</option>
+                                <option value="2">2/12</option>
+                                <option value="3">3/12</option>
+                                <option value="4">4/12</option>
+                                <option value="5">5/12</option>
+                                <option value="7">7/12</option>
+                                <option value="8">8/12</option>
+                                <option value="9">9/12</option>
+                                <option value="10">10/12</option>
+                                <option value="11">11/12</option>
+                                <option value="12">12/12</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Angle Input Section -->
+                <div id="angleInputs" style="display: none;">
+                    <div class="input-group">
+                        <label>House Base Area</label>
+                        <div class="input-row">
+                            <input type="number" id="baseAreaAngle" min="0" step="0.01" value="200">
+                            <select id="baseAreaUnitAngle">
+                                <option value="sqm">square meters</option>
+                                <option value="sqft">square feet</option>
+                                <option value="sqyd">square yards</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Roof Angle (degrees)</label>
+                        <div class="input-row">
+                            <input type="number" id="roofAngle" min="0" max="90" step="0.1" value="26.6">
+                            <span style="padding: 8px;">°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Eaves Stick Out</label>
+                    <div class="input-row">
+                        <input type="number" id="eavesLength" min="0" step="0.01" value="0.5">
+                        <select id="eavesUnit">
+                            <option value="m">meters</option>
+                            <option value="ft">feet</option>
+                            <option value="yd">yards</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Price (optional)</label>
+                    <div class="input-row">
+                        <input type="text" id="price" placeholder="$">
+                        <select id="priceUnit">
+                            <option value="sqm">per square meter</option>
+                            <option value="sqft">per square foot</option>
+                            <option value="sqyd">per square yard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateRoof()">
+                        Calculate
+                        <div class="play-icon"></div>
+                    </button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                </div>
+            </div>
+
+            <div class="image-section">
+                <svg viewBox="0 0 400 300" style="width: 100%; height: auto;">
+                    <!-- House outline -->
+                    <defs>
+                        <linearGradient id="roofGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#2196F3;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#64B5F6;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="wallGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ECEFF1;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#CFD8DC;stop-opacity:0.9" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- House walls -->
+                    <path d="M80 150 L80 250 L320 250 L320 150" 
+                          fill="url(#wallGradient)" stroke="#546E7A" stroke-width="2"/>
+                    
+                    <!-- Roof -->
+                    <path d="M60 150 L200 70 L340 150" 
+                          fill="url(#roofGradient)" stroke="#1565C0" stroke-width="2"/>
+                    
+                    <!-- Eaves -->
+                    <line x1="60" y1="150" x2="80" y2="150" 
+                          stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
+                    <line x1="320" y1="150" x2="340" y2="150" 
+                          stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
+                    
+                    <!-- Rise and Run measurements -->
+                    <line x1="200" y1="70" x2="200" y2="150" 
+                          stroke="#FF5722" stroke-width="2"/>
+                    <text x="185" y="110" fill="#FF5722" font-size="14">rise</text>
+                    
+                    <line x1="200" y1="150" x2="270" y2="150" 
+                          stroke="#FF5722" stroke-width="2"/>
+                    <text x="225" y="165" fill="#FF5722" font-size="14">run</text>
+                    
+                    <!-- Formula box -->
+                    <rect x="280" y="80" width="110" height="50" 
+                          fill="white" stroke="#FF5722" stroke-width="1" rx="5"/>
+                    <text x="290" y="110" fill="#FF5722" font-size="14" font-weight="bold">pitch = rise/run</text>
+                    
+                    <!-- Labels -->
+                    <text x="30" y="145" fill="#1565C0" font-size="12">eaves</text>
+                    <text x="340" y="145" fill="#1565C0" font-size="12">eaves</text>
+                    <text x="180" y="60" fill="#1565C0" font-size="14">roof</text>
+                    <text x="190" y="270" fill="#546E7A" font-size="14">base area</text>
+                    
+                    <!-- Dimensions -->
+                    <line x1="80" y1="260" x2="320" y2="260" 
+                          stroke="#90A4AE" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+                                markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#90A4AE"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Results</h2>
+            <div class="result-value" id="roofArea"></div>
+            <div class="result-value" id="totalCost"></div>
+        </div>
+
+        <h1 class="calculator-title">Roofing Material Calculator</h1>
+        <div class="calculator-section">
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Roof Area</label>
+                    <div class="input-row">
+                        <input type="number" id="materialArea" min="0" step="0.01" value="200">
+                        <select id="materialAreaUnit">
+                            <option value="sqm">square meters</option>
+                            <option value="sqft">square feet</option>
+                            <option value="sqyd">square yards</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateMaterials()">
+                        Calculate
+                        <div class="play-icon"></div>
+                    </button>
+                    <button class="btn-clear" onclick="clearMaterialInputs()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctionFactors = {
+            1: 1.003, 2: 1.014, 3: 1.031, 4: 1.054,
+            5: 1.083, 6: 1.118, 7: 1.158, 8: 1.202,
+            9: 1.250, 10: 1.302, 11: 1.357, 12: 1.414
+        };
+
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.tab:nth-child(${tab === 'pitch' ? '1' : '2'})`);
+            activeTab.classList.add('active');
+            
+            // Show/hide appropriate input sections
+            const pitchInputs = document.getElementById('pitchInputs');
+            const angleInputs = document.getElementById('angleInputs');
+            
+            if (tab === 'angle') {
+                pitchInputs.style.display = 'none';
+                angleInputs.style.display = 'block';
+                // Convert pitch to angle
+                const pitch = document.getElementById('roofPitch').value;
+                const angle = Math.atan(pitch/12) * (180/Math.PI);
+                document.getElementById('roofAngle').value = angle.toFixed(1);
+                // Copy base area value
+                document.getElementById('baseAreaAngle').value = document.getElementById('baseArea').value;
+                document.getElementById('baseAreaUnitAngle').value = document.getElementById('baseAreaUnit').value;
+            } else {
+                pitchInputs.style.display = 'block';
+                angleInputs.style.display = 'none';
+                // Convert angle to pitch
+                const angle = parseFloat(document.getElementById('roofAngle').value);
+                const pitch = Math.tan(angle * (Math.PI/180)) * 12;
+                document.getElementById('roofPitch').value = Math.round(pitch) || 6;
+                // Copy base area value
+                document.getElementById('baseArea').value = document.getElementById('baseAreaAngle').value;
+                document.getElementById('baseAreaUnit').value = document.getElementById('baseAreaUnitAngle').value;
+            }
+        }
+
+        function calculateRoof() {
+            let baseArea, angle;
+            const isAngleMode = document.querySelector('.tab:nth-child(2)').classList.contains('active');
+            
+            if (isAngleMode) {
+                baseArea = parseFloat(document.getElementById('baseAreaAngle').value);
+                angle = parseFloat(document.getElementById('roofAngle').value);
+                // Convert angle to pitch for calculation
+                const pitch = Math.tan(angle * (Math.PI/180)) * 12;
+                document.getElementById('roofPitch').value = Math.round(pitch);
+            } else {
+                baseArea = parseFloat(document.getElementById('baseArea').value);
+                const pitch = parseInt(document.getElementById('roofPitch').value);
+                angle = Math.atan(pitch/12) * (180/Math.PI);
+            }
+
+            const eaves = parseFloat(document.getElementById('eavesLength').value) || 0;
+            const price = parseFloat(document.getElementById('price').value) || 0;
+
+            if (isNaN(baseArea)) {
+                alert('Please enter a valid base area');
+                return;
+            }
+
+            // Convert all measurements to square meters for calculation
+            const baseAreaUnit = isAngleMode ? 
+                document.getElementById('baseAreaUnitAngle').value : 
+                document.getElementById('baseAreaUnit').value;
+            const eavesUnit = document.getElementById('eavesUnit').value;
+            
+            let convertedBaseArea = convertToSqM(baseArea, baseAreaUnit);
+            let convertedEaves = convertToM(eaves, eavesUnit);
+
+            // Calculate additional area from eaves
+            const housePerimeter = Math.sqrt(convertedBaseArea) * 4;
+            const eavesArea = housePerimeter * convertedEaves;
+            
+            // Calculate total roof area with angle correction
+            const totalBaseArea = convertedBaseArea + eavesArea;
+            const correctionFactor = 1 / Math.cos(angle * (Math.PI/180));
+            const roofArea = totalBaseArea * correctionFactor;
+
+            // Calculate cost if price is provided
+            let costText = '';
+            if (price > 0) {
+                const priceUnit = document.getElementById('priceUnit').value;
+                const pricePerSqM = convertPriceToSqM(price, priceUnit);
+                const totalCost = roofArea * pricePerSqM;
+                costText = `Estimated Cost: $${Math.round(totalCost)}`;
+            }
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('roofArea').textContent = `Total Roof Area: ${Math.round(roofArea)} square meters`;
+            document.getElementById('totalCost').textContent = costText;
+
+            // Update material calculator
+            document.getElementById('materialArea').value = Math.round(roofArea);
+        }
+
+        function calculateMaterials() {
+            const area = parseFloat(document.getElementById('materialArea').value);
+            const unit = document.getElementById('materialAreaUnit').value;
+            
+            if (isNaN(area)) {
+                alert('Please enter a valid roof area');
+                return;
+            }
+
+            // Convert to square meters
+            const areaInSqM = convertToSqM(area, unit);
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('roofArea').textContent = `Total Material Area Needed: ${Math.round(areaInSqM)} square meters`;
+            document.getElementById('totalCost').textContent = '';
+        }
+
+        function convertToSqM(value, unit) {
+            switch(unit) {
+                case 'sqm': return value;
+                case 'sqft': return value * 0.092903;
+                case 'sqyd': return value * 0.836127;
+                default: return value;
+            }
+        }
+
+        function convertToM(value, unit) {
+            switch(unit) {
+                case 'm': return value;
+                case 'ft': return value * 0.3048;
+                case 'yd': return value * 0.9144;
+                default: return value;
+            }
+        }
+
+        function convertPriceToSqM(price, unit) {
+            switch(unit) {
+                case 'sqm': return price;
+                case 'sqft': return price * 10.7639;
+                case 'sqyd': return price * 9;
+                default: return price;
+            }
+        }
+
+        function clearInputs() {
+            const isAngleMode = document.querySelector('.tab:nth-child(2)').classList.contains('active');
+            if (isAngleMode) {
+                document.getElementById('baseAreaAngle').value = '200';
+                document.getElementById('roofAngle').value = '26.6';
+            } else {
+                document.getElementById('baseArea').value = '200';
+                document.getElementById('roofPitch').value = '6';
+            }
+            document.getElementById('eavesLength').value = '0.5';
+            document.getElementById('price').value = '';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function clearMaterialInputs() {
+            document.getElementById('materialArea').value = '200';
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
