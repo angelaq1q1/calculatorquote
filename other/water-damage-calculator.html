@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate water damage repair costs with our free calculator. Get instant estimates based on area size, damage type, and required services. Includes mold remediation and reconstruction costs.">
+    <meta name="keywords" content="water damage calculator, water damage cost, flood damage estimate, water restoration cost">
+    <title>Water Damage Cost Calculator – Estimate Your Repair Costs | Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .input-row select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: white;
+        }
+
+        .checkbox-group {
+            margin-top: 15px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .damage-type {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .input-row input,
+            .input-row select {
+                width: 100%;
+            }
+        }
+
+        .cta-section {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-quote, .btn-call {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-quote {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .btn-call {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .faq-item h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+
+        .related-links {
+            margin-top: 30px;
+        }
+
+        .related-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-links a {
+            color: #2196F3;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .related-links a:hover {
+            color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html#other">Home</a>
+            <span>/</span>
+            <a href="../index.html#other">Other</a>
+            <span>/</span>
+            Water Damage Calculator
+        </div>
+
+        <h1>Water Damage Cost Calculator – Estimate Your Repair Costs</h1>
+        
+        <div class="description">
+            Use this calculator to estimate the cost of water damage repair and restoration for your property. Our comprehensive tool considers factors like affected area size, damage severity, material types, and additional services like mold remediation. Get an instant estimate to help plan your budget and make informed decisions about repairs.
+        </div>
+
+        <div class="calculator-section">
+            <div class="input-group">
+                <label>Affected Area Size</label>
+                <div class="input-row">
+                    <input type="number" id="area" min="0" step="0.01" placeholder="Enter size">
+                    <select id="areaUnit">
+                        <option value="sqft">Square Feet</option>
+                        <option value="sqm">Square Meters</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Damage Level</label>
+                <div class="input-row">
+                    <select id="damageLevel">
+                        <option value="1">Level 1 - Minor (Slight moisture)</option>
+                        <option value="2">Level 2 - Moderate (Significant water damage)</option>
+                        <option value="3">Level 3 - Severe (Structural damage)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Material Type</label>
+                <div class="input-row">
+                    <select id="materialType">
+                        <option value="hardwood">Hardwood Floor</option>
+                        <option value="carpet">Carpet</option>
+                        <option value="concrete">Concrete</option>
+                        <option value="drywall">Drywall</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Drying Equipment Days</label>
+                <div class="input-row">
+                    <input type="number" id="dryingDays" min="0" step="1" placeholder="Number of days">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="hasMold"> Mold Present (Requires Removal)
+                </label>
+                <label>
+                    <input type="checkbox" id="needsDemolition"> Requires Demolition & Reconstruction
+                </label>
+                <label>
+                    <input type="checkbox" id="hasInsurance"> Insurance Claim
+                </label>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateDamage()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Cost Breakdown</h2>
+            <div class="result-value" id="baseCost"></div>
+            <div class="result-value" id="areaCost"></div>
+            <div class="result-value" id="moldCost"></div>
+            <div class="result-value" id="demolitionCost"></div>
+            <div class="result-value" id="totalCost"></div>
+            <div class="result-note" id="insuranceNote"></div>
+            
+            <div class="cta-section">
+                <h3>Need Professional Help?</h3>
+                <p>Get immediate assistance from licensed water damage restoration experts in your area.</p>
+                <a href="#quote-form" class="btn-quote">Get Free Quotes</a>
+                <a href="tel:1-800-000-0000" class="btn-call">Call Now: 1-800-000-0000</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding Water Damage Costs</h2>
+
+            <div class="damage-type">
+                <h3>What Affects Water Damage Repair Costs?</h3>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Affected Area Size (sq ft)</li>
+                    <li>Damage Level (1-3)</li>
+                    <li>Material Type</li>
+                    <li>Drying Equipment Usage</li>
+                    <li>Mold Presence</li>
+                    <li>Demolition & Reconstruction Needs</li>
+                    <li>Insurance Coverage</li>
+                </ul>
+            </div>
+
+            <div class="damage-type">
+                <h3>Average Water Damage Repair Costs</h3>
+                <p>Water damage restoration typically costs between $2,000 and $5,000, with the national average being around $3,000. However, costs can range from $1,000 for minor issues to over $10,000 for severe cases involving structural damage.</p>
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>How quickly should water damage be addressed?</h3>
+                    <p>Water damage should be addressed within 24-48 hours to prevent mold growth and structural issues. Immediate action can significantly reduce repair costs and prevent secondary damage.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does homeowners insurance cover water damage?</h3>
+                    <p>Most homeowners insurance policies cover sudden and accidental water damage, but not damage from gradual leaks or flooding. Check your policy details and contact your insurance provider for specific coverage information.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What are signs of water damage?</h3>
+                    <p>Common signs include water stains, musty odors, warped materials, peeling paint/wallpaper, and visible mold growth. Early detection can help minimize repair costs.</p>
+                </div>
+            </div>
+
+            <div class="related-links">
+                <h3>Related Resources</h3>
+                <ul>
+                    <li><a href="../flood-damage-calculator.html">Flood Damage Calculator</a></li>
+                    <li><a href="../mold-remediation-calculator.html">Mold Remediation Cost Calculator</a></li>
+                    <li><a href="../home-repair-calculator.html">Home Repair Cost Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateDamage() {
+            // Get input values
+            const area = parseFloat(document.getElementById('area').value);
+            const areaUnit = document.getElementById('areaUnit').value;
+            const damageLevel = parseInt(document.getElementById('damageLevel').value);
+            const materialType = document.getElementById('materialType').value;
+            const dryingDays = parseInt(document.getElementById('dryingDays').value) || 0;
+            const hasMold = document.getElementById('hasMold').checked;
+            const needsDemolition = document.getElementById('needsDemolition').checked;
+            const hasInsurance = document.getElementById('hasInsurance').checked;
+
+            if (!area || area <= 0) {
+                alert('Please enter a valid area size.');
+                return;
+            }
+
+            // Convert area to square feet if necessary
+            const areaInSqFt = areaUnit === 'sqm' ? area * 10.764 : area;
+
+            // Calculate base cost
+            const baseCost = 250;
+
+            // Calculate area cost based on damage level and material type
+            let areaCostPerSqFt = 6; // Default middle value
+            
+            // Adjust cost per square foot based on damage level
+            switch(damageLevel) {
+                case 1: areaCostPerSqFt *= 0.8; break;  // 20% less for minor damage
+                case 2: areaCostPerSqFt *= 1.0; break;  // Standard rate
+                case 3: areaCostPerSqFt *= 1.3; break;  // 30% more for severe damage
+            }
+
+            // Adjust for material type
+            const materialMultiplier = {
+                'hardwood': 1.2,
+                'carpet': 0.8,
+                'concrete': 1.0,
+                'drywall': 0.9
+            };
+            areaCostPerSqFt *= materialMultiplier[materialType];
+
+            // Calculate area cost
+            const areaCost = areaInSqFt * areaCostPerSqFt;
+
+            // Calculate mold remediation cost
+            const moldCost = hasMold ? 500 : 0;
+
+            // Calculate demolition and reconstruction cost
+            const demolitionCost = needsDemolition ? (areaInSqFt * 15) : 0;
+
+            // Add drying equipment cost ($50 per day)
+            const dryingCost = dryingDays * 50;
+
+            // Calculate total cost
+            const totalCost = baseCost + areaCost + moldCost + demolitionCost + dryingCost;
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('baseCost').textContent = `Base Service Cost: $${Math.round(baseCost).toLocaleString()}`;
+            document.getElementById('areaCost').textContent = `Area Treatment Cost: $${Math.round(areaCost).toLocaleString()} (${Math.round(areaCostPerSqFt)} per sq ft)`;
+            if (hasMold) {
+                document.getElementById('moldCost').textContent = `Mold Remediation Cost: $${Math.round(moldCost).toLocaleString()}`;
+            } else {
+                document.getElementById('moldCost').textContent = '';
+            }
+            if (needsDemolition) {
+                document.getElementById('demolitionCost').textContent = `Demolition & Reconstruction Cost: $${Math.round(demolitionCost).toLocaleString()}`;
+            } else {
+                document.getElementById('demolitionCost').textContent = '';
+            }
+            document.getElementById('totalCost').textContent = `Total Estimated Cost: $${Math.round(totalCost).toLocaleString()}`;
+            
+            if (hasInsurance) {
+                document.getElementById('insuranceNote').textContent = 'Note: Final costs may vary based on insurance coverage and policy terms.';
+            } else {
+                document.getElementById('insuranceNote').textContent = '';
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById('area').value = '';
+            document.getElementById('areaUnit').value = 'sqft';
+            document.getElementById('damageLevel').value = '1';
+            document.getElementById('materialType').value = 'hardwood';
+            document.getElementById('dryingDays').value = '';
+            document.getElementById('hasMold').checked = false;
+            document.getElementById('needsDemolition').checked = false;
+            document.getElementById('hasInsurance').checked = false;
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Water Damage Cost Calculator",
+      "description": "Calculate the estimated cost of water damage restoration based on area size, damage type, and required services.",
+      "url": "https://calculatorquote.com/other/water-damage-calculator.html",
+      "applicationCategory": "Calculator",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How quickly should water damage be addressed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Water damage should be addressed within 24-48 hours to prevent mold growth and structural issues. Immediate action can significantly reduce repair costs and prevent secondary damage."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does homeowners insurance cover water damage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most homeowners insurance policies cover sudden and accidental water damage, but not damage from gradual leaks or flooding. Check your policy details and contact your insurance provider for specific coverage information."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What are signs of water damage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common signs include water stains, musty odors, warped materials, peeling paint/wallpaper, and visible mold growth. Early detection can help minimize repair costs."
+        }
+      }]
+    }
+    </script>
+</body>
+</html> 
