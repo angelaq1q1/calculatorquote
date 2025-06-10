@@ -4,95 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator Tools - Free Online Calculators</title>
-    <meta name="description" content="Free online calculators for math, finance, health, and more. Simple and powerful tools for your daily calculations.">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* 隐藏所有可能的问号图标 */
-        [title]:after,
-        [data-title]:after,
-        [data-tooltip]:after,
-        .tooltip:after,
-        .has-tooltip:after,
-        label:after,
-        label:before,
-        *:after,
-        *:before {
-            content: none !important;
-        }
-
         body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
             background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-        }
-
-        .header {
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .header-text {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .header h1 {
+        h1 {
+            font-size: 2.5em;
             color: #333;
             margin-bottom: 10px;
-            font-size: 2em;
+            font-weight: 500;
         }
 
-        .header p {
+        .subtitle {
             color: #666;
             font-size: 1.2em;
+            margin-bottom: 50px;
         }
 
-        /* Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        /* Card Styles */
-        .card {
+        .category {
             background: white;
             border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(33, 150, 243, 0.2);
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .category-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #2196F3;
-            white-space: nowrap;
+            font-size: 1.5em;
         }
 
         .category-header .material-icons {
@@ -100,149 +61,110 @@
             font-size: 24px;
         }
 
-        .category-header h2 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        /* Tool List Styles */
-        .tool-list {
+        .calculator-list {
             list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
         }
 
-        .tool-item {
+        .calculator-item {
             padding: 12px 0;
             border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: color 0.3s;
-            font-size: 1.1em;
         }
 
-        .tool-item:last-child {
+        .calculator-item:last-child {
             border-bottom: none;
         }
 
-        .tool-item:hover {
+        .calculator-item a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.1em;
+        }
+
+        .calculator-item a:hover {
             color: #2196F3;
         }
 
-        .tool-item a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .category-header h2 {
-                font-size: 1.2rem;
-            }
-
-            .category-header .material-icons {
-                font-size: 20px;
-            }
-
-            .card {
+            
+            body {
                 padding: 20px;
             }
-            
-            .logo {
-                max-width: 260px;
-            }
-        }
-
-        .coming-soon {
-            color: #999;
-            cursor: default;
-            pointer-events: none;
-        }
-        
-        .tool-item a.coming-soon:hover {
-            color: #999;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="header-text">
-                <h1>Free Online Calculators</h1>
-                <p>Simple and powerful calculators for your daily needs</p>
-            </div>
-        </div>
+        <h1>Free Online Calculators</h1>
+        <div class="subtitle">Simple and powerful calculators for your daily needs</div>
 
-        <!-- Main Grid Section -->
         <div class="grid">
             <!-- Math Calculators -->
-            <div class="card" data-category="math">
+            <div class="category">
                 <div class="category-header">
                     <span class="material-icons">functions</span>
-                    <h2>Math Calculators</h2>
+                    Math Calculators
                 </div>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="math/basic-calculator.html">Basic Calculator</a></li>
-                    <li class="tool-item"><a href="math/scientific-calculator.html">Scientific Calculator</a></li>
-                    <li class="tool-item"><a href="math/fraction-calculator.html">Fraction Calculator</a></li>
-                    <li class="tool-item"><a href="math/statistics-calculator.html">Statistics Calculator</a></li>
-                    <li class="tool-item"><a href="math/matrix-calculator.html">Matrix Calculator</a></li>
-                    <li class="tool-item"><a href="math/unit-converter.html">Unit Converter</a></li>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="math/basic-calculator.html">Basic Calculator</a></li>
+                    <li class="calculator-item"><a href="math/scientific-calculator.html">Scientific Calculator</a></li>
+                    <li class="calculator-item"><a href="math/fraction-calculator.html">Fraction Calculator</a></li>
+                    <li class="calculator-item"><a href="math/statistics-calculator.html">Statistics Calculator</a></li>
+                    <li class="calculator-item"><a href="math/matrix-calculator.html">Matrix Calculator</a></li>
+                    <li class="calculator-item"><a href="math/unit-converter.html">Unit Converter</a></li>
                 </ul>
             </div>
 
-            <!-- Financial Tools -->
-            <div class="card" data-category="financial">
+            <!-- Financial Calculators -->
+            <div class="category">
                 <div class="category-header">
                     <span class="material-icons">account_balance</span>
-                    <h2>Financial Calculators</h2>
+                    Financial Calculators
                 </div>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="financial/mortgage-calculator.html">Mortgage Calculator</a></li>
-                    <li class="tool-item"><a href="financial/currency-converter.html">Currency Converter</a></li>
-                    <li class="tool-item"><a href="financial/investment-calculator.html">Investment Calculator</a></li>
-                    <li class="tool-item"><a href="financial/loan-calculator.html">Loan Calculator</a></li>
-                    <li class="tool-item"><a href="financial/compound-interest.html">Compound Interest</a></li>
-                    <li class="tool-item"><a href="financial/income-tax-calculator.html">Income Tax Calculator</a></li>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="financial/mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li class="calculator-item"><a href="financial/currency-converter.html">Currency Converter</a></li>
+                    <li class="calculator-item"><a href="financial/investment-calculator.html">Investment Calculator</a></li>
+                    <li class="calculator-item"><a href="financial/loan-calculator.html">Loan Calculator</a></li>
+                    <li class="calculator-item"><a href="financial/compound-interest.html">Compound Interest</a></li>
+                    <li class="calculator-item"><a href="financial/income-tax-calculator.html">Income Tax Calculator</a></li>
                 </ul>
             </div>
 
             <!-- Health Calculators -->
-            <div class="card" data-category="health">
+            <div class="category">
                 <div class="category-header">
                     <span class="material-icons">fitness_center</span>
-                    <h2>Health Calculators</h2>
+                    Health Calculators
                 </div>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="health/bmi-calculator.html">BMI Calculator</a></li>
-                    <li class="tool-item"><a href="health/calorie-calculator.html">Calorie Calculator</a></li>
-                    <li class="tool-item"><a href="health/body-fat-calculator.html">Body Fat Calculator</a></li>
-                    <li class="tool-item"><a href="health/ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
-                    <li class="tool-item"><a href="health/pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="health/bmi-calculator.html">BMI Calculator</a></li>
+                    <li class="calculator-item"><a href="health/calorie-calculator.html">Calorie Calculator</a></li>
+                    <li class="calculator-item"><a href="health/body-fat-calculator.html">Body Fat Calculator</a></li>
+                    <li class="calculator-item"><a href="health/ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
+                    <li class="calculator-item"><a href="health/pregnancy-calculator.html">Pregnancy Calculator</a></li>
                 </ul>
             </div>
 
-            <!-- Other Tools -->
-            <div class="card" data-category="other" id="other">
+            <!-- Other Calculators -->
+            <div class="category">
                 <div class="category-header">
                     <span class="material-icons">build</span>
-                    <h2>Other Calculators</h2>
+                    Other Calculators
                 </div>
-                <ul class="tool-list">
-                    <li class="tool-item"><a href="other/water-damage-calculator.html#other">Water Damage Calculator</a></li>
-                    <li class="tool-item"><a href="other/date-calculator.html#other">Date Calculator</a></li>
-                    <li class="tool-item"><a href="other/time-zone-calculator.html#other">Time Zone Calculator</a></li>
-                    <li class="tool-item"><a href="other/random-number-generator.html#other">Random Number Generator</a></li>
-                    <li class="tool-item"><a href="other/percentage-calculator.html#other">Percentage Calculator</a></li>
-                    <li class="tool-item"><a href="other/roofing-calculator.html#other">Roofing Calculator</a></li>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="other/water-damage-calculator.html">Water Damage Calculator</a></li>
+                    <li class="calculator-item"><a href="other/date-calculator.html">Date Calculator</a></li>
+                    <li class="calculator-item"><a href="other/time-zone-calculator.html">Time Zone Calculator</a></li>
+                    <li class="calculator-item"><a href="other/random-number-generator.html">Random Number Generator</a></li>
+                    <li class="calculator-item"><a href="other/percentage-calculator.html">Percentage Calculator</a></li>
+                    <li class="calculator-item"><a href="other/roofing-calculator.html">Roofing Calculator</a></li>
                 </ul>
             </div>
         </div>
