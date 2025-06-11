@@ -1,1 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Debt Calculator - CalculatorQuote</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-hover: #1976D2;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --danger-color: #dc2626;
+            --background-color: #f5f5f5;
+            --border-color: #e2e8f0;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(33, 150, 243, 0.15);
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-hover);
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .input-help {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.9em;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .calculate-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 1.1em;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 20px 0;
+        }
+
+        .calculate-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .results {
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(33, 150, 243, 0.2);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item strong {
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 1em;
+        }
+
+        .result-item span {
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 1em;
+        }
+
+        .payment-schedule {
+            margin-top: 30px;
+        }
+
+        .payment-schedule h3 {
+            color: var(--text-primary);
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .payment-schedule table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .payment-schedule th {
+            background-color: #e3f2fd;
+            font-weight: 500;
+            font-size: 0.9em;
+            color: var(--text-primary);
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .payment-schedule td {
+            padding: 12px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .payment-schedule tr:last-child td {
+            border-bottom: none;
+        }
+
+        .payment-schedule tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .calculator-container {
+                margin: 10px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .info-text {
+                font-size: 1.1em;
+            }
+
+            .result-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .payment-schedule th,
+            .payment-schedule td {
+                padding: 10px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../index.html">Health</a>
+            <span>/</span>
+            Medical Debt Calculator
+        </div>
+        <h1>Medical Debt Calculator</h1>
+        <p class="info-text">Calculate your medical debt payments and create a detailed repayment plan.</p>
+
+        <form id="debtCalculator" onsubmit="return false;">
+            <div class="input-group">
+                <label for="totalDebt">Total Medical Debt ($)</label>
+                <input type="number" id="totalDebt" required min="0" step="0.01" placeholder="Enter total debt amount">
+                <div id="totalDebtError" class="error-message"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="monthlyPayment">Monthly Payment ($)</label>
+                <input type="number" id="monthlyPayment" required min="0" step="0.01" placeholder="Enter monthly payment amount">
+                <div id="monthlyPaymentError" class="error-message"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="interestRate">Annual Interest Rate (%)</label>
+                <input type="number" id="interestRate" required min="0" step="0.01" value="0" placeholder="Enter annual interest rate">
+                <p class="input-help">Enter 0 if you have an interest-free payment plan.</p>
+                <div id="interestRateError" class="error-message"></div>
+            </div>
+
+            <button type="button" class="calculate-btn" onclick="calculateDebt()">Calculate Payment Plan</button>
+
+            <div class="results" id="results">
+                <div class="result-item">
+                    <strong>Payoff Time</strong>
+                    <span id="payoffTime">-</span>
+                </div>
+                <div class="result-item">
+                    <strong>Total Interest</strong>
+                    <span id="totalInterest">-</span>
+                </div>
+                <div class="result-item">
+                    <strong>Total Amount to be Paid</strong>
+                    <span id="totalAmount">-</span>
+                </div>
+                <div class="result-item">
+                    <strong>Estimated Payoff Date</strong>
+                    <span id="payoffDate">-</span>
+                </div>
+            </div>
+
+            <div class="payment-schedule" id="paymentSchedule">
+                <!-- Payment schedule table will be inserted here -->
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function calculateDebt() {
+            // Clear previous error messages
+            clearErrors();
+
+            // Get input values
+            const totalDebt = parseFloat(document.getElementById('totalDebt').value);
+            const monthlyPayment = parseFloat(document.getElementById('monthlyPayment').value);
+            const annualInterestRate = parseFloat(document.getElementById('interestRate').value);
+
+            // Input validation
+            if (!validateInputs(totalDebt, monthlyPayment, annualInterestRate)) {
+                return;
+            }
+
+            // Calculate monthly interest rate
+            const monthlyInterestRate = annualInterestRate / 100 / 12;
+
+            let numberOfPayments;
+            let totalInterest;
+            let totalAmount;
+
+            if (annualInterestRate === 0) {
+                // Calculation for interest-free case
+                numberOfPayments = Math.ceil(totalDebt / monthlyPayment);
+                totalInterest = 0;
+                totalAmount = totalDebt;
+            } else {
+                // Calculation for case with interest
+                // Using formula: n = log(P/(P-r*D))/log(1+r)
+                const P = monthlyPayment;
+                const D = totalDebt;
+                const r = monthlyInterestRate;
+
+                // Check if monthly payment is sufficient to cover interest
+                const minimumPayment = totalDebt * monthlyInterestRate;
+                if (monthlyPayment <= minimumPayment) {
+                    showError('monthlyPaymentError', 'Monthly payment is too low to cover the interest. Minimum required: $' + minimumPayment.toFixed(2));
+                    return;
+                }
+
+                // Calculate number of payments
+                const numerator = P;
+                const denominator = P - r * D;
+                numberOfPayments = Math.ceil(Math.log(numerator / denominator) / Math.log(1 + r));
+
+                // Calculate actual total payment and total interest
+                let remainingDebt = totalDebt;
+                totalInterest = 0;
+                
+                for (let i = 0; i < numberOfPayments; i++) {
+                    const interestPayment = remainingDebt * monthlyInterestRate;
+                    const principalPayment = Math.min(monthlyPayment - interestPayment, remainingDebt);
+                    
+                    totalInterest += interestPayment;
+                    remainingDebt -= principalPayment;
+
+                    if (remainingDebt <= 0.01) { // Account for floating point precision
+                        break;
+                    }
+                }
+            }
+
+            totalAmount = totalDebt + totalInterest;
+
+            // Calculate payoff date
+            const today = new Date();
+            const payoffDate = new Date(today.setMonth(today.getMonth() + numberOfPayments));
+
+            // Update results display
+            document.getElementById('payoffTime').textContent = 
+                `${numberOfPayments} months (${Math.floor(numberOfPayments / 12)} years and ${numberOfPayments % 12} months)`;
+            document.getElementById('totalInterest').textContent = 
+                `$${totalInterest.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = 
+                `$${totalAmount.toFixed(2)}`;
+            document.getElementById('payoffDate').textContent = 
+                payoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+
+            // Generate payment schedule table
+            generatePaymentSchedule(totalDebt, monthlyPayment, monthlyInterestRate, numberOfPayments);
+        }
+
+        function validateInputs(totalDebt, monthlyPayment, annualInterestRate) {
+            let isValid = true;
+
+            if (isNaN(totalDebt) || totalDebt <= 0) {
+                showError('totalDebtError', 'Please enter a valid debt amount');
+                isValid = false;
+            }
+
+            if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
+                showError('monthlyPaymentError', 'Please enter a valid monthly payment amount');
+                isValid = false;
+            }
+
+            if (isNaN(annualInterestRate) || annualInterestRate < 0) {
+                showError('interestRateError', 'Please enter a valid interest rate');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function clearErrors() {
+            const errorElements = document.getElementsByClassName('error-message');
+            for (let element of errorElements) {
+                element.style.display = 'none';
+            }
+        }
+
+        function generatePaymentSchedule(totalDebt, monthlyPayment, monthlyInterestRate, numberOfPayments) {
+            const scheduleDiv = document.getElementById('paymentSchedule');
+            let tableHTML = `
+                <h3>Payment Schedule</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Payment #</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Payment</th>
+                            <th>Remaining Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let remainingDebt = totalDebt;
+            let displayedPayments = Math.min(numberOfPayments, 24); // Only show first 24 months
+
+            for (let i = 0; i < displayedPayments; i++) {
+                const interestPayment = remainingDebt * monthlyInterestRate;
+                const principalPayment = Math.min(monthlyPayment - interestPayment, remainingDebt);
+                const actualPayment = principalPayment + interestPayment;
+                remainingDebt -= principalPayment;
+
+                tableHTML += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>$${principalPayment.toFixed(2)}</td>
+                        <td>$${interestPayment.toFixed(2)}</td>
+                        <td>$${actualPayment.toFixed(2)}</td>
+                        <td>$${Math.max(0, remainingDebt).toFixed(2)}</td>
+                    </tr>
+                `;
+
+                if (remainingDebt <= 0.01) {
+                    break;
+                }
+            }
+
+            if (numberOfPayments > 24) {
+                tableHTML += `
+                    <tr>
+                        <td colspan="5" style="text-align: center;">
+                            ... Showing first 24 months of payment schedule ...
+                        </td>
+                    </tr>
+                `;
+            }
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            scheduleDiv.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html> 
