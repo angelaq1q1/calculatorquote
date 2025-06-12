@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Calculators - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculator-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .calculator-card h2 {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .calculator-card .material-icons {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        .calculator-card p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Health Calculators</a>
+        </div>
+
+        <h1>Health Calculators</h1>
+        <div class="subtitle">Tools to help you monitor and maintain your health</div>
+
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <a href="medical-debt-calculator.html">
+                    <h2><span class="material-icons">local_hospital</span>Medical Debt Calculator</h2>
+                    <p>Calculate and manage your medical debt payments</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="bmi-calculator.html">
+                    <h2><span class="material-icons">monitor_weight</span>BMI Calculator</h2>
+                    <p>Calculate your Body Mass Index and understand your weight range</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="calorie-calculator.html">
+                    <h2><span class="material-icons">restaurant_menu</span>Calorie Calculator</h2>
+                    <p>Calculate your daily caloric needs based on your lifestyle</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="body-fat-calculator.html">
+                    <h2><span class="material-icons">accessibility</span>Body Fat Calculator</h2>
+                    <p>Estimate your body fat percentage using various methods</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="ideal-weight-calculator.html">
+                    <h2><span class="material-icons">fitness_center</span>Ideal Weight Calculator</h2>
+                    <p>Find your ideal weight range based on height and body type</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="pregnancy-calculator.html">
+                    <h2><span class="material-icons">child_care</span>Pregnancy Calculator</h2>
+                    <p>Calculate important pregnancy dates and milestones</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
