@@ -197,6 +197,38 @@
             margin-top: 30px;
             margin-bottom: 30px;
         }
+
+        .page-header h1 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .page-header .subtitle {
+            display: block;
+            font-size: 0.95em;
+            color: #666;
+            font-weight: normal;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            .page-header {
+                margin-top: 18px;
+                margin-bottom: 18px;
+            }
+            .page-header h1 {
+                font-size: 1.15em;
+                margin-bottom: 0.2em;
+            }
+            .page-header .subtitle {
+                font-size: 0.98em;
+                margin-top: 4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -210,9 +242,9 @@
                 Scientific Calculator
             </div>
             <div class="page-header">
-                <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">
-                    <span style="display: block;">🧠 Scientific Calculator</span>
-                    <span style="display: block; font-size: 0.95em; color: #666; font-weight: normal; margin-top: 4px;">Because regular calculators tap out at "sin(30)" 😵‍💫</span>
+                <h1>
+                    <span>🧠 Scientific Calculator</span>
+                    <span class="subtitle">Because regular calculators tap out at "sin(30)" 😵‍💫</span>
                 </h1>
             </div>
             <div class="calculator">
