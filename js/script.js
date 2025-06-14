@@ -99,17 +99,32 @@ function calculateBigNumberFraction() {
                 break;
         }
 
-        // 这里加上约分
-        const divisor = gcd(Number(resultNum), Number(resultDen));
-        const simplifiedNum = resultNum / BigInt(divisor);
-        const simplifiedDen = resultDen / BigInt(divisor);
-
-        document.getElementById('big-result-num').textContent = simplifiedNum.toString();
-        document.getElementById('big-result-den').textContent = simplifiedDen.toString();
+        const simplified = simplifyBigFraction(resultNum, resultDen);
+        document.getElementById('big-result-num').textContent = simplified.numerator.toString();
+        document.getElementById('big-result-den').textContent = simplified.denominator.toString();
         document.getElementById('big-number-error').textContent = '';
     } catch (error) {
         document.getElementById('big-result-num').textContent = '?';
         document.getElementById('big-result-den').textContent = '?';
         document.getElementById('big-number-error').textContent = error.message;
     }
+}
+
+function bigIntGcd(a, b) {
+    a = a < 0n ? -a : a;
+    b = b < 0n ? -b : b;
+    while (b !== 0n) {
+        let t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+
+function simplifyBigFraction(numerator, denominator) {
+    const divisor = bigIntGcd(numerator, denominator);
+    return {
+        numerator: numerator / divisor,
+        denominator: denominator / divisor
+    };
 } 
