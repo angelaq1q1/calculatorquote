@@ -192,78 +192,123 @@
         .buttons button:active {
             transform: scale(0.95);
         }
+
+        .page-header {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
-    <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <a href="index.html">Math Calculators</a>
-        <span>/</span>
-        Scientific Calculator
-    </div>
-
-    <div class="calculator-container">
-        <div class="calculator">
-            <div class="display-container">
-                <input type="text" id="display" readonly>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Math Calculators</a>
+                <span>/</span>
+                Scientific Calculator
             </div>
-            <div class="buttons">
-                <!-- Row 1 -->
-                <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
-                <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
-                <button class="function" onclick="calculate('tan')">tan</button>
-                <button class="memory" onclick="memoryStore()">M+</button>
-                <button class="memory" onclick="memoryRecall()">MR</button>
-
-                <!-- Row 2 -->
-                <button class="function" onclick="calculate('sin')">sin</button>
-                <button class="function" onclick="calculate('cos')">cos</button>
-                <button class="function" onclick="calculate('tan')">tan</button>
-                <button class="memory" onclick="memorySubtract()">M-</button>
-                <button class="memory" onclick="memoryClear()">MC</button>
-
-                <!-- Row 3 -->
-                <button class="function" onclick="calculate('log')">log</button>
-                <button class="function" onclick="calculate('ln')">ln</button>
-                <button class="function" onclick="appendToDisplay('Math.E')">e</button>
-                <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
-                <button class="operator" onclick="appendToDisplay('(')">(</button>
-
-                <!-- Row 4 -->
-                <button class="function" onclick="calculate('sqrt')">√</button>
-                <button class="function" onclick="calculate('cbrt')">∛</button>
-                <button class="function" onclick="appendToDisplay('^2')">x²</button>
-                <button class="function" onclick="appendToDisplay('^3')">x³</button>
-                <button class="operator" onclick="appendToDisplay(')')">)</button>
-
-                <!-- Row 5 -->
-                <button class="number" onclick="appendToDisplay('7')">7</button>
-                <button class="number" onclick="appendToDisplay('8')">8</button>
-                <button class="number" onclick="appendToDisplay('9')">9</button>
-                <button class="operator" onclick="appendToDisplay('/')">/</button>
-                <button class="function" onclick="calculate('factorial')">n!</button>
-
-                <!-- Row 6 -->
-                <button class="number" onclick="appendToDisplay('4')">4</button>
-                <button class="number" onclick="appendToDisplay('5')">5</button>
-                <button class="number" onclick="appendToDisplay('6')">6</button>
-                <button class="operator" onclick="appendToDisplay('*')">×</button>
-                <button class="function" onclick="calculate('reciprocal')">1/x</button>
-
-                <!-- Row 7 -->
-                <button class="number" onclick="appendToDisplay('1')">1</button>
-                <button class="number" onclick="appendToDisplay('2')">2</button>
-                <button class="number" onclick="appendToDisplay('3')">3</button>
-                <button class="operator" onclick="appendToDisplay('-')">−</button>
-                <button class="operator" onclick="appendToDisplay('%')">%</button>
-
-                <!-- Row 8 -->
-                <button class="number" onclick="appendToDisplay('0')">0</button>
-                <button class="number" onclick="appendToDisplay('.')">.</button>
-                <button class="clear" onclick="clearDisplay()">AC</button>
-                <button class="operator" onclick="appendToDisplay('+')">+</button>
-                <button class="equals" onclick="calculateResult()">=</button>
+            <div class="page-header">
+                <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">
+                    <span style="display: block;">🧠 Scientific Calculator</span>
+                    <span style="display: block; font-size: 0.95em; color: #666; font-weight: normal; margin-top: 4px;">Because regular calculators tap out at "sin(30)" 😵‍💫</span>
+                </h1>
+            </div>
+            <div class="calculator">
+                <div class="display-container">
+                    <input type="text" id="display" readonly>
+                </div>
+                <div class="buttons">
+                    <!-- Row 1 -->
+                    <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
+                    <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
+                    <button class="function" onclick="calculate('tan')">tan</button>
+                    <button class="memory" onclick="memoryStore()">M+</button>
+                    <button class="memory" onclick="memoryRecall()">MR</button>
+                    <!-- Row 2 -->
+                    <button class="function" onclick="calculate('sin')">sin</button>
+                    <button class="function" onclick="calculate('cos')">cos</button>
+                    <button class="function" onclick="calculate('tan')">tan</button>
+                    <button class="memory" onclick="memorySubtract()">M-</button>
+                    <button class="memory" onclick="memoryClear()">MC</button>
+                    <!-- Row 3 -->
+                    <button class="function" onclick="calculate('log')">log</button>
+                    <button class="function" onclick="calculate('ln')">ln</button>
+                    <button class="function" onclick="appendToDisplay('Math.E')">e</button>
+                    <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
+                    <button class="operator" onclick="appendToDisplay('(')">(</button>
+                    <!-- Row 4 -->
+                    <button class="function" onclick="calculate('sqrt')">√</button>
+                    <button class="function" onclick="calculate('cbrt')">∛</button>
+                    <button class="function" onclick="appendToDisplay('^2')">x²</button>
+                    <button class="function" onclick="appendToDisplay('^3')">x³</button>
+                    <button class="operator" onclick="appendToDisplay(')')">)</button>
+                    <!-- Row 5 -->
+                    <button class="number" onclick="appendToDisplay('7')">7</button>
+                    <button class="number" onclick="appendToDisplay('8')">8</button>
+                    <button class="number" onclick="appendToDisplay('9')">9</button>
+                    <button class="operator" onclick="appendToDisplay('/')">/</button>
+                    <button class="function" onclick="calculate('factorial')">n!</button>
+                    <!-- Row 6 -->
+                    <button class="number" onclick="appendToDisplay('4')">4</button>
+                    <button class="number" onclick="appendToDisplay('5')">5</button>
+                    <button class="number" onclick="appendToDisplay('6')">6</button>
+                    <button class="operator" onclick="appendToDisplay('*')">×</button>
+                    <button class="function" onclick="calculate('reciprocal')">1/x</button>
+                    <!-- Row 7 -->
+                    <button class="number" onclick="appendToDisplay('1')">1</button>
+                    <button class="number" onclick="appendToDisplay('2')">2</button>
+                    <button class="number" onclick="appendToDisplay('3')">3</button>
+                    <button class="operator" onclick="appendToDisplay('-')">−</button>
+                    <button class="operator" onclick="appendToDisplay('%')">%</button>
+                    <!-- Row 8 -->
+                    <button class="number" onclick="appendToDisplay('0')">0</button>
+                    <button class="number" onclick="appendToDisplay('.')">.</button>
+                    <button class="clear" onclick="clearDisplay()">AC</button>
+                    <button class="operator" onclick="appendToDisplay('+')">+</button>
+                    <button class="equals" onclick="calculateResult()">=</button>
+                </div>
+            </div>
+            <div class="page-description">
+                <p>Let's face it:<br>
+                Once math gets fancy, your basic calculator looks at you like, "good luck, nerd."</p>
+                <p>That's where we come in.<br>
+                Our free online scientific calculator is built for the real stuff: trig, logs, exponents, and all the terrifying things they sneak into standardized tests.</p>
+                <p>No download. No panic. Just a math machine that actually understands what cos(θ) means (and won't judge you for not).</p>
+                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Trigonometric functions: sin, cos, tan – so you can finally stop guessing</li>
+                    <li style="margin-bottom: 10px;">✅ Logarithms & exponents – for when things escalate exponentially</li>
+                    <li style="margin-bottom: 10px;">✅ Pi (π) button – yes, we respect irrational numbers</li>
+                    <li style="margin-bottom: 10px;">✅ Memory functions – store, recall, clear (just like your ex)</li>
+                    <li style="margin-bottom: 10px;">✅ Parentheses & order of operations – PEMDAS gang rise up</li>
+                    <li style="margin-bottom: 10px;">✅ Clean, responsive interface – not from 1998, we promise</li>
+                </ul>
+                <p>Whether you're:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">🧑‍🎓 Studying for finals</li>
+                    <li style="margin-bottom: 10px;">🧑‍🔬 Running experiments</li>
+                    <li style="margin-bottom: 10px;">🤯 Or just trying to figure out what "e" actually is...</li>
+                </ul>
+                <p>This calculator's got your back.</p>
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – because you were gonna ask anyway</h3>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Is this really a scientific calculator or just a fancy basic one?</strong><br>A: It's the real deal. If your basic calculator had a glow-up and went to engineering school, it'd be this.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Does it cost anything?</strong><br>A: Nope. Zero. Nada. Just some chill ads to keep the lights on.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Can I use this for my physics class?</strong><br>A: Yup, unless your teacher's stuck in 1984 and still demands a TI-83.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Will this solve equations for me?</strong><br>A: It's not a full-on algebra solver, but it'll handle expressions with multiple functions like a pro.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Does it spy on me?</strong><br>A: Only if you're using it to calculate your crush's birth chart. (Kidding — we don't store anything.)</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q: Why use this instead of my phone's calculator?</strong><br>A: Ever tried doing log(45.6) × sin(60) on your phone? That thing panics and turns into a brick.</p></div>
+                <p style="margin: 20px 0; font-style: italic;">🧠 Pro tip: Keep this tab open during late-night homework. Future You will high-five Past You.</p>
+            </div>
+            <div class="related-calculators">
+                <h2>Related Calculators</h2>
+                <ul>
+                    <li><a href="basic-calculator.html">Basic Calculator</a> - For everyday math operations</li>
+                    <li><a href="fraction-calculator.html">Fraction Calculator</a> - Work with fractions easily</li>
+                    <li><a href="percentage-calculator.html">Percentage Calculator</a> - Calculate percentages and changes</li>
+                    <li><a href="statistics-calculator.html">Statistics Calculator</a> - For statistical calculations</li>
+                </ul>
             </div>
         </div>
     </div>
