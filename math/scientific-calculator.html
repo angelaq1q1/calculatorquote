@@ -260,18 +260,100 @@
         }
 
         @media (max-width: 600px) {
+            .main-container {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            .content-wrapper {
+                max-width: 100%;
+                width: 100%;
+            }
+            .breadcrumb {
+                margin-bottom: 12px;
+            }
             .page-header {
-                margin-top: 18px;
-                margin-bottom: 18px;
+                margin-top: 8px;
+                margin-bottom: 12px;
             }
             .page-header h1 {
-                font-size: 1.15em;
+                font-size: 1.1em;
                 margin-bottom: 0.2em;
             }
             .page-header .subtitle {
-                font-size: 0.98em;
+                font-size: 0.95em;
                 margin-top: 4px;
             }
+            .calculator {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .page-description, .related-calculators {
+                max-width: 100%;
+                padding: 0 2px;
+            }
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+        .page-description h3 {
+            font-size: 1.1em;
+            color: #222;
+            margin: 20px 0 10px;
+        }
+        .page-description ul {
+            font-size: 1em;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .page-description li {
+            font-size: 1em;
+            color: #444;
+        }
+        .page-description p {
+            font-size: 1.1em;
+            color: #222;
+        }
+        .page-description div, .page-description strong {
+            font-size: 1em;
+        }
+
+        .related-calculators {
+            color: #222;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-top: 40px;
+            padding: 20px;
+            background: none;
+            border-radius: 0;
+        }
+        .related-calculators h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .related-calculators ul {
+            list-style: none;
+            padding: 0;
+        }
+        .related-calculators li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #444;
+        }
+        .related-calculators a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1em;
+        }
+        .related-calculators a:hover {
+            color: #1976D2;
         }
     </style>
 </head>
