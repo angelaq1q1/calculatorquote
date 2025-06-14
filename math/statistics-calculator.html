@@ -46,14 +46,54 @@
             font-size: 2.5em;
         }
 
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .related-calculators {
+            margin-top: 40px;
+            padding: 20px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .related-calculators h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .related-calculators ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-calculators li {
+            margin-bottom: 10px;
+        }
+
+        .related-calculators a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .related-calculators a:hover {
+            color: #1976D2;
+        }
+
         .calculator-container {
-            max-width: 800px;
-            margin: 40px auto 0;
+            max-width: 380px;
+            margin: 40px 0 0 0;
             border: 1px solid #ccc;
             padding: 30px;
             background: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            text-align: left;
         }
 
         .display-area {
@@ -148,14 +188,17 @@
         }
 
         .button-group {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
         }
 
         .action-button {
-            padding: 10px 30px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border: none;
+            min-width: 100px;
+            padding: 10px 0;
+            font-size: 1em;
+            box-sizing: border-box;
         }
 
         .calculate-button {
@@ -164,6 +207,7 @@
             margin-right: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
+            border: 1.5px solid #2196F3;
         }
 
         .calculate-button:hover {
@@ -175,6 +219,7 @@
             color: white;
             border-radius: 5px;
             transition: background-color 0.3s;
+            border: 1.5px solid #757575;
         }
 
         .clear-button:hover {
@@ -183,52 +228,49 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-                    <a href="index.html">Math Calculators</a>
+    <div class="breadcrumb" style="margin-bottom: 20px; font-size: 1em; color: #666;">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">Math Calculators</a>
         <span>/</span>
         Statistics Calculator
-        </div>
-
+    </div>
+    <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px; text-align: left;">
+        <span style="display: block;">📊 Statistics Calculator</span>
+        <span style="display: block; font-size: 0.95em; color: #666; font-weight: normal; margin-top: 4px;">Because who really remembers what "standard deviation" means? 🧠</span>
+    </h1>
+    <div class="calculator-container">
         <div class="display-area">
             <div class="count-display">Count=0</div>
             <div class="number-display">0</div>
         </div>
-
         <div class="calculator-grid">
             <button class="calculator-button">7</button>
             <button class="calculator-button">8</button>
             <button class="calculator-button">9</button>
             <button class="calculator-button light">x̄</button>
             <button class="calculator-button light">x̄²</button>
-
             <button class="calculator-button">4</button>
             <button class="calculator-button">5</button>
             <button class="calculator-button">6</button>
             <button class="calculator-button light">Σx</button>
             <button class="calculator-button light">Σx²</button>
-
             <button class="calculator-button">1</button>
             <button class="calculator-button">2</button>
             <button class="calculator-button">3</button>
             <button class="calculator-button light">σ</button>
             <button class="calculator-button light">σ²</button>
-
             <button class="calculator-button">0</button>
             <button class="calculator-button">.</button>
             <button class="calculator-button">EXP</button>
             <button class="calculator-button light">s</button>
             <button class="calculator-button light">s²</button>
-
             <button class="calculator-button">CAD</button>
             <button class="calculator-button">C</button>
             <button class="calculator-button add">ADD</button>
             <button class="calculator-button light">±</button>
             <button class="calculator-button light">GM</button>
         </div>
-
         <div class="input-section">
             <h2>Enter multiple numbers separated by commas for statistical analysis</h2>
             <textarea placeholder="10, 2, 38, 23, 38, 23, 21, 23"></textarea>
@@ -237,6 +279,64 @@
                 <button class="action-button clear-button">Clear</button>
             </div>
         </div>
+    </div>
+    <div class="page-description">
+        <p style="font-size: 1.2em; margin-bottom: 20px;">Let's be honest:<br>
+        Statistics sounds smart... until you're staring at a bunch of numbers wondering if "mean" is just how your math teacher acted.</p>
+        <p>That's where our free online statistics calculator comes in.<br>
+        No formulas to memorize. No textbooks to cry into. Just type your numbers and get results faster than you can say "bell curve."</p>
+        <p>Whether you're crunching test scores, analyzing data, or trying to prove you're above average — we got you.</p>
+        <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 10px;">✅ Calculates mean, median, mode – the big 3 of bragging rights</li>
+            <li style="margin-bottom: 10px;">✅ Finds range, variance, and standard deviation – a.k.a. the "what does this data really mean?" stuff</li>
+            <li style="margin-bottom: 10px;">✅ Handles both population and sample sets – because yes, that matters</li>
+            <li style="margin-bottom: 10px;">✅ Supports long lists – paste in that monster dataset like a boss</li>
+            <li style="margin-bottom: 10px;">✅ Clean interface – no clutter, no confusion, no PhD required</li>
+        </ul>
+        <p style="margin: 20px 0;">Whether you're:</p>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 10px;">🎓 A student trying to survive Stats 101</li>
+            <li style="margin-bottom: 10px;">📊 An overachiever graphing your productivity</li>
+            <li style="margin-bottom: 10px;">😅 Or just trying to figure out how "average" your weekend steps were...</li>
+        </ul>
+        <p>This calculator turns messy numbers into instant insights.</p>
+        <h3 style="margin: 20px 0 10px;">❓ FAQ – because stats are confusing enough already</h3>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: What kind of data can I input?</strong><br>
+            A: Any list of numbers, separated by commas or spaces. Yes, even decimals. We're chill like that.</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: What's the difference between population and sample?</strong><br>
+            A: Population = whole group. Sample = partial group. Don't worry, we do the right math either way.</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: Is this free or will you hit me with a "7-day trial" drama?</strong><br>
+            A: 100% free. No paywalls. No drama. Just occasional ads to pay the data elves.</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: Will it show steps?</strong><br>
+            A: Yup! Not just answers — you get the logic behind the math, in case your teacher asks.</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: Can I use this on a stats exam?</strong><br>
+            A: If your professor allows it, absolutely. If not... we believe in your brain.</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <p><strong>Q: Why not use Excel or Google Sheets?</strong><br>
+            A: Great idea — if you like digging through menus, typing formulas, and crying at cell references.</p>
+        </div>
+        <p style="margin: 20px 0; font-style: italic;">📈 Pro tip: Bookmark this tool.<br>
+        Next time you need to make sense of those 87 survey results or calculate how weird your sleep schedule is — we've got the stats.</p>
+    </div>
+    <div class="related-calculators">
+        <h2>Related Calculators</h2>
+        <ul>
+            <li><a href="scientific-calculator.html">Scientific Calculator</a> - For advanced mathematical calculations</li>
+            <li><a href="basic-calculator.html">Basic Calculator</a> - Work with whole numbers and decimals</li>
+            <li><a href="fraction-calculator.html">Fraction Calculator</a> - Work with fractions easily</li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a> - Calculate percentages and changes</li>
+        </ul>
     </div>
 
     <script>
