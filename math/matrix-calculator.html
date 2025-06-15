@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Calculator - Calculator Tools</title>
+    <title>Matrix Calculator - Free Online Matrix Operations Tool</title>
+    <meta name="description" content="Use our free Matrix Calculator to perform matrix operations like addition, multiplication, determinant, and inverse. Perfect for students and professionals.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,22 +17,42 @@
         body {
             background-color: #f5f5f5;
             min-height: 100vh;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px 20px;
         }
 
-        .calculator-container {
-            max-width: 1000px;
-            margin: 40px auto 0;
-            padding: 30px;
-            background: #fff;
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .ad-space {
+            width: 300px;
+            min-height: 600px;
+            background-color: #f8f9fa;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+            display: block;
         }
 
         .breadcrumb {
-            margin-bottom: 30px;
-            color: #666;
+            margin-bottom: 20px;
             font-size: 1em;
+            color: #666;
         }
 
         .breadcrumb a {
@@ -49,11 +70,78 @@
             margin: 0 8px;
         }
 
-        h1 {
-            color: #2196F3;
+        .page-header {
             margin-bottom: 30px;
-            font-size: 2em;
-            text-align: center;
+        }
+
+        .page-header h1 {
+            color: #222;
+            font-size: 1.3em;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .calculator-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px 10px 30px 10px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin-bottom: 40px;
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .related-calculators {
+            margin-top: 40px;
+            padding: 20px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .related-calculators h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .related-calculators ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-calculators li {
+            margin-bottom: 10px;
+        }
+
+        .related-calculators a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .related-calculators a:hover {
+            color: #1976D2;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .ad-space {
+                width: 100%;
+                min-height: 250px;
+                position: static;
+                display: none;
+            }
         }
 
         .calculator-layout {
@@ -61,24 +149,25 @@
             flex-direction: column;
             gap: 30px;
             margin-bottom: 30px;
+            align-items: flex-start;
         }
 
         .matrix-input-section {
             width: 100%;
-            padding: 20px;
+            max-width: 600px;
+            padding: 10px 16px 16px 16px;
             background: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e0e0e0;
+            margin-left: 0;
         }
 
         .matrix-header {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #2196F3;
-            text-align: center;
+            padding-bottom: 0;
         }
 
         .matrix-title {
@@ -86,6 +175,7 @@
             color: #2196F3;
             font-weight: 500;
             margin-bottom: 10px;
+            display: inline-block;
         }
 
         .dimension-control {
@@ -107,7 +197,7 @@
             display: grid;
             gap: 5px;
             margin: 15px 0;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .matrix-input {
@@ -124,7 +214,7 @@
             flex-direction: column;
             gap: 8px;
             margin-top: 15px;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .button-row {
@@ -132,7 +222,7 @@
             gap: 8px;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .matrix-button {
@@ -172,7 +262,7 @@
 
         .operations-section {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 10px;
             margin: 20px 0;
             flex-wrap: wrap;
@@ -196,6 +286,8 @@
         }
 
         .result-section {
+            width: 100%;
+            max-width: 600px;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 10px;
@@ -247,96 +339,158 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-                    <a href="index.html">Math Calculators</a>
-        <span>/</span>
-        Matrix Calculator
-        </div>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Math Calculators</a>
+                <span>/</span>
+                Matrix Calculator
+            </div>
 
-        <h1>Matrix Calculator</h1>
+            <div class="page-header">
+                <h1>Matrix Calculator - Easy Online Matrix Operations Tool</h1>
+            </div>
 
-        <div class="calculator-layout">
-            <!-- Matrix A Section -->
-            <div class="matrix-input-section">
-                <div class="matrix-header">
-                    <div class="matrix-title">Matrix A</div>
-                    <div class="dimension-control">
-                        <label>Rows:</label>
-                        <input type="number" class="dimension-input" id="matrix-a-rows" value="2" min="1" max="10">
-                        <label>Cols:</label>
-                        <input type="number" class="dimension-input" id="matrix-a-cols" value="2" min="1" max="10">
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                Perform matrix operations like addition, multiplication, determinant, and inverse calculations with our free online Matrix Calculator. Perfect for students and professionals.
+            </p>
+
+            <div class="calculator-container">
+                <div class="calculator-layout">
+                    <!-- Matrix A Section -->
+                    <div class="matrix-input-section">
+                        <div class="matrix-header">
+                            <div class="matrix-title">Matrix A</div>
+                            <div class="dimension-control">
+                                <label>Rows:</label>
+                                <input type="number" class="dimension-input" id="matrix-a-rows" value="2" min="1" max="10">
+                                <label>Cols:</label>
+                                <input type="number" class="dimension-input" id="matrix-a-cols" value="2" min="1" max="10">
+                            </div>
+                        </div>
+                        <div id="matrix-a-grid" class="matrix-grid"></div>
+                        <div class="matrix-buttons">
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="clearMatrix('a')">Clear</button>
+                                <button class="matrix-button" onclick="fillMatrix('a', 0)">All 0</button>
+                                <button class="matrix-button" onclick="fillMatrix('a', 1)">All 1</button>
+                                <button class="matrix-button" onclick="randomMatrix('a')">Random</button>
+                            </div>
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="transposeMatrix('a')">Transpose</button>
+                                <button class="matrix-button" onclick="powerMatrix('a')">Power of</button>
+                                <input type="number" class="power-input" id="matrix-a-power" value="2" min="1" max="10">
+                            </div>
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="calculateDeterminant('a')">Determinant</button>
+                                <button class="matrix-button" onclick="calculateInverse('a')">Inverse</button>
+                                <button class="matrix-button" onclick="multiplyByScalar('a')">×</button>
+                                <input type="number" class="scalar-input" id="matrix-a-scalar" value="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matrix B Section -->
+                    <div class="matrix-input-section">
+                        <div class="matrix-header">
+                            <div class="matrix-title">Matrix B</div>
+                            <div class="dimension-control">
+                                <label>Rows:</label>
+                                <input type="number" class="dimension-input" id="matrix-b-rows" value="2" min="1" max="10">
+                                <label>Cols:</label>
+                                <input type="number" class="dimension-input" id="matrix-b-cols" value="2" min="1" max="10">
+                            </div>
+                        </div>
+                        <div id="matrix-b-grid" class="matrix-grid"></div>
+                        <div class="matrix-buttons">
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="clearMatrix('b')">Clear</button>
+                                <button class="matrix-button" onclick="fillMatrix('b', 0)">All 0</button>
+                                <button class="matrix-button" onclick="fillMatrix('b', 1)">All 1</button>
+                                <button class="matrix-button" onclick="randomMatrix('b')">Random</button>
+                            </div>
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="transposeMatrix('b')">Transpose</button>
+                                <button class="matrix-button" onclick="powerMatrix('b')">Power of</button>
+                                <input type="number" class="power-input" id="matrix-b-power" value="2" min="1" max="10">
+                            </div>
+                            <div class="button-row">
+                                <button class="matrix-button" onclick="calculateDeterminant('b')">Determinant</button>
+                                <button class="matrix-button" onclick="calculateInverse('b')">Inverse</button>
+                                <button class="matrix-button" onclick="multiplyByScalar('b')">×</button>
+                                <input type="number" class="scalar-input" id="matrix-b-scalar" value="3">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="matrix-a-grid" class="matrix-grid"></div>
-                <div class="matrix-buttons">
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="clearMatrix('a')">Clear</button>
-                        <button class="matrix-button" onclick="fillMatrix('a', 0)">All 0</button>
-                        <button class="matrix-button" onclick="fillMatrix('a', 1)">All 1</button>
-                        <button class="matrix-button" onclick="randomMatrix('a')">Random</button>
-                    </div>
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="transposeMatrix('a')">Transpose</button>
-                        <button class="matrix-button" onclick="powerMatrix('a')">Power of</button>
-                        <input type="number" class="power-input" id="matrix-a-power" value="2" min="1" max="10">
-                    </div>
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="calculateDeterminant('a')">Determinant</button>
-                        <button class="matrix-button" onclick="calculateInverse('a')">Inverse</button>
-                        <button class="matrix-button" onclick="multiplyByScalar('a')">×</button>
-                        <input type="number" class="scalar-input" id="matrix-a-scalar" value="3">
-                    </div>
+
+                <div class="operations-section">
+                    <button class="operation-button" onclick="addMatrices()">A + B</button>
+                    <button class="operation-button" onclick="subtractMatrices()">A - B</button>
+                    <button class="operation-button" onclick="multiplyMatrices()">A × B</button>
+                    <button class="operation-button" onclick="swapMatrices()">A ↔ B</button>
+                </div>
+
+                <div class="result-section">
+                    <div class="result-title">Result</div>
+                    <div id="result-grid" class="result-grid"></div>
+                    <div id="error-message" class="error"></div>
                 </div>
             </div>
 
-            <!-- Matrix B Section -->
-            <div class="matrix-input-section">
-                <div class="matrix-header">
-                    <div class="matrix-title">Matrix B</div>
-                    <div class="dimension-control">
-                        <label>Rows:</label>
-                        <input type="number" class="dimension-input" id="matrix-b-rows" value="2" min="1" max="10">
-                        <label>Cols:</label>
-                        <input type="number" class="dimension-input" id="matrix-b-cols" value="2" min="1" max="10">
-                    </div>
+            <div class="page-description">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Matrix Calculator – Because solving 3×3 matrices by hand is pure pain 😵‍💫</p>
+                <p>Let's face it:<br>
+                The moment your math homework says "find the determinant", your brain says "find the exit".</p>
+                <p>Whether you're an engineering student trying to survive, or just someone who's been betrayed by linear algebra one too many times, our Matrix Calculator is here to help — no sweat, no scribbles, just clean, fast math.</p>
+                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Add, subtract, and multiply matrices — without breaking a pencil</li>
+                    <li style="margin-bottom: 10px;">✅ Transpose and invert like a pro (or at least look like one)</li>
+                    <li style="margin-bottom: 10px;">✅ Calculate determinants faster than your TA can say "Gaussian elimination"</li>
+                    <li style="margin-bottom: 10px;">✅ Supports up to 5×5 matrices — because anything bigger is just cruel</li>
+                    <li style="margin-bottom: 10px;">✅ Works right in your browser — no download, no math degree required</li>
+                </ul>
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – Because math hurts enough without more confusion</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this free?</strong><br>
+                    Yep. We won't charge you for math misery. Free to use, forever. Just the occasional chill ad.</p>
                 </div>
-                <div id="matrix-b-grid" class="matrix-grid"></div>
-                <div class="matrix-buttons">
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="clearMatrix('b')">Clear</button>
-                        <button class="matrix-button" onclick="fillMatrix('b', 0)">All 0</button>
-                        <button class="matrix-button" onclick="fillMatrix('b', 1)">All 1</button>
-                        <button class="matrix-button" onclick="randomMatrix('b')">Random</button>
-                    </div>
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="transposeMatrix('b')">Transpose</button>
-                        <button class="matrix-button" onclick="powerMatrix('b')">Power of</button>
-                        <input type="number" class="power-input" id="matrix-b-power" value="2" min="1" max="10">
-                    </div>
-                    <div class="button-row">
-                        <button class="matrix-button" onclick="calculateDeterminant('b')">Determinant</button>
-                        <button class="matrix-button" onclick="calculateInverse('b')">Inverse</button>
-                        <button class="matrix-button" onclick="multiplyByScalar('b')">×</button>
-                        <input type="number" class="scalar-input" id="matrix-b-scalar" value="3">
-                    </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can it handle non-square matrices?</strong><br>
+                    Totally. But inverse is square-only — even a calculator has standards.</p>
                 </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Will this help me pass my exam?</strong><br>
+                    It can assist you. Whether you pass depends on how much you've ignored the lectures.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Does it store my data?</strong><br>
+                    Nope. Your failed matrix attempts vanish into the void. No judgment.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Why not just use a spreadsheet?</strong><br>
+                    Ever tried inverting a 4×4 matrix in Excel? Exactly.</p>
+                </div>
+                <p style="margin: 20px 0; font-style: italic;">🧠 Pro tip:<br>
+                Bookmark this now. Because the next time you're crying over eigenvalues, you'll want this lifeline handy.</p>
+            </div>
+
+            <div class="related-calculators">
+                <h2>Related Calculators</h2>
+                <ul>
+                    <li><a href="scientific-calculator.html">Scientific Calculator</a> - For advanced mathematical calculations</li>
+                    <li><a href="basic-calculator.html">Basic Calculator</a> - Work with whole numbers and decimals</li>
+                    <li><a href="fraction-calculator.html">Fraction Calculator</a> - Work with fractions easily</li>
+                    <li><a href="statistics-calculator.html">Statistics Calculator</a> - For statistical calculations</li>
+                </ul>
             </div>
         </div>
 
-        <div class="operations-section">
-            <button class="operation-button" onclick="addMatrices()">A + B</button>
-            <button class="operation-button" onclick="subtractMatrices()">A - B</button>
-            <button class="operation-button" onclick="multiplyMatrices()">A × B</button>
-            <button class="operation-button" onclick="swapMatrices()">A ↔ B</button>
-        </div>
-
-        <div class="result-section">
-            <div class="result-title">Result</div>
-            <div id="result-grid" class="result-grid"></div>
-            <div id="error-message" class="error"></div>
+        <div class="ad-space">
+            <!-- Ad space for 300x600 or similar ad units -->
         </div>
     </div>
 
