@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compound Interest Calculator - Calculator Tools</title>
+    <title>Compound Interest Calculator - Watch Your Money Multiply</title>
+    <meta name="description" content="Use our free Compound Interest Calculator to see how your money grows over time. Calculate investment growth with daily, monthly, or yearly compounding. Perfect for savings, retirement planning, and passive income goals.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -33,8 +34,8 @@
         }
 
         .calculator-container {
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 800px;
+            margin: 0;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
@@ -96,6 +97,7 @@
 
         .calculator-type select {
             width: 100%;
+            max-width: 350px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -104,7 +106,7 @@
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .input-group label {
@@ -112,6 +114,12 @@
             margin-bottom: 8px;
             color: #333;
             font-weight: 500;
+        }
+
+        .input-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .input-field-container {
@@ -127,6 +135,7 @@
             border-radius: 5px;
             font-size: 1em;
             outline: none;
+            max-width: 350px;
         }
 
         .input-field-container input:focus,
@@ -197,6 +206,7 @@
             background-color: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e9ecef;
+            max-width: 350px;
         }
 
         .results p {
@@ -204,6 +214,7 @@
             padding: 8px 0;
             font-size: 1.1em;
             color: #333;
+            max-width: 350px;
         }
 
         .results .value {
@@ -221,6 +232,7 @@
 </head>
 <body>
     <div class="calculator-container">
+        <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0; font-size: 1.1em; color: #666;">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -228,12 +240,10 @@
             <span>/</span>
             Compound Interest Calculator
         </div>
-
-        <h1>Compound Interest Calculator</h1>
-
-        <div class="instruction-bar">
-            Enter your investment details and click Calculate
-        </div>
+            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Compound Interest Calculator – The Lazy Way to Get Rich (Eventually)</h1>
+            <p style="line-height: 1.6; margin-bottom: 20px;">
+                Why work harder when your money can work for you? Our free Compound Interest Calculator shows you how even small investments can snowball into big numbers over time — all thanks to the magic of compounding. Whether you're saving for retirement, your dream vacation, or a pet lizard spa (no judgment), this tool gives you the math without the migraine. Just enter your numbers and let the future flex.
+            </p>
 
         <div class="calculator-type">
             <label for="calculation-type">Calculate:</label>
@@ -298,6 +308,50 @@
                 <p>Total Amount (A): <span id="total-amount" class="value">$0.00</span></p>
                 <p>Principal (P): <span id="principal-result" class="value">$0.00</span></p>
                 <p>Interest (I): <span id="interest-amount" class="value">$0.00</span></p>
+                </div>
+            </div>
+
+            <div class="page-description" style="line-height: 1.6; margin-bottom: 20px;">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">🧮 Compound Interest Calculator – The Lazy Genius's Guide to Getting Rich (Eventually)</p>
+                <p>Let's be real:<br>
+                You're not trying to win the lottery. You're just hoping that the money you stashed away doesn't vanish faster than your weekend. That's where compound interest comes in — aka, the closest thing finance has to magic.</p>
+                <p>And guess what? This calculator is your magic wand.<br>
+                No wizard hat required. 🧙‍♂️</p>
+                <h3 style="margin: 20px 0 10px;">💰 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Shows how your money grows with daily, monthly, or yearly compounding</li>
+                    <li style="margin-bottom: 10px;">✅ Calculates total future value — so you can daydream responsibly</li>
+                    <li style="margin-bottom: 10px;">✅ Helps with savings, investments, retirement, and "escape your job in 15 years" plans</li>
+                    <li style="margin-bottom: 10px;">✅ Makes you look smarter than you feel when you say "compound interest" out loud</li>
+                </ul>
+                <h3 style="margin: 20px 0 10px;">💸 What it doesn't do:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✖ Make you rich overnight (that's crypto's job, and look how that turned out)</li>
+                    <li style="margin-bottom: 10px;">✖ Replace actual financial advice (you probably still need a budget, sorry)</li>
+                    <li style="margin-bottom: 10px;">✖ Explain why coffee costs $7 now</li>
+                </ul>
+                <p style="margin: 20px 0;">TL;DR: You invest money → Time passes → Your money gets swole.<br>
+                This tool just shows how swole. 🏋️‍♂️💵</p>
+                <h3 style="margin: 20px 0 10px;">🧾 FAQ – Because curiosity compounds, too</h3>
+                <div style="margin-bottom: 15px;"><strong>Q: Can this thing tell me when I'll be a millionaire?</strong><br>A: Sure — just put in your numbers, let math do its thing, and maybe adjust those avocado toast purchases.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Do I need to log in or sell a kidney to use this?</strong><br>A: Nope. No login, no cost, no weird permissions. We don't want your data. Just your appreciation.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Is this accurate for retirement planning?</strong><br>A: It's a great starting point. But if you're relying on it to fund your yacht dreams... maybe also talk to an actual financial advisor.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Why not just use my phone calculator?</strong><br>A: Because your phone calculator doesn't know what compounding means. Also: boring interface, no jokes, zero vibes.</div>
+                <h3 style="margin: 20px 0 10px;">📈 Final Thought:</h3>
+                <p>Compound interest is proof that time is money — if you let it sit long enough, it multiplies like rabbits. Wealth rabbits.<br>
+                Use this calculator to see just how fluffy your future can get. 🐇💸</p>
+            </div>
+            <div class="related-calculators" style="margin-top: 40px; padding: 20px; background: none; border-radius: 0; max-width: 800px;">
+                <h2 style="margin-bottom: 15px;">Related Calculators</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Mortgage Calculator</a> - Estimate your monthly home loan</li>
+                    <li style="margin-bottom: 10px;"><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Loan Calculator</a> - Calculate loan payments and interest</li>
+                    <li style="margin-bottom: 10px;"><a href="compound-interest.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Compound Interest Calculator</a> - See your savings grow</li>
+                    <li style="margin-bottom: 10px;"><a href="investment-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Investment Calculator</a> - Project investment returns</li>
+                    <li style="margin-bottom: 10px;"><a href="income-tax-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Income Tax Calculator</a> - Estimate your taxes</li>
+                    <li style="margin-bottom: 10px;"><a href="currency-converter.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Currency Converter</a> - Convert between currencies</li>
+                    <li style="margin-bottom: 10px;"><a href="collectible-toy-insurance.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Collectible Toy Insurance</a> - Insure your valuable collectibles</li>
+                </ul>
             </div>
         </div>
     </div>
