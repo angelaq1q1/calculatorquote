@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income Tax Calculator - Calculator Tools</title>
+    <title>Income Tax Calculator - Estimate Your Taxes & Take-Home Pay</title>
+    <meta name="description" content="Use our free Income Tax Calculator to estimate federal and state taxes, deductions, and take-home pay. Ideal for W-2 employees, freelancers, and anyone planning their finances. No sign-up needed.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,12 +21,14 @@
         }
 
         .calculator-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 20px auto;
-            padding: 30px;
+            padding: 24px;
             background-color: #ffffff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            font-size: 1.1em;
+            color: #666;
         }
 
         .breadcrumb {
@@ -53,6 +56,7 @@
             color: #333;
             font-size: 2em;
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .instruction-bar {
@@ -94,6 +98,7 @@
             border-radius: 5px;
             font-size: 1em;
             outline: none;
+            max-width: 350px;
         }
 
         .input-field-container input:focus,
@@ -159,11 +164,11 @@
         }
 
         .results {
-            flex: 1;
             padding: 25px;
             background-color: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e9ecef;
+            max-width: 350px;
         }
 
         .results p {
@@ -196,11 +201,10 @@
             Income Tax Calculator
         </div>
 
-        <h1>Income Tax Calculator</h1>
-
-        <div class="instruction-bar">
-            Enter your tax information and click Calculate
-        </div>
+        <h1>Income Tax Calculator – Know What Uncle Sam Is Taking (Before He Takes It)</h1>
+        <p style="line-height: 1.6; margin-bottom: 20px;">
+            Trying to figure out how much of your paycheck is actually yours? Our free Income Tax Calculator helps you estimate your federal and state tax burden — including deductions, brackets, and take-home pay. Whether you're a salaried worker, a freelancer, or just tax-curious, this tool gives you instant clarity before the IRS does. Bonus: it's easier to use than most government websites (and doesn't crash at midnight).
+        </p>
 
         <div class="input-group">
             <label for="tax-year">Tax Year:</label>
@@ -249,6 +253,49 @@
                 <p>Effective Tax Rate: <span id="effective-rate" class="value">0%</span></p>
                 <p>Net Income after Tax: <span id="net-income" class="value">$0.00</span></p>
             </div>
+        </div>
+
+        <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+            <p style="font-size: 1.2em; margin-top: 32px; margin-bottom: 32px;">🧾 Income Tax Calculator – Because Nothing Says "Adulthood" Like Watching Your Paycheck Disappear</p>
+            <p>Here's a fun adult game:<br>
+            Look at your salary → subtract taxes → cry softly in the corner.</p>
+            <p>But seriously, figuring out how much of your income actually makes it into your bank account shouldn't require a PhD in tax law. That's why we made this no-nonsense, no-download, totally free Income Tax Calculator.</p>
+            <p>It won't make the IRS go away, but it will help you understand what they're taking — and how much of your paycheck you actually get to keep. 🎯</p>
+            <h3 style="margin: 20px 0 10px;">💼 What does it do?</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;">✅ Estimates your federal and state income taxes</li>
+                <li style="margin-bottom: 10px;">✅ Breaks down tax brackets, deductions, and withholdings</li>
+                <li style="margin-bottom: 10px;">✅ Calculates take-home pay so you're not shocked on payday</li>
+                <li style="margin-bottom: 10px;">✅ Works great for W-2 employees, freelancers, side hustlers, and financially curious cats 🐱</li>
+                <li style="margin-bottom: 10px;">✅ Gives you clarity before tax season hits like a truck</li>
+            </ul>
+            <h3 style="margin: 20px 0 10px;">📉 What it doesn't do:</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;">✖ File your taxes (we're not that kind of calculator... yet)</li>
+                <li style="margin-bottom: 10px;">✖ Give you loopholes like a billionaire</li>
+                <li style="margin-bottom: 10px;">✖ Fix the feeling of betrayal when you realize how much went to "infrastructure"</li>
+            </ul>
+            <p style="margin: 20px 0;">TL;DR: Put in your income, location, and filing status → Get your estimated taxes and net pay → Decide if you need a second job or a deep breath</p>
+            <h3 style="margin: 20px 0 10px;">🧠 FAQ – Filing Season Edition</h3>
+            <div style="margin-bottom: 15px;"><strong>Q: Can I use this to file my taxes?</strong><br>A: No, but it gives you a realistic idea of what you'll owe (or get back). You'll still need to file with the usual suspects (TurboTax, your accountant, or your brave self).</div>
+            <div style="margin-bottom: 15px;"><strong>Q: Is it accurate?</strong><br>A: We use current federal and state tax rates to give solid estimates — but remember, real tax situations are like snowflakes: complicated and potentially slippery.</div>
+            <div style="margin-bottom: 15px;"><strong>Q: Does this work for freelancers or 1099 folks?</strong><br>A: Yep! Enter your self-employment income and we'll show you the estimated taxes you probably forgot to save for. 😬</div>
+            <div style="margin-bottom: 15px;"><strong>Q: Do I need to sign up or share personal info?</strong><br>A: Nope. We don't want your email, phone number, or zodiac sign. Just numbers.</div>
+            <h3 style="margin: 20px 0 10px;">🪙 Final Thought:</h3>
+            <p>Taxes aren't fun, but at least this calculator doesn't judge you for eating instant noodles in April while crying over Form 1040.<br>
+            Use it now — thank yourself later.</p>
+        </div>
+        <div class="related-calculators" style="margin-top: 40px; padding: 20px 0; background: none; border-radius: 0; max-width: 700px;">
+            <h2 style="margin-bottom: 15px;">Related Calculators</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px;"><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Mortgage Calculator</a> - Estimate your monthly home loan</li>
+                <li style="margin-bottom: 10px;"><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Loan Calculator</a> - Calculate loan payments and interest</li>
+                <li style="margin-bottom: 10px;"><a href="compound-interest.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Compound Interest Calculator</a> - See your savings grow</li>
+                <li style="margin-bottom: 10px;"><a href="investment-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Investment Calculator</a> - Project investment returns</li>
+                <li style="margin-bottom: 10px;"><a href="income-tax-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Income Tax Calculator</a> - Estimate your taxes</li>
+                <li style="margin-bottom: 10px;"><a href="currency-converter.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Currency Converter</a> - Convert between currencies</li>
+                <li style="margin-bottom: 10px;"><a href="collectible-toy-insurance.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Collectible Toy Insurance</a> - Insure your valuable collectibles</li>
+            </ul>
         </div>
     </div>
 
