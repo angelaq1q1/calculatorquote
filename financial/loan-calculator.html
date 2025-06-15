@@ -35,7 +35,7 @@
 
         .calculator-container {
             max-width: 800px;
-            margin: 0;
+            margin: 20px auto;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
@@ -344,63 +344,63 @@
 <body>
     <div class="calculator-container">
         <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0;">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Financial Calculators</a>
-                <span>/</span>
-                Loan Calculator
-            </div>
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Loan Calculator
+        </div>
             <h1>Loan Calculator – Crunch Your Debt Before It Crunches You</h1>
             <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
                 Trying to figure out how much that loan is *really* going to cost you? Our free online Loan Calculator breaks it all down — monthly payments, total interest, and how long you'll be paying it off. Whether you're financing a car, a home, or a questionable life decision, this tool gives you clarity before you sign anything. Bonus: it's way less judgmental than your bank.
             </p>
-            <div class="calculator-grid">
-                <div class="input-section">
-                    <div class="calculator-type">
-                        <label for="calculation-type">Calculate:</label>
-                        <select id="calculation-type" onchange="toggleCalculationFields()">
-                            <option value="monthly-payment" selected>Monthly Payment</option>
-                            <option value="loan-amount">Loan Amount</option>
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="calculator-type">
+                    <label for="calculation-type">Calculate:</label>
+                    <select id="calculation-type" onchange="toggleCalculationFields()">
+                        <option value="monthly-payment" selected>Monthly Payment</option>
+                        <option value="loan-amount">Loan Amount</option>
                             <option value="interest-rate">Interest Rate</option>
-                            <option value="loan-term">Loan Term</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group" id="loan-amount-group">
-                        <label for="loan-amount">Loan Amount:</label>
-                        <div class="input-field-container">
+                        <option value="loan-term">Loan Term</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="loan-amount-group">
+                    <label for="loan-amount">Loan Amount:</label>
+                    <div class="input-field-container">
                             <input type="text" id="loan-amount" value="25,000">
-                            <div class="unit">$</div>
-                        </div>
-                        <small>Total Amount Borrowed</small>
+                        <div class="unit">$</div>
                     </div>
-                    
+                        <small>Total Amount Borrowed</small>
+                </div>
+                
                     <div class="input-group" id="monthly-payment-group" style="display: none;">
                         <label for="monthly-payment">Monthly Payment:</label>
-                        <div class="input-field-container">
+                    <div class="input-field-container">
                             <input type="text" id="monthly-payment" value="500">
                             <div class="unit">$</div>
-                        </div>
+                    </div>
                         <small>Monthly Payment Amount</small>
-                    </div>
-                    
+                </div>
+                
                     <div class="input-group">
-                        <label for="loan-term">Loan Term:</label>
-                        <div class="input-field-container">
+                    <label for="loan-term">Loan Term:</label>
+                    <div class="input-field-container">
                             <input type="text" id="loan-term" value="5">
-                        </div>
                     </div>
-                    
+                </div>
+                
                     <div class="input-group" id="interest-rate-group">
                         <label for="interest-rate">Interest Rate:</label>
-                        <div class="input-field-container">
+                    <div class="input-field-container">
                             <input type="text" id="interest-rate" value="5">
                             <div class="unit">%</div>
-                        </div>
-                        <small>per year</small>
                     </div>
-                    
+                        <small>per year</small>
+                </div>
+                
                     <div class="buttons">
                         <button class="btn-calculate" onclick="calculateLoan()">Calculate</button>
                         <button class="btn-clear" onclick="clearInputs()">Clear</button>
