@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Debt Calculator - CalculatorQuote</title>
+    <title>Medical Debt Calculator - Estimate Healthcare Payment Plans</title>
+    <meta name="description" content="Use our free Medical Debt Calculator to estimate monthly payments on medical bills. Calculate interest, repayment plans, and debt payoff timelines—ideal for patients, families, and healthcare finance advisors.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Medical Debt Calculator",
+      "description": "Estimate your monthly payments, interest, and total cost on medical bills using our free online Medical Debt Calculator. Ideal for patients managing healthcare expenses.",
+      "url": "https://www.calculatorquote.com/health/medical-debt-calculator.html",
+      "keywords": ["medical debt", "hospital bill calculator", "monthly payment", "healthcare repayment", "interest on medical debt", "debt payoff"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -31,7 +47,7 @@
         }
 
         body {
-            background-color: var(--background-color);
+            background-color: #f5f5f5;
             min-height: 100vh;
             padding: 40px 20px;
             font-family: 'Roboto', sans-serif;
@@ -39,17 +55,17 @@
         }
 
         .calculator-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
+            padding: 30px 20px;
+            background-color: #fff;
             border-radius: 20px;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 12px rgba(33,150,243,0.15);
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
+            margin-bottom: 15px;
+            font-size: 0.9em;
             color: #666;
         }
 
@@ -70,35 +86,35 @@
 
         h1 {
             color: var(--text-primary);
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
             font-weight: 500;
         }
 
         .info-text {
             color: var(--text-secondary);
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.1em;
+            margin-bottom: 25px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-primary);
             font-weight: 500;
-            font-size: 1em;
+            font-size: 0.95em;
         }
 
         .input-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 0.95em;
             outline: none;
             transition: border-color 0.3s;
         }
@@ -108,48 +124,57 @@
         }
 
         .input-help {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: var(--text-secondary);
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .error-message {
             color: var(--danger-color);
-            font-size: 0.9em;
-            margin-top: 8px;
+            font-size: 0.85em;
+            margin-top: 6px;
             display: none;
         }
 
         .calculate-btn {
             background-color: var(--primary-color);
             color: white;
-            padding: 12px;
+            padding: 10px;
             border: none;
             border-radius: 5px;
             font-weight: 500;
-            font-size: 1.1em;
+            font-size: 1em;
             width: 100%;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .calculate-btn:hover {
             background-color: var(--primary-hover);
         }
 
+        .input-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+            margin-bottom: 20px;
+        }
+
         .results {
-            background-color: #e3f2fd;
+            background-color: #f8f9fa;
             border-radius: 10px;
             padding: 20px;
-            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+            margin-top: 25px;
         }
 
         .result-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(33, 150, 243, 0.2);
         }
 
@@ -160,50 +185,48 @@
         .result-item strong {
             font-weight: 500;
             color: var(--text-primary);
-            font-size: 1em;
+            font-size: 0.95em;
         }
 
         .result-item span {
             font-weight: 400;
             color: var(--text-secondary);
-            font-size: 1em;
+            font-size: 0.95em;
         }
 
         .payment-schedule {
-            margin-top: 30px;
+            margin-top: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
         }
 
         .payment-schedule h3 {
             color: var(--text-primary);
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .payment-schedule table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
-        .payment-schedule th {
-            background-color: #e3f2fd;
-            font-weight: 500;
-            font-size: 0.9em;
-            color: var(--text-primary);
-            padding: 12px;
+        .payment-schedule th, .payment-schedule td {
+            padding: 10px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .payment-schedule th:first-child, .payment-schedule td:first-child {
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
-        .payment-schedule td {
-            padding: 12px;
-            font-size: 0.9em;
-            color: var(--text-secondary);
-            border-bottom: 1px solid #ddd;
+        .payment-schedule tr:nth-child(even) {
+            background-color: #e3f2fd;
         }
 
         .payment-schedule tr:last-child td {
@@ -214,34 +237,178 @@
             background-color: #f5f5f5;
         }
 
+        .content-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .content-section h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .content-section p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .content-section li {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .content-section li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+        }
+
+        .faq-section {
+            margin-top: 30px;
+        }
+
+        .faq-section h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .pro-tip {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            color: #1976D2;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .related-calculators {
+            margin-top: 40px;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            max-width: 900px;
+            box-shadow: none;
+        }
+
+        .related-calculators h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .related-calculators ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-calculators li {
+            margin-bottom: 14px;
+        }
+
+        .related-calculators li:before {
+            content: none;
+        }
+
+        .related-calculators a {
+            color: #2196F3;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .related-calculators span {
+            color: #111;
+            font-size: 1.1em;
+            font-weight: 400;
+            vertical-align: middle;
+        }
+
         @media (max-width: 768px) {
             body {
-                padding: 20px;
+                padding: 15px;
             }
 
             .calculator-container {
-                margin: 10px;
-                padding: 20px;
+                margin: 0;
+                padding: 15px;
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 1.6em;
             }
 
             .info-text {
-                font-size: 1.1em;
+                font-size: 1em;
             }
 
             .result-item {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 5px;
+                gap: 4px;
             }
 
             .payment-schedule th,
             .payment-schedule td {
-                padding: 10px;
-                font-size: 0.85em;
+                padding: 8px;
+                font-size: 0.8em;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .content-section h2 {
+                font-size: 1.6em;
+            }
+
+            .content-section p,
+            .content-section li,
+            .faq-question,
+            .faq-answer {
+                font-size: 1em;
+            }
+
+            .related-calculators ul {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -251,12 +418,12 @@
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Health Calculators</a>
+            <a href="../health.html">Health Calculators</a>
             <span>/</span>
-            Medical Debt Calculator
+            <span>Medical Debt Calculator</span>
         </div>
-        <h1>Medical Debt Calculator</h1>
-        <p class="info-text">Calculate your medical debt payments and create a detailed repayment plan.</p>
+        <h1>Medical Debt Calculator – Figure Out How to Pay Off That Hospital Bill (Without Panic)</h1>
+        <p class="info-text">Lab tests, ER visits, surgeries… medical costs in the U.S. stack up fast. Whether you're juggling surprise bills or planning long-term repayment, our calculator helps you break it down—monthly payments, total costs, and interest included. Great for navigating debt from hospitals, clinics, or even your last dental adventure. Works perfectly for those Googling: "how do I afford to stay alive?"</p>
 
         <form id="debtCalculator" onsubmit="return false;">
             <div class="input-group">
@@ -303,6 +470,95 @@
                 <!-- Payment schedule table will be inserted here -->
             </div>
         </form>
+    </div>
+
+    <div class="content-section">
+        <h2>🧾 Medical Debt Calculator – Because your hospital bill shouldn't cause another heart attack</h2>
+        
+        <p>We get it.</p>
+        
+        <p>One minute you're getting an X-ray for your sprained ankle, the next minute you're getting a bill that looks like you accidentally bought the hospital.</p>
+        
+        <p>Healthcare in America is like a subscription service you never signed up for—and forgot to cancel.</p>
+        
+        <p>💸 This calculator exists because math shouldn't add to your medical stress.</p>
+        
+        <p>Whether you're:</p>
+        <ul>
+            <li>Trying to figure out if you'll be paying this off before retirement (spoiler: maybe)</li>
+            <li>Splitting up your payments into something that doesn't cause a panic attack</li>
+            <li>Or just curious how interest turns a $2,000 bill into a $3,500 one...</li>
+        </ul>
+        
+        <p>This tool breaks it all down:</p>
+        <ul>
+            <li>Total repayment amount</li>
+            <li>Monthly payments</li>
+            <li>Interest over time</li>
+            <li>How long it'll take to actually be debt-free (without selling a kidney)</li>
+        </ul>
+
+        <div class="faq-section">
+            <h3>🧠 FAQ – because medical bills are confusing enough</h3>
+            
+            <div class="faq-item">
+                <p class="faq-question">Q: Will this calculator magically make my debt disappear?</p>
+                <p class="faq-answer">A: We wish. Sadly, we don't do miracles—just math.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Q: Is this just another scam that charges me later?</p>
+                <p class="faq-answer">A: Nope. No hidden fees, no subscription, no "pro version." It's free like public Wi-Fi, but way more useful.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Q: Can I use this to calculate what I owe the dentist for that one cavity?</p>
+                <p class="faq-answer">A: Absolutely. Medical, dental, vet bills—you name it. If it made you cry and came with an invoice, it counts.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Q: What if I don't understand any of the numbers?</p>
+                <p class="faq-answer">A: That's what we're here for. Just enter the info and we'll do the brain work. You just need to click.</p>
+            </div>
+        </div>
+
+        <div class="pro-tip" style="background: none; color: #333; font-size: 1.1em; border-radius: 0;">
+            💡 Pro tip: Bookmark this calculator. The next time your insurance "accidentally forgets to cover something," you'll be ready.
+        </div>
+
+        <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
+            <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Calculators</h2>
+            <ul style="list-style:none;padding:0;">
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/mortgage-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Mortgage Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Estimate your monthly home loan</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/loan-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Loan Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate loan payments and interest</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/compound-interest.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Compound Interest Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - See your savings grow</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/investment-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Investment Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Project investment returns</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/income-tax-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Income Tax Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Estimate your taxes</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/currency-converter.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Currency Converter</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Convert between currencies</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="../financial/collectible-toy-insurance.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Collectible Toy Insurance</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Insure your valuable collectibles</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <script>
