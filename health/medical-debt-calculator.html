@@ -237,49 +237,6 @@
             background-color: #f5f5f5;
         }
 
-        .content-section {
-            margin-top: 40px;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-        }
-
-        .content-section h2 {
-            color: #333;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .content-section p {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .content-section ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .content-section li {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .content-section li:before {
-            content: "✅";
-            position: absolute;
-            left: 0;
-            color: #2196F3;
-        }
-
         .faq-section {
             margin-top: 30px;
         }
@@ -337,10 +294,14 @@
         .related-calculators ul {
             list-style: none;
             padding: 0;
+            display: block;
+            width: 100%;
         }
 
         .related-calculators li {
             margin-bottom: 14px;
+            display: block;
+            width: 100%;
         }
 
         .related-calculators li:before {
@@ -352,7 +313,13 @@
             font-size: 1.1em;
             font-weight: 500;
             text-decoration: none;
+            transition: color 0.3s;
             vertical-align: middle;
+            display: inline;
+        }
+
+        .related-calculators a:hover {
+            color: #1976D2;
         }
 
         .related-calculators span {
@@ -360,6 +327,7 @@
             font-size: 1.1em;
             font-weight: 400;
             vertical-align: middle;
+            display: inline;
         }
 
         @media (max-width: 768px) {
@@ -408,7 +376,13 @@
             }
 
             .related-calculators ul {
-                grid-template-columns: 1fr;
+                display: block;
+                width: 100%;
+            }
+
+            .related-calculators li {
+                display: block;
+                width: 100%;
             }
         }
     </style>
@@ -470,59 +444,57 @@
                 <!-- Payment schedule table will be inserted here -->
             </div>
         </form>
-    </div>
 
-    <div class="content-section">
-        <h2>🧾 Medical Debt Calculator – Because your hospital bill shouldn't cause another heart attack</h2>
+        <h2 style="margin-top: 40px; color: #333; font-size: 1.8em; margin-bottom: 20px; font-weight: 500;">🧾 Medical Debt Calculator – Because your hospital bill shouldn't cause another heart attack</h2>
         
-        <p>We get it.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">We get it.</p>
         
-        <p>One minute you're getting an X-ray for your sprained ankle, the next minute you're getting a bill that looks like you accidentally bought the hospital.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">One minute you're getting an X-ray for your sprained ankle, the next minute you're getting a bill that looks like you accidentally bought the hospital.</p>
         
-        <p>Healthcare in America is like a subscription service you never signed up for—and forgot to cancel.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Healthcare in America is like a subscription service you never signed up for—and forgot to cancel.</p>
         
-        <p>💸 This calculator exists because math shouldn't add to your medical stress.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">💸 This calculator exists because math shouldn't add to your medical stress.</p>
         
-        <p>Whether you're:</p>
-        <ul>
-            <li>Trying to figure out if you'll be paying this off before retirement (spoiler: maybe)</li>
-            <li>Splitting up your payments into something that doesn't cause a panic attack</li>
-            <li>Or just curious how interest turns a $2,000 bill into a $3,500 one...</li>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Whether you're:</p>
+        <ul style="list-style: none; margin: 20px 0;">
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Trying to figure out if you'll be paying this off before retirement (spoiler: maybe)</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Splitting up your payments into something that doesn't cause a panic attack</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Or just curious how interest turns a $2,000 bill into a $3,500 one...</li>
         </ul>
         
-        <p>This tool breaks it all down:</p>
-        <ul>
-            <li>Total repayment amount</li>
-            <li>Monthly payments</li>
-            <li>Interest over time</li>
-            <li>How long it'll take to actually be debt-free (without selling a kidney)</li>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">This tool breaks it all down:</p>
+        <ul style="list-style: none; margin: 20px 0;">
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Total repayment amount</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Monthly payments</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Interest over time</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>How long it'll take to actually be debt-free (without selling a kidney)</li>
         </ul>
 
-        <div class="faq-section">
-            <h3>🧠 FAQ – because medical bills are confusing enough</h3>
+        <div class="faq-section" style="margin-top: 30px;">
+            <h3 style="color: #333; font-size: 1.5em; margin-bottom: 20px; font-weight: 500;">🧠 FAQ – because medical bills are confusing enough</h3>
             
-            <div class="faq-item">
-                <p class="faq-question">Q: Will this calculator magically make my debt disappear?</p>
-                <p class="faq-answer">A: We wish. Sadly, we don't do miracles—just math.</p>
+            <div class="faq-item" style="margin-bottom: 20px;">
+                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Will this calculator magically make my debt disappear?</p>
+                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: We wish. Sadly, we don't do miracles—just math.</p>
             </div>
             
-            <div class="faq-item">
-                <p class="faq-question">Q: Is this just another scam that charges me later?</p>
-                <p class="faq-answer">A: Nope. No hidden fees, no subscription, no "pro version." It's free like public Wi-Fi, but way more useful.</p>
+            <div class="faq-item" style="margin-bottom: 20px;">
+                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this just another scam that charges me later?</p>
+                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Nope. No hidden fees, no subscription, no "pro version." It's free like public Wi-Fi, but way more useful.</p>
             </div>
             
-            <div class="faq-item">
-                <p class="faq-question">Q: Can I use this to calculate what I owe the dentist for that one cavity?</p>
-                <p class="faq-answer">A: Absolutely. Medical, dental, vet bills—you name it. If it made you cry and came with an invoice, it counts.</p>
+            <div class="faq-item" style="margin-bottom: 20px;">
+                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Can I use this to calculate what I owe the dentist for that one cavity?</p>
+                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Absolutely. Medical, dental, vet bills—you name it. If it made you cry and came with an invoice, it counts.</p>
             </div>
             
-            <div class="faq-item">
-                <p class="faq-question">Q: What if I don't understand any of the numbers?</p>
-                <p class="faq-answer">A: That's what we're here for. Just enter the info and we'll do the brain work. You just need to click.</p>
+            <div class="faq-item" style="margin-bottom: 20px;">
+                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What if I don't understand any of the numbers?</p>
+                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: That's what we're here for. Just enter the info and we'll do the brain work. You just need to click.</p>
             </div>
         </div>
 
-        <div class="pro-tip" style="background: none; color: #333; font-size: 1.1em; border-radius: 0;">
+        <div class="pro-tip" style="background: none; color: #333; font-size: 1.1em; border-radius: 0; margin-top: 30px; padding: 20px; line-height: 1.6;">
             💡 Pro tip: Bookmark this calculator. The next time your insurance "accidentally forgets to cover something," you'll be ready.
         </div>
 
