@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator - Calculator Tools</title>
+    <title>BMI Calculator - Check Your Body Mass Index Instantly</title>
+    <meta name="description" content="Use our free BMI Calculator to instantly find out your Body Mass Index. Determine if you're underweight, normal, overweight, or obese based on your height and weight. No signup needed.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "BMI Calculator",
+      "description": "Use our free Body Mass Index Calculator to check if you're underweight, normal, overweight, or obese based on height and weight. Instant results, no login needed.",
+      "url": "https://www.calculatorquote.com/health/bmi-calculator.html",
+      "keywords": [
+        "BMI calculator",
+        "Body Mass Index calculator",
+        "calculate BMI",
+        "weight status tool",
+        "check BMI online",
+        "height and weight calculator"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +43,7 @@
         }
 
         .calculator-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 30px;
             background-color: #ffffff;
@@ -50,24 +73,20 @@
         }
 
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            margin-bottom: 25px;
         }
 
         .instruction-bar {
-            background-color: #2196F3;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2em;
-            white-space: nowrap;
+            display: none;
         }
 
         .unit-toggle {
@@ -305,12 +324,13 @@
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Health Calculators</a>
+            <a href="./index.html">Health Calculators</a>
             <span>/</span>
-            BMI Calculator
+            <span>BMI Calculator</span>
         </div>
 
-        <h1>BMI Calculator</h1>
+        <h1>BMI Calculator – Instantly Know If You're in the "Healthy" Zone or the "Oops" Zone</h1>
+        <p class="info-text">Trying to figure out whether you're in shape or in denial? Our free Body Mass Index (BMI) Calculator gives you a fast and accurate estimate of your weight category based on height and weight. Whether you're tracking your fitness progress, curious about your ideal weight, or just want to see where you land on the BMI scale — this tool helps you calculate BMI instantly and privately.</p>
 
         <div class="instruction-bar">
             Enter your details and click Calculate
@@ -492,6 +512,70 @@
                 <p>Healthy BMI Range: <span id="healthy-range" class="value">18.5 kg/m² - 25 kg/m²</span></p>
                 <p>Healthy Weight Range: <span id="healthy-weight" class="value">-</span></p>
             </div>
+        </div>
+
+        <h2 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.8em; font-weight: 500;">🧮 BMI Calculator – Because Denial Isn't a Fitness Plan 💀</h2>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Okay, let's not lie to ourselves.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">That "oversized hoodie" isn't fooling anyone.<br>
+        And no, carrying 6 grocery bags in one trip does not count as cardio.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our free BMI Calculator is here to tell it like it is — whether you're built like The Rock or a sentient burrito. Just plug in your height and weight, and we'll do the emotional damage… I mean math.</p>
+        
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">💡 What can it do?</h3>
+        <ul style="list-style: none; margin: 20px 0;">
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Instantly calculate your Body Mass Index (BMI)</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>See if you're underweight, normal, overweight, or fighting gravity</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Totally free – no judgment, no logins, no shady diet ads</li>
+            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Works on all devices – phone, tablet, fridge (okay, maybe not fridge)</li>
+        </ul>
+
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this gonna make me feel bad about myself?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Only if the number does. We're just the messenger.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Will this help me lose weight?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Nope. But knowing is half the battle. The other half is… salad.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this accurate?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: It's based on a standardized formula, so unless you're 99% muscle or 1% marshmallow, it'll give a decent ballpark.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Why not just use my fitness app?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Sure, if you like waiting for updates, account logins, and ads for protein powder.</p>
+        </div>
+
+        <div class="pro-tip" style="background: none; color: #333; font-size: 1.1em; border-radius: 0; margin-top: 30px; padding: 20px; line-height: 1.6;">
+            🧠 Pro tip:<br>
+            Bookmark this calculator.<br>
+            Check it monthly. Or every time you eat a whole pizza "by accident."<br><br>
+            Because reality hits harder than leg day.
+        </div>
+
+        <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
+            <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Calculators</h2>
+            <ul style="list-style:none;padding:0;">
+                <li style="margin-bottom:14px;">
+                    <a href="body-fat-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Body Fat Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Estimate your body fat percentage</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="calorie-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Calorie Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your daily caloric needs</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="ideal-weight-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Ideal Weight Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Find your healthy weight range</span>
+                </li>
+            </ul>
         </div>
     </div>
 
