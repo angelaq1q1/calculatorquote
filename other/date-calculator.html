@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Calculator | Days and Business Days - Calculator Tools</title>
+    <title>Date Calculator - Add or Subtract Days from a Date</title>
+    <meta name="description" content="Use our Date Calculator to add or subtract days, weeks, or months from any date. Instantly find future or past dates, calculate durations, and plan important events. No login needed.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -289,6 +290,65 @@
             margin-bottom: 10px;
             padding: 8px 0;
         }
+
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .info-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .info-section h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .faq-item strong {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .date-inputs {
+                flex-wrap: wrap;
+            }
+
+            .date-inputs input,
+            .date-inputs select {
+                flex: 1;
+                min-width: 70px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -301,11 +361,10 @@
             Date Calculator
         </div>
 
-        <h1>Date Calculator | Days and Business Days</h1>
+        <h1>Date Calculator – Quickly Add or Subtract Days Without a Calendar Meltdown</h1>
         
         <div class="description">
-            Calculate a future or past date by adding or subtracting days from a given date. 
-            You can choose to count business days only (Monday through Friday) and include or exclude Saturdays.
+            Need to figure out what day it'll be 90 days from now? Or how many days between your birthday and tax season? Our free <strong>Date Calculator</strong> does the date math for you — add or subtract days, weeks, months, or even years in seconds. Whether you're scheduling a trip, planning deadlines, or just satisfying calendar curiosity, this tool has your back.
         </div>
 
         <div class="input-section">
@@ -357,6 +416,54 @@
             <h2>Result</h2>
             <div class="result-date" id="result-date"></div>
             <div id="repeat-link"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>📅 Date Calculator – Because "Two Weeks From Tuesday" Shouldn't Be a Math Problem</h2>
+            
+            <div class="faq-item">
+                <p>Some days, you're planning a vacation.<br>
+                Other days, you're figuring out how many days are left before your rent is due (again).<br>
+                And occasionally, you're just trying to count how many days you've survived since your last existential crisis.</p>
+                
+                <p>Whatever the case, our Date Calculator is here to save your brain cells from doing calendar gymnastics.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🔧 What does it do?</h3>
+                <p>✅ Add or subtract days, weeks, months, or years from any date</p>
+                <p>✅ Calculate duration between two dates</p>
+                <p>✅ Plan deadlines, countdowns, or how long it's been since your last gym visit</p>
+                <p>✅ Instant results, no mental math or weird leap year drama</p>
+                <p>✅ Free. No logins. No pop-ups asking for your birthday (ironic, we know)</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>❓FAQ – We know your brain's too fried to count</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can I use this to plan my next vacation?</strong><br>
+                    A: Absolutely. Just don't blame us if it's 136 days away and you lose hope.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can it tell me how many days I've been alive?</strong><br>
+                    A: Yep. Warning: the number might be alarmingly high. Existential dread not included.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this just a calendar with a calculator taped to it?</strong><br>
+                    A: Basically, but prettier. And less judgmental than your wall calendar.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is it really free? Where's the catch?</strong><br>
+                    A: No catch, just calculators. We make a little from ads — like a digital tip jar — but the tool itself is totally free.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3>🧠 Pro tip:</h3>
+                <p>Bookmark this tool for every time someone says "let's circle back in 90 days" like that means anything. Or when your project manager schedules something "two Mondays from now."</p>
+                <p>You shouldn't need a time machine or a spreadsheet to count days.<br>
+                Now you don't. 🚀📆</p>
+            </div>
         </div>
     </div>
 
@@ -518,6 +625,29 @@
         window.onload = function() {
             initTodayDate();
         };
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Date Calculator",
+      "description": "Use our free Date Calculator to add or subtract days from a date, calculate durations between two dates, and plan timelines without confusion.",
+      "url": "https://www.calculatorquote.com/other/date-calculator.html",
+      "keywords": [
+        "Date calculator",
+        "Add days to date",
+        "Subtract days from date",
+        "Calculate duration between dates",
+        "Day calculator",
+        "Time between dates"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
     </script>
 </body>
 </html> 
