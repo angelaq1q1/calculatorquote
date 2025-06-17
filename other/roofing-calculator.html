@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roofing Calculator - Calculator Tools</title>
+    <title>Roofing Calculator - Estimate Roof Area & Material Costs</title>
+    <meta name="description" content="Use our free Roofing Calculator to estimate roof area, shingles or tiles needed, and approximate material costs. Ideal for homeowners, contractors, and DIY roofing projects.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -232,8 +233,12 @@
             Roofing Calculator
         </div>
 
-        <h1 class="calculator-title">Roofing Area Calculator</h1>
+        <h1 class="calculator-title">Roofing Calculator – Take the Guesswork Out of Your Roof Game</h1>
         
+        <div class="description">
+            Tired of staring at your roof wondering how many shingles you need? Our Roofing Calculator instantly estimates your roof area and material requirements based on simple inputs. Whether you're planning a full replacement or just curious, this tool helps you avoid the "oops, we ran out" moment.
+        </div>
+
         <div class="tabs">
             <button class="tab active" onclick="switchTab('pitch')">Roof Pitch</button>
             <button class="tab" onclick="switchTab('angle')">Roof Angle</button>
@@ -425,6 +430,56 @@
                 </div>
             </div>
         </div>
+
+        <div class="info-section">
+            <h2 class="calculator-title">🏠 Roofing Calculator – Because Eyeballing Your Roof Won't End Well 🧮</h2>
+            
+            <div class="description">
+                <p>So you looked up at your roof, guessed it's "probably about 30 feet wide," and thought you could wing it?</p>
+                <p>Bold move.</p>
+                <p>Whether you're a brave DIYer, a stressed-out homeowner, or someone who just wants to sound smart at Home Depot — our Roofing Calculator is here to stop you from dramatically underestimating how many shingles you'll need (again).</p>
+            </div>
+
+            <div class="description">
+                <h3 class="calculator-title">🧱 What's it do?</h3>
+                <p>✅ Instantly estimates roof area based on width, length & pitch</p>
+                <p>✅ Calculates how many shingles, tiles, or metal sheets you actually need</p>
+                <p>✅ Gives you material cost estimates — so you know what kind of financial heartbreak to expect</p>
+                <p>✅ Works on any device, even on a ladder (though maybe don't try that)</p>
+                <p>✅ No sign-ups, no downloads, no roofing contractor side-eyes</p>
+            </div>
+
+            <div class="description">
+                <h3 class="calculator-title">🛠️ Common uses:</h3>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>• Planning a full roof replacement</li>
+                    <li>• Figuring out if your roofing quote is legit or daylight robbery</li>
+                    <li>• Pretending you're more prepared than you actually are</li>
+                    <li>• Having something smarter than your neighbor Dave (again)</li>
+                </ul>
+            </div>
+
+            <div class="description">
+                <h3 class="calculator-title">❓ Real questions. Real answers.</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can this calculator help me avoid a roofing disaster?</strong><br>
+                    A: It can't stop your cousin from "helping" with a nail gun, but it can stop you from buying 600 extra shingles.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: What about weird roof angles and attic monsters?</strong><br>
+                    A: Just input the pitch. It handles the math so you can handle the monsters.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this really free?</strong><br>
+                    A: Yes. Like, free-free. Not "give us your email and we'll spam you forever" free. Just use it and go.</p>
+                </div>
+            </div>
+
+            <div class="description">
+                <h3 class="calculator-title">🧠 Pro tip:</h3>
+                <p>Bookmark this tool. Next time you feel tempted to say "meh, we'll figure it out when we get there," remember the last time you ran out of materials halfway through the job. 🙃</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -590,6 +645,31 @@
             document.getElementById('materialArea').value = '200';
             document.getElementById('results').style.display = 'none';
         }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Roofing Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "url": "https://www.calculatorquote.com/other/roofing-calculator.html",
+      "description": "Use our free Roofing Calculator to estimate your roof area, number of shingles or tiles needed, and material costs. Perfect for homeowners, contractors, and DIY roofing projects.",
+      "keywords": [
+        "roofing calculator",
+        "roof area estimator",
+        "calculate shingles",
+        "roofing materials calculator",
+        "roofing cost estimator",
+        "DIY roofing tool"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
     </script>
 </body>
 </html> 
