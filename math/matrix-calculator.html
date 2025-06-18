@@ -341,13 +341,13 @@
 <body>
     <div class="main-container">
         <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Matrix Calculator
-            </div>
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+                    <a href="index.html">Math Calculators</a>
+        <span>/</span>
+        Matrix Calculator
+        </div>
 
             <div class="page-header">
                 <h1>Matrix Calculator - Easy Online Matrix Operations Tool</h1>
@@ -358,85 +358,85 @@
             </p>
 
             <div class="calculator-container">
-                <div class="calculator-layout">
-                    <!-- Matrix A Section -->
-                    <div class="matrix-input-section">
-                        <div class="matrix-header">
-                            <div class="matrix-title">Matrix A</div>
-                            <div class="dimension-control">
-                                <label>Rows:</label>
-                                <input type="number" class="dimension-input" id="matrix-a-rows" value="2" min="1" max="10">
-                                <label>Cols:</label>
-                                <input type="number" class="dimension-input" id="matrix-a-cols" value="2" min="1" max="10">
-                            </div>
-                        </div>
-                        <div id="matrix-a-grid" class="matrix-grid"></div>
-                        <div class="matrix-buttons">
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="clearMatrix('a')">Clear</button>
-                                <button class="matrix-button" onclick="fillMatrix('a', 0)">All 0</button>
-                                <button class="matrix-button" onclick="fillMatrix('a', 1)">All 1</button>
-                                <button class="matrix-button" onclick="randomMatrix('a')">Random</button>
-                            </div>
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="transposeMatrix('a')">Transpose</button>
-                                <button class="matrix-button" onclick="powerMatrix('a')">Power of</button>
-                                <input type="number" class="power-input" id="matrix-a-power" value="2" min="1" max="10">
-                            </div>
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="calculateDeterminant('a')">Determinant</button>
-                                <button class="matrix-button" onclick="calculateInverse('a')">Inverse</button>
-                                <button class="matrix-button" onclick="multiplyByScalar('a')">×</button>
-                                <input type="number" class="scalar-input" id="matrix-a-scalar" value="3">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Matrix B Section -->
-                    <div class="matrix-input-section">
-                        <div class="matrix-header">
-                            <div class="matrix-title">Matrix B</div>
-                            <div class="dimension-control">
-                                <label>Rows:</label>
-                                <input type="number" class="dimension-input" id="matrix-b-rows" value="2" min="1" max="10">
-                                <label>Cols:</label>
-                                <input type="number" class="dimension-input" id="matrix-b-cols" value="2" min="1" max="10">
-                            </div>
-                        </div>
-                        <div id="matrix-b-grid" class="matrix-grid"></div>
-                        <div class="matrix-buttons">
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="clearMatrix('b')">Clear</button>
-                                <button class="matrix-button" onclick="fillMatrix('b', 0)">All 0</button>
-                                <button class="matrix-button" onclick="fillMatrix('b', 1)">All 1</button>
-                                <button class="matrix-button" onclick="randomMatrix('b')">Random</button>
-                            </div>
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="transposeMatrix('b')">Transpose</button>
-                                <button class="matrix-button" onclick="powerMatrix('b')">Power of</button>
-                                <input type="number" class="power-input" id="matrix-b-power" value="2" min="1" max="10">
-                            </div>
-                            <div class="button-row">
-                                <button class="matrix-button" onclick="calculateDeterminant('b')">Determinant</button>
-                                <button class="matrix-button" onclick="calculateInverse('b')">Inverse</button>
-                                <button class="matrix-button" onclick="multiplyByScalar('b')">×</button>
-                                <input type="number" class="scalar-input" id="matrix-b-scalar" value="3">
-                            </div>
-                        </div>
+        <div class="calculator-layout">
+            <!-- Matrix A Section -->
+            <div class="matrix-input-section">
+                <div class="matrix-header">
+                    <div class="matrix-title">Matrix A</div>
+                    <div class="dimension-control">
+                        <label>Rows:</label>
+                        <input type="number" class="dimension-input" id="matrix-a-rows" value="2" min="1" max="10">
+                        <label>Cols:</label>
+                        <input type="number" class="dimension-input" id="matrix-a-cols" value="2" min="1" max="10">
                     </div>
                 </div>
-
-                <div class="operations-section">
-                    <button class="operation-button" onclick="addMatrices()">A + B</button>
-                    <button class="operation-button" onclick="subtractMatrices()">A - B</button>
-                    <button class="operation-button" onclick="multiplyMatrices()">A × B</button>
-                    <button class="operation-button" onclick="swapMatrices()">A ↔ B</button>
+                <div id="matrix-a-grid" class="matrix-grid"></div>
+                <div class="matrix-buttons">
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="clearMatrix('a')">Clear</button>
+                        <button class="matrix-button" onclick="fillMatrix('a', 0)">All 0</button>
+                        <button class="matrix-button" onclick="fillMatrix('a', 1)">All 1</button>
+                        <button class="matrix-button" onclick="randomMatrix('a')">Random</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="transposeMatrix('a')">Transpose</button>
+                        <button class="matrix-button" onclick="powerMatrix('a')">Power of</button>
+                        <input type="number" class="power-input" id="matrix-a-power" value="2" min="1" max="10">
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="calculateDeterminant('a')">Determinant</button>
+                        <button class="matrix-button" onclick="calculateInverse('a')">Inverse</button>
+                        <button class="matrix-button" onclick="multiplyByScalar('a')">×</button>
+                        <input type="number" class="scalar-input" id="matrix-a-scalar" value="3">
+                    </div>
                 </div>
+            </div>
 
-                <div class="result-section">
-                    <div class="result-title">Result</div>
-                    <div id="result-grid" class="result-grid"></div>
-                    <div id="error-message" class="error"></div>
+            <!-- Matrix B Section -->
+            <div class="matrix-input-section">
+                <div class="matrix-header">
+                    <div class="matrix-title">Matrix B</div>
+                    <div class="dimension-control">
+                        <label>Rows:</label>
+                        <input type="number" class="dimension-input" id="matrix-b-rows" value="2" min="1" max="10">
+                        <label>Cols:</label>
+                        <input type="number" class="dimension-input" id="matrix-b-cols" value="2" min="1" max="10">
+                    </div>
+                </div>
+                <div id="matrix-b-grid" class="matrix-grid"></div>
+                <div class="matrix-buttons">
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="clearMatrix('b')">Clear</button>
+                        <button class="matrix-button" onclick="fillMatrix('b', 0)">All 0</button>
+                        <button class="matrix-button" onclick="fillMatrix('b', 1)">All 1</button>
+                        <button class="matrix-button" onclick="randomMatrix('b')">Random</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="transposeMatrix('b')">Transpose</button>
+                        <button class="matrix-button" onclick="powerMatrix('b')">Power of</button>
+                        <input type="number" class="power-input" id="matrix-b-power" value="2" min="1" max="10">
+                    </div>
+                    <div class="button-row">
+                        <button class="matrix-button" onclick="calculateDeterminant('b')">Determinant</button>
+                        <button class="matrix-button" onclick="calculateInverse('b')">Inverse</button>
+                        <button class="matrix-button" onclick="multiplyByScalar('b')">×</button>
+                        <input type="number" class="scalar-input" id="matrix-b-scalar" value="3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="operations-section">
+            <button class="operation-button" onclick="addMatrices()">A + B</button>
+            <button class="operation-button" onclick="subtractMatrices()">A - B</button>
+            <button class="operation-button" onclick="multiplyMatrices()">A × B</button>
+            <button class="operation-button" onclick="swapMatrices()">A ↔ B</button>
+        </div>
+
+        <div class="result-section">
+            <div class="result-title">Result</div>
+            <div id="result-grid" class="result-grid"></div>
+            <div id="error-message" class="error"></div>
                 </div>
             </div>
 
@@ -789,6 +789,28 @@
         // 初始化矩阵
         initializeMatrix('a', 2, 2);
         initializeMatrix('b', 2, 2);
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Matrix Calculator",
+      "description": "Use our free Matrix Calculator to perform matrix addition, subtraction, multiplication, and inversion instantly online. No signup needed.",
+      "url": "https://www.calculatorquote.com/math/matrix-calculator.html",
+      "image": "https://www.calculatorquote.com/assets/images/matrix-calculator-og.jpg",
+      "keywords": "matrix calculator, matrix multiplication, matrix inversion, matrix operations, linear algebra tools",
+      "sameAs": [
+        "https://www.facebook.com/calculatorquote",
+        "https://www.pinterest.com/calculatorquote",
+        "https://www.twitter.com/calculatorquote"
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
     </script>
 </body>
 </html> 
