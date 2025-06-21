@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Loan Calculator – Estimate Monthly Car Payments Instantly</title>
+    <meta name="description" content="Use our free Auto Loan Calculator to estimate your monthly car payment, total interest, and loan affordability. Enter vehicle price, loan term, APR, and down payment—get results instantly, no login.">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Calculator",
+  "name": "Auto Loan Calculator",
+  "description": "Estimate your monthly car loan payment, total interest, and loan term with our free Auto Loan Calculator. No signup or downloads required.",
+  "url": "https://www.calculatorquote.com/financial/auto-loan-calculator.html",
+  "keywords": [
+    "auto loan calculator",
+    "car loan calculator",
+    "monthly car payment estimator",
+    "vehicle financing tool",
+    "car loan interest calculator"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://www.calculatorquote.com"
+  }
+}
+</script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .input-row select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: white;
+        }
+
+        .term-options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .term-options label {
+            margin-right: 15px;
+            font-weight: normal;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .input-row input,
+            .input-row select {
+                width: 100%;
+            }
+
+            .term-options {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Auto Loan Calculator
+        </div>
+
+        <h1>Auto Loan Calculator – Figure Out Your Car Payment Before the Dealership Does</h1>
+        
+        <div class="description">
+            Trying to guess your monthly car payment? Whether you're buying new, used, or just window-shopping that electric SUV, our Auto Loan Calculator breaks down everything—payment, interest, loan term—in seconds. So you can finance smart, not surprised.
+        </div>
+
+        <div class="calculator-section">
+            <div class="input-group">
+                <label>Loan Amount ($)</label>
+                <div class="input-row">
+                    <input type="number" id="loanAmount" min="0" step="0.01" placeholder="Enter loan amount">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Loan Term</label>
+                <div class="input-row">
+                    <input type="number" id="loanTerm" min="1" max="120" placeholder="Enter term length">
+                    <div class="term-options">
+                        <label><input type="radio" name="termUnit" value="months" checked> months</label>
+                        <label><input type="radio" name="termUnit" value="years"> years</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Interest Rate (%)</label>
+                <div class="input-row">
+                    <input type="number" id="interestRate" min="0" max="30" step="0.01" placeholder="Enter interest rate">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateLoan()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Loan Summary</h2>
+            <div class="result-value" id="monthlyPayment"></div>
+            <div class="result-value" id="totalPaid"></div>
+            <div class="result-value" id="loanAmountPaid"></div>
+            <div class="result-value" id="interestPaid"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>🛻 Auto Loan Calculator – Because Buying a Car Shouldn't Feel Like a Math Exam</h2>
+            
+            <p>Let's be real:<br>
+            You walk into the dealership thinking "$25k isn't bad,"<br>
+            …and walk out wondering if you accidentally financed a spaceship.</p>
+            
+            <p>Don't panic. Our free Auto Loan Calculator is here to break it all down—monthly payments, total interest, and how many years you'll be emotionally attached to that car loan.</p>
+
+            <h3>💡 What can it do?</h3>
+            <ul style="margin-left: 20px; color: #666;">
+                <li>✅ Estimate monthly payments (spoiler: it's more than just sticker price ÷ months)</li>
+                <li>✅ Calculate total interest (aka the price of being impatient)</li>
+                <li>✅ Customize term length, down payment, and APR (aka alphabet soup that costs money)</li>
+                <li>✅ No sign-ups, no spam, no "please upgrade to Premium for $29.99/mo"</li>
+            </ul>
+
+            <h3>🔧 Perfect for:</h3>
+            <ul style="margin-left: 20px; color: #666;">
+                <li>First-time car buyers wondering if that shiny SUV is worth the debt</li>
+                <li>Budgeters calculating what they actually can afford (not what the ad says)</li>
+                <li>Anyone who's been personally victimized by balloon payments</li>
+            </ul>
+
+            <h3>❓FAQ – For the financially confused (no shame)</h3>
+            
+            <p><strong>Q: Can this calculator tell me if I'm overpaying?</strong><br>
+            A: Yep. Enter your loan details and compare against average rates—it'll expose dealer trickery faster than your uncle at Thanksgiving.</p>
+            
+            <p><strong>Q: What if I have bad credit?</strong><br>
+            A: Still works. The calculator doesn't judge—just change the APR to reflect your "oops" credit score.</p>
+            
+            <p><strong>Q: Does it work for used cars too?</strong><br>
+            A: Absolutely. Whether it's brand-new or barely starts, it crunches the same math.</p>
+            
+            <p><strong>Q: Is it really free?</strong><br>
+            A: Totally. Like "free sample at Costco" free. We just run a few ads to keep the lights on.</p>
+
+            <p><strong>📌 Pro tip:</strong> Bookmark this. You'll need it every time a car ad screams "$199/mo!!!" and forgets to mention the 84-month loan and 12% APR.</p>
+        </div>
+
+        <div class="info-section">
+            <h3>Related Calculators</h3>
+            <ul style="margin-left: 20px; color: #666;">
+                <li><a href="../math/basic-calculator.html" style="color: #2196F3; text-decoration: none;">Basic Calculator</a> - Simple arithmetic calculations</li>
+                <li><a href="../other/percentage-calculator.html" style="color: #2196F3; text-decoration: none;">Percentage Calculator</a> - Calculate percentages and discounts</li>
+                <li><a href="../other/date-calculator.html" style="color: #2196F3; text-decoration: none;">Date Calculator</a> - Calculate date differences and add/subtract days</li>
+                <li><a href="../other/random-number-generator.html" style="color: #2196F3; text-decoration: none;">Random Number Generator</a> - Generate random numbers for various purposes</li>
+                <li><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none;">Mortgage Calculator</a> - Calculate home loan payments and interest</li>
+                <li><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none;">Loan Calculator</a> - General loan payment calculations</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function calculateLoan() {
+            // Get input values
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value);
+            const termUnit = document.querySelector('input[name="termUnit"]:checked').value;
+
+            if (!loanAmount || loanAmount <= 0) {
+                alert('Please enter a valid loan amount.');
+                return;
+            }
+
+            if (!loanTerm || loanTerm <= 0) {
+                alert('Please enter a valid loan term.');
+                return;
+            }
+
+            if (!interestRate || interestRate < 0) {
+                alert('Please enter a valid interest rate.');
+                return;
+            }
+
+            // Convert term to months if needed
+            const termInMonths = termUnit === 'years' ? loanTerm * 12 : loanTerm;
+            
+            // Calculate monthly interest rate
+            const monthlyRate = interestRate / 100 / 12;
+            
+            // Calculate monthly payment using loan amortization formula
+            let monthlyPayment;
+            if (monthlyRate === 0) {
+                monthlyPayment = loanAmount / termInMonths;
+            } else {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, termInMonths)) / (Math.pow(1 + monthlyRate, termInMonths) - 1);
+            }
+            
+            // Calculate total amounts
+            const totalPaid = monthlyPayment * termInMonths;
+            const interestPaid = totalPaid - loanAmount;
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('monthlyPayment').textContent = `Monthly payment: $${monthlyPayment.toFixed(2)}`;
+            document.getElementById('totalPaid').textContent = `Total paid over life of the loan: $${totalPaid.toFixed(2)}`;
+            document.getElementById('loanAmountPaid').textContent = `Loan amount paid: $${loanAmount.toFixed(2)}`;
+            document.getElementById('interestPaid').textContent = `Interest paid: $${interestPaid.toFixed(2)}`;
+        }
+
+        function clearInputs() {
+            document.getElementById('loanAmount').value = '';
+            document.getElementById('loanTerm').value = '';
+            document.getElementById('interestRate').value = '';
+            document.querySelector('input[name="termUnit"][value="months"]').checked = true;
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
