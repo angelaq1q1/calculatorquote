@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Insurance Calculator – Compare Plans for Dogs and Cats</title>
+    <meta name="description" content="Use this pet insurance calculator to estimate monthly costs for dogs and cats. Compare plans like Embrace, Lemonade, and Nationwide. Get the best fit.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .input-group input[type="date"],
+        .input-group input[type="time"] {
+            width: 200px;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .result-time {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        .addon-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .addon-row input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .pet-info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .pet-info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .pet-info-box p {
+            margin-bottom: 12px;
+        }
+        .pet-info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Pet Insurance Calculator",
+      "url": "https://www.calculatorquote.com/insurance/pet-insurance-calculator.html",
+      "description": "Estimate monthly pet insurance costs and compare top providers like Embrace, Nationwide, Lemonade, and Spot. Ideal for dogs, cats, and mixed breeds.",
+      "mainEntity": {
+        "@type": "FinancialProduct",
+        "name": "Pet Insurance",
+        "description": "Insurance coverage for pets to assist with veterinary care and medical expenses.",
+        "provider": {
+          "@type": "Organization",
+          "name": "CalculatorQuote",
+          "url": "https://www.calculatorquote.com"
+        },
+        "applicationSubCategory": "Pet Insurance Comparison Tool",
+        "areaServed": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Canada" }
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "15",
+          "highPrice": "100",
+          "priceCurrency": "USD"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="/">Home</a> <span>/</span>
+            <a href="/insurance">Insurance Calculators</a> <span>/</span>
+            <span>Pet Insurance Calculator</span>
+        </div>
+        <h1>Pet Insurance Calculator – Find the Best Plan for Your Pet</h1>
+        <div class="description">
+            <p>
+              Estimate your monthly premium based on pet type, breed, age, and coverage level. This calculator helps compare pet insurance plans from top providers like Nationwide, Lemonade, Embrace, Spot, and more—perfect for dog and cat owners looking to save on vet bills.
+            </p>
+        </div>
+        <form id="quote-form" novalidate>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="pet-name">Pet Name <span style="color:#e53935">*</span></label>
+                    <input type="text" id="pet-name" name="pet-name" required placeholder="Enter pet name">
+                    <div class="error" id="error-pet-name"></div>
+                </div>
+                <div class="input-group">
+                    <label>Pet Type <span style="color:#e53935">*</span></label>
+                    <div>
+                        <label style="margin-right:24px;"><input type="radio" name="pet-type" value="dog" required> Dog</label>
+                        <label><input type="radio" name="pet-type" value="cat"> Cat</label>
+                    </div>
+                    <div class="error" id="error-pet-type"></div>
+                </div>
+                <div class="input-group">
+                    <label>Gender <span style="color:#e53935">*</span></label>
+                    <div>
+                        <label style="margin-right:24px;"><input type="radio" name="pet-gender" value="male" required> Male</label>
+                        <label><input type="radio" name="pet-gender" value="female"> Female</label>
+                    </div>
+                    <div class="error" id="error-pet-gender"></div>
+                </div>
+                <div class="input-group">
+                    <label for="pet-birth-month">Birth Month <span style="color:#e53935">*</span></label>
+                    <select id="pet-birth-month" name="pet-birth-month" required>
+                        <option value="">Select Month</option>
+                        <option>January</option><option>February</option><option>March</option><option>April</option>
+                        <option>May</option><option>June</option><option>July</option><option>August</option>
+                        <option>September</option><option>October</option><option>November</option><option>December</option>
+                    </select>
+                    <div class="error" id="error-pet-birth-month"></div>
+                </div>
+                <div class="input-group">
+                    <label for="pet-birth-year">Birth Year <span style="color:#e53935">*</span></label>
+                    <select id="pet-birth-year" name="pet-birth-year" required>
+                        <option value="">Select Year</option>
+                    </select>
+                    <div class="error" id="error-pet-birth-year"></div>
+                </div>
+                <div class="input-group">
+                    <label for="pet-breed">Breed <span style="color:#e53935">*</span></label>
+                    <select id="pet-breed" name="pet-breed" required>
+                        <option value="">Select Breed</option>
+                    </select>
+                    <div class="error" id="error-pet-breed"></div>
+                </div>
+                <div class="input-group">
+                    <label for="insurance-plan">Insurance Plan <span style="color:#e53935">*</span></label>
+                    <select id="insurance-plan" name="insurance-plan" required>
+                        <option value="1.0">Basic</option>
+                        <option value="1.3">Standard</option>
+                        <option value="1.6">Premium</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Additional Coverage</label>
+                    <div>
+                        <label style="margin-right: 16px;"><input type="checkbox" id="dental-coverage" name="addon" value="5"> Dental (+$5)</label>
+                        <label><input type="checkbox" id="hereditary-coverage" name="addon" value="8"> Hereditary (+$8)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn-calculate">Calculate</button>
+                <button type="button" class="btn-clear">Clear</button>
+            </div>
+            <div class="error" id="form-error"></div>
+        </form>
+        <div class="result-section" id="result-section" style="display: block; min-height: 48px;">
+            <h2>Result</h2>
+            <div class="result-time" id="result" style="font-size: 1.2em; color: #2196F3; margin-bottom: 10px;"></div>
+        </div>
+        <div class="pet-info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🐶 Pet Insurance Calculator – Because Vet Bills Shouldn't Feel Like a Luxury Expense</div>
+            <p>Let's be honest:</p>
+            <p>If your dog thinks socks are a food group, or your cat mysteriously injured itself "just existing" — it's probably time to get pet insurance.<br>And no, Googling "best pet insurance" and hoping for the best doesn't count as a plan. 😅</p>
+            <p>Our Pet Insurance Calculator is here to help you stop guessing and start protecting. Whether you're comparing costs for a curious puppy, a senior cat, or that Frenchie with more pre-existing conditions than your grandma — we got you.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">🧮 What does it actually do?</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>✅ Estimates monthly premiums based on your pet's breed, age, and location</li>
+                <li>✅ Helps you compare coverage types (accident, illness, wellness... even dental 👀)</li>
+                <li>✅ Supports both cats 🐱 and dogs 🐶 — because chaos knows no species</li>
+                <li>✅ Works for popular plans like Nationwide, Embrace, Lemonade, and Spot</li>
+                <li>✅ No account, no spam, just straight-up insurance clarity</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">💡 Perfect for:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>First-time pet parents who just discovered how expensive "puppy diarrhea" is at the vet</li>
+                <li>Anyone comparing plans but sick of reading 17 insurance websites</li>
+                <li>People who say "I'll look into it later" but then end up paying $900 for emergency X-rays</li>
+                <li>Dog moms and cat dads who want peace of mind without paying more than their own insurance</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ Pet Insurance Q&A Therapy</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: Can this calculator tell me exactly what I'll pay?</strong><br>A: Not quite, but it gives you a super solid estimate — way better than winging it.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: Is this better than just checking one provider's website?</strong><br>A: Yes — because we help you compare multiple types of plans before you commit to any of them.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: Do I really need pet insurance?</strong><br>A: Only if you want to sleep at night knowing one squirrel chase won't cost you your rent.
+            </div>
+            <div style="margin: 18px 0 8px; font-weight: 500;">🧠 Pro tip:</div>
+            <p style="margin-bottom: 0;">Bookmark this tool. One vet visit later, you'll wish you had. Trust us — your wallet (and your pet) will thank you.</p>
+        </div>
+    </div>
+    <script>
+        // Full dog breeds list from the referenced site
+        const dogBreeds = [
+            "Mixed Breed Small", "Mixed Breed Medium", "Mixed Breed Large", "Mixed Breed X-Large",
+            "Affenpinscher", "Afghan Hound", "African Boerboel", "Ainu Dog", "Airedale Terrier", "Akita", "Alapaha Blue Blood Bulldog", "Alaskan Husky", "Alaskan Klee Kai", "Alaskan Malamute", "Alpine Dachsbracke", "American Alaskan Spitz", "American Bandogge Mastiff", "American Black & Tan Coonhound", "American Bulldog", "American Cocker Spaniel", "American English Coonhound", "American Eskimo", "American Foxhound", "American Hairless Terrier", "American Pit Bull Terrier", "American Staffordshire Terrier", "American Water Spaniel", "Anatolian Shepherd", "Australian Cattle Dog", "Australian Kelpie", "Australian Shepherd", "Australian Terrier", "Basenji", "Basset Hound", "Beagle", "Bearded Collie", "Beauceron", "Bedlington Terrier", "Belgian Groenendal", "Belgian Laekenois", "Belgian Sheepdog", "Belgian Shepherd Laekenois", "Belgian Shepherd Malinois", "Belgian Tervuren", "Bernese Mountain Dog", "Bichon Bolognese", "Bichon Frise", "Bichpoo", "Black and Tan Coonhound", "Black Russian Terrier", "Bloodhound", "Blue Heeler", "Bluetick Coonhound", "Boerboel", "Bolognese", "Border Collie", "Border Terrier", "Borzoi", "Boston Terrier", "Bouvier Des Flandres", "Boxer", "Boykin Spaniel", "Bracco Italiano", "Briard", "Brittany", "Brussels Griffon", "Bulldog", "Bullmastiff", "Bull Terrier", "Cairn Terrier", "Canaan Dog", "Canary Dog", "Cane Corso", "Cardigan Welsh Corgi", "Catahoula Leopard Dog", "Caucasian Mountain Dog", "Cavalier King Charles Spaniel", "Cesky Terrier", "Chesapeake Bay Retriever", "Chihuahua", "Chinese Crested", "Chinese Shar-Pei", "Chinook", "Chow Chow", "Clumber Spaniel", "Cocker Spaniel", "Collie", "Coton De Tulear", "Curly-Coated Retriever", "Dachshund", "Dalmatian", "Dandie Dinmont Terrier", "Doberman Pinscher", "Dogo Argentino", "Dogue de Bordeaux", "English Bulldog", "English Cocker Spaniel", "English Foxhound", "English Mastiff", "English Setter", "English Springer Spaniel", "English Toy Spaniel", "Field Spaniel", "Fila", "Finnish Hound", "Finnish Lapphund", "Flat-Coated Retriever", "French Bulldog", "German Pinscher", "German Shepherd", "German Shorthaired Pointer", "German Wirehaired Pointer", "Giant Schnauzer", "Glen of Imaal Terrier", "Golden Retriever", "Gordon Setter", "Great Dane", "Great Pyrenees", "Greater Swiss Mountain Dog", "Greyhound", "Harrier", "Havanese", "Hovawart", "Hungairan Sheepdog", "Ibizan Hound", "Icelandic Sheepdog", "Irish Red and White Setter", "Irish Setter", "Irish Terrier", "Irish Water Spaniel", "Irish Wolfhound", "Italian Greyhound", "Jack Russell Terrier", "Japanese Chin", "Japanese Spitz", "Kai Ken", "Karelian Bear Dog", "Keeshond", "Kerry Blue Terrier", "Komondor", "Kuvasz", "Labrador Retriever", "Lagotto Romagnolo", "Lakeland Terrier", "Lancashire Heeler", "Landseer", "Leonberger", "Lhasa Apso", "Lowchen", "Lucas Terrier", "Lurcher", "Maltese", "Manchester Terrier", "Mastiff", "Miniature Australian Shepherd", "Miniature Bull Terrier", "Miniature Dachshund", "Miniature Pinscher", "Miniature Poodle", "Miniature Schnauzer", "Mudi", "Munsterlander", "Neapolitan Mastiff", "Newfoundland", "Norfolk Terrier", "Norwegian Elkhound", "Norwich Terrier", "Nova Scotia Duck Tolling Retriever", "Olde English Bulldogge", "Old English Sheepdog", "Otterhound", "Papillon", "Parson Russell Terrier", "Pekingese", "Pembroke Welsh Corgi", "Petit Basset Griffon Vendeen", "Pharaoh Hound", "Plott Hound", "Pointer", "Polish Lowland Sheepdog", "Pomeranian", "Poodle", "Portuguese Water Dog", "Pug", "Puli", "Pumi", "Pyrenean Shepherd", "Rat Terrier", "Redbone Coonhound", "Rhodesian Ridgeback", "Rottweiler", "Russell Terrier", "Saint Bernard", "Saluki", "Samoyed", "Schipperke", "Scottish Deerhound", "Scottish Terrier", "Sealyham Terrier", "Segugio Italiano", "Shetland Sheepdog", "Shiba Inu", "Shih Tzu", "Siberian Husky", "Silky Terrier", "Skye Terrier", "Small Munsterlander", "Smooth Fox Terrier", "Soft Coated Wheaten Terrier", "Spanish Water Dog", "Spinone Italiano", "Staffordshire Bull Terrier", "Standard Poodle", "Standard Schnauzer", "Sussex Spaniel", "Swedish Vallhund", "Thai Ridgeback", "Tibetan Mastiff", "Tibetan Spaniel", "Tibetan Terrier", "Toy Fox Terrier", "Toy Manchester Terrier", "Toy Poodle", "Treeing Tennessee Brindle", "Treeing Walker Coonhound", "Vizsla", "Weimaraner", "Welsh Springer Spaniel", "Welsh Terrier", "West Highland White Terrier", "Westmoreland Terrier", "Whippet", "Wire Fox Terrier", "Wirehaired Pointing Griffon", "Wirehaired Vizsla", "Mexican Hairless", "Yorkshire Terrier"
+        ];
+        // Full cat breeds list from the referenced site
+        const catBreeds = [
+            "Mixed Breed (Medium Hair)", "Mixed Breed (Short Hair)", "Abyssinian", "American Bobtail", "American Bobtail Shorthair", "American Curl", "American Curl Longhair", "American Curl Shorthair", "American Longhair", "American Shorthair", "American Wirehair", "Ashera", "Balinese", "Bengal", "Birman", "Bombay", "British Longhair", "British Shorthair", "Burmese", "Burmilla", "California Spangled", "Chartreux", "Chausie", "Chinchilla", "Colorpoint Shorthair", "Cornish Rex", "Cymric", "Devon Rex", "Domestic Longhair", "Domestic Medium Hair", "Domestic Shorthair", "Donskoy (Don Hairless, Don Sphynx)", "Egyptian Mau", "European Burmese", "Exotic Longhair", "Exotic Shorthair", "Habari", "Havana (Havana Brown)", "Highlander", "Highlander Shorthair", "Himalayan", "Japanese Bobtail", "Japanese Bobtail Longhair", "Javanese", "Kashmir", "Korat", "Kurilian Bobtail", "Kurilan Bobtail Longhair", "LaPerm", "LaPerm Shorthair", "Maine Coon", "Manx", "Minskin", "Munchkin", "Munchkin Longhair", "Nebelung", "Norwegian Forest Cat", "Ocicat", "Ojos Azules", "Ojos Azules Longhair", "Oriental Longhair", "Oriental Shorthair", "Persian", "Peterbald", "Pixiebob", "Pixiebob Longhair", "Ragamuffin", "Ragdoll", "Rex", "Russian Blue", "Safari", "Savannah", "Scottish Fold", "Scottish Fold Longhair", "Selkirk Rex", "Selkirk Rex Longhair", "Serengeti", "Siamese", "Siberian", "Singapura", "Snowshoe", "Sokoke", "Somali", "Sphynx (Canadian Hairless)", "Tabby", "Thai", "Tiffany", "Tonkinese", "Toyger", "Turkish Angora", "Turkish Van", "York Chocolate"
+        ];
+        // Populate year options
+        const yearSelect = document.getElementById('pet-birth-year');
+        const currentYear = new Date().getFullYear();
+        for (let y = currentYear; y >= currentYear - 20; y--) {
+            const opt = document.createElement('option');
+            opt.value = y;
+            opt.textContent = y;
+            yearSelect.appendChild(opt);
+        }
+        // Handle breed options based on pet type
+        function updateBreedOptions() {
+            const petType = document.querySelector('input[name="pet-type"]:checked');
+            const breedSelect = document.getElementById('pet-breed');
+            breedSelect.innerHTML = '';
+            if (!petType) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.textContent = 'Select pet type first';
+                opt.disabled = true;
+                opt.selected = true;
+                breedSelect.appendChild(opt);
+                return;
+            }
+            const breeds = petType.value === 'dog' ? dogBreeds : catBreeds;
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = '';
+            defaultOpt.textContent = 'Select Breed';
+            breedSelect.appendChild(defaultOpt);
+            breeds.forEach(breed => {
+                const opt = document.createElement('option');
+                opt.value = breed;
+                opt.textContent = breed;
+                breedSelect.appendChild(opt);
+            });
+        }
+        document.querySelectorAll('input[name="pet-type"]').forEach(radio => {
+            radio.addEventListener('change', updateBreedOptions);
+        });
+        // On page load, show the prompt
+        updateBreedOptions();
+        // Form validation and calculation
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            const petName = document.getElementById('pet-name').value.trim();
+            if (!petName) setError('error-pet-name', 'Pet name is required.');
+            const petTypeRadio = document.querySelector('input[name="pet-type"]:checked');
+            if (!petTypeRadio) setError('error-pet-type', 'Pet type is required.');
+            const petType = petTypeRadio ? petTypeRadio.value : '';
+            const petGender = document.querySelector('input[name="pet-gender"]:checked');
+            if (!petGender) setError('error-pet-gender', 'Gender is required.');
+            const petBirthMonth = document.getElementById('pet-birth-month').value;
+            if (!petBirthMonth) setError('error-pet-birth-month', 'Birth month is required.');
+            const petBirthYear = document.getElementById('pet-birth-year').value;
+            if (!petBirthYear) setError('error-pet-birth-year', 'Birth year is required.');
+            const petBreed = document.getElementById('pet-breed').value;
+            if (!petBreed) setError('error-pet-breed', 'Breed is required.');
+            const planFactor = parseFloat(document.getElementById('insurance-plan').value);
+            const planText = document.getElementById('insurance-plan').options[document.getElementById('insurance-plan').selectedIndex].text;
+            const addons = document.querySelectorAll('input[name="addon"]:checked');
+            if (valid) {
+                // Base rate
+                let baseRate = 20;
+                // Age factor
+                const currentYear = new Date().getFullYear();
+                const age = currentYear - parseInt(petBirthYear);
+                let ageFactor = 1.0;
+                if (age >= 3 && age <= 5) ageFactor = 1.3;
+                else if (age >= 6 && age <= 10) ageFactor = 1.5;
+                else if (age > 10) ageFactor = 2.0;
+                // Breed factor
+                let breedFactor = 1.2;
+                if (/mixed|domestic|普通|美短|短毛|长毛|shorthair|longhair|tabby|ragdoll|maine/i.test(petBreed)) breedFactor = 1.0;
+                // Plan factor
+                // Already from planFactor
+                // Add-ons
+                let additionalCoverageFee = 0;
+                addons.forEach(addon => {
+                    additionalCoverageFee += parseFloat(addon.value);
+                });
+                // Calculate premium
+                const monthlyPremium = baseRate * ageFactor * breedFactor * planFactor + additionalCoverageFee;
+                // Result display in English
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML =
+                  `<strong>Monthly Premium = Base Rate × Age Factor × Breed Factor × Plan Factor + Add-on Fees</strong><br>` +
+                  `Base Rate: $${baseRate}<br>` +
+                  `Age Factor: ${ageFactor} (Age: ${age})<br>` +
+                  `Breed Factor: ${breedFactor} (${petBreed})<br>` +
+                  `Plan Factor: ${planFactor} (${planText})<br>` +
+                  `Add-on Fees: $${additionalCoverageFee}<br>` +
+                  `<strong>Monthly Premium: $${monthlyPremium.toFixed(2)}</strong>`;
+            }
+        });
+        document.querySelector('.clear-btn').addEventListener('click', function() {
+            document.getElementById('quote-form').reset();
+            document.getElementById('result').innerHTML = '';
+            updateBreedOptions();
+        });
+    </script>
+</body>
+</html> 
