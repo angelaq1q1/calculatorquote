@@ -344,146 +344,146 @@
 <body>
     <div class="calculator-container">
         <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0;">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Financial Calculators</a>
-                <span>/</span>
-                Investment Calculator
-            </div>
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Investment Calculator
+        </div>
             <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Investment Calculator – Project Compound Growth, ROI & Long-Term Wealth</h1>
             <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Want to know how rich Future You might be? This free online Investment Calculator helps you visualize your financial growth over time. Just plug in your initial amount, monthly contributions, interest rate, and time horizon — we'll show you how compound interest can seriously stack up. Great for retirement planning, goal tracking, or just flexing your future millionaire status.</p>
-            
-            <div class="calculator-grid">
-                <div class="input-section">
-                    <div class="calculator-type">
-                        <label for="calculation-type">Calculate:</label>
-                        <select id="calculation-type" onchange="toggleCalculationFields()">
-                            <option value="future-value" selected>Future Account Value</option>
-                            <option value="investment-amount">Required Investment Amount</option>
-                            <option value="interest-rate">Required Interest Rate</option>
-                            <option value="contributions">Required Contributions</option>
-                        </select>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="calculator-type">
+                    <label for="calculation-type">Calculate:</label>
+                    <select id="calculation-type" onchange="toggleCalculationFields()">
+                        <option value="future-value" selected>Future Account Value</option>
+                        <option value="investment-amount">Required Investment Amount</option>
+                        <option value="interest-rate">Required Interest Rate</option>
+                        <option value="contributions">Required Contributions</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="initial-investment-group">
+                    <label for="initial-investment">Investment Amount:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="initial-investment" value="25,000">
+                        <div class="unit">$</div>
                     </div>
-                    
-                    <div class="input-group" id="initial-investment-group">
-                        <label for="initial-investment">Investment Amount:</label>
-                        <div class="input-field-container">
-                            <input type="text" id="initial-investment" value="25,000">
-                            <div class="unit">$</div>
-                        </div>
-                        <small>Starting Balance</small>
+                    <small>Starting Balance</small>
+                </div>
+                
+                <div class="input-group" id="future-value-group" style="display: none;">
+                    <label for="future-value">Future Account Value:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="future-value" value="100,000">
+                        <div class="unit">$</div>
                     </div>
-                    
-                    <div class="input-group" id="future-value-group" style="display: none;">
-                        <label for="future-value">Future Account Value:</label>
-                        <div class="input-field-container">
-                            <input type="text" id="future-value" value="100,000">
-                            <div class="unit">$</div>
-                        </div>
-                        <small>Target Amount</small>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="investment-length">Number of Years:</label>
-                        <div class="input-field-container">
-                            <input type="text" id="investment-length" value="20">
-                        </div>
-                    </div>
-                    
-                    <div class="input-group" id="interest-rate-group">
-                        <label for="interest-rate">Interest Rate:</label>
-                        <div class="input-field-container">
-                            <input type="text" id="interest-rate" value="7">
-                            <div class="unit">%</div>
-                        </div>
-                        <small>per year</small>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="compound-frequency">Compounding:</label>
-                        <div class="input-field-container">
-                            <select id="compound-frequency">
-                                <option value="daily-365">Daily (365/Yr)</option>
-                                <option value="daily-360">Daily (360/Yr)</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="biweekly">Biweekly</option>
-                                <option value="semimonthly">Semimonthly</option>
-                                <option value="monthly" selected>Monthly</option>
-                                <option value="bimonthly">Bimonthly</option>
-                                <option value="quarterly">Quarterly</option>
-                                <option value="semiannually">Semiannually</option>
-                                <option value="annually">Annually</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group" id="contribution-group">
-                        <label for="contribution-amount">Contributions:</label>
-                        <div class="input-field-container">
-                            <input type="text" id="contribution-amount" value="500">
-                            <div class="unit">$</div>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="contribution-frequency">Frequency:</label>
-                        <div class="input-field-container">
-                            <select id="contribution-frequency">
-                                <option value="daily-365">Daily 365</option>
-                                <option value="daily-360">Daily 360</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="biweekly">Bi-Weekly</option>
-                                <option value="semimonthly">Semi-Monthly</option>
-                                <option value="monthly" selected>Monthly</option>
-                                <option value="quarterly">Quarterly</option>
-                                <option value="semiannually">Semi-Annually</option>
-                                <option value="annually">Annually</option>
-                            </select>
-                        </div>
-                        <small>of Contributions</small>
-                    </div>
-                    
-                    <div class="buttons">
-                        <button class="btn-calculate" onclick="calculateInvestment()">Calculate</button>
-                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
-                    </div>
-
-                    <div class="final-value">
-                        <div>Future Account Value = <span id="final-value">$361,431.80</span></div>
-                        <div class="save-icon"><img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" title="Save this calculation"></div>
+                    <small>Target Amount</small>
+                </div>
+                
+                <div class="input-group">
+                    <label for="investment-length">Number of Years:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="investment-length" value="20">
                     </div>
                 </div>
                 
-                <div class="results-section" id="results-section">
-                    <div class="chart-container" id="chart-container">
-                        <!-- Chart will be inserted here -->
+                <div class="input-group" id="interest-rate-group">
+                    <label for="interest-rate">Interest Rate:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="interest-rate" value="7">
+                        <div class="unit">%</div>
                     </div>
-                    
-                    <h3>Year-by-Year Breakdown</h3>
-                    <div style="overflow-x: auto;">
-                        <table class="investment-table" id="investment-table">
-                            <thead>
-                                <tr>
-                                    <th>Year</th>
-                                    <th>Starting Balance</th>
-                                    <th>Annual Contribution</th>
-                                    <th>Interest Earned</th>
-                                    <th>Ending Balance</th>
-                                </tr>
-                            </thead>
-                            <tbody id="investment-body">
-                                <!-- Will be filled by JavaScript -->
-                            </tbody>
-                        </table>
+                    <small>per year</small>
+                </div>
+                
+                <div class="input-group">
+                    <label for="compound-frequency">Compounding:</label>
+                    <div class="input-field-container">
+                        <select id="compound-frequency">
+                            <option value="daily-365">Daily (365/Yr)</option>
+                            <option value="daily-360">Daily (360/Yr)</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Biweekly</option>
+                            <option value="semimonthly">Semimonthly</option>
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="bimonthly">Bimonthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semiannually">Semiannually</option>
+                            <option value="annually">Annually</option>
+                        </select>
                     </div>
+                </div>
+                
+                <div class="input-group" id="contribution-group">
+                    <label for="contribution-amount">Contributions:</label>
+                    <div class="input-field-container">
+                        <input type="text" id="contribution-amount" value="500">
+                        <div class="unit">$</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="contribution-frequency">Frequency:</label>
+                    <div class="input-field-container">
+                        <select id="contribution-frequency">
+                            <option value="daily-365">Daily 365</option>
+                            <option value="daily-360">Daily 360</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Bi-Weekly</option>
+                            <option value="semimonthly">Semi-Monthly</option>
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semiannually">Semi-Annually</option>
+                            <option value="annually">Annually</option>
+                        </select>
+                    </div>
+                    <small>of Contributions</small>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateInvestment()">Calculate</button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                </div>
+
+                <div class="final-value">
+                    <div>Future Account Value = <span id="final-value">$361,431.80</span></div>
+                    <div class="save-icon"><img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" title="Save this calculation"></div>
                 </div>
             </div>
             
-            <div class="rate-box">
-                <h3>Current Average Investment Returns:</h3>
-                <p>S&P 500: <a href="#">9.8%</a> &nbsp;&nbsp; Bonds: <a href="#">3.5%</a> &nbsp;&nbsp; Real Estate: <a href="#">7.1%</a></p>
-                <button class="rate-button">Compare Investment Options</button>
+            <div class="results-section" id="results-section">
+                <div class="chart-container" id="chart-container">
+                    <!-- Chart will be inserted here -->
+                </div>
+                
+                <h3>Year-by-Year Breakdown</h3>
+                <div style="overflow-x: auto;">
+                    <table class="investment-table" id="investment-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Starting Balance</th>
+                                <th>Annual Contribution</th>
+                                <th>Interest Earned</th>
+                                <th>Ending Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="investment-body">
+                            <!-- Will be filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rate-box">
+            <h3>Current Average Investment Returns:</h3>
+            <p>S&P 500: <a href="#">9.8%</a> &nbsp;&nbsp; Bonds: <a href="#">3.5%</a> &nbsp;&nbsp; Real Estate: <a href="#">7.1%</a></p>
+            <button class="rate-button">Compare Investment Options</button>
             </div>
         </div>
         
@@ -530,6 +530,17 @@
             </ul>
         </div>
     </div>
+    
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
     
     <script>
         // Format numbers with commas
