@@ -360,221 +360,221 @@
 <body>
     <div class="calculator-container">
         <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0;">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Financial Calculators</a>
-                <span>/</span>
-                Mortgage Calculator
-            </div>
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Mortgage Calculator
+        </div>
             <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Mortgage Calculator – Estimate Your Monthly Home Loan with Taxes, Insurance & PMI</h1>
             <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Wondering how much that dream house is really going to cost you each month? Our free online Mortgage Calculator helps you break down your monthly payments — including principal, interest, taxes, insurance, and even PMI. Whether you're buying your first home or refinancing for the third time, this tool gives you fast, accurate answers without the spreadsheet headache.</p>
-            
-            <div class="calculator-grid">
-                <div class="input-section">
-                    <div class="input-group">
-                        <label for="home-price">Home Price</label>
-                        <div class="input-field-container">
-                            <input type="text" id="home-price" value="400,000">
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="down-payment" data-tooltip="" title="">Down Payment</label>
-                        <div class="input-field-container">
-                            <input type="text" id="down-payment" value="20">
-                            <div class="unit">%</div>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="loan-term" data-tooltip="" title="">Loan Term</label>
-                        <div class="input-field-container">
-                            <input type="text" id="loan-term" value="30">
-                            <div class="unit">years</div>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="interest-rate" data-tooltip="" title="">Interest Rate</label>
-                        <div class="input-field-container">
-                            <input type="text" id="interest-rate" value="6.734">
-                            <div class="unit">%</div>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="start-date">Start Date</label>
-                        <div class="start-date-container">
-                            <select id="start-month">
-                                <option value="0">Jan</option>
-                                <option value="1">Feb</option>
-                                <option value="2">Mar</option>
-                                <option value="3">Apr</option>
-                                <option value="4">May</option>
-                                <option value="5" selected>Jun</option>
-                                <option value="6">Jul</option>
-                                <option value="7">Aug</option>
-                                <option value="8">Sep</option>
-                                <option value="9">Oct</option>
-                                <option value="10">Nov</option>
-                                <option value="11">Dec</option>
-                            </select>
-                            <input type="text" id="start-year" value="2025" style="width: 70px; margin-left: 5px;">
-                        </div>
-                    </div>
-                    
-                    <div class="include-taxes">
-                        <input type="checkbox" id="include-taxes" checked>
-                        <label for="include-taxes"><strong>Include Taxes & Costs Below</strong></label>
-                    </div>
-                    
-                    <div id="taxes-section">
-                        <div class="input-group">
-                            <label>Annual Tax & Cost</label>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="property-taxes" data-tooltip="" title="">Property Taxes</label>
-                            <div class="input-field-container">
-                                <input type="text" id="property-taxes" value="1.2">
-                                <div class="unit">%</div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="home-insurance" data-tooltip="" title="">Home Insurance</label>
-                            <div class="input-field-container">
-                                <input type="text" id="home-insurance" value="1,500">
-                                <div class="unit">$</div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="pmi-insurance" data-tooltip="" title="">PMI Insurance</label>
-                            <div class="input-field-container">
-                                <input type="text" id="pmi-insurance" value="0">
-                                <div class="unit">$</div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="hoa-fee" data-tooltip="" title="">HOA Fee</label>
-                            <div class="input-field-container">
-                                <input type="text" id="hoa-fee" value="0">
-                                <div class="unit">$</div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="other-costs" data-tooltip="" title="">Other Costs</label>
-                            <div class="input-field-container">
-                                <input type="text" id="other-costs" value="4,000">
-                                <div class="unit">$</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="buttons">
-                        <button class="btn-calculate" onclick="calculateMortgage()">Calculate</button>
-                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="home-price">Home Price</label>
+                    <div class="input-field-container">
+                        <input type="text" id="home-price" value="400,000">
                     </div>
                 </div>
                 
-                <div class="results-section" id="results-section" style="display: none;">
-                    <div class="monthly-payment">
-                        <div>Monthly Pay: <span id="monthly-payment">$2,072.11</span></div>
-                        <div class="save-icon"><img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" title="Save this calculation"></div>
+                <div class="input-group">
+                    <label for="down-payment" data-tooltip="" title="">Down Payment</label>
+                    <div class="input-field-container">
+                        <input type="text" id="down-payment" value="20">
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="loan-term" data-tooltip="" title="">Loan Term</label>
+                    <div class="input-field-container">
+                        <input type="text" id="loan-term" value="30">
+                        <div class="unit">years</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="interest-rate" data-tooltip="" title="">Interest Rate</label>
+                    <div class="input-field-container">
+                        <input type="text" id="interest-rate" value="6.734">
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="start-date">Start Date</label>
+                    <div class="start-date-container">
+                        <select id="start-month">
+                            <option value="0">Jan</option>
+                            <option value="1">Feb</option>
+                            <option value="2">Mar</option>
+                            <option value="3">Apr</option>
+                            <option value="4">May</option>
+                            <option value="5" selected>Jun</option>
+                            <option value="6">Jul</option>
+                            <option value="7">Aug</option>
+                            <option value="8">Sep</option>
+                            <option value="9">Oct</option>
+                            <option value="10">Nov</option>
+                            <option value="11">Dec</option>
+                        </select>
+                        <input type="text" id="start-year" value="2025" style="width: 70px; margin-left: 5px;">
+                    </div>
+                </div>
+                
+                <div class="include-taxes">
+                    <input type="checkbox" id="include-taxes" checked>
+                    <label for="include-taxes"><strong>Include Taxes & Costs Below</strong></label>
+                </div>
+                
+                <div id="taxes-section">
+                    <div class="input-group">
+                        <label>Annual Tax & Cost</label>
                     </div>
                     
-                    <table class="results-table">
-                        <tr>
-                            <th></th>
-                            <th>Monthly</th>
-                            <th>Total</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Mortgage Payment</strong></td>
-                            <td id="monthly-mortgage">$2,072.11</td>
-                            <td id="total-mortgage">$745,960.20</td>
-                        </tr>
-                        <tr>
-                            <td>Property Tax</td>
-                            <td id="monthly-tax">$400.00</td>
-                            <td id="total-tax">$144,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Home Insurance</td>
-                            <td id="monthly-insurance">$125.00</td>
-                            <td id="total-insurance">$45,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Other Costs</td>
-                            <td id="monthly-other">$333.33</td>
-                            <td id="total-other">$120,000.00</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Total Out-of-Pocket</strong></td>
-                            <td id="monthly-total">$2,930.45</td>
-                            <td id="total-all">$1,054,960.20</td>
-                        </tr>
-                    </table>
-                    
-                    <div class="chart-container" id="chart-container">
-                        <!-- Chart will be inserted here -->
+                    <div class="input-group">
+                        <label for="property-taxes" data-tooltip="" title="">Property Taxes</label>
+                        <div class="input-field-container">
+                            <input type="text" id="property-taxes" value="1.2">
+                            <div class="unit">%</div>
+                        </div>
                     </div>
                     
-                    <table class="results-table">
-                        <tr>
-                            <td>House Price</td>
-                            <td id="result-house-price">$400,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Loan Amount</td>
-                            <td id="result-loan-amount">$320,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Down Payment</td>
-                            <td id="result-down-payment">$80,000.00</td>
-                        </tr>
-                        <tr>
-                            <td>Total of <span id="payment-count">360</span> Mortgage Payments</td>
-                            <td id="result-total-payments">$745,960.20</td>
-                        </tr>
-                        <tr>
-                            <td>Total Interest</td>
-                            <td id="result-total-interest">$425,960.20</td>
-                        </tr>
-                        <tr>
-                            <td>Mortgage Payoff Date</td>
-                            <td id="result-payoff-date">Jun. 2055</td>
-                        </tr>
-                    </table>
-                    
-                    <h3>Amortization schedule</h3>
-                    <div style="overflow-x: auto;">
-                        <table class="amortization-table" id="amortization-table">
-                            <thead>
-                                <tr>
-                                    <th>Month</th>
-                                    <th>Date</th>
-                                    <th>Interest</th>
-                                    <th>Principal</th>
-                                    <th>Ending Balance</th>
-                                </tr>
-                            </thead>
-                            <tbody id="amortization-body">
-                                <!-- Will be filled by JavaScript -->
-                            </tbody>
-                        </table>
+                    <div class="input-group">
+                        <label for="home-insurance" data-tooltip="" title="">Home Insurance</label>
+                        <div class="input-field-container">
+                            <input type="text" id="home-insurance" value="1,500">
+                            <div class="unit">$</div>
+                        </div>
                     </div>
+                    
+                    <div class="input-group">
+                        <label for="pmi-insurance" data-tooltip="" title="">PMI Insurance</label>
+                        <div class="input-field-container">
+                            <input type="text" id="pmi-insurance" value="0">
+                            <div class="unit">$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hoa-fee" data-tooltip="" title="">HOA Fee</label>
+                        <div class="input-field-container">
+                            <input type="text" id="hoa-fee" value="0">
+                            <div class="unit">$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="other-costs" data-tooltip="" title="">Other Costs</label>
+                        <div class="input-field-container">
+                            <input type="text" id="other-costs" value="4,000">
+                            <div class="unit">$</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateMortgage()">Calculate</button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
                 </div>
             </div>
             
-            <div class="rate-box">
-                <h3>Latest Mortgage Rates:</h3>
-                <p>30 Years: <a href="#">6.734%</a> &nbsp;&nbsp; 15 Years: <a href="#">6.04%</a> &nbsp;&nbsp; 10 Years: <a href="#">5.985%</a></p>
-                <button class="rate-button">See Your Local Rates</button>
+            <div class="results-section" id="results-section" style="display: none;">
+                <div class="monthly-payment">
+                    <div>Monthly Pay: <span id="monthly-payment">$2,072.11</span></div>
+                    <div class="save-icon"><img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" title="Save this calculation"></div>
+                </div>
+                
+                <table class="results-table">
+                    <tr>
+                        <th></th>
+                        <th>Monthly</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Mortgage Payment</strong></td>
+                        <td id="monthly-mortgage">$2,072.11</td>
+                        <td id="total-mortgage">$745,960.20</td>
+                    </tr>
+                    <tr>
+                        <td>Property Tax</td>
+                        <td id="monthly-tax">$400.00</td>
+                        <td id="total-tax">$144,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Home Insurance</td>
+                        <td id="monthly-insurance">$125.00</td>
+                        <td id="total-insurance">$45,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Other Costs</td>
+                        <td id="monthly-other">$333.33</td>
+                        <td id="total-other">$120,000.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Out-of-Pocket</strong></td>
+                        <td id="monthly-total">$2,930.45</td>
+                        <td id="total-all">$1,054,960.20</td>
+                    </tr>
+                </table>
+                
+                <div class="chart-container" id="chart-container">
+                    <!-- Chart will be inserted here -->
+                </div>
+                
+                <table class="results-table">
+                    <tr>
+                        <td>House Price</td>
+                        <td id="result-house-price">$400,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Amount</td>
+                        <td id="result-loan-amount">$320,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Down Payment</td>
+                        <td id="result-down-payment">$80,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total of <span id="payment-count">360</span> Mortgage Payments</td>
+                        <td id="result-total-payments">$745,960.20</td>
+                    </tr>
+                    <tr>
+                        <td>Total Interest</td>
+                        <td id="result-total-interest">$425,960.20</td>
+                    </tr>
+                    <tr>
+                        <td>Mortgage Payoff Date</td>
+                        <td id="result-payoff-date">Jun. 2055</td>
+                    </tr>
+                </table>
+                
+                <h3>Amortization schedule</h3>
+                <div style="overflow-x: auto;">
+                    <table class="amortization-table" id="amortization-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Interest</th>
+                                <th>Principal</th>
+                                <th>Ending Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="amortization-body">
+                            <!-- Will be filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rate-box">
+            <h3>Latest Mortgage Rates:</h3>
+            <p>30 Years: <a href="#">6.734%</a> &nbsp;&nbsp; 15 Years: <a href="#">6.04%</a> &nbsp;&nbsp; 10 Years: <a href="#">5.985%</a></p>
+            <button class="rate-button">See Your Local Rates</button>
             </div>
         </div>
         
@@ -613,6 +613,17 @@
             </ul>
         </div>
     </div>
+    
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
     
     <script>
         // Format numbers with commas
