@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <title>Unit Converters – Free Online Measurement Converter | UnitConverters.net</title>
+    <meta name="description" content="Convert units effortlessly with our free online unit converters. Supports length, weight, temperature, volume, area, speed, time, and more. No sign-up required." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Use our free online Scientific Calculator to handle complex math functions—trigonometry, exponents, logarithms, and more. Perfect for students, engineers, and anyone solving advanced equations. No downloads, no signup.">
-    <title>Scientific Calculator - Free Online Scientific Calculator for Advanced Math</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
             background-color: #f5f5f5;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            padding: 40px 20px;
         }
 
         .main-container {
@@ -31,12 +37,13 @@
             max-width: 800px;
             background: none;
             border-radius: 0;
+            margin: 0;
         }
 
         .breadcrumb {
-            font-size: 1em;
+            margin-bottom: 30px;
             color: #666;
-            margin-bottom: 20px;
+            font-size: 1em;
         }
 
         .breadcrumb a {
@@ -54,422 +61,162 @@
             margin: 0 8px;
         }
 
-        .page-header {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .page-header h1 {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #222;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .page-header .subtitle {
-            display: block;
-            font-size: 0.95em;
-            color: #666;
-            font-weight: normal;
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .calculator {
-            max-width: 380px;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            box-sizing: border-box;
-        }
-
-        .display-container {
-            height: 120px;
-            margin-bottom: 25px;
-            padding: 40px 20px 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        #display {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: transparent;
-            font-size: 2.5em;
-            text-align: right;
-            font-weight: 300;
-            color: #333;
-            padding: 0;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-        }
-
-        button {
-            border: none;
-            border-radius: 8px;
-            width: 100%;
-            height: 48px;
-            font-size: 1.1em;
+        .categories-bar {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background-color: #f1f3f4;
-            color: #2196F3;
-            transition: all 0.2s;
-            font-weight: 400;
-            padding: 0;
-            margin: 0;
-        }
-
-        button:hover {
-            filter: brightness(0.95);
-        }
-
-        .operator {
-            background-color: #2196F3;
-            color: white;
-        }
-
-        .operator:hover {
-            background-color: #1976D2;
-        }
-
-        .function {
-            background-color: #e3f2fd;
-            color: #2196F3;
-            font-size: 0.95em;
-        }
-
-        .function:hover {
-            background-color: #bbdefb;
-        }
-
-        .equals {
-            background-color: #2196F3;
-            color: white;
-        }
-
-        .equals:hover {
-            background-color: #1976D2;
-        }
-
-        .clear {
-            background-color: #ef5350;
-            color: white;
-        }
-
-        .clear:hover {
-            background-color: #e53935;
-        }
-
-        .memory {
-            background-color: #4caf50;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        .memory:hover {
-            background-color: #43a047;
-        }
-
-        .number {
-            background-color: #f5f5f5;
-            color: #333;
-            font-size: 1.2em;
-            font-weight: 400;
-        }
-
-        .number:hover {
-            background-color: #e0e0e0;
-        }
-
-        .mode {
-            background-color: #90caf9;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        .mode.active {
-            background-color: #2196F3;
-        }
-
-        .mode:hover {
-            background-color: #64b5f6;
-        }
-
-        input:focus {
-            outline: none;
-        }
-
-        sup {
-            font-size: 0.6em;
-            position: relative;
-            top: -0.5em;
-        }
-
-        .buttons button:active {
-            transform: scale(0.95);
-        }
-
-        .related-calculators {
-            margin-top: 40px;
-            padding: 20px;
-            background: none;
-            border-radius: 0;
-        }
-
-        .related-calculators h2 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .related-calculators ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .related-calculators li {
-            margin-bottom: 10px;
-        }
-
-        .related-calculators a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .related-calculators a:hover {
-            color: #1976D2;
-        }
-
-        @media (max-width: 600px) {
-            .main-container {
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-            }
-            .content-wrapper {
-                max-width: 100%;
-                width: 100%;
-            }
-            .breadcrumb {
-                margin-bottom: 12px;
-            }
-            .page-header {
-                margin-top: 8px;
-                margin-bottom: 12px;
-            }
-            .page-header h1 {
-                font-size: 1.1em;
-                margin-bottom: 0.2em;
-            }
-            .page-header .subtitle {
-                font-size: 0.95em;
-                margin-top: 4px;
-            }
-            .calculator {
-                max-width: 100%;
-                padding: 10px;
-            }
-            .page-description, .related-calculators {
-                max-width: 100%;
-                padding: 0 2px;
-            }
-        }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
             margin-bottom: 20px;
-            word-break: break-word;
-        }
-        .page-description h3 {
-            font-size: 1.1em;
-            color: #222;
-            margin: 20px 0 10px;
-        }
-        .page-description ul {
-            font-size: 1em;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        .page-description li {
-            font-size: 1em;
-            color: #444;
-        }
-        .page-description p {
-            font-size: 1.1em;
-            color: #222;
-        }
-        .page-description div, .page-description strong {
-            font-size: 1em;
+            border-bottom: 1px solid #e0e0e0;
         }
 
-        .related-calculators {
-            color: #222;
+        .category-tab {
+            padding: 12px 24px;
             font-size: 1.1em;
-            line-height: 1.6;
-            margin-top: 40px;
-            padding: 20px;
             background: none;
-            border-radius: 0;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            color: #666;
         }
-        .related-calculators h2 {
+
+        .category-tab.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .converter-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .converter-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .converter-column h3 {
+            font-size: 1.2em;
             color: #333;
-            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #2196F3;
+            border-radius: 5px;
+            font-size: 1.1em;
             margin-bottom: 15px;
         }
-        .related-calculators ul {
-            list-style: none;
-            padding: 0;
+
+        .unit-select {
+            width: 100%;
+            max-height: 300px;
+            border: 1px solid #2196F3;
+            border-radius: 5px;
+            overflow-y: auto;
         }
-        .related-calculators li {
-            margin-bottom: 10px;
-            font-size: 1em;
-            color: #444;
+
+        .unit-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-        .related-calculators a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1em;
+
+        .unit-option:hover {
+            background-color: #e3f2fd;
         }
-        .related-calculators a:hover {
-            color: #1976D2;
+
+        .unit-option.selected {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .unit-option:not(:last-child) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .categories-bar {
+                flex-wrap: wrap;
+            }
+
+            .category-tab {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+
+            .converter-section {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="main-container">
         <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Scientific Calculator
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+                    <a href="index.html">Math Calculators</a>
+        <span>/</span>
+        Unit Converter
+        </div>
+            <h1>Free Online Unit Converters</h1>
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Instantly convert units across categories like length, weight, temperature, volume, area, speed, time, and more—completely free, easy to use, and no registration needed.</p>
+            <div class="calculator-section" style="margin-bottom: 40px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #fff; box-shadow: 0 4px 12px rgba(33,150,243,0.10); width: auto; min-width: 340px; max-width: 100%; display: inline-block;">
+        <div class="categories-bar">
+            <button class="category-tab active" data-category="length">Length</button>
+            <button class="category-tab" data-category="temperature">Temperature</button>
+            <button class="category-tab" data-category="area">Area</button>
+            <button class="category-tab" data-category="volume">Volume</button>
+            <button class="category-tab" data-category="weight">Weight</button>
+        </div>
+        <div class="converter-section">
+            <div class="converter-column">
+                <h3>From:</h3>
+                <input type="number" id="fromValue" class="input-field" value="1">
+                <div class="unit-select" id="fromUnitSelect"></div>
             </div>
-            <div class="page-header">
-                <h1>
-                    <span>Scientific Calculator – Advanced Math Made Easy</span>
-                </h1>
+            <div class="converter-column">
+                <h3>To:</h3>
+                <input type="number" id="toValue" class="input-field" readonly>
+                <div class="unit-select" id="toUnitSelect"></div>
             </div>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                Need more than just add and subtract? Our free Scientific Calculator handles sine, cosine, logarithms, exponents, and all the other scary-looking buttons you never thought you'd need. Perfect for school, work, or existential math crises.
-            </p>
-            <div class="calculator">
-                <div class="display-container">
-                    <input type="text" id="display" readonly>
-                </div>
-                <div class="buttons">
-                    <!-- Row 1 -->
-                    <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
-                    <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memoryStore()">M+</button>
-                    <button class="memory" onclick="memoryRecall()">MR</button>
-                    <!-- Row 2 -->
-                    <button class="function" onclick="calculate('sin')">sin</button>
-                    <button class="function" onclick="calculate('cos')">cos</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memorySubtract()">M-</button>
-                    <button class="memory" onclick="memoryClear()">MC</button>
-                    <!-- Row 3 -->
-                    <button class="function" onclick="calculate('log')">log</button>
-                    <button class="function" onclick="calculate('ln')">ln</button>
-                    <button class="function" onclick="appendToDisplay('Math.E')">e</button>
-                    <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
-                    <button class="operator" onclick="appendToDisplay('(')">(</button>
-                    <!-- Row 4 -->
-                    <button class="function" onclick="calculate('sqrt')">√</button>
-                    <button class="function" onclick="calculate('cbrt')">∛</button>
-                    <button class="function" onclick="appendToDisplay('^2')">x²</button>
-                    <button class="function" onclick="appendToDisplay('^3')">x³</button>
-                    <button class="operator" onclick="appendToDisplay(')')">)</button>
-                    <!-- Row 5 -->
-                    <button class="number" onclick="appendToDisplay('7')">7</button>
-                    <button class="number" onclick="appendToDisplay('8')">8</button>
-                    <button class="number" onclick="appendToDisplay('9')">9</button>
-                    <button class="operator" onclick="appendToDisplay('/')">/</button>
-                    <button class="function" onclick="calculate('factorial')">n!</button>
-                    <!-- Row 6 -->
-                    <button class="number" onclick="appendToDisplay('4')">4</button>
-                    <button class="number" onclick="appendToDisplay('5')">5</button>
-                    <button class="number" onclick="appendToDisplay('6')">6</button>
-                    <button class="operator" onclick="appendToDisplay('*')">×</button>
-                    <button class="function" onclick="calculate('reciprocal')">1/x</button>
-                    <!-- Row 7 -->
-                    <button class="number" onclick="appendToDisplay('1')">1</button>
-                    <button class="number" onclick="appendToDisplay('2')">2</button>
-                    <button class="number" onclick="appendToDisplay('3')">3</button>
-                    <button class="operator" onclick="appendToDisplay('-')">−</button>
-                    <button class="operator" onclick="appendToDisplay('%')">%</button>
-                    <!-- Row 8 -->
-                    <button class="number" onclick="appendToDisplay('0')">0</button>
-                    <button class="number" onclick="appendToDisplay('.')">.</button>
-                    <button class="clear" onclick="clearDisplay()">AC</button>
-                    <button class="operator" onclick="appendToDisplay('+')">+</button>
-                    <button class="equals" onclick="calculateResult()">=</button>
-                </div>
+        </div>
             </div>
-            <div class="page-description">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Scientific Calculator – Because regular calculators tap out at "sin(30)" 😵‍💫</p>
-                <p>Let's face it:<br>
-                Once math gets fancy, your basic calculator looks at you like, "good luck, nerd."</p>
-                <p>That's where we come in.<br>
-                Our free online scientific calculator is built for the real stuff: trig, logs, exponents, and all the terrifying things they sneak into standardized tests.</p>
-                <p>No download. No panic. Just a math machine that actually understands what cos(θ) means (and won't judge you for not).</p>
-                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+            <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                <p>🧮 Unit Converter – Because converting units shouldn't feel like rocket science 🚀</p>
+                <p>Here's the deal:<br>
+                You probably don't know how many feet are in a kilometer, and that's totally okay.<br>
+                Google might help, but who wants to type "how many gallons in a liter" every single time?</p>
+                <p>Good news: our free online Unit Converter is here to rescue you from the endless guesswork and weird conversion charts. No PhD required.</p>
+                <h3>💡 What can it do?</h3>
                 <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✅ Trigonometric functions: sin, cos, tan – so you can finally stop guessing</li>
-                    <li style="margin-bottom: 10px;">✅ Logarithms & exponents – for when things escalate exponentially</li>
-                    <li style="margin-bottom: 10px;">✅ Pi (π) button – yes, we respect irrational numbers</li>
-                    <li style="margin-bottom: 10px;">✅ Memory functions – store, recall, clear (just like your ex)</li>
-                    <li style="margin-bottom: 10px;">✅ Parentheses & order of operations – PEMDAS gang rise up</li>
-                    <li style="margin-bottom: 10px;">✅ Clean, responsive interface – not from 1998, we promise</li>
+                    <li style="margin-bottom: 10px;">✅ Convert length, weight, volume, temperature, and tons more — basically, all the units you'll ever need (and some you won't)</li>
+                    <li style="margin-bottom: 10px;">✅ Switch between metric and imperial systems faster than you can say "metric system"</li>
+                    <li style="margin-bottom: 10px;">✅ Simple, clean interface — even your tech-challenged uncle can use it</li>
+                    <li style="margin-bottom: 10px;">✅ Works on desktop, mobile, or that ancient tablet gathering dust in your drawer</li>
                 </ul>
-                <p>Whether you're:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">🧑‍🎓 Studying for finals</li>
-                    <li style="margin-bottom: 10px;">🧑‍🔬 Running experiments</li>
-                    <li style="margin-bottom: 10px;">🤯 Or just trying to figure out what "e" actually is...</li>
-                </ul>
-                <p>This calculator's got your back.</p>
-                <h3 style="margin: 20px 0 10px;">❓ FAQ – because you were gonna ask anyway</h3>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Is this really a scientific calculator or just a fancy basic one?</strong><br>A: It's the real deal. If your basic calculator had a glow-up and went to engineering school, it'd be this.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Does it cost anything?</strong><br>A: Nope. Zero. Nada. Just some chill ads to keep the lights on.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Can I use this for my physics class?</strong><br>A: Yup, unless your teacher's stuck in 1984 and still demands a TI-83.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Will this solve equations for me?</strong><br>A: It's not a full-on algebra solver, but it'll handle expressions with multiple functions like a pro.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Does it spy on me?</strong><br>A: Only if you're using it to calculate your crush's birth chart. (Kidding — we don't store anything.)</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Why use this instead of my phone's calculator?</strong><br>A: Ever tried doing log(45.6) × sin(60) on your phone? That thing panics and turns into a brick.</p></div>
-                <p style="margin: 20px 0; font-style: italic;">🧠 Pro tip: Keep this tab open during late-night homework. Future You will high-five Past You.</p>
+                <p>TL;DR: Converts units so you don't have to suffer.</p>
+                <h3>❓ FAQ – because we know you don't want to email us either</h3>
+                <div style="margin-bottom: 15px;"><strong>Q: Is it really free? What's the catch?</strong><br>A: 100% free. No sign-ups, no ads in your face (just a few chill ads here and there), no nonsense.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Do I need to download anything?</strong><br>A: Nope. Works in your browser — magic!</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Can I convert weird units like furlongs or parsecs?</strong><br>A: Maybe not parsecs… yet. But if you need furlongs, you're covered.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Does it save my conversions?</strong><br>A: Nope. Your secrets are safe here. We won't judge your obsession with converting ounces to grams.</div>
+                <div style="margin-bottom: 15px;"><strong>Q: Why not just use Google?</strong><br>A: Because this is faster, cleaner, and won't distract you with cat videos.</div>
+                <p style="margin: 20px 0; font-style: italic;">🧠 Pro tip: Bookmark this tool and impress your friends next time they argue about how many cups make a pint. You'll be the conversion hero.</p>
             </div>
             <div class="related-calculators">
-                <h2>Related Calculators</h2>
-                <ul>
-                    <li><a href="basic-calculator.html">Basic Calculator</a> - For everyday math operations</li>
-                    <li><a href="fraction-calculator.html">Fraction Calculator</a> - Work with fractions easily</li>
-                    <li><a href="percentage-calculator.html">Percentage Calculator</a> - Calculate percentages and changes</li>
-                    <li><a href="statistics-calculator.html">Statistics Calculator</a> - For statistical calculations</li>
+                <h2 style="margin-bottom: 15px;">Related Calculators</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="basic-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Basic Calculator</a> - Perform basic arithmetic operations</li>
+                    <li style="margin-bottom: 10px;"><a href="scientific-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Scientific Calculator</a> - Advanced math functions</li>
+                    <li style="margin-bottom: 10px;"><a href="fraction-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Fraction Calculator</a> - Work with fractions easily</li>
+                    <li style="margin-bottom: 10px;"><a href="statistics-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Statistics Calculator</a> - Analyze data and statistics</li>
+                    <li style="margin-bottom: 10px;"><a href="matrix-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Matrix Calculator</a> - Matrix operations and calculations</li>
                 </ul>
             </div>
         </div>
@@ -487,133 +234,250 @@
     </footer>
 
     <script>
-        let display = document.getElementById('display');
-        let mode = 'deg'; // 默认使用角度制
-        let memory = 0;
+        const unitData = {
+            length: {
+                units: [
+                    'Meter',
+                    'Kilometer',
+                    'Centimeter',
+                    'Millimeter',
+                    'Micrometer',
+                    'Nanometer',
+                    'Mile',
+                    'Yard',
+                    'Foot',
+                    'Inch',
+                    'Light Year'
+                ],
+                factors: {
+                    'Meter': 1,
+                    'Kilometer': 1000,
+                    'Centimeter': 0.01,
+                    'Millimeter': 0.001,
+                    'Micrometer': 0.000001,
+                    'Nanometer': 0.000000001,
+                    'Mile': 1609.344,
+                    'Yard': 0.9144,
+                    'Foot': 0.3048,
+                    'Inch': 0.0254,
+                    'Light Year': 9.461e+15
+                }
+            },
+            temperature: {
+                units: ['Celsius', 'Fahrenheit', 'Kelvin'],
+                special: true
+            },
+            area: {
+                units: [
+                    'Square Meter',
+                    'Square Kilometer',
+                    'Square Mile',
+                    'Square Yard',
+                    'Square Foot',
+                    'Square Inch',
+                    'Hectare',
+                    'Acre'
+                ],
+                factors: {
+                    'Square Meter': 1,
+                    'Square Kilometer': 1000000,
+                    'Square Mile': 2589988.11,
+                    'Square Yard': 0.836127,
+                    'Square Foot': 0.092903,
+                    'Square Inch': 0.00064516,
+                    'Hectare': 10000,
+                    'Acre': 4046.86
+                }
+            },
+            volume: {
+                units: [
+                    'Cubic Meter',
+                    'Cubic Kilometer',
+                    'Cubic Centimeter',
+                    'Cubic Millimeter',
+                    'Liter',
+                    'Milliliter',
+                    'Gallon',
+                    'Quart',
+                    'Pint',
+                    'Cup'
+                ],
+                factors: {
+                    'Cubic Meter': 1,
+                    'Cubic Kilometer': 1000000000,
+                    'Cubic Centimeter': 0.000001,
+                    'Cubic Millimeter': 0.000000001,
+                    'Liter': 0.001,
+                    'Milliliter': 0.000001,
+                    'Gallon': 0.00378541,
+                    'Quart': 0.000946353,
+                    'Pint': 0.000473176,
+                    'Cup': 0.000236588
+                }
+            },
+            weight: {
+                units: [
+                    'Kilogram',
+                    'Gram',
+                    'Milligram',
+                    'Metric Ton',
+                    'Pound',
+                    'Ounce',
+                    'Carat'
+                ],
+                factors: {
+                    'Kilogram': 1,
+                    'Gram': 0.001,
+                    'Milligram': 0.000001,
+                    'Metric Ton': 1000,
+                    'Pound': 0.453592,
+                    'Ounce': 0.0283495,
+                    'Carat': 0.0002
+                }
+            }
+        };
 
-        function setMode(newMode) {
-            mode = newMode;
-            document.getElementById('rad-btn').classList.toggle('active', mode === 'rad');
-            document.getElementById('deg-btn').classList.toggle('active', mode === 'deg');
+        let currentCategory = 'length';
+        let selectedFromUnit = '';
+        let selectedToUnit = '';
+
+        function createUnitList(containerId, units, isFrom = true) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            units.forEach(unit => {
+                const div = document.createElement('div');
+                div.className = 'unit-option';
+                div.textContent = unit;
+                div.onclick = () => {
+                    container.querySelectorAll('.unit-option').forEach(opt => opt.classList.remove('selected'));
+                    div.classList.add('selected');
+                    if (isFrom) {
+                        selectedFromUnit = unit;
+                    } else {
+                        selectedToUnit = unit;
+                    }
+                    convert();
+                };
+                container.appendChild(div);
+            });
+
+            // Select first option by default
+            const firstOption = container.querySelector('.unit-option');
+            if (firstOption) {
+                firstOption.classList.add('selected');
+                if (isFrom) {
+                    selectedFromUnit = units[0];
+                } else {
+                    selectedToUnit = units[0];
+                }
+            }
         }
 
-        function appendToDisplay(value) {
-            display.value += value;
-        }
+        function convert() {
+            if (!selectedFromUnit || !selectedToUnit) return;
 
-        function clearDisplay() {
-            display.value = '';
-        }
+            const fromValue = parseFloat(document.getElementById('fromValue').value);
+            if (isNaN(fromValue)) return;
 
-        function toRadians(angle) {
-            return mode === 'deg' ? angle * Math.PI / 180 : angle;
-        }
-
-        function toDegrees(angle) {
-            return mode === 'deg' ? angle * 180 / Math.PI : angle;
-        }
-
-        function factorial(n) {
-            if (n < 0) return NaN;
-            if (n === 0) return 1;
-            let result = 1;
-            for (let i = 2; i <= n; i++) result *= i;
-            return result;
-        }
-
-        // 内存功能
-        function memoryStore() {
-            memory = parseFloat(display.value) || 0;
-        }
-
-        function memoryRecall() {
-            display.value = memory;
-        }
-
-        function memorySubtract() {
-            memory -= parseFloat(display.value) || 0;
-        }
-
-        function memoryClear() {
-            memory = 0;
-        }
-
-        function calculate(func) {
-            const x = parseFloat(display.value);
             let result;
+            if (currentCategory === 'temperature') {
+                result = convertTemperature(fromValue, selectedFromUnit, selectedToUnit);
+            } else {
+                const fromFactor = unitData[currentCategory].factors[selectedFromUnit];
+                const toFactor = unitData[currentCategory].factors[selectedToUnit];
+                result = fromValue * fromFactor / toFactor;
+            }
 
-            switch(func) {
-                case 'sin':
-                    result = Math.sin(toRadians(x));
+            document.getElementById('toValue').value = result.toFixed(6);
+        }
+
+        function convertTemperature(value, from, to) {
+            let celsius;
+            
+            // Convert to Celsius first
+            switch(from) {
+                case 'Celsius':
+                    celsius = value;
                     break;
-                case 'cos':
-                    result = Math.cos(toRadians(x));
+                case 'Fahrenheit':
+                    celsius = (value - 32) * 5/9;
                     break;
-                case 'tan':
-                    result = Math.tan(toRadians(x));
-                    break;
-                case 'asin':
-                    result = toDegrees(Math.asin(x));
-                    break;
-                case 'acos':
-                    result = toDegrees(Math.acos(x));
-                    break;
-                case 'atan':
-                    result = toDegrees(Math.atan(x));
-                    break;
-                case 'log':
-                    result = Math.log10(x);
-                    break;
-                case 'ln':
-                    result = Math.log(x);
-                    break;
-                case 'sqrt':
-                    result = Math.sqrt(x);
-                    break;
-                case 'cbrt':
-                    result = Math.cbrt(x);
-                    break;
-                case 'factorial':
-                    result = factorial(Math.round(x));
-                    break;
-                case 'reciprocal':
-                    result = 1 / x;
+                case 'Kelvin':
+                    celsius = value - 273.15;
                     break;
             }
 
-            display.value = result;
-        }
-
-        function calculateResult() {
-            try {
-                let expression = display.value
-                    .replace(/\^2/g, '**2')  // 处理平方
-                    .replace(/\^3/g, '**3')  // 处理立方
-                    .replace(/(\d+(\.\d+)?)%/g, '($1/100)')  // 处理百分比
-                    .replace(/Math\.PI/g, Math.PI)  // 处理 π
-                    .replace(/Math\.E/g, Math.E);   // 处理 e
-
-                display.value = eval(expression);
-            } catch (error) {
-                display.value = 'Error';
-                setTimeout(clearDisplay, 1000);
+            // Convert from Celsius to target unit
+            switch(to) {
+                case 'Celsius':
+                    return celsius;
+                case 'Fahrenheit':
+                    return (celsius * 9/5) + 32;
+                case 'Kelvin':
+                    return celsius + 273.15;
             }
         }
 
-        // 添加键盘支持
-        document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            if (/[0-9\+\-\*\/\(\)\.\^\%]/.test(key)) {
-                event.preventDefault();
-                appendToDisplay(key);
-            } else if (key === 'Enter') {
-                event.preventDefault();
-                calculateResult();
-            } else if (key === 'Escape') {
-                event.preventDefault();
-                clearDisplay();
-            }
+        // Event listeners
+        document.getElementById('fromValue').addEventListener('input', convert);
+
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.dataset.category;
+                createUnitList('fromUnitSelect', unitData[currentCategory].units, true);
+                createUnitList('toUnitSelect', unitData[currentCategory].units, false);
+                convert();
+            });
         });
+
+        // Initialize with length category
+        createUnitList('fromUnitSelect', unitData.length.units, true);
+        createUnitList('toUnitSelect', unitData.length.units, false);
+        convert();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What kinds of unit converters are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer converters for length, weight, temperature, volume, area, speed, time, pressure, energy, and digital storage—covering all common measurement needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to sign up to use the converters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All unit converters are free to use and instantly available—no registration or downloads required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the converters on mobile and desktop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. The site is fully responsive, optimized for all devices—whether you're using a phone, tablet, or desktop, you'll get smooth and accurate conversions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the conversion results accurate and reliable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our converters use standard conversion formulas for precise results. You'll get accurate numbers instantly every time."
+          }
+        }
+      ]
+    }
     </script>
 </body>
 </html> 
