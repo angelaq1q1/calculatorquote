@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Use our free online Scientific Calculator to handle complex math functions—trigonometry, exponents, logarithms, and more. Perfect for students, engineers, and anyone solving advanced equations. No downloads, no signup.">
-    <title>Scientific Calculator - Free Online Scientific Calculator for Advanced Math</title>
+    <title>Statistics Calculator – Free Online Statistical Tool | CalculatorQuote</title>
+    <meta name="description" content="Use our free online statistics calculator to compute mean, median, mode, standard deviation, probability, and more. Fast, precise, no sign-up needed.">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
             background-color: #f5f5f5;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            padding: 40px 20px;
         }
 
         .main-container {
@@ -33,10 +38,21 @@
             border-radius: 0;
         }
 
+        .ad-space {
+            width: 300px;
+            min-height: 600px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+            display: block;
+        }
+
         .breadcrumb {
+            margin-bottom: 20px;
             font-size: 1em;
             color: #666;
-            margin-bottom: 20px;
         }
 
         .breadcrumb a {
@@ -55,244 +71,156 @@
         }
 
         .page-header {
-            margin-top: 30px;
             margin-bottom: 30px;
         }
 
         .page-header h1 {
+            color: #222;
             font-size: 1.3em;
             font-weight: 700;
-            color: #222;
             line-height: 1.3;
             margin-bottom: 20px;
             text-align: left;
         }
-        .page-header .subtitle {
-            display: block;
-            font-size: 0.95em;
-            color: #666;
-            font-weight: normal;
-            margin-top: 4px;
-            line-height: 1.4;
+
+        .calculator-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin-bottom: 40px;
         }
 
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
+        .display-area {
+            background: #2196F3;
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .count-display {
+            font-size: 0.9em;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+
+        .number-display {
+            font-size: 2em;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
             margin-bottom: 20px;
         }
 
-        .calculator {
-            max-width: 380px;
+        .calculator-button {
+            background: #fff;
+            border: 2px solid #2196F3;
+            padding: 15px 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: #2196F3;
+            border-radius: 5px;
+        }
+
+        .calculator-button:hover {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .calculator-button.light {
+            background: #fff;
+            border: 2px solid #2196F3;
+            color: #2196F3;
+        }
+
+        .calculator-button.light:hover {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .calculator-button.add {
+            color: #f44336;
+            border-color: #f44336;
+        }
+
+        .calculator-button.add:hover {
+            background: #f44336;
+            color: #fff;
+        }
+
+        .input-section {
+            margin-top: 40px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .input-section h2 {
+            color: #2196F3;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        textarea {
             width: 100%;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 25px;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #2196F3;
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 1em;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .action-button {
+            min-width: 100px;
+            padding: 10px 0;
+            font-size: 1em;
             box-sizing: border-box;
         }
 
-        .display-container {
-            height: 120px;
-            margin-bottom: 25px;
-            padding: 40px 20px 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        #display {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: transparent;
-            font-size: 2.5em;
-            text-align: right;
-            font-weight: 300;
-            color: #333;
-            padding: 0;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-        }
-
-        button {
-            border: none;
-            border-radius: 8px;
-            width: 100%;
-            height: 48px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background-color: #f1f3f4;
-            color: #2196F3;
-            transition: all 0.2s;
-            font-weight: 400;
-            padding: 0;
-            margin: 0;
-        }
-
-        button:hover {
-            filter: brightness(0.95);
-        }
-
-        .operator {
-            background-color: #2196F3;
+        .calculate-button {
+            background: #2196F3;
             color: white;
+            margin-right: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border: 1.5px solid #2196F3;
         }
 
-        .operator:hover {
-            background-color: #1976D2;
+        .calculate-button:hover {
+            background: #1976D2;
         }
 
-        .function {
-            background-color: #e3f2fd;
-            color: #2196F3;
-            font-size: 0.95em;
-        }
-
-        .function:hover {
-            background-color: #bbdefb;
-        }
-
-        .equals {
-            background-color: #2196F3;
+        .clear-button {
+            background: #757575;
             color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border: 1.5px solid #757575;
         }
 
-        .equals:hover {
-            background-color: #1976D2;
-        }
-
-        .clear {
-            background-color: #ef5350;
-            color: white;
-        }
-
-        .clear:hover {
-            background-color: #e53935;
-        }
-
-        .memory {
-            background-color: #4caf50;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        .memory:hover {
-            background-color: #43a047;
-        }
-
-        .number {
-            background-color: #f5f5f5;
-            color: #333;
-            font-size: 1.2em;
-            font-weight: 400;
-        }
-
-        .number:hover {
-            background-color: #e0e0e0;
-        }
-
-        .mode {
-            background-color: #90caf9;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        .mode.active {
-            background-color: #2196F3;
-        }
-
-        .mode:hover {
-            background-color: #64b5f6;
-        }
-
-        input:focus {
-            outline: none;
-        }
-
-        sup {
-            font-size: 0.6em;
-            position: relative;
-            top: -0.5em;
-        }
-
-        .buttons button:active {
-            transform: scale(0.95);
-        }
-
-        .related-calculators {
-            margin-top: 40px;
-            padding: 20px;
-            background: none;
-            border-radius: 0;
-        }
-
-        .related-calculators h2 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .related-calculators ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .related-calculators li {
-            margin-bottom: 10px;
-        }
-
-        .related-calculators a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .related-calculators a:hover {
-            color: #1976D2;
-        }
-
-        @media (max-width: 600px) {
-            .main-container {
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-            }
-            .content-wrapper {
-                max-width: 100%;
-                width: 100%;
-            }
-            .breadcrumb {
-                margin-bottom: 12px;
-            }
-            .page-header {
-                margin-top: 8px;
-                margin-bottom: 12px;
-            }
-            .page-header h1 {
-                font-size: 1.1em;
-                margin-bottom: 0.2em;
-            }
-            .page-header .subtitle {
-                font-size: 0.95em;
-                margin-top: 4px;
-            }
-            .calculator {
-                max-width: 100%;
-                padding: 10px;
-            }
-            .page-description, .related-calculators {
-                max-width: 100%;
-                padding: 0 2px;
-            }
+        .clear-button:hover {
+            background: #616161;
         }
 
         .page-description {
@@ -300,61 +228,50 @@
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 20px;
-            word-break: break-word;
-        }
-        .page-description h3 {
-            font-size: 1.1em;
-            color: #222;
-            margin: 20px 0 10px;
-        }
-        .page-description ul {
-            font-size: 1em;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        .page-description li {
-            font-size: 1em;
-            color: #444;
-        }
-        .page-description p {
-            font-size: 1.1em;
-            color: #222;
-        }
-        .page-description div, .page-description strong {
-            font-size: 1em;
         }
 
         .related-calculators {
-            color: #222;
-            font-size: 1.1em;
-            line-height: 1.6;
             margin-top: 40px;
             padding: 20px;
             background: none;
             border-radius: 0;
         }
+
         .related-calculators h2 {
             color: #333;
             font-size: 1.5em;
             margin-bottom: 15px;
         }
+
         .related-calculators ul {
             list-style: none;
             padding: 0;
         }
+
         .related-calculators li {
             margin-bottom: 10px;
-            font-size: 1em;
-            color: #444;
         }
+
         .related-calculators a {
             color: #2196F3;
             text-decoration: none;
             transition: color 0.3s;
-            font-size: 1em;
         }
+
         .related-calculators a:hover {
             color: #1976D2;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .ad-space {
+                width: 100%;
+                min-height: 250px;
+                position: static;
+                display: none;
+            }
         }
     </style>
 </head>
@@ -366,112 +283,119 @@
                 <span>/</span>
                 <a href="index.html">Math Calculators</a>
                 <span>/</span>
-                Scientific Calculator
+                Statistics Calculator
             </div>
             <div class="page-header">
-                <h1>
-                    <span>Scientific Calculator – Advanced Math Made Easy</span>
-                </h1>
+                <h1>Free Online Statistics Calculator</h1>
             </div>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                Need more than just add and subtract? Our free Scientific Calculator handles sine, cosine, logarithms, exponents, and all the other scary-looking buttons you never thought you'd need. Perfect for school, work, or existential math crises.
-            </p>
-            <div class="calculator">
-                <div class="display-container">
-                    <input type="text" id="display" readonly>
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Compute mean, median, mode, standard deviation, variance, percentiles, and probability effortlessly. Ideal for students, educators, and data enthusiasts—no registration required.</p>
+            <div class="calculator-container">
+                <div class="display-area">
+                    <div class="count-display">Count=0</div>
+                    <div class="number-display">0</div>
                 </div>
-                <div class="buttons">
-                    <!-- Row 1 -->
-                    <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
-                    <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memoryStore()">M+</button>
-                    <button class="memory" onclick="memoryRecall()">MR</button>
-                    <!-- Row 2 -->
-                    <button class="function" onclick="calculate('sin')">sin</button>
-                    <button class="function" onclick="calculate('cos')">cos</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memorySubtract()">M-</button>
-                    <button class="memory" onclick="memoryClear()">MC</button>
-                    <!-- Row 3 -->
-                    <button class="function" onclick="calculate('log')">log</button>
-                    <button class="function" onclick="calculate('ln')">ln</button>
-                    <button class="function" onclick="appendToDisplay('Math.E')">e</button>
-                    <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
-                    <button class="operator" onclick="appendToDisplay('(')">(</button>
-                    <!-- Row 4 -->
-                    <button class="function" onclick="calculate('sqrt')">√</button>
-                    <button class="function" onclick="calculate('cbrt')">∛</button>
-                    <button class="function" onclick="appendToDisplay('^2')">x²</button>
-                    <button class="function" onclick="appendToDisplay('^3')">x³</button>
-                    <button class="operator" onclick="appendToDisplay(')')">)</button>
-                    <!-- Row 5 -->
-                    <button class="number" onclick="appendToDisplay('7')">7</button>
-                    <button class="number" onclick="appendToDisplay('8')">8</button>
-                    <button class="number" onclick="appendToDisplay('9')">9</button>
-                    <button class="operator" onclick="appendToDisplay('/')">/</button>
-                    <button class="function" onclick="calculate('factorial')">n!</button>
-                    <!-- Row 6 -->
-                    <button class="number" onclick="appendToDisplay('4')">4</button>
-                    <button class="number" onclick="appendToDisplay('5')">5</button>
-                    <button class="number" onclick="appendToDisplay('6')">6</button>
-                    <button class="operator" onclick="appendToDisplay('*')">×</button>
-                    <button class="function" onclick="calculate('reciprocal')">1/x</button>
-                    <!-- Row 7 -->
-                    <button class="number" onclick="appendToDisplay('1')">1</button>
-                    <button class="number" onclick="appendToDisplay('2')">2</button>
-                    <button class="number" onclick="appendToDisplay('3')">3</button>
-                    <button class="operator" onclick="appendToDisplay('-')">−</button>
-                    <button class="operator" onclick="appendToDisplay('%')">%</button>
-                    <!-- Row 8 -->
-                    <button class="number" onclick="appendToDisplay('0')">0</button>
-                    <button class="number" onclick="appendToDisplay('.')">.</button>
-                    <button class="clear" onclick="clearDisplay()">AC</button>
-                    <button class="operator" onclick="appendToDisplay('+')">+</button>
-                    <button class="equals" onclick="calculateResult()">=</button>
+                <div class="calculator-grid">
+                    <button class="calculator-button">7</button>
+                    <button class="calculator-button">8</button>
+                    <button class="calculator-button">9</button>
+                    <button class="calculator-button light" onclick="calculateMean()">x̄</button>
+                    <button class="calculator-button light" onclick="calculateVariance()">x̄²</button>
+                    <button class="calculator-button">4</button>
+                    <button class="calculator-button">5</button>
+                    <button class="calculator-button">6</button>
+                    <button class="calculator-button light" onclick="calculateSum()">Σx</button>
+                    <button class="calculator-button light" onclick="calculateSumSquares()">Σx²</button>
+                    <button class="calculator-button">1</button>
+                    <button class="calculator-button">2</button>
+                    <button class="calculator-button">3</button>
+                    <button class="calculator-button light" onclick="calculateStdDev()">σ</button>
+                    <button class="calculator-button light" onclick="calculateVariance()">σ²</button>
+                    <button class="calculator-button">0</button>
+                    <button class="calculator-button">.</button>
+                    <button class="calculator-button">EXP</button>
+                    <button class="calculator-button light" onclick="calculateSampleStdDev()">s</button>
+                    <button class="calculator-button light" onclick="calculateSampleVariance()">s²</button>
+                    <button class="calculator-button">CAD</button>
+                    <button class="calculator-button">C</button>
+                    <button class="calculator-button add">ADD</button>
+                    <button class="calculator-button light" onclick="toggleSign()">±</button>
+                    <button class="calculator-button light" onclick="calculateGeometricMean()">GM</button>
+                </div>
+                <div class="input-section">
+                    <h2>Enter multiple numbers separated by commas for statistical analysis</h2>
+                    <textarea placeholder="10, 2, 38, 23, 38, 23, 21, 23"></textarea>
+                    <div class="button-group">
+                        <button class="action-button calculate-button">Calculate</button>
+                        <button class="action-button clear-button">Clear</button>
+                    </div>
+                </div>
+                <div id="results" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; display: none;">
+                    <h3 style="color: #2196F3; margin-bottom: 10px;">Statistical Results:</h3>
+                    <div id="results-content"></div>
                 </div>
             </div>
             <div class="page-description">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Scientific Calculator – Because regular calculators tap out at "sin(30)" 😵‍💫</p>
-                <p>Let's face it:<br>
-                Once math gets fancy, your basic calculator looks at you like, "good luck, nerd."</p>
-                <p>That's where we come in.<br>
-                Our free online scientific calculator is built for the real stuff: trig, logs, exponents, and all the terrifying things they sneak into standardized tests.</p>
-                <p>No download. No panic. Just a math machine that actually understands what cos(θ) means (and won't judge you for not).</p>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">📊 Statistics Calculator – Because who really remembers what "standard deviation" means? 🧠</p>
+                <p>Let's be honest:<br>
+                Statistics sounds smart... until you're staring at a bunch of numbers wondering if "mean" is just how your math teacher acted.</p>
+                <p>That's where our free online statistics calculator comes in.<br>
+                No formulas to memorize. No textbooks to cry into. Just type your numbers and get results faster than you can say "bell curve."</p>
+                <p>Whether you're crunching test scores, analyzing data, or trying to prove you're above average — we got you.</p>
                 <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
                 <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✅ Trigonometric functions: sin, cos, tan – so you can finally stop guessing</li>
-                    <li style="margin-bottom: 10px;">✅ Logarithms & exponents – for when things escalate exponentially</li>
-                    <li style="margin-bottom: 10px;">✅ Pi (π) button – yes, we respect irrational numbers</li>
-                    <li style="margin-bottom: 10px;">✅ Memory functions – store, recall, clear (just like your ex)</li>
-                    <li style="margin-bottom: 10px;">✅ Parentheses & order of operations – PEMDAS gang rise up</li>
-                    <li style="margin-bottom: 10px;">✅ Clean, responsive interface – not from 1998, we promise</li>
+                    <li style="margin-bottom: 10px;">✅ Calculates mean, median, mode – the big 3 of bragging rights</li>
+                    <li style="margin-bottom: 10px;">✅ Finds range, variance, and standard deviation – a.k.a. the "what does this data really mean?" stuff</li>
+                    <li style="margin-bottom: 10px;">✅ Handles both population and sample sets – because yes, that matters</li>
+                    <li style="margin-bottom: 10px;">✅ Supports long lists – paste in that monster dataset like a boss</li>
+                    <li style="margin-bottom: 10px;">✅ Clean interface – no clutter, no confusion, no PhD required</li>
                 </ul>
-                <p>Whether you're:</p>
+                <p style="margin: 20px 0;">Whether you're:</p>
                 <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">🧑‍🎓 Studying for finals</li>
-                    <li style="margin-bottom: 10px;">🧑‍🔬 Running experiments</li>
-                    <li style="margin-bottom: 10px;">🤯 Or just trying to figure out what "e" actually is...</li>
+                    <li style="margin-bottom: 10px;">🎓 A student trying to survive Stats 101</li>
+                    <li style="margin-bottom: 10px;">📊 An overachiever graphing your productivity</li>
+                    <li style="margin-bottom: 10px;">😅 Or just trying to figure out how "average" your weekend steps were...</li>
                 </ul>
-                <p>This calculator's got your back.</p>
-                <h3 style="margin: 20px 0 10px;">❓ FAQ – because you were gonna ask anyway</h3>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Is this really a scientific calculator or just a fancy basic one?</strong><br>A: It's the real deal. If your basic calculator had a glow-up and went to engineering school, it'd be this.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Does it cost anything?</strong><br>A: Nope. Zero. Nada. Just some chill ads to keep the lights on.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Can I use this for my physics class?</strong><br>A: Yup, unless your teacher's stuck in 1984 and still demands a TI-83.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Will this solve equations for me?</strong><br>A: It's not a full-on algebra solver, but it'll handle expressions with multiple functions like a pro.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Does it spy on me?</strong><br>A: Only if you're using it to calculate your crush's birth chart. (Kidding — we don't store anything.)</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Why use this instead of my phone's calculator?</strong><br>A: Ever tried doing log(45.6) × sin(60) on your phone? That thing panics and turns into a brick.</p></div>
-                <p style="margin: 20px 0; font-style: italic;">🧠 Pro tip: Keep this tab open during late-night homework. Future You will high-five Past You.</p>
+                <p>This calculator turns messy numbers into instant insights.</p>
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – because stats are confusing enough already</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: What kind of data can I input?</strong><br>
+                    A: Any list of numbers, separated by commas or spaces. Yes, even decimals. We're chill like that.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: What's the difference between population and sample?</strong><br>
+                    A: Population = whole group. Sample = partial group. Don't worry, we do the right math either way.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this free or will you hit me with a "7-day trial" drama?</strong><br>
+                    A: 100% free. No paywalls. No drama. Just occasional ads to pay the data elves.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Will it show steps?</strong><br>
+                    A: Yup! Not just answers — you get the logic behind the math, in case your teacher asks.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can I use this on a stats exam?</strong><br>
+                    A: If your professor allows it, absolutely. If not... we believe in your brain.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Why not use Excel or Google Sheets?</strong><br>
+                    A: Great idea — if you like digging through menus, typing formulas, and crying at cell references.</p>
+                </div>
+                <p style="margin: 20px 0; font-style: italic;">📈 Pro tip: Bookmark this tool.<br>
+                Next time you need to make sense of those 87 survey results or calculate how weird your sleep schedule is — we've got the stats.</p>
             </div>
             <div class="related-calculators">
                 <h2>Related Calculators</h2>
                 <ul>
-                    <li><a href="basic-calculator.html">Basic Calculator</a> - For everyday math operations</li>
+                    <li><a href="scientific-calculator.html">Scientific Calculator</a> - For advanced mathematical calculations</li>
+                    <li><a href="basic-calculator.html">Basic Calculator</a> - Work with whole numbers and decimals</li>
                     <li><a href="fraction-calculator.html">Fraction Calculator</a> - Work with fractions easily</li>
                     <li><a href="percentage-calculator.html">Percentage Calculator</a> - Calculate percentages and changes</li>
-                    <li><a href="statistics-calculator.html">Statistics Calculator</a> - For statistical calculations</li>
                 </ul>
             </div>
+        </div>
+        <div class="ad-space">
+            <!-- Ad space for 300x600 or similar ad units -->
         </div>
     </div>
 
@@ -487,133 +411,375 @@
     </footer>
 
     <script>
-        let display = document.getElementById('display');
-        let mode = 'deg'; // 默认使用角度制
-        let memory = 0;
+        // DOM元素
+        const display = document.querySelector('.number-display');
+        const countDisplay = document.querySelector('.count-display');
+        const textarea = document.querySelector('textarea');
+        const calculateButton = document.querySelector('.calculate-button');
+        const clearButton = document.querySelector('.clear-button');
+        const buttons = document.querySelectorAll('.calculator-button');
+        const resultsDiv = document.getElementById('results');
+        const resultsContent = document.getElementById('results-content');
+        
+        let currentNumber = '0';
+        let numbers = [];
 
-        function setMode(newMode) {
-            mode = newMode;
-            document.getElementById('rad-btn').classList.toggle('active', mode === 'rad');
-            document.getElementById('deg-btn').classList.toggle('active', mode === 'deg');
+        // 更新显示
+        function updateDisplay() {
+            display.textContent = currentNumber;
+            countDisplay.textContent = `Count=${numbers.length}`;
         }
 
-        function appendToDisplay(value) {
-            display.value += value;
+        // 显示结果
+        function showResults(content) {
+            resultsContent.innerHTML = content;
+            resultsDiv.style.display = 'block';
         }
 
-        function clearDisplay() {
-            display.value = '';
+        // 计算均值
+        function calculateMean() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            display.textContent = mean.toFixed(4);
+            showResults(`<p><strong>Mean (x̄):</strong> ${mean.toFixed(4)}</p>`);
         }
 
-        function toRadians(angle) {
-            return mode === 'deg' ? angle * Math.PI / 180 : angle;
+        // 计算中位数
+        function calculateMedian() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const sorted = [...numbers].sort((a, b) => a - b);
+            const mid = Math.floor(sorted.length / 2);
+            const median = sorted.length % 2 === 0 ? 
+                (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+            display.textContent = median.toFixed(4);
+            showResults(`<p><strong>Median:</strong> ${median.toFixed(4)}</p>`);
         }
 
-        function toDegrees(angle) {
-            return mode === 'deg' ? angle * 180 / Math.PI : angle;
+        // 计算众数
+        function calculateMode() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const frequency = {};
+            numbers.forEach(num => {
+                frequency[num] = (frequency[num] || 0) + 1;
+            });
+            const maxFreq = Math.max(...Object.values(frequency));
+            const modes = Object.keys(frequency).filter(num => frequency[num] === maxFreq);
+            display.textContent = modes.join(', ');
+            showResults(`<p><strong>Mode:</strong> ${modes.join(', ')}</p>`);
         }
 
-        function factorial(n) {
-            if (n < 0) return NaN;
-            if (n === 0) return 1;
-            let result = 1;
-            for (let i = 2; i <= n; i++) result *= i;
-            return result;
+        // 计算总和
+        function calculateSum() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            display.textContent = sum.toFixed(4);
+            showResults(`<p><strong>Sum (Σx):</strong> ${sum.toFixed(4)}</p>`);
         }
 
-        // 内存功能
-        function memoryStore() {
-            memory = parseFloat(display.value) || 0;
+        // 计算平方和
+        function calculateSumSquares() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const sumSquares = numbers.reduce((a, b) => a + b * b, 0);
+            display.textContent = sumSquares.toFixed(4);
+            showResults(`<p><strong>Sum of Squares (Σx²):</strong> ${sumSquares.toFixed(4)}</p>`);
         }
 
-        function memoryRecall() {
-            display.value = memory;
+        // 计算方差（总体）
+        function calculateVariance() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
+            display.textContent = variance.toFixed(4);
+            showResults(`<p><strong>Population Variance (σ²):</strong> ${variance.toFixed(4)}</p>`);
         }
 
-        function memorySubtract() {
-            memory -= parseFloat(display.value) || 0;
+        // 计算样本方差
+        function calculateSampleVariance() {
+            if (numbers.length < 2) {
+                showResults('<p style="color: #f44336;">Need at least 2 numbers for sample variance!</p>');
+                return;
+            }
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (numbers.length - 1);
+            display.textContent = variance.toFixed(4);
+            showResults(`<p><strong>Sample Variance (s²):</strong> ${variance.toFixed(4)}</p>`);
         }
 
-        function memoryClear() {
-            memory = 0;
+        // 计算标准差（总体）
+        function calculateStdDev() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
+            const stdDev = Math.sqrt(variance);
+            display.textContent = stdDev.toFixed(4);
+            showResults(`<p><strong>Population Standard Deviation (σ):</strong> ${stdDev.toFixed(4)}</p>`);
         }
 
-        function calculate(func) {
-            const x = parseFloat(display.value);
-            let result;
+        // 计算样本标准差
+        function calculateSampleStdDev() {
+            if (numbers.length < 2) {
+                showResults('<p style="color: #f44336;">Need at least 2 numbers for sample standard deviation!</p>');
+                return;
+            }
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (numbers.length - 1);
+            const stdDev = Math.sqrt(variance);
+            display.textContent = stdDev.toFixed(4);
+            showResults(`<p><strong>Sample Standard Deviation (s):</strong> ${stdDev.toFixed(4)}</p>`);
+        }
 
-            switch(func) {
-                case 'sin':
-                    result = Math.sin(toRadians(x));
-                    break;
-                case 'cos':
-                    result = Math.cos(toRadians(x));
-                    break;
-                case 'tan':
-                    result = Math.tan(toRadians(x));
-                    break;
-                case 'asin':
-                    result = toDegrees(Math.asin(x));
-                    break;
-                case 'acos':
-                    result = toDegrees(Math.acos(x));
-                    break;
-                case 'atan':
-                    result = toDegrees(Math.atan(x));
-                    break;
-                case 'log':
-                    result = Math.log10(x);
-                    break;
-                case 'ln':
-                    result = Math.log(x);
-                    break;
-                case 'sqrt':
-                    result = Math.sqrt(x);
-                    break;
-                case 'cbrt':
-                    result = Math.cbrt(x);
-                    break;
-                case 'factorial':
-                    result = factorial(Math.round(x));
-                    break;
-                case 'reciprocal':
-                    result = 1 / x;
-                    break;
+        // 计算几何均值
+        function calculateGeometricMean() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
+            }
+            if (numbers.some(num => num <= 0)) {
+                showResults('<p style="color: #f44336;">All numbers must be positive for geometric mean!</p>');
+                return;
+            }
+            const product = numbers.reduce((a, b) => a * b, 1);
+            const geometricMean = Math.pow(product, 1 / numbers.length);
+            display.textContent = geometricMean.toFixed(4);
+            showResults(`<p><strong>Geometric Mean:</strong> ${geometricMean.toFixed(4)}</p>`);
+        }
+
+        // 切换正负号
+        function toggleSign() {
+            if (currentNumber !== '0') {
+                currentNumber = (parseFloat(currentNumber) * -1).toString();
+                updateDisplay();
+            }
+        }
+
+        // 计算所有统计值
+        function calculateAllStats() {
+            if (numbers.length === 0) {
+                showResults('<p style="color: #f44336;">Please add some numbers first!</p>');
+                return;
             }
 
-            display.value = result;
+            const sorted = [...numbers].sort((a, b) => a - b);
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            const mean = sum / numbers.length;
+            const mid = Math.floor(sorted.length / 2);
+            const median = sorted.length % 2 === 0 ? 
+                (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+            
+            // 众数
+            const frequency = {};
+            numbers.forEach(num => {
+                frequency[num] = (frequency[num] || 0) + 1;
+            });
+            const maxFreq = Math.max(...Object.values(frequency));
+            const modes = Object.keys(frequency).filter(num => frequency[num] === maxFreq);
+            
+            // 方差和标准差
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
+            const stdDev = Math.sqrt(variance);
+            const sampleVariance = numbers.length > 1 ? 
+                numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (numbers.length - 1) : 0;
+            const sampleStdDev = Math.sqrt(sampleVariance);
+            
+            // 范围
+            const range = sorted[sorted.length - 1] - sorted[0];
+
+            const results = `
+                <p><strong>Count:</strong> ${numbers.length}</p>
+                <p><strong>Sum (Σx):</strong> ${sum.toFixed(4)}</p>
+                <p><strong>Mean (x̄):</strong> ${mean.toFixed(4)}</p>
+                <p><strong>Median:</strong> ${median.toFixed(4)}</p>
+                <p><strong>Mode:</strong> ${modes.join(', ')}</p>
+                <p><strong>Range:</strong> ${range.toFixed(4)}</p>
+                <p><strong>Population Variance (σ²):</strong> ${variance.toFixed(4)}</p>
+                <p><strong>Population Standard Deviation (σ):</strong> ${stdDev.toFixed(4)}</p>
+                <p><strong>Sample Variance (s²):</strong> ${sampleVariance.toFixed(4)}</p>
+                <p><strong>Sample Standard Deviation (s):</strong> ${sampleStdDev.toFixed(4)}</p>
+            `;
+            
+            showResults(results);
         }
 
-        function calculateResult() {
-            try {
-                let expression = display.value
-                    .replace(/\^2/g, '**2')  // 处理平方
-                    .replace(/\^3/g, '**3')  // 处理立方
-                    .replace(/(\d+(\.\d+)?)%/g, '($1/100)')  // 处理百分比
-                    .replace(/Math\.PI/g, Math.PI)  // 处理 π
-                    .replace(/Math\.E/g, Math.E);   // 处理 e
-
-                display.value = eval(expression);
-            } catch (error) {
-                display.value = 'Error';
-                setTimeout(clearDisplay, 1000);
+        // 添加数字到列表
+        function addNumber() {
+            if (currentNumber && currentNumber !== '0') {
+                numbers.push(parseFloat(currentNumber));
+                currentNumber = '0';
+                updateDisplay();
             }
         }
 
-        // 添加键盘支持
-        document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            if (/[0-9\+\-\*\/\(\)\.\^\%]/.test(key)) {
-                event.preventDefault();
-                appendToDisplay(key);
-            } else if (key === 'Enter') {
-                event.preventDefault();
-                calculateResult();
-            } else if (key === 'Escape') {
-                event.preventDefault();
-                clearDisplay();
+        // 清除所有数据
+        function clearAll() {
+            numbers = [];
+            currentNumber = '0';
+            textarea.value = '';
+            resultsDiv.style.display = 'none';
+            updateDisplay();
+        }
+
+        // 处理按钮点击
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+                
+                if (value === 'C' || value === 'Clear') {
+                    clearAll();
+                } else if (value === 'ADD') {
+                    addNumber();
+                } else if (!isNaN(value) || value === '.') {
+                    if (currentNumber === '0' && value !== '.') {
+                        currentNumber = value;
+                    } else {
+                        currentNumber += value;
+                    }
+                    updateDisplay();
+                }
+            });
+        });
+
+        // 处理文本框输入
+        calculateButton.addEventListener('click', () => {
+            const input = textarea.value.trim();
+            if (input) {
+                numbers = input.split(',')
+                    .map(num => num.trim())
+                    .filter(num => num !== '')
+                    .map(num => parseFloat(num))
+                    .filter(num => !isNaN(num));
+                currentNumber = '0';
+                updateDisplay();
+                calculateAllStats();
             }
         });
+
+        // 清除按钮
+        clearButton.addEventListener('click', clearAll);
+
+        // 初始化显示
+        updateDisplay();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Statistics Calculator - Free Online Statistical Analysis Tool",
+      "url": "https://www.calculatorquote.com/math/statistics-calculator.html",
+      "description": "Use our free Statistics Calculator to easily compute mean, median, mode, variance, standard deviation, and more. Quick and accurate online statistical analysis.",
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What statistical measures can this calculator compute?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This calculator can compute mean, median, mode, variance, standard deviation, sum, range, and geometric mean for any set of numbers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I input data into the statistics calculator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can either type numbers separated by commas in the text area, or use the calculator buttons to add numbers one by one and then click ADD."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's the difference between population and sample variance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Population variance divides by n, while sample variance divides by n-1. Use population variance when you have the entire dataset, and sample variance when you have a subset."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this statistics calculator free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our statistics calculator is completely free to use with no registration required."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Statistics Calculator",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "All",
+          "url": "https://www.calculatorquote.com/math/statistics-calculator.html",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What functions does this statistics calculator support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This statistics calculator allows you to compute a variety of statistical measures, including mean, median, mode, range, variance, standard deviation, percentiles, and simple probability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator suitable for students and teachers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. The tool is designed with learners and educators in mind—it handles both basic and intermediate stats functions without requiring sign-up or downloads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this statistics calculator on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the calculator is fully responsive and optimized for all devices, including smartphones and tablets. It provides quick and reliable results on the go."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate and fast is the calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our statistics calculator delivers precise calculations in less than a second. It's designed for performance and accuracy, suitable for academic work and everyday data tasks."
+          }
+        }
+      ]
+    }
     </script>
 </body>
 </html> 
