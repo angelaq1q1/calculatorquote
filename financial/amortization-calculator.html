@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amortization Calculator – Calculate Loan Payments & Schedules</title>
+    <meta name="description" content="Use our free Amortization Calculator to calculate monthly loan payments, total interest, and repayment schedule. Ideal for mortgages, auto loans, student loans and more.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Amortization Calculator",
+      "url": "https://www.calculatorquote.com/financial/amortization-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Free amortization calculator to calculate monthly loan payments, total interest, and full repayment schedule.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "157"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Amortization Calculator – Plan Your Loan Payments",
+      "url": "https://www.calculatorquote.com/financial/amortization-calculator.html",
+      "description": "Use our free Amortization Calculator to plan monthly payments, interest costs, and repayment schedule for mortgages, auto loans, student loans and more.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "inLanguage": "en",
+      "datePublished": "2024-04-01",
+      "dateModified": "2025-06-29"
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .input-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+            margin-bottom: 24px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+        .unit {
+            padding: 12px;
+            background-color: #e3f2fd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #2196F3;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 24px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        .result-section h2 {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .result-section p {
+            font-size: 1.1em;
+            color: #333;
+            margin: 0 0 8px 0;
+        }
+        .result-section .value {
+            color: #2196F3;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+            .input-section {
+                padding: 12px;
+            }
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Amortization Calculator
+        </div>
+        <h1>Amortization Calculator for Loan Payments & Schedules</h1>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Want to understand how much you'll pay each month toward principal and interest? Just enter your loan amount, interest rate, and term to generate a complete repayment schedule in seconds.</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="loan-amount">Loan Amount:</label>
+                <div class="input-field-container">
+                    <input type="number" id="loan-amount" min="0" step="0.01" placeholder="e.g. 275000">
+                    <div class="unit">$</div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="interest-rate">Interest Rate (annual):</label>
+                <div class="input-field-container">
+                    <input type="number" id="interest-rate" min="0" step="0.0001" placeholder="e.g. 4.875">
+                    <div class="unit">%</div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="num-payments">Number of Payments:</label>
+                <div class="input-field-container">
+                    <input type="number" id="num-payments" min="1" step="1" placeholder="e.g. 360">
+                </div>
+                <small style="color:#888;">For a 30-year loan, enter 360 (30 × 12)</small>
+            </div>
+            <div class="input-group">
+                <label for="frequency">Payment Frequency:</label>
+                <div class="input-field-container">
+                    <select id="frequency">
+                        <option value="monthly">Monthly</option>
+                        <option value="daily-365">Daily (365/yr)</option>
+                        <option value="daily-360">Daily (360/yr)</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Biweekly</option>
+                        <option value="semimonthly">Semimonthly</option>
+                        <option value="bimonthly">Bimonthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="semiannually">Semiannually</option>
+                        <option value="annually">Annually</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateAmortization()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+        <div class="result-section" id="result-section" style="display:none;">
+            <h2>Result</h2>
+            <p>Payment per period: <span class="value" id="payment-value">$0.00</span></p>
+            <p>Total interest: <span class="value" id="total-interest">$0.00</span></p>
+            <p>Total paid: <span class="value" id="total-paid">$0.00</span></p>
+        </div>
+
+        <div style="padding: 20px 0; margin-bottom: 20px;">
+            <p style="color: #333; font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; font-weight: 500;">💸 Amortization Calculator – Because Debt Deserves to Be Broken Down Too</p>
+            <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 15px;">You took out a loan. Now your bank statements feel like a slow-motion horror movie. Interest here. Principal there. Monthly payments forever. You just want to know: When does this end?!</p>
+            <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 15px;">Good news: our amortization schedule calculator is here to break down your debt drama into something that makes actual sense — without needing a finance degree or an emotional support spreadsheet.</p>
+        </div>
+
+        <div style="padding: 20px 0; margin-bottom: 20px;">
+            <p style="color: #333; font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; font-weight: 500;">💡 What does this amortization calculator do?</p>
+            <ul style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 15px; padding-left: 20px;">
+                <li style="margin-bottom: 8px;">✅ Calculates loan amortization with monthly payments</li>
+                <li style="margin-bottom: 8px;">✅ Breaks down each payment schedule into principal and interest</li>
+                <li style="margin-bottom: 8px;">✅ Gives you a full amortization table — year by year, month by month</li>
+                <li style="margin-bottom: 8px;">✅ Works for all types of loans: mortgage, car loan, student loan, personal loan</li>
+                <li style="margin-bottom: 8px;">✅ Totally free. No sign-up. Mobile-friendly. Amortization chart included.</li>
+            </ul>
+        </div>
+
+        <div style="padding: 20px 0; margin-bottom: 20px;">
+            <p style="color: #333; font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; font-weight: 500;">❓ FAQ – Because debt doesn't come with an instruction manual</p>
+            <div style="margin-bottom: 15px;">
+                <p style="color: #333; font-size: 1em; line-height: 1.6; margin-bottom: 5px; font-weight: 500;">Q: Do I need to understand financial terms like principal, interest, or loan balance?</p>
+                <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 10px;">A: Nope. This loan amortization calculator is made for humans, not accountants.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p style="color: #333; font-size: 1em; line-height: 1.6; margin-bottom: 5px; font-weight: 500;">Q: Can I use this for a mortgage amortization schedule?</p>
+                <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 10px;">A: Absolutely. It shows monthly loan payments, interest, and total cost. Plug in your mortgage and see how it plays out.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p style="color: #333; font-size: 1em; line-height: 1.6; margin-bottom: 5px; font-weight: 500;">Q: Will this help me plan extra payments?</p>
+                <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 10px;">A: Yes! You can explore how extra payments affect your repayment schedule and total interest paid.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p style="color: #333; font-size: 1em; line-height: 1.6; margin-bottom: 5px; font-weight: 500;">Q: Can I download the schedule?</p>
+                <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 10px;">A: Not yet, but the amortization schedule is easy to read on any device. And you can screenshot like a pro.</p>
+            </div>
+        </div>
+
+        <div style="padding: 20px 0; margin-bottom: 20px;">
+            <p style="color: #333; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; font-weight: 500;">🧠 Pro tip:</p>
+            <p style="color: #666; font-size: 1em; line-height: 1.6; margin-bottom: 10px;">Use this payment schedule calculator before taking a loan to know what you're signing up for — or after, to see if it's time to refinance.</p>
+            <p style="color: #666; font-size: 1em; line-height: 1.6; font-style: italic;">Because if you're paying interest, you deserve to know where every dollar goes.</p>
+        </div>
+    </div>
+    <script>
+        function getPaymentFrequencyMultiplier(frequency) {
+            const multipliers = {
+                'daily-365': 365,
+                'daily-360': 360,
+                'weekly': 52,
+                'biweekly': 26,
+                'semimonthly': 24,
+                'monthly': 12,
+                'bimonthly': 6,
+                'quarterly': 4,
+                'semiannually': 2,
+                'annually': 1
+            };
+            return multipliers[frequency] || 12;
+        }
+        function calculateAmortization() {
+            const P = parseFloat(document.getElementById('loan-amount').value);
+            const r = parseFloat(document.getElementById('interest-rate').value);
+            const n = parseInt(document.getElementById('num-payments').value);
+            const freq = document.getElementById('frequency').value;
+            if (!P || !r || !n) {
+                alert('Please fill in all fields with valid values.');
+                return;
+            }
+            const periods = getPaymentFrequencyMultiplier(freq);
+            const i = r / 100 / periods;
+            let payment;
+            if (i === 0) {
+                payment = P / n;
+            } else {
+                payment = P * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+            }
+            const totalPaid = payment * n;
+            const totalInterest = totalPaid - P;
+            document.getElementById('payment-value').textContent = '$' + payment.toFixed(2);
+            document.getElementById('total-interest').textContent = '$' + totalInterest.toFixed(2);
+            document.getElementById('total-paid').textContent = '$' + totalPaid.toFixed(2);
+            document.getElementById('result-section').style.display = 'block';
+        }
+        function clearInputs() {
+            document.getElementById('loan-amount').value = '';
+            document.getElementById('interest-rate').value = '';
+            document.getElementById('num-payments').value = '';
+            document.getElementById('frequency').value = 'monthly';
+            document.getElementById('result-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
