@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator – Calculate Your Weighted Average</title>
+    <meta name="description" content="Struggling with grades? Use our free Grade Calculator to instantly compute GPA, final scores, and weighted averages. Perfect for students and teachers alike.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .grade-type-select {
+            margin-bottom: 18px;
+            font-size: 1em;
+        }
+        .input-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+            margin-bottom: 24px;
+        }
+        .grade-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .grade-table th, .grade-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        .grade-table th {
+            color: #2196F3;
+            font-weight: 500;
+            background: #e3f2fd;
+        }
+        .grade-table td input, .grade-table td select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .grade-table td select {
+            min-width: 70px;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .btn-add {
+            background-color: #43a047;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn-add:hover {
+            background-color: #388e3c;
+        }
+        .result-section {
+            margin-top: 24px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        .result-section h2 {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .result-section p {
+            font-size: 1.1em;
+            color: #333;
+            margin: 0 0 8px 0;
+        }
+        .result-section .value {
+            color: #2196F3;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+        .section-title {
+            font-size: 1.1em;
+            color: #2196F3;
+            font-weight: 500;
+            margin: 18px 0 8px 0;
+        }
+        .target-section {
+            margin-top: 30px;
+            padding: 18px 0 0 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+            .input-section {
+                padding: 12px;
+            }
+        }
+        .tab-btn {
+            font-size: 1em;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 6px;
+            margin-right: 20px;
+            background: #e3f2fd;
+            color: #2196F3;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .tab-btn.active {
+            background: #2196F3;
+            color: #fff;
+        }
+        .tab-btn:last-child {
+            margin-right: 0;
+        }
+        .grade-type-segment {
+            display: inline-flex;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(33,150,243,0.04);
+            margin-bottom: 18px;
+        }
+        .grade-type-segment button {
+            border: none;
+            outline: none;
+            background: #fff;
+            color: #2196F3;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 10px 28px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .grade-type-segment button:not(:last-child) {
+            border-right: 1px solid #e3f2fd;
+        }
+        .grade-type-segment button.active {
+            background: #2196F3;
+            color: #fff;
+            z-index: 1;
+        }
+        .grade-type-segment button:hover:not(.active) {
+            background: #e3f2fd;
+        }
+        #section-gpa .grade-table input,
+        #section-gpa .grade-table select {
+            border-radius: 8px !important;
+            border: 1.5px solid #ddd !important;
+            background: #fff !important;
+            font-size: 1.08em !important;
+            padding: 10px 12px !important;
+            margin-bottom: 0 !important;
+            box-sizing: border-box !important;
+        }
+        #section-gpa .grade-table th {
+            background: #e3f2fd !important;
+            color: #2196F3 !important;
+            font-weight: 700 !important;
+            font-size: 1.13em !important;
+            border: none !important;
+        }
+        #section-gpa .grade-table tr:not(:last-child) {
+            border-bottom: 2px solid #f0f0f0 !important;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online Grade Calculator",
+      "url": "https://www.calculatorquote.com/grade-calculator.html",
+      "description": "Use our free online grade calculator to compute your final grades, GPA, or weighted averages. Ideal for students and educators looking for a fast and simple solution.",
+      "inLanguage": "en-US",
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Grade Calculator",
+        "operatingSystem": "All",
+        "applicationCategory": "EducationApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/logo.png"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb" style="margin-bottom: 20px; font-size: 1em; color: #666;">
+            <a href="../index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Home</a>
+            <span style="color: #666; margin: 0 8px;">/</span>
+            <a href="index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Other Calculators</a>
+            <span style="color: #666; margin: 0 8px;">/</span>
+            Grade Calculator
+        </div>
+        <div style="margin-bottom: 28px;">
+            <h1 style="color:#333;font-size:2em;margin-bottom:20px;">Grade Calculator – Final, GPA & Weighted Averages Made Easy</h1>
+            <div class="description" style="color:#666;line-height:1.6;margin-bottom:30px;">Free Grade Calculator for Students & Teachers<br>Easily calculate your final grades, weighted scores, and GPA with our intuitive tool. Whether you're prepping for finals or tracking semester performance, this calculator does the math for you — no spreadsheets needed.</div>
+        </div>
+        <div style="display:flex;gap:20px;margin-bottom:32px;flex-wrap:wrap;">
+            <button onclick="showSection('grade')" id="tab-grade" class="tab-btn active">Grade Calculator</button>
+            <button onclick="showSection('final')" id="tab-final" class="tab-btn">Final Grade Calculator</button>
+            <button onclick="showSection('gpa')" id="tab-gpa" class="tab-btn">GPA Calculator</button>
+        </div>
+
+        <!-- Grade Calculator Section -->
+        <div id="section-grade">
+            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">Grade Calculator</h2>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px;">
+                <label for="grade-type" style="font-size: 1.08em; color: #222; font-weight: 500;">Select grade type</label>
+                <div class="grade-type-segment" id="grade-type-segment">
+                    <button type="button" id="btn-percentage" class="active" onclick="setGradeType('percentage')">Percentage</button>
+                    <button type="button" id="btn-letter" onclick="setGradeType('letter')">Letters</button>
+                    <button type="button" id="btn-points" onclick="setGradeType('points')">Points</button>
+                </div>
+                <input type="hidden" id="grade-type" value="percentage">
+            </div>
+            <div class="input-section">
+                <form id="grade-form" onsubmit="event.preventDefault(); calculateGrade();">
+                    <table class="grade-table" id="grade-table">
+                        <thead>
+                            <tr>
+                                <th>Assignment</th>
+                                <th id="grade-header">Grade (%)</th>
+                                <th id="weight-header">Weight</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be inserted by JS -->
+                        </tbody>
+                    </table>
+                    <button class="btn-add" type="button" onclick="addRow()">+ Add Row</button>
+                    <div class="buttons">
+                        <button class="btn-calculate" type="submit">Calculate</button>
+                        <button class="btn-clear" type="button" onclick="clearTable()">Clear</button>
+                    </div>
+                </form>
+            </div>
+            <div class="result-section" id="result-section" style="display:none;">
+                <h2>Result</h2>
+                <p>Weighted average grade: <span class="value" id="grade-value">0.00%</span></p>
+                <div id="calc-details" style="color:#666;font-size:0.98em;margin-top:10px;"></div>
+            </div>
+        </div>
+
+        <!-- Final Grade Calculator Section -->
+        <div id="section-final" style="display:none;">
+            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">Final Grade Calculator</h2>
+            <div class="input-section" style="max-width: 500px; margin: 0 auto;">
+                <form id="final-form" onsubmit="event.preventDefault(); calculateFinalGrade();" autocomplete="off">
+                    <div style="display: flex; align-items: center; margin-bottom: 18px;">
+                        <label for="current-grade" style="flex:1; font-size:1.08em; color:#222; font-weight:500;">Current grade</label>
+                        <div style="display:flex;align-items:center;gap:0;">
+                            <input type="number" id="current-grade" min="0" max="100" step="0.01" style="width:110px; border-radius:6px 0 0 6px; border:1px solid #ccc; padding:8px 10px; font-size:1em;">
+                            <span style="background:#f5f5f5; border:1px solid #ccc; border-left:none; border-radius:0 6px 6px 0; padding:8px 14px; font-size:1em; color:#888;">%</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 18px;">
+                        <label for="target-final-grade" style="flex:1; font-size:1.08em; color:#222; font-weight:500;">Target grade that you want to get in the class</label>
+                        <div style="display:flex;align-items:center;gap:0;">
+                            <input type="number" id="target-final-grade" min="0" max="100" step="0.01" style="width:110px; border-radius:6px 0 0 6px; border:1px solid #ccc; padding:8px 10px; font-size:1em;">
+                            <span style="background:#f5f5f5; border:1px solid #ccc; border-left:none; border-radius:0 6px 6px 0; padding:8px 14px; font-size:1em; color:#888;">%</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                        <label for="final-weight" style="flex:1; font-size:1.08em; color:#222; font-weight:500;">Final exam weight</label>
+                        <div style="display:flex;align-items:center;gap:0;">
+                            <input type="number" id="final-weight" min="0" max="100" step="0.01" style="width:110px; border-radius:6px 0 0 6px; border:1px solid #ccc; padding:8px 10px; font-size:1em;">
+                            <span style="background:#f5f5f5; border:1px solid #ccc; border-left:none; border-radius:0 6px 6px 0; padding:8px 14px; font-size:1em; color:#888;">%</span>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;justify-content:center;margin-bottom:24px;">
+                        <button class="btn-calculate" type="submit" style="min-width:140px;">Calculate</button>
+                        <button class="btn-clear" type="button" onclick="clearFinalForm()" style="min-width:120px;">Clear</button>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 0;">
+                        <label style="flex:1; font-size:1.08em; color:#222; font-weight:500;">Final exam grade needed to get the target grade</label>
+                        <div style="display:flex;align-items:center;gap:0;">
+                            <input type="text" id="final-needed-grade" readonly style="width:110px; border-radius:6px 0 0 6px; border:1px solid #ccc; background:#f5f5f5; color:#222; font-size:1em; padding:8px 10px; font-weight:600;">
+                            <span style="background:#f5f5f5; border:1px solid #ccc; border-left:none; border-radius:0 6px 6px 0; padding:8px 14px; font-size:1em; color:#888;">%</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- GPA Calculator Section -->
+        <div id="section-gpa" style="display:none;">
+            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">GPA Calculator</h2>
+            <div class="input-section" style="max-width: 520px; margin: 0 auto;">
+                <form id="gpa-form" onsubmit="event.preventDefault(); calculateGpa();">
+                    <table class="grade-table" id="gpa-table" style="margin-bottom: 0;">
+                        <thead>
+                            <tr>
+                                <th style="min-width:120px;">Course <span style="color:#888;font-weight:400;">(optional)</span></th>
+                                <th style="min-width:70px;">Credits</th>
+                                <th style="min-width:90px;">Grade</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- GPA rows will be inserted by JS -->
+                        </tbody>
+                    </table>
+                    <button class="btn-add" type="button" onclick="addGpaRow()">+ Add Row</button>
+                    <div class="buttons">
+                        <button class="btn-calculate" type="submit">Calculate</button>
+                        <button class="btn-clear" type="button" onclick="clearGpaTable()">Clear</button>
+                    </div>
+                </form>
+                <div class="result-section" id="gpa-result-section" style="display:none;max-width:400px;margin:0 auto;">
+                    <h2 style="font-size:1.1em;color:#2196F3;margin-bottom:10px;">Result</h2>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:1.08em;color:#222;font-weight:500;">GPA:</span>
+                        <span class="value" id="gpa-value" style="font-size:1.25em;">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="max-width:900px;margin:36px auto 0 auto;padding:32px 28px 28px 28px;background:#fff;border-radius:18px;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-family:'Roboto',sans-serif;">
+        <div style="font-size:1.45em;font-weight:600;color:#222;margin-bottom:10px;line-height:1.18;">🧠 Finals coming up?</div>
+        <div style="font-size:1.08em;color:#444;margin-bottom:18px;line-height:1.7;">Your brain: \"We got this!\"<br>Your grades: \"LOL no we don't.\"</div>
+        <div style="font-size:1.08em;color:#333;margin-bottom:18px;line-height:1.7;">Welcome to the magical land of last-minute panic. But before you spiral into creating an Excel sheet with 47 tabs and a caffeine-induced twitch, meet your new academic BFF:</div>
+        <div style="font-size:1.18em;font-weight:500;color:#1976D2;margin-bottom:8px;line-height:1.7;">🎓 Grade Calculator — Because Guessing Isn't a Study Strategy</div>
+        <ul style="font-size:1.05em;color:#333;margin-bottom:18px;line-height:1.7;padding-left:1.2em;">
+            <li>✅ Instantly see what you need on your final</li>
+            <li>✅ Input weighted grades (because not all assignments are created equal)</li>
+            <li>✅ GPA, final grade, class average — all in one place</li>
+            <li>✅ Built for students, teachers, and that one guy who still thinks participation is worth 50%</li>
+            <li>✅ No sign-up. No nonsense. Just grade math magic.</li>
+        </ul>
+        <div style="font-size:1.13em;font-weight:500;color:#222;margin-bottom:8px;line-height:1.7;">❓FAQ – Yes, we read your academic mind:</div>
+        <div style="font-size:1.05em;color:#333;margin-bottom:8px;line-height:1.7;"><b>Q: Will this calculator tell me if I'm doomed?</b><br>A: Yep. But gently. With math.</div>
+        <div style="font-size:1.05em;color:#333;margin-bottom:8px;line-height:1.7;"><b>Q: Can it handle weighted classes or multiple assignments?</b><br>A: Of course. It's smarter than your group project partner.</div>
+        <div style="font-size:1.05em;color:#333;margin-bottom:18px;line-height:1.7;"><b>Q: What if I already failed?</b><br>A: Then use it to calculate how many points you need next semester 😬</div>
+        <div style="font-size:1.08em;color:#1976D2;font-weight:500;margin-bottom:7px;line-height:1.7;">💡 Pro tip:</div>
+        <div style="font-size:1.05em;color:#444;margin-bottom:10px;line-height:1.7;">Use the Grade Calculator before emailing your professor at 2AM asking for extra credit.</div>
+        <div style="font-size:1.05em;color:#555;line-height:1.7;">Because let's be honest — math doesn't lie. But it can save your GPA.</div>
+    </div>
+    <footer style="max-width: 900px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+    // --- Letter grade options and mapping (force correct order) ---
+    const letterOptions = ['--', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];
+    const letterToPercent = {
+        '--': 0,
+        'A+': 98, 'A': 95, 'A-': 91,
+        'B+': 88, 'B': 85, 'B-': 81,
+        'C+': 78, 'C': 75, 'C-': 71,
+        'D+': 68, 'D': 65, 'D-': 61,
+        'F': 55
+    };
+
+    function letterGradeSelect(selected) {
+        let html = `<select name="grade">`;
+        for (const l of letterOptions) {
+            html += `<option value="${l}"${selected === l ? ' selected' : ''}>${l}</option>`;
+        }
+        html += `</select>`;
+        return html;
+    }
+
+    function addRow(name = '', grade = '', weight = '', maxGrade = '') {
+        const tbody = document.getElementById('grade-table').getElementsByTagName('tbody')[0];
+        const gradeType = document.getElementById('grade-type').value;
+        let tr = document.createElement('tr');
+        if (gradeType === 'letter') {
+            tr.innerHTML = `
+                <td><input type="text" name="name" placeholder="e.g. Homework 1" value="${name}"></td>
+                <td>${letterGradeSelect(grade)}</td>
+                <td><input type="number" name="weight" min="0" step="0.01" placeholder="e.g. 10" value="${weight}"></td>
+                <td><button type="button" onclick="removeRow(this)" style="color:#f44336;background:none;border:none;font-size:1.2em;cursor:pointer;">✕</button></td>
+            `;
+        } else if (gradeType === 'percentage') {
+            tr.innerHTML = `
+                <td><input type="text" name="name" placeholder="e.g. Homework 1" value="${name}"></td>
+                <td><input type="number" name="grade" min="0" max="100" step="1" placeholder="e.g. 92" value="${grade}"></td>
+                <td><input type="number" name="weight" min="0" max="100" step="1" placeholder="e.g. 10" value="${weight}"></td>
+                <td><button type="button" onclick="removeRow(this)" style="color:#f44336;background:none;border:none;font-size:1.2em;cursor:pointer;">✕</button></td>
+            `;
+        } else if (gradeType === 'points') {
+            tr.innerHTML = `
+                <td><input type="text" name="name" placeholder="e.g. Assignment" value="${name}"></td>
+                <td><input type="number" name="grade" min="0" step="1" placeholder="e.g. 7" value="${grade}"></td>
+                <td><input type="number" name="maxGrade" min="0" step="1" placeholder="e.g. 10" value="${maxGrade}"></td>
+                <td><button type="button" onclick="removeRow(this)" style="color:#f44336;background:none;border:none;font-size:1.2em;cursor:pointer;">✕</button></td>
+            `;
+        }
+        tbody.appendChild(tr);
+    }
+
+    function updatePointsTotalRow() {
+        // 直接移除Total行，不再插入任何tr
+        const totalRow = document.getElementById('points-total-row');
+        if (totalRow) totalRow.remove();
+    }
+
+    function updateGradeType() {
+        // Update table header
+        const gradeType = document.getElementById('grade-type').value;
+        document.getElementById('grade-header').textContent = gradeType === 'letter' ? 'Grade (Letter)' : (gradeType === 'points' ? 'Grade (points)' : 'Grade (%)');
+        document.getElementById('weight-header').textContent = gradeType === 'points' ? 'Max Grade (optional)' : (gradeType === 'percentage' ? 'Weight' : 'Weight');
+        // Update table columns for points type
+        const thead = document.getElementById('grade-table').getElementsByTagName('thead')[0];
+        if (gradeType === 'points') {
+            thead.innerHTML = `<tr><th>Assignment (optional)</th><th>Grade (points)</th><th id="weight-header">Max Grade (optional)</th><th>Remove</th></tr>`;
+        } else {
+            thead.innerHTML = `<tr><th>Assignment</th><th id="grade-header">${gradeType === 'letter' ? 'Grade (Letter)' : (gradeType === 'points' ? 'Grade (points)' : 'Grade (%)')}</th><th id="weight-header">${gradeType === 'points' ? 'Max Grade (optional)' : (gradeType === 'percentage' ? 'Weight' : 'Weight')}</th><th>Remove</th></tr>`;
+        }
+        // Rebuild all rows
+        const tbody = document.getElementById('grade-table').getElementsByTagName('tbody')[0];
+        const rows = Array.from(tbody.getElementsByTagName('tr'));
+        const data = rows.filter(row => !row.id || row.id !== 'points-total-row').map(row => {
+            return {
+                name: row.querySelector('input[name="name"]').value,
+                grade: row.querySelector('select[name="grade"]') ? row.querySelector('select[name="grade"]').value : row.querySelector('input[name="grade"]') ? row.querySelector('input[name="grade"]').value : '',
+                weight: row.querySelector('input[name="weight"]') ? parseFloat(row.querySelector('input[name="weight"]').value) || 0 : 0,
+                maxGrade: row.querySelector('input[name="maxGrade"]') ? parseFloat(row.querySelector('input[name="maxGrade"]').value) || 0 : 0
+            };
+        });
+        tbody.innerHTML = '';
+        for (const d of data) addRow(d.name, d.grade, d.weight, d.maxGrade);
+        updatePointsTotalRow();
+    }
+
+    function removeRow(btn) {
+        const row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        updatePointsTotalRow();
+    }
+
+    function clearTable() {
+        const tbody = document.getElementById('grade-table').getElementsByTagName('tbody')[0];
+        tbody.innerHTML = '';
+        addRow();
+        document.getElementById('result-section').style.display = 'none';
+        document.getElementById('calc-details').innerHTML = '';
+        document.getElementById('needed-grade-result').innerHTML = '';
+        updatePointsTotalRow();
+    }
+
+    function getRowsData() {
+        const tbody = document.getElementById('grade-table').getElementsByTagName('tbody')[0];
+        const gradeType = document.getElementById('grade-type').value;
+        const rows = Array.from(tbody.getElementsByTagName('tr')).filter(row => !row.id || row.id !== 'points-total-row');
+        return rows.map(row => {
+            let grade = gradeType === 'letter' ? (row.querySelector('select[name="grade"]') ? row.querySelector('select[name="grade"]').value : '') : (row.querySelector('input[name="grade"]') ? row.querySelector('input[name="grade"]').value : '');
+            if (gradeType === 'letter') grade = letterToPercent[grade] || 0;
+            else grade = parseFloat(grade) || 0;
+            const weight = row.querySelector('input[name="weight"]') ? parseFloat(row.querySelector('input[name="weight"]').value) || 0 : 0;
+            const maxGrade = row.querySelector('input[name="maxGrade"]') ? parseFloat(row.querySelector('input[name="maxGrade"]').value) || 0 : 0;
+            return { grade, weight, maxGrade };
+        });
+    }
+
+    function calculateGrade() {
+        const gradeType = document.getElementById('grade-type').value;
+        const data = getRowsData();
+        let totalWeighted = 0, totalWeight = 0, details = '';
+        if (gradeType === 'points') {
+            let sumPoints = 0, sumMax = 0;
+            for (const d of data) {
+                sumPoints += d.grade;
+                sumMax += d.maxGrade;
+            }
+            let grade = 0;
+            if (sumMax > 0) grade = sumPoints / sumMax * 100;
+            document.getElementById('grade-value').textContent = grade.toFixed(2) + '%';
+            document.getElementById('calc-details').innerHTML = `Weighted grade = (sum of points) / (sum of max grades) × 100 = (${sumPoints}) / (${sumMax}) × 100`;
+        } else {
+            if (gradeType === 'letter' || gradeType === 'percentage') {
+                for (const d of data) {
+                    totalWeighted += d.grade * d.weight;
+                    totalWeight += d.weight;
+                    details += `(${d.grade}×${d.weight}) + `;
+                }
+                details = details.replace(/ \+ $/, '');
+                let grade = 0;
+                if (totalWeight > 0) grade = totalWeighted / totalWeight;
+                document.getElementById('grade-value').textContent = grade.toFixed(2) + '%';
+                document.getElementById('calc-details').innerHTML = `Weighted grade = (${details.replace(/ \+ $/, '')}) / ${totalWeight}`;
+            }
+        }
+        document.getElementById('result-section').style.display = 'block';
+    }
+
+    function calculateNeededGrade() {
+        const gradeType = document.getElementById('grade-type').value;
+        const data = getRowsData();
+        let totalWeighted = 0, totalWeight = 0;
+        if (gradeType === 'points') {
+            for (const d of data) {
+                totalWeighted += d.grade;
+                totalWeight += d.weight;
+            }
+            const target = parseFloat(document.getElementById('target-average').value) || 0;
+            const nextWeight = parseFloat(document.getElementById('target-weight').value) || 0;
+            if (nextWeight <= 0) {
+                document.getElementById('needed-grade-result').textContent = 'Please enter a valid next assignment weight.';
+                return;
+            }
+            // Needed grade in points
+            const needed = ((target/100)*(totalWeight+nextWeight) - totalWeighted);
+            document.getElementById('needed-grade-result').textContent = `You need ${needed.toFixed(2)} points on the next assignment to reach your target average.`;
+        } else {
+            for (const d of data) {
+                totalWeighted += d.grade * d.weight;
+                totalWeight += d.weight;
+            }
+            const target = parseFloat(document.getElementById('target-average').value) || 0;
+            const nextWeight = parseFloat(document.getElementById('target-weight').value) || 0;
+            if (nextWeight <= 0) {
+                document.getElementById('needed-grade-result').textContent = 'Please enter a valid next assignment weight.';
+                return;
+            }
+            // Needed grade in percent
+            const needed = ((target*(totalWeight+nextWeight) - totalWeighted)/nextWeight);
+            document.getElementById('needed-grade-result').textContent = `You need ${needed.toFixed(2)}% on the next assignment to reach your target average.`;
+        }
+    }
+
+    // Initialize
+    window.onload = function() {
+        addRow();
+        showSection('grade');
+        updateFinalGradeType();
+        clearGpaTable();
+        updatePointsTotalRow();
+    };
+
+    // --- Final Grade Calculator logic ---
+    function updateFinalGradeType() {
+        const type = document.getElementById('final-grade-type').value;
+        const cg = document.getElementById('current-grade-input');
+        const tg = document.getElementById('target-final-grade-input');
+        if (type === 'letter') {
+            cg.innerHTML = letterGradeSelectFinal('');
+            tg.innerHTML = letterGradeSelectFinal('');
+        } else {
+            cg.innerHTML = `<input type='number' id='current-grade' min='0' max='100' step='0.01' style='width:100px;'>`;
+            tg.innerHTML = `<input type='number' id='target-final-grade' min='0' max='100' step='0.01' style='width:100px;'>`;
+        }
+    }
+
+    function letterGradeSelectFinal(selected) {
+        let html = `<select id='current-grade'>`;
+        for (const l of letterOptions) {
+            html += `<option value='${l}'${selected === l ? ' selected' : ''}>${l}</option>`;
+        }
+        html += `</select>`;
+        return html.replace('id=\'current-grade\'', 'id=\'current-grade\'') +
+            `<select id='target-final-grade'>` +
+            letterOptions.map(l => `<option value='${l}'>${l}</option>`).join('') +
+            `</select>`;
+    }
+
+    function clearFinalForm() {
+        document.getElementById('current-grade').value = '';
+        document.getElementById('target-final-grade').value = '';
+        document.getElementById('final-weight').value = '';
+        document.getElementById('final-needed-grade').value = '';
+    }
+
+    function calculateFinalGrade() {
+        const current = parseFloat(document.getElementById('current-grade').value) || 0;
+        const target = parseFloat(document.getElementById('target-final-grade').value) || 0;
+        const weight = parseFloat(document.getElementById('final-weight').value) || 0;
+        if (weight <= 0 || weight > 100) {
+            document.getElementById('final-needed-grade').value = 'N/A';
+            return;
+        }
+        const w = weight / 100;
+        const needed = (target - (1 - w) * current) / w;
+        document.getElementById('final-needed-grade').value = needed.toFixed(2);
+    }
+
+    function showSection(section) {
+        document.getElementById('section-grade').style.display = 'none';
+        document.getElementById('section-final').style.display = 'none';
+        document.getElementById('section-gpa').style.display = 'none';
+        document.getElementById('tab-grade').classList.remove('active');
+        document.getElementById('tab-final').classList.remove('active');
+        document.getElementById('tab-gpa').classList.remove('active');
+        document.getElementById('section-' + section).style.display = '';
+        document.getElementById('tab-' + section).classList.add('active');
+        if(section === 'gpa') {
+            clearGpaTable();
+        }
+    }
+
+    function setGradeType(type) {
+        document.getElementById('grade-type').value = type;
+        document.getElementById('btn-percentage').classList.remove('active');
+        document.getElementById('btn-letter').classList.remove('active');
+        document.getElementById('btn-points').classList.remove('active');
+        if(type === 'percentage') document.getElementById('btn-percentage').classList.add('active');
+        if(type === 'letter') document.getElementById('btn-letter').classList.add('active');
+        if(type === 'points') document.getElementById('btn-points').classList.add('active');
+        updateGradeType();
+    }
+
+    // GPA letter to points mapping (US 4.3 scale)
+    const gpaLetterOptions = ['-', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];
+    const gpaLetterToPoints = {
+        '-': null,
+        'A+': 4.3, 'A': 4.0, 'A-': 3.7,
+        'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+        'C+': 2.3, 'C': 2.0, 'C-': 1.7,
+        'D+': 1.3, 'D': 1.0, 'D-': 0.7,
+        'F': 0.0
+    };
+    function gpaGradeSelect(selected) {
+        let html = `<select name="grade" style="width:100%;padding:7px 8px;font-size:1em;border-radius:4px;border:1px solid #ccc;">`;
+        for (const l of gpaLetterOptions) {
+            html += `<option value="${l}"${selected === l ? ' selected' : ''}>${l}</option>`;
+        }
+        html += `</select>`;
+        return html;
+    }
+    function addGpaRow(name = '', credits = '', grade = '-') {
+        const tbody = document.getElementById('gpa-table').getElementsByTagName('tbody')[0];
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><input type="text" name="name" placeholder="e.g. Math" value="${name}"></td>
+            <td><input type="number" name="credits" min="0" step="1" placeholder="e.g. 3" value="${credits}"></td>
+            <td>${gpaGradeSelect(grade)}</td>
+            <td><button type="button" onclick="removeGpaRow(this)" style="color:#f44336;background:none;border:none;font-size:1.2em;cursor:pointer;">✕</button></td>
+        `;
+        tbody.appendChild(tr);
+    }
+    function removeGpaRow(btn) {
+        const row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+    function clearGpaTable() {
+        const tbody = document.getElementById('gpa-table').getElementsByTagName('tbody')[0];
+        tbody.innerHTML = '';
+        addGpaRow();
+        document.getElementById('gpa-result-section').style.display = 'none';
+        document.getElementById('gpa-value').textContent = '0.00';
+    }
+    function getGpaRowsData() {
+        const tbody = document.getElementById('gpa-table').getElementsByTagName('tbody')[0];
+        const rows = Array.from(tbody.getElementsByTagName('tr'));
+        return rows.map(row => {
+            const name = row.querySelector('input[name="name"]').value;
+            const credits = parseFloat(row.querySelector('input[name="credits"]').value) || 0;
+            const grade = row.querySelector('select[name="grade"]').value;
+            return { name, credits, grade };
+        });
+    }
+    function calculateGpa() {
+        const data = getGpaRowsData();
+        let totalPoints = 0, totalCredits = 0;
+        for (const d of data) {
+            if (d.credits > 0 && gpaLetterToPoints[d.grade] !== null && d.grade !== '-') {
+                totalPoints += d.credits * gpaLetterToPoints[d.grade];
+                totalCredits += d.credits;
+            }
+        }
+        let gpa = 0;
+        if (totalCredits > 0) gpa = totalPoints / totalCredits;
+        document.getElementById('gpa-value').textContent = gpa.toFixed(2);
+        document.getElementById('gpa-result-section').style.display = 'block';
+    }
+    </script>
+</body>
+</html> 
