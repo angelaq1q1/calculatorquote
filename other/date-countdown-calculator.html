@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Countdown Calculator – How Many Days Until Your Big Event?</title>
+    <meta name="description" content="Planning a birthday, vacation, or deadline? Use our free Date Countdown Calculator to find out exactly how many days are left until any date.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .ad-space {
+            width: 300px;
+            min-height: 600px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .countdown-container {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .countdown-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .calculator {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin-bottom: 40px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: none;
+            color: #2196F3;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            text-decoration: underline;
+            margin-top: 20px;
+            transition: color 0.3s;
+            box-shadow: none;
+        }
+
+        .cta-button:hover {
+            color: #1976D2;
+            background: none;
+        }
+        
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        
+        .result-text {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        
+        .event-name {
+            font-weight: bold;
+            color: #2196F3;
+        }
+        
+        .quick-dates {
+            margin: 20px 0;
+        }
+        
+        .quick-date-btn {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        
+        .quick-date-btn:hover {
+            background-color: #64b5f6;
+        }
+        
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .info-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .info-section h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info-card h3 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .ad-space {
+                width: 100%;
+                min-height: 250px;
+                position: static;
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .countdown-display {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Date Countdown Calculator",
+      "url": "https://www.calculatorquote.com/other/date-countdown-calculator.html",
+      "description": "Find out how many days are left until any future date. Our Date Countdown Calculator is perfect for events, holidays, and deadlines.",
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Date Countdown Calculator",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Other Calculators</a>
+                <span>/</span>
+                Date Countdown Calculator
+            </div>
+
+            <div class="page-header">
+                <h1>
+                    <span style="display: block;">Date Countdown Calculator – Find Out How Many Days Until Any Event</span>
+                </h1>
+            </div>
+
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                Counting down to your wedding, next vacation, or project deadline? This free Date Countdown Calculator tells you exactly how many days are left from today until any date you choose. No math, no calendars—just a clean, instant answer. 🎯
+            </p>
+
+            <div class="calculator">
+                <h2>Set Your Target Date</h2>
+                
+                <div class="input-group">
+                    <label for="eventName">Event Name (Optional)</label>
+                    <input type="text" id="eventName" placeholder="e.g., Birthday, Vacation, Deadline">
+                </div>
+                
+                <div class="input-group">
+                    <label for="targetDate">Target Date</label>
+                    <input type="datetime-local" id="targetDate" required>
+                </div>
+                
+                <button class="btn-calculate" onclick="calculateCountdown()">Calculate Countdown</button>
+            </div>
+
+            <div id="countdownResult" class="result-section" style="display: none;">
+                <div class="countdown-container">
+                    <h2 id="eventTitle">Countdown to <span class="event-name" id="eventNameDisplay"></span></h2>
+                    <div class="countdown-display">
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="days">0</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="hours">0</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="minutes">0</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="seconds">0</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-text">
+                    <p id="countdownText"></p>
+                </div>
+            </div>
+
+            <div class="page-description">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">⏰ Date Countdown Calculator – Because waiting is hard 💀</p>
+                
+                <p>Let's be honest:<br>
+                You're probably counting down to something right now.<br>
+                Maybe it's your next vacation, birthday, or just the weekend.</p>
+
+                <p>Good news: our free online date countdown calculator is here to give you precise timing down to the second. No more guessing how many days are left until your next adventure.</p>
+
+                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Real-time countdown: Updates every second for precise timing</li>
+                    <li style="margin-bottom: 10px;">✅ Flexible date selection: Choose any future date and time</li>
+                    <li style="margin-bottom: 10px;">✅ Event naming: Personalize your countdown with event names</li>
+                    <li style="margin-bottom: 10px;">✅ Quick date options: Pre-set buttons for common events</li>
+                    <li style="margin-bottom: 10px;">✅ Mobile friendly: Works perfectly on all devices</li>
+                </ul>
+
+                <p style="margin: 20px 0;">TL;DR: It tells you exactly how long you have to wait. You're welcome.</p>
+
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – because we know you're too lazy to email us</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this countdown calculator actually free?</strong><br>
+                    A: Totally free. No sign-up. No paywall. No "upgrade to Pro" nonsense. We make a bit from the occasional ad, but nothing annoying.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Do I need to install anything?</strong><br>
+                    A: Nope. It works in your browser. Like magic, but with time.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can I use this for multiple events?</strong><br>
+                    A: You can calculate one countdown at a time, but you can bookmark different dates for quick access.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Does it store any of my data?</strong><br>
+                    A: Nah. We don't care what you're counting down to. Your secrets are safe (and forgotten instantly).</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Why not just use my phone's calendar?</strong><br>
+                    A: Great question. Ours looks better, loads faster, and doesn't interrupt you with notifications about meetings you forgot about.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can it count down to past dates?</strong><br>
+                    A: This one? No. It's designed for future events. If you're trying to count down to something that already happened, you might need a time machine instead.</p>
+                </div>
+
+                <p style="margin: 20px 0; font-style: italic;">⏰ Pro tip: Bookmark this bad boy. Next time you need to know how many days until your birthday or vacation, you'll thank yourself.</p>
+            </div>
+        </div>
+
+        <div class="ad-space">
+            <!-- Ad space for 300x600 or similar ad units -->
+        </div>
+    </div>
+
+    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        let countdownInterval;
+        
+        function calculateCountdown() {
+            const eventName = document.getElementById('eventName').value;
+            const targetDate = document.getElementById('targetDate').value;
+            
+            if (!targetDate) {
+                alert('Please select a target date');
+                return;
+            }
+            
+            const target = new Date(targetDate);
+            const now = new Date();
+            
+            if (target <= now) {
+                alert('Please select a future date');
+                return;
+            }
+            
+            // Display event name
+            document.getElementById('eventNameDisplay').textContent = eventName || 'Your Event';
+            
+            // Show result section
+            document.getElementById('countdownResult').style.display = 'block';
+            
+            // Start countdown
+            updateCountdown(target);
+            
+            // Clear any existing interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Update countdown every second
+            countdownInterval = setInterval(() => {
+                updateCountdown(target);
+            }, 1000);
+        }
+        
+        function updateCountdown(targetDate) {
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            if (difference <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdownResult').innerHTML = `
+                    <div class="countdown-container">
+                        <h2>🎉 Time's Up! 🎉</h2>
+                        <p style="font-size: 1.5rem; margin: 20px 0;">Your event has arrived!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update countdown text
+            let countdownText = '';
+            if (days > 0) {
+                countdownText = `${days} day${days !== 1 ? 's' : ''}, ${hours} hour${hours !== 1 ? 's' : ''}, ${minutes} minute${minutes !== 1 ? 's' : ''}, and ${seconds} second${seconds !== 1 ? 's' : ''} remaining`;
+            } else if (hours > 0) {
+                countdownText = `${hours} hour${hours !== 1 ? 's' : ''}, ${minutes} minute${minutes !== 1 ? 's' : ''}, and ${seconds} second${seconds !== 1 ? 's' : ''} remaining`;
+            } else if (minutes > 0) {
+                countdownText = `${minutes} minute${minutes !== 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''} remaining`;
+            } else {
+                countdownText = `${seconds} second${seconds !== 1 ? 's' : ''} remaining`;
+            }
+            
+            document.getElementById('countdownText').textContent = countdownText;
+        }
+        
+        function setQuickDate(eventName, dateString) {
+            document.getElementById('eventName').value = eventName;
+            document.getElementById('targetDate').value = dateString;
+            calculateCountdown();
+        }
+        
+        // Set default date to tomorrow
+        window.onload = function() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(12, 0, 0, 0);
+            document.getElementById('targetDate').value = tomorrow.toISOString().slice(0, 16);
+        };
+    </script>
+</body>
+</html> 
