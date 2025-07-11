@@ -3,28 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator - Check Your Body Mass Index Instantly</title>
-    <meta name="description" content="Use our free BMI Calculator to instantly find out your Body Mass Index. Determine if you're underweight, normal, overweight, or obese based on your height and weight. No signup needed.">
+    <title>BMI Calculator – Body Mass Index Chart for Adults and Children</title>
+    <meta name="description" content="Use our free BMI Calculator to check your Body Mass Index based on height and weight. Includes BMI charts for adults and children, health ranges, and interpretation tips.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Calculator",
+      "@type": "WebPage",
       "name": "BMI Calculator",
-      "description": "Use our free Body Mass Index Calculator to check if you're underweight, normal, overweight, or obese based on height and weight. Instant results, no login needed.",
       "url": "https://www.calculatorquote.com/health/bmi-calculator.html",
-      "keywords": [
-        "BMI calculator",
-        "Body Mass Index calculator",
-        "calculate BMI",
-        "weight status tool",
-        "check BMI online",
-        "height and weight calculator"
-      ],
-      "publisher": {
-        "@type": "Organization",
-        "name": "CalculatorQuote",
-        "url": "https://www.calculatorquote.com"
-      }
+      "description": "Use this free BMI Calculator to estimate your Body Mass Index and assess your health range. Includes charts for adults and children.",
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is BMI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BMI stands for Body Mass Index. It is a number calculated from a person's weight and height and is used as a general indicator of whether a person has a healthy body weight."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is BMI calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BMI is calculated using the formula: BMI = weight (kg) / height (m)^2 or weight (lb) / height (in)^2 × 703."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a healthy BMI range?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For adults, a BMI between 18.5 and 24.9 is considered healthy. BMI under 18.5 is underweight, and over 25 is considered overweight or obese depending on the value."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "BMI Calculator",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
     }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -329,8 +358,8 @@
             <span>BMI Calculator</span>
         </div>
 
-        <h1>BMI Calculator – Instantly Know If You're in the "Healthy" Zone or the "Oops" Zone</h1>
-        <p class="info-text">Trying to figure out whether you're in shape or in denial? Our free Body Mass Index (BMI) Calculator gives you a fast and accurate estimate of your weight category based on height and weight. Whether you're tracking your fitness progress, curious about your ideal weight, or just want to see where you land on the BMI scale — this tool helps you calculate BMI instantly and privately.</p>
+        <h1>Free Online BMI Calculator – Check Your Health Range Instantly</h1>
+        <p class="info-text">Quickly calculate your BMI and understand what it means for your health. Works for both adults and children.</p>
 
         <div class="instruction-bar">
             Enter your details and click Calculate
@@ -403,6 +432,9 @@
                     <div class="unit">ft</div>
                     <input type="number" id="height-in" min="0" max="11" value="10">
                     <div class="unit">in</div>
+                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
+                    <input type="number" id="height-cm-standard" min="1" value="178" style="width: 80px;">
+                    <div class="unit">cm</div>
                 </div>
             </div>
 
@@ -411,6 +443,9 @@
                 <div class="input-field-container">
                     <input type="number" id="weight-lb" min="1" value="160">
                     <div class="unit">lbs</div>
+                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
+                    <input type="number" id="weight-kg-standard" min="1" value="73" style="width: 80px;">
+                    <div class="unit">kg</div>
                 </div>
             </div>
         </div>
@@ -437,16 +472,24 @@
             <div class="input-group">
                 <label for="height-cm">Height:</label>
                 <div class="input-field-container">
-                    <input type="number" id="height-cm" min="1" value="178">
-                    <div class="unit">cm</div>
+                    <input type="number" id="height-ft-metric" min="1" max="8" value="5" style="width: 60px;">
+                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 12px;border-radius:5px;font-weight:500;margin-left:4px;min-width:32px;">ft</button>
+                    <input type="number" id="height-in-metric" min="0" max="11" value="10" style="width: 60px; margin-left: 8px;">
+                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 12px;border-radius:5px;font-weight:500;margin-left:4px;min-width:32px;">in</button>
+                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
+                    <input type="number" id="height-cm-metric" min="1" value="178">
+                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">cm</button>
                 </div>
             </div>
 
             <div class="input-group">
                 <label for="weight-kg">Weight:</label>
                 <div class="input-field-container">
-                    <input type="number" id="weight-kg" min="1" value="73">
-                    <div class="unit">kg</div>
+                    <input type="number" id="weight-lb-metric" min="1" value="160" style="width: 80px;">
+                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">lbs</button>
+                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
+                    <input type="number" id="weight-kg-metric" min="1" value="73">
+                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">kg</button>
                 </div>
             </div>
         </div>
@@ -726,24 +769,185 @@
             calculateBMI();
         }
 
+        // Auto-convert between units when values change
+        function autoConvertHeight() {
+            const heightFt = parseFloat(document.getElementById('height-ft').value) || 0;
+            const heightIn = parseFloat(document.getElementById('height-in').value) || 0;
+            const heightCm = document.getElementById('height-cm-standard');
+            
+            if (heightFt > 0 || heightIn > 0) {
+                const totalInches = heightFt * 12 + heightIn;
+                const cmValue = Math.round(totalInches * 2.54);
+                heightCm.value = cmValue;
+            }
+        }
+
+        function autoConvertHeightCm() {
+            const heightCm = parseFloat(document.getElementById('height-cm-standard').value) || 0;
+            const heightFt = document.getElementById('height-ft');
+            const heightIn = document.getElementById('height-in');
+            
+            if (heightCm > 0) {
+                const totalInches = heightCm / 2.54;
+                const feet = Math.floor(totalInches / 12);
+                const inches = Math.round(totalInches % 12);
+                
+                heightFt.value = feet;
+                heightIn.value = inches;
+            }
+        }
+
+        function autoConvertWeight() {
+            const weightLb = parseFloat(document.getElementById('weight-lb').value) || 0;
+            const weightKg = document.getElementById('weight-kg-standard');
+            
+            if (weightLb > 0) {
+                const kgValue = Math.round((weightLb / 2.20462) * 10) / 10;
+                weightKg.value = kgValue;
+            }
+        }
+
+        function autoConvertWeightKg() {
+            const weightKg = parseFloat(document.getElementById('weight-kg-standard').value) || 0;
+            const weightLb = document.getElementById('weight-lb');
+            
+            if (weightKg > 0) {
+                const lbsValue = Math.round(weightKg * 2.20462);
+                weightLb.value = lbsValue;
+            }
+        }
+
+        // Metric unit auto-conversion functions
+        function autoConvertHeightCm() {
+            const heightCm = parseFloat(document.getElementById('height-cm-metric').value) || 0;
+            const heightFt = document.getElementById('height-ft-metric');
+            const heightIn = document.getElementById('height-in-metric');
+            
+            if (heightCm > 0) {
+                const totalInches = heightCm / 2.54;
+                const feet = Math.floor(totalInches / 12);
+                const inches = Math.round(totalInches % 12);
+                
+                heightFt.value = feet;
+                heightIn.value = inches;
+            }
+        }
+
+        function autoConvertHeightFt() {
+            const heightFt = parseFloat(document.getElementById('height-ft-metric').value) || 0;
+            const heightCm = document.getElementById('height-cm-metric');
+            const heightIn = document.getElementById('height-in-metric');
+            
+            if (heightFt > 0) {
+                const totalInches = heightFt * 12 + (parseFloat(heightIn.value) || 0);
+                const cmValue = Math.round(totalInches * 2.54);
+                heightCm.value = cmValue;
+            }
+        }
+
+        function autoConvertHeightIn() {
+            const heightIn = parseFloat(document.getElementById('height-in-metric').value) || 0;
+            const heightCm = document.getElementById('height-cm-metric');
+            const heightFt = document.getElementById('height-ft-metric');
+            
+            if (heightIn > 0) {
+                const totalInches = (parseFloat(heightFt.value) || 0) * 12 + heightIn;
+                const cmValue = Math.round(totalInches * 2.54);
+                heightCm.value = cmValue;
+            }
+        }
+
+        function autoConvertWeightKgMetric() {
+            const weightKg = parseFloat(document.getElementById('weight-kg-metric').value) || 0;
+            const weightLb = document.getElementById('weight-lb-metric');
+            
+            if (weightKg > 0) {
+                const lbsValue = Math.round(weightKg * 2.20462);
+                weightLb.value = lbsValue;
+            }
+        }
+
+        function autoConvertWeightLbMetric() {
+            const weightLb = parseFloat(document.getElementById('weight-lb-metric').value) || 0;
+            const weightKg = document.getElementById('weight-kg-metric');
+            
+            if (weightLb > 0) {
+                const kgValue = Math.round(weightLb / 2.20462);
+                weightKg.value = kgValue;
+            }
+        }
+
         function calculateBMI() {
             let weight, height, bmi;
             
             if (currentUnit === 'standard') {
+                // Get height values - prefer ft/in if both are filled, otherwise use cm
                 const heightFt = parseFloat(document.getElementById('height-ft').value);
                 const heightIn = parseFloat(document.getElementById('height-in').value);
+                const heightCm = parseFloat(document.getElementById('height-cm-standard').value);
+                
+                let height;
+                if (heightFt > 0 || heightIn > 0) {
+                    // Use ft/in values
+                    height = (heightFt * 12 + heightIn); // Convert to inches
+                } else if (heightCm > 0) {
+                    // Use cm value
+                    height = heightCm / 2.54; // Convert cm to inches
+                } else {
+                    height = 0;
+                }
+                
+                // Get weight values - prefer lbs if both are filled, otherwise use kg
                 const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                const weightKg = parseFloat(document.getElementById('weight-kg-standard').value);
                 
-                // Convert height to inches and calculate BMI
-                height = heightFt * 12 + heightIn;
-                bmi = (weightLb * 703) / (height * height);
+                let weightLbFinal;
+                if (weightLb > 0) {
+                    // Use lbs value
+                    weightLbFinal = weightLb;
+                } else if (weightKg > 0) {
+                    // Use kg value
+                    weightLbFinal = weightKg * 2.20462; // Convert kg to lbs
+                } else {
+                    weightLbFinal = 0;
+                }
+                
+                // Calculate BMI using the standard formula
+                bmi = (weightLbFinal * 703) / (height * height);
             } else if (currentUnit === 'metric') {
-                const heightCm = parseFloat(document.getElementById('height-cm').value);
-                const weightKg = parseFloat(document.getElementById('weight-kg').value);
+                // Get height values - prefer cm if both are filled, otherwise use ft/in
+                const heightCm = parseFloat(document.getElementById('height-cm-metric').value);
+                const heightFt = parseFloat(document.getElementById('height-ft-metric').value);
+                const heightIn = parseFloat(document.getElementById('height-in-metric').value);
                 
-                // Convert height to meters and calculate BMI
-                height = heightCm / 100;
-                bmi = weightKg / (height * height);
+                let height;
+                if (heightCm > 0) {
+                    // Use cm value
+                    height = heightCm / 100; // Convert cm to meters
+                } else if (heightFt > 0 || heightIn > 0) {
+                    // Use ft/in values
+                    height = (heightFt * 12 + heightIn) / 39.3701; // Convert ft/in to meters
+                } else {
+                    height = 0;
+                }
+                
+                // Get weight values - prefer kg if both are filled, otherwise use lbs
+                const weightKg = parseFloat(document.getElementById('weight-kg-metric').value);
+                const weightLb = parseFloat(document.getElementById('weight-lb-metric').value);
+                
+                let weightKgFinal;
+                if (weightKg > 0) {
+                    // Use kg value
+                    weightKgFinal = weightKg;
+                } else if (weightLb > 0) {
+                    // Use lbs value
+                    weightKgFinal = weightLb / 2.20462; // Convert lbs to kg
+                } else {
+                    weightKgFinal = 0;
+                }
+                
+                // Calculate BMI using the metric formula
+                bmi = weightKgFinal / (height * height);
             } else if (currentUnit === 'other') {
                 let heightValue = parseFloat(document.getElementById('height-other').value);
                 let weightValue = parseFloat(document.getElementById('weight-other').value);
@@ -818,11 +1022,17 @@
                 document.getElementById('age').value = '';
                 document.getElementById('height-ft').value = '';
                 document.getElementById('height-in').value = '';
+                document.getElementById('height-cm-standard').value = '';
                 document.getElementById('weight-lb').value = '';
+                document.getElementById('weight-kg-standard').value = '';
             } else if (currentUnit === 'metric') {
                 document.getElementById('age-metric').value = '';
-                document.getElementById('height-cm').value = '';
-                document.getElementById('weight-kg').value = '';
+                document.getElementById('gender-metric').value = '';
+                document.getElementById('height-cm-metric').value = '';
+                document.getElementById('height-ft-metric').value = '';
+                document.getElementById('height-in-metric').value = '';
+                document.getElementById('weight-kg-metric').value = '';
+                document.getElementById('weight-lb-metric').value = '';
             } else if (currentUnit === 'other') {
                 document.getElementById('age-other').value = '';
                 document.getElementById('gender-other').value = '';
@@ -837,9 +1047,61 @@
             document.getElementById('healthy-weight').textContent = '-';
         }
 
+        // Add event listeners for automatic calculation
+        function addEventListeners() {
+            // Standard unit inputs with auto-conversion
+            document.getElementById('height-ft').addEventListener('input', function() {
+                autoConvertHeight();
+                calculateBMI();
+            });
+            document.getElementById('height-in').addEventListener('input', function() {
+                autoConvertHeight();
+                calculateBMI();
+            });
+            document.getElementById('height-cm-standard').addEventListener('input', function() {
+                autoConvertHeightCm();
+                calculateBMI();
+            });
+            document.getElementById('weight-lb').addEventListener('input', function() {
+                autoConvertWeight();
+                calculateBMI();
+            });
+            document.getElementById('weight-kg-standard').addEventListener('input', function() {
+                autoConvertWeightKg();
+                calculateBMI();
+            });
+            
+            // Metric unit inputs with auto-conversion
+            document.getElementById('height-cm-metric').addEventListener('input', function() {
+                autoConvertHeightCm();
+                calculateBMI();
+            });
+            document.getElementById('height-ft-metric').addEventListener('input', function() {
+                autoConvertHeightFt();
+                calculateBMI();
+            });
+            document.getElementById('height-in-metric').addEventListener('input', function() {
+                autoConvertHeightIn();
+                calculateBMI();
+            });
+            document.getElementById('weight-kg-metric').addEventListener('input', function() {
+                autoConvertWeightKgMetric();
+                calculateBMI();
+            });
+            document.getElementById('weight-lb-metric').addEventListener('input', function() {
+                autoConvertWeightLbMetric();
+                calculateBMI();
+            });
+            
+            // Other unit inputs
+            document.getElementById('height-other').addEventListener('input', calculateBMI);
+            document.getElementById('weight-other').addEventListener('input', calculateBMI);
+        }
+
         // Initialize calculator
         window.onload = function() {
             calculateBMI();
+            addEventListeners();
         };
     </script>
 </body>
