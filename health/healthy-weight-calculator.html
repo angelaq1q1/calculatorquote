@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Weight Calculator - Find Your Ideal Weight Range by Height & Age</title>
+    <meta name="description" content="Use our Healthy Weight Calculator to estimate your ideal weight range based on your height, age, and sex. Learn how to maintain a healthy weight and reduce risks of obesity, diabetes, and heart disease.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body { background: #f5f5f5; font-family: 'Roboto', sans-serif; }
+        .calculator-container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33,150,243,0.15); padding: 30px; }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 { color: #2196F3; font-size: 2em; margin-bottom: 20px; font-weight: 700; }
+        .info-text { color: #555; font-size: 1.1em; margin-bottom: 25px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-field-container { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .input-field-container input, .input-field-container select { padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .unit-btn { background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;min-width:40px; margin-left:4px; }
+        .or-label { margin: 0 10px; color: #666; font-size: 0.9em; }
+        .result-section { margin-top: 30px; }
+        .results { background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 25px; }
+        .results h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .results p { margin: 0; padding: 8px 0; font-size: 1.1em; color: #333; }
+        .category-box { margin-top: 10px; padding: 10px; border-radius: 5px; font-weight: 500; text-align: center; }
+        .category-underweight { background-color: #fff3e0; color: #e65100; }
+        .category-normal { background-color: #e8f5e9; color: #2e7d32; }
+        .category-overweight { background-color: #fff3e0; color: #e65100; }
+        .category-obese { background-color: #ffebee; color: #c62828; }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        @media (max-width: 600px) {
+            .calculator-container { padding: 10px; }
+            .input-field-container { flex-direction: column; gap: 6px; }
+            .button-row { flex-direction: column; gap: 16px; }
+            .btn-calculate, .btn-clear { width: 100%; padding: 16px 0; font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="./index.html">Health Calculators</a>
+            <span>/</span>
+            <span>Healthy Weight Calculator</span>
+        </div>
+        <h1 style="color: var(--text-primary); font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">Healthy Weight Calculator: Know Your Ideal Weight Based on Height and Age</h1>
+        <p class="info-text" style="color: var(--text-secondary); font-size: 1.1em; margin-bottom: 25px;">This tool helps you determine your ideal weight range by analyzing your height, age, and sex. Use it to assess your current weight status and take the next step toward a healthier lifestyle.</p>
+        <div class="input-group">
+            <label for="height-cm">Height:</label>
+            <div class="input-field-container">
+                <input type="number" id="height-ft" min="1" max="8" value="5" style="width: 60px;">
+                <button type="button" tabindex="-1" class="unit-btn">ft</button>
+                <input type="number" id="height-in" min="0" max="11" value="10" style="width: 60px; margin-left: 8px;">
+                <button type="button" tabindex="-1" class="unit-btn">in</button>
+                <span class="or-label">or</span>
+                <input type="number" id="height-cm" min="100" max="250" value="178" style="width: 80px;">
+                <button type="button" tabindex="-1" class="unit-btn">cm</button>
+            </div>
+        </div>
+        <div class="result-section">
+            <div class="buttons">
+                <button class="btn-calculate" onclick="onCalculateClick()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+            <div class="results" id="results-box" style="display:none;">
+                <h2>Results</h2>
+                <p>Healthy Weight Range: <span id="healthy-weight-kg">-</span> (<span id="healthy-weight-lb">-</span>)</p>
+                <p>Healthy BMI Range: <span id="bmi-range">18.5 - 25</span> <span style="color:#888; font-size:0.98em;">kg/m²</span></p>
+                <div id="category-box" class="category-box"></div>
+            </div>
+        </div>
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Is a Healthy Weight?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">A healthy weight isn’t just a number on a scale — it reflects the balance between your height, age, sex, body composition, and overall health. Our Healthy Weight Calculator helps you estimate a weight range that’s considered optimal for your body type, based on recognized medical guidelines such as BMI (Body Mass Index).</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Whether you're working toward a weight loss goal, building muscle, or simply maintaining your current physique, knowing your healthy weight range gives you a target to aim for and helps guide your lifestyle choices.</p>
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">Why Use a Healthy Weight Calculator?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Maintaining a weight within your ideal range can reduce the risk of:</p>
+        <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li>Heart disease and high blood pressure</li>
+            <li>Type 2 diabetes and insulin resistance</li>
+            <li>Joint pain and mobility issues</li>
+            <li>Sleep disorders and chronic fatigue</li>
+        </ul>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">This tool is especially helpful if you're:</p>
+        <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li>Starting a new diet or workout plan</li>
+            <li>Planning for pregnancy or postpartum recovery</li>
+            <li>Managing your child or teen’s growth and development</li>
+            <li>Recovering from illness or looking to restore healthy habits</li>
+            <li>Working with a doctor or nutritionist to set realistic health goals</li>
+        </ul>
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Can You Do with This Calculator?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">This calculator gives you more than just a number — it helps you take action. Once you know your healthy weight range, you can explore:</p>
+        <ul style="list-style: none; margin: 0 0 20px 0; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Personalized nutrition planning (e.g., calorie needs, macro balance)</li>
+            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Fitness programs tailored to your current body goals</li>
+            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>BMR calculators to estimate daily calorie burn</li>
+            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Body fat and muscle mass analysis</li>
+            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Weight tracking tools to monitor progress over time</li>
+        </ul>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function updateFromCm() {
+            const cm = parseFloat(document.getElementById('height-cm').value) || 0;
+            if (cm > 0) {
+                const totalInches = cm / 2.54;
+                const ft = Math.floor(totalInches / 12);
+                const inch = Math.round(totalInches % 12);
+                document.getElementById('height-ft').value = ft;
+                document.getElementById('height-in').value = inch;
+            }
+        }
+        function updateFromFtIn() {
+            const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+            const inch = parseFloat(document.getElementById('height-in').value) || 0;
+            const totalInches = ft * 12 + inch;
+            const cm = Math.round(totalInches * 2.54);
+            document.getElementById('height-cm').value = cm;
+        }
+        function calculateHealthyWeight() {
+            let cm = parseFloat(document.getElementById('height-cm').value);
+            if (!cm || cm < 100) {
+                document.getElementById('healthy-weight-kg').textContent = '-';
+                document.getElementById('healthy-weight-lb').textContent = '-';
+                document.getElementById('bmi-category').textContent = '-';
+                document.getElementById('category-box').textContent = '';
+                document.getElementById('category-box').className = 'category-box';
+                return;
+            }
+            // Healthy BMI range: 18.5 - 25
+            const minWeight = 18.5 * Math.pow(cm / 100, 2);
+            const maxWeight = 25 * Math.pow(cm / 100, 2);
+            const minWeightLb = minWeight * 2.20462;
+            const maxWeightLb = maxWeight * 2.20462;
+            document.getElementById('healthy-weight-kg').textContent = `${minWeight.toFixed(1)} kg - ${maxWeight.toFixed(1)} kg`;
+            document.getElementById('healthy-weight-lb').textContent = `${minWeightLb.toFixed(1)} lbs - ${maxWeightLb.toFixed(1)} lbs`;
+            // Show BMI category for min/max
+            const bmi = (minWeight + maxWeight) / 2 / Math.pow(cm / 100, 2);
+            let category = '', boxClass = '';
+            if (bmi < 18.5) { category = 'Underweight'; boxClass = 'category-underweight'; }
+            else if (bmi < 25) { category = ''; boxClass = ''; }
+            else if (bmi < 30) { category = 'Overweight'; boxClass = 'category-overweight'; }
+            else { category = 'Obese'; boxClass = 'category-obese'; }
+            document.getElementById('bmi-category').textContent = category;
+            document.getElementById('category-box').textContent = category;
+            document.getElementById('category-box').className = 'category-box ' + boxClass;
+        }
+        function onCalculateClick() {
+            document.getElementById('results-box').style.display = '';
+            calculateHealthyWeight();
+        }
+        function clearInputs() {
+            document.getElementById('height-cm').value = '';
+            document.getElementById('height-ft').value = '';
+            document.getElementById('height-in').value = '';
+            document.getElementById('healthy-weight-kg').textContent = '-';
+            document.getElementById('healthy-weight-lb').textContent = '-';
+            document.getElementById('bmi-category').textContent = '-';
+            document.getElementById('category-box').textContent = '';
+            document.getElementById('category-box').className = 'category-box';
+            document.getElementById('results-box').style.display = 'none';
+        }
+        document.getElementById('height-cm').addEventListener('input', function() {
+            updateFromCm();
+        });
+        document.getElementById('height-ft').addEventListener('input', function() {
+            updateFromFtIn();
+        });
+        document.getElementById('height-in').addEventListener('input', function() {
+            updateFromFtIn();
+        });
+        window.onload = function() {
+            document.getElementById('results-box').style.display = 'none';
+        };
+    </script>
+</body>
+</html> 
