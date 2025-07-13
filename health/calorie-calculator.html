@@ -201,9 +201,27 @@
 
         .settings-section {
             margin-bottom: 20px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+        }
+        .settings-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            user-select: none;
+        }
+        .settings-toggle {
+            font-size: 1.3em;
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+        .settings-content {
+            display: none;
         }
 
         .settings-section h3 {
@@ -272,6 +290,7 @@
             background-color: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e9ecef;
+            display: none;
         }
 
         .results h2 {
@@ -603,25 +622,30 @@
         </div>
 
         <div class="settings-section">
-            <h3>Settings</h3>
-            <div class="settings-group">
-                <label>Results Unit:</label>
-                <select id="results-unit">
-                    <option value="calories">Calories</option>
-                    <option value="kilojoules">Kilojoules</option>
-                </select>
+            <div class="settings-header" onclick="toggleSettings()">
+                <span class="settings-toggle">➕</span>
+                Settings
             </div>
-            <div class="settings-group">
-                <label>BMR Estimation Formula:</label>
-                <select id="bmr-formula">
-                    <option value="mifflin">Mifflin-St Jeor</option>
-                    <option value="harris">Revised Harris-Benedict</option>
-                    <option value="katch">Katch-McArdle</option>
-                </select>
-            </div>
-            <div class="settings-group" id="body-fat-group" style="display: none;">
-                <label for="body-fat">Body Fat Percentage:</label>
-                <input type="number" id="body-fat" min="1" max="100" step="0.1" value="20">
+            <div class="settings-content">
+                <div class="settings-group">
+                    <label>Results Unit:</label>
+                    <select id="results-unit">
+                        <option value="calories">Calories</option>
+                        <option value="kilojoules">Kilojoules</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label>BMR Estimation Formula:</label>
+                    <select id="bmr-formula">
+                        <option value="mifflin">Mifflin-St Jeor</option>
+                        <option value="harris">Revised Harris-Benedict</option>
+                        <option value="katch">Katch-McArdle</option>
+                    </select>
+                </div>
+                <div class="settings-group" id="body-fat-group" style="display: none;">
+                    <label for="body-fat">Body Fat Percentage:</label>
+                    <input type="number" id="body-fat" min="1" max="100" step="0.1" value="20">
+                </div>
             </div>
         </div>
 
@@ -869,22 +893,37 @@
             document.getElementById('btn-other').classList.toggle('active', unit === 'other');
             document.getElementById('standard-inputs').style.display = unit === 'standard' ? 'block' : 'none';
             document.getElementById('metric-inputs').style.display = unit === 'metric' ? 'block' : 'none';
-            document.getElementById('other-inputs').style.display = unit === 'other' ? 'block' : 'none';
+            document.getElementById('other-inputs').style.display = 'none'; // 彻底隐藏other-inputs
             document.getElementById('converter-section').style.display = unit === 'other' ? 'block' : 'none';
-            
-            // Show/hide settings section based on unit mode
-            const settingsSection = document.querySelector('.settings-section');
-            if (settingsSection) {
-                settingsSection.style.display = unit === 'other' ? 'block' : 'none';
-            }
-            
-            calculateCalories();
+            // Activity Level
+            var activityGroup = Array.from(document.getElementsByClassName('input-group')).find(g => g.querySelector('#activity-level'));
+            if (activityGroup) activityGroup.style.display = (unit === 'other') ? 'none' : 'block';
+            // Settings
+            var settingsSection = document.querySelector('.settings-section');
+            if (settingsSection) settingsSection.style.display = (unit === 'other') ? 'none' : 'block';
+            // 按钮和结果
+            var resultSection = document.querySelector('.result-section');
+            if (resultSection) resultSection.style.display = (unit === 'other') ? 'none' : 'flex';
         }
 
         document.getElementById('bmr-formula').addEventListener('change', function() {
             const showBodyFat = this.value === 'katch';
             document.getElementById('body-fat-group').style.display = showBodyFat ? 'block' : 'none';
         });
+
+        function toggleSettings() {
+            const settingsHeader = document.querySelector('.settings-header');
+            const settingsContent = document.querySelector('.settings-content');
+            const settingsToggle = settingsHeader.querySelector('.settings-toggle');
+
+            if (settingsContent.style.display === 'none') {
+                settingsContent.style.display = 'block';
+                settingsToggle.textContent = '➖';
+            } else {
+                settingsContent.style.display = 'none';
+                settingsToggle.textContent = '➕';
+            }
+        }
 
         function calculateCalories() {
             let weight, height, age, gender, activityLevel;
@@ -960,6 +999,7 @@
                 Math.round((maintenance - 1000) * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
             document.getElementById('weight-gain').textContent = 
                 Math.round((maintenance + 500) * convert) + (resultsUnit === 'calories' ? ' kcal' : ' kJ');
+            document.querySelector('.results').style.display = 'block';
         }
 
         function clearInputs() {
@@ -983,6 +1023,7 @@
             document.getElementById('weight-loss').textContent = '0';
             document.getElementById('weight-loss-extreme').textContent = '0';
             document.getElementById('weight-gain').textContent = '0';
+            document.querySelector('.results').style.display = 'none';
         }
 
         // Initialize calculator
