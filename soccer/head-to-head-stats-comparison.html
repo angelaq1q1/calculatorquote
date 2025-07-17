@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Head-to-Head Stats Comparison Tool | Compare Team Records & Results</title>
+  <meta name="description" content="Compare soccer teams head-to-head with our free stats comparison tool. Analyze win-draw-loss records, goal differences, and recent match outcomes to make smarter predictions.">
+  <meta name="keywords" content="Head-to-Head Soccer Stats Comparison Tool, soccer h2h, team records, match history, soccer stats, compare teams, football stats, soccer prediction">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Soccer Head-to-Head Stats Comparison Tool",
+    "url": "https://www.calculatorquote.com/soccer/head-to-head-comparison",
+    "description": "Compare soccer teams head-to-head with our free stats comparison tool. Analyze win-draw-loss records, goal differences, and match outcomes.",
+    "inLanguage": "en",
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "Head-to-Head Stats Comparison Tool",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalculatorQuote",
+      "url": "https://www.calculatorquote.com"
+    }
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      min-height: 100vh;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+      padding: 32px 24px;
+    }
+    h1 {
+      color: #2196F3;
+      font-size: 2em;
+      margin-bottom: 18px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .desc {
+      color: #666;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .input-row, .input-row2 {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      justify-content: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .input-row input, .input-row2 input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+      outline: none;
+      min-width: 0;
+    }
+    .input-row2 label {
+      min-width: 90px;
+      color: #555;
+      font-size: 0.98em;
+      margin-right: 6px;
+      text-align: right;
+    }
+    .btn {
+      background: #2196F3;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin: 0 8px;
+    }
+    .btn:hover {
+      background: #1976D2;
+    }
+    .stats-section {
+      margin-top: 32px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #e9ecef;
+      padding: 28px 22px;
+      color: #222;
+      font-size: 1.08em;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    .stats-table th, .stats-table td {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .stats-table th {
+      background: #e3f2fd;
+      color: #222;
+      font-weight: 500;
+    }
+    .highlight {
+      color: #222;
+      font-weight: 700;
+    }
+    .trend {
+      margin: 10px 0 0 0;
+      color: #1976D2;
+      font-weight: 500;
+    }
+    .footer {
+      max-width: 800px;
+      margin: 40px auto 0 auto;
+      padding: 32px 0 0 0;
+      text-align: center;
+      color: #888;
+      font-size: 1em;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 10px; }
+      h1 { font-size: 1.2em; }
+      .input-row, .input-row2 { flex-direction: column; gap: 8px; }
+      .input-row2 label { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="breadcrumb" style="margin-bottom: 20px; font-size: 1em; color: #666;">
+      <a href="../index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Home</a>
+      <span style="color: #666; margin: 0 8px;">/</span>
+      <a href="index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Soccer Tools</a>
+      <span style="color: #666; margin: 0 8px;">/</span>
+      <span>Head-to-Head Stats Comparison</span>
+    </div>
+    <div class="page-header">
+      <h1 style="font-size: 2.5em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px; text-align: left;">
+        <span style="display: block;">Head-to-Head Soccer Stats Comparison</span>
+      </h1>
+    </div>
+    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+      Quickly compare two soccer teams based on their head-to-head records, match history, and key performance stats. Perfect for fans, analysts, and prediction enthusiasts.
+    </p>
+    <form id="h2hForm" onsubmit="event.preventDefault(); showStats();">
+      <div class="input-row">
+        <input type="text" id="teamA" placeholder="Team A Name" maxlength="32" required oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="setCustomValidity('')">
+        <input type="text" id="teamB" placeholder="Team B Name" maxlength="32" required oninvalid="this.setCustomValidity('Please fill out this field.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label>Matches Played</label>
+        <input type="number" id="matches" min="1" value="18" required oninvalid="this.setCustomValidity('Please enter matches played.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label id="wa">Team A Wins</label>
+        <input type="number" id="winA" min="0" value="6" required oninvalid="this.setCustomValidity('Please enter Team A wins.')" oninput="setCustomValidity('')">
+        <label id="wb">Team B Wins</label>
+        <input type="number" id="winB" min="0" value="7" required oninvalid="this.setCustomValidity('Please enter Team B wins.')" oninput="setCustomValidity('')">
+        <label>Draws</label>
+        <input type="number" id="draw" min="0" value="5" required oninvalid="this.setCustomValidity('Please enter draws.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label id="ga">Team A Goals</label>
+        <input type="number" id="goalsA" min="0" value="19" required oninvalid="this.setCustomValidity('Please enter Team A goals.')" oninput="setCustomValidity('')">
+        <label id="gb">Team B Goals</label>
+        <input type="number" id="goalsB" min="0" value="22" required oninvalid="this.setCustomValidity('Please enter Team B goals.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label>Team A Home (W D L G)</label>
+        <input type="text" id="homeA" placeholder="e.g. 5 2 2 13" value="5 2 2 13" required oninvalid="this.setCustomValidity('Please enter Team A home stats.')" oninput="setCustomValidity('')">
+        <label>Team A Away (W D L G)</label>
+        <input type="text" id="awayA" placeholder="e.g. 1 3 5 6" value="1 3 5 6" required oninvalid="this.setCustomValidity('Please enter Team A away stats.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label>Team B Home (W D L G)</label>
+        <input type="text" id="homeB" placeholder="e.g. 4 2 3 14" value="4 2 3 14" required oninvalid="this.setCustomValidity('Please enter Team B home stats.')" oninput="setCustomValidity('')">
+        <label>Team B Away (W D L G)</label>
+        <input type="text" id="awayB" placeholder="e.g. 3 3 4 8" value="3 3 4 8" required oninvalid="this.setCustomValidity('Please enter Team B away stats.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label>Recent Trend</label>
+        <input type="text" id="recent" placeholder="e.g. Team B last 5: 3W 1D 1L" value="Team B last 5: 3W 1D 1L" required oninvalid="this.setCustomValidity('Please enter recent trend.')" oninput="setCustomValidity('')">
+      </div>
+      <div class="input-row2">
+        <label>Important Matches</label>
+        <input type="text" id="important" placeholder="e.g. Champions League H2H: Team B 2W 1L" value="Champions League H2H: Team B 2W 1L" required oninvalid="this.setCustomValidity('Please enter important matches info.')" oninput="setCustomValidity('')">
+      </div>
+      <div style="text-align:center; margin-top:18px; display:flex; justify-content:center; gap:16px;">
+        <button type="submit" class="btn">Compare</button>
+        <button type="button" class="btn" style="background:#90caf9; color:#fff;" onclick="clearForm()">Clear</button>
+      </div>
+    </form>
+    <div id="stats" class="stats-section" style="display:none;"></div>
+    <div style="margin-top:28px; background:#f8f9fa; border-radius:10px; border:1px solid #e9ecef; padding:24px 20px; color:#444; font-size:1.08em; line-height:1.7;">
+      <h3 style="font-size:1.08em; color:#222; margin-bottom:12px;">📝 How to Fill Each Field & Calculation Logic</h3>
+      <ul style="margin:0 0 0 20px; padding:0;">
+        <li><b>Team A Name / Team B Name</b>: Enter the names of the two teams you want to compare (e.g., Chelsea, PSG). Used for display in the table.</li>
+        <li><b>Matches Played</b>: Total number of head-to-head matches between the two teams (e.g., 18). Used for average goals and win rate calculations.</li>
+        <li><b>Team A Wins / Team B Wins / Draws</b>: Number of matches each team won, and number of draws. Used for W/D/L distribution.</li>
+        <li><b>Team A Goals / Team B Goals</b>: Total goals scored by each team in all head-to-head matches. Used for total and average goals.</li>
+        <li><b>Team A Home (W D L G) / Team A Away (W D L G)</b>: Enter A team's home/away wins, draws, losses, and goals (e.g., "5 2 2 13"). Shows home/away performance.</li>
+        <li><b>Team B Home (W D L G) / Team B Away (W D L G)</b>: Enter B team's home/away wins, draws, losses, and goals (e.g., "4 2 3 14").</li>
+        <li><b>Recent Trend</b>: Summary of the last 5 head-to-head results (e.g., "Team B last 5: 3W 1D 1L").</li>
+        <li><b>Important Matches</b>: Head-to-head record in important matches (e.g., finals, "Champions League H2H: Team B 2W 1L").</li>
+      </ul>
+      <div style="margin-top:12px; color:#888; font-size:0.98em;">Calculation logic: The tool uses your input to display win/draw/loss distribution, total and average goals, home/away performance, and recent/important match summaries. All stats are based on your entries.</div>
+    </div>
+    <div style="margin-top:36px; background:#f8f9fa; border-radius:10px; border:1px solid #e9ecef; padding:28px 22px; color:#444; font-size:1.08em; line-height:1.7;">
+      <h2 style="font-size:1.3em; color:#222; margin-bottom:14px;">⚽ How to Use Head-to-Head Stats to Understand Any Soccer Matchup</h2>
+      <p style="margin-bottom:16px;">Ever wondered how two football teams stack up against each other before kickoff? Our soccer head-to-head comparison tool makes it super easy to break down their history — and honestly, once you start using it, it's hard to go back.</p>
+      <p style="margin-bottom:16px;">Personally, I always check the win/draw/loss record before watching a big game. It gives me a gut feeling for how things might go, especially when teams like Chelsea vs PSG have clashed in tournaments like the Club World Cup or Champions League. Spoiler: The stats can be surprising.</p>
+      <h3 style="font-size:1.1em; color:#222; margin:18px 0 8px;">📊 Not Just Numbers — This is Insight</h3>
+      <p style="margin-bottom:10px;">This isn’t just about throwing numbers at you. With our football stats comparator, you’ll get a clearer picture of each team's form. We’re talking:</p>
+      <ul style="margin:0 0 16px 22px; padding:0; color:#555;">
+        <li>How often one team beats the other</li>
+        <li>Who scores more goals per game</li>
+        <li>Home vs away performances</li>
+        <li>Even whether a team tends to choke in finals or show up big</li>
+      </ul>
+      <p style="margin-bottom:16px;">I love using it to settle debates with friends — or to justify my fantasy football picks. Stats don’t lie, right?</p>
+      <h3 style="font-size:1.1em; color:#222; margin:18px 0 8px;">🔍 Why I Use a Soccer Comparison Tool Before Every Big Match</h3>
+      <p style="margin-bottom:10px;">Let’s be real: fans love opinions, but facts seal the deal. Whether you’re betting, blogging, tweeting, or just curious, this tool gives you real-world data like:</p>
+      <ul style="margin:0 0 16px 22px; padding:0; color:#555;">
+        <li>Recent form and streaks</li>
+        <li>Goal conversion rates</li>
+        <li>Total matches played and who dominated</li>
+      </ul>
+      <p style="margin-bottom:16px;">Just imagine saying, “Actually, in the last 10 matches, Team A only won twice” — that’s next-level fan energy.</p>
+      <h3 style="font-size:1.1em; color:#222; margin:18px 0 8px;">📈 A Game-Changer for Predictions</h3>
+      <p style="margin-bottom:16px;">The best part? You can use this data to back your hunches. Think Liverpool vs Man City will be tight? Check their head-to-head record — it might tell you something you didn’t expect.</p>
+      <p style="margin-bottom:16px;">Personally, I’ve stopped relying on gut feeling alone. This tool helps me look smarter (or at least sound smarter) when discussing football online.</p>
+      <h3 style="font-size:1.1em; color:#222; margin:18px 0 8px;">🧠 Example: Chelsea vs PSG — Who Has the Edge?</h3>
+      <p style="margin-bottom:16px;">This tool shows you their full head-to-head football stats: who won more, who scored more, and who handled the pressure better in big tournaments. Next time they meet, you’ll know more than the commentators.</p>
+      <h3 style="font-size:1.1em; color:#222; margin:18px 0 8px;">✅ Bonus: Keywords Built In (For SEO or Tagging)</h3>
+      <div style="color:#888; font-size:0.98em; line-height:1.8;">
+        soccer head-to-head comparison<br>
+        football team stats<br>
+        Chelsea vs PSG match history<br>
+        compare football teams online<br>
+        historical football stats<br>
+        soccer performance tool<br>
+        team vs team match insights<br>
+        football fans prediction helper
+      </div>
+    </div>
+    <footer class="footer">
+      <nav style="margin-bottom: 8px;">
+        <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+        <span style="color: #ccc;">|</span>
+        <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+        <span style="color: #ccc;">|</span>
+        <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+      </nav>
+      <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+  </div>
+  <script>
+    function parseStats(str) {
+      // expects "W D L G"
+      const arr = (str || '').split(/\s+/).map(Number);
+      return { win: arr[0]||0, draw: arr[1]||0, loss: arr[2]||0, goals: arr[3]||0 };
+    }
+    function showStats() {
+      const teamA = document.getElementById('teamA').value.trim() || 'Team A';
+      const teamB = document.getElementById('teamB').value.trim() || 'Team B';
+      const matches = parseInt(document.getElementById('matches').value)||0;
+      const winA = parseInt(document.getElementById('winA').value)||0;
+      const winB = parseInt(document.getElementById('winB').value)||0;
+      const draw = parseInt(document.getElementById('draw').value)||0;
+      const goalsA = parseInt(document.getElementById('goalsA').value)||0;
+      const goalsB = parseInt(document.getElementById('goalsB').value)||0;
+      const homeA = parseStats(document.getElementById('homeA').value);
+      const awayA = parseStats(document.getElementById('awayA').value);
+      const homeB = parseStats(document.getElementById('homeB').value);
+      const awayB = parseStats(document.getElementById('awayB').value);
+      const recent = document.getElementById('recent').value.trim();
+      const important = document.getElementById('important').value.trim();
+      const avgA = matches ? (goalsA / matches).toFixed(2) : '0.00';
+      const avgB = matches ? (goalsB / matches).toFixed(2) : '0.00';
+      document.getElementById('stats').innerHTML = `
+        <table class="stats-table">
+          <tr><th>Category</th><th>${teamA}</th><th>${teamB}</th></tr>
+          <tr><td class="highlight">Matches Played</td><td colspan="2">${matches}</td></tr>
+          <tr><td>Wins</td><td>${winA}</td><td>${winB}</td></tr>
+          <tr><td>Draws</td><td colspan="2">${draw}</td></tr>
+          <tr><td>Total Goals</td><td>${goalsA}</td><td>${goalsB}</td></tr>
+          <tr><td>Avg Goals per Match</td><td>${avgA}</td><td>${avgB}</td></tr>
+        </table>
+        <table class="stats-table">
+          <tr><th></th><th>Home</th><th>Away</th></tr>
+          <tr><td class="highlight">${teamA}</td><td>W:${homeA.win} D:${homeA.draw} L:${homeA.loss} G:${homeA.goals}</td><td>W:${awayA.win} D:${awayA.draw} L:${awayA.loss} G:${awayA.goals}</td></tr>
+          <tr><td class="highlight">${teamB}</td><td>W:${homeB.win} D:${homeB.draw} L:${homeB.loss} G:${homeB.goals}</td><td>W:${awayB.win} D:${awayB.draw} L:${awayB.loss} G:${awayB.goals}</td></tr>
+        </table>
+        <div class="trend">Recent Trend: ${recent}</div>
+        <div class="trend">Important Matches: ${important}</div>
+      `;
+      document.getElementById('stats').style.display = '';
+    }
+    function clearForm() {
+      const form = document.getElementById('h2hForm');
+      form.querySelectorAll('input').forEach(input => input.value = '');
+      document.getElementById('stats').innerHTML = '';
+      document.getElementById('stats').style.display = 'none';
+    }
+  </script>
+</body>
+</html> 
