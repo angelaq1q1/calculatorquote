@@ -308,7 +308,14 @@
       document.getElementById('result').innerHTML = `<strong>Predicted Score:</strong> ${homeTeam} ${predictedHomeGoals} - ${predictedAwayGoals} ${awayTeam}`;
     }
     function clearForm() {
-      document.querySelector('form').reset();
+      document.getElementById('homeTeam').value = '';
+      document.getElementById('awayTeam').value = '';
+      document.getElementById('homeAttack').value = '';
+      document.getElementById('homeDefense').value = '';
+      document.getElementById('awayAttack').value = '';
+      document.getElementById('awayDefense').value = '';
+      document.getElementById('leagueAvgGoals').value = '';
+      document.getElementById('homeAdvantage').value = '';
       document.getElementById('result').textContent = '';
     }
   </script>
