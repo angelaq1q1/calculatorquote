@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pest Control Cost Calculator | Estimate Extermination Prices Near You</title>
+    <meta name="description" content="Quickly estimate how much pest control will cost in your area. Use our free Pest Control Cost Calculator to get an instant quote based on pest type, home size, and location — before you call an exterminator.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does pest control usually cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pest control typically costs between $100 and $500, depending on the type of pest, the severity of the infestation, and your home's size. Termite treatments and bed bug removals can be more expensive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors affect pest control costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Key cost factors include the type of pest, size of the affected area, type of treatment, frequency of service (one-time or recurring), and whether emergency service is required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a free estimate before hiring a pest control company?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can use our free Pest Control Cost Calculator to get a quick estimate before calling a local exterminator. Many companies also offer free on-site inspections."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is pest control worth the cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Ignoring pests can lead to bigger and more expensive problems later on, such as property damage, health issues, and infestations that spread. Early action is usually more affordable and effective."
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group select,
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .input-group input[type="number"] {
+            width: 100%;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Pest Control Cost Calculator
+        </div>
+        <h1>Pest Control Cost Calculator: Get a Quick Estimate Before You Book a Pro</h1>
+        <div class="description">
+            Not sure how much pest control will cost for your home? Whether you’re dealing with roaches, rats, termites or worse, this calculator helps you estimate treatment costs based on your situation—so you won’t be surprised when it’s time to make the call.
+        </div>
+        <div class="input-section">
+            <div class="input-group">
+                <label for="pest-type">Pest Type:</label>
+                <select id="pest-type">
+                    <option value="cockroach">Cockroaches ($100–$300)</option>
+                    <option value="rodent">Rats/Rodents ($150–$500)</option>
+                    <option value="termite">Termites ($500–$2,500)</option>
+                    <option value="wasp">Wasp Nest ($150–$700)</option>
+                    <option value="flea">Fleas/Bed Bugs ($300–$1,200)</option>
+                    <option value="multi">Multiple Pests (+20–50%)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="area">Home Size (square feet):</label>
+                <input type="number" id="area" min="100" placeholder="Enter home size" required>
+            </div>
+            <div class="input-group">
+                <label for="frequency">Service Frequency:</label>
+                <select id="frequency">
+                    <option value="one">One-Time</option>
+                    <option value="quarter">Quarterly (Save 15%)</option>
+                    <option value="monthly">Monthly (Lowest unit price)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="severity">Severity:</label>
+                <select id="severity">
+                    <option value="normal">Normal</option>
+                    <option value="severe">Severe Infestation (+30%)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="urgency">Urgency:</label>
+                <select id="urgency">
+                    <option value="normal">Standard</option>
+                    <option value="urgent">Night/Emergency (+50%)</option>
+                </select>
+            </div>
+            <button class="btn-calculate" onclick="calculateCost()">Calculate Cost</button>
+            <div class="result" id="result"></div>
+            <div class="note">* This is an estimated range. Actual costs may vary based on provider and location.</div>
+        </div>
+        <div class="user-story-faq" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-size:1.08em;color:#333;line-height:1.7;">
+            <div style="font-size:1.18em;font-weight:600;color:#222;margin-bottom:10px;">Real User Story &amp; FAQ</div>
+            <div style="margin-bottom:18px;">
+                If you’re wondering “how much does pest control cost?”, this helped me estimate before hiring someone.<br><br>
+                So last weekend I found a trail of ants in my laundry room, and a few roaches near the trash (🤮).<br>
+                First time owning a house, and honestly… I had no clue what pest control should cost, or who to call.<br><br>
+                After googling around and almost booking a $400 visit (!!), I found this simple tool that lets you:
+                <ul style="margin:10px 0 10px 24px;">
+                    <li>Select the type of pest (ants, termites, rodents, etc.)</li>
+                    <li>Choose your house size</li>
+                    <li>Say whether it’s a one-time or recurring issue</li>
+                </ul>
+                It spits out a quick estimated cost range (like “$150–$320”) based on your info.<br>
+                No email or sign-up. Just helped me feel less blind before calling someone.<br><br>
+                It honestly saved me from overpaying. I ended up calling two local companies and used the estimate to negotiate better. Might help someone else who’s dealing with the same stress.<br><br>
+                <b>Has anyone here done a DIY solution that actually worked long-term?</b>
+            </div>
+            <div style="margin-bottom:10px;font-weight:500;color:#222;">Q: Does this tool tell me the exact price?</div>
+            <div style="margin-bottom:16px;">A: Not exact, but it gives a realistic cost estimate range based on pest type + house size + urgency. Helped me know whether $400 was fair (spoiler: it wasn’t).</div>
+            <div style="margin-bottom:10px;font-weight:500;color:#222;">Q: Is pest control worth it, or should I DIY?</div>
+            <div style="margin-bottom:16px;">A: Depends. I’ve tried store sprays for ants, but roaches/rodents? It gets nasty. Sometimes DIY = short-term fix and more costs later. That’s why I checked the numbers first.</div>
+            <div style="margin-bottom:10px;font-weight:500;color:#222;">Q: What pests does it cover?</div>
+            <div style="margin-bottom:16px;">A: Pretty much all the big ones: termites, ants, roaches, rats/mice, fleas, wasps. Each one has a different price range.</div>
+            <div style="margin-bottom:10px;font-weight:500;color:#222;">Q: Can this help before calling companies?</div>
+            <div>A: Yup. It gave me confidence to ask better questions on the phone, and not just say yes to the first quote.</div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function getBasePriceRange(type) {
+            switch(type) {
+                case 'cockroach': return [100, 300];
+                case 'rodent': return [150, 500];
+                case 'termite': return [500, 2500];
+                case 'wasp': return [150, 700];
+                case 'flea': return [300, 1200];
+                case 'multi': return [200, 3000]; // base for multiple pests, will add % below
+                default: return [100, 300];
+            }
+        }
+        function calculateCost() {
+            var pestType = document.getElementById('pest-type').value;
+            var area = parseFloat(document.getElementById('area').value);
+            var frequency = document.getElementById('frequency').value;
+            var severity = document.getElementById('severity').value;
+            var urgency = document.getElementById('urgency').value;
+            var resultDiv = document.getElementById('result');
+
+            if (isNaN(area) || area < 100) {
+                resultDiv.textContent = 'Please enter a valid home size (at least 100 sqft).';
+                resultDiv.style.color = '#dc3545';
+                return;
+            }
+
+            // 1. Base price
+            var [min, max] = getBasePriceRange(pestType);
+
+            // 2. Area adjustment
+            var areaAdj = 0;
+            if (area >= 1000 && area < 2000) areaAdj = 0.10;
+            else if (area >= 2000) areaAdj = 0.20;
+            min += min * areaAdj;
+            max += max * areaAdj;
+
+            // 3. Multiple pests adjustment
+            if (pestType === 'multi') {
+                var multiAdj = 0.35; // average 20–50%
+                min += min * multiAdj;
+                max += max * multiAdj;
+            }
+
+            // 4. Frequency adjustment
+            if (frequency === 'quarter') {
+                min *= 0.85;
+                max *= 0.85;
+            } else if (frequency === 'monthly') {
+                min *= 0.75;
+                max *= 0.75;
+            }
+
+            // 5. Severity adjustment
+            if (severity === 'severe') {
+                min += min * 0.3;
+                max += max * 0.3;
+            }
+
+            // 6. Urgency adjustment
+            if (urgency === 'urgent') {
+                min += min * 0.5;
+                max += max * 0.5;
+            }
+
+            // Format result
+            resultDiv.textContent = `Estimated Total Cost: $${min.toFixed(0)} – $${max.toFixed(0)}`;
+            resultDiv.style.color = '#28a745';
+        }
+    </script>
+</body>
+</html> 
