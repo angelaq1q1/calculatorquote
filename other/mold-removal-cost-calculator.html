@@ -1,0 +1,373 @@
+<!--
+Mold Removal Cost Calculator Logic:
+
+1. Area (sq ft):
+   - 0–10 sq ft: $500–$1,500 (midpoint $1,000)
+   - 10–100 sq ft: $1,500–$4,000 (midpoint $2,750)
+   - 100+ sq ft: $4,000+ (use $5,000 as base)
+
+2. Mold Type/Severity:
+   - If HVAC mold, add 50% to base cost
+
+3. Location:
+   - If Basement, add $500
+
+4. Lab Testing:
+   - If needed, add $300
+
+5. Reconstruction:
+   - If needed, add $1,000
+
+6. Final Estimate:
+   - Show a range: ±15% of calculated total
+
+Example (pseudo-code):
+baseCost = areaSqft * unitRate (or use segment midpoint)
+if (moldType === 'HVAC') baseCost *= 1.5;
+if (location === 'Basement') baseCost += 500;
+if (needTesting) baseCost += 300;
+if (needRepair) baseCost += 1000;
+totalCost = baseCost;
+range = totalCost * 0.85 ~ totalCost * 1.15;
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mold Removal Cost Calculator – Estimate Your Mold Remediation Budget</title>
+    <meta name="description" content="Quickly calculate your mold removal costs based on size, severity, and location. Use our free tool to estimate cleanup expenses and get expert help near you.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Mold Removal Cost Calculator",
+      "url": "https://www.calculatorquote.com/other/mold-removal-cost-calculator.html",
+      "description": "Estimate your mold removal costs with our free calculator. Quickly find out how much it may cost to remove mold based on size, location, and contamination level.",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does mold removal typically cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mold removal typically costs between $500 and $6,000, depending on the size of the affected area, type of mold, and remediation method."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What factors affect mold removal cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Key cost factors include the size of the mold area, the location (attic, basement, walls), the severity of contamination, and whether structural repairs are needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does homeowners insurance cover mold removal?",
+            "acceptedAnswer": {
+              "@type": "Answer"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group select,
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .input-group input[type="number"] {
+            width: 100%;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .toggle-group label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 500px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .tip {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Mold Removal Cost Calculator
+        </div>
+        <h1>Mold Removal Cost Calculator</h1>
+        <div class="description">
+            Get a fast estimate of how much you might pay for mold remediation in your home – whether it’s a bathroom, attic, or full-house job.
+        </div>
+        <div class="input-section">
+            <div class="input-group">
+                <label for="area">Mold-affected area (sq ft):</label>
+                <input type="number" id="area" min="1" placeholder="Enter area in square feet" required>
+            </div>
+            <div class="input-group">
+                <label for="location">Mold Location:</label>
+                <select id="location">
+                    <option value="Basement">Basement</option>
+                    <option value="Attic">Attic</option>
+                    <option value="HVAC">HVAC System</option>
+                    <option value="Walls">Inside Walls</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="mold-type">Mold Type / Severity:</label>
+                <select id="mold-type">
+                    <option value="Surface">Surface Mold</option>
+                    <option value="Inside Walls">Inside Walls</option>
+                    <option value="HVAC">HVAC Mold</option>
+                </select>
+            </div>
+            <div class="toggle-group">
+                <label for="testing">Need lab testing?</label>
+                <input type="checkbox" id="testing">
+                <label for="repair">Need reconstruction?</label>
+                <input type="checkbox" id="repair">
+            </div>
+            <button class="btn-calculate" onclick="calculateMoldCost()">Calculate Cost</button>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note" style="text-align:left;">* This is an estimated range. Actual costs may vary by region and provider. For health and safety, address mold issues promptly.</div>
+        </div>
+        <div class="tip">
+            <b>Tip:</b> Mold remediation is an urgent health-related repair. Actual costs may vary by region and the extent of damage. For large or hidden mold, always consult a professional for a full assessment and safe removal.
+        </div>
+        <div class="user-guide-faq" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-size:1.08em;color:#333;line-height:1.7;">
+            <div style="font-size:1.18em;font-weight:600;color:#222;margin-bottom:10px;">Why Use Our Mold Remediation Cost Calculator?</div>
+            <div style="margin-bottom:18px;">
+                Mold can be more than just an eyesore—it can damage your property and negatively affect your health. Whether you’ve discovered mold in your attic, crawl space, or drywall, mold remediation costs can vary significantly.<br><br>
+                This free tool helps homeowners and property managers:
+                <ul style="margin:10px 0 10px 24px;">
+                    <li>Estimate mold removal costs per square foot</li>
+                    <li>Plan budgets based on mold location and severity</li>
+                    <li>Understand the cost impact of HVAC contamination or structural repairs</li>
+                    <li>Know when to consider professional mold remediation services.</li>
+                </ul>
+            </div>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">How Mold Removal Costs Are Calculated</div>
+            <div style="margin-bottom:18px;">
+                Our calculator takes into account:
+                <ul style="margin:10px 0 10px 24px;">
+                    <li>Size of affected area (in square feet)</li>
+                    <li>Type of mold (black mold, white mold, etc.)</li>
+                    <li>Contamination severity (surface-level vs. deep contamination)</li>
+                    <li>Cleanup methods (DIY vs. professional)</li>
+                    <li>Extra repairs (e.g., drywall replacement, HVAC cleaning)</li>
+                </ul>
+                <b>Average mold remediation costs range from $500 to $6,000, depending on the scope and region.</b>
+            </div>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Frequently Asked Questions (FAQ)</div>
+            <ol style="margin-bottom:18px;padding-left:1.2em;">
+                <li style="margin-bottom:8px;"><b>How much does mold removal cost per square foot?</b><br>A: On average, mold removal costs $10 to $25 per square foot, depending on the type of mold and contamination level.</li>
+                <li style="margin-bottom:8px;"><b>Is black mold more expensive to remove?</b><br>A: Yes. Black mold removal tends to be pricier due to health risks and the need for specialized handling, with costs ranging from $1,500 to $6,000+.</li>
+                <li style="margin-bottom:8px;"><b>Can I remove mold myself?</b><br>A: Minor surface mold on tiles or walls can be cleaned using DIY methods. However, for widespread or toxic mold, professional removal is recommended to ensure safety and prevent regrowth.</li>
+                <li style="margin-bottom:8px;"><b>Does insurance cover mold removal?</b><br>A: It depends on your policy. Homeowners insurance may cover mold removal if it was caused by a covered peril (e.g., burst pipe), but not due to negligence or flooding without flood insurance.</li>
+                <li style="margin-bottom:8px;"><b>What are signs I need professional mold remediation?</b><br>A: Strong musty odor, visible black/green mold patches, recurring mold spots, or health symptoms like coughing, wheezing, or allergies are red flags.</li>
+            </ol>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Pro Tip</div>
+            <div>
+                If your mold issue stems from a leaky roof or HVAC system, be sure to fix the source of moisture first. Mold will return even after cleanup if humidity remains unchecked.
+            </div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function calculateMoldCost() {
+            const area = parseFloat(document.getElementById('area').value);
+            const location = document.getElementById('location').value;
+            const moldType = document.getElementById('mold-type').value;
+            const needTesting = document.getElementById('testing').checked;
+            const needRepair = document.getElementById('repair').checked;
+            const resultDiv = document.getElementById('result');
+            const breakdownDiv = document.getElementById('breakdown');
+
+            if (isNaN(area) || area <= 0) {
+                resultDiv.textContent = 'Please enter a valid area (sq ft).';
+                resultDiv.style.color = '#dc3545';
+                breakdownDiv.style.display = 'none';
+                return;
+            }
+
+            // Area-based base cost
+            let baseCost = 0;
+            let areaLabel = '';
+            if (area <= 10) {
+                baseCost = 1000; // midpoint of $500–$1,500
+                areaLabel = 'Small area (0–10 sq ft)';
+            } else if (area <= 100) {
+                baseCost = 2750; // midpoint of $1,500–$4,000
+                areaLabel = 'Medium area (10–100 sq ft)';
+            } else {
+                baseCost = 5000; // $4,000+ for large
+                areaLabel = 'Large area (100+ sq ft)';
+            }
+            let breakdown = `<b>Area:</b> ${area} sq ft (${areaLabel})<br>Base cost: $${baseCost.toLocaleString()}`;
+
+            // Mold type/severity adjustment
+            if (moldType === 'HVAC') {
+                baseCost *= 1.5;
+                breakdown += `<br>+ 50% for HVAC system mold`;
+            }
+
+            // Location adjustment
+            if (location === 'Basement') {
+                baseCost += 500;
+                breakdown += `<br>+ $500 for basement location`;
+            }
+
+            // Lab testing
+            if (needTesting) {
+                baseCost += 300;
+                breakdown += `<br>+ $300 for lab testing`;
+            }
+
+            // Reconstruction
+            if (needRepair) {
+                baseCost += 1000;
+                breakdown += `<br>+ $1,000 for reconstruction/repairs`;
+            }
+
+            // Final cost range (±15% for estimate)
+            const min = Math.round(baseCost * 0.85);
+            const max = Math.round(baseCost * 1.15);
+            resultDiv.textContent = `Estimated Total Cost: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+            resultDiv.style.color = '#28a745';
+            breakdown += `<br><b>Estimated range:</b> $${min.toLocaleString()} – $${max.toLocaleString()}`;
+            breakdownDiv.innerHTML = breakdown;
+            breakdownDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
