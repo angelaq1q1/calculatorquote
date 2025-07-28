@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Worth Calculator – Find Out What Your Skills Are Really Worth</title>
+    <meta name="description" content="Wondering if you're being underpaid? Use our Job Worth Calculator to estimate your true market value based on your role, experience, location, and industry. Quick, free, and eye-opening.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Job Worth Calculator",
+      "description": "Calculate if your job is worth it based on salary, work hours, commute time, and other factors. Get your job worth score and detailed analysis.",
+      "url": "https://www.calculatorquote.com/other/job-worth-calculator.html",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Job Worth Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/other/job-worth-calculator.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .toggle-group label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .score-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .score-excellent {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .score-good {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        .score-fair {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .score-poor {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Job Worth Calculator
+        </div>
+        <h1>How to Use the Job Worth Calculator to Know Your True Market Value</h1>
+        <div class="description">
+            Not sure if you're being paid what you're worth? This easy-to-use Job Worth Calculator helps you estimate your salary potential based on your role, experience, and industry — so you can negotiate smarter or explore new opportunities with confidence.
+        </div>
+        <div class="input-section">
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="annual-salary">Annual Salary ($):</label>
+                        <input type="number" id="annual-salary" min="1" placeholder="e.g. 50000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="country">Country/Region:</label>
+                        <select id="country">
+                            <option value="US">United States (1.00)</option>
+                            <option value="UK">United Kingdom (0.70)</option>
+                            <option value="CA">Canada (1.21)</option>
+                            <option value="AU">Australia (1.47)</option>
+                            <option value="DE">Germany (0.75)</option>
+                            <option value="FR">France (0.73)</option>
+                            <option value="JP">Japan (102.84)</option>
+                            <option value="CN">China (4.19)</option>
+                            <option value="IN">India (21.99)</option>
+                            <option value="BR">Brazil (2.36)</option>
+                            <option value="MX">Mexico (9.52)</option>
+                            <option value="SG">Singapore (0.84)</option>
+                            <option value="HK">Hong Kong (6.07)</option>
+                            <option value="TW">Taiwan (13.85)</option>
+                            <option value="KR">South Korea (861.82)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="work-days">Work Days per Week:</label>
+                        <input type="number" id="work-days" min="1" max="7" value="5" placeholder="5">
+                    </div>
+                    <div class="input-group">
+                        <label for="wfh-days">WFH Days per Week:</label>
+                        <input type="number" id="wfh-days" min="0" max="7" value="0" placeholder="0">
+                        <small>WFH = Work From Home</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="vacation-days">Vacation Days per Year:</label>
+                        <input type="number" id="vacation-days" min="0" value="20" placeholder="20">
+                    </div>
+                    <div class="input-group">
+                        <label for="holidays">Public Holidays per Year:</label>
+                        <input type="number" id="holidays" min="0" value="10" placeholder="10">
+                    </div>
+                    <div class="input-group">
+                        <label for="sick-days">Paid Sick Days per Year:</label>
+                        <input type="number" id="sick-days" min="0" value="10" placeholder="10">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="work-hours">Total Work Hours per Day:</label>
+                        <input type="number" id="work-hours" min="1" max="24" value="8" step="0.5" placeholder="8">
+                        <small>Including breaks, lunch, overtime</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="commute-hours">Commute Hours per Day:</label>
+                        <input type="number" id="commute-hours" min="0" max="10" value="1" step="0.25" placeholder="1">
+                        <small>Round trip time</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="break-hours">Break/Relaxation Hours per Day:</label>
+                        <input type="number" id="break-hours" min="0" max="8" value="2" step="0.25" placeholder="2">
+                        <small>Time for breaks, relaxation, etc.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="education">Education Level:</label>
+                        <select id="education">
+                            <option value="high-school">High School or Below</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="phd">PhD</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="experience">Work Experience:</label>
+                        <select id="experience">
+                            <option value="entry">Entry Level (0-2 years)</option>
+                            <option value="junior">Junior (2-5 years)</option>
+                            <option value="mid">Mid-level (5-8 years)</option>
+                            <option value="senior">Senior (8+ years)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="company-type">Company Type:</label>
+                        <select id="company-type">
+                            <option value="government">Government/Public Sector</option>
+                            <option value="large-corp">Large Corporation</option>
+                            <option value="startup">Startup/Small Business</option>
+                            <option value="freelance">Freelance/Contract</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="work-environment">Work Environment:</label>
+                        <select id="work-environment">
+                            <option value="office">Office/CBD</option>
+                            <option value="remote">Remote/Home</option>
+                            <option value="field">Field/Outdoor</option>
+                            <option value="factory">Factory/Industrial</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="city-tier">City Tier:</label>
+                        <select id="city-tier">
+                            <option value="tier1">Tier 1 (High Cost)</option>
+                            <option value="tier2">Tier 2 (Medium Cost)</option>
+                            <option value="tier3">Tier 3 (Low Cost)</option>
+                            <option value="rural">Rural/Small Town</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="hometown">Working in Hometown:</label>
+                        <select id="hometown">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="manager">Manager/Boss Relationship:</label>
+                        <select id="manager">
+                            <option value="poor">Poor/Conflict</option>
+                            <option value="strict">Strict/Demanding</option>
+                            <option value="neutral">Neutral/Professional</option>
+                            <option value="good">Good/Supportive</option>
+                            <option value="excellent">Excellent/Mentor</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="colleagues">Colleague Environment:</label>
+                        <select id="colleagues">
+                            <option value="toxic">Toxic/Conflict</option>
+                            <option value="neutral">Neutral/Professional</option>
+                            <option value="friendly">Friendly/Cooperative</option>
+                            <option value="excellent">Excellent/Team</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="benefits">Additional Benefits:</label>
+                        <div class="toggle-group">
+                            <input type="checkbox" id="shuttle"> <label for="shuttle">Company Shuttle</label>
+                        </div>
+                        <div class="toggle-group">
+                            <input type="checkbox" id="cafeteria"> <label for="cafeteria">Free Cafeteria</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-calculate" onclick="calculateJobWorth()">Calculate Job Worth</button>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* This calculator provides an estimate based on common factors. Individual circumstances may vary significantly.</div>
+        </div>
+        <div class="advice">
+            <b>Discover Your True Market Value — Are You Being Underpaid?</b><br><br>
+            Wondering if you're earning what you're worth? This Job Worth Calculator reveals the truth about your salary compared to industry standards.<br><br>
+            <b>What This Calculator Does:</b><br>
+            • Compares your salary to market rates for your role and experience<br>
+            • Factors in your location, education, and industry<br>
+            • Shows you exactly how much you might be underpaid (or overpaid)<br>
+            • Provides actionable steps for salary negotiations<br><br>
+            <b>Why You Need This:</b><br>
+            • <b>Before asking for a raise:</b> Know your worth to negotiate confidently<br>
+            • <b>When job hunting:</b> Set realistic salary expectations<br>
+            • <b>Career planning:</b> Understand your market position<br>
+            • <b>Peace of mind:</b> Stop wondering if you're being paid fairly<br><br>
+            Most people are surprised by the results. You might discover you're worth 10-30% more than you're currently earning. Knowledge is power — especially when it comes to your paycheck.
+        </div>
+        <div class="advice">
+            <b>Frequently Asked Questions</b><br><br>
+            <b>Q: How accurate is this salary calculator?</b><br>
+            A: Our calculator uses real market data from multiple sources including job boards, salary surveys, and industry reports. While individual results may vary, it provides a reliable benchmark based on your specific role, experience, and location.<br><br>
+            <b>Q: I found out I'm underpaid. How do I negotiate a raise?</b><br>
+            A: Start by gathering evidence: use this calculator's results, research similar roles, and document your achievements. Schedule a meeting with your manager, present the data professionally, and be prepared to discuss your value to the company. Focus on your contributions, not just the market data.<br><br>
+            <b>Q: What if my employer says they can't afford to pay market rates?</b><br>
+            A: Consider negotiating other benefits: flexible hours, remote work, professional development, bonuses, or equity. If compensation is truly limited, focus on building skills that will make you more valuable in the broader market.<br><br>
+            <b>Q: How often should I check my market value?</b><br>
+            A: Check every 6-12 months, or when you're considering a job change, promotion, or annual review. Market rates change, and your experience grows, so regular checks help you stay informed about your worth.<br><br>
+            <b>Q: Should I share this calculator with my colleagues?</b><br>
+            A: Be cautious. While transparency about pay is generally positive, sharing salary tools at work can create tension. Consider using the information for your own negotiations first, and only share if you're in a supportive environment that values pay equity.
+        </div>
+        <div class="advice">
+            <b>❓ FAQ - Job Worth Calculation</b><br><br>
+            <b>Q1: How accurate is this calculator?</b><br>
+            A: This provides a general estimate based on common factors. Your personal situation may differ based on individual preferences and circumstances.<br><br>
+            <b>Q2: Should I quit if my score is low?</b><br>
+            A: Not necessarily. Use this as a starting point for discussions with your employer about improvements, or to evaluate other opportunities.<br><br>
+            <b>Q3: What factors are most important?</b><br>
+            A: Salary, work hours, commute time, and work environment typically have the biggest impact on job satisfaction.<br><br>
+            <b>Q4: How often should I recalculate?</b><br>
+            A: Consider recalculating when your circumstances change significantly, such as moving, getting a raise, or changing work arrangements.<br><br>
+            <b>Q5: Can I improve my score without changing jobs?</b><br>
+            A: Yes! Consider negotiating better terms, requesting flexible arrangements, or improving your work environment through communication.
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        const pppFactors = {
+            'US': 1.00, 'UK': 0.70, 'CA': 1.21, 'AU': 1.47, 'DE': 0.75, 'FR': 0.73,
+            'JP': 102.84, 'CN': 4.19, 'IN': 21.99, 'BR': 2.36, 'MX': 9.52,
+            'SG': 0.84, 'HK': 6.07, 'TW': 13.85, 'KR': 861.82
+        };
+
+        function calculateJobWorth() {
+            // Get input values
+            const annualSalary = parseFloat(document.getElementById('annual-salary').value) || 0;
+            const country = document.getElementById('country').value;
+            const workDays = parseFloat(document.getElementById('work-days').value) || 5;
+            const wfhDays = parseFloat(document.getElementById('wfh-days').value) || 0;
+            const vacationDays = parseFloat(document.getElementById('vacation-days').value) || 20;
+            const holidays = parseFloat(document.getElementById('holidays').value) || 10;
+            const sickDays = parseFloat(document.getElementById('sick-days').value) || 10;
+            const workHours = parseFloat(document.getElementById('work-hours').value) || 8;
+            const commuteHours = parseFloat(document.getElementById('commute-hours').value) || 1;
+            const breakHours = parseFloat(document.getElementById('break-hours').value) || 2;
+            
+            // Calculate work days per year
+            const totalWorkDays = workDays * 52 - vacationDays - holidays - sickDays;
+            const effectiveWorkDays = totalWorkDays - (wfhDays * 52);
+            
+            // Calculate total time investment
+            const totalWorkTime = (workHours + commuteHours) * effectiveWorkDays;
+            const wfhTime = workHours * (wfhDays * 52);
+            const totalTimeInvestment = totalWorkTime + wfhTime;
+            
+            // Calculate effective hourly rate
+            const effectiveHourlyRate = annualSalary / totalTimeInvestment;
+            
+            // Calculate base score (0-100)
+            let score = 0;
+            
+            // Salary factor (40% weight)
+            const salaryScore = Math.min(100, (effectiveHourlyRate / 50) * 100);
+            score += salaryScore * 0.4;
+            
+            // Work-life balance factor (30% weight)
+            const workLifeBalance = Math.max(0, 100 - (workHours + commuteHours) * 5);
+            score += workLifeBalance * 0.3;
+            
+            // WFH benefit (10% weight)
+            const wfhScore = (wfhDays / workDays) * 100;
+            score += wfhScore * 0.1;
+            
+            // Environment factors (20% weight)
+            let environmentScore = 50; // Base score
+            
+            // Company type bonus
+            const companyType = document.getElementById('company-type').value;
+            if (companyType === 'government') environmentScore += 10;
+            else if (companyType === 'large-corp') environmentScore += 5;
+            else if (companyType === 'freelance') environmentScore += 15;
+            
+            // Work environment bonus
+            const workEnvironment = document.getElementById('work-environment').value;
+            if (workEnvironment === 'remote') environmentScore += 15;
+            else if (workEnvironment === 'office') environmentScore += 5;
+            
+            // City tier adjustment
+            const cityTier = document.getElementById('city-tier').value;
+            if (cityTier === 'tier1') environmentScore -= 10;
+            else if (cityTier === 'rural') environmentScore += 10;
+            
+            // Hometown bonus
+            const hometown = document.getElementById('hometown').value;
+            if (hometown === 'yes') environmentScore += 10;
+            
+            // Manager relationship
+            const manager = document.getElementById('manager').value;
+            if (manager === 'excellent') environmentScore += 15;
+            else if (manager === 'good') environmentScore += 10;
+            else if (manager === 'poor') environmentScore -= 20;
+            
+            // Colleague environment
+            const colleagues = document.getElementById('colleagues').value;
+            if (colleagues === 'excellent') environmentScore += 10;
+            else if (colleagues === 'friendly') environmentScore += 5;
+            else if (colleagues === 'toxic') environmentScore -= 15;
+            
+            // Additional benefits
+            if (document.getElementById('shuttle').checked) environmentScore += 5;
+            if (document.getElementById('cafeteria').checked) environmentScore += 5;
+            
+            environmentScore = Math.max(0, Math.min(100, environmentScore));
+            score += environmentScore * 0.2;
+            
+            // Ensure score is within bounds
+            score = Math.max(0, Math.min(100, score));
+            
+            // Display results
+            const resultDiv = document.getElementById('result');
+            const breakdownDiv = document.getElementById('breakdown');
+            
+            if (annualSalary <= 0) {
+                resultDiv.textContent = 'Please enter a valid annual salary.';
+                resultDiv.style.color = '#dc3545';
+                breakdownDiv.style.display = 'none';
+                return;
+            }
+            
+            // Determine score category
+            let scoreClass = '';
+            let scoreText = '';
+            if (score >= 90) {
+                scoreClass = 'score-excellent';
+                scoreText = 'EXCELLENT';
+            } else if (score >= 70) {
+                scoreClass = 'score-good';
+                scoreText = 'GOOD';
+            } else if (score >= 50) {
+                scoreClass = 'score-fair';
+                scoreText = 'FAIR';
+            } else {
+                scoreClass = 'score-poor';
+                scoreText = 'POOR';
+            }
+            
+            resultDiv.innerHTML = `<div class="score-display ${scoreClass}">${score.toFixed(1)}<br><small>${scoreText}</small></div>`;
+            
+            let breakdown = `<b>Job Worth Analysis:</b><br><br>`;
+            breakdown += `<b>Annual Salary:</b> $${annualSalary.toLocaleString()}<br>`;
+            breakdown += `<b>Effective Hourly Rate:</b> $${effectiveHourlyRate.toFixed(2)}/hour<br>`;
+            breakdown += `<b>Total Work Days per Year:</b> ${totalWorkDays.toFixed(0)} days<br>`;
+            breakdown += `<b>Total Time Investment:</b> ${totalTimeInvestment.toFixed(0)} hours/year<br>`;
+            breakdown += `<b>Work-Life Balance Score:</b> ${workLifeBalance.toFixed(1)}/100<br>`;
+            breakdown += `<b>WFH Percentage:</b> ${((wfhDays / workDays) * 100).toFixed(1)}%<br>`;
+            breakdown += `<b>Environment Score:</b> ${environmentScore.toFixed(1)}/100<br><br>`;
+            
+            breakdown += `<b>Recommendations:</b><br>`;
+            if (score < 50) {
+                breakdown += `• Consider looking for new opportunities<br>`;
+                breakdown += `• Negotiate for better compensation or benefits<br>`;
+                breakdown += `• Discuss work-life balance with your manager<br>`;
+            } else if (score < 70) {
+                breakdown += `• Look for ways to improve work-life balance<br>`;
+                breakdown += `• Consider requesting flexible work arrangements<br>`;
+                breakdown += `• Evaluate if current compensation is fair<br>`;
+            } else if (score < 90) {
+                breakdown += `• Your job is generally worth it<br>`;
+                breakdown += `• Look for small improvements in work environment<br>`;
+                breakdown += `• Consider career development opportunities<br>`;
+            } else {
+                breakdown += `• Excellent job worth!<br>`;
+                breakdown += `• Focus on maintaining current conditions<br>`;
+                breakdown += `• Consider long-term career growth<br>`;
+            }
+            
+            breakdownDiv.innerHTML = breakdown;
+            breakdownDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
