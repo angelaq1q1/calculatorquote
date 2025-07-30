@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Improvement Calculators - Renovation & Maintenance Tools</title>
+    <meta name="description" content="Free home improvement calculators for renovation projects, maintenance costs, and property upgrades. Calculate roofing, painting, flooring, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculator-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .calculator-card h2 {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .calculator-card .material-icons {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        .calculator-card p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <span>Home Improvement</span>
+        </div>
+
+        <h1>Home Improvement</h1>
+        <div class="subtitle">Professional tools for renovation projects and home maintenance</div>
+
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <a href="../other/roofing-calculator.html">
+                    <h2><span class="material-icons">home</span>Roofing Calculator</h2>
+                    <p>Calculate roofing materials, costs, and square footage for your roof replacement project</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="../other/water-damage-calculator.html">
+                    <h2><span class="material-icons">water_drop</span>Water Damage Calculator</h2>
+                    <p>Estimate repair costs for water damage restoration and mold remediation</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="../other/mold-removal-cost-calculator.html">
+                    <h2><span class="material-icons">science</span>Mold Removal Calculator</h2>
+                    <p>Calculate mold remediation costs based on affected area and severity</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="../other/pest-control-cost-calculator.html">
+                    <h2><span class="material-icons">bug_report</span>Pest Control Calculator</h2>
+                    <p>Estimate pest extermination costs for your home before calling professionals</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="HVAC-load-calculator.html">
+                    <h2><span class="material-icons">ac_unit</span>HVAC Load Calculator</h2>
+                    <p>Calculate heating and cooling load requirements to determine optimal HVAC system size</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="solar-panel-cost-estimator.html">
+                    <h2><span class="material-icons">wb_sunny</span>Solar Panel Cost Calculator</h2>
+                    <p>Estimate solar panel installation costs, federal tax credits, and potential savings</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="solar-savings-calculator.html">
+                    <h2><span class="material-icons">trending_up</span>Solar Savings Calculator</h2>
+                    <p>Calculate solar panel ROI, payback period, and 25-year financial benefits</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html> 
