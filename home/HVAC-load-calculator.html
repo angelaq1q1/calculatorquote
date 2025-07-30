@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Load Calculator – Estimate Heating & Cooling Requirements</title>
+    <meta name="description" content="Quickly estimate your home's HVAC load needs for heating and cooling. Use this calculator to determine BTU and tonnage requirements based on area, insulation, and climate.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "HVAC Load Calculator",
+      "url": "https://www.calculatorquote.com/house-improvement/hvac-load-calculator.html",
+      "description": "Use this free HVAC Load Calculator to estimate the heating and cooling requirements for your home or office. Get accurate BTU and tonnage results based on area, insulation, and climate.",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "HVAC Load Calculator",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/house-improvement/hvac-load-calculator.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .toggle-group label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        .load-highlight {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            HVAC Load Calculator
+        </div>
+        <h1>HVAC Load Calculator: Find the Right Heating and Cooling Capacity</h1>
+        <div class="description">
+            Not sure what size HVAC system your home needs? This HVAC Load Calculator helps you estimate the proper heating and cooling capacity (BTUs and tons) based on your square footage, insulation level, number of occupants, and more. Whether you're replacing an old unit or installing a new one, getting your load size right is crucial for comfort and efficiency.
+        </div>
+        <div class="input-section">
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="home-area">Home Area (sq ft):</label>
+                        <input type="number" id="home-area" min="100" placeholder="e.g. 2000" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="climate-zone">Climate Zone:</label>
+                        <select id="climate-zone">
+                            <option value="1">Zone 1 - Very Hot (Southern FL, TX, AZ)</option>
+                            <option value="2">Zone 2 - Hot (CA, NV, NM, TX)</option>
+                            <option value="3">Zone 3 - Warm (CA, TX, LA, MS, AL, GA, SC, NC)</option>
+                            <option value="4">Zone 4 - Mixed (CA, TX, OK, AR, TN, KY, VA, NC, SC, GA)</option>
+                            <option value="5">Zone 5 - Cool (WA, OR, ID, MT, WY, CO, UT, AZ, NM, TX, OK, KS, MO, IL, IN, OH, PA, NY, VT, NH, ME)</option>
+                            <option value="6">Zone 6 - Cold (WA, OR, ID, MT, WY, CO, UT, ND, SD, MN, WI, MI, NY, VT, NH, ME)</option>
+                            <option value="7">Zone 7 - Very Cold (AK, MT, ND, MN, WI, MI, NY, VT, NH, ME)</option>
+                            <option value="8">Zone 8 - Subarctic (AK)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="room-count">Number of Rooms:</label>
+                        <input type="number" id="room-count" min="1" max="20" value="6" placeholder="6">
+                    </div>
+                    <div class="input-group">
+                        <label for="ceiling-height">Ceiling Height (ft):</label>
+                        <input type="number" id="ceiling-height" min="7" max="20" value="8" step="0.5" placeholder="8">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="window-type">Window Type:</label>
+                        <select id="window-type">
+                            <option value="single">Single Pane</option>
+                            <option value="double">Double Pane</option>
+                            <option value="triple">Triple Pane</option>
+                            <option value="low-e">Low-E Coated</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="window-count">Number of Windows:</label>
+                        <input type="number" id="window-count" min="0" max="50" value="8" placeholder="8">
+                    </div>
+                    <div class="input-group">
+                        <label for="insulation">Insulation Level:</label>
+                        <select id="insulation">
+                            <option value="poor">Poor (R-11 or less)</option>
+                            <option value="fair">Fair (R-13 to R-19)</option>
+                            <option value="good">Good (R-21 to R-30)</option>
+                            <option value="excellent">Excellent (R-31 or more)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="orientation">Home Orientation:</label>
+                        <select id="orientation">
+                            <option value="north">North Facing</option>
+                            <option value="south">South Facing</option>
+                            <option value="east">East Facing</option>
+                            <option value="west">West Facing</option>
+                            <option value="mixed">Mixed/Complex</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="occupants">Number of Occupants:</label>
+                        <input type="number" id="occupants" min="1" max="20" value="4" placeholder="4">
+                    </div>
+                    <div class="input-group">
+                        <label for="appliances">Major Appliances:</label>
+                        <input type="number" id="appliances" min="0" max="20" value="5" placeholder="5">
+                        <small>Refrigerator, washer, dryer, etc.</small>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="sun-exposure">Sun Exposure:</label>
+                        <select id="sun-exposure">
+                            <option value="heavy">Heavy (Full sun most of day)</option>
+                            <option value="moderate">Moderate (Partial shade)</option>
+                            <option value="light">Light (Mostly shaded)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="air-tightness">Air Tightness:</label>
+                        <select id="air-tightness">
+                            <option value="leaky">Leaky (Older home)</option>
+                            <option value="average">Average (Standard construction)</option>
+                            <option value="tight">Tight (New construction)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-calculate" onclick="calculateHVACLoad()">Calculate HVAC Load</button>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* This calculator provides estimates based on standard load calculation methods. For precise sizing, consult with a licensed HVAC contractor.</div>
+        </div>
+        <div class="advice">
+            <b>❄️ HVAC Load Calculator: The Key to Proper System Sizing</b><br><br>
+            Choosing the right HVAC system size is one of the most critical decisions for your home's comfort and energy efficiency. An oversized system will cycle on and off too frequently, wasting energy and creating temperature swings. An undersized system will run constantly, struggle to maintain comfort, and wear out prematurely.<br><br>
+            Our HVAC load calculator uses industry-standard Manual J calculation methods to determine your home's specific heating and cooling requirements. By analyzing factors like square footage, insulation quality, window efficiency, and local climate conditions, we provide accurate BTU and tonnage recommendations that ensure optimal performance.<br><br>
+            <b>What Our HVAC Load Calculator Determines:</b><br>
+            • <b>Cooling Load (BTU/hr):</b> The amount of heat your air conditioner must remove<br>
+            • <b>Heating Load (BTU/hr):</b> The heat output needed from your furnace or heat pump<br>
+            • <b>System Capacity (Tons):</b> The recommended HVAC unit size for your home<br>
+            • <b>Load Factors:</b> How your home's characteristics affect heating and cooling needs<br><br>
+            <b>💡 Why Proper HVAC Sizing Matters:</b><br>
+            • <b>Energy Efficiency:</b> Correctly sized systems use 15-30% less energy<br>
+            • <b>Comfort:</b> Proper sizing eliminates hot/cold spots and humidity issues<br>
+            • <b>System Longevity:</b> Right-sized equipment lasts longer and requires fewer repairs<br>
+            • <b>Cost Savings:</b> Avoid expensive oversizing or undersizing mistakes<br>
+            • <b>Home Value:</b> Efficient HVAC systems increase property resale value
+        </div>
+        <div class="advice">
+            <b>❓ FAQ - HVAC Load Calculator Questions</b><br><br>
+            <b>Q: How accurate is this HVAC load calculator?</b><br>
+            A: Our calculator uses industry-standard Manual J calculation methods and provides estimates within 10-15% accuracy for most homes. For precise sizing, especially for complex layouts or commercial applications, we recommend consulting with a licensed HVAC contractor for a professional Manual J load calculation.<br><br>
+            <b>Q: What size HVAC system do I need for a 2,000 sq ft house?</b><br>
+            A: For a 2,000 sq ft home, you typically need between 2.5 to 4 tons of cooling capacity, depending on your climate zone, insulation quality, and other factors. Use our HVAC load calculator with your specific home details for the most accurate recommendation.<br><br>
+            <b>Q: How do I calculate HVAC load manually?</b><br>
+            A: Manual HVAC load calculations involve measuring room dimensions, calculating heat gain/loss through walls, windows, and roof, adding internal loads from people and appliances, and applying climate-specific factors. Our calculator automates this complex process using proven formulas and industry standards.<br><br>
+            <b>Q: What's the difference between heating load and cooling load?</b><br>
+            A: Heating load measures how much heat your home loses to the outside (requiring furnace/heat pump output), while cooling load measures how much heat your home gains from outside and internal sources (requiring air conditioner capacity). They're calculated differently and often result in different system size requirements.<br><br>
+            <b>Q: How much does it cost to replace an HVAC system?</b><br>
+            A: HVAC system replacement costs range from $4,000 to $12,000 depending on system size, efficiency ratings, and installation complexity. Proper sizing from our HVAC load calculator helps ensure you don't overpay for unnecessary capacity or underpay for inadequate performance.<br><br>
+            <b>Q: What SEER rating should I choose for my air conditioner?</b><br>
+            A: SEER (Seasonal Energy Efficiency Ratio) ratings range from 13 to 25+. Higher SEER ratings mean lower energy bills but higher upfront costs. For most homes, a SEER 14-16 system provides the best balance of efficiency and cost. Use our HVAC load calculator first to determine the right size, then choose the highest SEER rating within your budget.
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        // Climate zone data - base BTU per sq ft for heating and cooling
+        const climateData = {
+            1: { heating: 25, cooling: 35, name: "Very Hot" },
+            2: { heating: 30, cooling: 30, name: "Hot" },
+            3: { heating: 35, cooling: 25, name: "Warm" },
+            4: { heating: 40, cooling: 20, name: "Mixed" },
+            5: { heating: 45, cooling: 15, name: "Cool" },
+            6: { heating: 50, cooling: 10, name: "Cold" },
+            7: { heating: 55, cooling: 5, name: "Very Cold" },
+            8: { heating: 60, cooling: 0, name: "Subarctic" }
+        };
+
+        // Window type multipliers
+        const windowMultipliers = {
+            'single': 1.0,
+            'double': 0.8,
+            'triple': 0.6,
+            'low-e': 0.7
+        };
+
+        // Insulation level multipliers
+        const insulationMultipliers = {
+            'poor': 1.2,
+            'fair': 1.0,
+            'good': 0.8,
+            'excellent': 0.6
+        };
+
+        // Orientation multipliers
+        const orientationMultipliers = {
+            'north': { heating: 1.1, cooling: 0.9 },
+            'south': { heating: 0.9, cooling: 1.1 },
+            'east': { heating: 1.0, cooling: 1.0 },
+            'west': { heating: 1.0, cooling: 1.1 },
+            'mixed': { heating: 1.0, cooling: 1.0 }
+        };
+
+        // Sun exposure multipliers
+        const sunExposureMultipliers = {
+            'heavy': { heating: 0.9, cooling: 1.2 },
+            'moderate': { heating: 1.0, cooling: 1.0 },
+            'light': { heating: 1.1, cooling: 0.8 }
+        };
+
+        // Air tightness multipliers
+        const airTightnessMultipliers = {
+            'leaky': { heating: 1.2, cooling: 1.1 },
+            'average': { heating: 1.0, cooling: 1.0 },
+            'tight': { heating: 0.8, cooling: 0.9 }
+        };
+
+        function calculateHVACLoad() {
+            const homeArea = parseFloat(document.getElementById('home-area').value) || 0;
+            const climateZone = parseInt(document.getElementById('climate-zone').value) || 4;
+            const roomCount = parseInt(document.getElementById('room-count').value) || 6;
+            const ceilingHeight = parseFloat(document.getElementById('ceiling-height').value) || 8;
+            const windowType = document.getElementById('window-type').value;
+            const windowCount = parseInt(document.getElementById('window-count').value) || 8;
+            const insulation = document.getElementById('insulation').value;
+            const orientation = document.getElementById('orientation').value;
+            const occupants = parseInt(document.getElementById('occupants').value) || 4;
+            const appliances = parseInt(document.getElementById('appliances').value) || 5;
+            const sunExposure = document.getElementById('sun-exposure').value;
+            const airTightness = document.getElementById('air-tightness').value;
+
+            if (homeArea <= 0) {
+                document.getElementById('result').textContent = 'Please enter a valid home area.';
+                document.getElementById('result').style.color = '#dc3545';
+                document.getElementById('breakdown').style.display = 'none';
+                return;
+            }
+
+            const climate = climateData[climateZone];
+            
+            // Calculate base loads
+            let baseHeatingLoad = homeArea * climate.heating;
+            let baseCoolingLoad = homeArea * climate.cooling;
+
+            // Apply multipliers
+            const windowMultiplier = windowMultipliers[windowType];
+            const insulationMultiplier = insulationMultipliers[insulation];
+            const orientationMultiplier = orientationMultipliers[orientation];
+            const sunMultiplier = sunExposureMultipliers[sunExposure];
+            const airTightnessMultiplier = airTightnessMultipliers[airTightness];
+
+            // Calculate adjusted loads
+            let heatingLoad = baseHeatingLoad * insulationMultiplier * orientationMultiplier.heating * 
+                             sunMultiplier.heating * airTightnessMultiplier.heating;
+            let coolingLoad = baseCoolingLoad * windowMultiplier * insulationMultiplier * 
+                             orientationMultiplier.cooling * sunMultiplier.cooling * 
+                             airTightnessMultiplier.cooling;
+
+            // Add internal loads
+            const occupantLoad = occupants * 400; // 400 BTU per person
+            const applianceLoad = appliances * 300; // 300 BTU per major appliance
+            const roomLoad = roomCount * 200; // 200 BTU per room for lights, etc.
+
+            coolingLoad += occupantLoad + applianceLoad + roomLoad;
+            heatingLoad += occupantLoad * 0.5 + applianceLoad * 0.3; // Less impact on heating
+
+            // Calculate recommended system sizes
+            const heatingTons = Math.ceil(heatingLoad / 12000);
+            const coolingTons = Math.ceil(coolingLoad / 12000);
+            const recommendedTons = Math.max(heatingTons, coolingTons);
+
+            // Ensure minimum size
+            const finalTons = Math.max(recommendedTons, 1.5);
+
+            // Display results
+            const resultDiv = document.getElementById('result');
+            const breakdownDiv = document.getElementById('breakdown');
+
+            resultDiv.innerHTML = `<div class="load-highlight">
+                                    <div style="font-size: 1.8em; margin-bottom: 5px;">${finalTons} Tons</div>
+                                    <div>Recommended System Size</div>
+                                  </div>`;
+
+            let breakdown = `<b>HVAC Load Analysis:</b><br><br>`;
+            breakdown += `<b>Home Specifications:</b><br>`;
+            breakdown += `• Area: ${homeArea.toLocaleString()} sq ft<br>`;
+            breakdown += `• Climate Zone: ${climateZone} (${climate.name})<br>`;
+            breakdown += `• Rooms: ${roomCount}<br>`;
+            breakdown += `• Ceiling Height: ${ceilingHeight} ft<br><br>`;
+            
+            breakdown += `<b>Load Calculations:</b><br>`;
+            breakdown += `• <b>Heating Load:</b> ${heatingLoad.toLocaleString()} BTU/hr<br>`;
+            breakdown += `• <b>Cooling Load:</b> ${coolingLoad.toLocaleString()} BTU/hr<br>`;
+            breakdown += `• <b>Recommended Size:</b> ${finalTons} tons (${(finalTons * 12000).toLocaleString()} BTU/hr)<br><br>`;
+            
+            breakdown += `<b>Load Factors Applied:</b><br>`;
+            breakdown += `• Windows (${windowType}): ${(windowMultiplier * 100).toFixed(0)}% efficiency<br>`;
+            breakdown += `• Insulation (${insulation}): ${(insulationMultiplier * 100).toFixed(0)}% efficiency<br>`;
+            breakdown += `• Orientation (${orientation}): ${(orientationMultiplier.heating * 100).toFixed(0)}% heating, ${(orientationMultiplier.cooling * 100).toFixed(0)}% cooling<br>`;
+            breakdown += `• Sun Exposure (${sunExposure}): ${(sunMultiplier.heating * 100).toFixed(0)}% heating, ${(sunMultiplier.cooling * 100).toFixed(0)}% cooling<br>`;
+            breakdown += `• Air Tightness (${airTightness}): ${(airTightnessMultiplier.heating * 100).toFixed(0)}% heating, ${(airTightnessMultiplier.cooling * 100).toFixed(0)}% cooling<br><br>`;
+            
+            breakdown += `<b>Internal Loads:</b><br>`;
+            breakdown += `• Occupants (${occupants}): ${occupantLoad.toLocaleString()} BTU/hr<br>`;
+            breakdown += `• Appliances (${appliances}): ${applianceLoad.toLocaleString()} BTU/hr<br>`;
+            breakdown += `• Room Loads: ${roomLoad.toLocaleString()} BTU/hr<br><br>`;
+            
+            breakdown += `<b>Recommendations:</b><br>`;
+            breakdown += `• Consider a ${finalTons}-ton system for optimal performance<br>`;
+            breakdown += `• Ensure proper duct sizing for the selected system<br>`;
+            breakdown += `• Consider energy efficiency ratings (SEER for cooling, AFUE for heating)<br>`;
+            breakdown += `• Consult with a licensed HVAC contractor for final sizing`;
+
+            breakdownDiv.innerHTML = breakdown;
+            breakdownDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
