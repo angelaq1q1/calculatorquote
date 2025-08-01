@@ -137,6 +137,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             background-color: #f5f5f5;
@@ -173,11 +174,13 @@
             color: #333;
             font-size: 2em;
             margin-bottom: 20px;
+            font-weight: 500;
         }
         .description {
             color: #666;
             margin-bottom: 30px;
             line-height: 1.6;
+            font-size: 1.2em;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -185,8 +188,14 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
-        .input-group {
+        .input-section h3 {
             margin-bottom: 20px;
+            color: #333;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+        .input-group {
+            margin-bottom: 25px;
         }
         .input-group label {
             display: block;
@@ -203,12 +212,13 @@
             font-size: 1em;
             width: 100%;
             margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
         }
         .room-inputs {
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
             background-color: white;
         }
         .room-header {
@@ -233,7 +243,7 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         .two-column {
             display: grid;
@@ -244,7 +254,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .checkbox-group input[type="checkbox"] {
             margin: 0;
@@ -257,8 +267,11 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: 500;
             transition: background-color 0.3s;
             width: 100%;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 20px;
         }
         .btn-calculate:hover {
             background-color: #1976D2;
@@ -269,6 +282,7 @@
             text-align: center;
             color: #28a745;
             font-size: 1.15em;
+            font-family: 'Roboto', sans-serif;
         }
         .breakdown {
             margin: 18px auto 0 auto;
@@ -278,12 +292,15 @@
             padding: 16px 20px;
             color: #444;
             font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
         }
         .note {
             font-size: 13px;
             color: #888;
             margin-top: 10px;
             text-align: left;
+            font-family: 'Roboto', sans-serif;
         }
         .advice {
             margin: 32px auto 0 auto;
@@ -296,6 +313,7 @@
             color: #333;
             line-height: 1.7;
             padding: 22px 28px 18px 28px;
+            font-family: 'Roboto', sans-serif;
         }
         .cost-highlight {
             background: linear-gradient(135deg, #2196F3, #1976D2);
@@ -304,6 +322,7 @@
             border-radius: 8px;
             text-align: center;
             margin: 15px 0;
+            font-family: 'Roboto', sans-serif;
         }
         @media (max-width: 768px) {
             .two-column {
@@ -321,9 +340,14 @@
             <span>/</span>
             Flooring Installation Calculator
         </div>
-        <h1>Flooring Installation Cost Calculator 2025</h1>
-        <div class="description">
-            Calculate flooring installation costs instantly with our free calculator. Get accurate estimates for laminate, vinyl, hardwood, tile, and carpet installation including materials, labor, and additional services. Updated with 2025 pricing to help you budget your flooring project.
+        <div style="margin-bottom: 30px;">
+            <div style="font-size: 3em; color: #2196F3; margin-bottom: 10px;">
+                <span class="material-icons">floor</span>
+            </div>
+            <h1>Flooring Installation Calculator 2025</h1>
+            <div class="description">
+                Calculate flooring installation costs instantly with our free calculator. Get accurate estimates for laminate, vinyl, hardwood, tile, and carpet installation including materials, labor, and additional services. Updated with 2025 pricing to help you budget your flooring project.
+            </div>
         </div>
         <div class="input-section">
             <h3>Room Measurements</h3>
@@ -439,6 +463,38 @@
             A: Our calculator allows you to add multiple rooms with different dimensions. Simply enter the length and width for each room, and the calculator will automatically sum the total area and provide a comprehensive cost estimate for your entire project.<br><br>
             <b>Q: What's included in the waste buffer calculation?</b><br>
             A: The waste buffer (typically 5-10%) accounts for material cuts, pattern matching, and installation waste. This ensures you have enough material to complete your project without running short. Our calculator automatically applies this buffer to your material costs.
+        </div>
+        <div class="advice">
+            <b>🏠 Flooring Installation Cost Calculator: Plan Your Project Budget</b><br><br>
+            Installing new flooring is one of the most impactful home improvement projects you can undertake. Whether you're updating a single room or renovating your entire home, understanding the true cost of flooring installation helps you make informed decisions and avoid budget surprises.<br><br>
+            Our comprehensive flooring cost calculator considers all the factors that affect your project's total price: material costs, professional installation labor, subfloor preparation, old flooring removal, and additional services like trim installation and underlayment. By providing accurate estimates upfront, you can compare different flooring options and plan your budget accordingly.<br><br>
+            <b>What Our Flooring Cost Calculator Includes:</b><br>
+            • <b>Material Costs:</b> Flooring material prices per square foot<br>
+            • <b>Labor Costs:</b> Professional installation rates by material type<br>
+            • <b>Additional Services:</b> Subfloor prep, old flooring removal, trim work<br>
+            • <b>Waste Factor:</b> Material overage for cuts and pattern matching<br>
+            • <b>Total Project Cost:</b> Complete estimate with all components<br><br>
+            <b>💡 Why Accurate Flooring Cost Estimation Matters:</b><br>
+            • <b>Budget Planning:</b> Avoid unexpected costs and project delays<br>
+            • <b>Material Selection:</b> Compare different flooring types within your budget<br>
+            • <b>Contractor Comparison:</b> Get multiple quotes with confidence<br>
+            • <b>Project Timeline:</b> Plan your renovation schedule and financing<br>
+            • <b>ROI Calculation:</b> Understand the value added to your home
+        </div>
+        <div class="advice">
+            <b>❓ FAQ - Flooring Installation Cost Questions</b><br><br>
+            <b>Q: How much does it cost to install flooring per square foot?</b><br>
+            A: Total flooring installation costs range from $3.50 to $15.00 per square foot depending on the material. Laminate costs $3.50-$7.00/sq.ft, vinyl $4.50-$9.00/sq.ft, hardwood $8.00-$15.00/sq.ft, tile $6.00-$12.00/sq.ft, and carpet $3.00-$8.00/sq.ft including materials and labor.<br><br>
+            <b>Q: What's the cheapest flooring to install?</b><br>
+            A: Laminate flooring is typically the most affordable option at $3.50-$7.00 per square foot installed. Vinyl plank flooring is also cost-effective at $4.50-$9.00 per square foot, offering excellent durability and water resistance for the price.<br><br>
+            <b>Q: How much does it cost to install 1000 sq ft of flooring?</b><br>
+            A: For 1000 sq ft, laminate installation costs $3,500-$7,000, vinyl costs $4,500-$9,000, hardwood costs $8,000-$15,000, tile costs $6,000-$12,000, and carpet costs $3,000-$8,000 including materials, labor, and additional services.<br><br>
+            <b>Q: Should I install flooring myself or hire a professional?</b><br>
+            A: While DIY installation can save 40-60% on labor costs, professional installation ensures proper subfloor preparation, correct material handling, and warranty protection. Complex materials like hardwood and tile are best left to professionals, while laminate and vinyl can be DIY-friendly for experienced homeowners.<br><br>
+            <b>Q: How long does flooring installation take?</b><br>
+            A: Installation time varies by material and room size. A single room (200-400 sq ft) typically takes 1-3 days: laminate/vinyl (1-2 days), hardwood (2-3 days), tile (2-4 days), carpet (1 day). Larger projects or multiple rooms may take 1-2 weeks depending on complexity and contractor availability.<br><br>
+            <b>Q: What additional costs should I expect for flooring installation?</b><br>
+            A: Additional costs include old flooring removal ($1.00-$2.00/sq.ft), subfloor preparation ($1.00-$3.00/sq.ft), baseboards/trim ($2.00-$4.00/linear ft), underlayment ($0.50-$1.50/sq.ft), furniture moving, and potential structural repairs. Always get a detailed quote that includes all these components.
         </div>
     </div>
     <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
