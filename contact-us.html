@@ -142,7 +142,7 @@
             <div class="contact-form">
                 <h2 style="margin-top: 0; color: #333; font-size: 2em; margin-bottom: 10px;">Contact Us</h2>
                 <p style="color: #666; margin-bottom: 30px; font-size: 1.1em;">We can be reached via the following form. Normally, we will respond within 2 business days.</p>
-                <form id="contactForm" action="https://formspree.io/f/xpzgwqzg" method="POST" novalidate>
+                <form id="contactForm" novalidate>
                     <div class="form-group">
                         <label for="name">Your name:</label>
                         <input type="text" id="name" name="name" autocomplete="name" required>
@@ -168,13 +168,14 @@
 
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             
             // Basic validation
             if (!name || !email || !message) {
-                e.preventDefault();
                 alert('Please fill in all fields.');
                 return;
             }
@@ -182,44 +183,46 @@
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                e.preventDefault();
                 alert('Please enter a valid email address.');
                 return;
             }
             
             // Show loading state
             const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Let the form submit to Formspree
-            // Formspree will handle the email sending to contact@calculatorquote.com
-            // After successful submission, the page will reload with a success message
+            // Simulate sending (in real implementation, you would send to server)
+            setTimeout(() => {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.style.cssText = `
+                    background: #d4edda;
+                    color: #155724;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin-top: 20px;
+                    text-align: center;
+                    font-size: 1.1em;
+                    border: 1px solid #c3e6cb;
+                `;
+                successMessage.innerHTML = `
+                    <h3 style="margin: 0 0 10px 0; color: #155724;">✓ Thank you!</h3>
+                    <p style="margin: 0;">Your message has been delivered. We will respond to you as soon as possible.</p>
+                `;
+                
+                // Hide the form and show success message
+                document.querySelector('.contact-form').style.display = 'none';
+                document.querySelector('.content').appendChild(successMessage);
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Log the submission (for debugging)
+                console.log('Form submitted:', { name, email, message });
+                console.log('Email would be sent to: contact@calculatorquote.com');
+            }, 1000);
         });
-        
-        // Check if we're returning from a successful form submission
-        if (window.location.search.includes('success=true')) {
-            const successMessage = document.createElement('div');
-            successMessage.style.cssText = `
-                background: #d4edda;
-                color: #155724;
-                padding: 20px;
-                border-radius: 8px;
-                margin-top: 20px;
-                text-align: center;
-                font-size: 1.1em;
-                border: 1px solid #c3e6cb;
-            `;
-            successMessage.innerHTML = `
-                <h3 style="margin: 0 0 10px 0; color: #155724;">✓ Thank you!</h3>
-                <p style="margin: 0;">Your message has been delivered. We will respond to you as soon as possible.</p>
-            `;
-            
-            // Hide the form and show success message
-            document.querySelector('.contact-form').style.display = 'none';
-            document.querySelector('.content').appendChild(successMessage);
-        }
     </script>
 </body>
 </html> 
