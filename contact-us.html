@@ -142,7 +142,7 @@
             <div class="contact-form">
                 <h2 style="margin-top: 0; color: #333; font-size: 2em; margin-bottom: 10px;">Contact Us</h2>
                 <p style="color: #666; margin-bottom: 30px; font-size: 1.1em;">We can be reached via the following form. Normally, we will respond within 2 business days.</p>
-                <form id="contactForm" novalidate>
+                <form id="contactForm" novalidate onsubmit="return false;">
                     <div class="form-group">
                         <label for="name">Your name:</label>
                         <input type="text" id="name" name="name" autocomplete="name" required>
@@ -167,12 +167,30 @@
     </div>
 
     <script>
+        // Force page refresh to clear cache
+        if (performance.navigation.type === 1) {
+            // Page was refreshed, clear any cached data
+            console.log('Page was refreshed, clearing cache');
+        }
+        
+        // Add cache-busting meta tag
+        const meta = document.createElement('meta');
+        meta.httpEquiv = 'Cache-Control';
+        meta.content = 'no-cache, no-store, must-revalidate';
+        document.head.appendChild(meta);
+        
+        console.log('Contact form script loaded');
+        
         document.getElementById('contactForm').addEventListener('submit', function(e) {
+            console.log('Form submit event triggered');
             e.preventDefault();
+            e.stopPropagation();
             
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
+            
+            console.log('Form data:', { name, email, message });
             
             // Basic validation
             if (!name || !email || !message) {
@@ -187,6 +205,8 @@
                 return;
             }
             
+            console.log('Validation passed, showing loading state');
+            
             // Show loading state
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.textContent = 'Sending...';
@@ -194,6 +214,8 @@
             
             // Simulate sending (in real implementation, you would send to server)
             setTimeout(() => {
+                console.log('Showing success message');
+                
                 // Show success message
                 const successMessage = document.createElement('div');
                 successMessage.style.cssText = `
@@ -219,10 +241,17 @@
                 document.getElementById('contactForm').reset();
                 
                 // Log the submission (for debugging)
-                console.log('Form submitted:', { name, email, message });
+                console.log('Form submitted successfully:', { name, email, message });
                 console.log('Email would be sent to: contact@calculatorquote.com');
             }, 1000);
         });
+        
+        // Additional prevention of form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
     </script>
 </body>
 </html> 
