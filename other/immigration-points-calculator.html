@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Immigration Points Calculator: Calculate Your CRS Score, H1B Points & Visa Eligibility 2025</title>
+    <meta name="description" content="Calculate your immigration points for Canada CRS, USA H1B, UK Skilled Worker & Australia skilled migration. Free online calculator with instant results. Check if you qualify for permanent residency or work visas in 2025.">
+    <meta name="keywords" content="immigration points calculator, CRS calculator Canada, H1B points calculator, UK skilled worker points, Australia skilled migration calculator, visa eligibility calculator, Canada PR calculator, USA work visa calculator, UK immigration points, Australia visa points, permanent residency calculator, work visa calculator, immigration score calculator">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Immigration Points Calculator: Calculate Your CRS Score, H1B Points & Visa Eligibility 2025",
+      "url": "https://www.calculatorquote.com/other/immigration-points-calculator.html",
+      "description": "Calculate your immigration points for Canada CRS, USA H1B, UK Skilled Worker & Australia skilled migration. Free online calculator with instant results. Check if you qualify for permanent residency or work visas in 2025.",
+      "inLanguage": "en",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-01",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Immigration Points Calculator",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/other/immigration-points-calculator.html",
+        "description": "Free online calculator to calculate immigration points for Canada CRS, USA H1B, UK Skilled Worker and Australia skilled migration visas",
+        "featureList": [
+          "Canada CRS Score Calculator",
+          "USA H1B Points Calculator", 
+          "UK Skilled Worker Points Calculator",
+          "Australia Skilled Migration Calculator",
+          "Instant Results",
+          "Detailed Points Breakdown",
+          "Visa Eligibility Assessment"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem", 
+            "position": 2,
+            "name": "Other Calculators",
+            "item": "https://www.calculatorquote.com/other/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Immigration Points Calculator",
+            "item": "https://www.calculatorquote.com/other/immigration-points-calculator.html"
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "UseAction",
+        "target": "https://www.calculatorquote.com/other/immigration-points-calculator.html",
+        "description": "Use the immigration points calculator to check your eligibility for Canada CRS, USA H1B, UK Skilled Worker and Australia skilled migration visas"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Canada Immigration",
+          "description": "Express Entry CRS points system for permanent residency"
+        },
+        {
+          "@type": "Thing", 
+          "name": "USA Immigration",
+          "description": "H1B work visa points calculation"
+        },
+        {
+          "@type": "Thing",
+          "name": "UK Immigration", 
+          "description": "Skilled Worker visa points-based system"
+        },
+        {
+          "@type": "Thing",
+          "name": "Australia Immigration",
+          "description": "Skilled migration points calculation"
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .country-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .country-tab {
+            padding: 12px 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .country-tab.active {
+            border-color: #2196F3;
+            background: #2196F3;
+            color: white;
+        }
+        .country-tab:hover {
+            border-color: #1976D2;
+            background: #1976D2;
+            color: white;
+        }
+        .country-content {
+            display: none;
+        }
+        .country-content.active {
+            display: block;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .country-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 25px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.2em;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+        .score-highlight {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.3em;
+        }
+        .breakdown {
+            margin: 20px auto 0 auto;
+            max-width: 800px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            color: #444;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 15px;
+            text-align: center;
+            font-style: italic;
+        }
+        .advice {
+            margin: 30px auto 0 auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 15px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.7;
+            padding: 25px;
+        }
+        .flag-icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Immigration Points Calculator
+        </div>
+        <h1>Free Immigration Points Calculator: Check Your CRS Score, H1B Points & Visa Eligibility 2025</h1>
+        <div class="description">
+            Calculate your immigration points for Canada CRS, USA H1B, UK Skilled Worker & Australia skilled migration. Get instant results to see if you qualify for permanent residency or work visas. Free online calculator with detailed breakdown.
+        </div>
+
+        <div class="country-tabs">
+            <div class="country-tab active" onclick="showCountry('usa')">
+                <span class="flag-icon">🇺🇸</span>
+                USA H1B
+            </div>
+            <div class="country-tab" onclick="showCountry('canada')">
+                <span class="flag-icon">🇨🇦</span>
+                Canada CRS
+            </div>
+            <div class="country-tab" onclick="showCountry('uk')">
+                <span class="flag-icon">🇬🇧</span>
+                UK Points
+            </div>
+            <div class="country-tab" onclick="showCountry('australia')">
+                <span class="flag-icon">🇦🇺</span>
+                Australia
+            </div>
+        </div>
+
+        <!-- USA H1B Calculator -->
+        <div id="usa" class="country-content active">
+            <div class="input-section">
+                <h3 style="color: #333; margin-bottom: 20px;">USA H1B Visa Points Calculator</h3>
+                <div class="two-column">
+                    <div>
+                        <div class="input-group">
+                            <label for="usa-education">Education Level:</label>
+                            <select id="usa-education">
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="phd">PhD/Doctorate</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="usa-experience">Work Experience (Years):</label>
+                            <input type="number" id="usa-experience" min="0" max="20" value="3" placeholder="3">
+                        </div>
+                        <div class="input-group">
+                            <label for="usa-salary">Annual Salary ($):</label>
+                            <input type="number" id="usa-salary" min="30000" max="200000" value="80000" placeholder="80000">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <label for="usa-age">Age:</label>
+                            <input type="number" id="usa-age" min="18" max="65" value="30" placeholder="30">
+                        </div>
+                        <div class="input-group">
+                            <label for="usa-language">English Proficiency:</label>
+                            <select id="usa-language">
+                                <option value="native">Native/Fluent</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="basic">Basic</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="usa-job-demand">Job Demand Level:</label>
+                            <select id="usa-job-demand">
+                                <option value="high">High Demand (STEM)</option>
+                                <option value="medium">Medium Demand</option>
+                                <option value="low">Low Demand</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateUSAPoints()">Calculate USA H1B Points</button>
+                <div class="result" id="usa-result"></div>
+                <div class="breakdown" id="usa-breakdown" style="display:none;"></div>
+            </div>
+        </div>
+
+        <!-- Canada CRS Calculator -->
+        <div id="canada" class="country-content">
+            <div class="input-section">
+                <h3 style="color: #333; margin-bottom: 20px;">Canada Express Entry CRS Calculator</h3>
+                <div class="two-column">
+                    <div>
+                        <div class="input-group">
+                            <label for="canada-age">Age:</label>
+                            <input type="number" id="canada-age" min="18" max="65" value="30" placeholder="30">
+                        </div>
+                        <div class="input-group">
+                            <label for="canada-education">Education Level:</label>
+                            <select id="canada-education">
+                                <option value="high-school">High School</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="phd">PhD/Doctorate</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="canada-experience">Work Experience (Years):</label>
+                            <input type="number" id="canada-experience" min="0" max="20" value="3" placeholder="3">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <label for="canada-language">Language Proficiency (CLB):</label>
+                            <select id="canada-language">
+                                <option value="9">CLB 9+ (Advanced)</option>
+                                <option value="8">CLB 8 (High Intermediate)</option>
+                                <option value="7">CLB 7 (Intermediate)</option>
+                                <option value="6">CLB 6 (Basic)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="canada-french">French Proficiency:</label>
+                            <select id="canada-french">
+                                <option value="none">None</option>
+                                <option value="basic">Basic</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="canada-adaptability">Adaptability Factors:</label>
+                            <select id="canada-adaptability">
+                                <option value="none">None</option>
+                                <option value="spouse">Spouse/Partner</option>
+                                <option value="job-offer">Valid Job Offer</option>
+                                <option value="provincial">Provincial Nomination</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateCanadaPoints()">Calculate Canada CRS Score</button>
+                <div class="result" id="canada-result"></div>
+                <div class="breakdown" id="canada-breakdown" style="display:none;"></div>
+            </div>
+        </div>
+
+        <!-- UK Points Calculator -->
+        <div id="uk" class="country-content">
+            <div class="input-section">
+                <h3 style="color: #333; margin-bottom: 20px;">UK Points-Based System Calculator</h3>
+                <div class="two-column">
+                    <div>
+                        <div class="input-group">
+                            <label for="uk-job-offer">Valid Job Offer:</label>
+                            <select id="uk-job-offer">
+                                <option value="yes">Yes (Skilled Worker)</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="uk-salary">Annual Salary (£):</label>
+                            <input type="number" id="uk-salary" min="20000" max="150000" value="35000" placeholder="35000">
+                        </div>
+                        <div class="input-group">
+                            <label for="uk-education">Education Level:</label>
+                            <select id="uk-education">
+                                <option value="phd">PhD</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="high-school">High School</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <label for="uk-language">English Proficiency:</label>
+                            <select id="uk-language">
+                                <option value="native">Native Level</option>
+                                <option value="advanced">Advanced (C1/C2)</option>
+                                <option value="intermediate">Intermediate (B1/B2)</option>
+                                <option value="basic">Basic (A1/A2)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="uk-experience">Work Experience (Years):</label>
+                            <input type="number" id="uk-experience" min="0" max="20" value="3" placeholder="3">
+                        </div>
+                        <div class="input-group">
+                            <label for="uk-age">Age:</label>
+                            <input type="number" id="uk-age" min="18" max="65" value="30" placeholder="30">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateUKPoints()">Calculate UK Points</button>
+                <div class="result" id="uk-result"></div>
+                <div class="breakdown" id="uk-breakdown" style="display:none;"></div>
+            </div>
+        </div>
+
+        <!-- Australia Calculator -->
+        <div id="australia" class="country-content">
+            <div class="input-section">
+                <h3 style="color: #333; margin-bottom: 20px;">Australian Skilled Migration Points Calculator</h3>
+                <div class="two-column">
+                    <div>
+                        <div class="input-group">
+                            <label for="australia-age">Age:</label>
+                            <input type="number" id="australia-age" min="18" max="65" value="30" placeholder="30">
+                        </div>
+                        <div class="input-group">
+                            <label for="australia-education">Education Level:</label>
+                            <select id="australia-education">
+                                <option value="phd">PhD</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="diploma">Diploma</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="australia-experience">Work Experience (Years):</label>
+                            <input type="number" id="australia-experience" min="0" max="20" value="3" placeholder="3">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <label for="australia-language">English Proficiency (IELTS):</label>
+                            <select id="australia-language">
+                                <option value="8">8+ (Proficient)</option>
+                                <option value="7">7 (Competent)</option>
+                                <option value="6">6 (Basic)</option>
+                                <option value="5">5 (Limited)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="australia-skilled">Skilled Occupation:</label>
+                            <select id="australia-skilled">
+                                <option value="yes">Yes (SOL/MLTSSL)</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="australia-regional">Regional Sponsorship:</label>
+                            <select id="australia-regional">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateAustraliaPoints()">Calculate Australia Points</button>
+                <div class="result" id="australia-result"></div>
+                <div class="breakdown" id="australia-breakdown" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="note">* This immigration points calculator provides estimates based on current 2025 immigration policies. For accurate assessment, consult with licensed immigration professionals or official government sources.</div>
+
+        <div class="advice">
+            <b>🌍 Immigration Points Calculator: Your Gateway to Global Opportunities in 2025</b><br><br>
+            Our comprehensive immigration points calculator helps you assess your eligibility for the world's most popular immigration destinations. Whether you're seeking work opportunities, permanent residency, or a new life abroad, understanding your points score is the first step toward your international journey. Use our free immigration points calculator to check your CRS score, H1B points, UK skilled worker points, and Australia skilled migration eligibility.<br><br>
+            <b>What Each Immigration Points Calculator Determines:</b><br>
+            • <b>Canada CRS Calculator:</b> Express Entry Comprehensive Ranking System score for permanent residency (target 470+ points)<br>
+            • <b>USA H1B Points Calculator:</b> Work visa eligibility based on education, experience, and job demand<br>
+            • <b>UK Skilled Worker Points Calculator:</b> Points-based system score for skilled worker visas (target 70+ points)<br>
+            • <b>Australia Skilled Migration Calculator:</b> Points calculation for various visa subclasses (target 65+ points)<br><br>
+            <b>💡 Key Factors That Boost Your Immigration Points Score:</b><br>
+            • <b>Education:</b> Higher degrees typically earn more points (PhD: 150 CRS points, Master's: 135 CRS points)<br>
+            • <b>Work Experience:</b> Relevant professional experience increases eligibility (6+ years: 80 CRS points)<br>
+            • <b>Language Skills:</b> Strong English/French proficiency is crucial (CLB 9+: 160 CRS points)<br>
+            • <b>Age:</b> Younger applicants often receive more points (25-32: 30 Australia points)<br>
+            • <b>Job Demand:</b> Skills in high-demand occupations score higher (STEM fields: +25 H1B points)<br>
+            • <b>Regional Preferences:</b> Some countries offer bonus points for regional areas (+15 Australia points)
+        </div>
+
+        <div class="advice">
+            <b>❓ FAQ - Immigration Points Calculator Questions 2025</b><br><br>
+            <b>Q: How accurate is this immigration points calculator?</b><br>
+            A: Our immigration points calculator provides estimates based on current 2025 immigration policies and scoring systems. However, immigration rules change frequently, so we recommend consulting with licensed immigration professionals for the most up-to-date and accurate assessment. This free immigration points calculator is designed to give you a preliminary understanding of your eligibility.<br><br>
+            <b>Q: What's the minimum score needed for each country's immigration points calculator?</b><br>
+            A: Minimum scores vary by country and visa type. Canada CRS calculator typically requires 470+ points for Express Entry, UK skilled worker points calculator needs 70+ points, Australia skilled migration calculator requires 65+ points, and USA H1B points calculator uses a lottery system for oversubscribed categories.<br><br>
+            <b>Q: How can I improve my immigration points score using this calculator?</b><br>
+            A: Common strategies include improving language skills (aim for CLB 9+ for Canada), gaining more work experience (6+ years for maximum points), pursuing higher education (PhD offers highest points), learning additional languages (like French for Canada CRS), and targeting high-demand occupations in your field (STEM for H1B).<br><br>
+            <b>Q: How long does the immigration process take after using the immigration points calculator?</b><br>
+            A: Processing times vary significantly: Canada Express Entry (6-12 months), UK Skilled Worker (3-6 months), Australia skilled visas (6-18 months), and USA H1B (3-6 months if selected in lottery). The immigration points calculator helps you prepare your application strategy.<br><br>
+            <b>Q: Can I apply to multiple countries simultaneously using different immigration points calculators?</b><br>
+            A: Yes, you can apply to multiple countries at the same time using our immigration points calculator for each country. Many applicants start with their highest-scoring option from the immigration points calculator and have backup plans. Our free immigration points calculator allows you to compare your scores across all four countries.<br><br>
+            <b>Q: What documents do I need for immigration applications after checking the immigration points calculator?</b><br>
+            A: Common requirements include passport, educational credentials, work experience letters, language test results (IELTS for Australia, CLB for Canada), police certificates, medical exams, and proof of funds. Requirements vary by country and visa type. The immigration points calculator helps you understand which documents will be most valuable for your application.<br><br>
+            <b>Q: Which immigration points calculator should I use first?</b><br>
+            A: Start with the Canada CRS calculator as it's the most comprehensive and Canada offers the most straightforward path to permanent residency. Then try the UK skilled worker points calculator, Australia skilled migration calculator, and USA H1B points calculator to compare your options. Our free immigration points calculator makes it easy to test all scenarios.<br><br>
+            <b>Q: How often should I check the immigration points calculator?</b><br>
+            A: Check the immigration points calculator monthly as immigration policies and scoring systems can change. Also re-calculate when you gain new qualifications, work experience, or language skills. Our free immigration points calculator is updated regularly to reflect current policies.
+        </div>
+    </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function showCountry(country) {
+            // Hide all country contents
+            document.querySelectorAll('.country-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.country-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected country content
+            document.getElementById(country).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // USA H1B Points Calculator
+        function calculateUSAPoints() {
+            const education = document.getElementById('usa-education').value;
+            const experience = parseInt(document.getElementById('usa-experience').value) || 0;
+            const salary = parseInt(document.getElementById('usa-salary').value) || 0;
+            const age = parseInt(document.getElementById('usa-age').value) || 30;
+            const language = document.getElementById('usa-language').value;
+            const jobDemand = document.getElementById('usa-job-demand').value;
+
+            let points = 0;
+            let breakdown = [];
+
+            // Education points
+            switch(education) {
+                case 'phd': points += 30; breakdown.push('PhD: 30 points'); break;
+                case 'master': points += 25; breakdown.push('Master\'s: 25 points'); break;
+                case 'bachelor': points += 20; breakdown.push('Bachelor\'s: 20 points'); break;
+            }
+
+            // Experience points
+            if (experience >= 5) { points += 25; breakdown.push('5+ years experience: 25 points'); }
+            else if (experience >= 3) { points += 20; breakdown.push('3-4 years experience: 20 points'); }
+            else if (experience >= 1) { points += 15; breakdown.push('1-2 years experience: 15 points'); }
+
+            // Salary points
+            if (salary >= 100000) { points += 25; breakdown.push('High salary: 25 points'); }
+            else if (salary >= 70000) { points += 20; breakdown.push('Good salary: 20 points'); }
+            else if (salary >= 50000) { points += 15; breakdown.push('Average salary: 15 points'); }
+
+            // Age points
+            if (age >= 25 && age <= 35) { points += 20; breakdown.push('Optimal age: 20 points'); }
+            else if (age >= 20 && age <= 40) { points += 15; breakdown.push('Good age: 15 points'); }
+            else { points += 10; breakdown.push('Age factor: 10 points'); }
+
+            // Language points
+            switch(language) {
+                case 'native': points += 20; breakdown.push('Native English: 20 points'); break;
+                case 'advanced': points += 15; breakdown.push('Advanced English: 15 points'); break;
+                case 'intermediate': points += 10; breakdown.push('Intermediate English: 10 points'); break;
+                case 'basic': points += 5; breakdown.push('Basic English: 5 points'); break;
+            }
+
+            // Job demand points
+            switch(jobDemand) {
+                case 'high': points += 25; breakdown.push('High demand job: 25 points'); break;
+                case 'medium': points += 15; breakdown.push('Medium demand job: 15 points'); break;
+                case 'low': points += 5; breakdown.push('Low demand job: 5 points'); break;
+            }
+
+            const resultDiv = document.getElementById('usa-result');
+            const breakdownDiv = document.getElementById('usa-breakdown');
+
+            resultDiv.innerHTML = `<div class="score-highlight">
+                                    <div style="font-size: 1.8em; margin-bottom: 5px;">${points} Points</div>
+                                    <div>USA H1B Eligibility Score</div>
+                                  </div>`;
+
+            let breakdownText = `<b>USA H1B Points Breakdown:</b><br><br>`;
+            breakdown.forEach(item => {
+                breakdownText += `• ${item}<br>`;
+            });
+            breakdownText += `<br><b>Assessment:</b><br>`;
+            if (points >= 120) {
+                breakdownText += `✅ <b>Excellent</b> - High chance of H1B approval<br>`;
+            } else if (points >= 100) {
+                breakdownText += `✅ <b>Good</b> - Strong H1B application<br>`;
+            } else if (points >= 80) {
+                breakdownText += `⚠️ <b>Fair</b> - May need additional qualifications<br>`;
+            } else {
+                breakdownText += `❌ <b>Low</b> - Consider improving qualifications<br>`;
+            }
+
+            breakdownDiv.innerHTML = breakdownText;
+            breakdownDiv.style.display = 'block';
+        }
+
+        // Canada CRS Calculator
+        function calculateCanadaPoints() {
+            const age = parseInt(document.getElementById('canada-age').value) || 30;
+            const education = document.getElementById('canada-education').value;
+            const experience = parseInt(document.getElementById('canada-experience').value) || 0;
+            const language = parseInt(document.getElementById('canada-language').value) || 7;
+            const french = document.getElementById('canada-french').value;
+            const adaptability = document.getElementById('canada-adaptability').value;
+
+            let points = 0;
+            let breakdown = [];
+
+            // Age points
+            if (age >= 20 && age <= 29) { points += 110; breakdown.push('Age 20-29: 110 points'); }
+            else if (age >= 30 && age <= 34) { points += 105; breakdown.push('Age 30-34: 105 points'); }
+            else if (age >= 35 && age <= 39) { points += 100; breakdown.push('Age 35-39: 100 points'); }
+            else if (age >= 40 && age <= 44) { points += 95; breakdown.push('Age 40-44: 95 points'); }
+            else { points += 90; breakdown.push('Age 45+: 90 points'); }
+
+            // Education points
+            switch(education) {
+                case 'phd': points += 150; breakdown.push('PhD: 150 points'); break;
+                case 'master': points += 135; breakdown.push('Master\'s: 135 points'); break;
+                case 'bachelor': points += 120; breakdown.push('Bachelor\'s: 120 points'); break;
+                case 'high-school': points += 30; breakdown.push('High School: 30 points'); break;
+            }
+
+            // Work experience points
+            if (experience >= 6) { points += 80; breakdown.push('6+ years: 80 points'); }
+            else if (experience >= 4) { points += 70; breakdown.push('4-5 years: 70 points'); }
+            else if (experience >= 2) { points += 50; breakdown.push('2-3 years: 50 points'); }
+            else if (experience >= 1) { points += 35; breakdown.push('1 year: 35 points'); }
+
+            // Language points
+            if (language >= 9) { points += 160; breakdown.push('CLB 9+: 160 points'); }
+            else if (language >= 8) { points += 150; breakdown.push('CLB 8: 150 points'); }
+            else if (language >= 7) { points += 130; breakdown.push('CLB 7: 130 points'); }
+            else { points += 100; breakdown.push('CLB 6: 100 points'); }
+
+            // French points
+            switch(french) {
+                case 'advanced': points += 30; breakdown.push('Advanced French: 30 points'); break;
+                case 'intermediate': points += 20; breakdown.push('Intermediate French: 20 points'); break;
+                case 'basic': points += 10; breakdown.push('Basic French: 10 points'); break;
+            }
+
+            // Adaptability points
+            switch(adaptability) {
+                case 'spouse': points += 10; breakdown.push('Spouse/Partner: 10 points'); break;
+                case 'job-offer': points += 200; breakdown.push('Valid Job Offer: 200 points'); break;
+                case 'provincial': points += 600; breakdown.push('Provincial Nomination: 600 points'); break;
+            }
+
+            const resultDiv = document.getElementById('canada-result');
+            const breakdownDiv = document.getElementById('canada-breakdown');
+
+            resultDiv.innerHTML = `<div class="score-highlight">
+                                    <div style="font-size: 1.8em; margin-bottom: 5px;">${points} CRS Points</div>
+                                    <div>Canada Express Entry Score</div>
+                                  </div>`;
+
+            let breakdownText = `<b>Canada CRS Score Breakdown:</b><br><br>`;
+            breakdown.forEach(item => {
+                breakdownText += `• ${item}<br>`;
+            });
+            breakdownText += `<br><b>Assessment:</b><br>`;
+            if (points >= 470) {
+                breakdownText += `✅ <b>Excellent</b> - High chance of ITA (Invitation to Apply)<br>`;
+            } else if (points >= 450) {
+                breakdownText += `✅ <b>Good</b> - Competitive for Express Entry<br>`;
+            } else if (points >= 400) {
+                breakdownText += `⚠️ <b>Fair</b> - May need additional points<br>`;
+            } else {
+                breakdownText += `❌ <b>Low</b> - Consider PNP or improving qualifications<br>`;
+            }
+
+            breakdownDiv.innerHTML = breakdownText;
+            breakdownDiv.style.display = 'block';
+        }
+
+        // UK Points Calculator
+        function calculateUKPoints() {
+            const jobOffer = document.getElementById('uk-job-offer').value;
+            const salary = parseInt(document.getElementById('uk-salary').value) || 0;
+            const education = document.getElementById('uk-education').value;
+            const language = document.getElementById('uk-language').value;
+            const experience = parseInt(document.getElementById('uk-experience').value) || 0;
+            const age = parseInt(document.getElementById('uk-age').value) || 30;
+
+            let points = 0;
+            let breakdown = [];
+
+            // Job offer points
+            if (jobOffer === 'yes') { points += 20; breakdown.push('Valid Job Offer: 20 points'); }
+
+            // Salary points
+            if (salary >= 50000) { points += 20; breakdown.push('High Salary: 20 points'); }
+            else if (salary >= 35000) { points += 15; breakdown.push('Good Salary: 15 points'); }
+            else if (salary >= 25000) { points += 10; breakdown.push('Minimum Salary: 10 points'); }
+
+            // Education points
+            switch(education) {
+                case 'phd': points += 20; breakdown.push('PhD: 20 points'); break;
+                case 'master': points += 15; breakdown.push('Master\'s: 15 points'); break;
+                case 'bachelor': points += 10; breakdown.push('Bachelor\'s: 10 points'); break;
+                case 'high-school': points += 5; breakdown.push('High School: 5 points'); break;
+            }
+
+            // Language points
+            switch(language) {
+                case 'native': points += 20; breakdown.push('Native English: 20 points'); break;
+                case 'advanced': points += 15; breakdown.push('Advanced English: 15 points'); break;
+                case 'intermediate': points += 10; breakdown.push('Intermediate English: 10 points'); break;
+                case 'basic': points += 5; breakdown.push('Basic English: 5 points'); break;
+            }
+
+            // Experience points
+            if (experience >= 5) { points += 15; breakdown.push('5+ years experience: 15 points'); }
+            else if (experience >= 3) { points += 10; breakdown.push('3-4 years experience: 10 points'); }
+            else if (experience >= 1) { points += 5; breakdown.push('1-2 years experience: 5 points'); }
+
+            // Age points
+            if (age >= 25 && age <= 35) { points += 10; breakdown.push('Optimal age: 10 points'); }
+            else if (age >= 20 && age <= 40) { points += 5; breakdown.push('Good age: 5 points'); }
+
+            const resultDiv = document.getElementById('uk-result');
+            const breakdownDiv = document.getElementById('uk-breakdown');
+
+            resultDiv.innerHTML = `<div class="score-highlight">
+                                    <div style="font-size: 1.8em; margin-bottom: 5px;">${points} Points</div>
+                                    <div>UK Points-Based System Score</div>
+                                  </div>`;
+
+            let breakdownText = `<b>UK Points Breakdown:</b><br><br>`;
+            breakdown.forEach(item => {
+                breakdownText += `• ${item}<br>`;
+            });
+            breakdownText += `<br><b>Assessment:</b><br>`;
+            if (points >= 70) {
+                breakdownText += `✅ <b>Excellent</b> - Meets UK Skilled Worker requirements<br>`;
+            } else if (points >= 60) {
+                breakdownText += `✅ <b>Good</b> - Strong application for UK visa<br>`;
+            } else if (points >= 50) {
+                breakdownText += `⚠️ <b>Fair</b> - May need additional qualifications<br>`;
+            } else {
+                breakdownText += `❌ <b>Low</b> - Below minimum requirements<br>`;
+            }
+
+            breakdownDiv.innerHTML = breakdownText;
+            breakdownDiv.style.display = 'block';
+        }
+
+        // Australia Points Calculator
+        function calculateAustraliaPoints() {
+            const age = parseInt(document.getElementById('australia-age').value) || 30;
+            const education = document.getElementById('australia-education').value;
+            const experience = parseInt(document.getElementById('australia-experience').value) || 0;
+            const language = parseInt(document.getElementById('australia-language').value) || 7;
+            const skilled = document.getElementById('australia-skilled').value;
+            const regional = document.getElementById('australia-regional').value;
+
+            let points = 0;
+            let breakdown = [];
+
+            // Age points
+            if (age >= 25 && age <= 32) { points += 30; breakdown.push('Age 25-32: 30 points'); }
+            else if (age >= 33 && age <= 39) { points += 25; breakdown.push('Age 33-39: 25 points'); }
+            else if (age >= 40 && age <= 44) { points += 15; breakdown.push('Age 40-44: 15 points'); }
+            else if (age >= 45 && age <= 49) { points += 0; breakdown.push('Age 45-49: 0 points'); }
+            else { points += 0; breakdown.push('Age 50+: 0 points'); }
+
+            // Education points
+            switch(education) {
+                case 'phd': points += 20; breakdown.push('PhD: 20 points'); break;
+                case 'master': points += 15; breakdown.push('Master\'s: 15 points'); break;
+                case 'bachelor': points += 10; breakdown.push('Bachelor\'s: 10 points'); break;
+                case 'diploma': points += 5; breakdown.push('Diploma: 5 points'); break;
+            }
+
+            // Work experience points
+            if (experience >= 8) { points += 20; breakdown.push('8+ years: 20 points'); }
+            else if (experience >= 5) { points += 15; breakdown.push('5-7 years: 15 points'); }
+            else if (experience >= 3) { points += 10; breakdown.push('3-4 years: 10 points'); }
+            else if (experience >= 1) { points += 5; breakdown.push('1-2 years: 5 points'); }
+
+            // Language points
+            if (language >= 8) { points += 20; breakdown.push('IELTS 8+: 20 points'); }
+            else if (language >= 7) { points += 10; breakdown.push('IELTS 7: 10 points'); }
+            else if (language >= 6) { points += 0; breakdown.push('IELTS 6: 0 points'); }
+            else { points += 0; breakdown.push('IELTS 5: 0 points'); }
+
+            // Skilled occupation points
+            if (skilled === 'yes') { points += 10; breakdown.push('Skilled Occupation: 10 points'); }
+
+            // Regional sponsorship points
+            if (regional === 'yes') { points += 15; breakdown.push('Regional Sponsorship: 15 points'); }
+
+            const resultDiv = document.getElementById('australia-result');
+            const breakdownDiv = document.getElementById('australia-breakdown');
+
+            resultDiv.innerHTML = `<div class="score-highlight">
+                                    <div style="font-size: 1.8em; margin-bottom: 5px;">${points} Points</div>
+                                    <div>Australian Skilled Migration Score</div>
+                                  </div>`;
+
+            let breakdownText = `<b>Australia Points Breakdown:</b><br><br>`;
+            breakdown.forEach(item => {
+                breakdownText += `• ${item}<br>`;
+            });
+            breakdownText += `<br><b>Assessment:</b><br>`;
+            if (points >= 80) {
+                breakdownText += `✅ <b>Excellent</b> - High chance of visa approval<br>`;
+            } else if (points >= 70) {
+                breakdownText += `✅ <b>Good</b> - Strong application for skilled migration<br>`;
+            } else if (points >= 65) {
+                breakdownText += `⚠️ <b>Fair</b> - Meets minimum requirements<br>`;
+            } else {
+                breakdownText += `❌ <b>Low</b> - Below minimum points threshold<br>`;
+            }
+
+            breakdownDiv.innerHTML = breakdownText;
+            breakdownDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
