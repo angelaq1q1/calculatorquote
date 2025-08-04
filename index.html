@@ -132,9 +132,44 @@
                 padding: 20px;
             }
         }
+        
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1000;
+        }
+        
+        .contact-btn {
+            background: transparent;
+            color: #2196F3;
+            padding: 10px 20px;
+            border: 2px solid #2196F3;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+        
+        .contact-btn:hover {
+            background: #2196F3;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                top: 15px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="header">
+        <a href="contact-us.html" class="contact-btn">Contact Us</a>
+    </div>
+    
     <div class="container">
         <h1>Free Online Calculators</h1>
         <div class="subtitle">Simple and powerful calculators for your daily needs</div>
@@ -198,12 +233,12 @@
                     Other Calculators
                 </div>
                 <ul class="calculator-list">
+                    <li class="calculator-item"><a href="other/immigration-points-calculator.html">Immigration Points Calculator</a></li>
                     <li class="calculator-item"><a href="other/job-worth-calculator.html">Job Worth Calculator</a></li>
                     <li class="calculator-item"><a href="other/water-damage-calculator.html">Water Damage Calculator</a></li>
                     <li class="calculator-item"><a href="other/date-calculator.html">Date Calculator</a></li>
                     <li class="calculator-item"><a href="other/time-zone-calculator.html">Time Zone Calculator</a></li>
                     <li class="calculator-item"><a href="other/random-number-generator.html">Random Number Generator</a></li>
-                    <li class="calculator-item"><a href="other/percentage-calculator.html">Percentage Calculator</a></li>
                     <a href="other/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a>
                 </ul>
             </div>
