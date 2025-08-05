@@ -301,27 +301,27 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <!-- Soccer Tools -->
+    <!-- Sports Calculators -->
     <url>
-        <loc>https://www.calculatorquote.com/soccer/</loc>
+        <loc>https://www.calculatorquote.com/sports/</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://www.calculatorquote.com/soccer/score-predictor-calculator.html</loc>
+        <loc>https://www.calculatorquote.com/sports/football-score-predictor-calculator.html</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.calculatorquote.com/soccer/head-to-head-stats-comparison.html</loc>
+        <loc>https://www.calculatorquote.com/sports/football-head-to-head-stats-comparison.html</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.calculatorquote.com/soccer/goal-conversion-rate-calculator.html</loc>
+        <loc>https://www.calculatorquote.com/sports/football-goal-conversion-rate-calculator.html</loc>
         <lastmod>2025-01-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
