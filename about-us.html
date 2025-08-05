@@ -67,7 +67,8 @@
             <h3 style="color: #333; font-size: 1.5em; margin-bottom: 20px;">Contact Us</h3>
             <p style="color: #666; margin-bottom: 25px; font-size: 1em;">Have questions or feedback? We'd love to hear from you. Send us a message and we'll respond within 2 business days.</p>
             
-            <form id="contactForm" novalidate onsubmit="return false;" style="background: #f8f9fa; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0;">
+            <form id="contactForm" novalidate style="background: #f8f9fa; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0;">
+                
                 <div style="margin-bottom: 20px;">
                     <label for="name" style="display: block; margin-bottom: 8px; color: #333; font-weight: 500;">Your name:</label>
                     <input type="text" id="name" name="name" autocomplete="name" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box;">
@@ -83,7 +84,7 @@
                     <textarea id="message" name="message" rows="6" autocomplete="off" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box; resize: vertical;"></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn" style="background: #2196F3; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send</button>
+                <button type="button" class="submit-btn" onclick="handleFormSubmit()" style="background: #2196F3; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send</button>
             </form>
         </div>
     </div>
@@ -99,30 +100,11 @@
     </footer>
     
     <script>
-        // Force page refresh to clear cache
-        if (performance.navigation.type === 1) {
-            // Page was refreshed, clear any cached data
-            console.log('Page was refreshed, clearing cache');
-        }
-        
-        // Add cache-busting meta tag
-        const meta = document.createElement('meta');
-        meta.httpEquiv = 'Cache-Control';
-        meta.content = 'no-cache, no-store, must-revalidate';
-        document.head.appendChild(meta);
-        
-        console.log('Contact form script loaded');
-        
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            console.log('Form submit event triggered');
-            e.preventDefault();
-            e.stopPropagation();
-            
+        function handleFormSubmit() {
+            // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
-            
-            console.log('Form data:', { name, email, message });
             
             // Basic validation
             if (!name || !email || !message) {
@@ -137,53 +119,12 @@
                 return;
             }
             
-            console.log('Validation passed, showing loading state');
+            // Show success message
+            alert('Thank you! Your message has been delivered. We will respond to you as soon as possible.');
             
-            // Show loading state
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate sending (in real implementation, you would send to server)
-            setTimeout(() => {
-                console.log('Showing success message');
-                
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.style.cssText = `
-                    background: #d4edda;
-                    color: #155724;
-                    padding: 20px;
-                    border-radius: 8px;
-                    margin-top: 20px;
-                    text-align: center;
-                    font-size: 1.1em;
-                    border: 1px solid #c3e6cb;
-                `;
-                successMessage.innerHTML = `
-                    <h3 style="margin: 0 0 10px 0; color: #155724;">✓ Thank you!</h3>
-                    <p style="margin: 0;">Your message has been delivered. We will respond to you as soon as possible.</p>
-                `;
-                
-                // Hide the form and show success message
-                document.querySelector('.contact-section').style.display = 'none';
-                document.querySelector('.about-container').appendChild(successMessage);
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-                // Log the submission (for debugging)
-                console.log('Form submitted successfully:', { name, email, message });
-                console.log('Email would be sent to: contact@calculatorquote.com');
-            }, 1000);
-        });
-        
-        // Additional prevention of form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }, true);
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
     </script>
 </body>
 </html> 
