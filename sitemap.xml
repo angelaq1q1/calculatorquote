@@ -130,6 +130,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Health Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/health/</loc>
