@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free mortgage calculator Navy Federal with current mortgage rates navy federal credit union and mortgage interest rates navy federal. Calculate monthly payments, compare loan terms, and estimate total costs instantly. No registration required, 100% free tool for military members and families.">
+    <meta name="keywords" content="mortgage calculator navy federal, mortgage rates navy federal credit union, mortgage interest rates navy federal, navy federal mortgage calculator, navy federal home loan calculator, monthly payment calculator, mortgage payment estimator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html">
+    <title>Mortgage Calculator Navy Federal - Current Mortgage Rates Navy Federal Credit Union</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* 隐藏所有可能的问号图标 */
+        [title]:after,
+        [data-title]:after,
+        [data-tooltip]:after,
+        .tooltip:after,
+        .has-tooltip:after,
+        label:after,
+        label:before,
+        *:after,
+        *:before {
+            content: none !important;
+        }
+        
+        /* 专门针对标签的伪元素 */
+        label[for="down-payment"]:after,
+        label[for="down-payment"]:before,
+        label[for="loan-term"]:after,
+        label[for="loan-term"]:before,
+        label[for="interest-rate"]:after,
+        label[for="interest-rate"]:before,
+        label[for="property-taxes"]:after,
+        label[for="property-taxes"]:before,
+        label[for="home-insurance"]:after,
+        label[for="home-insurance"]:before,
+        label[for="hoa-fee"]:after,
+        label[for="hoa-fee"]:before {
+            display: none !important;
+            content: none !important;
+            visibility: hidden !important;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0;
+            padding-left: 0;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .navy-federal-badge {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .input-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-field-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-group input, .input-group select {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .input-group .unit {
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #e3f2fd;
+            border-radius: 0 5px 5px 0;
+            margin-left: -1px;
+            color: #2196F3;
+        }
+        
+        .help-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            cursor: help;
+        }
+        
+        .include-taxes {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .include-taxes input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .buttons {
+            margin-top: 20px;
+        }
+        
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        
+        .results-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        }
+        
+        .monthly-payment {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px;
+        }
+        
+        .save-icon {
+            cursor: pointer;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .results-table th, .results-table td {
+            padding: 10px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-table th:first-child, .results-table td:first-child {
+            text-align: left;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #e3f2fd;
+        }
+        
+        .chart-container {
+            margin: 20px 0;
+            height: 250px;
+        }
+        
+        .amortization-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .amortization-table th, .amortization-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .amortization-table th {
+            background-color: #2196F3;
+            color: white;
+        }
+        
+        .amortization-table tr:nth-child(even) {
+            background-color: #e3f2fd;
+        }
+        
+        .rate-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        
+        .rate-box h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .rate-box a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .rate-box a:hover {
+            color: #1976D2;
+        }
+        
+        .rate-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .rate-button:hover {
+            background-color: #1976D2;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-field-container {
+                width: 100%;
+            }
+            
+            .input-group input, .input-group select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0;">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Financial Calculators</a>
+            <span>/</span>
+            Mortgage Calculator Navy Federal
+        </div>
+            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Mortgage Calculator Navy Federal</h1>
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Looking for mortgage calculator Navy Federal? You're not alone. In fact, military members, veterans, and their families are increasingly turning to our mortgage calculator Navy Federal to estimate monthly home loan payments and compare current mortgage rates navy federal credit union and mortgage interest rates navy federal. Get instant calculations with no registration required.</p>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="home-price">Home Price</label>
+                    <div class="input-field-container">
+                        <input type="text" id="home-price" value="400,000">
+                        <div class="unit">$</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="down-payment">Down Payment</label>
+                    <div class="input-field-container">
+                        <input type="text" id="down-payment" value="20">
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="loan-term">Loan Term</label>
+                    <div class="input-field-container">
+                        <select id="loan-term">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="interest-rate">Interest Rate</label>
+                    <div class="input-field-container">
+                        <input type="text" id="interest-rate" value="6.50">
+                        <div class="unit">%</div>
+                    </div>
+                </div>
+                
+                <div class="include-taxes">
+                    <input type="checkbox" id="include-taxes" checked>
+                    <label for="include-taxes"><strong>Include Additional Costs</strong></label>
+                </div>
+                
+                <div id="taxes-section">
+                    <div class="input-group">
+                        <label>Annual Costs</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="property-taxes">Property Tax</label>
+                        <div class="input-field-container">
+                            <input type="text" id="property-taxes" value="1.2">
+                            <div class="unit">%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="home-insurance">Home Insurance</label>
+                        <div class="input-field-container">
+                            <input type="text" id="home-insurance" value="1,500">
+                            <div class="unit">$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hoa-fee">HOA Fees</label>
+                        <div class="input-field-container">
+                            <input type="text" id="hoa-fee" value="0">
+                            <div class="unit">$</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateMortgage()">Calculate</button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                </div>
+            </div>
+            
+            <div class="results-section" id="results-section" style="display: none;">
+                <div class="monthly-payment">
+                    <div>Monthly Payment: <span id="monthly-payment">$2,072.11</span></div>
+                </div>
+                
+                <table class="results-table">
+                    <tr>
+                        <th></th>
+                        <th>Monthly</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Mortgage Payment</strong></td>
+                        <td id="monthly-mortgage">$2,072.11</td>
+                        <td id="total-mortgage">$745,960.20</td>
+                    </tr>
+                    <tr>
+                        <td>Property Tax</td>
+                        <td id="monthly-tax">$400.00</td>
+                        <td id="total-tax">$144,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Home Insurance</td>
+                        <td id="monthly-insurance">$125.00</td>
+                        <td id="total-insurance">$45,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>HOA Fees</td>
+                        <td id="monthly-hoa">$0.00</td>
+                        <td id="total-hoa">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Out-of-Pocket</strong></td>
+                        <td id="monthly-total">$2,597.11</td>
+                        <td id="total-all">$934,960.20</td>
+                    </tr>
+                </table>
+                
+
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-weight: 500;">House Price</span>
+                        <span id="result-house-price">$400,000.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Loan Amount</span>
+                        <span id="result-loan-amount">$320,000.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Down Payment</span>
+                        <span id="result-down-payment">$80,000.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-weight: 500;">Total of <span id="payment-count">360</span> Payments</span>
+                        <span id="result-total-payments">$745,960.20</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-weight: 500;">Total Interest</span>
+                        <span id="result-total-interest">$425,960.20</span>
+                    </div>
+                </div>
+                
+                <h3>Amortization Schedule</h3>
+                <div style="overflow-x: auto;">
+                    <table class="amortization-table" id="amortization-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Interest</th>
+                                <th>Principal</th>
+                                <th>Ending Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="amortization-body">
+                            <!-- Will be filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rate-box">
+            <h3>Current Mortgage Rates Navy Federal Credit Union:</h3>
+            <p>30-Year Fixed: <a href="#">6.50%</a> &nbsp;&nbsp; 15-Year Fixed: <a href="#">5.75%</a> &nbsp;&nbsp; 5/1 ARM: <a href="#">5.25%</a></p>
+            </div>
+        </div>
+        
+        <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+            <p style="font-size: 1.2em; margin-bottom: 20px;">🏦 Mortgage Calculator Navy Federal – Designed for Military Members, Veterans, and Families</p>
+            <p>As one of the largest credit unions in the United States, Navy Federal provides competitive mortgage products for military members, veterans, and their families. Our mortgage calculator Navy Federal uses actual mortgage rates navy federal credit union and mortgage interest rates navy federal to help you accurately estimate your monthly payments.</p>
+            <h3 style="margin: 20px 0 10px;">💡 How Our Mortgage Calculator Navy Federal Works</h3>
+            <div style="margin-bottom: 15px;">We use the standard mortgage calculation formula:</div>
+            <div style="font-family: monospace; background: #f0f0f0; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 1.1em;">
+                M = P × [r(1+r)ⁿ] / [(1+r)ⁿ - 1]
+            </div>
+            <div style="margin-bottom: 15px;">Where:</div>
+            <div style="margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">✅ M = Monthly Payment</div>
+                <div style="margin-bottom: 10px;">✅ P = Loan Amount (Home Price - Down Payment)</div>
+                <div style="margin-bottom: 10px;">✅ r = Monthly Interest Rate (Annual Rate ÷ 12 ÷ 100)</div>
+                <div style="margin-bottom: 10px;">✅ n = Total Number of Payments (Loan Term × 12)</div>
+            </div>
+            <div style="margin-bottom: 15px;">Final Monthly Total Payment = Monthly Payment (Principal + Interest) + Property Tax + Insurance + HOA</div>
+            <div style="margin-bottom: 15px;"><strong>❓ Frequently Asked Questions About Mortgage Calculator Navy Federal</strong></div>
+            <div style="margin-bottom: 15px;"><strong>🏠 Can I include property taxes and insurance in the mortgage calculator Navy Federal?</strong><br>Absolutely! Our mortgage calculator Navy Federal allows you to include property taxes, insurance, and HOA fees for a more accurate monthly budget estimate.</div>
+            <div style="margin-bottom: 15px;"><strong>💸 How does down payment percentage affect payments in the mortgage calculator Navy Federal?</strong><br>The higher the down payment, the lower the loan amount and monthly payments. A 20% down payment typically avoids PMI when using our mortgage calculator Navy Federal.</div>
+            <div style="margin-bottom: 15px;"><strong>👨‍✈️ What are the current mortgage rates navy federal credit union?</strong><br>Current mortgage rates navy federal credit union vary by loan type and term. Our mortgage calculator Navy Federal uses the latest mortgage rates navy federal credit union to provide accurate payment estimates for military members, veterans, and their families.</div>
+            <div style="margin-bottom: 15px;"><strong>🔢 Is the mortgage calculator Navy Federal free to use?</strong><br>Yes! Our mortgage calculator Navy Federal is completely free, requires no registration, and provides instant calculations with current mortgage interest rates navy federal.</div>
+            <div style="margin-bottom: 15px;"><strong>🧠 Professional Advice for Using Mortgage Calculator Navy Federal</strong></div>
+            <p>Use our mortgage calculator Navy Federal before applying for a mortgage to ensure you understand all associated costs. Consider your long-term financial goals when choosing the most suitable loan term and compare current mortgage rates navy federal credit union and mortgage interest rates navy federal.</p>
+        </div>
+        
+
+    </div>
+    
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    
+    <script>
+        // Format numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Parse input with commas
+        function parseInput(input) {
+            return parseFloat(input.replace(/,/g, ''));
+        }
+        
+        // 移除所有可能的问号图标
+        function removeQuestionMarks() {
+            // 移除所有可能的问号元素
+            const questionMarks = document.querySelectorAll('.help-icon, .question-mark, .tooltip, .has-tooltip');
+            questionMarks.forEach(el => el.remove());
+            
+            // 移除所有标签上的特定属性
+            const labels = document.querySelectorAll('label');
+            labels.forEach(label => {
+                label.removeAttribute('data-tooltip');
+                label.removeAttribute('title');
+                label.removeAttribute('aria-describedby');
+                label.removeAttribute('data-original-title');
+            });
+        }
+        
+        
+        
+        // Calculate mortgage using the specified formula
+        function calculateMortgage() {
+            // Get input values
+            const homePrice = parseInput(document.getElementById('home-price').value);
+            const downPaymentPercent = parseFloat(document.getElementById('down-payment').value);
+            const loanTerm = parseInt(document.getElementById('loan-term').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value);
+            const propertyTaxRate = parseFloat(document.getElementById('property-taxes').value);
+            const homeInsurance = parseInput(document.getElementById('home-insurance').value);
+            const hoaFee = parseInput(document.getElementById('hoa-fee').value);
+            
+            // Calculate loan amount
+            const downPaymentAmount = homePrice * (downPaymentPercent / 100);
+            const loanAmount = homePrice - downPaymentAmount;
+            
+            // Calculate monthly rate and number of payments
+            const monthlyRate = interestRate / 100 / 12;
+            const numberOfPayments = loanTerm * 12;
+            
+            // Calculate monthly mortgage payment using the specified formula
+            // M = P × [r(1+r)ⁿ] / [(1+r)ⁿ - 1]
+            const monthlyMortgagePayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+            
+            // Calculate additional monthly costs
+            const monthlyPropertyTax = homePrice * (propertyTaxRate / 100) / 12;
+            const monthlyHomeInsurance = homeInsurance / 12;
+            const monthlyHOA = hoaFee / 12;
+            
+            // Calculate totals
+            const totalMortgagePayment = monthlyMortgagePayment * numberOfPayments;
+            const totalPropertyTax = monthlyPropertyTax * numberOfPayments;
+            const totalHomeInsurance = monthlyHomeInsurance * numberOfPayments;
+            const totalHOA = monthlyHOA * numberOfPayments;
+            
+            // Calculate final monthly total payment
+            const monthlyTotalPayment = monthlyMortgagePayment + monthlyPropertyTax + monthlyHomeInsurance + monthlyHOA;
+            const totalPayment = totalMortgagePayment + totalPropertyTax + totalHomeInsurance + totalHOA;
+            
+            const totalInterest = totalMortgagePayment - loanAmount;
+            
+            // Update results
+            document.getElementById('monthly-payment').textContent = `$${formatNumber(monthlyTotalPayment.toFixed(2))}`;
+            document.getElementById('monthly-mortgage').textContent = `$${formatNumber(monthlyMortgagePayment.toFixed(2))}`;
+            document.getElementById('total-mortgage').textContent = `$${formatNumber(totalMortgagePayment.toFixed(2))}`;
+            document.getElementById('monthly-tax').textContent = `$${formatNumber(monthlyPropertyTax.toFixed(2))}`;
+            document.getElementById('total-tax').textContent = `$${formatNumber(totalPropertyTax.toFixed(2))}`;
+            document.getElementById('monthly-insurance').textContent = `$${formatNumber(monthlyHomeInsurance.toFixed(2))}`;
+            document.getElementById('total-insurance').textContent = `$${formatNumber(totalHomeInsurance.toFixed(2))}`;
+            document.getElementById('monthly-hoa').textContent = `$${formatNumber(monthlyHOA.toFixed(2))}`;
+            document.getElementById('total-hoa').textContent = `$${formatNumber(totalHOA.toFixed(2))}`;
+            document.getElementById('monthly-total').textContent = `$${formatNumber(monthlyTotalPayment.toFixed(2))}`;
+            document.getElementById('total-all').textContent = `$${formatNumber(totalPayment.toFixed(2))}`;
+            
+            document.getElementById('result-house-price').textContent = `$${formatNumber(homePrice.toFixed(2))}`;
+            document.getElementById('result-loan-amount').textContent = `$${formatNumber(loanAmount.toFixed(2))}`;
+            document.getElementById('result-down-payment').textContent = `$${formatNumber(downPaymentAmount.toFixed(2))}`;
+            document.getElementById('payment-count').textContent = numberOfPayments;
+            document.getElementById('result-total-payments').textContent = `$${formatNumber(totalMortgagePayment.toFixed(2))}`;
+            document.getElementById('result-total-interest').textContent = `$${formatNumber(totalInterest.toFixed(2))}`;
+            
+            // Generate amortization schedule
+            generateAmortizationSchedule(loanAmount, monthlyRate, numberOfPayments, monthlyMortgagePayment);
+            
+            // Show results
+            document.getElementById('results-section').style.display = 'block';
+        }
+        
+        // Generate amortization schedule
+        function generateAmortizationSchedule(principal, monthlyRate, term, monthlyPayment) {
+            const amortizationBody = document.getElementById('amortization-body');
+            amortizationBody.innerHTML = '';
+            
+            let balance = principal;
+            
+            for (let month = 1; month <= Math.min(term, 12); month++) {
+                const interest = balance * monthlyRate;
+                const principalPaid = monthlyPayment - interest;
+                balance -= principalPaid;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${month}</td>
+                    <td>$${formatNumber(interest.toFixed(0))}</td>
+                    <td>$${formatNumber(principalPaid.toFixed(0))}</td>
+                    <td>$${formatNumber(balance.toFixed(0))}</td>
+                `;
+                amortizationBody.appendChild(row);
+            }
+            
+            // Add ellipsis row if term is longer than 12 months
+            if (term > 12) {
+                const ellipsisRow = document.createElement('tr');
+                ellipsisRow.innerHTML = '<td colspan="4" style="text-align: center;">...</td>';
+                amortizationBody.appendChild(ellipsisRow);
+            }
+        }
+        
+        // Clear all inputs
+        function clearInputs() {
+            document.getElementById('home-price').value = '';
+            document.getElementById('down-payment').value = '';
+            document.getElementById('loan-term').value = '30';
+            document.getElementById('interest-rate').value = '';
+            document.getElementById('property-taxes').value = '';
+            document.getElementById('home-insurance').value = '';
+            document.getElementById('hoa-fee').value = '';
+            document.getElementById('results-section').style.display = 'none';
+        }
+        
+        // Toggle taxes section based on checkbox
+        document.getElementById('include-taxes').addEventListener('change', function() {
+            const taxesSection = document.getElementById('taxes-section');
+            taxesSection.style.display = this.checked ? 'block' : 'none';
+        });
+        
+        // Initialize with a calculation on page load
+        window.onload = function() {
+            removeQuestionMarks(); // 移除所有问号
+            calculateMortgage();
+        };
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Mortgage Calculator Navy Federal",
+      "description": "Free mortgage calculator Navy Federal with current mortgage rates navy federal credit union and mortgage interest rates navy federal. Calculate monthly payments, compare loan terms, and estimate total costs instantly for military members and families.",
+      "url": "https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free mortgage calculator Navy Federal with current mortgage interest rates navy federal"
+      },
+      "featureList": [
+        "Mortgage payment calculation",
+        "Current mortgage interest rates navy federal",
+        "Property tax estimation",
+        "Home insurance calculation",
+        "HOA fee inclusion",
+        "Amortization schedule",
+        "No registration required"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Military members, veterans, and their families"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Navy Federal Mortgage Calculator",
+      "description": "Professional mortgage calculator Navy Federal providing current mortgage rates navy federal credit union and mortgage interest rates navy federal and accurate payment estimates for military families.",
+      "url": "https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html",
+      "serviceType": "Mortgage Calculator",
+      "areaServed": "United States",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Military members, veterans, and their families"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mortgage Calculator Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mortgage Payment Calculator",
+              "description": "Calculate monthly mortgage payments using current mortgage interest rates navy federal"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mortgage Interest Rates Navy Federal",
+              "description": "Current mortgage interest rates navy federal for various loan terms and types"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the mortgage calculator Navy Federal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mortgage calculator Navy Federal is a specialized tool designed to help military members, veterans, and their families estimate monthly home loan payments using current mortgage interest rates navy federal and competitive terms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the mortgage calculator Navy Federal free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our mortgage calculator Navy Federal is 100% free, requires no registration, and works instantly on any device with current mortgage interest rates navy federal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I include property taxes and insurance in the mortgage calculator Navy Federal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Our mortgage calculator Navy Federal allows you to enter property tax, homeowners insurance, and HOA fees to get a complete picture of your monthly housing costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the current mortgage rates navy federal credit union?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Current mortgage rates navy federal credit union vary by loan type and term, typically ranging from 5.25% to 6.50% for conventional loans. Our mortgage calculator Navy Federal uses the latest mortgage rates navy federal credit union for accurate estimates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the current mortgage interest rates navy federal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Current mortgage interest rates navy federal vary by loan type and term, typically ranging from 5.25% to 6.50% for conventional loans. Our mortgage calculator Navy Federal uses the latest mortgage interest rates navy federal for accurate estimates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the mortgage calculator Navy Federal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our mortgage calculator Navy Federal uses the standard mortgage calculation formula and current mortgage interest rates navy federal to provide highly accurate payment estimates for military members and their families."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find the best mortgage rates navy federal credit union?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our mortgage calculator Navy Federal provides current mortgage rates navy federal credit union for comparison. Military members and veterans can use this tool to estimate payments with the latest mortgage rates navy federal credit union before applying for a loan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find the best mortgage interest rates navy federal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our mortgage calculator Navy Federal provides current mortgage interest rates navy federal for comparison. Military members and veterans can use this tool to estimate payments with the latest mortgage interest rates navy federal before applying for a loan."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mortgage Calculator Navy Federal - Current Mortgage Rates Navy Federal Credit Union",
+      "description": "Free mortgage calculator Navy Federal with current mortgage rates navy federal credit union and mortgage interest rates navy federal. Calculate monthly payments, compare loan terms, and estimate total costs instantly for military members and families.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html"
+      },
+      "keywords": "mortgage calculator navy federal, mortgage rates navy federal credit union, mortgage interest rates navy federal, navy federal mortgage calculator, mortgage rates navy federal",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Mortgage Calculator"
+        },
+        {
+          "@type": "Thing",
+          "name": "Navy Federal"
+        },
+        {
+          "@type": "Thing",
+          "name": "Mortgage Interest Rates"
+        }
+      ]
+    }
+    </script>
+</body>
+</html> 
