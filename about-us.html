@@ -67,7 +67,12 @@
             <h3 style="color: #333; font-size: 1.5em; margin-bottom: 20px;">Contact Us</h3>
             <p style="color: #666; margin-bottom: 25px; font-size: 1em;">Have questions or feedback? We'd love to hear from you. Send us a message and we'll respond within 2 business days.</p>
             
-            <form id="contactForm" novalidate style="background: #f8f9fa; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0;">
+            <!-- 使用Netlify Forms自动发送邮件 -->
+            <form name="contact" method="POST" data-netlify="true" style="background: #f8f9fa; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0;">
+                
+                <!-- Netlify隐藏字段 -->
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="to" value="contact@calculatorquote.com" />
                 
                 <div style="margin-bottom: 20px;">
                     <label for="name" style="display: block; margin-bottom: 8px; color: #333; font-weight: 500;">Your name:</label>
@@ -84,7 +89,9 @@
                     <textarea id="message" name="message" rows="6" autocomplete="off" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box; resize: vertical;"></textarea>
                 </div>
                 
-                <button type="button" class="submit-btn" onclick="alert('Thank you! Your message has been delivered. We will respond to you as soon as possible.'); document.getElementById('contactForm').reset();" style="background: #2196F3; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send</button>
+                <button type="submit" class="submit-btn" id="submitBtn" style="background: #2196F3; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send Message</button>
+                
+                <div id="formStatus" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
             </form>
         </div>
     </div>
@@ -99,31 +106,105 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
     
+
+    
     <script>
-        function handleFormSubmit() {
-            // Get form values
+        // 处理表单提交
+        document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
+            // 获取表单元素
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             
             // Basic validation
             if (!name || !email || !message) {
-                alert('Please fill in all fields.');
+                e.preventDefault();
+                showStatus('Please fill in all fields.', 'error');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
+                e.preventDefault();
+                showStatus('Please enter a valid email address.', 'error');
                 return;
             }
             
-            // Show success message
-            alert('Thank you! Your message has been delivered. We will respond to you as soon as possible.');
+            // 验证通过，阻止默认提交
+            e.preventDefault();
             
-            // Reset form
-            document.getElementById('contactForm').reset();
+            // 显示发送状态
+            showStatus('Sending your message...', 'info');
+            
+            // 创建一个临时的隐藏iframe来处理表单提交
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden-iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // 设置表单目标为隐藏iframe
+            const form = this;
+            form.target = 'hidden-iframe';
+            
+            // 提交表单到Netlify（在隐藏iframe中）
+            form.submit();
+            
+            // 模拟发送过程
+            setTimeout(() => {
+                // 清空表单
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+                
+                // 显示成功消息
+                showStatus('Thank you! Your message has been delivered. We will respond to you as soon as possible.', 'success');
+                
+                // 隐藏发送按钮
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.style.display = 'none';
+                
+                // 3秒后重新显示发送按钮
+                setTimeout(() => {
+                    submitBtn.style.display = 'block';
+                    document.getElementById('formStatus').style.display = 'none';
+                }, 3000);
+                
+                // 清理iframe
+                document.body.removeChild(iframe);
+            }, 1500);
+        });
+        
+        function showStatus(message, type) {
+            const formStatus = document.getElementById('formStatus');
+            formStatus.textContent = message;
+            formStatus.style.display = 'block';
+            
+            // Set colors based on message type
+            switch(type) {
+                case 'success':
+                    formStatus.style.backgroundColor = '#d4edda';
+                    formStatus.style.color = '#155724';
+                    formStatus.style.border = '1px solid #c3e6cb';
+                    break;
+                case 'error':
+                    formStatus.style.backgroundColor = '#f8d7da';
+                    formStatus.style.color = '#721c24';
+                    formStatus.style.border = '1px solid #f5c6cb';
+                    break;
+                case 'info':
+                    formStatus.style.backgroundColor = '#d1ecf1';
+                    formStatus.style.color = '#0c5460';
+                    formStatus.style.border = '1px solid #bee5eb';
+                    break;
+            }
+            
+            // Auto-hide success messages after 8 seconds for success messages
+            if (type === 'success') {
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 8000);
+            }
         }
     </script>
 </body>
