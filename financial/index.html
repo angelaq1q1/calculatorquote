@@ -66,6 +66,7 @@
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
         }
 
         .calculator-card:hover {
@@ -76,6 +77,8 @@
         .calculator-card a {
             text-decoration: none;
             color: inherit;
+            text-align: left;
+            display: block;
         }
 
         .calculator-card h2 {
@@ -83,9 +86,13 @@
             font-size: 1.3em;
             margin: 0 0 10px 0;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: wrap;
             justify-content: flex-start;
+            text-align: left;
+            width: 100%;
+            padding-left: 0;
+            margin-left: 0;
         }
 
         .calculator-card .material-icons {
@@ -122,6 +129,12 @@
         <div class="subtitle">Tools to help you make informed financial decisions</div>
 
         <div class="calculator-grid">
+            <div class="calculator-card">
+                <a href="army-retirement-calculator.html">
+                    <h2><span class="material-icons">&#xE3B3;</span>Army Retirement Calculator</h2>
+                    <p>Calculate your Army retirement benefits, estimate pension amounts, and plan your post-service financial future</p>
+                </a>
+            </div>
             <div class="calculator-card">
                 <a href="401k-calculator.html">
                     <h2><span class="material-icons">savings</span>401k Retirement Calculator</h2>
