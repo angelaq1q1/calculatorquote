@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portable Toilet Rentals Cost Calculator | How Much to Rent Portable Toilets</title>
+    <meta name="description" content="Calculate portable toilet rentals cost for events, weddings, and construction. Find out how much are portable toilet rentals and get accurate estimates for luxury portable toilet rentals near you.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Portable Toilet Rentals Cost Calculator",
+      "description": "Calculate portable toilet rentals cost for events, weddings, and construction. Find out how much are portable toilet rentals and get accurate estimates for luxury portable toilet rentals near you.",
+      "url": "https://www.calculatorquote.com/other/portable-toilet-rentals-cost.html",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Portable Toilet Rentals Cost Calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/other/portable-toilet-rentals-cost.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Other Calculators",
+            "item": "https://www.calculatorquote.com/other/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Portable Toilet Rentals Cost Calculator",
+            "item": "https://www.calculatorquote.com/other/portable-toilet-rentals-cost.html"
+          }
+        ]
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .calc-type-btn {
+            padding: 12px 20px;
+            border: 2px solid #2196F3;
+            background: white;
+            color: #2196F3;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .calc-type-btn.active {
+            background: #2196F3;
+            color: white;
+        }
+        .calc-type-btn:hover {
+            background: #2196F3;
+            color: white;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .toggle-group label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 500px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Portable Toilet Rentals Cost Calculator
+        </div>
+        
+        <h1>Portable Toilet Rentals Cost Calculator</h1>
+        <div class="description">
+            Find out how much to rent a portable toilet for a day, week, or month. Our portable toilet rentals cost calculator helps you estimate expenses for events, weddings, and construction sites. Get accurate pricing for luxury portable toilet rentals and standard units.
+        </div>
+
+        <div class="calculator-type-selector">
+            <button class="calc-type-btn active" onclick="switchCalculator('event')">Event Calculator</button>
+            <button class="calc-type-btn" onclick="switchCalculator('construction')">Construction Site Calculator</button>
+        </div>
+
+        <!-- Event Calculator -->
+        <div id="event-calculator" class="input-section">
+            <h3 style="color: #333; margin-bottom: 20px;">Event Portable Restroom Calculator</h3>
+            <div class="input-group">
+                <label for="event-attendees">Number of Event Attendees:</label>
+                <input type="number" id="event-attendees" min="1" placeholder="e.g. 500" required>
+            </div>
+            <div class="input-group">
+                <label for="event-staff">Number of Event Staff/Volunteers:</label>
+                <input type="number" id="event-staff" min="0" placeholder="e.g. 50">
+            </div>
+            <div class="input-group">
+                <label for="event-hours">Hours of the Event:</label>
+                <input type="number" id="event-hours" min="1" placeholder="e.g. 8">
+            </div>
+            <div class="input-group">
+                <label for="event-days">Number of Days:</label>
+                <input type="number" id="event-days" min="1" value="1">
+            </div>
+            <div class="toggle-group">
+                <label for="crew-before-after">Crew on site before/after event?</label>
+                <input type="checkbox" id="crew-before-after">
+            </div>
+            <div class="toggle-group">
+                <label for="cleaning-during">Cleaning during event?</label>
+                <input type="checkbox" id="cleaning-during">
+            </div>
+            <div class="toggle-group">
+                <label for="ada-compliant">Need ADA compliant restrooms?</label>
+                <input type="checkbox" id="ada-compliant">
+            </div>
+            <div class="toggle-group">
+                <label for="hand-washing">Need hand washing stations?</label>
+                <input type="checkbox" id="hand-washing" checked>
+            </div>
+            <div class="toggle-group">
+                <label for="hot-water">Hot water required for hand washing?</label>
+                <input type="checkbox" id="hot-water">
+            </div>
+        </div>
+
+        <!-- Construction Calculator -->
+        <div id="construction-calculator" class="input-section hidden">
+            <h3 style="color: #333; margin-bottom: 20px;">Construction Site Portable Restroom Calculator</h3>
+            <div class="input-group">
+                <label for="construction-workers">Number of Workers on Site:</label>
+                <input type="number" id="construction-workers" min="1" placeholder="e.g. 25" required>
+            </div>
+            <div class="toggle-group">
+                <label for="different-shifts">Different shifts throughout the day?</label>
+                <input type="checkbox" id="different-shifts">
+            </div>
+            <div class="input-group">
+                <label for="hours-per-week">Hours per week on site:</label>
+                <input type="number" id="hours-per-week" min="1" max="168" value="40">
+            </div>
+            <div class="toggle-group">
+                <label for="separate-areas">Workers in areas 200+ yards apart?</label>
+                <input type="checkbox" id="separate-areas">
+            </div>
+            <div class="toggle-group">
+                <label for="multiple-service">Multiple service visits for cleaning?</label>
+                <input type="checkbox" id="multiple-service">
+            </div>
+            <div class="toggle-group">
+                <label for="separate-women">Separate portable toilet for women?</label>
+                <input type="checkbox" id="separate-women">
+            </div>
+            <div class="toggle-group">
+                <label for="hand-washing-required">Hand washing required by local codes?</label>
+                <input type="checkbox" id="hand-washing-required" checked>
+            </div>
+        </div>
+
+        <button class="btn-calculate" onclick="calculateToilets()">Calculate Portable Toilet Needs</button>
+        <div class="result" id="result"></div>
+        <div class="breakdown" id="breakdown" style="display:none;"></div>
+        <div class="note">* This is an estimated range. Actual needs may vary. For best results, consult with portable toilet rental experts.</div>
+
+        <div class="advice">
+            <b>Portable Toilet Rentals for Weddings & Events</b><br><br>
+            When planning an event that will require portable toilet rentals, it is extremely important to get the number of portable toilets needed right. Not having enough portable toilets can result in long lines and unsanitary conditions which negatively impacts your event in several ways. For luxury portable toilet rentals for weddings, consider premium units with better amenities. Some of the key elements in determining how many porta potties to rent for an event are:
+            <br><br>
+            • Number of event attendees<br>
+            • Number of event staff, volunteers, etc that will be on site<br>
+            • Hours of the event<br>
+            • Will there be crew on site on the days before and after your event?<br>
+            • Number of days the event will last?<br>
+            • Will you want your portable toilets cleaned during the event?<br>
+            • How much space is available for your portable toilet rentals?<br>
+            • Do you need to provide ADA compliant restrooms for guests?<br>
+            • You will likely want to provide hand washing stations, especially if food is being served at your event. Do these hand washing stations need to have hot water per local codes?
+        </div>
+
+        <div class="advice">
+            <b>Construction Site Portable Restroom Calculator Factors</b><br><br>
+            Deciding how many portable toilets you need for a construction site in your area can depend on several aspects but unlike events, you have the ability to let your portable toilet count evolve over the project's lifetime. Consider this - a large high rise construction project or residential development site may only start out with one portable toilet on site next to the office trailer of the project foreman but then evolve to have over 50 porta potties by the peak of the project and then only 1 again at the end at it wraps up. It is important to make sure you have enough porta potty rentals to meet OSHA requirements, local or state rules regarding construction sites and ample portable toilet rental for good morale and job site efficiency, which is often times overlooked. Here are the common items to consider when calculating how many portable toilets are needed for your project:
+            <br><br>
+            • How many people will be on site?<br>
+            • Are there different shifts throughout the day?<br>
+            • How many hours per week will people be on site?<br>
+            • Will people be congregated in different areas that are more than 200 yards apart?<br>
+            • Will you want to have multiple service visits to clean your restrooms?<br>
+            • Do you want to provide a separate portable toilet for women on your site?<br>
+            • Is hand washing required in the city where your project is? Regardless this should be considered for the overall health of workers on site.
+        </div>
+
+        <div class="advice">
+            <b>How Much Are Portable Toilet Rentals? Pricing Guide</b><br><br>
+            Estimating the required quantity of portable toilets is not an exact science, but understanding portable toilet rentals cost is crucial for budgeting. Events, especially large festivals and sporting events, often present unique portable toilet rental and servicing needs. Similarly, large-scale construction sites involve multiple project phases and distinct requirements to meet project timelines and safety guidelines. To address these challenges, we recommend consulting with portable toilet rental experts near you.
+            <br><br>
+            Our experienced professionals will guide you in determining the necessary quantity of portable toilets and the most suitable type for your event or job. They will also assist you in securing the delivery you need for a successful and hassle-free experience. Whether you need to rent a portable toilet for a day or longer periods, getting accurate quotes from local providers is essential.
+        </div>
+
+        <div class="advice">
+            <b>FAQ: Portable Toilet Rentals Cost & Pricing</b><br><br>
+            <b>❓How much is a portable toilet to rent?</b><br>
+            Portable toilet rental costs vary by location, duration, and type. Basic units typically cost $75-$150 per day, while luxury portable toilet rentals can range from $200-$500 per day. Weekly and monthly rentals offer better rates.<br><br>
+            <b>❓How much to rent a portable toilet for a day?</b><br>
+            Daily portable toilet rental rates range from $75-$500 depending on the unit type. Standard units cost $75-$150, premium units $150-$300, and luxury trailers $300-$500 per day.<br><br>
+            <b>❓What affects portable toilet rentals cost?</b><br>
+            Factors include unit type (basic vs. luxury), rental duration, delivery distance, cleaning frequency, and local market rates. Longer rentals typically offer better daily rates.<br><br>
+            <b>❓Are portable toilet rentals near me more expensive?</b><br>
+            Local portable toilet rentals near you may have delivery fees, but they often provide better service and faster response times. Compare local vs. distant providers for the best value.<br><br>
+            <b>❓Why choose luxury portable toilet rentals for weddings?</b><br>
+            Luxury portable toilet rentals for weddings provide better aesthetics, amenities like air conditioning, and enhanced guest comfort. They're essential for upscale outdoor events and can cost $200-$500 per day.<br><br>
+            <b>❓How do I find the best portable toilet rentals near me?</b><br>
+            Search for "portable toilet rentals near me" online, read reviews, compare quotes from multiple providers, and ask about delivery, setup, and cleaning services included in the price.
+        </div>
+    </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        let currentCalculator = 'event';
+
+        function switchCalculator(type) {
+            currentCalculator = type;
+            
+            // Update button styles
+            document.querySelectorAll('.calc-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show/hide calculator sections
+            if (type === 'event') {
+                document.getElementById('event-calculator').classList.remove('hidden');
+                document.getElementById('construction-calculator').classList.add('hidden');
+            } else {
+                document.getElementById('event-calculator').classList.add('hidden');
+                document.getElementById('construction-calculator').classList.remove('hidden');
+            }
+            
+            // Clear results
+            document.getElementById('result').textContent = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
+
+        function calculateToilets() {
+            let result, breakdown;
+            
+            if (currentCalculator === 'event') {
+                result = calculateEventToilets();
+            } else {
+                result = calculateConstructionToilets();
+            }
+            
+            // Display results
+            document.getElementById('result').textContent = result.message;
+            document.getElementById('result').style.color = '#28a745';
+            
+            document.getElementById('breakdown').innerHTML = result.breakdown;
+            document.getElementById('breakdown').style.display = 'block';
+        }
+
+        function calculateEventToilets() {
+            const attendees = parseInt(document.getElementById('event-attendees').value) || 0;
+            const staff = parseInt(document.getElementById('event-staff').value) || 0;
+            const hours = parseInt(document.getElementById('event-hours').value) || 0;
+            const days = parseInt(document.getElementById('event-days').value) || 1;
+            const crewBeforeAfter = document.getElementById('crew-before-after').checked;
+            const cleaningDuring = document.getElementById('cleaning-during').checked;
+            const adaCompliant = document.getElementById('ada-compliant').checked;
+            const handWashing = document.getElementById('hand-washing').checked;
+            const hotWater = document.getElementById('hot-water').checked;
+            
+            if (attendees === 0 || hours === 0) {
+                return {
+                    message: 'Please enter valid number of attendees and event hours.',
+                    breakdown: ''
+                };
+            }
+            
+            const totalPeople = attendees + staff;
+            
+            // Base calculation: 1 toilet per 100 people for first 4 hours, additional for longer events
+            let baseToilets = Math.ceil(totalPeople / 100);
+            
+            // Adjust for event duration
+            if (hours > 4) {
+                baseToilets = Math.ceil(baseToilets * (1 + (hours - 4) * 0.1));
+            }
+            
+            // Adjust for multi-day events
+            if (days > 1) {
+                baseToilets = Math.ceil(baseToilets * 1.2);
+            }
+            
+            // Additional toilets for crew before/after
+            if (crewBeforeAfter) {
+                baseToilets += 1;
+            }
+            
+            // ADA compliance
+            let adaToilets = 0;
+            if (adaCompliant) {
+                adaToilets = Math.ceil(baseToilets * 0.1); // 10% should be ADA compliant
+            }
+            
+            // Hand washing stations
+            let handWashingStations = 0;
+            if (handWashing) {
+                handWashingStations = Math.ceil(baseToilets * 0.5); // 1 station per 2 toilets
+            }
+            
+            const totalToilets = baseToilets + adaToilets;
+            
+            let breakdown = `<b>Total People:</b> ${totalPeople.toLocaleString()}<br>`;
+            breakdown += `<b>Base Portable Toilets:</b> ${baseToilets}<br>`;
+            if (adaToilets > 0) breakdown += `<b>ADA Compliant Toilets:</b> ${adaToilets}<br>`;
+            breakdown += `<b>Total Toilets Needed:</b> ${totalToilets}<br>`;
+            if (handWashingStations > 0) breakdown += `<b>Hand Washing Stations:</b> ${handWashingStations}<br>`;
+            breakdown += `<b>Event Duration:</b> ${hours} hours over ${days} day(s)<br>`;
+            breakdown += `<b>Recommendation:</b> Consider ${Math.ceil(totalToilets * 1.1)} toilets for comfort and backup`;
+            
+            return {
+                message: `You need approximately ${totalToilets} portable toilets for your event.`,
+                breakdown: breakdown
+            };
+        }
+
+        function calculateConstructionToilets() {
+            const workers = parseInt(document.getElementById('construction-workers').value) || 0;
+            const differentShifts = document.getElementById('different-shifts').checked;
+            const hoursPerWeek = parseInt(document.getElementById('hours-per-week').value) || 40;
+            const separateAreas = document.getElementById('separate-areas').checked;
+            const multipleService = document.getElementById('multiple-service').checked;
+            const separateWomen = document.getElementById('separate-women').checked;
+            const handWashingRequired = document.getElementById('hand-washing-required').checked;
+            
+            if (workers === 0) {
+                return {
+                    message: 'Please enter valid number of workers.',
+                    breakdown: ''
+                };
+            }
+            
+            // Base calculation: OSHA recommends 1 toilet per 20 workers
+            let baseToilets = Math.ceil(workers / 20);
+            
+            // Adjust for different shifts
+            if (differentShifts) {
+                baseToilets = Math.ceil(baseToilets * 0.8); // Fewer toilets needed as not all workers are on site simultaneously
+            }
+            
+            // Adjust for long hours
+            if (hoursPerWeek > 40) {
+                baseToilets = Math.ceil(baseToilets * 1.2);
+            }
+            
+            // Separate areas
+            if (separateAreas) {
+                baseToilets += Math.ceil(workers / 40); // Additional toilets for separate work areas
+            }
+            
+            // Separate women's toilet
+            let womenToilets = 0;
+            if (separateWomen) {
+                womenToilets = Math.ceil(workers * 0.3 / 20); // Assuming 30% women, 1 per 20
+            }
+            
+            // Hand washing
+            let handWashingStations = 0;
+            if (handWashingRequired) {
+                handWashingStations = Math.ceil(baseToilets * 0.5);
+            }
+            
+            const totalToilets = baseToilets + womenToilets;
+            
+            let breakdown = `<b>Total Workers:</b> ${workers.toLocaleString()}<br>`;
+            breakdown += `<b>Base Portable Toilets:</b> ${baseToilets}<br>`;
+            if (womenToilets > 0) breakdown += `<b>Separate Women's Toilets:</b> ${womenToilets}<br>`;
+            breakdown += `<b>Total Toilets Needed:</b> ${totalToilets}<br>`;
+            if (handWashingStations > 0) breakdown += `<b>Hand Washing Stations:</b> ${handWashingStations}<br>`;
+            breakdown += `<b>Hours per Week:</b> ${hoursPerWeek}<br>`;
+            breakdown += `<b>OSHA Compliance:</b> ✓ Meets minimum requirements<br>`;
+            breakdown += `<b>Recommendation:</b> Consider ${Math.ceil(totalToilets * 1.15)} toilets for optimal worker comfort`;
+            
+            return {
+                message: `You need approximately ${totalToilets} portable toilets for your construction site.`,
+                breakdown: breakdown
+            };
+        }
+    </script>
+</body>
+</html>
