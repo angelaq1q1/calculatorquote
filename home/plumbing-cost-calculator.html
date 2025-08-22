@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumbing Cost Calculator 2025 - How Much Does Plumbing Cost? Free Estimator</title>
+    <meta name="description" content="Calculate plumbing cost per hour and total project costs. Free plumbing cost calculator for CPVC, uPVC, and combination systems. Get wholesale plumbing supply estimates for bathrooms and kitchens.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Plumbing Cost Calculator - How Much Does Plumbing Cost?",
+      "url": "https://www.calculatorquote.com/home/plumbing-cost-calculator.html",
+      "description": "Free plumbing cost calculator for estimating CPVC, uPVC, and combination plumbing system costs. Calculate plumbing cost per hour, wholesale plumbing supply costs, and total project expenses based on number of bathrooms and kitchens.",
+      "inLanguage": "en",
+      "datePublished": "2025-01-27",
+      "dateModified": "2025-01-27",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Home Improvement",
+            "item": "https://www.calculatorquote.com/home/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Plumbing Cost Calculator",
+            "item": "https://www.calculatorquote.com/home/plumbing-cost-calculator.html"
+          }
+        ]
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        .savings-highlight {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .results-section {
+            margin-top: 20px;
+            display: none;
+        }
+        .results-section.show {
+            display: block;
+        }
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+        .cost-item .label {
+            font-weight: 500;
+            color: #555;
+        }
+        .cost-item .value {
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 1.1em;
+        }
+        .total-cost {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .total-cost .label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .total-cost .value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .faq-section {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            padding: 22px 28px 18px 28px;
+        }
+        .faq-section h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Plumbing Cost Calculator
+        </div>
+        
+        <h1>Plumbing Cost Calculator: How Much Does Plumbing Cost? Free Estimator</h1>
+        <div class="description">
+            Wondering how much does plumbing cost for your project? Our Plumbing Cost Calculator helps you calculate plumbing cost per hour and total project expenses for CPVC, uPVC, or combination plumbing systems. Whether you need wholesale plumbing supply estimates for new construction or renovation projects, get accurate cost breakdowns including materials, fittings, and installation labor. Perfect for homeowners planning bathroom and kitchen plumbing projects or contractors estimating wholesale plumbing supply costs.
+        </div>
+
+        <div class="input-section">
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="bathrooms">No. of Bathrooms *</label>
+                        <input type="number" id="bathrooms" placeholder="Enter Number" min="0" max="20">
+                    </div>
+                    <div class="input-group">
+                        <label for="plumbingType">Select Internal Plumbing *</label>
+                        <select id="plumbingType">
+                            <option value="">Select Type</option>
+                            <option value="cpvc">CPVC</option>
+                            <option value="upvc">uPVC</option>
+                            <option value="combination">Combination</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="kitchens">No. of Kitchens *</label>
+                        <input type="number" id="kitchens" placeholder="Enter Number" min="0" max="10">
+                    </div>
+                    <div class="input-group">
+                        <label for="projectType">Project Type</label>
+                        <select id="projectType">
+                            <option value="new">New Construction</option>
+                            <option value="renovation">Renovation</option>
+                            <option value="repair">Repair/Replacement</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-calculate" onclick="calculatePlumbingCost()">Calculate Plumbing Costs</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results-section" id="resultsSection">
+            <div class="cost-breakdown">
+                <div class="cost-item">
+                    <span class="label">Bathroom Plumbing Cost:</span>
+                    <span class="value" id="bathroomCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Kitchen Plumbing Cost:</span>
+                    <span class="value" id="kitchenCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Pipe & Fitting Cost:</span>
+                    <span class="value" id="pipeCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Installation Labor:</span>
+                    <span class="value" id="laborCost">$0</span>
+                </div>
+            </div>
+
+            <div class="total-cost">
+                <div class="label">Total Estimated Cost</div>
+                <div class="value" id="totalCost">$0</div>
+            </div>
+        </div>
+
+        <div class="advice">
+            <h4>Important Notes:</h4>
+            <ul>
+                <li>The above estimation is for a typical bathroom and kitchen setup.</li>
+                <li>These estimates are at MRP value and are only indicative. Please contact professional plumbers for exact costing based on your specific requirements.</li>
+                <li>Costs include basic materials (pipes, fittings, fixtures) and standard installation labor.</li>
+                <li>Prices may vary based on location, quality of materials, and specific project requirements.</li>
+                <li>For complex projects or custom requirements, we recommend getting multiple quotes from licensed plumbers.</li>
+                <li>This calculator provides estimates for standard plumbing installations. Additional costs may apply for special requirements.</li>
+            </ul>
+        </div>
+
+        <div class="faq-section">
+            <h4 style="color: #1976D2; margin-top: 30px; margin-bottom: 15px;">Frequently Asked Questions About Plumbing Costs</h4>
+            
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How much does plumbing cost per hour?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0;">A: Plumbing cost per hour typically ranges from $45 to $150, depending on the plumber's experience, location, and project complexity. Our calculator includes labor costs based on standard installation times for bathroom and kitchen plumbing systems.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What affects wholesale plumbing supply costs?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0;">A: Wholesale plumbing supply costs are influenced by material type (CPVC vs uPVC), quantity needed, supplier location, and current market prices. Our calculator provides estimates based on typical wholesale rates for residential projects.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How do I calculate plumbing cost for multiple bathrooms?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0;">A: Use our calculator by entering the number of bathrooms and kitchens. The system automatically calculates costs for each unit, including pipe and fitting costs, and provides a comprehensive breakdown of your total plumbing project expenses.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What's included in the plumbing cost estimate?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0;">A: Our estimates include basic materials (pipes, fittings, fixtures), installation labor, and standard pipe and fitting costs. The calculator accounts for different plumbing types (CPVC, uPVC, or combination) and provides realistic wholesale plumbing supply cost estimates.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How accurate are these plumbing cost estimates?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0;">A: These are indicative estimates based on standard installations and typical wholesale plumbing supply costs. Actual costs may vary based on your specific requirements, location, and material quality. We recommend getting professional quotes for precise pricing.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function calculatePlumbingCost() {
+            // Get input values
+            const bathrooms = parseInt(document.getElementById('bathrooms').value) || 0;
+            const kitchens = parseInt(document.getElementById('kitchens').value) || 0;
+            const plumbingType = document.getElementById('plumbingType').value;
+
+            // Validate inputs
+            if (bathrooms === 0 && kitchens === 0) {
+                showError('Please enter at least one bathroom or kitchen.');
+                return;
+            }
+
+            if (!plumbingType) {
+                showError('Please select a plumbing type.');
+                return;
+            }
+
+            // Hide error message
+            hideError();
+
+            // Base costs per unit (in USD) - Based on Ashirvad calculator logic
+            const baseCosts = {
+                cpvc: {
+                    bathroom: 450,  // Reduced from 1200 to more realistic 450
+                    kitchen: 300,   // Reduced from 800 to more realistic 300
+                    pipeMultiplier: 1.15
+                },
+                upvc: {
+                    bathroom: 350,  // Reduced from 900 to more realistic 350
+                    kitchen: 250,   // Reduced from 600 to more realistic 250
+                    pipeMultiplier: 1.0
+                },
+                combination: {
+                    bathroom: 400,  // Reduced from 1050 to more realistic 400
+                    kitchen: 275,   // Reduced from 700 to more realistic 275
+                    pipeMultiplier: 1.08
+                }
+            };
+
+            const selectedType = baseCosts[plumbingType];
+
+            // Calculate costs - Simplified logic similar to Ashirvad
+            const bathroomCost = bathrooms * selectedType.bathroom;
+            const kitchenCost = kitchens * selectedType.kitchen;
+            
+            // Pipe and fitting cost is typically 25-30% of basic plumbing cost
+            const pipeCost = (bathroomCost + kitchenCost) * 0.28 * selectedType.pipeMultiplier;
+            
+            // Labor cost is typically 35-40% of basic plumbing cost
+            const laborCost = (bathroomCost + kitchenCost) * 0.35;
+
+            const totalCost = bathroomCost + kitchenCost + pipeCost + laborCost;
+
+            // Update display
+            document.getElementById('bathroomCost').textContent = formatCurrency(bathroomCost);
+            document.getElementById('kitchenCost').textContent = formatCurrency(kitchenCost);
+            document.getElementById('pipeCost').textContent = formatCurrency(pipeCost);
+            document.getElementById('laborCost').textContent = formatCurrency(laborCost);
+            document.getElementById('totalCost').textContent = formatCurrency(totalCost);
+
+            // Show results
+            document.getElementById('resultsSection').classList.add('show');
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+
+        function hideError() {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.classList.remove('show');
+        }
+
+        // Add input validation
+        document.getElementById('bathrooms').addEventListener('input', function() {
+            const value = parseInt(this.value);
+            if (value < 0) this.value = 0;
+            if (value > 20) this.value = 20;
+        });
+
+        document.getElementById('kitchens').addEventListener('input', function() {
+            const value = parseInt(this.value);
+            if (value < 0) this.value = 0;
+            if (value > 10) this.value = 10;
+        });
+
+        // Enter key support
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculatePlumbingCost();
+            }
+        });
+    </script>
+</body>
+</html>
