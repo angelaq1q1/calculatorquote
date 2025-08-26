@@ -1,0 +1,512 @@
+<!--
+Home Security Systems Cost Calculator Logic:
+
+1. Equipment Costs:
+   - Door/Window Sensors: $25 each
+   - Security Cameras: $150 each
+   - Smoke/CO Detectors: $50 each
+   - Doorbell Cameras: $200 each
+   - Smart Locks: $250 each
+
+2. Installation Costs:
+   - DIY: $0
+   - Professional: $75/hour × estimated hours
+
+3. Service Plans:
+   - Basic Monitoring: $25/month
+   - Standard Monitoring: $35/month
+   - Premium Monitoring: $50/month
+   - Additional Services: $10/month each
+
+4. Total Cost Calculation:
+   - First Year Total = Equipment + Installation + (Monthly Service × 12)
+   - Long-term Total = Equipment + Installation + (Monthly Service × Years)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Security Systems Cost Calculator | Best Home Security System Pricing</title>
+    <meta name="description" content="Calculate home security systems cost with our comprehensive calculator. Find the best home security system pricing for wireless cameras, professional monitoring, and complete home security solutions.">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Home Security Systems Cost Calculator",
+        "url": "https://www.calculatorquote.com/home/home-security-systems-cost-calculator.html",
+        "description": "Home Security Systems Cost Calculator for homeowners and security professionals to calculate equipment costs, installation fees, and monthly monitoring expenses. Solve pricing uncertainty and budget planning challenges with accurate cost estimates for wireless cameras, sensors, and professional security services."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What home security system is best?",
+            "text": "What home security system is best?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best home security system depends on your specific needs. For most homeowners, a combination of wireless sensors, security cameras, and professional monitoring offers the best protection. Top-rated systems include ADT, SimpliSafe, and Ring, with features like cellular backup, mobile app control, and 24/7 monitoring being essential for comprehensive home security."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who invented home security systems?",
+            "text": "Who invented home security systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The first home security system was invented by Edwin Holmes in 1853. He created a simple burglar alarm system that used electromagnetic contacts on doors and windows, connected to a central alarm bell. The system was initially installed in his own home in Boston, Massachusetts, and later became the foundation for modern home security technology."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much do home security systems cost?",
+            "text": "How much do home security systems cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Home security systems cost typically ranges from $200–$3,000 for equipment and installation, plus $20–$60 per month for professional monitoring. Basic systems start around $300, while advanced systems with wireless cameras and smart features can exceed $2,500. The average comprehensive home security system costs $600–$1,200 upfront with monthly monitoring fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which home security is the best?",
+            "text": "Which home security is the best?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best home security system varies by individual needs. ADT offers the most comprehensive professional monitoring, SimpliSafe provides excellent DIY installation with no contracts, and Ring offers affordable smart home integration. Consider factors like installation preferences, monitoring needs, smart home compatibility, and budget when choosing the best home security system for your home."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are wireless home security cameras worth it?",
+            "text": "Are wireless home security cameras worth it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wireless home security cameras are definitely worth the investment for most homeowners. They offer easy installation, remote monitoring capabilities, and often include features like motion detection, night vision, and mobile app access. While they cost slightly more than wired options ($180 vs $150), the flexibility and convenience they provide make them an excellent choice for modern home security systems."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I look for in a home security system?",
+            "text": "What should I look for in a home security system?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When choosing a home security system, look for wireless cameras with high-resolution video, professional monitoring services, cellular backup for power outages, mobile app control, and integration with other smart home devices. The best home security systems offer a combination of reliable equipment, comprehensive monitoring, and user-friendly technology that grows with your needs."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group select,
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .input-group input[type="number"] {
+            width: 100%;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .toggle-group label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 500px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .monthly-cost {
+            margin: 12px auto 0 auto;
+            max-width: 500px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #1976d2;
+            font-size: 1em;
+            border-left: 4px solid #2196f3;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .tip {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Home Security Systems Cost Calculator
+        </div>
+        <h1>Home Security Systems Cost Calculator</h1>
+        <div class="description">
+            Home Security Systems Cost Calculator for homeowners and security professionals to calculate equipment costs, installation fees, and monthly monitoring expenses. Solve pricing uncertainty and budget planning challenges with accurate cost estimates for wireless cameras, sensors, and professional security services.
+        </div>
+        <div class="input-section">
+            <div class="section-title">1. Home Size & Layout</div>
+            <div class="input-group">
+                <label for="home-size">Home Size (sq ft):</label>
+                <input type="number" id="home-size" min="500" max="10000" placeholder="Enter home size in square feet" required>
+            </div>
+            <div class="input-group">
+                <label for="bedrooms">Number of Bedrooms:</label>
+                <input type="number" id="bedrooms" min="1" max="10" placeholder="Enter number of bedrooms" required>
+            </div>
+            <div class="input-group">
+                <label for="living-areas">Living Areas (Living Room, Kitchen, etc.):</label>
+                <input type="number" id="living-areas" min="1" max="10" placeholder="Enter number of living areas" required>
+            </div>
+
+            <div class="section-title">2. Equipment Requirements</div>
+            <div class="input-group">
+                <label for="door-sensors">Door/Window Sensors:</label>
+                <input type="number" id="door-sensors" min="0" max="50" placeholder="Enter number of sensors needed" value="4">
+            </div>
+            <div class="input-group">
+                <label for="cameras">Security Cameras:</label>
+                <input type="number" id="cameras" min="0" max="20" placeholder="Enter number of cameras needed" value="2">
+            </div>
+            <div class="input-group">
+                <label for="smoke-detectors">Smoke/CO Detectors:</label>
+                <input type="number" id="smoke-detectors" min="0" max="20" placeholder="Enter number of detectors needed" value="3">
+            </div>
+            <div class="input-group">
+                <label for="doorbell-cameras">Doorbell Cameras:</label>
+                <input type="number" id="doorbell-cameras" min="0" max="5" placeholder="Enter number of doorbell cameras" value="1">
+            </div>
+            <div class="input-group">
+                <label for="smart-locks">Smart Locks:</label>
+                <input type="number" id="smart-locks" min="0" max="10" placeholder="Enter number of smart locks needed" value="2">
+            </div>
+
+            <div class="section-title">3. Installation Method</div>
+            <div class="input-group">
+                <label for="installation-type">Installation Type:</label>
+                <select id="installation-type">
+                    <option value="DIY">DIY Installation (Free)</option>
+                    <option value="Professional">Professional Installation</option>
+                </select>
+            </div>
+            <div class="input-group" id="install-hours-group" style="display:none;">
+                <label for="install-hours">Estimated Installation Hours:</label>
+                <input type="number" id="install-hours" min="2" max="20" placeholder="Enter estimated hours" value="8">
+            </div>
+
+            <div class="section-title">4. Service Plan</div>
+            <div class="input-group">
+                <label for="monitoring-plan">Monitoring Plan:</label>
+                <select id="monitoring-plan">
+                    <option value="Basic">Basic Monitoring ($25/month)</option>
+                    <option value="Standard">Standard Monitoring ($35/month)</option>
+                    <option value="Premium">Premium Monitoring ($50/month)</option>
+                </select>
+            </div>
+            <div class="toggle-group">
+                <label for="remote-access">Remote Access & App Control?</label>
+                <input type="checkbox" id="remote-access" checked>
+                <label for="cellular-backup">Cellular Backup?</label>
+                <input type="checkbox" id="cellular-backup">
+            </div>
+            <div class="input-group">
+                <label for="contract-years">Contract Length (Years):</label>
+                <input type="number" id="contract-years" min="1" max="5" placeholder="Enter contract length" value="3">
+            </div>
+
+            <button class="btn-calculate" onclick="calculateSecurityCost()">Calculate Total Cost</button>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="monthly-cost" id="monthly-cost" style="display:none;"></div>
+            <div class="note" style="text-align:left;">* This is an estimated range. Actual costs may vary by region, provider, and specific equipment. Professional quotes recommended for accurate pricing.</div>
+        </div>
+        <div class="tip">
+            <b>Tip:</b> Home security systems are an investment in your family's safety. Consider both upfront costs and monthly monitoring fees when budgeting. Many insurance companies offer discounts for homes with the best home security systems, and wireless cameras can significantly enhance your home security coverage.
+        </div>
+
+        <div class="user-guide-faq" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-size:1.08em;color:#333;line-height:1.7;">
+            <div style="font-size:1.18em;font-weight:600;color:#222;margin-bottom:10px;">Why Use Our Home Security Systems Cost Calculator?</div>
+            <div style="margin-bottom:18px;">
+                Investing in the best home security system is one of the most important decisions for protecting your family and property. With home security systems cost ranging from a few hundred to several thousand dollars, understanding pricing helps you make informed decisions.<br><br>
+                This comprehensive calculator helps homeowners find the best home security system by:
+                <ul style="margin:10px 0 10px 24px;">
+                    <li>Calculating exact equipment costs based on your home size and security needs</li>
+                    <li>Comparing DIY vs. professional installation costs for home security</li>
+                    <li>Understanding monthly monitoring fees and long-term contract costs</li>
+                    <li>Budgeting for additional features like wireless cameras, smart locks, and cellular backup</li>
+                </ul>
+            </div>
+            <div style="font-size:1.08em;font-weight:normal;margin-bottom:8px;">Home Security System Equipment Cost Breakdown</div>
+            <div style="margin-bottom:18px;">
+                <b>Door/Window Sensors:</b> $25 each - Essential for detecting unauthorized entry<br>
+                <b>Security Cameras:</b> $150 each - Provide visual monitoring and recording<br>
+                <b>Wireless Cameras:</b> $180 each - Advanced wireless home security cameras with mobile access<br>
+                <b>Smoke/CO Detectors:</b> $50 each - Life safety devices with security integration<br>
+                <b>Doorbell Cameras:</b> $200 each - Front door monitoring and visitor identification<br>
+                <b>Smart Locks:</b> $250 each - Keyless entry with remote control capabilities
+            </div>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Home Security Installation and Service Costs</div>
+            <div style="margin-bottom:18px;">
+                <b>DIY Installation:</b> Free, but requires technical knowledge and time<br>
+                <b>Professional Installation:</b> $75/hour × estimated hours (typically 6-12 hours)<br>
+                <b>Basic Monitoring:</b> $25/month - Essential home security monitoring<br>
+                <b>Standard Monitoring:</b> $35/month - Enhanced features and faster response<br>
+                <b>Premium Monitoring:</b> $50/month - Advanced features, cellular backup, and priority response<br>
+                <b>Additional Services:</b> $10/month each for remote access, app control, and cellular backup
+            </div>
+            
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Frequently Asked Questions (FAQ)</div>
+            <ol style="margin-bottom:18px;padding-left:1.2em;">
+                <li style="margin-bottom:8px;"><b>What home security system is best?</b><br>A: The best home security system depends on your specific needs. For most homeowners, a combination of wireless sensors, security cameras, and professional monitoring offers the best protection. Top-rated systems include ADT, SimpliSafe, and Ring, with features like cellular backup, mobile app control, and 24/7 monitoring being essential for comprehensive home security.</li>
+                <li style="margin-bottom:8px;"><b>Who invented home security systems?</b><br>A: The first home security system was invented by Edwin Holmes in 1853. He created a simple burglar alarm system that used electromagnetic contacts on doors and windows, connected to a central alarm bell. The system was initially installed in his own home in Boston, Massachusetts, and later became the foundation for modern home security technology.</li>
+                <li style="margin-bottom:8px;"><b>How much do home security systems cost?</b><br>A: Home security systems cost typically ranges from $200–$3,000 for equipment and installation, plus $20–$60 per month for professional monitoring. Basic systems start around $300, while advanced systems with wireless cameras and smart features can exceed $2,500. The average comprehensive home security system costs $600–$1,200 upfront with monthly monitoring fees.</li>
+                <li style="margin-bottom:8px;"><b>Which home security is the best?</b><br>A: The best home security system varies by individual needs. ADT offers the most comprehensive professional monitoring, SimpliSafe provides excellent DIY installation with no contracts, and Ring offers affordable smart home integration. Consider factors like installation preferences, monitoring needs, smart home compatibility, and budget when choosing the best home security system for your home.</li>
+                <li style="margin-bottom:8px;"><b>Are wireless home security cameras worth it?</b><br>A: Wireless home security cameras are definitely worth the investment for most homeowners. They offer easy installation, remote monitoring capabilities, and often include features like motion detection, night vision, and mobile app access. While they cost slightly more than wired options ($180 vs $150), the flexibility and convenience they provide make them an excellent choice for modern home security systems.</li>
+                <li style="margin-bottom:8px;"><b>What should I look for in a home security system?</b><br>A: When choosing a home security system, look for wireless cameras with high-resolution video, professional monitoring services, cellular backup for power outages, mobile app control, and integration with other smart home devices. The best home security systems offer a combination of reliable equipment, comprehensive monitoring, and user-friendly technology that grows with your needs.</li>
+            </ol>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Pro Tips</div>
+            <div>
+                <ul style="margin:10px 0 10px 24px;">
+                    <li>Compare quotes from multiple security companies before making a decision</li>
+                    <li>Ask about contract terms, cancellation fees, and warranty coverage</li>
+                    <li>Consider cellular backup for power outages and internet failures</li>
+                    <li>Check if your homeowner's insurance offers discounts for security systems</li>
+                    <li>Look for systems that can grow with your needs and integrate with smart home devices</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        // Show/hide installation hours input based on installation type
+        document.getElementById('installation-type').addEventListener('change', function() {
+            const installHoursGroup = document.getElementById('install-hours-group');
+            if (this.value === 'Professional') {
+                installHoursGroup.style.display = 'block';
+            } else {
+                installHoursGroup.style.display = 'none';
+            }
+        });
+
+        function calculateSecurityCost() {
+            // Get input values
+            const homeSize = parseFloat(document.getElementById('home-size').value);
+            const bedrooms = parseInt(document.getElementById('bedrooms').value);
+            const livingAreas = parseInt(document.getElementById('living-areas').value);
+            
+            const doorSensors = parseInt(document.getElementById('door-sensors').value);
+            const cameras = parseInt(document.getElementById('cameras').value);
+            const smokeDetectors = parseInt(document.getElementById('smoke-detectors').value);
+            const doorbellCameras = parseInt(document.getElementById('doorbell-cameras').value);
+            const smartLocks = parseInt(document.getElementById('smart-locks').value);
+            
+            const installationType = document.getElementById('installation-type').value;
+            const installHours = parseFloat(document.getElementById('install-hours').value) || 0;
+            
+            const monitoringPlan = document.getElementById('monitoring-plan').value;
+            const remoteAccess = document.getElementById('remote-access').checked;
+            const cellularBackup = document.getElementById('cellular-backup').checked;
+            const contractYears = parseInt(document.getElementById('contract-years').value);
+
+            // Validate inputs
+            if (isNaN(homeSize) || homeSize <= 0 || isNaN(bedrooms) || bedrooms <= 0 || isNaN(livingAreas) || livingAreas <= 0) {
+                document.getElementById('result').textContent = 'Please enter valid home size, bedrooms, and living areas.';
+                document.getElementById('result').style.color = '#dc3545';
+                document.getElementById('breakdown').style.display = 'none';
+                document.getElementById('monthly-cost').style.display = 'none';
+                return;
+            }
+
+            // Calculate equipment costs
+            const doorSensorCost = doorSensors * 25;
+            const cameraCost = cameras * 150;
+            const smokeDetectorCost = smokeDetectors * 50;
+            const doorbellCameraCost = doorbellCameras * 200;
+            const smartLockCost = smartLocks * 250;
+            
+            const totalEquipmentCost = doorSensorCost + cameraCost + smokeDetectorCost + doorbellCameraCost + smartLockCost;
+
+            // Calculate installation cost
+            let installationCost = 0;
+            if (installationType === 'Professional') {
+                installationCost = installHours * 75;
+            }
+
+            // Calculate monthly service cost
+            let monthlyServiceCost = 0;
+            switch(monitoringPlan) {
+                case 'Basic':
+                    monthlyServiceCost = 25;
+                    break;
+                case 'Standard':
+                    monthlyServiceCost = 35;
+                    break;
+                case 'Premium':
+                    monthlyServiceCost = 50;
+                    break;
+            }
+
+            // Add additional services
+            if (remoteAccess) monthlyServiceCost += 10;
+            if (cellularBackup) monthlyServiceCost += 10;
+
+            // Calculate total costs
+            const firstYearTotal = totalEquipmentCost + installationCost + (monthlyServiceCost * 12);
+            const longTermTotal = totalEquipmentCost + installationCost + (monthlyServiceCost * 12 * contractYears);
+
+            // Display results
+            const resultDiv = document.getElementById('result');
+            const breakdownDiv = document.getElementById('breakdown');
+            const monthlyCostDiv = document.getElementById('monthly-cost');
+
+            resultDiv.innerHTML = `First Year Total: $${firstYearTotal.toLocaleString()}<br>${contractYears}-Year Total: $${longTermTotal.toLocaleString()}`;
+            resultDiv.style.color = '#28a745';
+
+            // Detailed breakdown
+            let breakdown = `<b>Equipment Costs:</b><br>`;
+            breakdown += `• Door/Window Sensors (${doorSensors}): $${doorSensorCost.toLocaleString()}<br>`;
+            breakdown += `• Security Cameras (${cameras}): $${cameraCost.toLocaleString()}<br>`;
+            breakdown += `• Smoke/CO Detectors (${smokeDetectors}): $${smokeDetectorCost.toLocaleString()}<br>`;
+            breakdown += `• Doorbell Cameras (${doorbellCameras}): $${doorbellCameraCost.toLocaleString()}<br>`;
+            breakdown += `• Smart Locks (${smartLocks}): $${smartLockCost.toLocaleString()}<br>`;
+            breakdown += `<b>Total Equipment: $${totalEquipmentCost.toLocaleString()}</b><br><br>`;
+            
+            breakdown += `<b>Installation:</b> $${installationCost.toLocaleString()}<br>`;
+            breakdown += `<b>First Year Total: $${firstYearTotal.toLocaleString()}</b><br>`;
+            breakdown += `<b>${contractYears}-Year Total: $${longTermTotal.toLocaleString()}</b>`;
+
+            breakdownDiv.innerHTML = breakdown;
+            breakdownDiv.style.display = 'block';
+
+            // Monthly cost display
+            monthlyCostDiv.innerHTML = `<b>Monthly Service Cost:</b> $${monthlyServiceCost.toLocaleString()}/month<br><small>Includes: ${monitoringPlan} monitoring${remoteAccess ? ', Remote access' : ''}${cellularBackup ? ', Cellular backup' : ''}</small>`;
+            monthlyCostDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
