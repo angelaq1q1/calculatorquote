@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathroom Remodel Cost Calculator 2025 - How Much Does a Bathroom Remodel Cost? | Free Estimator</title>
+    <meta name="description" content="Calculate bathroom remodel cost with our free calculator. Find out how much does it cost to remodel a bathroom, including average cost of bathroom remodel for basic, mid-range, and luxury renovations.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bathroom Remodel Cost Calculator - How Much Does a Bathroom Remodel Cost?",
+      "url": "https://www.calculatorquote.com/home/bathroom-remodel-cost-calculator.html",
+      "description": "Free bathroom remodel cost calculator to estimate bathroom renovation expenses. Find out the cost of bathroom remodel, how much does it cost to remodel a bathroom, and average cost of bathroom remodel for all project types.",
+      "inLanguage": "en",
+      "datePublished": "2025-01-27",
+      "dateModified": "2025-01-27",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Home Improvement",
+            "item": "https://www.calculatorquote.com/home/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Bathroom Remodel Cost Calculator",
+            "item": "https://www.calculatorquote.com/home/bathroom-remodel-cost-calculator.html"
+          }
+        ]
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: auto;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                flex-direction: column;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+        .savings-highlight {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .results-section {
+            margin-top: 20px;
+            display: none;
+        }
+        .results-section.show {
+            display: block;
+        }
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+        .cost-item .label {
+            font-weight: 500;
+            color: #555;
+        }
+        .cost-item .value {
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 1.1em;
+        }
+        .total-cost {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .total-cost .label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .total-cost .value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .range-display {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+            border: 1px solid #ffeaa7;
+        }
+        .range-display .label {
+            font-size: 1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .range-display .value {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .faq-section {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            padding: 22px 28px 18px 28px;
+        }
+        .faq-section h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Bathroom Remodel Cost Calculator
+        </div>
+        
+        <h1>Bathroom Remodel Cost Calculator</h1>
+        <div class="description">
+            Planning a bathroom remodel? You need to know how much it will cost. Our free Bathroom Remodel Cost Calculator gives you a good estimate. It shows you the cost of bathroom remodel projects. You can see how much it costs to remodel a bathroom. We break down costs for basic, mid-range, and luxury bathroom remodels. This includes materials, labor, fixtures, and extra features. Use our calculator to plan your bathroom renovation budget. It's easy to use and gives you accurate estimates.
+        </div>
+
+        <div class="input-section">
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="bathroomArea">Bathroom Area *</label>
+                        <input type="number" id="bathroomArea" placeholder="Enter square feet" min="1" max="1000" step="0.1">
+                        <div class="note">Enter area in square feet (sq ft)</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="remodelType">Bathroom Remodel Type *</label>
+                        <select id="remodelType">
+                            <option value="">Pick a Type</option>
+                            <option value="basic">Basic ($100/sq ft)</option>
+                            <option value="midrange">Mid-Range ($200/sq ft)</option>
+                            <option value="luxury">Luxury ($350/sq ft)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="laborCost">Labor Cost per sq ft</label>
+                        <input type="number" id="laborCost" placeholder="Enter labor rate" min="10" max="200" step="1" value="40">
+                        <div class="note">Usually $10-$200 per sq ft</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="otherFees">Other Fees ($)</label>
+                        <input type="number" id="otherFees" placeholder="Permits, demolition, etc." min="0" max="10000" step="100" value="500">
+                        <div class="note">Permits, demolition, disposal, and other costs</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Extra Features (Optional)</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="bathtub" value="bathtub">
+                    <label for="bathtub">Bathtub ($500-$2,000)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="shower" value="shower">
+                    <label for="shower">Shower ($300-$1,500)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="toilet" value="toilet">
+                    <label for="toilet">Toilet ($200-$1,000)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sink" value="sink">
+                    <label for="sink">Sink/Vanity ($150-$800)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="flooring" value="flooring">
+                    <label for="flooring">Flooring ($5-$15/sq ft)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="walls" value="walls">
+                    <label for="walls">Wall Tiles ($8-$25/sq ft)</label>
+                </div>
+            </div>
+
+            <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
+                <button type="button" class="btn-calculate" onclick="calculateBathroomCost()">Calculate</button>
+                <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results-section" id="resultsSection">
+            <div class="cost-breakdown">
+                <div class="cost-item">
+                    <span class="label">Base Bathroom Remodel Cost:</span>
+                    <span class="value" id="areaCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Extra Features Cost:</span>
+                    <span class="value" id="featuresCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Labor Cost:</span>
+                    <span class="value" id="laborCostResult">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Other Fees:</span>
+                    <span class="value" id="otherFeesResult">$0</span>
+                </div>
+            </div>
+
+            <div class="total-cost">
+                <div class="label">Total Bathroom Remodel Cost</div>
+                <div class="value" id="totalCost">$0</div>
+            </div>
+
+            <div class="range-display">
+                <div class="label">Estimated Bathroom Remodel Cost Range</div>
+                <div class="value" id="costRange">$0 - $0</div>
+            </div>
+        </div>
+
+        <div class="advice">
+            <h4>Important Notes About Bathroom Remodel Cost:</h4>
+            <ul>
+                <li>Our estimates are based on typical bathroom remodel costs in the United States. They give you a good starting point for your bathroom renovation budget.</li>
+                <li>These bathroom remodel cost estimates are just guidelines. Your actual costs may be different based on where you live, what materials you choose, and what you need.</li>
+                <li>Our costs cover basic materials, fixtures, and normal installation work for typical bathroom renovation projects.</li>
+                <li>Bathroom remodel cost can change a lot based on your area, what contractors charge, and what materials you pick.</li>
+                <li>For big projects or special needs, we suggest getting quotes from several licensed contractors. This helps you get accurate bathroom remodel cost estimates.</li>
+                <li>Our calculator gives estimates for standard bathroom remodels. Special requirements may add extra costs to your total bathroom renovation expenses.</li>
+                <li>Add 10-20% to your bathroom remodel cost budget for surprise expenses and upgrades.</li>
+            </ul>
+        </div>
+
+        <div class="faq-section">
+            <h4 style="color: #000; margin-top: 30px; margin-bottom: 15px;">Frequently Asked Questions About Bathroom Remodel Cost</h4>
+            
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q: What is the average cost of bathroom remodel per square foot?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: The average cost of bathroom remodel usually runs from $100 to $350 per square foot. It depends on what quality and materials you pick. Basic bathroom remodels start at about $100 per square foot. Mid-range ones cost around $200 per square foot. Luxury bathroom remodels can go up to $350 per square foot or more.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q: How much does it cost to remodel a bathroom with high-end fixtures?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: The cost to remodel a bathroom with high-end fixtures can add a lot to your total bathroom remodel cost. Premium fixtures, custom cabinets, and luxury materials can bump up your base bathroom renovation expenses by 30-50%. Our calculator helps you figure out these extra costs.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q: What factors determine the cost of bathroom remodel projects?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Several things affect bathroom remodel cost. Material quality matters a lot. Labor rates in your area make a difference too. The scope of work and whether you need structural changes also count. Your bathroom size, fixture choices, and location can all impact your total bathroom renovation expenses.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q: How accurate are bathroom remodel cost estimates from online calculators?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Our bathroom remodel cost calculator gives you reliable estimates. They're based on typical bathroom renovation costs across the United States. But your actual costs may be different. It depends on your specific needs, where you live, what contractors charge, and what materials you choose. We suggest getting professional quotes for exact pricing.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q: What's included in a typical bathroom remodel cost breakdown?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: A typical bathroom remodel cost breakdown covers materials like tiles, fixtures, and plumbing. It also includes labor costs and basic installation. Extra features like custom cabinets, high-end fixtures, or structural changes may push up your total bathroom remodel cost a lot. Our calculator shows you detailed cost breakdowns for all parts.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function calculateBathroomCost() {
+            // Calculate bathroom remodel cost based on user inputs
+            const bathroomArea = parseFloat(document.getElementById('bathroomArea').value) || 0;
+            const remodelType = document.getElementById('remodelType').value;
+            const laborCostPerSqFt = parseFloat(document.getElementById('laborCost').value) || 0;
+            const otherFees = parseFloat(document.getElementById('otherFees').value) || 0;
+
+            // Validate inputs
+            if (bathroomArea === 0) {
+                showError('Please enter the bathroom area.');
+                return;
+            }
+
+            if (!remodelType) {
+                showError('Please select a remodel type.');
+                return;
+            }
+
+            // Hide error message
+            hideError();
+
+            // Bathroom remodel cost per square foot (in USD)
+            const baseCosts = {
+                basic: 100,
+                midrange: 200,
+                luxury: 350
+            };
+
+            // Additional bathroom features costs
+            const featureCosts = {
+                bathtub: { min: 500, max: 2000 },
+                shower: { min: 300, max: 1500 },
+                toilet: { min: 200, max: 1000 },
+                sink: { min: 150, max: 800 },
+                flooring: { min: 5, max: 15 },
+                walls: { min: 8, max: 25 }
+            };
+
+            // Calculate base bathroom remodel cost by area
+            const areaCost = bathroomArea * baseCosts[remodelType];
+
+            // Calculate additional bathroom features cost
+            let featuresCost = 0;
+            let featuresMin = 0;
+            let featuresMax = 0;
+
+            Object.keys(featureCosts).forEach(feature => {
+                if (document.getElementById(feature).checked) {
+                    if (feature === 'flooring' || feature === 'walls') {
+                        // Flooring and walls are per square foot
+                        const minCost = featureCosts[feature].min * bathroomArea;
+                        const maxCost = featureCosts[feature].max * bathroomArea;
+                        featuresMin += minCost;
+                        featuresMax += maxCost;
+                        featuresCost += (minCost + maxCost) / 2; // Use average for main calculation
+                    } else {
+                        // Other features are fixed costs
+                        const minCost = featureCosts[feature].min;
+                        const maxCost = featureCosts[feature].max;
+                        featuresMin += minCost;
+                        featuresMax += maxCost;
+                        featuresCost += (minCost + maxCost) / 2; // Use average for main calculation
+                    }
+                }
+            });
+
+            // Calculate bathroom remodel labor cost
+            const laborCost = bathroomArea * laborCostPerSqFt;
+
+            // Calculate total bathroom remodel cost
+            const totalCost = areaCost + featuresCost + laborCost + otherFees;
+
+            // Calculate bathroom remodel cost range
+            const totalMin = areaCost + featuresMin + laborCost + otherFees;
+            const totalMax = areaCost + featuresMax + laborCost + otherFees;
+
+            // Update bathroom remodel cost display
+            document.getElementById('areaCost').textContent = formatCurrency(areaCost);
+            document.getElementById('featuresCost').textContent = formatCurrency(featuresCost);
+            document.getElementById('laborCostResult').textContent = formatCurrency(laborCost);
+            document.getElementById('otherFeesResult').textContent = formatCurrency(otherFees);
+            document.getElementById('totalCost').textContent = formatCurrency(totalCost);
+            document.getElementById('costRange').textContent = formatCurrency(totalMin) + ' - ' + formatCurrency(totalMax);
+
+            // Show bathroom remodel cost results
+            document.getElementById('resultsSection').classList.add('show');
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+
+        function hideError() {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.classList.remove('show');
+        }
+
+        function clearForm() {
+            console.log('clearForm function called'); // Debug log
+            
+            // Clear all input fields
+            document.getElementById('bathroomArea').value = '';
+            document.getElementById('remodelType').value = '';
+            document.getElementById('laborCost').value = '40';
+            document.getElementById('otherFees').value = '500';
+            
+            // Uncheck all checkboxes
+            document.getElementById('bathtub').checked = false;
+            document.getElementById('shower').checked = false;
+            document.getElementById('toilet').checked = false;
+            document.getElementById('sink').checked = false;
+            document.getElementById('flooring').checked = false;
+            document.getElementById('walls').checked = false;
+            
+            // Hide results and error messages
+            document.getElementById('resultsSection').classList.remove('show');
+            hideError();
+            
+            // Reset all result displays to $0
+            document.getElementById('areaCost').textContent = '$0';
+            document.getElementById('featuresCost').textContent = '$0';
+            document.getElementById('laborCostResult').textContent = '$0';
+            document.getElementById('otherFeesResult').textContent = '$0';
+            document.getElementById('totalCost').textContent = '$0';
+            document.getElementById('costRange').textContent = '$0 - $0';
+            
+            console.log('Form cleared successfully'); // Debug log
+        }
+
+        // Add input validation
+        document.getElementById('bathroomArea').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (this.value !== '' && value < 1) this.value = 1;
+            if (this.value !== '' && value > 1000) this.value = 1000;
+        });
+
+        document.getElementById('laborCost').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (this.value !== '' && value < 10) this.value = 10;
+            if (this.value !== '' && value > 200) this.value = 200;
+        });
+
+        document.getElementById('otherFees').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (this.value !== '' && value < 0) this.value = 0;
+            if (this.value !== '' && value > 10000) this.value = 10000;
+        });
+
+        // Enter key support
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateBathroomCost();
+            }
+        });
+        
+        // Add event listeners for buttons (backup method)
+        document.addEventListener('DOMContentLoaded', function() {
+            const clearButton = document.querySelector('.btn-clear');
+            if (clearButton) {
+                clearButton.addEventListener('click', clearForm);
+            }
+            
+            const calculateButton = document.querySelector('.btn-calculate');
+            if (calculateButton) {
+                calculateButton.addEventListener('click', calculateBathroomCost);
+            }
+        });
+    </script>
+</body>
+</html>
