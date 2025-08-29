@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Inflammatory Foods Calculator | High Protein Meals & Diet Score</title>
+    <meta name="description" content="Calculate your anti-inflammatory diet score with our comprehensive calculator. Discover anti-inflammatory foods, high protein meals, and avoid inflammatory foods. Get personalized anti-inflammatory recipes and nutrition guidance.">
+    <meta name="keywords" content="anti-inflammatory foods, high protein meals, inflammatory foods, anti-inflammatory recipes, anti-inflammatory diet calculator, inflammation score, healthy eating, nutrition calculator, diet assessment, health calculator">
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Anti-Inflammatory Foods Calculator",
+  "description": "Calculate your anti-inflammatory diet score with our comprehensive calculator. Discover anti-inflammatory foods, high protein meals, and avoid inflammatory foods. Get personalized anti-inflammatory recipes and nutrition guidance.",
+  "url": "https://www.calculatorquote.com/health/anti-inflammatory-diet-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "keywords": "anti-inflammatory foods, high protein meals, inflammatory foods, anti-inflammatory recipes, diet calculator, inflammation score",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+        }
+        .calculator-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .input-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+        .input-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin: 20px auto;
+            justify-content: center;
+            max-width: 400px;
+        }
+        .calculate-btn {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            flex: 2;
+            max-width: 150px;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+        .clear-btn {
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid #e0e0e0;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+            max-width: 100px;
+        }
+        .clear-btn:hover {
+            background: #e0e0e0;
+            border-color: #ccc;
+        }
+        .results-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #e8f5e8;
+            border-radius: 12px;
+            border: 1px solid #4caf50;
+            display: none;
+        }
+        .score-display {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .score-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4caf50;
+            margin: 10px 0;
+        }
+        .score-label {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .score-range {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .score-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff5722 0%, #ff9800 50%, #4caf50 100%);
+            transition: width 0.5s ease;
+        }
+        .recommendations {
+            margin-top: 25px;
+        }
+        .recommendations h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .recommendation-item {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        .factor-analysis {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .factor-analysis h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .factor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .factor-name {
+            color: #333;
+        }
+        .factor-score {
+            font-weight: bold;
+        }
+        .positive {
+            color: #4caf50;
+        }
+        .negative {
+            color: #f44336;
+        }
+        .neutral {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Health Calculators</a>
+            <span>/</span>
+            Anti-Inflammatory Diet Calculator
+        </div>
+        
+        <h1>Anti-Inflammatory Foods Calculator</h1>
+        
+        <div class="description">
+            Discover the best anti-inflammatory foods and high protein meals with our comprehensive calculator. Learn which inflammatory foods to avoid and get personalized anti-inflammatory recipes. Calculate your inflammation score and optimize your diet for better health.
+        </div>
+
+        <form id="antiInflammatoryForm">
+            <!-- Basic Information -->
+            <div class="input-section">
+                <h3>Basic Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="18" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="weight">Weight (lbs)</label>
+                        <input type="number" id="weight" name="weight" min="50" max="500" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (inches)</label>
+                        <input type="number" id="height" name="height" min="48" max="96" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dietary Habits -->
+            <div class="input-section">
+                <h3>Dietary Habits</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vegetables">Daily Vegetable Intake (cups/day)</label>
+                        <input type="number" id="vegetables" name="vegetables" min="0" max="10" step="0.5" required>
+                        <small style="color: #666; font-size: 0.9em;">Green leafy vegetables, cruciferous vegetables, etc.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fruits">Daily Fruit Intake (cups/day)</label>
+                        <input type="number" id="fruits" name="fruits" min="0" max="10" step="0.5" required>
+                        <small style="color: #666; font-size: 0.9em;">Berries, citrus fruits, antioxidant-rich fruits</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="wholeGrains">Weekly Whole Grains (times/week)</label>
+                        <input type="number" id="wholeGrains" name="wholeGrains" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Oats, brown rice, whole wheat bread</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fish">Weekly Fish Intake (times/week)</label>
+                        <input type="number" id="fish" name="fish" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Omega-3 rich fish</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nutsSeeds">Weekly Nuts/Seeds (times/week)</label>
+                        <input type="number" id="nutsSeeds" name="nutsSeeds" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Almonds, walnuts, chia seeds, etc.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="redMeat">Weekly Red Meat (times/week)</label>
+                        <input type="number" id="redMeat" name="redMeat" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Beef, pork - high intake promotes inflammation</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="processedFoods">Weekly Processed Foods (times/week)</label>
+                        <input type="number" id="processedFoods" name="processedFoods" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Sausages, chips, fast food, etc.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="sugaryDrinks">Daily Sugary Drinks (cups/day)</label>
+                        <input type="number" id="sugaryDrinks" name="sugaryDrinks" min="0" max="10" step="0.5" required>
+                        <small style="color: #666; font-size: 0.9em;">Cola, fruit juices, sweetened beverages</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="waterIntake">Daily Water Intake (cups/day)</label>
+                    <input type="number" id="waterIntake" name="waterIntake" min="0" max="20" step="0.5" required>
+                    <small style="color: #666; font-size: 0.9em;">Pure water, tea, coffee (excluding sugary drinks)</small>
+                </div>
+            </div>
+
+            <!-- Lifestyle -->
+            <div class="input-section">
+                <h3>Lifestyle</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="exercise">Weekly Exercise (times/week)</label>
+                        <input type="number" id="exercise" name="exercise" min="0" max="21" required>
+                        <small style="color: #666; font-size: 0.9em;">Aerobic or strength training</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="smoking">Smoking</label>
+                        <select id="smoking" name="smoking" required>
+                            <option value="">Select Option</option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                        <small style="color: #666; font-size: 0.9em;">Smoking significantly increases inflammation</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="alcohol">Alcohol Consumption</label>
+                    <select id="alcohol" name="alcohol" required>
+                        <option value="">Select Option</option>
+                        <option value="no">None</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="excessive">Excessive</option>
+                    </select>
+                    <small style="color: #666; font-size: 0.9em;">Excessive alcohol consumption promotes inflammation</small>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="calculate-btn">Calculate</button>
+                <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+            </div>
+        </form>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section">
+            <div class="score-display">
+                <div class="score-label">Your Anti-Inflammatory Score:</div>
+                <div class="score-number" id="scoreNumber">0</div>
+                <div class="score-range" id="scoreRange">Score Range</div>
+            </div>
+
+            <div class="score-bar">
+                <div class="score-fill" id="scoreFill"></div>
+            </div>
+
+            <div class="factor-analysis">
+                <h4>Score Breakdown</h4>
+                <div id="factorBreakdown"></div>
+            </div>
+
+            <div class="recommendations">
+                <h4>Personalized Recommendations</h4>
+                <div id="recommendationsList"></div>
+            </div>
+        </div>
+
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What is an anti-inflammatory diet?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: An anti-inflammatory diet is a way of eating that focuses on foods that help reduce chronic inflammation in the body. This diet emphasizes whole, unprocessed foods like fruits, vegetables, fatty fish, nuts, seeds, and whole grains while limiting processed foods, refined sugars, and unhealthy fats that can promote inflammation.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to start an anti-inflammatory diet?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: To start an anti-inflammatory diet, begin by gradually incorporating more anti-inflammatory foods into your meals. Start with adding 2-3 servings of vegetables daily, include fatty fish 2-3 times per week, and replace refined grains with whole grains. Gradually reduce processed foods, sugary drinks, and red meat while increasing your water intake.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What can I eat on an anti-inflammatory diet?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: On an anti-inflammatory diet, you can enjoy: leafy greens (spinach, kale), colorful vegetables (broccoli, bell peppers), fatty fish (salmon, mackerel), nuts and seeds (almonds, walnuts, chia seeds), whole grains (oats, brown rice), fruits (berries, oranges), olive oil, and green tea. These foods are rich in antioxidants and omega-3 fatty acids that combat inflammation.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to start anti-inflammatory diet for beginners?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: For beginners, start with small, manageable changes: replace one processed meal per day with a whole food option, add one serving of vegetables to each meal, and gradually increase your water intake. Use our calculator to assess your current diet and get personalized recommendations. Focus on consistency rather than perfection, and remember that even small changes can make a significant difference in reducing inflammation.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div style="text-align: center; margin: 40px 0 20px 0;">
+        <a href="index.html" style="display: inline-block; background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 500; transition: background 0.3s; margin: 0 10px;">← Back to Health Calculators</a>
+        <a href="../index.html" style="display: inline-block; background: #f5f5f5; color: #333; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 500; transition: background 0.3s; margin: 0 10px;">← Back to Home</a>
+    </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.getElementById('antiInflammatoryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateScore();
+        });
+
+        function clearForm() {
+            document.getElementById('antiInflammatoryForm').reset();
+            document.getElementById('resultsSection').style.display = 'none';
+        }
+
+        function calculateScore() {
+            // Get form values
+            const formData = new FormData(document.getElementById('antiInflammatoryForm'));
+            const data = Object.fromEntries(formData);
+            
+            let score = 0;
+            let factors = [];
+
+            // Positive factors (add points)
+            // Vegetables: ≥2 cups/day = +2, each 0.5 cup less = -0.5
+            let vegScore = Math.max(0, 2 - Math.max(0, 2 - parseFloat(data.vegetables)) * 2);
+            score += vegScore;
+            factors.push({name: 'Vegetables', score: vegScore, type: 'positive'});
+
+            // Fruits: ≥2 cups/day = +2, each 0.5 cup less = -0.5
+            let fruitScore = Math.max(0, 2 - Math.max(0, 2 - parseFloat(data.fruits)) * 2);
+            score += fruitScore;
+            factors.push({name: 'Fruits', score: fruitScore, type: 'positive'});
+
+            // Fish: ≥2 times/week = +2, each time less = -1
+            let fishScore = Math.max(0, 2 - Math.max(0, 2 - parseInt(data.fish)));
+            score += fishScore;
+            factors.push({name: 'Fish', score: fishScore, type: 'positive'});
+
+            // Whole Grains: ≥3 times/week = +1, each time less = -0.5
+            let wholeGrainsScore = Math.max(0, 1 - Math.max(0, 3 - parseInt(data.wholeGrains)) * 0.5);
+            score += wholeGrainsScore;
+            factors.push({name: 'Whole Grains', score: wholeGrainsScore, type: 'positive'});
+
+            // Nuts/Seeds: ≥3 times/week = +1, each time less = -0.5
+            let nutsSeedsScore = Math.max(0, 1 - Math.max(0, 3 - parseInt(data.nutsSeeds)) * 0.5);
+            score += nutsSeedsScore;
+            factors.push({name: 'Nuts/Seeds', score: nutsSeedsScore, type: 'positive'});
+
+            // Water/Tea/Coffee: ≥6 cups/day = +1
+            let waterScore = parseFloat(data.waterIntake) >= 6 ? 1 : 0;
+            score += waterScore;
+            factors.push({name: 'Water Intake', score: waterScore, type: 'positive'});
+
+            // Negative factors (subtract points)
+            // Red meat: ≥3 times/week = -1
+            if (parseInt(data.redMeat) >= 3) {
+                score -= 1;
+                factors.push({name: 'Red Meat', score: -1, type: 'negative'});
+            } else {
+                factors.push({name: 'Red Meat', score: 0, type: 'neutral'});
+            }
+
+            // Processed foods: ≥3 times/week = -2
+            if (parseInt(data.processedFoods) >= 3) {
+                score -= 2;
+                factors.push({name: 'Processed Foods', score: -2, type: 'negative'});
+            } else {
+                factors.push({name: 'Processed Foods', score: 0, type: 'neutral'});
+            }
+
+            // Sugary drinks: ≥1 cup/day = -1
+            if (parseFloat(data.sugaryDrinks) >= 1) {
+                score -= 1;
+                factors.push({name: 'Sugary Drinks', score: -1, type: 'negative'});
+            } else {
+                factors.push({name: 'Sugary Drinks', score: 0, type: 'neutral'});
+            }
+
+            // Smoking: -3
+            if (data.smoking === 'yes') {
+                score -= 3;
+                factors.push({name: 'Smoking', score: -3, type: 'negative'});
+            } else {
+                factors.push({name: 'Smoking', score: 0, type: 'neutral'});
+            }
+
+            // Alcohol: excessive = -2
+            if (data.alcohol === 'excessive') {
+                score -= 2;
+                factors.push({name: 'Alcohol', score: -2, type: 'negative'});
+            } else {
+                factors.push({name: 'Alcohol', score: 0, type: 'neutral'});
+            }
+
+            // Clamp score between -10 and 10
+            score = Math.max(-10, Math.min(10, score));
+
+            // Display results
+            displayResults(score, factors);
+        }
+
+        function displayResults(score, factors) {
+            const resultsSection = document.getElementById('resultsSection');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreRange = document.getElementById('scoreRange');
+            const scoreFill = document.getElementById('scoreFill');
+            const factorBreakdown = document.getElementById('factorBreakdown');
+            const recommendationsList = document.getElementById('recommendationsList');
+
+            // Update score display
+            scoreNumber.textContent = score + '/10';
+            
+            // Update score range and color
+            let rangeText, color;
+            if (score >= 8) {
+                rangeText = 'Very Anti-Inflammatory (Excellent Diet)';
+                color = '#4caf50';
+            } else if (score >= 5) {
+                rangeText = 'Moderately Anti-Inflammatory';
+                color = '#8bc34a';
+            } else if (score >= 0) {
+                rangeText = 'Low Inflammation Risk';
+                color = '#ff9800';
+            } else {
+                rangeText = 'High Inflammation Risk (Needs Improvement)';
+                color = '#f44336';
+            }
+            
+            scoreRange.textContent = rangeText;
+            scoreNumber.style.color = color;
+
+            // Update score bar
+            const percentage = ((score + 10) / 20) * 100;
+            scoreFill.style.width = percentage + '%';
+
+            // Display factor breakdown
+            factorBreakdown.innerHTML = factors.map(factor => `
+                <div class="factor-item">
+                    <span class="factor-name">${factor.name}</span>
+                    <span class="factor-score ${factor.type}">${factor.score > 0 ? '+' : ''}${factor.score}</span>
+                </div>
+            `).join('');
+
+            // Generate recommendations
+            let recommendations = [];
+            
+            if (parseFloat(document.getElementById('vegetables').value) < 2) {
+                recommendations.push('Increase your daily vegetable intake to at least 2 cups per day for better anti-inflammatory benefits.');
+            }
+            
+            if (parseFloat(document.getElementById('fruits').value) < 2) {
+                recommendations.push('Aim for at least 2 cups of fruits daily to boost your anti-inflammatory score.');
+            }
+            
+            if (parseInt(document.getElementById('wholeGrains').value) < 3) {
+                recommendations.push('Include whole grains in your diet at least 3 times per week for fiber and nutrients.');
+            }
+            
+            if (parseInt(document.getElementById('fish').value) < 2) {
+                recommendations.push('Include fish in your diet at least 2 times per week for omega-3 fatty acids.');
+            }
+            
+            if (parseInt(document.getElementById('nutsSeeds').value) < 3) {
+                recommendations.push('Increase consumption of nuts and seeds to at least 3 times per week for healthy fats.');
+            }
+            
+            if (parseFloat(document.getElementById('waterIntake').value) < 6) {
+                recommendations.push('Aim for at least 6 cups of water, tea, or coffee daily to stay hydrated and reduce inflammation.');
+            }
+            
+            if (parseFloat(document.getElementById('sugaryDrinks').value) >= 1) {
+                recommendations.push('Reduce sugary drink consumption to less than 1 cup per day to minimize inflammation.');
+            }
+            
+            if (parseInt(document.getElementById('redMeat').value) >= 3) {
+                recommendations.push('Reduce red meat consumption to less than 3 times per week.');
+            }
+            
+            if (parseInt(document.getElementById('processedFoods').value) >= 3) {
+                recommendations.push('Limit processed foods to less than 3 times per week for better health.');
+            }
+            
+            if (document.getElementById('smoking').value === 'yes') {
+                recommendations.push('Consider quitting smoking to significantly improve your anti-inflammatory score.');
+            }
+            
+            if (document.getElementById('alcohol').value === 'excessive') {
+                recommendations.push('Reduce alcohol consumption to moderate levels for better health outcomes.');
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push('Excellent! Your current diet and lifestyle choices are already supporting low inflammation levels.');
+            }
+
+            recommendationsList.innerHTML = recommendations.map(rec => 
+                `<div class="recommendation-item">${rec}</div>`
+            ).join('');
+
+            // Show results
+            resultsSection.style.display = 'block';
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
