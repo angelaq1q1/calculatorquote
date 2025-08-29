@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anti-Inflammatory Foods Calculator | High Protein Meals & Diet Score</title>
-    <meta name="description" content="Calculate your anti-inflammatory diet score with our comprehensive calculator. Discover anti-inflammatory foods, high protein meals, and avoid inflammatory foods. Get personalized anti-inflammatory recipes and nutrition guidance.">
-    <meta name="keywords" content="anti-inflammatory foods, high protein meals, inflammatory foods, anti-inflammatory recipes, anti-inflammatory diet calculator, inflammation score, healthy eating, nutrition calculator, diet assessment, health calculator">
+    <title>Anti-Inflammatory Diet Plan Calculator | Foods List & Meal Plans</title>
+    <meta name="description" content="Create your personalized anti-inflammatory diet plan with our calculator. Discover anti-inflammatory foods list, meal plans, recipes, and benefits. Get your inflammation score and customized nutrition guidance.">
+    <meta name="keywords" content="anti-inflammatory diet plan, anti-inflammatory foods list, anti-inflammatory meal plan, anti-inflammatory diet recipes, anti-inflammatory diet benefits, inflammation calculator, healthy eating">
     
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Anti-Inflammatory Foods Calculator",
-  "description": "Calculate your anti-inflammatory diet score with our comprehensive calculator. Discover anti-inflammatory foods, high protein meals, and avoid inflammatory foods. Get personalized anti-inflammatory recipes and nutrition guidance.",
+  "name": "Anti-Inflammatory Diet Plan Calculator",
+  "description": "Create personalized anti-inflammatory diet plans with comprehensive foods list, meal plans, and recipes. Calculate inflammation scores and discover diet benefits.",
   "url": "https://www.calculatorquote.com/health/anti-inflammatory-diet-calculator.html",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Any",
-  "keywords": "anti-inflammatory foods, high protein meals, inflammatory foods, anti-inflammatory recipes, diet calculator, inflammation score",
+  "keywords": "anti-inflammatory diet plan, anti-inflammatory foods list, anti-inflammatory meal plan, anti-inflammatory diet recipes, anti-inflammatory diet benefits",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -72,6 +72,40 @@
             margin-bottom: 30px;
             line-height: 1.6;
             font-size: 1.1em;
+        }
+        .benefits-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .benefits-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        .benefit-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .benefit-item p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
         }
         .input-section {
             margin-bottom: 30px;
@@ -235,6 +269,142 @@
         .neutral {
             color: #666;
         }
+        .foods-list-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .foods-list-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .foods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .food-category {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+        .food-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .food-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .food-category li {
+            color: #666;
+            padding: 5px 0;
+            font-size: 0.95em;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .food-category li:last-child {
+            border-bottom: none;
+        }
+        .meal-plan-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .meal-plan-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .meal-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .meal-plan-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        .meal-plan-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .meal-plan-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .meal-plan-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .meal-plan-card li {
+            color: #666;
+            padding: 3px 0;
+            font-size: 0.9em;
+        }
+        .recipes-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .recipes-section h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .recipe-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+        }
+        .recipe-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .recipe-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .recipe-card .recipe-time {
+            color: #2196F3;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .foods-grid, .meal-plan-grid, .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -247,10 +417,10 @@
             Anti-Inflammatory Diet Calculator
         </div>
         
-        <h1>Anti-Inflammatory Foods Calculator</h1>
+        <h1>Anti-Inflammatory Diet Plan Calculator</h1>
         
         <div class="description">
-            Discover the best anti-inflammatory foods and high protein meals with our comprehensive calculator. Learn which inflammatory foods to avoid and get personalized anti-inflammatory recipes. Calculate your inflammation score and optimize your diet for better health.
+            Create your personalized anti-inflammatory diet plan with our comprehensive calculator. Discover the best anti-inflammatory foods list, meal plans, and recipes while learning about the numerous anti-inflammatory diet benefits. Calculate your inflammation score and get customized nutrition guidance for optimal health.
         </div>
 
         <form id="antiInflammatoryForm">
@@ -379,6 +549,76 @@
             </div>
         </form>
 
+        <!-- Benefits Section -->
+        <div class="benefits-section">
+            <h2>Anti-Inflammatory Diet Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Reduced Inflammation</h3>
+                    <p>Lower chronic inflammation markers that contribute to various health conditions and accelerate aging.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Better Heart Health</h3>
+                    <p>Improve cardiovascular health by reducing inflammation in blood vessels and supporting healthy cholesterol levels.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Enhanced Immunity</h3>
+                    <p>Strengthen your immune system and reduce the risk of chronic diseases through better nutrition.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Improved Energy</h3>
+                    <p>Experience sustained energy levels throughout the day by stabilizing blood sugar and reducing oxidative stress.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anti-Inflammatory Foods List -->
+        <div class="foods-list-section">
+            <h2>Anti-Inflammatory Foods List</h2>
+            <div class="foods-grid">
+                <div class="food-category">
+                    <h3>Vegetables</h3>
+                    <ul>
+                        <li>Leafy greens (spinach, kale)</li>
+                        <li>Broccoli & cauliflower</li>
+                        <li>Bell peppers</li>
+                        <li>Sweet potatoes</li>
+                        <li>Carrots</li>
+                    </ul>
+                </div>
+                <div class="food-category">
+                    <h3>Fruits</h3>
+                    <ul>
+                        <li>Berries (blueberries, strawberries)</li>
+                        <li>Citrus fruits</li>
+                        <li>Cherries</li>
+                        <li>Pineapple</li>
+                        <li>Pomegranate</li>
+                    </ul>
+                </div>
+                <div class="food-category">
+                    <h3>Healthy Fats</h3>
+                    <ul>
+                        <li>Fatty fish (salmon, mackerel)</li>
+                        <li>Nuts & seeds</li>
+                        <li>Avocado</li>
+                        <li>Olive oil</li>
+                        <li>Coconut oil</li>
+                    </ul>
+                </div>
+                <div class="food-category">
+                    <h3>Whole Grains</h3>
+                    <ul>
+                        <li>Oats</li>
+                        <li>Brown rice</li>
+                        <li>Quinoa</li>
+                        <li>Whole wheat</li>
+                        <li>Barley</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Results Section -->
         <div id="resultsSection" class="results-section">
             <div class="score-display">
@@ -402,34 +642,94 @@
             </div>
         </div>
 
+        <!-- Anti-Inflammatory Meal Plan -->
+        <div class="meal-plan-section">
+            <h2>Anti-Inflammatory Meal Plan</h2>
+            <div class="meal-plan-grid">
+                <div class="meal-plan-card">
+                    <h3>Breakfast Options</h3>
+                    <p>Start your day with inflammation-fighting nutrients:</p>
+                    <ul>
+                        <li>Oatmeal with berries and nuts</li>
+                        <li>Greek yogurt with honey and seeds</li>
+                        <li>Smoothie with spinach and banana</li>
+                        <li>Whole grain toast with avocado</li>
+                    </ul>
+                </div>
+                <div class="meal-plan-card">
+                    <h3>Lunch Ideas</h3>
+                    <p>Midday meals that support your anti-inflammatory goals:</p>
+                    <ul>
+                        <li>Quinoa salad with vegetables</li>
+                        <li>Grilled salmon with greens</li>
+                        <li>Lentil soup with whole grain bread</li>
+                        <li>Mediterranean bowl with chickpeas</li>
+                    </ul>
+                </div>
+                <div class="meal-plan-card">
+                    <h3>Dinner Suggestions</h3>
+                    <p>Evening meals rich in anti-inflammatory compounds:</p>
+                    <ul>
+                        <li>Baked fish with roasted vegetables</li>
+                        <li>Chicken stir-fry with brown rice</li>
+                        <li>Vegetable curry with turmeric</li>
+                        <li>Lean beef with sweet potato</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anti-Inflammatory Diet Recipes -->
+        <div class="recipes-section">
+            <h2>Anti-Inflammatory Diet Recipes</h2>
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <h3>Turmeric Golden Milk</h3>
+                    <p>A warming drink with powerful anti-inflammatory properties from turmeric and ginger.</p>
+                    <div class="recipe-time">Prep time: 5 minutes | Cook time: 10 minutes</div>
+                </div>
+                <div class="recipe-card">
+                    <h3>Salmon with Roasted Vegetables</h3>
+                    <p>Omega-3 rich salmon paired with colorful vegetables for maximum anti-inflammatory benefits.</p>
+                    <div class="recipe-time">Prep time: 15 minutes | Cook time: 25 minutes</div>
+                </div>
+                <div class="recipe-card">
+                    <h3>Berry Antioxidant Smoothie</h3>
+                    <p>Blend of berries, spinach, and healthy fats for a nutrient-packed anti-inflammatory drink.</p>
+                    <div class="recipe-time">Prep time: 10 minutes | Total time: 10 minutes</div>
+                </div>
+            </div>
+        </div>
+
         <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What is an anti-inflammatory diet?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: An anti-inflammatory diet is a way of eating that focuses on foods that help reduce chronic inflammation in the body. This diet emphasizes whole, unprocessed foods like fruits, vegetables, fatty fish, nuts, seeds, and whole grains while limiting processed foods, refined sugars, and unhealthy fats that can promote inflammation.</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What is an anti-inflammatory diet plan?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: An anti-inflammatory diet plan is a structured eating approach that focuses on foods that help reduce chronic inflammation in the body. This comprehensive plan emphasizes whole, unprocessed foods like fruits, vegetables, fatty fish, nuts, seeds, and whole grains while limiting processed foods, refined sugars, and unhealthy fats that can promote inflammation.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to start an anti-inflammatory diet?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: To start an anti-inflammatory diet, begin by gradually incorporating more anti-inflammatory foods into your meals. Start with adding 2-3 servings of vegetables daily, include fatty fish 2-3 times per week, and replace refined grains with whole grains. Gradually reduce processed foods, sugary drinks, and red meat while increasing your water intake.</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How do I start an anti-inflammatory meal plan?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: To start an anti-inflammatory meal plan, begin by gradually incorporating more anti-inflammatory foods into your daily routine. Start with adding 2-3 servings of vegetables daily, include fatty fish 2-3 times per week, and replace refined grains with whole grains. Gradually reduce processed foods, sugary drinks, and red meat while increasing your water intake. Use our calculator to assess your current diet and get personalized recommendations.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What can I eat on an anti-inflammatory diet?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: On an anti-inflammatory diet, you can enjoy: leafy greens (spinach, kale), colorful vegetables (broccoli, bell peppers), fatty fish (salmon, mackerel), nuts and seeds (almonds, walnuts, chia seeds), whole grains (oats, brown rice), fruits (berries, oranges), olive oil, and green tea. These foods are rich in antioxidants and omega-3 fatty acids that combat inflammation.</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What are the best anti-inflammatory diet recipes?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The best anti-inflammatory diet recipes include: turmeric golden milk for its curcumin content, salmon with roasted vegetables for omega-3 fatty acids, berry smoothies for antioxidants, quinoa salads for fiber and protein, and Mediterranean-inspired dishes with olive oil and herbs. These recipes focus on whole ingredients and cooking methods that preserve nutrients while maximizing anti-inflammatory benefits.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to start anti-inflammatory diet for beginners?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: For beginners, start with small, manageable changes: replace one processed meal per day with a whole food option, add one serving of vegetables to each meal, and gradually increase your water intake. Use our calculator to assess your current diet and get personalized recommendations. Focus on consistency rather than perfection, and remember that even small changes can make a significant difference in reducing inflammation.</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What are the key anti-inflammatory diet benefits?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Key anti-inflammatory diet benefits include reduced chronic inflammation, improved heart health, enhanced immune function, better energy levels, reduced risk of chronic diseases, improved digestion, and better skin health. This eating pattern helps your body maintain optimal inflammatory balance, which is crucial for overall health and longevity.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How long does it take to see anti-inflammatory diet benefits?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Most people begin to notice anti-inflammatory diet benefits within 2-4 weeks of consistent adherence. You may experience improved energy, better digestion, and reduced joint pain first. For more significant benefits like reduced inflammation markers and improved heart health, it typically takes 3-6 months of following the diet consistently. Remember that individual results vary based on your starting point and adherence to the plan.</p>
         </div>
     </div>
 
-    <!-- Navigation Links -->
-    <div style="text-align: center; margin: 40px 0 20px 0;">
-        <a href="index.html" style="display: inline-block; background: #2196F3; color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 500; transition: background 0.3s; margin: 0 10px;">← Back to Health Calculators</a>
-        <a href="../index.html" style="display: inline-block; background: #f5f5f5; color: #333; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 500; transition: background 0.3s; margin: 0 10px;">← Back to Home</a>
-    </div>
+
 
     <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
