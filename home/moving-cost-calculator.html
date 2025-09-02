@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Cost Calculator | Estimate Moving Company Costs Online</title>
+    <meta name="description" content="Use our free Moving Cost Calculator to estimate moving company, van, or truck costs. Get accurate moving cost estimates for local and long-distance moves.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Moving Cost Calculator",
+      "url": "https://www.calculatorquote.com/home/moving-cost-calculator.html",
+      "description": "Use our free Moving Cost Calculator to estimate moving expenses including base fees, distance costs, labor, and additional services.",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Moving Cost Calculator",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/home/moving-cost-calculator.html",
+        "description": "Free moving cost calculator to estimate moving expenses including base fees, distance costs, labor costs, and additional services.",
+        "featureList": [
+          "Base fee calculation",
+          "Distance-based pricing",
+          "Labor cost estimation",
+          "Volume/weight fee calculation",
+          "Additional services pricing",
+          "Total cost breakdown",
+          "Professional moving estimates"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much do movers cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On average, movers cost between $800 – $2,500 for a local move (under 100 miles), depending on the size of your home and the number of movers needed. For long-distance moves (over 100 miles), the cost typically ranges from $2,200 – $5,700, based on distance, weight, and additional services such as packing or storage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much are movers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mover costs vary significantly based on distance, home size, and services needed. Local moves typically cost $800-$2,500, while long-distance moves range from $2,200-$5,700. Our calculator provides detailed estimates based on your specific requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost to move?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Moving costs depend on several factors: distance, home size, number of movers, and additional services. Use our Moving Cost Calculator to get a personalized estimate based on your specific moving situation and requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a moving company cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Moving company costs include base fees, distance charges, labor costs, and additional services. Prices typically range from $800-$2,500 for local moves and $2,200-$5,700 for long-distance moves. Get an accurate estimate using our calculator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much is a moving company?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Moving company pricing varies by location, distance, and services. Local moves average $800-$2,500, while long-distance moves cost $2,200-$5,700. Our calculator helps you estimate the total cost based on your specific needs."
+            }
+          }
+        ]
+      },
+      "keywords": [
+        "moving cost calculator",
+        "cost of moving calculator",
+        "moving company cost calculator",
+        "estimate moving cost calculator",
+        "calculate moving costs",
+        "free moving cost calculator",
+        "moving costs calculator",
+        "moving cost estimate calculator",
+        "moving truck cost calculator",
+        "moving van cost calculator",
+        "long distance moving cost calculator",
+        "piano moving cost calculator",
+        "cost of moving a house calculator",
+        "moving out of state cost calculator",
+        "how to calculate moving costs"
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            font-size: 1.2em;
+            color: #1976D2;
+            min-height: 40px;
+            text-align: center;
+        }
+        .cost-breakdown {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            border: 1px solid #bbdefb;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e1f5fe;
+        }
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #1565c0;
+        }
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2196F3;
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 15px;
+            }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="./index.html">Home Improvement</a>
+            <span>/</span>
+            <span>Moving Cost Calculator</span>
+        </div>
+        
+        <h1>Moving Cost Calculator</h1>
+        <p class="description">
+            Use our free Moving Cost Calculator to estimate moving company, van, or truck costs. Get accurate moving cost estimates for local and long-distance moves with our comprehensive cost calculator.
+        </p>
+
+        <form onsubmit="event.preventDefault(); calculateMovingCost();">
+            <div class="input-section">
+                <div class="section-title">Basic Information</div>
+                
+                <div class="input-group">
+                    <label for="homeType">Home Type:</label>
+                    <select id="homeType" onchange="updateLaborHours()">
+                        <option value="studio">Studio/1 Bedroom</option>
+                        <option value="2bedroom" selected>2 Bedroom</option>
+                        <option value="3bedroom">3+ Bedroom</option>
+                        <option value="house">House (4+ rooms)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="distance">Distance (miles):</label>
+                    <input type="number" id="distance" value="30" min="0" step="0.1" placeholder="Enter distance in miles">
+                </div>
+
+                <div class="input-group">
+                    <label for="movers">Number of Movers:</label>
+                    <input type="number" id="movers" value="2" min="1" max="6" placeholder="Number of movers">
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="section-title">Cost Parameters</div>
+                
+                <div class="input-group">
+                    <label for="baseFee">Base Fee ($):</label>
+                    <input type="number" id="baseFee" value="200" min="0" step="10" placeholder="Starting fee">
+                </div>
+
+                <div class="input-group">
+                    <label for="perMileRate">Per Mile Rate ($):</label>
+                    <input type="number" id="perMileRate" value="1.2" min="0" step="0.1" placeholder="Cost per mile">
+                </div>
+
+                <div class="input-group">
+                    <label for="hourlyRate">Hourly Rate per Mover ($):</label>
+                    <input type="number" id="hourlyRate" value="40" min="0" step="5" placeholder="Hourly rate">
+                </div>
+
+                <div class="input-group">
+                    <label for="volumeRate">Volume Rate ($/cubic foot):</label>
+                    <input type="number" id="volumeRate" value="0.5" min="0" step="0.1" placeholder="Cost per cubic foot">
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="section-title">Additional Services</div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="packingService">
+                    <label for="packingService">Packing Service ($50-200)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="furnitureAssembly">
+                    <label for="furnitureAssembly">Furniture Assembly/Disassembly ($100-300)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pianoMoving">
+                    <label for="pianoMoving">Piano Moving ($100-300)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="insurance">
+                    <label for="insurance">Moving Insurance (1-5% of total)</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="storage">
+                    <label for="storage">Storage Service ($50-150/month)</label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn-calculate">Calculate</button>
+                <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+        </form>
+
+        <div id="results" class="results" style="display: none;">
+            <div id="totalCost"></div>
+            <div id="costBreakdown" class="cost-breakdown" style="display: none;">
+                <div class="section-title">Cost Breakdown</div>
+                <div id="breakdownDetails"></div>
+            </div>
+        </div>
+
+        <div style="margin-top: 28px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 24px 20px; color: #444; font-size: 1.08em; line-height: 1.7;">
+            <h2 style="font-size: 1.2em; color: #222; margin-bottom: 14px;">🏠 How Our Moving Cost Calculator Works</h2>
+            <p style="margin-bottom: 16px;">Our free Moving Cost Calculator uses industry-standard formulas to estimate your moving expenses accurately. Here's how to calculate moving costs for each component:</p>
+            
+            <div style="margin-bottom: 16px;">
+                <h3 style="font-size: 1.1em; color: #333; margin-bottom: 8px;">1. Base Fee</h3>
+                <p style="color: #555; margin-bottom: 8px;">Every moving company charges a base fee to cover initial setup, truck preparation, and administrative costs. This typically ranges from $100 to $300.</p>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <h3 style="font-size: 1.1em; color: #333; margin-bottom: 8px;">2. Distance Cost</h3>
+                <p style="color: #555; margin-bottom: 8px;">Longer distances mean higher fuel costs and more time. Most companies charge $1.00 to $2.00 per mile for long-distance moves. Use our long-distance moving cost calculator for accurate estimates.</p>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <h3 style="font-size: 1.1em; color: #333; margin-bottom: 8px;">3. Labor Cost</h3>
+                <p style="color: #555; margin-bottom: 8px;">Labor costs depend on the number of movers and estimated time. Time estimates vary by home size: Studio (2-3 hours), 2-bedroom (4-6 hours), 3+ bedroom (6-9 hours).</p>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <h3 style="font-size: 1.1em; color: #333; margin-bottom: 8px;">4. Additional Services</h3>
+                <p style="color: #555; margin-bottom: 0;">Specialized services like packing, furniture assembly, and piano moving add to the total cost. Insurance typically costs 1-5% of the total move value.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 28px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 24px 20px; color: #444; font-size: 1.08em; line-height: 1.7;">
+            <h2 style="font-size: 1.2em; color: #222; margin-bottom: 14px;">💡 How to Calculate Moving Costs & Reduce Expenses</h2>
+            <p style="margin-bottom: 16px; color: #555;">Use our moving costs calculator to get accurate estimates, then follow these tips to reduce your moving expenses:</p>
+            <ul style="margin: 0 0 16px 22px; padding: 0; color: #555;">
+                <li style="margin-bottom: 8px;">Pack items yourself instead of using professional packing services</li>
+                <li style="margin-bottom: 8px;">Move during off-peak seasons (winter months typically have lower rates)</li>
+                <li style="margin-bottom: 8px;">Declutter before moving to reduce volume and weight</li>
+                <li style="margin-bottom: 8px;">Get multiple quotes from different moving companies</li>
+                <li style="margin-bottom: 0;">Consider renting a truck or van and moving yourself for short distances</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 28px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 24px 20px; color: #444; font-size: 1.08em; line-height: 1.7;">
+            <h2 style="font-size: 1.2em; color: #222; margin-bottom: 14px;">❓ Moving Cost Calculator FAQ</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much do movers cost?</p>
+                <p style="color: #555; margin-bottom: 0;">A: On average, movers cost between $800 – $2,500 for a local move (under 100 miles), depending on the size of your home and the number of movers needed. For long-distance moves (over 100 miles), the cost typically ranges from $2,200 – $5,700, based on distance, weight, and additional services such as packing or storage.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much does it cost to move long-distance?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Long-distance moving costs typically range from $2,200 to $5,700, depending on distance, weight, and services. Use our long-distance moving cost calculator to get a personalized estimate for your specific move.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: What's the average cost of moving a piano?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Piano moving costs typically range from $100 to $300, depending on the piano size and distance. This specialized service requires experienced movers and is included in our moving cost calculator.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How do I calculate the cost of moving out of state?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Use our moving cost calculator by entering your distance, home size, and required services. Out-of-state moves typically cost $2,200-$5,700, with costs varying based on distance and specific requirements.</p>
+            </div>
+            
+            <div style="margin-bottom: 0;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: What's included in the base fee?</p>
+                <p style="color: #555; margin-bottom: 0;">A: The base fee typically covers truck preparation, fuel for local moves, basic equipment, and administrative costs. It does not include labor, distance charges, or additional services.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function updateLaborHours() {
+            const homeType = document.getElementById('homeType').value;
+            let estimatedHours = 4; // Default for 2 bedroom
+            
+            switch(homeType) {
+                case 'studio':
+                    estimatedHours = 2.5;
+                    break;
+                case '2bedroom':
+                    estimatedHours = 4;
+                    break;
+                case '3bedroom':
+                    estimatedHours = 6;
+                    break;
+                case 'house':
+                    estimatedHours = 8;
+                    break;
+            }
+            
+            // Store the estimated hours for calculation
+            window.estimatedHours = estimatedHours;
+        }
+
+        function calculateMovingCost() {
+            // Get input values
+            const distance = parseFloat(document.getElementById('distance').value);
+            const movers = parseInt(document.getElementById('movers').value);
+            const baseFee = parseFloat(document.getElementById('baseFee').value);
+            const perMileRate = parseFloat(document.getElementById('perMileRate').value);
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
+            const volumeRate = parseFloat(document.getElementById('volumeRate').value);
+            
+            // Get estimated hours based on home type
+            updateLaborHours();
+            const estimatedHours = window.estimatedHours;
+            
+            // Calculate costs
+            const distanceCost = distance * perMileRate;
+            const laborCost = movers * hourlyRate * estimatedHours;
+            
+            // Calculate volume cost (estimate based on home type)
+            let estimatedVolume = 0;
+            switch(document.getElementById('homeType').value) {
+                case 'studio':
+                    estimatedVolume = 200; // cubic feet
+                    break;
+                case '2bedroom':
+                    estimatedVolume = 400;
+                    break;
+                case '3bedroom':
+                    estimatedVolume = 600;
+                    break;
+                case 'house':
+                    estimatedVolume = 800;
+                    break;
+            }
+            const volumeCost = estimatedVolume * volumeRate;
+            
+            // Calculate additional services
+            let additionalServices = 0;
+            if (document.getElementById('packingService').checked) {
+                additionalServices += 125; // Average of $50-200
+            }
+            if (document.getElementById('furnitureAssembly').checked) {
+                additionalServices += 200; // Average of $100-300
+            }
+            if (document.getElementById('pianoMoving').checked) {
+                additionalServices += 200; // Average of $100-300
+            }
+            if (document.getElementById('storage').checked) {
+                additionalServices += 100; // Average of $50-150
+            }
+            
+            // Calculate total
+            const subtotal = baseFee + distanceCost + laborCost + volumeCost + additionalServices;
+            
+            // Add insurance if selected (2% of subtotal)
+            let insuranceCost = 0;
+            if (document.getElementById('insurance').checked) {
+                insuranceCost = subtotal * 0.02;
+            }
+            
+            const totalCost = subtotal + insuranceCost;
+            
+            // Display results
+            document.getElementById('totalCost').innerHTML = `<strong>Total Estimated Moving Cost: $${totalCost.toFixed(2)}</strong>`;
+            
+            // Display breakdown
+            const breakdownHTML = `
+                <div class="cost-item">
+                    <span>Base Fee:</span>
+                    <span>$${baseFee.toFixed(2)}</span>
+                </div>
+                <div class="cost-item">
+                    <span>Distance Cost (${distance} miles):</span>
+                    <span>$${distanceCost.toFixed(2)}</span>
+                </div>
+                <div class="cost-item">
+                    <span>Labor Cost (${movers} movers × ${estimatedHours} hours):</span>
+                    <span>$${laborCost.toFixed(2)}</span>
+                </div>
+                <div class="cost-item">
+                    <span>Volume Cost (${estimatedVolume} cu ft):</span>
+                    <span>$${volumeCost.toFixed(2)}</span>
+                </div>
+                <div class="cost-item">
+                    <span>Additional Services:</span>
+                    <span>$${additionalServices.toFixed(2)}</span>
+                </div>
+                ${insuranceCost > 0 ? `<div class="cost-item">
+                    <span>Insurance (2%):</span>
+                    <span>$${insuranceCost.toFixed(2)}</span>
+                </div>` : ''}
+                <div class="cost-item">
+                    <span>Total Cost:</span>
+                    <span>$${totalCost.toFixed(2)}</span>
+                </div>
+            `;
+            
+            document.getElementById('breakdownDetails').innerHTML = breakdownHTML;
+            document.getElementById('costBreakdown').style.display = 'block';
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('distance').value = '30';
+            document.getElementById('movers').value = '2';
+            document.getElementById('baseFee').value = '200';
+            document.getElementById('perMileRate').value = '1.2';
+            document.getElementById('hourlyRate').value = '40';
+            document.getElementById('volumeRate').value = '0.5';
+            document.getElementById('homeType').value = '2bedroom';
+            
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Hide results
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('costBreakdown').style.display = 'none';
+        }
+
+        // Initialize estimated hours on page load
+        window.onload = function() {
+            updateLaborHours();
+        };
+    </script>
+</body>
+</html>
