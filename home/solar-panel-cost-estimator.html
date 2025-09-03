@@ -34,6 +34,10 @@
         "@type": "Organization",
         "name": "CalculatorQuote",
         "url": "https://www.calculatorquote.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "name": "How much do solar panels cost in 2025?"
       }
     }
     </script>
@@ -130,6 +134,26 @@
         .btn-calculate:hover {
             background-color: #1976D2;
         }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
         .result {
             margin-top: 18px;
             font-weight: bold;
@@ -173,6 +197,11 @@
             .two-column {
                 grid-template-columns: 1fr;
             }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -185,9 +214,9 @@
             <span>/</span>
             Solar Panel Cost Estimator
         </div>
-        <h1>Solar Panel Cost Calculator</h1>
+        <h1>Free Solar Panel Cost Calculator – 2025 Tax Credit & Savings Estimate</h1>
         <div class="description">
-            Wondering how much solar panels cost for your home? Our Solar Panel Cost Calculator helps you estimate installation costs, federal tax credits, and potential savings. Enter your monthly electricity bill and location to get accurate system size recommendations, payback period calculations, and 25-year savings projections. Whether you're planning a new installation or comparing quotes, our calculator provides the data you need to make an informed solar investment decision.
+            Get an instant solar panel cost estimate for your home. See 2025 installation prices, tax credit savings, payback period & 25-year ROI. Try our free calculator now.
         </div>
         <div class="input-section">
             <div class="two-column">
@@ -284,7 +313,10 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-calculate" onclick="calculateSolarCost()">Calculate Solar Investment</button>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateSolarCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
             <div class="result" id="result"></div>
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note">* Estimates are based on current market data and may vary. Consult with local solar installers for precise quotes.</div>
@@ -503,6 +535,19 @@
             'east': 0.85,
             'north': 0.65
         };
+
+        function clearForm() {
+            document.getElementById('monthly-bill').value = '';
+            document.getElementById('location').value = 'CA';
+            document.getElementById('roof-orientation').value = 'south';
+            document.getElementById('roof-area').value = '';
+            document.getElementById('solar-offset').value = '80';
+            document.getElementById('system-size').value = '';
+            document.getElementById('financing').checked = false;
+            document.getElementById('result').textContent = '';
+            document.getElementById('result').style.color = '#28a745';
+            document.getElementById('breakdown').style.display = 'none';
+        }
 
         function calculateSolarCost() {
             const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 0;
