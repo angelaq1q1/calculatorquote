@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Feeding Calculator - Calculate Daily Food Requirements for Your Cat</title>
+    <meta name="description" content="Free cat feeding calculator to determine daily calorie and food requirements for kittens, adult cats, and senior cats. Get personalized feeding recommendations.">
+    <meta name="keywords" content="cat feeding calculator, kitten feeding, cat food calculator, cat nutrition, cat calories, cat feeding guide, cat food homemade, cat food hills, cat food for allergies">
+    <link rel="canonical" href="https://calculatorquote.com/pet/cat-feeding-calculator.html">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cat Feeding Calculator",
+      "description": "Free cat feeding calculator to determine daily calorie and food requirements for kittens, adult cats, and senior cats. Includes cat food for urinary health, cat food for sensitive stomach, and cat food healthy options.",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much should I feed my kitten per day?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our cat feeding calculator to determine the right portion based on your kitten's age, weight, and activity. This ensures your kitten gets enough nutrition without overfeeding or underfeeding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What cat food is best for kittens?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose food formulated for kittens with balanced protein, fat, and nutrients. You can reference our calculator to make sure portion sizes match the food's nutritional content. Options include dry, wet, or cat food homemade recipes for a healthy diet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use cat food for urinary health for my kitten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only under vet guidance. Our calculator can help plan meals to meet special dietary needs without overfeeding or underfeeding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What cat food is good for sensitive stomach?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cat food for sensitive stomach should be easily digestible with limited ingredients. Our feeding calculator helps determine proper portions for cats with digestive sensitivities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I choose cat food healthy options?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Look for cat food healthy options with high-quality protein, balanced nutrients, and no artificial additives. Use our calculator to ensure proper portion sizes for optimal health."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/pet/cat-feeding-calculator.html">
+    <meta property="og:title" content="Cat Feeding Calculator - Calculate Daily Food Requirements">
+    <meta property="og:description" content="Free cat feeding calculator to determine daily calorie and food requirements for kittens, adult cats, and senior cats.">
+    <meta property="og:image" content="https://calculatorquote.com/images/cat-feeding-calculator-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorquote.com/pet/cat-feeding-calculator.html">
+    <meta property="twitter:title" content="Cat Feeding Calculator - Calculate Daily Food Requirements">
+    <meta property="twitter:description" content="Free cat feeding calculator to determine daily calorie and food requirements for kittens, adult cats, and senior cats.">
+    <meta property="twitter:image" content="https://calculatorquote.com/images/cat-feeding-calculator-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #1976D2;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #bbdefb;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: 500;
+            color: #666;
+        }
+        .result-value {
+            font-weight: 600;
+            color: #2196F3;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .info-box p {
+            margin-bottom: 12px;
+        }
+        .info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .input-group label {
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <a href="index.html">Pet Calculators</a> <span>/</span>
+            <span>Cat Feeding Calculator</span>
+        </div>
+        <h1>Cat Feeding Calculator – Know Exactly How Much to Feed Your Growing Kitten</h1>
+        <div class="description">
+            <p>
+              Bringing home a growing kitten is exciting, but knowing how much to feed them can be tricky. Too much food can lead to weight problems, while too little leaves your kitten low on energy. Our Cat Feeding Calculator takes the guesswork out of daily portions. It helps you plan meals based on age, weight, and activity, so your kitten gets the right nutrition. Whether you prefer cat food homemade recipes or want to manage a diet that supports cat food for urinary health, this tool gives clear, tailored guidance. Perfect for cat owners using cat food hills or dealing with cat food for allergies, our calculator ensures proper nutrition without the guesswork. Stop worrying about overfeeding or underfeeding and enjoy watching your kitten grow into a happy, healthy cat with proper cat feeding every day.
+            </p>
+        </div>
+
+        <!-- Cat Feeding Calculator -->
+        <div class="calculator-section">
+            <h2 class="section-title">🐱 Cat Feeding Calculator</h2>
+            
+            <div class="formula-box">
+                <strong>Calculation Formula:</strong><br>
+                RER = 70 × (Weight in kg ^ 0.75)<br>
+                MER = RER × Age Factor × Activity Factor
+            </div>
+
+            <div class="input-group">
+                <label for="weight">Cat Weight (kg) <span style="color:#e53935">*</span></label>
+                <input type="number" id="weight" step="0.1" min="0.1" max="20" placeholder="e.g., 4" required>
+                <div class="error" id="error-weight"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age Category <span style="color:#e53935">*</span></label>
+                <select id="age" required>
+                    <option value="">Select Age Category</option>
+                    <option value="kitten-2-6">Kitten (2-6 months) - 2.5×</option>
+                    <option value="kitten-6-12">Kitten (6-12 months) - 2.0×</option>
+                    <option value="adult-indoor">Adult Cat (Indoor) - 1.2-1.4×</option>
+                    <option value="adult-active">Adult Cat (Active/Outdoor) - 1.6-1.8×</option>
+                    <option value="senior">Senior Cat (7+ years) - 1.1-1.2×</option>
+                </select>
+                <div class="error" id="error-age"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="activity">Activity Level <span style="color:#e53935">*</span></label>
+                <select id="activity" required>
+                    <option value="">Select Activity Level</option>
+                    <option value="low">Low (Indoor, minimal activity)</option>
+                    <option value="moderate" selected>Moderate (Some indoor activity)</option>
+                    <option value="high">High (Very active, outdoor access)</option>
+                </select>
+                <div class="error" id="error-activity"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateCat()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>📊 Calculation Results</h2>
+                <div class="result-item">
+                    <span class="result-label">Resting Energy Requirement (RER)</span>
+                    <span class="result-value" id="rerValue">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Maintenance Energy Requirement (MER)</span>
+                    <span class="result-value" id="merValue">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Daily Food Amount</span>
+                    <span class="result-value" id="foodAmount">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Meal Frequency</span>
+                    <span class="result-value" id="mealFrequency">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kitten Feeding Calculator -->
+        <div class="calculator-section">
+            <h2 class="section-title">🐱 Kitten Feeding Calculator</h2>
+            
+            <div class="formula-box">
+                <strong>Kitten Feeding Formula:</strong><br>
+                RER = 70 × (Weight in kg ^ 0.75)<br>
+                MER = RER × Kitten Factor
+            </div>
+
+            <div class="input-group">
+                <label for="kittenWeight">Kitten Weight (kg) <span style="color:#e53935">*</span></label>
+                <input type="number" id="kittenWeight" step="0.1" min="0.1" max="5" placeholder="e.g., 2" required>
+                <div class="error" id="error-kittenWeight"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="kittenAge">Kitten Age <span style="color:#e53935">*</span></label>
+                <select id="kittenAge" required>
+                    <option value="">Select Kitten Age</option>
+                    <option value="2-6">2-6 months (2.5× RER)</option>
+                    <option value="6-12">6-12 months (2.0× RER)</option>
+                </select>
+                <div class="error" id="error-kittenAge"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateKitten()">Calculate</button>
+                <button class="btn-clear" onclick="clearKittenForm()">Clear</button>
+            </div>
+
+            <div id="kittenResult" class="result-section" style="display: none;">
+                <h2>📊 Kitten Feeding Results</h2>
+                <div class="result-item">
+                    <span class="result-label">Resting Energy Requirement (RER)</span>
+                    <span class="result-value" id="kittenRerValue">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Kitten Energy Requirement (MER)</span>
+                    <span class="result-value" id="kittenMerValue">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Daily Food Amount</span>
+                    <span class="result-value" id="kittenFoodAmount">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Meal Frequency</span>
+                    <span class="result-value" id="kittenMealFrequency">-</span>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🍽️ Feeding Amount Conversion Guide</div>
+                <p><strong>Dry Food Conversion:</strong></p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>1 cup dry food ≈ 350–400 kcal (varies by brand, recommend inputting calories/100g)</li>
+                </ul>
+                <p><strong>Wet Food Conversion:</p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>1 can (85g) wet food ≈ 70–100 kcal</li>
+                </ul>
+                <p><strong>📊 Final Output Includes:</strong></p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>Daily recommended calories (kcal)</li>
+                    <li>Food amount in grams / cups / cans</li>
+                    <li>Recommended meal frequency</li>
+                </ul>
+                <p><strong>📌 Example Output:</strong></p>
+                <div style="background: #e3f2fd; border: 1px solid #bbdefb; border-radius: 5px; padding: 15px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; color: #1976D2;">
+                    🐈 Cat Result: "A 4kg indoor cat needs 260 kcal daily, approximately 60g dry food or 2 cans wet food, recommended 3 meals per day."
+                </div>
+            </div>
+
+        </div>
+
+        <div class="info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">Kitten Feeding Calculator – Take the Guesswork Out of Feeding Your Kitten</div>
+            <p>Feeding a growing kitten can feel confusing. Every kitten is different, and guessing the right portion can lead to problems. Too much food may cause weight gain, while too little can leave your kitten low on energy. The Kitten Feeding Calculator helps you plan meals the smart way.</p>
+            <p>With this tool, cat feeding becomes simple. Just enter your kitten's age, weight, and activity level, and get precise daily portions. No more worrying about guessing or using outdated charts.</p>
+            <p>Whether you prepare cat food homemade recipes or choose specialized diets for cat food for urinary health, the calculator gives guidance you can trust. Perfect for cat owners using cat food hills or managing cat food for allergies, it adjusts portions for each stage of growth, helping your kitten stay healthy and active.</p>
+            <p>The calculator also works for different types of food—wet, dry, or raw—so you can mix meals safely and monitor nutrients. Now, feeding time can be stress-free. You'll know your kitten is getting the right amount every day, supporting healthy growth, strong energy, and proper development.</p>
+            <p>Take the guesswork out of feeding and enjoy watching your kitten thrive with confidence.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">💡 Perfect for:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>New cat owners who want to ensure proper nutrition from day one</li>
+                <li>Anyone switching cat food brands and unsure about portion sizes</li>
+                <li>Cat owners managing weight issues or health conditions</li>
+                <li>People caring for cats at different life stages (kittens, adults, seniors)</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Get the Right Portions and Keep Your Kitten Healthy</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q1: How much should I feed my kitten per day?</strong><br>A: Use our cat feeding calculator to determine the right portion based on your kitten's age, weight, and activity. This ensures your kitten gets enough nutrition without overfeeding or underfeeding.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q2: Will my kitten eat dog food?</strong><br>A: Cats have different nutritional needs than dogs. While some cats may nibble on dog food occasionally, it should not replace a proper kitten diet. Use the Kitten Feeding Calculator to plan meals specifically for cats.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q3: What cat food is best for kittens?</strong><br>A: Choose food formulated for kittens with balanced protein, fat, and nutrients. You can reference our calculator to make sure portion sizes match the food's nutritional content. Options include dry, wet, or cat food homemade recipes for a healthy diet.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q4: What cat food is high in protein?</strong><br>A: Kittens need protein to grow strong. Look for foods labeled high in protein, such as specialized kitten formulas. The Kitten Feeding Calculator helps you measure portions so your kitten gets the right protein intake.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q5: How much cat food per day?</strong><br>A: Daily portions depend on age, weight, and activity. Use our cat feeding calculator for accurate guidance. It also works if you are feeding cat food for urinary health or other specialized diets.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q6: Can I use cat food for urinary health for my kitten?</strong><br>A: Only under vet guidance. Our calculator can help plan meals to meet special dietary needs without overfeeding or underfeeding.
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateCat() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = document.getElementById('age').value;
+            const activity = document.getElementById('activity').value;
+            
+            if (!weight || weight <= 0) {
+                setError('error-weight', 'Please enter a valid weight.');
+            }
+            
+            if (!age) {
+                setError('error-age', 'Please select an age category.');
+            }
+            
+            if (!activity) {
+                setError('error-activity', 'Please select an activity level.');
+            }
+            
+            if (!valid) return;
+            
+            // Calculate RER: 70 × (weight in kg ^ 0.75)
+            const rer = 70 * Math.pow(weight, 0.75);
+            
+            // Calculate MER based on age and activity
+            let merMultiplier;
+            let mealFrequency;
+            
+            switch(age) {
+                case 'kitten-2-6':
+                    merMultiplier = 2.5;
+                    mealFrequency = '4-5 meals per day';
+                    break;
+                case 'kitten-6-12':
+                    merMultiplier = 2.0;
+                    mealFrequency = '4-5 meals per day';
+                    break;
+                case 'adult-indoor':
+                    merMultiplier = activity === 'low' ? 1.2 : activity === 'moderate' ? 1.3 : 1.4;
+                    mealFrequency = '2-3 meals per day';
+                    break;
+                case 'adult-active':
+                    merMultiplier = activity === 'low' ? 1.6 : activity === 'moderate' ? 1.7 : 1.8;
+                    mealFrequency = '2-3 meals per day';
+                    break;
+                case 'senior':
+                    merMultiplier = 1.15;
+                    mealFrequency = '2-3 smaller meals per day';
+                    break;
+            }
+            
+            const mer = rer * merMultiplier;
+            
+            // Assume cat food contains 400kcal per 100g, calculate recommended food amount
+            const foodAmount = (mer / 4.0).toFixed(0);
+            
+            // Display results
+            document.getElementById('rerValue').textContent = rer.toFixed(0) + ' kcal';
+            document.getElementById('merValue').textContent = mer.toFixed(0) + ' kcal/day';
+            document.getElementById('foodAmount').textContent = foodAmount + 'g/day';
+            document.getElementById('mealFrequency').textContent = mealFrequency;
+            
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function clearForm() {
+            document.getElementById('weight').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('activity').value = '';
+            document.getElementById('result').style.display = 'none';
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+        }
+
+        function calculateKitten() {
+            let valid = true;
+            document.querySelectorAll('#error-kittenWeight, #error-kittenAge').forEach(el => el.textContent = '');
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const weight = parseFloat(document.getElementById('kittenWeight').value);
+            const age = document.getElementById('kittenAge').value;
+            
+            if (!weight || weight <= 0) {
+                setError('error-kittenWeight', 'Please enter a valid weight.');
+            }
+            
+            if (!age) {
+                setError('error-kittenAge', 'Please select kitten age.');
+            }
+            
+            if (!valid) return;
+            
+            // Calculate RER: 70 × (weight in kg ^ 0.75)
+            const rer = 70 * Math.pow(weight, 0.75);
+            
+            // Calculate MER based on kitten age
+            let merMultiplier;
+            let mealFrequency;
+            
+            switch(age) {
+                case '2-6':
+                    merMultiplier = 2.5;
+                    mealFrequency = '4-5 meals per day';
+                    break;
+                case '6-12':
+                    merMultiplier = 2.0;
+                    mealFrequency = '3-4 meals per day';
+                    break;
+            }
+            
+            const mer = rer * merMultiplier;
+            
+            // Assume kitten food contains 400kcal per 100g, calculate recommended food amount
+            const foodAmount = (mer / 4.0).toFixed(0);
+            
+            // Display results
+            document.getElementById('kittenRerValue').textContent = rer.toFixed(0) + ' kcal';
+            document.getElementById('kittenMerValue').textContent = mer.toFixed(0) + ' kcal/day';
+            document.getElementById('kittenFoodAmount').textContent = foodAmount + 'g/day';
+            document.getElementById('kittenMealFrequency').textContent = mealFrequency;
+            
+            document.getElementById('kittenResult').style.display = 'block';
+        }
+        
+        function clearKittenForm() {
+            document.getElementById('kittenWeight').value = '';
+            document.getElementById('kittenAge').value = '';
+            document.getElementById('kittenResult').style.display = 'none';
+            document.querySelectorAll('#error-kittenWeight, #error-kittenAge').forEach(el => el.textContent = '');
+        }
+    </script>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
