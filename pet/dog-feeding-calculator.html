@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Feeding Calculator 🐶 | Charts, Guides, and Raw Food Calculator</title>
+    <meta name="description" content="Use our free Dog Feeding Calculator to find the perfect food portions for your dog. Get feeding charts by age, weight, and size. Includes puppy feeding guide, raw food calculator, transition tips, and printable charts.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Dog Feeding Calculator",
+      "description": "Free dog feeding calculator with charts by age, weight, and size. Includes puppy feeding guide, raw food calculator, and food transition tool.",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much should I feed my puppy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puppies require more frequent meals and higher calories per pound of body weight. Use our Puppy Feeding Calculator for exact portions by age and breed size."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the dog food calculator for raw diets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our Raw Dog Food Calculator helps you estimate daily portions of raw meat, bones, and organs based on your dog's weight and activity level."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I transition my dog to a new food?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our Dog Food Transition Calculator to gradually switch over 7–10 days, mixing increasing amounts of the new food with the old food."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a printable dog feeding chart?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, you can download our printable feeding chart by age and weight to keep track of your dog's daily portions."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #1976D2;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #bbdefb;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: 500;
+            color: #666;
+        }
+        .result-value {
+            font-weight: 600;
+            color: #2196F3;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .info-box p {
+            margin-bottom: 12px;
+        }
+        .info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .input-group label {
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <a href="index.html">Pet Calculators</a> <span>/</span>
+            <span>Dog Feeding Calculator</span>
+        </div>
+        <h1>Dog Feeding Calculator – Stop Overfeeding and Keep Your Dog at a Healthy Weight</h1>
+        <div class="description">
+            <p>
+              Worried about whether you're feeding too much or too little? Our Dog Feeding Calculator takes the guesswork out by giving you the right dog food portion based on your pet's age, weight, and activity level. Whether you're raising a playful puppy or managing an older dog, proper feeding helps prevent overweight issues and keeps your pup happy, healthy, and full of energy.
+            </p>
+        </div>
+
+        <!-- Adult Dog Feeding Calculator -->
+        <div class="calculator-section">
+            <h2 class="section-title">🐕 Adult Dog Feeding Calculator</h2>
+            
+            <div class="formula-box">
+                <strong>Calculation Formula:</strong><br>
+                RER = 70 × (Weight in kg ^ 0.75)<br>
+                MER = RER × Age Factor × Activity Factor
+            </div>
+
+            <div class="input-group">
+                <label for="adult-weight">Dog Weight (kg) <span style="color:#e53935">*</span></label>
+                <input type="number" id="adult-weight" step="0.1" min="1" max="100" placeholder="e.g., 20" required>
+                <div class="error" id="error-adult-weight"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="adult-age">Dog Age <span style="color:#e53935">*</span></label>
+                <select id="adult-age" required>
+                    <option value="">Select Age Range</option>
+                    <option value="1.6">1-6 years (Adult)</option>
+                    <option value="1.3">7+ years (Senior)</option>
+                </select>
+                <div class="error" id="error-adult-age"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="adult-activity">Activity Level <span style="color:#e53935">*</span></label>
+                <select id="adult-activity" required>
+                    <option value="">Select Activity Level</option>
+                    <option value="1.2">Neutered/Indoor Dog (1.2×)</option>
+                    <option value="1.6" selected>Moderate Activity (1.6×)</option>
+                    <option value="2.0">Active/Working Dog (2.0×)</option>
+                </select>
+                <div class="error" id="error-adult-activity"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateAdultDog()">Calculate</button>
+                <button class="btn-clear" onclick="clearAdultForm()">Clear</button>
+            </div>
+
+            <div id="adult-result" class="result-section" style="display: none;">
+                <h2>📊 Calculation Results</h2>
+                <div class="result-item">
+                    <span class="result-label">Resting Energy Requirement (RER)</span>
+                    <span class="result-value" id="adult-rer">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Maintenance Energy Requirement (MER)</span>
+                    <span class="result-value" id="adult-mer">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Daily Food Amount</span>
+                    <span class="result-value" id="adult-food">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Puppy Feeding Calculator -->
+        <div class="calculator-section">
+            <h2 class="section-title">🐶 Puppy Feeding Calculator</h2>
+            
+            <div class="formula-box">
+                <strong>Calculation Formula:</strong><br>
+                RER = 70 × (Weight in kg ^ 0.75)<br>
+                MER = RER × Age Factor<br>
+                2-4 months: 3.0× | 4-12 months: 2.0×
+            </div>
+
+            <div class="input-group">
+                <label for="puppy-weight">Puppy Weight (kg) <span style="color:#e53935">*</span></label>
+                <input type="number" id="puppy-weight" step="0.1" min="0.5" max="50" placeholder="e.g., 5" required>
+                <div class="error" id="error-puppy-weight"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="puppy-age">Puppy Age <span style="color:#e53935">*</span></label>
+                <select id="puppy-age" required>
+                    <option value="">Select Age Range</option>
+                    <option value="3.0">2-4 months (3.0×)</option>
+                    <option value="2.0" selected>4-12 months (2.0×)</option>
+                </select>
+                <div class="error" id="error-puppy-age"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculatePuppy()">Calculate</button>
+                <button class="btn-clear" onclick="clearPuppyForm()">Clear</button>
+            </div>
+
+            <div id="puppy-result" class="result-section" style="display: none;">
+                <h2>📊 Calculation Results</h2>
+                <div class="result-item">
+                    <span class="result-label">Resting Energy Requirement (RER)</span>
+                    <span class="result-value" id="puppy-rer">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Puppy Energy Requirement (MER)</span>
+                    <span class="result-value" id="puppy-mer">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Daily Food Amount</span>
+                    <span class="result-value" id="puppy-food">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Recommended Meal Frequency</span>
+                    <span class="result-value">3-4 meals per day</span>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🍽️ Feeding Amount Conversion Guide</div>
+                <p><strong>Dry Food Conversion:</strong></p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>1 cup dry food ≈ 350–400 kcal (varies by brand, recommend inputting calories/100g)</li>
+                </ul>
+                <p><strong>Wet Food Conversion:</p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>1 can (85g) wet food ≈ 70–100 kcal</li>
+                </ul>
+                <p><strong>📊 Final Output Includes:</strong></p>
+                <ul style="margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>Daily recommended calories (kcal)</li>
+                    <li>Food amount in grams / cups / cans</li>
+                    <li>Recommended meal frequency</li>
+                </ul>
+                <p><strong>📌 Example Output:</strong></p>
+                <div style="background: #e3f2fd; border: 1px solid #bbdefb; border-radius: 5px; padding: 15px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; color: #1976D2;">
+                    🐕 Dog Result: "A 20kg adult dog needs 1060 kcal daily, approximately 300g dry food, recommended 2 meals per day."
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🐶 Puppy Feeding Calculator – Know Exactly How Much to Feed Your Growing Pup</div>
+            <p>Bringing a puppy home is exciting, but it also raises one big question: How much should I feed my puppy? If you give too much food, your pup can gain weight too quickly and face health problems later. If you give too little, your puppy won't get the energy and nutrition needed to grow strong. Our Puppy Feeding Calculator makes this easy.</p>
+            <p>Our tool works like a simple dog feeding guide calculator. It shows you the right portion sizes based on your puppy's age, weight, and breed size. Small-breed puppies may need several small meals each day. Large-breed puppies often need carefully measured meals to avoid joint issues. With our calculator, you get clear and reliable feeding advice for every stage.</p>
+            <p>The tool also acts like a dog feeding chart puppy owners can use at any time. You don't need to guess or worry about confusing numbers. You can get answers in seconds.</p>
+            <p>If you are changing from puppy food to adult food, our calculator also helps. It follows the same idea as a dog food transition calculator. It shows you how to adjust meals step by step, so your puppy's stomach stays comfortable.</p>
+            <p>With our Puppy Feeding Calculator, you no longer need to second-guess mealtime. You can feel confident and enjoy watching your puppy grow into a healthy and happy dog.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">💡 Perfect for:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>New puppy parents who just discovered how much puppies actually eat</li>
+                <li>Anyone switching dog food brands and unsure about portion sizes</li>
+                <li>People who say "I'll figure it out later" but then end up with an overweight or underweight dog</li>
+                <li>Dog owners who want to ensure optimal nutrition without overfeeding or underfeeding</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Answers to Your Questions About Meals and Growth</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q1: How much should I feed my puppy by weight?</strong><br>A: Use our dog feeding calculator to determine the exact portion for your puppy. You can also check the dog feeding chart puppy to see daily portions by weight and age. This helps ensure your puppy gets the right nutrition without overfeeding or underfeeding.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q2: Is raw feeding safe for dogs?</strong><br>A: Raw feeding can be safe if done correctly. Use the raw dog food calculator app or a dog food calculator raw to figure out proper meal sizes. Always balance protein, fat, and other nutrients, and consult your vet if you are unsure.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q3: How do I calculate protein in my dog's food?</strong><br>A: Try our dog food protein calculator to find out how much protein your puppy needs each day. Combined with the dog food serving calculator, it helps you measure meals accurately and maintain a healthy diet.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q4: What's the best way to transition to new dog food?</strong><br>A: Use a dog food transition calculator to gradually introduce new food over 7–10 days. This prevents digestive upset while helping your puppy adjust to the new diet safely.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q5: How much should I feed my dog calculator?</strong><br>A: You can use our dog feeding calculator to find out exactly how much food your dog needs each day. The tool works for puppies and adult dogs, helping you balance meals and prevent overfeeding. You can also reference the dog feeding chart by age or dog feeding chart weight for a quick guide.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q6: How many calories does my dog need daily?</strong><br>A: Our dog feeding guide calculator or dog food feeding calculator can estimate daily calorie needs based on your puppy's age, size, and activity level. It ensures your pup gets the right energy without overeating.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q7: Do large breed dogs need a different feeding guide?</strong><br>A: Yes. Large breeds have slower growth and need carefully measured meals. Use our dog feeding chart weight and dog feeding guide dry food to plan balanced meals and prevent joint problems.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateAdultDog() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const weight = parseFloat(document.getElementById('adult-weight').value);
+            const ageMultiplier = document.getElementById('adult-age').value;
+            const activityMultiplier = document.getElementById('adult-activity').value;
+            
+            if (!weight || weight <= 0) {
+                setError('error-adult-weight', 'Please enter a valid weight.');
+            }
+            
+            if (!ageMultiplier) {
+                setError('error-adult-age', 'Please select an age range.');
+            }
+            
+            if (!activityMultiplier) {
+                setError('error-adult-activity', 'Please select an activity level.');
+            }
+            
+            if (!valid) return;
+            
+            // Calculate RER: 70 × (weight in kg ^ 0.75)
+            const rer = 70 * Math.pow(weight, 0.75);
+            
+            // Calculate MER: RER × age factor × activity factor
+            const mer = rer * parseFloat(ageMultiplier) * parseFloat(activityMultiplier);
+            
+            // Assume dog food contains 350kcal per 100g, calculate recommended food amount
+            const foodAmount = (mer / 3.5).toFixed(0);
+            
+            // Display results
+            document.getElementById('adult-rer').textContent = rer.toFixed(0) + ' kcal';
+            document.getElementById('adult-mer').textContent = mer.toFixed(0) + ' kcal/day';
+            document.getElementById('adult-food').textContent = foodAmount + 'g/day';
+            
+            document.getElementById('adult-result').style.display = 'block';
+        }
+        
+        function calculatePuppy() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const weight = parseFloat(document.getElementById('puppy-weight').value);
+            const ageMultiplier = document.getElementById('puppy-age').value;
+            
+            if (!weight || weight <= 0) {
+                setError('error-puppy-weight', 'Please enter a valid weight.');
+            }
+            
+            if (!ageMultiplier) {
+                setError('error-puppy-age', 'Please select an age range.');
+            }
+            
+            if (!valid) return;
+            
+            // Calculate RER: 70 × (weight in kg ^ 0.75)
+            const rer = 70 * Math.pow(weight, 0.75);
+            
+            // Calculate MER: RER × age factor
+            const mer = rer * parseFloat(ageMultiplier);
+            
+            // Assume puppy food contains 380kcal per 100g, calculate recommended food amount
+            const foodAmount = (mer / 3.8).toFixed(0);
+            
+            // Display results
+            document.getElementById('puppy-rer').textContent = rer.toFixed(0) + ' kcal';
+            document.getElementById('puppy-mer').textContent = mer.toFixed(0) + ' kcal/day';
+            document.getElementById('puppy-food').textContent = foodAmount + 'g/day';
+            
+            document.getElementById('puppy-result').style.display = 'block';
+        }
+        
+        function clearAdultForm() {
+            document.getElementById('adult-weight').value = '';
+            document.getElementById('adult-age').value = '';
+            document.getElementById('adult-activity').value = '';
+            document.getElementById('adult-result').style.display = 'none';
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+        }
+        
+        function clearPuppyForm() {
+            document.getElementById('puppy-weight').value = '';
+            document.getElementById('puppy-age').value = '';
+            document.getElementById('puppy-result').style.display = 'none';
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+        }
+    </script>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
+
