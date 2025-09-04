@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Calculators - Calculator Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculator-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .calculator-card h2 {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .calculator-card .material-icons {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        .calculator-card p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Pet Calculators</a>
+        </div>
+
+        <h1>Pet Calculators</h1>
+        <div class="subtitle">Essential tools for pet care, insurance, and financial planning</div>
+
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <a href="dog-feeding-calculator.html">
+                    <h2><span class="material-icons">restaurant</span>Dog Feeding Calculator</h2>
+                    <p>Calculate daily nutrition needs for adult dogs and puppies with scientific formulas</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="cat-feeding-calculator.html">
+                    <h2><span class="material-icons">pets</span>Cat Feeding Calculator</h2>
+                    <p>Calculate daily nutrition needs for kittens, adult cats, and senior cats with age-specific formulas</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="../other/pet-insurance-calculator.html">
+                    <h2><span class="material-icons">security</span>Pet Insurance Calculator</h2>
+                    <p>Compare top pet insurance providers and get instant quotes for dogs and cats</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
