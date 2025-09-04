@@ -12,12 +12,10 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
+      "@type": "FAQPage",
       "name": "Cat Feeding Calculator",
       "description": "Free cat feeding calculator to determine daily calorie and food requirements for kittens, adult cats, and senior cats. Includes cat food for urinary health, cat food for sensitive stomach, and cat food healthy options.",
-      "mainEntity": {
-        "@type": "FAQPage",
-        "mainEntity": [
+      "mainEntity": [
           {
             "@type": "Question",
             "name": "How much should I feed my kitten per day?",
@@ -58,8 +56,7 @@
               "text": "Look for cat food healthy options with high-quality protein, balanced nutrients, and no artificial additives. Use our calculator to ensure proper portion sizes for optimal health."
             }
           }
-        ]
-      }
+      ]
     }
     </script>
     
@@ -476,13 +473,16 @@
                 <strong>Q6: Can I use cat food for urinary health for my kitten?</strong><br>A: Only under vet guidance. Our calculator can help plan meals to meet special dietary needs without overfeeding or underfeeding.
             </div>
         </div>
-        </div>
     </div>
 
     <script>
         function calculateCat() {
             let valid = true;
-            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            // Clear previous errors - compatible with older browsers
+            var errorElements = document.querySelectorAll('.error');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
             
             function setError(id, msg) {
                 document.getElementById(id).textContent = msg;
@@ -539,7 +539,8 @@
             
             const mer = rer * merMultiplier;
             
-            // Assume cat food contains 400kcal per 100g, calculate recommended food amount
+            // Calculate food amount: assuming cat food contains 400kcal per 100g (4.0 kcal per gram)
+            // Formula: food amount (g) = daily calories needed / calories per gram
             const foodAmount = (mer / 4.0).toFixed(0);
             
             // Display results
@@ -556,12 +557,20 @@
             document.getElementById('age').value = '';
             document.getElementById('activity').value = '';
             document.getElementById('result').style.display = 'none';
-            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            // Clear errors - compatible with older browsers
+            var errorElements = document.querySelectorAll('.error');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
         }
 
         function calculateKitten() {
             let valid = true;
-            document.querySelectorAll('#error-kittenWeight, #error-kittenAge').forEach(el => el.textContent = '');
+            // Clear previous errors - compatible with older browsers
+            var errorElements = document.querySelectorAll('#error-kittenWeight, #error-kittenAge');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
             
             function setError(id, msg) {
                 document.getElementById(id).textContent = msg;
@@ -601,7 +610,8 @@
             
             const mer = rer * merMultiplier;
             
-            // Assume kitten food contains 400kcal per 100g, calculate recommended food amount
+            // Calculate food amount: assuming kitten food contains 400kcal per 100g (4.0 kcal per gram)
+            // Formula: food amount (g) = daily calories needed / calories per gram
             const foodAmount = (mer / 4.0).toFixed(0);
             
             // Display results
@@ -617,7 +627,11 @@
             document.getElementById('kittenWeight').value = '';
             document.getElementById('kittenAge').value = '';
             document.getElementById('kittenResult').style.display = 'none';
-            document.querySelectorAll('#error-kittenWeight, #error-kittenAge').forEach(el => el.textContent = '');
+            // Clear errors - compatible with older browsers
+            var errorElements = document.querySelectorAll('#error-kittenWeight, #error-kittenAge');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
         }
     </script>
     <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
