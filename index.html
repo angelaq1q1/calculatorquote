@@ -51,7 +51,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
@@ -122,6 +122,12 @@
             font-size: 16px;
             vertical-align: middle;
             margin-left: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -225,6 +231,20 @@
                     <li class="calculator-item"><a href="home/solar-savings-calculator.html">Solar Savings Calculator</a></li>
                     <li class="calculator-item"><a href="home/flooring-installation-estimator.html">Flooring Installation Calculator</a></li>
                     <li><a href="home/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Pet Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">pets</span>
+                    Pet Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="pet/dog-feeding-calculator.html">Dog Feeding Calculator</a></li>
+                    <li class="calculator-item"><a href="pet/cat-feeding-calculator.html">Cat Feeding Calculator</a></li>
+                    <li class="calculator-item"><a href="other/pet-insurance-calculator.html">Pet Insurance Calculator</a></li>
+                    <li><a href="pet/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
                 </ul>
             </div>
 
