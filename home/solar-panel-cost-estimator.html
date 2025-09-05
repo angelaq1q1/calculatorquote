@@ -543,108 +543,55 @@
             document.getElementById('location').value = 'CA';
             document.getElementById('roof-orientation').value = 'south';
             document.getElementById('roof-area').value = '';
-            document.getElementById('solar-offset').value = '80';
+            document.getElementById('solar-offset').value = 80;
             document.getElementById('system-size').value = '';
             document.getElementById('financing').checked = false;
-            document.getElementById('result').textContent = '';
-            document.getElementById('result').style.color = '#28a745';
+            document.getElementById('result').innerHTML = '';
             document.getElementById('breakdown').style.display = 'none';
         }
 
         function calculateSolarCost() {
-            const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 0;
-            const location = document.getElementById('location').value;
-            const roofOrientation = document.getElementById('roof-orientation').value;
+            const monthlyBill = parseFloat(document.getElementById('monthly-bill').value);
+            const state = document.getElementById('location').value;
             const roofArea = parseFloat(document.getElementById('roof-area').value) || 0;
             const solarOffset = parseFloat(document.getElementById('solar-offset').value) || 80;
-            const customSystemSize = parseFloat(document.getElementById('system-size').value) || 0;
+            const systemSizeInput = parseFloat(document.getElementById('system-size').value);
             const includeFinancing = document.getElementById('financing').checked;
 
-            if (monthlyBill <= 0) {
-                document.getElementById('result').textContent = 'Please enter a valid monthly electricity bill.';
-                document.getElementById('result').style.color = '#dc3545';
-                document.getElementById('breakdown').style.display = 'none';
+            if (!monthlyBill || !state) {
+                alert('Please enter your monthly bill and select a state.');
                 return;
             }
 
-            const locationData = solarData[location];
-            const orientationFactor = orientationFactors[roofOrientation];
+            const data = solarData[state];
+            const annualUsage = monthlyBill * 12 / data.rate; // kWh/year
+            let systemSize = systemSizeInput || ((annualUsage * solarOffset / 100) / (data.production * 365));
+            systemSize = parseFloat(systemSize.toFixed(2)); // kW
 
-            // Calculate annual electricity usage
-            const annualUsage = (monthlyBill / locationData.rate) * 12;
+            const costPerWatt = 3; // average cost per watt
+            let totalCost = systemSize * 1000 * costPerWatt; // total installation cost
 
-            // Calculate required system size
-            let systemSize;
-            if (customSystemSize > 0) {
-                systemSize = customSystemSize;
-            } else {
-                // Auto-calculate based on usage and offset
-                const targetAnnualProduction = annualUsage * (solarOffset / 100);
-                systemSize = targetAnnualProduction / (locationData.production * 365 * orientationFactor * 0.85);
-            }
+            const federalCredit = 0.30;
+            const stateCredit = data.stateCredit || 0;
+            const netCost = totalCost * (1 - federalCredit - stateCredit);
 
-            // Apply roof area constraint if provided
-            if (roofArea > 0) {
-                const maxSystemSize = roofArea * 0.15; // 15% of roof area for panels
-                systemSize = Math.min(systemSize, maxSystemSize);
-            }
+            const annualSavings = systemSize * data.production * 365 * data.rate;
+            const paybackYears = parseFloat((netCost / annualSavings).toFixed(1));
 
-            // Calculate costs
-            const costPerWatt = 3.0; // Average cost per watt
-            const totalCost = systemSize * 1000 * costPerWatt;
-            const federalCredit = totalCost * 0.30;
-            const stateCredit = totalCost * locationData.stateCredit;
-            const finalCost = totalCost - federalCredit - stateCredit;
+            const financingMultiplier = includeFinancing ? 1.05 : 1; // 5% extra if financed
+            const finalCost = netCost * financingMultiplier;
 
-            // Calculate annual production and savings
-            const annualProduction = systemSize * locationData.production * 365 * orientationFactor * 0.85;
-            const annualSavings = annualProduction * locationData.rate;
-            const paybackPeriod = finalCost / annualSavings;
+            document.getElementById('result').innerHTML = `Estimated Net Cost: $${finalCost.toLocaleString()} <br>Annual Savings: $${annualSavings.toFixed(0)} <br>Payback Period: ${paybackYears} years`;
 
-            // Calculate 25-year savings
-            const totalSavings25Years = (annualSavings * 25) - finalCost;
-
-            // Calculate monthly financing payment (if selected)
-            let monthlyPayment = 0;
-            if (includeFinancing) {
-                const loanRate = 0.049; // 4.9% APR
-                const loanTerm = 20; // 20 years
-                monthlyPayment = (finalCost * (loanRate / 12) * Math.pow(1 + loanRate / 12, loanTerm * 12)) / 
-                                (Math.pow(1 + loanRate / 12, loanTerm * 12) - 1);
-            }
-
-            // Display results
-            const resultDiv = document.getElementById('result');
-            const breakdownDiv = document.getElementById('breakdown');
-
-            resultDiv.innerHTML = `<div style="font-size: 1.5em; margin-bottom: 10px;">Recommended System: ${systemSize.toFixed(1)} kW</div>
-                                  <div style="color: #28a745; font-size: 1.2em;">Final Cost: $${finalCost.toLocaleString()}</div>`;
-
-            let breakdown = `<b>Solar System Analysis:</b><br><br>`;
-            breakdown += `<b>System Size:</b> ${systemSize.toFixed(1)} kW<br>`;
-            breakdown += `<b>Annual Production:</b> ${annualProduction.toFixed(0)} kWh<br>`;
-            breakdown += `<b>Solar Offset:</b> ${((annualProduction / annualUsage) * 100).toFixed(1)}%<br><br>`;
-            
-            breakdown += `<b>Cost Breakdown:</b><br>`;
-            breakdown += `• Total System Cost: $${totalCost.toLocaleString()}<br>`;
-            breakdown += `• Federal Tax Credit (30%): -$${federalCredit.toLocaleString()}<br>`;
-            if (stateCredit > 0) {
-                breakdown += `• State Incentive: -$${stateCredit.toLocaleString()}<br>`;
-            }
-            breakdown += `• <b>Final Cost:</b> $${finalCost.toLocaleString()}<br><br>`;
-            
-            breakdown += `<b>Financial Benefits:</b><br>`;
-            breakdown += `• <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Annual Savings</a>: $${annualSavings.toLocaleString()}<br>`;
-            breakdown += `• <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Payback Period</a>: ${paybackPeriod.toFixed(1)} years<br>`;
-            breakdown += `• <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">25-Year Total Savings</a>: $${totalSavings25Years.toLocaleString()}<br>`;
-            
-            if (includeFinancing && monthlyPayment > 0) {
-                breakdown += `• Monthly Loan Payment: $${monthlyPayment.toFixed(0)}<br>`;
-                breakdown += `• Monthly Savings vs. Payment: $${(annualSavings / 12 - monthlyPayment).toFixed(0)}<br>`;
-            }
-
-            breakdownDiv.innerHTML = breakdown;
-            breakdownDiv.style.display = 'block';
+            document.getElementById('breakdown').style.display = 'block';
+            document.getElementById('breakdown').innerHTML = `
+                <b>System Size:</b> ${systemSize} kW<br>
+                <b>Total Installation Cost:</b> $${totalCost.toLocaleString()}<br>
+                <b>Federal Tax Credit (30%):</b> $${(totalCost * federalCredit).toLocaleString()}<br>
+                <b>State Incentive:</b> $${(totalCost * stateCredit).toLocaleString()}<br>
+                <b>Net Cost:</b> $${netCost.toLocaleString()}<br>
+                <b>Financing Adjustment:</b> ${includeFinancing ? 'Included (+5%)' : 'Not included'}
+            `;
         }
     </script>
 </body>
