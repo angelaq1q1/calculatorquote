@@ -384,7 +384,7 @@
         </div>
 
         <h1>Our Blog</h1>
-        <p class="subtitle">Tips and insights to help you make informed decisions</p>
+        <p class="subtitle">Life Snippets, Practical Tips, and Lifestyle Inspirations</p>
 
         <div class="content">
             <div class="articles-section">
@@ -392,30 +392,37 @@
                 
                 <div class="article-item">
                     <h3><a href="how-to-make-100USD-a-day.html">How To Make 100USD A Day – 10 Real Ways To Make Extra Money</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="0"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-remove-mold-in-8-steps.html">How to Safely Remove Mold from a Crawl Space in 8 Steps</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="2"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-negotiate-hospital-bills.html">How to Negotiate Hospital Bills in 10 Minutes and Cut Costs by 50%</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="5"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-use-matrix-calculator.html">How to Use a Matrix Calculator for Education and Research in 2025 (Step-by-Step Guide)</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="7"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-use-solar-panel-cost-calculator.html">How to Use a Solar Panel Cost Calculator for Home Energy Savings in 2025</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="10"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="9-habits-to-boost-your-happiness.html">9 Simple Habits That Can Instantly Boost Your Happiness</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="14"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-cut-home-expenses.html">How to Cut Unexpected Home Expenses by Planning Smart Energy Solutions</a></h3>
+                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="21"></span></div>
                 </div>
 
             </div>
@@ -432,5 +439,28 @@
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+    
+    <script>
+        // 动态生成文章发布日期
+        function updateDates() {
+            const dateElements = document.querySelectorAll('.dynamic-date');
+            
+            dateElements.forEach(element => {
+                const daysAgo = parseInt(element.getAttribute('data-days-ago')) || 0;
+                const publishDate = new Date();
+                publishDate.setDate(publishDate.getDate() - daysAgo);
+                
+                const year = publishDate.getFullYear();
+                const month = String(publishDate.getMonth() + 1).padStart(2, '0');
+                const day = String(publishDate.getDate()).padStart(2, '0');
+                const formattedDate = `${year}.${month}.${day}`;
+                
+                element.innerText = formattedDate;
+            });
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', updateDates);
+    </script>
 </body>
 </html>
