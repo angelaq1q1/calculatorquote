@@ -3,9 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Other Calculators - Calculator Tools</title>
+    <title>Health Calculators - Calculator Tools</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Free health calculators including BMI, calorie, body fat, ideal weight, pregnancy, and medical debt calculators. Monitor and maintain your health with our comprehensive tools.">
+    <meta name="keywords" content="health calculators, BMI calculator, calorie calculator, body fat calculator, ideal weight calculator, pregnancy calculator, medical debt calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/health/">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Health Calculators",
+        "description": "Free health calculators including BMI, calorie, body fat, ideal weight, pregnancy, and medical debt calculators. Monitor and maintain your health with our comprehensive tools.",
+        "url": "https://www.calculatorquote.com/health/",
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Health Calculator Tools",
+            "itemListElement": [
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Medical Debt Calculator",
+                    "url": "https://www.calculatorquote.com/health/medical-debt-calculator.html",
+                    "description": "Calculate and manage your medical debt payments"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "BMI Calculator",
+                    "url": "https://www.calculatorquote.com/health/bmi-calculator.html",
+                    "description": "Calculate your Body Mass Index and understand your weight range"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Calorie Calculator",
+                    "url": "https://www.calculatorquote.com/health/calorie-calculator.html",
+                    "description": "Calculate your daily caloric needs based on your lifestyle"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Body Fat Calculator",
+                    "url": "https://www.calculatorquote.com/health/body-fat-calculator.html",
+                    "description": "Estimate your body fat percentage using various methods"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Healthy Weight Calculator",
+                    "url": "https://www.calculatorquote.com/health/healthy-weight-calculator.html",
+                    "description": "Find your ideal weight range by height, age, and sex"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Ideal Weight Calculator",
+                    "url": "https://www.calculatorquote.com/health/ideal-weight-calculator.html",
+                    "description": "Find your ideal weight range based on height and body type"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Pregnancy Calculator",
+                    "url": "https://www.calculatorquote.com/health/pregnancy-calculator.html",
+                    "description": "Calculate important pregnancy dates and milestones"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Medical Bill Negotiation Savings Estimator",
+                    "url": "https://www.calculatorquote.com/health/medical-bill-negotiation-savings-estimator.html",
+                    "description": "Estimate potential savings by negotiating your medical bills"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Anti-Inflammatory Diet Calculator",
+                    "url": "https://www.calculatorquote.com/health/anti-inflammatory-diet-calculator.html",
+                    "description": "Calculate your anti-inflammatory diet score and get personalized recommendations"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Waist-to-Hip Ratio Calculator",
+                    "url": "https://www.calculatorquote.com/health/waist-to-hip-ratio-calculator.html",
+                    "description": "Calculate your waist-to-hip ratio and assess your health risk level"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Ovulation Calculator",
+                    "url": "https://www.calculatorquote.com/health/ovulation-calculator.html",
+                    "description": "Track your menstrual cycle and predict your ovulation day and fertile window"
+                }
+            ]
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.calculatorquote.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Health Calculators",
+                    "item": "https://www.calculatorquote.com/health/"
+                }
+            ]
+        }
+    }
+    </script>
+    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -89,6 +194,17 @@
         .calculator-card .material-icons {
             margin-right: 8px;
             font-size: 24px;
+            vertical-align: middle;
+        }
+        
+        /* Hide emoji fallback for Material Icons */
+        .material-icons:before {
+            content: none;
+        }
+        
+        /* Ensure proper UTF-8 display */
+        .calculator-card h2 {
+            font-family: 'Roboto', 'Arial', sans-serif;
         }
 
         .calculator-card p {
@@ -111,83 +227,89 @@
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="../index.html">Home</a> <span>/</span>
-            <span>Other Calculators</span>
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Health Calculators</a>
         </div>
 
-        <h1>Other Calculators</h1>
-        <div class="subtitle">Useful tools for various everyday calculations</div>
+        <h1>Health Calculators</h1>
+        <div class="subtitle">Tools to help you monitor and maintain your health</div>
 
         <div class="calculator-grid">
             <div class="calculator-card">
-                <a href="date-calculator.html">
-                    <h2><span class="material-icons">event</span>Date Calculator</h2>
-                    <p>Calculate days between dates and add/subtract days</p>
+                <a href="medical-debt-calculator.html">
+                    <h2><span class="material-icons">local_hospital</span>Medical Debt Calculator</h2>
+                    <p>Calculate and manage your medical debt payments</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="date-countdown-calculator.html">
-                    <h2><span class="material-icons">hourglass_bottom</span>Date Countdown Calculator</h2>
-                    <p>Find out exactly how many days are left until any event or deadline</p>
+                <a href="bmi-calculator.html">
+                    <h2><span class="material-icons">monitor_weight</span>BMI Calculator</h2>
+                    <p>Calculate your Body Mass Index and understand your weight range</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="percentage-calculator.html">
-                    <h2><span class="material-icons">percent</span>Percentage Calculator</h2>
-                    <p>Calculate percentages, increases, and decreases</p>
+                <a href="healthy-weight-calculator.html">
+                    <h2><span class="material-icons">scale</span>Healthy Weight Calculator</h2>
+                    <p>Find your ideal weight range by height, age, and sex</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="random-number-generator.html">
-                    <h2><span class="material-icons">casino</span>Random Number Generator</h2>
-                    <p>Generate random numbers within a specified range</p>
+                <a href="calorie-calculator.html">
+                    <h2><span class="material-icons">restaurant_menu</span>Calorie Calculator</h2>
+                    <p>Calculate your daily caloric needs based on your lifestyle</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="random-password-generator.html">
-                    <h2><span class="material-icons">lock</span>Random Password Generator</h2>
-                    <p>Create strong, secure passwords with customizable options</p>
+                <a href="body-fat-calculator.html">
+                    <h2><span class="material-icons">accessibility</span>Body Fat Calculator</h2>
+                    <p>Estimate your body fat percentage using various methods</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="time-zone-calculator.html">
-                    <h2><span class="material-icons">schedule</span>Time Zone Calculator</h2>
-                    <p>Convert times between different time zones</p>
-                </a>
-            </div>
-
-
-            <div class="calculator-card">
-                <a href="grade-calculator.html">
-                    <h2><span class="material-icons">school</span>Grade Calculator</h2>
-                    <p>Calculate GPA, final grades, and weighted averages for students and teachers</p>
-                </a>
-            </div>
-
-
-            <div class="calculator-card">
-                <a href="job-worth-calculator.html">
-                    <h2><span class="material-icons">work</span>Job Worth Calculator</h2>
-                    <p>Calculate your true market value and find out if you're being underpaid</p>
+                <a href="ideal-weight-calculator.html">
+                    <h2><span class="material-icons">fitness_center</span>Ideal Weight Calculator</h2>
+                    <p>Find your ideal weight range based on height and body type</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="immigration-points-calculator.html">
-                    <h2><span class="material-icons">public</span>Immigration Points Calculator</h2>
-                    <p>Calculate your CRS score, H1B points & visa eligibility for Canada, USA, UK & Australia</p>
+                <a href="pregnancy-calculator.html">
+                    <h2><span class="material-icons">child_care</span>Pregnancy Calculator</h2>
+                    <p>Calculate important pregnancy dates and milestones</p>
                 </a>
             </div>
 
             <div class="calculator-card">
-                <a href="portable-toilet-rentals-cost.html">
-                    <h2><span class="material-icons">wc</span>Portable Toilet Rentals Cost Calculator</h2>
-                    <p>Calculate how many portable toilets you need for events, weddings, and construction sites</p>
+                <a href="medical-bill-negotiation-savings-estimator.html">
+                    <h2><span class="material-icons">account_balance_wallet</span>Medical Bill Negotiation Savings Estimator</h2>
+                    <p>Estimate potential savings by negotiating your medical bills</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="anti-inflammatory-diet-calculator.html">
+                    <h2><span class="material-icons">restaurant</span>Anti-Inflammatory Diet Calculator</h2>
+                    <p>Calculate your anti-inflammatory diet score and get personalized recommendations</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="waist-to-hip-ratio-calculator.html">
+                    <h2><span class="material-icons">straighten</span>Waist-to-Hip Ratio Calculator</h2>
+                    <p>Calculate your waist-to-hip ratio and assess your health risk level</p>
+                </a>
+            </div>
+
+            <div class="calculator-card">
+                <a href="ovulation-calculator.html">
+                    <h2><span class="material-icons">pregnant_woman</span>Ovulation Calculator</h2>
+                    <p>Track your menstrual cycle and predict your ovulation day and fertile window</p>
                 </a>
             </div>
         </div>
