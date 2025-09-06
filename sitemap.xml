@@ -3,429 +3,435 @@
     <!-- Homepage -->
     <url>
         <loc>https://www.calculatorquote.com/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <!-- Legal and About Pages -->
     <url>
         <loc>https://www.calculatorquote.com/about-us.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/terms-of-use.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/privacy-policy.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <!-- Math Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/math/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/basic-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/scientific-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/fraction-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/statistics-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/matrix-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/math/unit-converter.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Financial Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/financial/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/army-retirement-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/mortgage-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/investment-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/loan-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/compound-interest.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/currency-converter.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/income-tax-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/collectible-toy-insurance.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/auto-loan-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/amortization-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/mortgage-calculator-navy-federal.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/USDA-financing-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/rv-loan-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/financial/401k-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Health Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/health/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/medical-debt-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/bmi-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/calorie-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/body-fat-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/ideal-weight-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/pregnancy-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/healthy-weight-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/medical-bill-negotiation-savings-estimator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/health/anti-inflammatory-diet-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.calculatorquote.com/health/waist-to-hip-ratio-calculator.html</loc>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Other Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/other/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/portable-toilet-rentals-cost.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/job-worth-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/water-damage-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/date-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/time-zone-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/random-number-generator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/random-password-generator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/percentage-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/roofing-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/pet-insurance-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/pest-control-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/mold-removal-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/grade-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/other/date-countdown-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Home Improvement -->
     <url>
         <loc>https://www.calculatorquote.com/home/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/moving-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/bathroom-remodel-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/HVAC-load-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/solar-panel-cost-estimator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/solar-savings-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/flooring-installation-estimator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/plumbing-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/LED-resistor-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/home-security-systems-cost-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Sports Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/sports/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/sports/football-score-predictor-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/sports/football-head-to-head-stats-comparison.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/sports/football-goal-conversion-rate-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/sports/swim-pace-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/sports/swimming-target-heart-rate-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Pet Calculators -->
     <url>
         <loc>https://www.calculatorquote.com/pet/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/pet/dog-feeding-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/pet/cat-feeding-calculator.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -450,7 +456,7 @@
     </url>
     <url>
         <loc>https://www.calculatorquote.com/blog/how-to-make-100USD-a-day.html</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
