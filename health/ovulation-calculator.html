@@ -173,6 +173,12 @@
             flex: 1;
         }
 
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
         .calculate-btn {
             background: linear-gradient(135deg, #2196F3, #1976D2);
             color: white;
@@ -183,14 +189,32 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
-            width: 100%;
-            margin-top: 20px;
+            flex: 1;
         }
 
         .calculate-btn:hover {
             background: linear-gradient(135deg, #1976D2, #1565C0);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        .clear-btn {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .clear-btn:hover {
+            background-color: #64b5f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(144, 202, 249, 0.3);
         }
 
         .result-container {
@@ -313,6 +337,11 @@
             .input-group .form-group {
                 margin-bottom: 25px;
             }
+
+            .button-group {
+                flex-direction: row;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -342,7 +371,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="calculate-btn">Calculate Ovulation</button>
+            <div class="button-group">
+                <button type="submit" class="calculate-btn">Calculate</button>
+                <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+            </div>
         </form>
 
         <div id="resultContainer" class="result-container">
@@ -419,6 +451,15 @@
 
         // Set default date to today
         document.getElementById('lastPeriod').valueAsDate = new Date();
+
+        function clearForm() {
+            // Reset form inputs
+            document.getElementById('cycleLength').value = '28';
+            document.getElementById('lastPeriod').valueAsDate = new Date();
+            
+            // Hide results
+            document.getElementById('resultContainer').classList.remove('show');
+        }
 
         function calculateOvulation() {
             const cycleLength = parseInt(document.getElementById('cycleLength').value);
