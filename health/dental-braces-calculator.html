@@ -872,22 +872,12 @@
             document.getElementById('resultsContainer').classList.remove('show');
         }
         
-        // Clear form function
         function clearForm() {
-            // Reset form
             document.getElementById('bracesCalculator').reset();
-            
-            // Hide insurance groups
             document.getElementById('coveragePercentageGroup').style.display = 'none';
             document.getElementById('insuranceProviderGroup').style.display = 'none';
-            
-            // Hide results
             document.getElementById('resultsContainer').classList.remove('show');
             document.getElementById('errorMessage').style.display = 'none';
-            
-            // Set default values
-            document.getElementById('duration').value = 18;
-            document.getElementById('lifetimeMax').value = 2000;
         }
         
         // Initialize form
