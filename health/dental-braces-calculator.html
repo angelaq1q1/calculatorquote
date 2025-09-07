@@ -719,38 +719,15 @@
             invisalign: { adult: 5000, teen: 4700, child: 4500 },
             'self-ligating': { adult: 4000, teen: 3700, child: 3500 }
         };
-        
-        // Complexity multipliers
-        const complexityMultipliers = {
-            mild: 0.8,
-            moderate: 1.0,
-            severe: 1.3
-        };
-        
-        // Location multipliers
-        const locationMultipliers = {
-            national: 1.0,
-            urban: 1.2,
-            suburban: 1.1,
-            rural: 0.9
-        };
-        
-        // Insurance provider coverage percentages
-        const providerCoverage = {
-            aetna: 25,
-            cigna: 30,
-            delta: 40,
-            humana: 35,
-            metlife: 30,
-            united: 25,
-            bcbs: 35
-        };
-        
-        // Event listeners
+
+        const complexityMultipliers = { mild: 0.8, moderate: 1.0, severe: 1.3 };
+        const locationMultipliers = { national: 1.0, urban: 1.2, suburban: 1.1, rural: 0.9 };
+        const providerCoverage = { aetna: 25, cigna: 30, delta: 40, humana: 35, metlife: 30, united: 25, bcbs: 35 };
+
+        // Toggle insurance input fields
         document.getElementById('insuranceType').addEventListener('change', function() {
             const percentageGroup = document.getElementById('coveragePercentageGroup');
             const providerGroup = document.getElementById('insuranceProviderGroup');
-            
             if (this.value === 'percentage') {
                 percentageGroup.style.display = 'block';
                 providerGroup.style.display = 'none';
@@ -762,15 +739,14 @@
                 providerGroup.style.display = 'none';
             }
         });
-        
+
         document.getElementById('bracesCalculator').addEventListener('submit', function(e) {
             e.preventDefault();
             calculateBracesCost();
         });
-        
+
         function calculateBracesCost() {
             try {
-                // Get form values
                 const patientType = document.querySelector('input[name="patientType"]:checked').value;
                 const bracesType = document.getElementById('bracesType').value;
                 const complexity = document.getElementById('complexity').value;
@@ -778,26 +754,17 @@
                 const location = document.getElementById('location').value;
                 const insuranceType = document.getElementById('insuranceType').value;
                 const lifetimeMax = parseFloat(document.getElementById('lifetimeMax').value) || 0;
-                
-                // Validate required fields
+
                 if (!bracesType || !complexity) {
                     showError('Please select braces type and treatment complexity.');
                     return;
                 }
-                
-                // Calculate base cost
+
                 let baseCost = baseCosts[bracesType][patientType];
-                
-                // Apply complexity multiplier
                 baseCost *= complexityMultipliers[complexity];
-                
-                // Apply location multiplier
                 baseCost *= locationMultipliers[location];
-                
-                // Set original total cost (no additional costs)
                 const originalTotalCost = baseCost;
-                
-                // Calculate insurance coverage
+
                 let coveragePercentage = 0;
                 if (insuranceType === 'percentage') {
                     coveragePercentage = parseInt(document.getElementById('coveragePercentage').value);
@@ -805,73 +772,49 @@
                     const provider = document.getElementById('insuranceProvider').value;
                     coveragePercentage = providerCoverage[provider];
                 }
-                
-                // Calculate insurance coverage amount
+
                 let insuranceCoverageAmount = originalTotalCost * (coveragePercentage / 100);
-                
-                // Apply lifetime maximum if applicable
                 if (lifetimeMax > 0 && insuranceCoverageAmount > lifetimeMax) {
                     insuranceCoverageAmount = lifetimeMax;
                 }
-                
-                // Calculate out-of-pocket cost
+
                 const outOfPocketCost = originalTotalCost - insuranceCoverageAmount;
-                
-                // Calculate monthly payment
                 const monthlyPayment = outOfPocketCost / duration;
-                
-                // Display results
-                displayResults({
-                    originalTotalCost,
-                    insuranceCoverageAmount,
-                    outOfPocketCost,
-                    monthlyPayment,
-                    duration,
-                    coveragePercentage
-                });
-                
+
+                displayResults({ originalTotalCost, insuranceCoverageAmount, outOfPocketCost, monthlyPayment, duration });
             } catch (error) {
                 showError('An error occurred while calculating. Please check your inputs.');
                 console.error('Calculation error:', error);
             }
         }
-        
+
         function displayResults(results) {
             document.getElementById('originalCost').textContent = formatCurrency(results.originalTotalCost);
             document.getElementById('insuranceCoverage').textContent = formatCurrency(results.insuranceCoverageAmount);
             document.getElementById('outOfPocket').textContent = formatCurrency(results.outOfPocketCost);
             document.getElementById('monthlyPayment').textContent = formatCurrency(results.monthlyPayment);
             document.getElementById('estimatedDuration').textContent = `${results.duration} months`;
-            
-            // Update cost summary
-            const summary = `Your orthodontic treatment will cost approximately ${formatCurrency(results.outOfPocketCost)} out-of-pocket over ${results.duration} months. `;
-            const monthlyText = `Monthly payments will be around ${formatCurrency(results.monthlyPayment)}.`;
-            document.getElementById('costSummary').textContent = summary + monthlyText;
-            
-            // Show results
+
+            document.getElementById('costSummary').textContent =
+                `Your orthodontic treatment will cost approximately ${formatCurrency(results.outOfPocketCost)} out-of-pocket over ${results.duration} months. ` +
+                `Monthly payments will be around ${formatCurrency(results.monthlyPayment)}.`;
+
             document.getElementById('resultsContainer').classList.add('show');
             document.getElementById('errorMessage').style.display = 'none';
-            
-            // Scroll to results
             document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
         }
-        
+
         function formatCurrency(amount) {
-            return new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(amount);
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount);
         }
-        
+
         function showError(message) {
             const errorElement = document.getElementById('errorMessage');
             errorElement.textContent = message;
             errorElement.style.display = 'block';
             document.getElementById('resultsContainer').classList.remove('show');
         }
-        
+
         function clearForm() {
             document.getElementById('bracesCalculator').reset();
             document.getElementById('coveragePercentageGroup').style.display = 'none';
@@ -879,13 +822,6 @@
             document.getElementById('resultsContainer').classList.remove('show');
             document.getElementById('errorMessage').style.display = 'none';
         }
-        
-        // Initialize form
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set default values
-            document.getElementById('duration').value = 18;
-            document.getElementById('lifetimeMax').value = 2000;
-        });
     </script>
 </body>
 </html>
