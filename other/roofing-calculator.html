@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Use our free roofing calculator to quickly estimate your roof area, shingle quantity, and material costs in minutes. Perfect for homeowners, contractors, and DIY roofing projects.">
-    <meta name="keywords" content="roofing calculator, roof calculator, roofing material calculator, calculate roof, roof area calculator, estimate roofing materials, roof shingles estimate, roof material estimator, calculate roofing materials, roof size calculator, roof height calculator, roof sheet calculator, roof square meter calculator">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://www.calculatorquote.com/other/roofing-calculator.html">
-    <title>Free Roofing Calculator – Estimate Roof Area & Material Costs</title>
+    <title>Time Zone Calculator | Convert & Calculate Time Between Time Zones</title>
+    <meta name="description" content="Free Time Zone Calculator to convert and calculate time differences worldwide. Easily check time zones, plan international meetings, and adjust for Daylight Saving Time.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.calculatorquote.com/other/time-zone-calculator.html" />
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Time Zone Calculator | Convert & Calculate Time Between Time Zones">
+    <meta property="og:description" content="Easily calculate and convert time zones worldwide. Perfect for meetings, travel, and international planning.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculatorquote.com/other/time-zone-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/assets/time-zone.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Time Zone Calculator – Convert Time Zones Worldwide">
+    <meta name="twitter:description" content="Use our free tool to calculate and convert time zones instantly. Includes support for daylight saving time and international meetings.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/assets/time-zone.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -25,7 +37,7 @@
         }
 
         .calculator-container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 30px;
             background-color: #ffffff;
@@ -66,62 +78,54 @@
             line-height: 1.6;
         }
 
-        .calculator-section {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
         .input-section {
-            flex: 1;
             background-color: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-        }
-
-        .image-section {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .image-section img {
-            max-width: 100%;
-            height: auto;
+            margin-bottom: 20px;
         }
 
         .input-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
         }
 
         .input-group label {
-            display: block;
-            margin-bottom: 5px;
             color: #333;
             font-weight: 500;
         }
 
-        .input-row {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .input-row input {
-            flex: 1;
-            padding: 8px;
+        .input-group input,
+        .input-group select {
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        .input-row select {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
             background-color: white;
+            cursor: pointer;
+        }
+
+        .input-group input[type="date"],
+        .input-group input[type="time"] {
+            width: 200px;
         }
 
         .buttons {
@@ -139,9 +143,6 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .btn-calculate:hover {
@@ -149,7 +150,7 @@
         }
 
         .btn-clear {
-            background-color: #9E9E9E;
+            background-color: #90caf9;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -160,7 +161,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #757575;
+            background-color: #64b5f6;
         }
 
         .result-section {
@@ -176,44 +177,43 @@
             margin-bottom: 15px;
         }
 
-        .result-value {
+        .result-time {
             font-size: 1.2em;
             color: #2196F3;
             margin-bottom: 10px;
         }
 
-        .tabs {
-            display: flex;
-            gap: 2px;
-            margin-bottom: 20px;
+        .info-section {
+            margin-top: 40px;
         }
 
-        .tab {
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .tab.active {
-            background-color: #2196F3;
-            color: white;
-        }
-
-        .calculator-title {
-            font-size: 24px;
+        .info-section h2 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         @media (max-width: 768px) {
-            .calculator-section {
-                flex-direction: column;
+            .calculator-container {
+                padding: 20px;
             }
 
-            .image-section {
-                order: -1;
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .input-group label {
+                margin-bottom: 0;
+            }
+
+            .input-group select {
+                max-width: none;
             }
         }
     </style>
@@ -225,341 +225,150 @@
             <span>/</span>
             <a href="index.html">Other Calculators</a>
             <span>/</span>
-            Roofing Calculator
+            Time Zone Calculator
         </div>
 
-        <h1 class="calculator-title">Roofing Calculator – Calculate Roof Area & Materials</h1>
+        <h1>Time Zone Calculator – Convert & Calculate Time Across the World</h1>
         
         <div class="description">
-            Tired of staring at your roof wondering how many shingles you need? Our Roofing Calculator instantly estimates your roof area and material requirements based on simple inputs. Whether you're planning a full replacement or just curious, this tool helps you avoid the "oops, we ran out" moment.
+            Our free Time Zone Calculator helps you calculate and convert time between countries, cities, and regions. Perfect for scheduling meetings, travel planning, and adjusting for Daylight Saving Time (DST).
         </div>
 
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('pitch')">Roof Pitch</button>
-            <button class="tab" onclick="switchTab('angle')">Roof Angle</button>
-        </div>
-
-        <div class="calculator-section">
-            <div class="input-section">
-                <!-- Pitch Input Section -->
-                <div id="pitchInputs">
-                    <div class="input-group">
-                        <label>House Base Area</label>
-                        <div class="input-row">
-                            <input type="number" id="baseArea" min="0" step="0.01" value="200">
-                            <select id="baseAreaUnit">
-                                <option value="sqm">square meters</option>
-                                <option value="sqft">square feet</option>
-                                <option value="sqyd">square yards</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Roof Pitch</label>
-                        <div class="input-row">
-                            <select id="roofPitch">
-                                <option value="6">6/12</option>
-                                <option value="1">1/12</option>
-                                <option value="2">2/12</option>
-                                <option value="3">3/12</option>
-                                <option value="4">4/12</option>
-                                <option value="5">5/12</option>
-                                <option value="7">7/12</option>
-                                <option value="8">8/12</option>
-                                <option value="9">9/12</option>
-                                <option value="10">10/12</option>
-                                <option value="11">11/12</option>
-                                <option value="12">12/12</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Angle Input Section -->
-                <div id="angleInputs" style="display: none;">
-                    <div class="input-group">
-                        <label>House Base Area</label>
-                        <div class="input-row">
-                            <input type="number" id="baseAreaAngle" min="0" step="0.01" value="200">
-                            <select id="baseAreaUnitAngle">
-                                <option value="sqm">square meters</option>
-                                <option value="sqft">square feet</option>
-                                <option value="sqyd">square yards</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Roof Angle (degrees)</label>
-                        <div class="input-row">
-                            <input type="number" id="roofAngle" min="0" max="90" step="0.1" value="26.6">
-                            <span style="padding: 8px;">°</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Eaves Stick Out</label>
-                    <div class="input-row">
-                        <input type="number" id="eavesLength" min="0" step="0.01" value="0.5">
-                        <select id="eavesUnit">
-                            <option value="m">meters</option>
-                            <option value="ft">feet</option>
-                            <option value="yd">yards</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Price (optional)</label>
-                    <div class="input-row">
-                        <input type="text" id="price" placeholder="$">
-                        <select id="priceUnit">
-                            <option value="sqm">per square meter</option>
-                            <option value="sqft">per square foot</option>
-                            <option value="sqyd">per square yard</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculateRoof()">
-                        Calculate
-                    </button>
-                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
-                </div>
+        <div class="input-section">
+            <div class="input-group">
+                <label>Date:</label>
+                <input type="date" id="date">
             </div>
 
-            <div class="image-section">
-                <svg viewBox="0 0 400 300" style="width: 100%; height: auto;">
-                    <!-- House outline -->
-                    <defs>
-                        <linearGradient id="roofGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#2196F3;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#64B5F6;stop-opacity:0.9" />
-                        </linearGradient>
-                        <linearGradient id="wallGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ECEFF1;stop-opacity:0.9" />
-                            <stop offset="100%" style="stop-color:#CFD8DC;stop-opacity:0.9" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- House walls -->
-                    <path d="M80 150 L80 250 L320 250 L320 150" 
-                          fill="url(#wallGradient)" stroke="#546E7A" stroke-width="2"/>
-                    
-                    <!-- Roof -->
-                    <path d="M60 150 L200 70 L340 150" 
-                          fill="url(#roofGradient)" stroke="#1565C0" stroke-width="2"/>
-                    
-                    <!-- Eaves -->
-                    <line x1="60" y1="150" x2="80" y2="150" 
-                          stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
-                    <line x1="320" y1="150" x2="340" y2="150" 
-                          stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
-                    
-                    <!-- Rise and Run measurements -->
-                    <line x1="200" y1="70" x2="200" y2="150" 
-                          stroke="#FF5722" stroke-width="2"/>
-                    <text x="185" y="110" fill="#FF5722" font-size="14">rise</text>
-                    
-                    <line x1="200" y1="150" x2="270" y2="150" 
-                          stroke="#FF5722" stroke-width="2"/>
-                    <text x="185" y="165" fill="#FF5722" font-size="14">run</text>
-                    
-                    <!-- Formula box -->
-                    <rect x="280" y="80" width="110" height="50" 
-                          fill="white" stroke="#FF5722" stroke-width="1" rx="5"/>
-                    <text x="290" y="110" fill="#FF5722" font-size="14" font-weight="bold">pitch = rise/run</text>
-                    
-                    <!-- Labels -->
-                    <text x="30" y="145" fill="#1565C0" font-size="12">eaves</text>
-                    <text x="340" y="145" fill="#1565C0" font-size="12">eaves</text>
-                    <text x="180" y="60" fill="#1565C0" font-size="14">roof</text>
-                    <text x="190" y="270" fill="#546E7A" font-size="14">base area</text>
-                    
-                    <!-- Dimensions -->
-                    <line x1="80" y1="260" x2="320" y2="260" 
-                          stroke="#90A4AE" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-                    
-                    <!-- Arrow markers -->
-                    <defs>
-                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
-                                markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#90A4AE"/>
-                        </marker>
-                    </defs>
-                </svg>
+            <div class="input-group">
+                <label>Time:</label>
+                <input type="time" id="time" step="1" placeholder="HH:mm:ss">
+            </div>
+
+            <div class="input-group">
+                <label>From:</label>
+                <select id="fromZone">
+                    <option value="-12">(UTC-12) International Date Line West</option>
+                    <option value="-11">(UTC-11) Midway Island, Samoa</option>
+                    <option value="-10">(UTC-10) Hawaii</option>
+                    <option value="-9">(UTC-09) Alaska</option>
+                    <option value="-8">(UTC-08) Pacific Time (US/Canada), Los Angeles</option>
+                    <option value="-7">(UTC-07) Mountain Time (US/Canada), Denver</option>
+                    <option value="-6">(UTC-06) Central Time (US/Canada), Chicago</option>
+                    <option value="-5">(UTC-05) Eastern Time (US/Canada), New York</option>
+                    <option value="-4">(UTC-04) Atlantic Time (Canada), Halifax</option>
+                    <option value="-3">(UTC-03) Brasilia, Buenos Aires, Santiago</option>
+                    <option value="-2">(UTC-02) Mid-Atlantic</option>
+                    <option value="-1">(UTC-01) Azores, Cape Verde Islands</option>
+                    <option value="0">(UTC±00) London, Dublin, Edinburgh</option>
+                    <option value="1">(UTC+01) Paris, Rome, Berlin, Madrid</option>
+                    <option value="2">(UTC+02) Athens, Istanbul, Cairo, Jerusalem</option>
+                    <option value="3">(UTC+03) Moscow, Riyadh, Nairobi</option>
+                    <option value="3.5">(UTC+03:30) Tehran</option>
+                    <option value="4">(UTC+04) Dubai, Abu Dhabi, Muscat</option>
+                    <option value="4.5">(UTC+04:30) Kabul</option>
+                    <option value="5">(UTC+05) Karachi, Tashkent, Maldives</option>
+                    <option value="5.5">(UTC+05:30) New Delhi, Mumbai, Colombo</option>
+                    <option value="5.75">(UTC+05:45) Kathmandu</option>
+                    <option value="6">(UTC+06) Dhaka, Almaty, Astana</option>
+                    <option value="6.5">(UTC+06:30) Yangon (Rangoon)</option>
+                    <option value="7">(UTC+07) Bangkok, Hanoi, Jakarta</option>
+                    <option value="8">(UTC+08) Beijing, Hong Kong, Singapore</option>
+                    <option value="9">(UTC+09) Tokyo, Seoul, Osaka</option>
+                    <option value="10">(UTC+10) Sydney, Melbourne, Brisbane</option>
+                    <option value="11">(UTC+11) Solomon Islands, New Caledonia</option>
+                    <option value="12">(UTC+12) Auckland, Wellington, Fiji</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>To:</label>
+                <select id="toZone">
+                    <option value="-12">(UTC-12) International Date Line West</option>
+                    <option value="-11">(UTC-11) Midway Island, Samoa</option>
+                    <option value="-10">(UTC-10) Hawaii</option>
+                    <option value="-9">(UTC-09) Alaska</option>
+                    <option value="-8">(UTC-08) Pacific Time (US/Canada), Los Angeles</option>
+                    <option value="-7">(UTC-07) Mountain Time (US/Canada), Denver</option>
+                    <option value="-6">(UTC-06) Central Time (US/Canada), Chicago</option>
+                    <option value="-5">(UTC-05) Eastern Time (US/Canada), New York</option>
+                    <option value="-4">(UTC-04) Atlantic Time (Canada), Halifax</option>
+                    <option value="-3">(UTC-03) Brasilia, Buenos Aires, Santiago</option>
+                    <option value="-2">(UTC-02) Mid-Atlantic</option>
+                    <option value="-1">(UTC-01) Azores, Cape Verde Islands</option>
+                    <option value="0">(UTC±00) London, Dublin, Edinburgh</option>
+                    <option value="1">(UTC+01) Paris, Rome, Berlin, Madrid</option>
+                    <option value="2">(UTC+02) Athens, Istanbul, Cairo, Jerusalem</option>
+                    <option value="3">(UTC+03) Moscow, Riyadh, Nairobi</option>
+                    <option value="3.5">(UTC+03:30) Tehran</option>
+                    <option value="4">(UTC+04) Dubai, Abu Dhabi, Muscat</option>
+                    <option value="4.5">(UTC+04:30) Kabul</option>
+                    <option value="5">(UTC+05) Karachi, Tashkent, Maldives</option>
+                    <option value="5.5">(UTC+05:30) New Delhi, Mumbai, Colombo</option>
+                    <option value="5.75">(UTC+05:45) Kathmandu</option>
+                    <option value="6">(UTC+06) Dhaka, Almaty, Astana</option>
+                    <option value="6.5">(UTC+06:30) Yangon (Rangoon)</option>
+                    <option value="7">(UTC+07) Bangkok, Hanoi, Jakarta</option>
+                    <option value="8">(UTC+08) Beijing, Hong Kong, Singapore</option>
+                    <option value="9">(UTC+09) Tokyo, Seoul, Osaka</option>
+                    <option value="10">(UTC+10) Sydney, Melbourne, Brisbane</option>
+                    <option value="11">(UTC+11) Solomon Islands, New Caledonia</option>
+                    <option value="12">(UTC+12) Auckland, Wellington, Fiji</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateTime()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Related Contents</h2>
+            <div class="description">
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    <a href="../blog/how-to-calculate-time-differences.html" style="color: #2196F3; text-decoration: none; font-weight: 500;">How to Calculate Time Differences to Save 30 Minutes per Week</a>
+                </p>
             </div>
         </div>
 
         <div class="result-section" id="results">
-            <h2>Results</h2>
-            <div class="result-value" id="roofArea"></div>
-            <div class="result-value" id="totalCost"></div>
-        </div>
-
-        <h1 class="calculator-title">Roofing Material Calculator</h1>
-        <div class="calculator-section">
-            <div class="input-section">
-                <div class="input-group">
-                    <label>Roof Area</label>
-                    <div class="input-row">
-                        <input type="number" id="materialArea" min="0" step="0.01" value="200">
-                        <select id="materialAreaUnit">
-                            <option value="sqm">square meters</option>
-                            <option value="sqft">square feet</option>
-                            <option value="sqyd">square yards</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculateMaterials()">
-                        Calculate
-                    </button>
-                    <button class="btn-clear" onclick="clearMaterialInputs()">Clear</button>
-                </div>
-            </div>
+            <h2>Result</h2>
+            <div class="result-time" id="result-time"></div>
         </div>
 
         <div class="info-section">
-            <h2 class="calculator-title">How to Use the Roofing Calculator</h2>
-            <div class="description">
-                <p style="margin-bottom: 15px; line-height: 1.6;">Our free roofing calculator helps you estimate roof area, shingle quantity, and material costs in just a few simple steps:</p>
-                <ol style="margin-left: 20px; line-height: 1.6;">
-                    <li style="margin-bottom: 8px;"><strong>Step 1:</strong> Enter your house base area (length × width)</li>
-                    <li style="margin-bottom: 8px;"><strong>Step 2:</strong> Select roof pitch or enter roof angle in degrees</li>
-                    <li style="margin-bottom: 8px;"><strong>Step 3:</strong> Add eaves overhang length if applicable</li>
-                    <li style="margin-bottom: 8px;"><strong>Step 4:</strong> Optionally enter material price per unit</li>
-                    <li style="margin-bottom: 8px;"><strong>Step 5:</strong> Click Calculate to get instant results</li>
-                </ol>
-                <p style="margin-top: 15px; line-height: 1.6;">The calculator automatically converts between different units and provides accurate estimates for your roofing project.</p>
-            </div>
-        </div>
+            <h2>Common Uses of the Time Zone Calculator</h2>
+            <ul style="margin-left: 20px; color: #666; line-height: 1.6;">
+                <li><strong>Plan International Meetings:</strong> Find the best meeting time across multiple time zones.</li>
+                <li><strong>Travel Planning:</strong> Check time differences before your trip to adjust your schedule.</li>
+                <li><strong>Daylight Saving Adjustments:</strong> Automatically accounts for DST changes.</li>
+                <li><strong>Work Across Countries:</strong> Compare local times between cities worldwide.</li>
+            </ul>
 
-        <div class="info-section">
-            <h2 class="calculator-title">What Our Roofing Calculator Determines</h2>
-            <div class="description">
-                <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Roof Area Calculation</h3>
-                <p style="margin-bottom: 10px; line-height: 1.6;">Our roof area calculator provides accurate measurements including:</p>
-                <ul style="margin-left: 20px; line-height: 1.6;">
-                    <li style="margin-bottom: 5px;">Base house area with eaves overhang</li>
-                    <li style="margin-bottom: 5px;">Roof pitch correction factors</li>
-                    <li style="margin-bottom: 5px;">Total roof surface area in multiple units</li>
-                </ul>
+            <h2 style="margin-top: 30px;">Calculate Time Zone Differences</h2>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">Whether you need a <em>time zone difference calculator</em>, a <em>world clock time calculator</em>, or a <em>time zone converter for meetings</em>, our tool covers it all. Simply choose your locations and get accurate results instantly.</p>
 
-                <h3 style="color: #333; margin: 20px 0 10px 0; font-size: 1.2em;">Material Estimation</h3>
-                <p style="margin-bottom: 10px; line-height: 1.6;">Get precise estimates for roofing materials:</p>
-                <ul style="margin-left: 20px; line-height: 1.6;">
-                    <li style="margin-bottom: 5px;">Number of shingles or tiles needed</li>
-                    <li style="margin-bottom: 5px;">Metal roofing sheets required</li>
-                    <li style="margin-bottom: 5px;">Underlayment and flashing materials</li>
-                </ul>
+            <h2 style="margin-top: 30px;">Convert Time Zones Instantly</h2>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">This tool works as a <em>time zone converter calculator</em>, <em>international time calculator</em>, and <em>travel time zone calculator</em>. It supports countries, cities, and UTC offsets worldwide.</p>
 
-                <h3 style="color: #333; margin: 20px 0 10px 0; font-size: 1.2em;">Cost Calculation</h3>
-                <p style="margin-bottom: 10px; line-height: 1.6;">Estimate your total roofing project costs:</p>
-                <ul style="margin-left: 20px; line-height: 1.6;">
-                    <li style="margin-bottom: 5px;">Material costs based on area and price per unit</li>
-                    <li style="margin-bottom: 5px;">Labor cost estimates (if applicable)</li>
-                    <li style="margin-bottom: 5px;">Total project investment</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h2 class="calculator-title">🏠 Roofing Calculator – Because Eyeballing Your Roof Won't End Well 🧮</h2>
-            
-            <div class="description">
-                <p>So you looked up at your roof, guessed it's "probably about 30 feet wide," and thought you could wing it?</p>
-                <p>Bold move.</p>
-                <p>Whether you're a brave DIYer, a stressed-out homeowner, or someone who just wants to sound smart at Home Depot — our Roofing Calculator is here to stop you from dramatically underestimating how many shingles you'll need (again).</p>
-            </div>
-
-            <div class="description">
-                <h3 class="calculator-title">🧱 What's it do?</h3>
-                <p>✅ Instantly estimates roof area based on width, length & pitch</p>
-                <p>✅ Calculates how many shingles, tiles, or metal sheets you actually need</p>
-                <p>✅ Gives you material cost estimates — so you know what kind of financial heartbreak to expect</p>
-                <p>✅ Works on any device, even on a ladder (though maybe don't try that)</p>
-                <p>✅ No sign-ups, no downloads, no roofing contractor side-eyes</p>
-            </div>
-
-            <div class="description">
-                <h3 class="calculator-title">🛠️ Common uses:</h3>
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li>• Planning a full roof replacement</li>
-                    <li>• Figuring out if your roofing quote is legit or daylight robbery</li>
-                    <li>• Pretending you're more prepared than you actually are</li>
-                    <li>• Having something smarter than your neighbor Dave (again)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h2 class="calculator-title">Frequently Asked Questions</h2>
-            
+            <h2 style="margin-top: 30px;">Frequently Asked Questions</h2>
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">How do I calculate roof shingles?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Use our roofing calculator by entering your house dimensions and roof pitch. The calculator automatically determines roof area and estimates shingle quantity. For asphalt shingles, typically 3 bundles cover 100 sq ft. Our tool gives you the exact number needed for your specific roof.
-                </p>
+                <h3 style="color: #333; margin-bottom: 10px;">Q: How do I calculate time differences between time zones?</h3>
+                <p style="color: #666; line-height: 1.6;">A: Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly.</p>
             </div>
-
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">What is the roof area calculator?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Our roof area calculator is a free online tool that estimates your total roof surface area based on house dimensions, roof pitch, and eaves overhang. It accounts for slope correction factors and provides results in multiple units (square meters, feet, yards) for accurate material planning.
-                </p>
+                <h3 style="color: #333; margin-bottom: 10px;">Q: Can I use the calculator for international meetings?</h3>
+                <p style="color: #666; line-height: 1.6;">A: Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time.</p>
             </div>
-
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Can I estimate roofing materials online for free?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Yes! Our roofing material calculator is completely free to use. Simply input your roof area and get instant estimates for shingles, tiles, metal sheets, and other materials. No registration required, no hidden fees - just accurate calculations to help plan your roofing project.
-                </p>
+                <h3 style="color: #333; margin-bottom: 10px;">Q: Does the calculator support Daylight Saving Time?</h3>
+                <p style="color: #666; line-height: 1.6;">A: Yes. The calculator automatically accounts for DST changes so your results are always accurate.</p>
             </div>
-
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">How accurate is the roof size calculator?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Our roof size calculator provides highly accurate estimates using industry-standard formulas and correction factors. It accounts for roof pitch, eaves overhang, and converts between different measurement units. For best results, measure your house dimensions carefully and select the correct roof pitch.
-                </p>
+                <h3 style="color: #333; margin-bottom: 10px;">Q: Can I calculate travel time zone changes?</h3>
+                <p style="color: #666; line-height: 1.6;">A: Yes. You can use it as a travel time zone calculator to estimate time differences during international trips.</p>
             </div>
-
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">What roofing materials can I calculate?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Our calculator works with all common roofing materials including asphalt shingles, metal roofing, clay tiles, concrete tiles, and wood shingles. Simply enter your roof area and the calculator will estimate the quantity needed for any material type.
-                </p>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Can this calculator help me avoid a roofing disaster?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    It can't stop your cousin from "helping" with a nail gun, but it can stop you from buying 600 extra shingles. Our roofing calculator gives you precise measurements so you can order the right amount of materials and avoid costly mistakes.
-                </p>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">What about weird roof angles and attic monsters?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Just input the pitch or angle. Our calculator handles the math so you can handle the monsters. Whether you have a simple gable roof or complex multi-pitch design, our tool provides accurate area calculations for any roof configuration.
-                </p>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Is this really free?</h3>
-                <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Yes. Like, free-free. Not "give us your email and we'll spam you forever" free. Just use it and go. Our roofing calculator is completely free with no hidden costs or registration requirements.
-                </p>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h2 class="calculator-title">🧠 Pro tip:</h2>
-            <p style="line-height: 1.6;">Bookmark this tool. Next time you feel tempted to say "meh, we'll figure it out when we get there," remember the last time you ran out of materials halfway through the job. 🙃</p>
         </div>
     </div>
 
@@ -575,229 +384,103 @@
     </footer>
 
     <script>
-        const correctionFactors = {
-            1: 1.003, 2: 1.014, 3: 1.031, 4: 1.054,
-            5: 1.083, 6: 1.118, 7: 1.158, 8: 1.202,
-            9: 1.250, 10: 1.302, 11: 1.357, 12: 1.414
-        };
-
-        function switchTab(tab) {
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(t => t.classList.remove('active'));
-            const activeTab = document.querySelector(`.tab:nth-child(${tab === 'pitch' ? '1' : '2'})`);
-            activeTab.classList.add('active');
-            
-            // Show/hide appropriate input sections
-            const pitchInputs = document.getElementById('pitchInputs');
-            const angleInputs = document.getElementById('angleInputs');
-            
-            if (tab === 'angle') {
-                pitchInputs.style.display = 'none';
-                angleInputs.style.display = 'block';
-                // Convert pitch to angle
-                const pitch = document.getElementById('roofPitch').value;
-                const angle = Math.atan(pitch/12) * (180/Math.PI);
-                document.getElementById('roofAngle').value = angle.toFixed(1);
-                // Copy base area value
-                document.getElementById('baseAreaAngle').value = document.getElementById('baseArea').value;
-                document.getElementById('baseAreaUnitAngle').value = document.getElementById('baseAreaUnit').value;
-            } else {
-                pitchInputs.style.display = 'block';
-                angleInputs.style.display = 'none';
-                // Convert angle to pitch
-                const angle = parseFloat(document.getElementById('roofAngle').value);
-                const pitch = Math.tan(angle * (Math.PI/180)) * 12;
-                document.getElementById('roofPitch').value = Math.round(pitch) || 6;
-                // Copy base area value
-                document.getElementById('baseArea').value = document.getElementById('baseAreaAngle').value;
-                document.getElementById('baseAreaUnit').value = document.getElementById('baseAreaUnitAngle').value;
-            }
+        // Set default date and time to current
+        window.onload = function() {
+            const now = new Date();
+            document.getElementById('date').valueAsDate = now;
+            document.getElementById('time').value = now.toTimeString().substring(0,8);
         }
 
-        function calculateRoof() {
-            let baseArea, angle;
-            const isAngleMode = document.querySelector('.tab:nth-child(2)').classList.contains('active');
-            
-            if (isAngleMode) {
-                baseArea = parseFloat(document.getElementById('baseAreaAngle').value);
-                angle = parseFloat(document.getElementById('roofAngle').value);
-                // Convert angle to pitch for calculation
-                const pitch = Math.tan(angle * (Math.PI/180)) * 12;
-                document.getElementById('roofPitch').value = Math.round(pitch);
-            } else {
-                baseArea = parseFloat(document.getElementById('baseArea').value);
-                const pitch = parseInt(document.getElementById('roofPitch').value);
-                angle = Math.atan(pitch/12) * (180/Math.PI);
-            }
+        function calculateTime() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const fromZone = parseFloat(document.getElementById('fromZone').value);
+            const toZone = parseFloat(document.getElementById('toZone').value);
 
-            const eaves = parseFloat(document.getElementById('eavesLength').value) || 0;
-            const price = parseFloat(document.getElementById('price').value) || 0;
-
-            if (isNaN(baseArea)) {
-                alert('Please enter a valid base area');
+            if (!date || !time) {
+                alert('Please enter both date and time.');
                 return;
             }
 
-            // Convert all measurements to square meters for calculation
-            const baseAreaUnit = isAngleMode ? 
-                document.getElementById('baseAreaUnitAngle').value : 
-                document.getElementById('baseAreaUnit').value;
-            const eavesUnit = document.getElementById('eavesUnit').value;
+            // Create Date object from input
+            const [hours, minutes, seconds] = time.split(':').map(Number);
+            const dateObj = new Date(date);
+            dateObj.setHours(hours, minutes, seconds || 0);
+
+            // Convert to target timezone
+            const utc = dateObj.getTime() + (dateObj.getTimezoneOffset() * 60000);
+            const fromTime = utc + (3600000 * fromZone);
+            const toTime = utc + (3600000 * toZone);
+
+            const resultDate = new Date(toTime);
+
+            // Format the result with explicit English weekday
+            const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             
-            let convertedBaseArea = convertToSqM(baseArea, baseAreaUnit);
-            let convertedEaves = convertToM(eaves, eavesUnit);
+            const weekday = weekdays[resultDate.getDay()];
+            const month = months[resultDate.getMonth()];
+            const day = resultDate.getDate();
+            const year = resultDate.getFullYear();
+            const hour = resultDate.getHours() % 12 || 12;
+            const minute = resultDate.getMinutes().toString().padStart(2, '0');
+            const second = resultDate.getSeconds().toString().padStart(2, '0');
+            const ampm = resultDate.getHours() >= 12 ? 'PM' : 'AM';
 
-            // Calculate additional area from eaves
-            const housePerimeter = Math.sqrt(convertedBaseArea) * 4;
-            const eavesArea = housePerimeter * convertedEaves;
-            
-            // Calculate total roof area with angle correction
-            const totalBaseArea = convertedBaseArea + eavesArea;
-            const correctionFactor = 1 / Math.cos(angle * (Math.PI/180));
-            const roofArea = totalBaseArea * correctionFactor;
+            const formattedDate = `${weekday}, ${month} ${day}, ${year} ${hour}:${minute}:${second} ${ampm}`;
 
-            // Calculate cost if price is provided
-            let costText = '';
-            if (price > 0) {
-                const priceUnit = document.getElementById('priceUnit').value;
-                const pricePerSqM = convertPriceToSqM(price, priceUnit);
-                const totalCost = roofArea * pricePerSqM;
-                costText = `Estimated Cost: $${Math.round(totalCost)}`;
-            }
-
-            // Display results
             document.getElementById('results').style.display = 'block';
-            document.getElementById('roofArea').textContent = `Total Roof Area: ${Math.round(roofArea)} square meters`;
-            document.getElementById('totalCost').textContent = costText;
-
-            // Update material calculator
-            document.getElementById('materialArea').value = Math.round(roofArea);
-        }
-
-        function calculateMaterials() {
-            const area = parseFloat(document.getElementById('materialArea').value);
-            const unit = document.getElementById('materialAreaUnit').value;
-            
-            if (isNaN(area)) {
-                alert('Please enter a valid roof area');
-                return;
-            }
-
-            // Convert to square meters
-            const areaInSqM = convertToSqM(area, unit);
-            
-            // Show results
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('roofArea').textContent = `Total Material Area Needed: ${Math.round(areaInSqM)} square meters`;
-            document.getElementById('totalCost').textContent = '';
-        }
-
-        function convertToSqM(value, unit) {
-            switch(unit) {
-                case 'sqm': return value;
-                case 'sqft': return value * 0.092903;
-                case 'sqyd': return value * 0.836127;
-                default: return value;
-            }
-        }
-
-        function convertToM(value, unit) {
-            switch(unit) {
-                case 'm': return value;
-                case 'ft': return value * 0.3048;
-                case 'yd': return value * 0.9144;
-                default: return value;
-            }
-        }
-
-        function convertPriceToSqM(price, unit) {
-            switch(unit) {
-                case 'sqm': return price;
-                case 'sqft': return price * 10.7639;
-                case 'sqyd': return price * 9;
-                default: return price;
-            }
+            document.getElementById('result-time').textContent = formattedDate;
         }
 
         function clearInputs() {
-            const isAngleMode = document.querySelector('.tab:nth-child(2)').classList.contains('active');
-            if (isAngleMode) {
-                document.getElementById('baseAreaAngle').value = '200';
-                document.getElementById('roofAngle').value = '26.6';
-            } else {
-                document.getElementById('baseArea').value = '200';
-                document.getElementById('roofPitch').value = '6';
-            }
-            document.getElementById('eavesLength').value = '0.5';
-            document.getElementById('price').value = '';
-            document.getElementById('results').style.display = 'none';
-        }
-
-        function clearMaterialInputs() {
-            document.getElementById('materialArea').value = '200';
+            document.getElementById('date').value = '';
+            document.getElementById('time').value = '';
+            document.getElementById('fromZone').selectedIndex = 0;
+            document.getElementById('toZone').selectedIndex = 0;
             document.getElementById('results').style.display = 'none';
         }
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Roofing Calculator",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "url": "https://www.calculatorquote.com/other/roofing-calculator.html",
-      "description": "Use our free Roofing Calculator to estimate your roof area, number of shingles or tiles needed, and material costs. Perfect for homeowners, contractors, and DIY roofing projects.",
-      "keywords": [
-        "roofing calculator",
-        "roof calculator",
-        "roofing material calculator",
-        "calculate roof",
-        "roof area calculator",
-        "estimate roofing materials",
-        "roof shingles estimate",
-        "roof material estimator",
-        "calculate roofing materials",
-        "roof size calculator",
-        "roof height calculator",
-        "roof sheet calculator",
-        "roof square meter calculator"
-      ],
-      "publisher": {
-        "@type": "Organization",
-        "name": "CalculatorQuote",
-        "url": "https://www.calculatorquote.com"
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate time differences between time zones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly."
+        }
       },
-      "mainEntity": {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do I calculate roof shingles?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Use our roofing calculator by entering your house dimensions and roof pitch. The calculator automatically determines roof area and estimates shingle quantity. For asphalt shingles, typically 3 bundles cover 100 sq ft."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the roof area calculator?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our roof area calculator is a free online tool that estimates your total roof surface area based on house dimensions, roof pitch, and eaves overhang. It accounts for slope correction factors and provides results in multiple units."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I estimate roofing materials online for free?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! Our roofing material calculator is completely free to use. Simply input your roof area and get instant estimates for shingles, tiles, metal sheets, and other materials. No registration required."
-            }
-          }
-        ]
+      {
+        "@type": "Question",
+        "name": "Can I use the calculator for international meetings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the calculator support Daylight Saving Time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The calculator automatically accounts for DST changes so your results are always accurate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate travel time zone changes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use it as a travel time zone calculator to estimate time differences during international trips."
+        }
       }
-    }
-    </script>
+    ]
+  }
+  </script>
 </body>
 </html> 
