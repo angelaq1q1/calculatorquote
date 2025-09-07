@@ -453,11 +453,23 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://www.calculatorquote.com/pet/aquarium-volume-calculator.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Blog Pages -->
     <url>
         <loc>https://www.calculatorquote.com/blog/</loc>
         <lastmod>2025-01-28</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.calculatorquote.com/blog/how-to-estimate-your-roof-costs.html</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
