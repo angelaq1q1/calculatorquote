@@ -140,6 +140,7 @@
 
         .breadcrumb span {
             color: #666;
+            margin: 0 8px;
         }
 
         h1 {
@@ -388,8 +389,10 @@
 <body>
     <div class="calculator-container">
         <div class="breadcrumb">
-            <a href="https://www.calculatorquote.com/">Home</a> > 
-            <a href="https://www.calculatorquote.com/financial/">Financial</a> > 
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="./index.html">Financial Calculators</a>
+            <span>/</span>
             <span>Credit Card Payoff Calculator</span>
         </div>
 
@@ -522,7 +525,40 @@
                 <strong>A:</strong> Paying only minimum payments can take 10-20+ years depending on your balance and APR. For example, a $5,000 balance at 18% APR with minimum payments could take 15+ years and cost over $4,000 in interest. Our calculator shows you the exact timeline and total cost.
             </div>
         </div>
+
+        <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
+            <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Calculators</h2>
+            <ul style="list-style:none;padding:0;">
+                <li style="margin-bottom:14px;">
+                    <a href="mortgage-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Mortgage Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your monthly mortgage payments</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="loan-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Loan Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate loan payments and interest</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="investment-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Investment Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate investment returns and growth</span>
+                </li>
+                <li style="margin-bottom:14px;">
+                    <a href="retirement-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Retirement Calculator</a>
+                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Plan your retirement savings</span>
+                </li>
+            </ul>
+        </div>
     </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
 
     <script>
         document.getElementById('payoffForm').addEventListener('submit', function(e) {
