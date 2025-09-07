@@ -1,0 +1,357 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquarium Volume Calculator – Plan the Perfect Tank & Keep Fish Healthy</title>
+<meta name="description" content="Easily calculate your aquarium's ideal size to avoid overcrowding and ensure a healthy environment for your fish. Perfect for beginners and enthusiasts to plan a thriving, stress-free tank.">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Aquarium Volume Calculator",
+  "description": "Easily calculate your aquarium's ideal size to avoid overcrowding and ensure a healthy environment for your fish. Perfect for beginners and enthusiasts to plan a thriving, stress-free tank.",
+  "url": "https://calculatorquote.com/pet/aquarium-volume-calculator.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Calculate aquarium volume in litres and gallons",
+    "Fish tank volume calculator with multiple units",
+    "Aquarium volume calculator litres support",
+    "Fish capacity recommendations",
+    "Filter flow rate suggestions"
+  ],
+  "keywords": [
+    "aquarium volume calculator",
+    "aquarium volume calculator litres", 
+    "fish tank volume calculator",
+    "aquarium size calculator",
+    "tank volume calculator",
+    "aquarium dimensions calculator"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://calculatorquote.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://calculatorquote.com"
+  },
+  "datePublished": "2025-01-01",
+  "dateModified": "2025-01-01",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "softwareVersion": "1.0"
+}
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .calculator-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+  }
+  h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .input-group {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    gap: 15px;
+  }
+  .input-group label {
+    color: #333;
+    font-weight: 500;
+  }
+  .input-group input,
+  .input-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .input-group input:hover,
+  .input-group input:focus,
+  .input-group select:hover,
+  .input-group select:focus {
+    border-color: #2196F3;
+  }
+  .input-group select {
+    width: 100%;
+    max-width: 400px;
+    color: #333;
+    background-color: white;
+    cursor: pointer;
+  }
+  .buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .btn-calculate {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .btn-calculate:hover {
+    background-color: #1976D2;
+  }
+  .btn-clear {
+    background-color: #90caf9;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .btn-clear:hover {
+    background-color: #64b5f6;
+  }
+  .result-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    display: none;
+  }
+  .result-section h2 {
+    color: #1976D2;
+    margin-bottom: 15px;
+  }
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #bbdefb;
+  }
+  .result-item:last-child {
+    border-bottom: none;
+  }
+  .result-label {
+    font-weight: 500;
+    color: #666;
+  }
+  .result-value {
+    font-weight: 600;
+    color: #2196F3;
+  }
+  .breadcrumb {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #666;
+  }
+  .breadcrumb a {
+    color: #2196F3;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .breadcrumb a:hover {
+    color: #1976D2;
+  }
+  .breadcrumb span {
+    color: #666;
+    margin: 0 8px;
+  }
+  @media (max-width: 768px) {
+    .input-group {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .input-group label {
+      margin-bottom: 5px;
+    }
+    body {
+      padding: 10px;
+    }
+    .calculator-container {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="calculator-container">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a> <span>/</span>
+    <a href="index.html">Pet Calculators</a> <span>/</span>
+    <span>Aquarium Volume Calculator</span>
+  </div>
+  <h1>Aquarium Volume Calculator – Avoid Overcrowding & Keep Your Fish Healthy</h1>
+  <p style="color: #666; margin-bottom: 30px; line-height: 1.6;">Calculate your aquarium's ideal volume effortlessly with our Aquarium Volume Calculator. Avoid overcrowding, ensure proper water conditions, and keep your fish healthy. Perfect for both beginners and experienced hobbyists, this tool helps you plan the right tank size for a thriving aquatic environment.</p>
+
+  <div class="input-group">
+    <label for="length">Length:</label>
+    <input type="number" id="length" placeholder="e.g. 100" min="0">
+  </div>
+  <div class="input-group">
+    <label for="width">Width:</label>
+    <input type="number" id="width" placeholder="e.g. 50" min="0">
+  </div>
+  <div class="input-group">
+    <label for="height">Height:</label>
+    <input type="number" id="height" placeholder="e.g. 40" min="0">
+  </div>
+  <div class="input-group">
+    <label for="unit">Unit:</label>
+    <select id="unit">
+      <option value="cm">Centimeters (cm)</option>
+      <option value="inch">Inches (inch)</option>
+      <option value="m">Meters (m)</option>
+      <option value="ft">Feet (ft)</option>
+    </select>
+  </div>
+
+  <div class="buttons">
+    <button class="btn-calculate" onclick="calculateVolume()">Calculate</button>
+    <button class="btn-clear" onclick="clearInputs()">Clear</button>
+  </div>
+
+  <div class="result-section" id="results">
+    <h2>📊 Calculation Results</h2>
+    <div class="result-item">
+      <span class="result-label">Tank Volume</span>
+      <span class="result-value" id="volumeL">-</span>
+    </div>
+    <div class="result-item">
+      <span class="result-label">Volume in Gallons</span>
+      <span class="result-value" id="volumeGal">-</span>
+    </div>
+    <div class="result-item">
+      <span class="result-label">Recommended Fish Capacity</span>
+      <span class="result-value" id="fishCapacity">-</span>
+    </div>
+    <div class="result-item">
+      <span class="result-label">Recommended Filter Flow</span>
+      <span class="result-value" id="filterRecommendation">-</span>
+    </div>
+  </div>
+
+  <div class="faq-section" style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-radius: 15px;">
+    <h2 style="color: #000; margin-bottom: 25px; font-size: 1.8em;">Frequently Asked Questions</h2>
+    
+    <div class="faq-item" style="margin-bottom: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #000; margin-bottom: 10px; font-size: 1.2em;">Q: How do I calculate the volume of my fish tank?</h3>
+      <p style="color: #000; line-height: 1.6;">A: To calculate your fish tank volume, multiply the length × width × height of your tank. Use our calculator above for accurate results in both liters and gallons. For example: a 100cm × 50cm × 40cm tank = 200,000 cm³ = 200 liters ≈ 53 US gallons.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #000; margin-bottom: 10px; font-size: 1.2em;">Q: How many gallons aquarium calculator?</h3>
+      <p style="color: #000; line-height: 1.6;">A: Our aquarium calculator automatically converts your tank dimensions to gallons. Simply enter your tank's length, width, and height in any unit (cm, inches, meters, or feet), and we'll show you the volume in both liters and US gallons. This helps you determine the right tank size for your fish.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #000; margin-bottom: 10px; font-size: 1.2em;">Q: What's the ideal fish capacity for my aquarium?</h3>
+      <p style="color: #000; line-height: 1.6;">A: As a general rule, allow 1 gallon (3.8 liters) of water per inch of fish length. Our calculator provides fish capacity recommendations based on your tank volume. Remember to consider fish behavior, adult size, and swimming space requirements when stocking your aquarium.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #000; margin-bottom: 10px; font-size: 1.2em;">Q: How do I choose the right filter for my tank?</h3>
+      <p style="color: #000; line-height: 1.6;">A: Your filter should circulate the entire tank volume 3-5 times per hour. Our calculator recommends filter flow rates based on your tank size. For example, a 50-gallon tank needs a filter rated for 150-250 gallons per hour (GPH) for optimal water circulation and filtration.</p>
+    </div>
+  </div>
+  
+  <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <nav style="margin-bottom: 8px;">
+      <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+      <span style="color: #ccc;">|</span>
+      <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+      <span style="color: #ccc;">|</span>
+      <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+    </nav>
+    <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+  </footer>
+</div>
+
+<script>
+function calculateVolume() {
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const height = parseFloat(document.getElementById('height').value);
+  const unit = document.getElementById('unit').value;
+
+  if(isNaN(length) || isNaN(width) || isNaN(height)) {
+    alert("Please enter valid numbers for all dimensions.");
+    return;
+  }
+
+  let volumeCm3;
+  
+  if(unit === 'cm'){
+    volumeCm3 = length * width * height;
+  } else if(unit === 'inch'){
+    volumeCm3 = length * 2.54 * width * 2.54 * height * 2.54;
+  } else if(unit === 'm'){
+    volumeCm3 = length * 100 * width * 100 * height * 100;
+  } else if(unit === 'ft'){
+    volumeCm3 = length * 30.48 * width * 30.48 * height * 30.48;
+  }
+
+  const volumeL = (volumeCm3 / 1000).toFixed(2);
+  const volumeGal = (volumeL * 0.26417).toFixed(2);
+
+  // Fish capacity (assume 1 fish per 2 liters)
+  const fishCapacity = Math.floor(volumeL / 2);
+
+  // Filter recommendation (assume 3x tank volume per hour)
+  const filterPower = (volumeL * 3).toFixed(0);
+
+  document.getElementById('volumeL').textContent = `${volumeL} L`;
+  document.getElementById('volumeGal').textContent = `≈ ${volumeGal} US gallons`;
+  document.getElementById('fishCapacity').textContent = `~${fishCapacity} small fish`;
+  document.getElementById('filterRecommendation').textContent = `~${filterPower} L/hour`;
+
+  document.getElementById('results').style.display = 'block';
+}
+
+function clearInputs() {
+  document.getElementById('length').value = '';
+  document.getElementById('width').value = '';
+  document.getElementById('height').value = '';
+  document.getElementById('unit').selectedIndex = 0;
+  document.getElementById('results').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
