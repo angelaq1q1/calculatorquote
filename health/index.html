@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Health Calculators - Calculator Tools</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="description" content="Free health calculators including BMI, calorie, body fat, ideal weight, pregnancy, and medical debt calculators. Monitor and maintain your health with our comprehensive tools.">
@@ -125,7 +130,7 @@
     
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 40px;
@@ -209,14 +214,27 @@
             vertical-align: middle;
         }
         
-        /* Hide emoji fallback for Material Icons */
-        .material-icons:before {
-            content: none;
+        /* Material Icons fallback */
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
         }
         
-        /* Ensure proper UTF-8 display */
-        .calculator-card h2 {
-            font-family: 'Roboto', 'Arial', sans-serif;
+        /* Fallback for when Material Icons fail to load */
+        .material-icons:before {
+            content: '\e8b6'; /* Default icon */
         }
 
         .calculator-card p {
@@ -241,7 +259,7 @@
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Health Calculators</a>
+            <span>Health Calculators</span>
         </div>
 
         <h1>Health Calculators</h1>
@@ -340,15 +358,82 @@
             </div>
         </div>
     </div>
-    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="../about-us.html">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
         </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+        <div class="footer-copyright">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+    
+    <style>
+        .footer {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            padding: 32px 0 0 0;
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+        }
+        
+        .footer-nav {
+            margin-bottom: 8px;
+        }
+        
+        .footer-nav a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 18px;
+            transition: color 0.2s;
+        }
+        
+        .footer-nav a:hover {
+            color: #1976D2;
+        }
+        
+        .footer-copyright {
+            color: #bbb;
+            font-size: 0.98em;
+        }
+    </style>
+    
+    <script>
+        // Error handling for external resources
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
+                console.warn('External resource failed to load:', e.target.src || e.target.href);
+            }
+        });
+        
+        // Check if Material Icons loaded properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const testIcon = document.createElement('span');
+            testIcon.className = 'material-icons';
+            testIcon.textContent = 'check';
+            testIcon.style.position = 'absolute';
+            testIcon.style.left = '-9999px';
+            document.body.appendChild(testIcon);
+            
+            const computedStyle = window.getComputedStyle(testIcon);
+            if (computedStyle.fontFamily.indexOf('Material Icons') === -1) {
+                console.warn('Material Icons font failed to load, using fallback icons');
+                // Add fallback CSS for icons
+                const fallbackCSS = `
+                    .material-icons:before {
+                        content: '\u25CF' !important;
+                        font-family: Arial, sans-serif !important;
+                    }
+                `;
+                const style = document.createElement('style');
+                style.textContent = fallbackCSS;
+                document.head.appendChild(style);
+            }
+            
+            document.body.removeChild(testIcon);
+        });
+    </script>
 </body>
 </html> 
