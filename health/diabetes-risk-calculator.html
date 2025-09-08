@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Calculator – Discover Your Risk with Family History & Prevent Diabetes</title>
+    <meta name="description" content="Worried about diabetes due to family history? Use our Diabetes Risk Calculator to assess your risk level and take control. Early detection helps you prevent complications. Start now to protect your health.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Diabetes Risk Calculator",
+      "url": "https://www.calculatorquote.com/health/diabetes-risk-calculator.html",
+      "description": "Free online diabetes risk assessment tool that calculates your risk of developing type 2 diabetes based on multiple health factors including BMI, age, family history, and lifestyle.",
+      "keywords": ["diabetes risk calculator", "type 2 diabetes risk", "diabetes risk factors"],
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a diabetes risk calculator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A diabetes risk calculator is a tool that assesses your likelihood of developing type 2 diabetes based on various risk factors like age, weight, family history, blood pressure, and lifestyle habits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How accurate is the diabetes risk assessment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This calculator provides a general risk assessment based on established risk factors. It's not a substitute for medical diagnosis and should be used as a screening tool. Consult your doctor for professional evaluation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What factors affect diabetes risk?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Key risk factors include age, BMI, family history of diabetes, blood pressure, physical activity level, diet quality, waist circumference, and previous blood sugar levels."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Diabetes Risk Calculator",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+
+        .unit {
+            padding: 12px;
+            background-color: #e3f2fd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #2196F3;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #2196F3;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .result-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 200px;
+            margin-top: 25px;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .results {
+            flex: 1;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #2196F3;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .risk-category {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .category-low { background-color: #e8f5e9; color: #2e7d32; }
+        .category-medium { background-color: #fff3e0; color: #e65100; }
+        .category-high { background-color: #ffebee; color: #c62828; }
+        .category-very-high { background-color: #fce4ec; color: #ad1457; }
+
+        .recommendations {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 5px;
+        }
+
+        .recommendations h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .recommendations ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .recommendations li {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .result-section {
+                flex-direction: column;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="./index.html">Health Calculators</a>
+            <span>/</span>
+            <span>Diabetes Risk Calculator</span>
+        </div>
+
+        <h1>Diabetes Risk Calculator – Check Your Risk If Diabetes Runs in Your Family</h1>
+        <p class="info-text">Worried about diabetes running in your family? Our Diabetes Risk Calculator helps you quickly assess your personal risk. Simply enter your age, weight, lifestyle, and family history. Identify potential warning signs early and take preventive steps, such as lifestyle changes or consulting your doctor, to protect your long-term health.</p>
+
+        <div class="input-group">
+            <label for="age">Age:</label>
+            <div class="input-field-container">
+                <input type="number" id="age" min="18" max="120" value="35">
+                <div class="unit">years</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="gender">Gender:</label>
+            <div class="input-field-container">
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight:</label>
+            <div class="input-field-container">
+                <input type="number" id="weight" min="1" value="70">
+                <div class="unit">kg</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="height">Height:</label>
+            <div class="input-field-container">
+                <input type="number" id="height" min="1" value="170">
+                <div class="unit">cm</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Family History of Diabetes:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="family-none">
+                    <label for="family-none">No family history</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="family-one">
+                    <label for="family-one">One parent has diabetes</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="family-both">
+                    <label for="family-both">Both parents have diabetes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="blood-pressure">Blood Pressure:</label>
+            <div class="input-field-container">
+                <select id="blood-pressure">
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="activity-level">Physical Activity Level:</label>
+            <div class="input-field-container">
+                <select id="activity-level">
+                    <option value="high">High (Regular exercise)</option>
+                    <option value="medium">Medium (Some exercise)</option>
+                    <option value="low">Low (Sedentary lifestyle)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="diet-quality">Diet Quality:</label>
+            <div class="input-field-container">
+                <select id="diet-quality">
+                    <option value="healthy">Healthy</option>
+                    <option value="average">Average</option>
+                    <option value="unhealthy">Unhealthy</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="waist-circumference">Waist Circumference:</label>
+            <div class="input-field-container">
+                <input type="number" id="waist-circumference" min="1" value="80">
+                <div class="unit">cm</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="previous-glucose">Previous Blood Glucose Level:</label>
+            <div class="input-field-container">
+                <select id="previous-glucose">
+                    <option value="normal">Normal</option>
+                    <option value="elevated">Elevated</option>
+                    <option value="prediabetes">Prediabetes</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
+            <button class="btn-calculate" onclick="calculateDiabetesRisk()">Calculate Risk</button>
+            <button class="btn-clear" onclick="clearInputs()">Clear</button>
+        </div>
+
+        <div class="result-section" id="result-section" style="display: none;">
+            <div class="results">
+                <h2>Risk Assessment Results</h2>
+                <p>BMI: <span id="bmi-value" class="value">0.0</span></p>
+                <p>Risk Score: <span id="risk-score" class="value">0</span> / 20</p>
+                <p>Risk Level: <span id="risk-level" class="value">-</span></p>
+                <div id="risk-category-box" class="risk-category"></div>
+                
+                <div class="recommendations" id="recommendations">
+                    <h3>Prevention Recommendations</h3>
+                    <ul id="recommendations-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.8em; font-weight: 500;">🩺 Diabetes Risk Calculator – Because Prevention is Better Than Treatment</h2>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Type 2 diabetes doesn't happen overnight. It's a gradual process that can often be prevented or delayed with the right lifestyle changes.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our free Diabetes Risk Calculator helps you understand your personal risk factors and provides actionable recommendations to reduce your chances of developing this chronic condition.</p>
+        
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Is Type 2 Diabetes?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Type 2 diabetes is a chronic condition where your body becomes resistant to insulin or doesn't produce enough insulin to maintain normal blood glucose levels. Unlike type 1 diabetes, type 2 diabetes is largely preventable through lifestyle modifications.</p>
+        
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">Key Risk Factors for Type 2 Diabetes</h3>
+        <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li><strong>Age:</strong> Risk increases significantly after age 45</li>
+            <li><strong>Weight:</strong> Being overweight or obese is a major risk factor</li>
+            <li><strong>Family History:</strong> Having a parent or sibling with diabetes increases your risk</li>
+            <li><strong>Physical Inactivity:</strong> Sedentary lifestyle contributes to insulin resistance</li>
+            <li><strong>High Blood Pressure:</strong> Often associated with diabetes risk</li>
+            <li><strong>Poor Diet:</strong> High sugar and processed food consumption</li>
+            <li><strong>Waist Circumference:</strong> Excess abdominal fat is particularly concerning</li>
+        </ul>
+
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">How Our Risk Calculator Works</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our calculator uses established risk factors to provide a comprehensive assessment. It calculates your BMI, evaluates multiple risk factors, and assigns points based on scientific research. The total score determines your risk level and generates personalized prevention recommendations.</p>
+
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – Common Questions About Diabetes Risk</h3>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Who is at risk for type 2 diabetes?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: People at higher risk include those over 45, with a family history of diabetes, who are overweight or obese, have high blood pressure, lead a sedentary lifestyle, or have prediabetes. Certain ethnic groups and those with a history of gestational diabetes are also at increased risk.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What are diabetes risk factors?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Key risk factors include age (45+), family history, being overweight (BMI 25+), physical inactivity, high blood pressure, poor diet, large waist circumference, and previous elevated blood glucose levels. Some factors like age and family history cannot be changed, but lifestyle factors can be modified.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to lower diabetes risk?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: You can lower your risk by maintaining a healthy weight, exercising regularly (150 minutes per week), eating a balanced diet rich in fruits and vegetables, limiting sugar and processed foods, managing stress, getting adequate sleep, and avoiding smoking. Even losing 5-7% of your body weight can significantly reduce risk.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Who is at risk for diabetes?</p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Anyone can develop diabetes, but risk increases with age, family history, obesity, sedentary lifestyle, and certain medical conditions. People with prediabetes, gestational diabetes history, or metabolic syndrome are at particularly high risk. Regular screening is important for early detection and prevention.</p>
+        </div>
+
+    </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function calculateBMI(weight, height) {
+            if (weight > 0 && height > 0) {
+                const heightInMeters = height / 100;
+                return weight / (heightInMeters * heightInMeters);
+            }
+            return 0;
+        }
+
+        function calculateDiabetesRisk() {
+            // Get input values
+            const age = parseInt(document.getElementById('age').value) || 0;
+            const gender = document.getElementById('gender').value;
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            const height = parseFloat(document.getElementById('height').value) || 0;
+            const bloodPressure = document.getElementById('blood-pressure').value;
+            const activityLevel = document.getElementById('activity-level').value;
+            const dietQuality = document.getElementById('diet-quality').value;
+            const waistCircumference = parseFloat(document.getElementById('waist-circumference').value) || 0;
+            const previousGlucose = document.getElementById('previous-glucose').value;
+
+            // Family history checkboxes
+            const familyNone = document.getElementById('family-none').checked;
+            const familyOne = document.getElementById('family-one').checked;
+            const familyBoth = document.getElementById('family-both').checked;
+
+            // Calculate BMI
+            const bmi = calculateBMI(weight, height);
+            
+            // Initialize risk score
+            let riskScore = 0;
+
+            // BMI scoring
+            if (bmi >= 25 && bmi < 30) {
+                riskScore += 1;
+            } else if (bmi >= 30) {
+                riskScore += 2;
+            }
+
+            // Age scoring
+            if (age >= 45 && age <= 54) {
+                riskScore += 1;
+            } else if (age >= 55 && age <= 64) {
+                riskScore += 2;
+            } else if (age >= 65) {
+                riskScore += 3;
+            }
+
+            // Family history scoring
+            if (familyOne) {
+                riskScore += 1;
+            } else if (familyBoth) {
+                riskScore += 2;
+            }
+
+            // Blood pressure scoring
+            if (bloodPressure === 'high') {
+                riskScore += 1;
+            }
+
+            // Activity level scoring
+            if (activityLevel === 'low') {
+                riskScore += 1;
+            }
+
+            // Diet quality scoring
+            if (dietQuality === 'unhealthy') {
+                riskScore += 1;
+            }
+
+            // Waist circumference scoring (FINDRISC reference)
+            if (gender === 'male' && waistCircumference > 102) {
+                riskScore += 2;
+            } else if (gender === 'female' && waistCircumference > 88) {
+                riskScore += 2;
+            }
+
+            // Previous glucose scoring
+            if (previousGlucose === 'elevated') {
+                riskScore += 1;
+            } else if (previousGlucose === 'prediabetes') {
+                riskScore += 2;
+            }
+
+            // Determine risk level
+            let riskLevel, riskCategory, recommendations;
+            
+            if (riskScore <= 5) {
+                riskLevel = 'Low Risk';
+                riskCategory = 'category-low';
+                recommendations = [
+                    'Maintain a healthy weight',
+                    'Continue regular physical activity',
+                    'Eat a balanced diet rich in fruits and vegetables',
+                    'Get regular health checkups',
+                    'Monitor your blood pressure'
+                ];
+            } else if (riskScore <= 10) {
+                riskLevel = 'Medium Risk';
+                riskCategory = 'category-medium';
+                recommendations = [
+                    'Lose 5-7% of your body weight if overweight',
+                    'Increase physical activity to 150 minutes per week',
+                    'Reduce sugar and processed food intake',
+                    'Get annual diabetes screening',
+                    'Manage stress levels',
+                    'Quit smoking if applicable'
+                ];
+            } else if (riskScore <= 15) {
+                riskLevel = 'High Risk';
+                riskCategory = 'category-high';
+                recommendations = [
+                    'Consult your doctor immediately',
+                    'Lose 7-10% of your body weight',
+                    'Start a structured exercise program',
+                    'Consider diabetes prevention program',
+                    'Monitor blood glucose regularly',
+                    'Make significant dietary changes',
+                    'Get comprehensive health evaluation'
+                ];
+            } else {
+                riskLevel = 'Very High Risk';
+                riskCategory = 'category-very-high';
+                recommendations = [
+                    'URGENT: See your doctor immediately',
+                    'Start intensive lifestyle intervention',
+                    'Consider medication if recommended by doctor',
+                    'Join a diabetes prevention program',
+                    'Monitor blood glucose frequently',
+                    'Make immediate dietary changes',
+                    'Increase physical activity significantly',
+                    'Regular medical follow-up required'
+                ];
+            }
+
+            // Update results
+            document.getElementById('bmi-value').textContent = bmi > 0 ? bmi.toFixed(1) : '0.0';
+            document.getElementById('risk-score').textContent = riskScore;
+            document.getElementById('risk-level').textContent = riskLevel;
+            
+            const categoryBox = document.getElementById('risk-category-box');
+            categoryBox.className = `risk-category ${riskCategory}`;
+            categoryBox.textContent = riskLevel;
+
+            // Update recommendations
+            const recommendationsList = document.getElementById('recommendations-list');
+            recommendationsList.innerHTML = '';
+            recommendations.forEach(rec => {
+                const li = document.createElement('li');
+                li.textContent = rec;
+                recommendationsList.appendChild(li);
+            });
+
+            // Show results
+            document.getElementById('result-section').style.display = 'flex';
+        }
+
+        function clearInputs() {
+            document.getElementById('age').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+            document.getElementById('waist-circumference').value = '';
+            
+            // Clear checkboxes
+            document.getElementById('family-none').checked = false;
+            document.getElementById('family-one').checked = false;
+            document.getElementById('family-both').checked = false;
+            
+            // Reset selects to default
+            document.getElementById('gender').selectedIndex = 0;
+            document.getElementById('blood-pressure').selectedIndex = 0;
+            document.getElementById('activity-level').selectedIndex = 0;
+            document.getElementById('diet-quality').selectedIndex = 0;
+            document.getElementById('previous-glucose').selectedIndex = 0;
+            
+            // Clear results
+            document.getElementById('bmi-value').textContent = '0.0';
+            document.getElementById('risk-score').textContent = '0';
+            document.getElementById('risk-level').textContent = '-';
+            document.getElementById('risk-category-box').className = 'risk-category';
+            document.getElementById('risk-category-box').textContent = '';
+            document.getElementById('recommendations-list').innerHTML = '';
+            
+            // Hide results
+            document.getElementById('result-section').style.display = 'none';
+        }
+
+        // Initialize calculator
+        window.onload = function() {
+            document.getElementById('result-section').style.display = 'none';
+        };
+    </script>
+</body>
+</html>
