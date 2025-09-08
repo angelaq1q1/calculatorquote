@@ -438,9 +438,9 @@
 <body>
     <div class="calculator-container">
         <div class="breadcrumb">
-            <a href="../index.html">Home</a>
+            <a href="/index.html">Home</a>
             <span>/</span>
-            <a href="./index.html">Health Calculators</a>
+            <a href="/health/index.html">Health Calculators</a>
             <span>/</span>
             <span>Menstrual Cycle Calculator</span>
         </div>
@@ -557,11 +557,11 @@
 
     <footer class="footer">
         <nav>
-            <a href="../about-us.html">About Us</a>
+            <a href="/about-us.html">About Us</a>
             <span>|</span>
-            <a href="../terms-of-use.html">Terms of Use</a>
+            <a href="/terms-of-use.html">Terms of Use</a>
             <span>|</span>
-            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="/privacy-policy.html">Privacy Policy</a>
         </nav>
         <div>&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -572,27 +572,7 @@
             console.error('JavaScript error:', e.error);
         });
 
-        // Material Icons fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if Material Icons loaded
-            const testIcon = document.createElement('span');
-            testIcon.className = 'material-icons';
-            testIcon.textContent = 'check';
-            testIcon.style.position = 'absolute';
-            testIcon.style.left = '-9999px';
-            document.body.appendChild(testIcon);
-            
-            const iconLoaded = window.getComputedStyle(testIcon).fontFamily.includes('Material Icons');
-            document.body.removeChild(testIcon);
-            
-            if (!iconLoaded) {
-                console.warn('Material Icons not loaded, using fallback');
-                const icons = document.querySelectorAll('.material-icons');
-                icons.forEach(icon => {
-                    icon.style.fontFamily = 'Arial, sans-serif';
-                });
-            }
-        });
+        // Material Icons fallback removed for GitHub Pages compatibility
 
         document.getElementById('menstrualCalculator').addEventListener('submit', function(e) {
             e.preventDefault();
