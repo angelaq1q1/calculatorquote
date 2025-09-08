@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Diabetes Risk Calculator – Discover Your Risk with Family History & Prevent Diabetes</title>
     <meta name="description" content="Worried about diabetes due to family history? Use our Diabetes Risk Calculator to assess your risk level and take control. Early detection helps you prevent complications. Start now to protect your health.">
     <script type="application/ld+json">
@@ -13,57 +14,28 @@
       "url": "https://www.calculatorquote.com/health/diabetes-risk-calculator.html",
       "description": "Free online diabetes risk assessment tool that calculates your risk of developing type 2 diabetes based on multiple health factors including BMI, age, family history, and lifestyle.",
       "keywords": ["diabetes risk calculator", "type 2 diabetes risk", "diabetes risk factors"],
-      "mainEntity": [
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is a diabetes risk calculator?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A diabetes risk calculator is a tool that assesses your likelihood of developing type 2 diabetes based on various risk factors like age, weight, family history, blood pressure, and lifestyle habits."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How accurate is the diabetes risk assessment?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "This calculator provides a general risk assessment based on established risk factors. It's not a substitute for medical diagnosis and should be used as a screening tool. Consult your doctor for professional evaluation."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What factors affect diabetes risk?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Key risk factors include age, BMI, family history of diabetes, blood pressure, physical activity level, diet quality, waist circumference, and previous blood sugar levels."
-              }
-            }
-          ]
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Diabetes Risk Calculator",
-          "applicationCategory": "HealthApplication",
-          "operatingSystem": "All",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          }
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Diabetes Risk Calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
         }
-      ]
+      }
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
         }
 
         body {
@@ -103,14 +75,14 @@
         }
 
         h1 {
-            color: var(--text-primary);
+            color: #333;
             font-size: 1.8em;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
         .info-text {
-            color: var(--text-secondary);
+            color: #666;
             font-size: 1.1em;
             margin-bottom: 25px;
         }
@@ -191,11 +163,12 @@
         }
 
         .buttons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            max-width: 200px;
-            margin-top: 25px;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+            justify-content: center;
         }
 
         .btn-calculate {
@@ -291,6 +264,70 @@
             margin-bottom: 5px;
             color: #333;
             font-size: 1em;
+        }
+
+        .section-title {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.8em;
+            font-weight: 500;
+        }
+
+        .section-text {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .subsection-title {
+            color: #333;
+            font-size: 1.5em;
+            margin: 30px 0 20px;
+            font-weight: 500;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .footer {
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+            padding: 32px 0 0 0;
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+        }
+
+        .footer-nav {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 18px;
+            transition: color 0.2s;
+        }
+
+        .footer-copyright {
+            color: #bbb;
+            font-size: 0.98em;
         }
 
         @media (max-width: 768px) {
@@ -422,7 +459,7 @@
             </div>
         </div>
 
-        <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
+        <div class="buttons">
             <button class="btn-calculate" onclick="calculateDiabetesRisk()">Calculate Risk</button>
             <button class="btn-clear" onclick="clearInputs()">Clear</button>
         </div>
@@ -443,16 +480,16 @@
             </div>
         </div>
 
-        <h2 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.8em; font-weight: 500;">🩺 Diabetes Risk Calculator – Because Prevention is Better Than Treatment</h2>
+        <h2 class="section-title">🩺 Diabetes Risk Calculator – Because Prevention is Better Than Treatment</h2>
         
-        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Type 2 diabetes doesn't happen overnight. It's a gradual process that can often be prevented or delayed with the right lifestyle changes.</p>
+        <p class="section-text">Type 2 diabetes doesn't happen overnight. It's a gradual process that can often be prevented or delayed with the right lifestyle changes.</p>
         
-        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our free Diabetes Risk Calculator helps you understand your personal risk factors and provides actionable recommendations to reduce your chances of developing this chronic condition.</p>
+        <p class="section-text">Our free Diabetes Risk Calculator helps you understand your personal risk factors and provides actionable recommendations to reduce your chances of developing this chronic condition.</p>
         
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Is Type 2 Diabetes?</h3>
-        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Type 2 diabetes is a chronic condition where your body becomes resistant to insulin or doesn't produce enough insulin to maintain normal blood glucose levels. Unlike type 1 diabetes, type 2 diabetes is largely preventable through lifestyle modifications.</p>
+        <h3 class="subsection-title">What Is Type 2 Diabetes?</h3>
+        <p class="section-text">Type 2 diabetes is a chronic condition where your body becomes resistant to insulin or doesn't produce enough insulin to maintain normal blood glucose levels. Unlike type 1 diabetes, type 2 diabetes is largely preventable through lifestyle modifications.</p>
         
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">Key Risk Factors for Type 2 Diabetes</h3>
+        <h3 class="subsection-title">Key Risk Factors for Type 2 Diabetes</h3>
         <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
             <li><strong>Age:</strong> Risk increases significantly after age 45</li>
             <li><strong>Weight:</strong> Being overweight or obese is a major risk factor</li>
@@ -463,56 +500,62 @@
             <li><strong>Waist Circumference:</strong> Excess abdominal fat is particularly concerning</li>
         </ul>
 
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">How Our Risk Calculator Works</h3>
-        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our calculator uses established risk factors to provide a comprehensive assessment. It calculates your BMI, evaluates multiple risk factors, and assigns points based on scientific research. The total score determines your risk level and generates personalized prevention recommendations.</p>
+        <h3 class="subsection-title">How Our Risk Calculator Works</h3>
+        <p class="section-text">Our calculator uses established risk factors to provide a comprehensive assessment. It calculates your BMI, evaluates multiple risk factors, and assigns points based on scientific research. The total score determines your risk level and generates personalized prevention recommendations.</p>
 
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – Common Questions About Diabetes Risk</h3>
+        <h3 class="subsection-title">❓ FAQ – Common Questions About Diabetes Risk</h3>
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Who is at risk for type 2 diabetes?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: People at higher risk include those over 45, with a family history of diabetes, who are overweight or obese, have high blood pressure, lead a sedentary lifestyle, or have prediabetes. Certain ethnic groups and those with a history of gestational diabetes are also at increased risk.</p>
+        <div class="faq-item">
+            <p class="faq-question">Q: Who is at risk for type 2 diabetes?</p>
+            <p class="faq-answer">A: People at higher risk include those over 45, with a family history of diabetes, who are overweight or obese, have high blood pressure, lead a sedentary lifestyle, or have prediabetes. Certain ethnic groups and those with a history of gestational diabetes are also at increased risk.</p>
         </div>
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: What are diabetes risk factors?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Key risk factors include age (45+), family history, being overweight (BMI 25+), physical inactivity, high blood pressure, poor diet, large waist circumference, and previous elevated blood glucose levels. Some factors like age and family history cannot be changed, but lifestyle factors can be modified.</p>
+        <div class="faq-item">
+            <p class="faq-question">Q: What are diabetes risk factors?</p>
+            <p class="faq-answer">A: Key risk factors include age (45+), family history, being overweight (BMI 25+), physical inactivity, high blood pressure, poor diet, large waist circumference, and previous elevated blood glucose levels. Some factors like age and family history cannot be changed, but lifestyle factors can be modified.</p>
         </div>
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How to lower diabetes risk?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: You can lower your risk by maintaining a healthy weight, exercising regularly (150 minutes per week), eating a balanced diet rich in fruits and vegetables, limiting sugar and processed foods, managing stress, getting adequate sleep, and avoiding smoking. Even losing 5-7% of your body weight can significantly reduce risk.</p>
+        <div class="faq-item">
+            <p class="faq-question">Q: How to lower diabetes risk?</p>
+            <p class="faq-answer">A: You can lower your risk by maintaining a healthy weight, exercising regularly (150 minutes per week), eating a balanced diet rich in fruits and vegetables, limiting sugar and processed foods, managing stress, getting adequate sleep, and avoiding smoking. Even losing 5-7% of your body weight can significantly reduce risk.</p>
         </div>
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Who is at risk for diabetes?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Anyone can develop diabetes, but risk increases with age, family history, obesity, sedentary lifestyle, and certain medical conditions. People with prediabetes, gestational diabetes history, or metabolic syndrome are at particularly high risk. Regular screening is important for early detection and prevention.</p>
+        <div class="faq-item">
+            <p class="faq-question">Q: Who is at risk for diabetes?</p>
+            <p class="faq-answer">A: Anyone can develop diabetes, but risk increases with age, family history, obesity, sedentary lifestyle, and certain medical conditions. People with prediabetes, gestational diabetes history, or metabolic syndrome are at particularly high risk. Regular screening is important for early detection and prevention.</p>
         </div>
 
     </div>
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="../about-us.html">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
         </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+        <div class="footer-copyright">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
     <script>
         function calculateBMI(weight, height) {
-            if (weight > 0 && height > 0) {
-                const heightInMeters = height / 100;
-                return weight / (heightInMeters * heightInMeters);
+            try {
+                if (weight > 0 && height > 0) {
+                    const heightInMeters = height / 100;
+                    return weight / (heightInMeters * heightInMeters);
+                }
+                return 0;
+            } catch (error) {
+                console.error('BMI calculation error:', error);
+                return 0;
             }
-            return 0;
         }
 
         function calculateDiabetesRisk() {
-            // Get input values
-            const age = parseInt(document.getElementById('age').value) || 0;
+            try {
+                // Get input values
+                const age = parseInt(document.getElementById('age').value) || 0;
             const gender = document.getElementById('gender').value;
             const weight = parseFloat(document.getElementById('weight').value) || 0;
             const height = parseFloat(document.getElementById('height').value) || 0;
@@ -654,12 +697,17 @@
                 recommendationsList.appendChild(li);
             });
 
-            // Show results
-            document.getElementById('result-section').style.display = 'flex';
+                // Show results
+                document.getElementById('result-section').style.display = 'flex';
+            } catch (error) {
+                console.error('Risk calculation error:', error);
+                alert('An error occurred while calculating your risk. Please check your inputs and try again.');
+            }
         }
 
         function clearInputs() {
-            document.getElementById('age').value = '';
+            try {
+                document.getElementById('age').value = '';
             document.getElementById('weight').value = '';
             document.getElementById('height').value = '';
             document.getElementById('waist-circumference').value = '';
@@ -684,13 +732,20 @@
             document.getElementById('risk-category-box').textContent = '';
             document.getElementById('recommendations-list').innerHTML = '';
             
-            // Hide results
-            document.getElementById('result-section').style.display = 'none';
+                // Hide results
+                document.getElementById('result-section').style.display = 'none';
+            } catch (error) {
+                console.error('Clear inputs error:', error);
+            }
         }
 
         // Initialize calculator
         window.onload = function() {
-            document.getElementById('result-section').style.display = 'none';
+            try {
+                document.getElementById('result-section').style.display = 'none';
+            } catch (error) {
+                console.error('Initialization error:', error);
+            }
         };
     </script>
 </body>
