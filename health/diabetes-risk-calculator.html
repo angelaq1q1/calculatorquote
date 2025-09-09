@@ -169,6 +169,7 @@
             max-width: 400px;
             margin: 25px auto 0 auto;
             justify-content: center;
+            align-items: center;
         }
 
         .btn-calculate {
@@ -336,7 +337,7 @@
             }
             
             .buttons {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 12px;
                 max-width: 100%;
             }
@@ -460,7 +461,7 @@
         </div>
 
         <div class="buttons">
-            <button class="btn-calculate" onclick="calculateDiabetesRisk()">Calculate Risk</button>
+            <button class="btn-calculate" onclick="calculateDiabetesRisk()">Calculate</button>
             <button class="btn-clear" onclick="clearInputs()">Clear</button>
         </div>
 
@@ -478,6 +479,12 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+            <p style="color: #6c757d; font-size: 0.9em; line-height: 1.4; margin: 0; font-style: italic;">
+                <strong>Disclaimer:</strong> This calculator is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult your healthcare provider regarding any medical concerns.
+            </p>
         </div>
 
         <h2 class="section-title">🩺 Diabetes Risk Calculator – Because Prevention is Better Than Treatment</h2>
