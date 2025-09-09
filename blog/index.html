@@ -243,8 +243,6 @@
             margin-top: 5px;
         }
 
-
-
         @media (max-width: 768px) {
             .container {
                 margin: 0;
@@ -273,7 +271,7 @@
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="/index.html">Home</a>
+            <a href="../index.html">Home</a>
             <span>/</span>
             Blog
         </div>
@@ -361,81 +359,26 @@
     
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="/about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="/terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="/privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
     
     <script>
         // Dynamic date generation for article publication dates
-        function updateDates() {
-            try {
-                const dateElements = document.querySelectorAll('.dynamic-date');
-                
-                if (!dateElements || dateElements.length === 0) {
-                    console.log('No dynamic date elements found');
-                    return;
-                }
-                
-                dateElements.forEach(element => {
-                    try {
-                        const daysAgoAttr = element.getAttribute('data-days-ago');
-                        const daysAgo = parseInt(daysAgoAttr) || 0;
-                        
-                        // Validate daysAgo is a reasonable number
-                        if (daysAgo < 0 || daysAgo > 365) {
-                            console.warn('Invalid daysAgo value:', daysAgoAttr);
-                            element.innerText = '2025.01.27';
-                            return;
-                        }
-                        
-                        const publishDate = new Date();
-                        publishDate.setDate(publishDate.getDate() - daysAgo);
-                        
-                        // Validate the date is valid
-                        if (isNaN(publishDate.getTime())) {
-                            console.warn('Invalid date generated for daysAgo:', daysAgo);
-                            element.innerText = '2025.01.27';
-                            return;
-                        }
-                        
-                        const year = publishDate.getFullYear();
-                        const month = String(publishDate.getMonth() + 1).padStart(2, '0');
-                        const day = String(publishDate.getDate()).padStart(2, '0');
-                        const formattedDate = `${year}.${month}.${day}`;
-                        
-                        element.innerText = formattedDate;
-                    } catch (elementError) {
-                        console.error('Error processing date element:', elementError);
-                        element.innerText = '2025.01.27';
-                    }
-                });
-            } catch (error) {
-                console.error('Error in updateDates function:', error);
-            }
-        }
-        
-        // Execute after page load
         document.addEventListener('DOMContentLoaded', function() {
-            try {
-                updateDates();
-            } catch (error) {
-                console.error('Error on DOMContentLoaded:', error);
-            }
+            const dateElements = document.querySelectorAll('.dynamic-date');
+            dateElements.forEach(el => {
+                const daysAgo = parseInt(el.dataset.daysAgo) || 0;
+                const d = new Date();
+                d.setDate(d.getDate() - daysAgo);
+                el.textContent = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+            });
         });
-        
-        // Update dates every minute (ensure automatic update across days)
-        setInterval(function() {
-            try {
-                updateDates();
-            } catch (error) {
-                console.error('Error in date update interval:', error);
-            }
-        }, 60000);
     </script>
 </body>
 </html>
