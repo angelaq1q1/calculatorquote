@@ -111,6 +111,12 @@
                     "name": "Menstrual Cycle Calculator",
                     "url": "https://www.calculatorquote.com/health/menstrual-cycle-calculator.html",
                     "description": "Track your menstrual cycle, predict ovulation, and identify fertile days"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Infant Height Weight Percentile Calculator",
+                    "url": "https://www.calculatorquote.com/health/infant-height-weight-percentile-calculator.html",
+                    "description": "Track your baby's growth with WHO/CDC growth charts for babies 0-36 months"
                 }
             ]
         },
@@ -217,30 +223,6 @@
         .calculator-card .material-icons {
             margin-right: 8px;
             font-size: 24px;
-            vertical-align: middle;
-        }
-        
-        /* Material Icons fallback */
-        .material-icons {
-            font-family: 'Material Icons';
-            font-weight: normal;
-            font-style: normal;
-            display: inline-block;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            -moz-osx-font-smoothing: grayscale;
-            font-feature-settings: 'liga';
-        }
-        
-        /* Fallback for when Material Icons fail to load */
-        .material-icons:before {
-            content: '\e8b6'; /* Default icon */
         }
 
         .calculator-card p {
@@ -369,6 +351,13 @@
                     <p>Assess your risk of developing type 2 diabetes based on multiple health factors</p>
                 </a>
             </div>
+
+            <div class="calculator-card">
+                <a href="infant-height-weight-percentile-calculator.html">
+                    <h2><span class="material-icons">child_care</span>Infant Height Weight Percentile Calculator</h2>
+                    <p>Track your baby's growth with WHO/CDC growth charts for babies 0-36 months</p>
+                </a>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -413,40 +402,5 @@
         }
     </style>
     
-    <script>
-        // Error handling for external resources
-        window.addEventListener('error', function(e) {
-            if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
-                console.warn('External resource failed to load:', e.target.src || e.target.href);
-            }
-        });
-        
-        // Check if Material Icons loaded properly
-        document.addEventListener('DOMContentLoaded', function() {
-            const testIcon = document.createElement('span');
-            testIcon.className = 'material-icons';
-            testIcon.textContent = 'check';
-            testIcon.style.position = 'absolute';
-            testIcon.style.left = '-9999px';
-            document.body.appendChild(testIcon);
-            
-            const computedStyle = window.getComputedStyle(testIcon);
-            if (computedStyle.fontFamily.indexOf('Material Icons') === -1) {
-                console.warn('Material Icons font failed to load, using fallback icons');
-                // Add fallback CSS for icons
-                const fallbackCSS = `
-                    .material-icons:before {
-                        content: '\u25CF' !important;
-                        font-family: Arial, sans-serif !important;
-                    }
-                `;
-                const style = document.createElement('style');
-                style.textContent = fallbackCSS;
-                document.head.appendChild(style);
-            }
-            
-            document.body.removeChild(testIcon);
-        });
-    </script>
 </body>
 </html> 
