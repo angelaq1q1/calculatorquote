@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large Lawn? Too Many Weeds? Calculate Lawn Care Costs Instantly</title>
+    <meta name="description" content="Struggling to estimate lawn care costs for a large yard full of weeds? Use our Lawn Care Cost Calculator to quickly get accurate estimates for mowing, fertilization, and weed control. Plan your budget, avoid overspending, and make informed decisions for a healthy, well-maintained lawn in minutes.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Lawn Care Cost Calculator",
+      "url": "https://www.calculatorquote.com/home/lawn-care-cost-calculator.html",
+      "description": "Use our free Lawn Care Cost Calculator to estimate professional lawn service costs. Calculate mowing, fertilization, weed control, and maintenance expenses.",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Lawn Care Cost Calculator",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "All",
+        "url": "https://www.calculatorquote.com/home/lawn-care-cost-calculator.html",
+        "description": "Free lawn care cost calculator to estimate professional lawn service costs including mowing, fertilization, weed control, and maintenance based on lawn size, condition, and location.",
+        "featureList": [
+          "Lawn area calculation",
+          "Lawn condition assessment",
+          "Service type selection",
+          "Service frequency options",
+          "Location-based pricing",
+          "Additional services pricing",
+          "Total cost estimation"
+        ],
+        "keywords": [
+          "lawn care",
+          "lawn care services",
+          "lawn care cost",
+          "lawn care professionals"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "name": "How much does lawn care cost in 2025?"
+      }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .unit-toggle {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .unit-toggle label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .unit-toggle input[type="radio"] {
+            margin-right: 8px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Lawn Care Cost Calculator
+        </div>
+        <h1>Large Lawn and Too Many Weeds? Quickly Calculate Your Lawn Care Expenses</h1>
+        <div class="description">
+            Estimate your lawn care costs in minutes. Enter your lawn size, condition, and services needed to get accurate pricing for mowing, fertilization, and weed control—helping you budget and plan without surprises.
+        </div>
+        <div class="input-section">
+            <div class="two-column">
+                <div>
+                    <div class="input-group">
+                        <label for="lawn-area">Lawn Area:</label>
+                        <input type="number" id="lawn-area" min="1" placeholder="e.g. 5000" required>
+                        <div class="unit-toggle">
+                            <label>
+                                <input type="radio" name="unit" value="sqft" checked> Square Feet (sq ft)
+                            </label>
+                            <label>
+                                <input type="radio" name="unit" value="sqm"> Square Meters (m²)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="lawn-condition">Lawn Condition:</label>
+                        <select id="lawn-condition">
+                            <option value="healthy">Healthy Lawn (Basic Maintenance)</option>
+                            <option value="some-weeds">Some Weeds (Weed Treatment Needed)</option>
+                            <option value="severe-weeds">Severe Weeds or Repair Needed</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="service-type">Service Type:</label>
+                        <select id="service-type">
+                            <option value="basic-mowing">Basic Lawn Mowing</option>
+                            <option value="fertilization">Lawn Fertilization</option>
+                            <option value="weed-control">Weed Control</option>
+                            <option value="lawn-repair">Lawn Repair</option>
+                            <option value="maintenance">Regular Maintenance</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <label for="service-frequency">Service Frequency:</label>
+                        <select id="service-frequency">
+                            <option value="one-time">One-time Service</option>
+                            <option value="weekly">Weekly Service</option>
+                            <option value="bi-weekly">Bi-weekly Service</option>
+                            <option value="monthly">Monthly Service</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="location">Location Type:</label>
+                        <select id="location">
+                            <option value="urban">Urban Area (Higher Cost)</option>
+                            <option value="suburban">Suburban Area (Standard Cost)</option>
+                            <option value="rural">Rural Area (Lower Cost)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Additional Services:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="irrigation" value="irrigation">
+                                <label for="irrigation">Irrigation System Maintenance</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="aeration" value="aeration">
+                                <label for="aeration">Aeration</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="soil-test" value="soil-test">
+                                <label for="soil-test">Soil Testing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tree-trimming" value="tree-trimming">
+                                <label for="tree-trimming">Tree Trimming</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateLawnCareCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* Estimates are based on current market data and may vary. Consult with local lawn care professionals for precise quotes.</div>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Understanding Lawn Care Costs</h2>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                Professional lawn care costs vary significantly based on several factors. Our lawn care cost calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you need basic mowing or comprehensive lawn maintenance, understanding the cost structure helps you budget effectively.
+            </p>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                <b>Key Factors Affecting Lawn Care Costs:</b><br>
+                • <b>Lawn Size:</b> Larger lawns require more time and resources, increasing costs proportionally<br>
+                • <b>Lawn Condition:</b> Unhealthy lawns with weeds or damage require additional treatments<br>
+                • <b>Service Type:</b> Basic mowing costs less than fertilization or weed control services<br>
+                • <b>Service Frequency:</b> Regular maintenance often costs less per visit than one-time services<br>
+                • <b>Location:</b> Urban areas typically have higher labor costs than rural areas<br>
+                • <b>Additional Services:</b> Extra services like aeration or tree trimming add to total costs
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Lawn Care Service Types & Pricing</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Basic Services</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Lawn Mowing:</b> $50-$100 per visit<br>
+                        <b>Edging & Trimming:</b> $25-$50 per visit<br>
+                        <b>Leaf Removal:</b> $75-$150 per visit<br>
+                        <b>Basic Cleanup:</b> $40-$80 per visit
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Basic services focus on regular maintenance and appearance. Costs depend on lawn size and complexity.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Advanced Services</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Fertilization:</b> $75-$150 per treatment<br>
+                        <b>Weed Control:</b> $60-$120 per treatment<br>
+                        <b>Pest Control:</b> $80-$150 per treatment<br>
+                        <b>Lawn Repair:</b> $100-$300 per project
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Advanced services require specialized knowledge and products, resulting in higher costs but better results.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Lawn Care Cost Calculator FAQs</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does professional lawn care cost?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Professional lawn care costs typically range from $50-$300 per visit, depending on lawn size, services needed, and location. For a 5,000 sq ft lawn, basic mowing costs $75-$100, while comprehensive maintenance can cost $150-$250 per visit. Use our calculator for personalized estimates.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What factors affect lawn care pricing?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Lawn care pricing depends on lawn size, condition, service type, frequency, location, and additional services. Larger lawns, poor condition, specialized services, and urban locations typically cost more. Our calculator considers all these factors for accurate estimates.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: Is it cheaper to hire lawn care services regularly?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Yes, regular lawn care services often cost less per visit than one-time services. Weekly or bi-weekly maintenance prevents problems that require expensive treatments later. Many companies offer discounts for regular customers and seasonal contracts.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What's included in basic lawn care service?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Basic lawn care typically includes mowing, edging, trimming around obstacles, and basic cleanup. Some services may include blowing off walkways and driveways. Fertilization, weed control, and pest management are usually separate services with additional costs.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does lawn care cost per square foot?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Lawn care costs typically range from $0.05 to $0.20 per square foot, depending on services needed. Basic mowing costs around $0.10 per sq ft, while comprehensive maintenance with fertilization and weed control can cost $0.15-$0.20 per sq ft. Use our calculator for precise estimates based on your lawn size and requirements.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much should I budget for lawn care annually?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Annual lawn care budgets vary by lawn size and service level. For a 5,000 sq ft lawn, expect $800-$2,000 annually for basic maintenance, $1,500-$3,000 for comprehensive care, and $2,000-$4,000 for premium services. Factors include frequency, location, lawn condition, and additional services like aeration or pest control.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How do I choose the right lawn care service?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Get quotes from multiple companies, check reviews and references, verify licensing and insurance, ask about service guarantees, and compare what's included in each package. Use our calculator to understand pricing before getting quotes to ensure you're getting fair estimates.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function clearForm() {
+            document.getElementById('lawn-area').value = '';
+            document.querySelector('input[name="unit"][value="sqft"]').checked = true;
+            document.getElementById('lawn-condition').value = 'healthy';
+            document.getElementById('service-type').value = 'basic-mowing';
+            document.getElementById('service-frequency').value = 'one-time';
+            document.getElementById('location').value = 'suburban';
+            
+            // Clear checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
+
+        function calculateLawnCareCost() {
+            const lawnArea = parseFloat(document.getElementById('lawn-area').value);
+            const unit = document.querySelector('input[name="unit"]:checked').value;
+            const lawnCondition = document.getElementById('lawn-condition').value;
+            const serviceType = document.getElementById('service-type').value;
+            const serviceFrequency = document.getElementById('service-frequency').value;
+            const location = document.getElementById('location').value;
+            
+            // Get additional services
+            const additionalServices = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => additionalServices.push(checkbox.value));
+
+            if (!lawnArea) {
+                alert('Please enter your lawn area.');
+                return;
+            }
+
+            // Convert to square feet if needed
+            let areaInSqFt = lawnArea;
+            if (unit === 'sqm') {
+                areaInSqFt = lawnArea * 10.764; // Convert m² to sq ft
+            }
+
+            // Step 1: Base price calculation
+            const basePricePerSqFt = 0.10; // $0.10 per square foot
+            let baseCost = areaInSqFt * basePricePerSqFt;
+
+            // Step 2: Lawn condition adjustment
+            let conditionAdjustment = 0;
+            switch (lawnCondition) {
+                case 'healthy':
+                    conditionAdjustment = 0;
+                    break;
+                case 'some-weeds':
+                    conditionAdjustment = 75;
+                    break;
+                case 'severe-weeds':
+                    conditionAdjustment = 150;
+                    break;
+            }
+
+            // Step 3: Service type costs
+            let serviceTypeCost = 0;
+            switch (serviceType) {
+                case 'basic-mowing':
+                    serviceTypeCost = 75;
+                    break;
+                case 'fertilization':
+                    serviceTypeCost = 100;
+                    break;
+                case 'weed-control':
+                    serviceTypeCost = 90;
+                    break;
+                case 'lawn-repair':
+                    serviceTypeCost = 200;
+                    break;
+                case 'maintenance':
+                    serviceTypeCost = 125;
+                    break;
+            }
+
+            // Step 4: Frequency adjustment
+            let frequencyMultiplier = 1;
+            let frequencyDescription = '';
+            switch (serviceFrequency) {
+                case 'one-time':
+                    frequencyMultiplier = 1;
+                    frequencyDescription = 'One-time service';
+                    break;
+                case 'weekly':
+                    frequencyMultiplier = 0.8; // 20% discount for regular service
+                    frequencyDescription = 'Weekly service (20% discount)';
+                    break;
+                case 'bi-weekly':
+                    frequencyMultiplier = 0.85; // 15% discount
+                    frequencyDescription = 'Bi-weekly service (15% discount)';
+                    break;
+                case 'monthly':
+                    frequencyMultiplier = 0.9; // 10% discount
+                    frequencyDescription = 'Monthly service (10% discount)';
+                    break;
+            }
+
+            // Step 5: Location adjustment
+            let locationMultiplier = 1;
+            let locationDescription = '';
+            switch (location) {
+                case 'urban':
+                    locationMultiplier = 1.1; // 10% higher
+                    locationDescription = 'Urban area (+10%)';
+                    break;
+                case 'suburban':
+                    locationMultiplier = 1;
+                    locationDescription = 'Suburban area (standard)';
+                    break;
+                case 'rural':
+                    locationMultiplier = 0.9; // 10% lower
+                    locationDescription = 'Rural area (-10%)';
+                    break;
+            }
+
+            // Step 6: Additional services
+            let additionalCost = 0;
+            const additionalServicesCosts = {
+                'irrigation': 75,
+                'aeration': 125,
+                'soil-test': 50,
+                'tree-trimming': 100
+            };
+            
+            additionalServices.forEach(service => {
+                additionalCost += additionalServicesCosts[service] || 0;
+            });
+
+            // Calculate final cost
+            let subtotal = baseCost + conditionAdjustment + serviceTypeCost + additionalCost;
+            let frequencyAdjusted = subtotal * frequencyMultiplier;
+            let finalCost = frequencyAdjusted * locationMultiplier;
+
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <strong>Estimated Total Cost: $${finalCost.toFixed(0)}</strong><br>
+                <small>${frequencyDescription}</small>
+            `;
+
+            document.getElementById('breakdown').style.display = 'block';
+            document.getElementById('breakdown').innerHTML = `
+                <b>Cost Breakdown:</b><br>
+                <b>Base Cost (${areaInSqFt.toFixed(0)} sq ft × $${basePricePerSqFt}):</b> $${baseCost.toFixed(0)}<br>
+                <b>Lawn Condition Adjustment:</b> $${conditionAdjustment.toFixed(0)}<br>
+                <b>Service Type Cost:</b> $${serviceTypeCost.toFixed(0)}<br>
+                <b>Additional Services:</b> $${additionalCost.toFixed(0)}<br>
+                <b>Subtotal:</b> $${subtotal.toFixed(0)}<br>
+                <b>Frequency Adjustment (${frequencyDescription}):</b> $${(subtotal - frequencyAdjusted).toFixed(0)}<br>
+                <b>Location Adjustment (${locationDescription}):</b> $${(frequencyAdjusted * locationMultiplier - frequencyAdjusted).toFixed(0)}<br>
+                <b>Final Total:</b> $${finalCost.toFixed(0)}
+            `;
+        }
+    </script>
+</body>
+</html>
