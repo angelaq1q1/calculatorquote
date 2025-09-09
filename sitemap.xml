@@ -374,7 +374,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.calculatorquote.com/home/HVAC-load-calculator.html</loc>
+        <loc>https://www.calculatorquote.com/home/hvac-load-calculator.html</loc>
         <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -404,13 +404,19 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.calculatorquote.com/home/LED-resistor-calculator.html</loc>
+        <loc>https://www.calculatorquote.com/home/led-resistor-calculator.html</loc>
         <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.calculatorquote.com/home/home-security-systems-cost-calculator.html</loc>
+        <lastmod>2025-09-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.calculatorquote.com/home/lawn-care-cost-calculator.html</loc>
         <lastmod>2025-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -482,6 +488,12 @@
         <loc>https://www.calculatorquote.com/blog/</loc>
         <lastmod>2025-01-28</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.calculatorquote.com/blog/how-to-use-a-matrix-calculator-to-save-money.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
