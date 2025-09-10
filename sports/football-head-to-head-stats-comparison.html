@@ -6,6 +6,9 @@
   <title>Football Head-to-Head Match Statistics Comparison Tool | Compare Team Records & Results</title>
   <meta name="description" content="Compare soccer teams head-to-head with our free football match statistics comparison tool. Analyze head-to-head matches, win-draw-loss records, goal differences, and recent match outcomes to make smarter predictions.">
   <meta name="keywords" content="Head-to-Head Soccer Stats Comparison Tool, head to head match, head to head matches, football match statistics comparison, head to head football game, head-to-head comparison, soccer h2h, team records, match history, soccer stats, compare teams, football stats, soccer prediction">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
+       crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,13 +43,42 @@
       padding: 40px 20px;
       font-family: 'Roboto', sans-serif;
     }
-    .container {
-      max-width: 800px;
+    .main-content {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
       margin: 30px auto;
+      align-items: flex-start;
+    }
+    .container {
+      flex: 1;
+      max-width: 800px;
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
       padding: 32px 24px;
+    }
+    .ad-sidebar {
+      width: 300px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+      padding: 20px;
+      position: sticky;
+      top: 20px;
+    }
+    .ad-container {
+      width: 100%;
+      height: 600px;
+      background: #f8f9fa;
+      border: 2px dashed #ddd;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9em;
+      text-align: center;
     }
     h1 {
       color: #2196F3;
@@ -141,16 +173,34 @@
       color: #888;
       font-size: 1em;
     }
+    @media (max-width: 1024px) {
+      .main-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .ad-sidebar {
+        width: 100%;
+        position: static;
+        order: -1;
+      }
+      .ad-container {
+        height: 250px;
+      }
+    }
     @media (max-width: 600px) {
       .container { padding: 10px; }
       h1 { font-size: 1.2em; }
       .input-row, .input-row2 { flex-direction: column; gap: 8px; }
       .input-row2 label { text-align: left; }
+      .ad-container {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="main-content">
+    <div class="container">
     <div class="breadcrumb" style="margin-bottom: 20px; font-size: 1em; color: #666;">
       <a href="../index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Home</a>
       <span style="color: #666; margin: 0 8px;">/</span>
@@ -293,6 +343,17 @@
       </nav>
       <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+    </div>
+    
+    <!-- Ad Sidebar -->
+    <div class="ad-sidebar">
+      <div class="ad-container">
+        <div>
+          <p>Advertisement</p>
+          <p style="font-size: 0.8em; margin-top: 10px;">Ad space for Google AdSense</p>
+        </div>
+      </div>
+    </div>
   </div>
   <script>
     function parseStats(str) {
