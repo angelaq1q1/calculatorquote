@@ -19,7 +19,7 @@
         "@type": "ItemList",
         "name": "Home Improvement Calculators",
         "description": "Collection of free calculators for home improvement projects",
-        "numberOfItems": 7,
+        "numberOfItems": 8,
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -62,6 +62,12 @@
             "position": 7,
             "name": "Flooring Installation Calculator",
             "url": "https://www.calculatorquote.com/home/flooring-installation-estimator.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Solar Savings Calculator",
+            "url": "https://www.calculatorquote.com/home/solar-savings-calculator.html"
           }
         ]
       },
@@ -90,7 +96,6 @@
     }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -171,15 +176,44 @@
             align-items: center;
         }
 
-        .calculator-card .material-icons {
+        .calculator-card .icon {
             margin-right: 8px;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .calculator-card p {
             color: #666;
             margin: 0;
             font-size: 0.95em;
+        }
+
+        .footer {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            padding: 32px 0 0 0;
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+        }
+
+        .footer-nav {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 18px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav span {
+            color: #ccc;
+        }
+
+        .footer-copyright {
+            color: #bbb;
+            font-size: 0.98em;
         }
 
         @media (max-width: 768px) {
@@ -196,7 +230,7 @@
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="../index.html">Home</a> <span>/</span>
+            <a href="/index.html">Home</a> <span>/</span>
             <span>Home Improvement</span>
         </div>
 
@@ -206,49 +240,49 @@
         <div class="calculator-grid">
             <div class="calculator-card">
                 <a href="moving-cost-calculator.html">
-                    <h2><span class="material-icons">local_shipping</span>Moving Cost Calculator</h2>
+                    <h2><span class="icon">🚚</span>Moving Cost Calculator</h2>
                     <p>Calculate moving company costs including base fees, distance, labor, and additional services</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="bathroom-remodel-cost-calculator.html">
-                    <h2><span class="material-icons">home</span>Bathroom Remodel Cost Calculator</h2>
+                    <h2><span class="icon">🏠</span>Bathroom Remodel Cost Calculator</h2>
                     <p>Calculate bathroom renovation costs including materials, labor, fixtures, and extra features</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="hvac-load-calculator.html">
-                    <h2><span class="material-icons">ac_unit</span>HVAC Load Calculator</h2>
+                    <h2><span class="icon">❄️</span>HVAC Load Calculator</h2>
                     <p>Calculate heating and cooling load requirements to determine optimal HVAC system size</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="solar-panel-cost-estimator.html">
-                    <h2><span class="material-icons">wb_sunny</span>Solar Panel Cost Calculator</h2>
+                    <h2><span class="icon">☀️</span>Solar Panel Cost Calculator</h2>
                     <p>Estimate solar panel installation costs, federal tax credits, and potential savings</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="lawn-care-cost-calculator.html">
-                    <h2><span class="material-icons">grass</span>Lawn Care Cost Calculator</h2>
+                    <h2><span class="icon">🌱</span>Lawn Care Cost Calculator</h2>
                     <p>Estimate professional lawn care costs including mowing, fertilization, weed control, and maintenance services</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="pool-service-cost-calculator.html">
-                    <h2><span class="material-icons">pool</span>Pool Service Cost Calculator</h2>
+                    <h2><span class="icon">🏊</span>Pool Service Cost Calculator</h2>
                     <p>Calculate pool maintenance costs including cleaning, chemical balancing, filter maintenance, and seasonal services</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="flooring-installation-estimator.html">
-                    <h2><span class="material-icons">home_repair_service</span>Flooring Installation Calculator</h2>
+                    <h2><span class="icon">🔨</span>Flooring Installation Calculator</h2>
                     <p>Calculate flooring installation costs for laminate, vinyl, hardwood, tile, and carpet</p>
                 </a>
             </div>
             <div class="calculator-card">
                 <a href="solar-savings-calculator.html">
-                    <h2><span class="material-icons">trending_up</span>Solar Savings Calculator</h2>
+                    <h2><span class="icon">📈</span>Solar Savings Calculator</h2>
                     <p>Calculate solar panel ROI, payback period, and 25-year financial benefits</p>
                 </a>
             </div>
@@ -257,59 +291,59 @@
         <div style="margin-top: 40px;">
             <div class="calculator-grid">
                 <div class="calculator-card">
-                    <a href="../other/roofing-calculator.html">
-                        <h2><span class="material-icons">home</span>Roofing Calculator</h2>
+                    <a href="/other/roofing-calculator.html">
+                        <h2><span class="icon">🏠</span>Roofing Calculator</h2>
                         <p>Calculate roofing materials, costs, and square footage for your roof replacement project</p>
                     </a>
                 </div>
                 <div class="calculator-card">
-                    <a href="../other/water-damage-calculator.html">
-                        <h2><span class="material-icons">water_drop</span>Water Damage Calculator</h2>
+                    <a href="/other/water-damage-calculator.html">
+                        <h2><span class="icon">💧</span>Water Damage Calculator</h2>
                         <p>Estimate repair costs for water damage restoration and mold remediation</p>
                     </a>
                 </div>
                 <div class="calculator-card">
-                    <a href="../other/mold-removal-cost-calculator.html">
-                        <h2><span class="material-icons">cleaning_services</span>Mold Removal Calculator</h2>
+                    <a href="/other/mold-removal-cost-calculator.html">
+                        <h2><span class="icon">🧽</span>Mold Removal Calculator</h2>
                         <p>Calculate mold remediation costs based on affected area and severity</p>
                     </a>
                 </div>
                 <div class="calculator-card">
-                    <a href="../other/pest-control-cost-calculator.html">
-                        <h2><span class="material-icons">bug_report</span>Pest Control Calculator</h2>
+                    <a href="/other/pest-control-cost-calculator.html">
+                        <h2><span class="icon">🐛</span>Pest Control Calculator</h2>
                         <p>Estimate pest extermination costs for your home before calling professionals</p>
                     </a>
                 </div>
                 <div class="calculator-card">
                     <a href="plumbing-cost-calculator.html">
-                        <h2><span class="material-icons">plumbing</span>Plumbing Cost Calculator</h2>
+                        <h2><span class="icon">🔧</span>Plumbing Cost Calculator</h2>
                         <p>Calculate CPVC, uPVC, and combination plumbing system costs for bathrooms and kitchens</p>
                     </a>
                 </div>
                 <div class="calculator-card">
                     <a href="led-resistor-calculator.html">
-                        <h2><span class="material-icons">lightbulb</span>LED Resistor Calculator</h2>
+                        <h2><span class="icon">💡</span>LED Resistor Calculator</h2>
                         <p>Calculate the correct resistor value for LED circuits using Ohm's law</p>
                     </a>
                 </div>
                 <div class="calculator-card">
                     <a href="home-security-systems-cost-calculator.html">
-                        <h2><span class="material-icons">security</span>Home Security Systems Cost Calculator</h2>
+                        <h2><span class="icon">🔒</span>Home Security Systems Cost Calculator</h2>
                         <p>Calculate equipment costs, installation fees, and monthly monitoring expenses for home security systems</p>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="/about-us.html">About Us</a>
+            <span>|</span>
+            <a href="/terms-of-use.html">Terms of Use</a>
+            <span>|</span>
+            <a href="/privacy-policy.html">Privacy Policy</a>
         </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+        <div class="footer-copyright">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 </body>
 </html> 
