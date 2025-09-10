@@ -20,9 +20,7 @@
       gtag('js', new Date());
       gtag('config', 'G-X373L6NGQT');
     </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
-         crossorigin="anonymous"></script>
+    
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,9 +35,46 @@
             background-color: #f5f5f5;
         }
 
-        .container {
+        .main-container {
+            display: flex;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .ad-sidebar {
+            width: 300px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-container {
+            width: 100%;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
             text-align: center;
         }
 
@@ -58,29 +93,29 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin-top: 40px;
         }
 
         .category {
             background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .category-header {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             color: #2196F3;
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
 
         .category-header .material-icons {
-            margin-right: 10px;
-            font-size: 24px;
+            margin-right: 6px;
+            font-size: 18px;
         }
 
         .calculator-list {
@@ -91,7 +126,7 @@
         }
 
         .calculator-item {
-            padding: 12px 0;
+            padding: 6px 0;
             border-bottom: 1px solid #eee;
         }
 
@@ -103,7 +138,7 @@
             color: #333;
             text-decoration: none;
             transition: color 0.2s;
-            font-size: 1.1em;
+            font-size: 0.95em;
         }
 
         .calculator-item a:hover {
@@ -113,12 +148,12 @@
         .more-link {
             display: block;
             text-align: center;
-            padding: 15px 0 5px;
+            padding: 8px 0 3px;
             color: #2196F3;
             font-weight: 500;
             text-decoration: none;
             border-top: 1px solid #eee;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .more-link:hover {
@@ -137,33 +172,38 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            body {
-                padding: 20px;
+            .ad-sidebar {
+                width: 100%;
+                position: static;
+                order: -1;
+            }
+            .ad-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ad-container {
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
 
-    
-    <div class="container">
-        <h1>Free Online Calculators</h1>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <h1>Free Online Calculators</h1>
         <div class="subtitle">Simple and powerful calculators for your daily needs</div>
 
-        <!-- AdSense Ad Unit - Top -->
-        <div style="text-align: center; margin: 30px 0; max-width: 728px; margin-left: auto; margin-right: auto;">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-8831713993918492"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        </div>
 
         <div class="grid">
             <!-- Math Calculators -->
@@ -243,7 +283,7 @@
                 <ul class="calculator-list">
                     <li class="calculator-item"><a href="home/moving-cost-calculator.html">Moving Cost Calculator</a></li>
                     <li class="calculator-item"><a href="home/bathroom-remodel-cost-calculator.html">Bathroom Remodel Cost Calculator</a></li>
-                    <li class="calculator-item"><a href="home/HVAC-load-calculator.html">HVAC Load Calculator</a></li>
+                    <li class="calculator-item"><a href="home/hvac-load-calculator.html">HVAC Load Calculator</a></li>
                     <li class="calculator-item"><a href="home/solar-panel-cost-estimator.html">Solar Panel Cost Calculator</a></li>
                     <li class="calculator-item"><a href="home/lawn-care-cost-calculator.html">Lawn Care Cost Calculator</a></li>
                     <li class="calculator-item"><a href="home/flooring-installation-estimator.html">Flooring Installation Calculator</a></li>
@@ -282,17 +322,27 @@
                 </ul>
             </div>
         </div>
+
+        </div>
+
+        <!-- Ad Sidebar -->
+        <div class="ad-sidebar">
+            <div class="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
+                     crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8831713993918492"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
     </div>
 
-    <!-- AdSense Ad Unit - Bottom -->
-    <div style="text-align: center; margin: 30px 0; max-width: 728px; margin-left: auto; margin-right: auto;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8831713993918492"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-    </div>
 
     <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
@@ -307,12 +357,5 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <script>
-        // Initialize AdSense ads
-        window.onload = function() {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        };
-    </script>
 </body>
 </html>
