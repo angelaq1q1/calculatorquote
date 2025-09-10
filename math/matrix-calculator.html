@@ -18,16 +18,55 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        :root {
-            --text-primary: #222;
-            --text-secondary: #666;
-        }
-
         body {
             background-color: #f5f5f5;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             padding: 40px 20px;
         }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .ad-sidebar {
+            width: 300px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-container {
+            width: 100%;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
 
         .breadcrumb {
             margin-bottom: 20px;
@@ -64,25 +103,20 @@
         }
 
         .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin-bottom: 40px;
         }
 
-        h1 {
-            color: var(--text-primary);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .info-text {
-            color: var(--text-secondary);
+        .page-description {
+            color: #666;
             font-size: 1.1em;
-            margin-bottom: 25px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .related-calculators {
@@ -117,6 +151,26 @@
             color: #1976D2;
         }
 
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .ad-sidebar {
+                width: 100%;
+                position: static;
+                order: -1;
+            }
+            .ad-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ad-container {
+                height: 200px;
+            }
+        }
 
         .calculator-layout {
             display: flex;
@@ -266,6 +320,11 @@
             background: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e0e0e0;
+            display: none; /* 初始隐藏 */
+        }
+
+        .result-section.show {
+            display: block; /* 显示时显示 */
         }
 
         .result-title {
@@ -313,17 +372,24 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <div class="main-container">
+        <div class="content-wrapper">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Math Calculators</a>
-            <span>/</span>
-            <span>Matrix Calculator</span>
+                    <a href="index.html">Math Calculators</a>
+        <span>/</span>
+        Matrix Calculator
         </div>
 
-        <h1>Matrix Calculator Online – Multiplication, Product & Inverse (Step-by-Step)</h1>
-        <p class="info-text">Use our matrix calculator online to add, subtract, and compute the product of matrices (A×B). Get step-by-step results for matrix multiplication and quickly find the inverse of a matrix — a simple, fast matrix by calculator experience for students and engineers. If you're looking for an inverse matrix calculator 3×3 or even an inverse of a 3×3 matrix calculator workflow, this tool handles it in-browser with no setup.</p>
+            <div class="calculator-container">
+                <div class="page-header">
+                    <h1>Matrix Calculator Online – Multiplication, Product & Inverse (Step-by-Step)</h1>
+                </div>
+
+                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                    Use our matrix calculator online to add, subtract, and compute the product of matrices (A×B). Get step-by-step results for matrix multiplication and quickly find the inverse of a matrix — a simple, fast matrix by calculator experience for students and engineers. If you're looking for an inverse matrix calculator 3×3 or even an inverse of a 3×3 matrix calculator workflow, this tool handles it in-browser with no setup.
+                </p>
         <div class="calculator-layout">
             <!-- Matrix A Section -->
             <div class="matrix-input-section">
@@ -403,113 +469,98 @@
             <div class="result-title">Result</div>
             <div id="result-grid" class="result-grid"></div>
             <div id="error-message" class="error"></div>
+                </div>
+
+            <div class="related-calculators">
+                <h2>Related Contents</h2>
+                <p><a href="../blog/how-to-use-matrix-calculator.html" style="color: #2196F3; text-decoration: none; font-size: 1.1em; line-height: 1.6;">How to Use a Matrix Calculator for Education and Research in 2025 (Step-by-Step Guide)</a></p>
+                <p><a href="../blog/how-to-detect-and-fix-skewed-3D-animations.html" style="color: #2196F3; text-decoration: none; font-size: 1.1em; line-height: 1.6;">How to Detect and Fix Skewed 3D Animations with a Matrix Calculator and Cut Production Costs by $200</a></p>
+                <p><a href="../blog/how-to-use-a-matrix-calculator-to-save-money.html" style="color: #2196F3; text-decoration: none; font-size: 1.1em; line-height: 1.6;">How to Use a Matrix Calculator to Optimize Robotics Movements and Save $5,000 on Production</a></p>
+            </div>
+
+            <div class="page-description">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Matrix Calculator – Because solving 3×3 matrices by hand is pure pain 😵‍💫</p>
+                <p>Let's face it:<br>
+                The moment your math homework says "find the determinant", your brain says "find the exit".</p>
+                <p>Whether you're an engineering student trying to survive, or just someone who's been betrayed by linear algebra one too many times, our Matrix Calculator is here to help — no sweat, no scribbles, just clean, fast math.</p>
+                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Add, subtract, and multiply matrices — without breaking a pencil</li>
+                    <li style="margin-bottom: 10px;">✅ Transpose and invert like a pro (or at least look like one)</li>
+                    <li style="margin-bottom: 10px;">✅ Calculate determinants faster than your TA can say "Gaussian elimination"</li>
+                    <li style="margin-bottom: 10px;">✅ Supports up to 5×5 matrices — because anything bigger is just cruel</li>
+                    <li style="margin-bottom: 10px;">✅ Works right in your browser — no download, no math degree required</li>
+                </ul>
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – Because math hurts enough without more confusion</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this free?</strong><br>
+                    Yep. We won't charge you for math misery. Free to use, forever. Just the occasional chill ad.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can it handle non-square matrices?</strong><br>
+                    Totally. But inverse is square-only — even a calculator has standards.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Will this help me pass my exam?</strong><br>
+                    It can assist you. Whether you pass depends on how much you've ignored the lectures.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Does it store my data?</strong><br>
+                    Nope. Your failed matrix attempts vanish into the void. No judgment.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Why not just use a spreadsheet?</strong><br>
+                    Ever tried inverting a 4×4 matrix in Excel? Exactly.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can I use this matrix calculator for school exams?</strong><br>
+                    Absolutely. This matrix math calculator is great for high school, college, or even engineering-level problems.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this the same as a matrix multiplication calculator?</strong><br>
+                    Yes! It supports matrix multiplication and more.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Does it work for 3×3 inverses?</strong><br>
+                    Yes. If you searched for an <em>inverse matrix calculator 3x3</em> or an <em>inverse of a 3x3 matrix calculator</em>, this tool computes 2×2 up to 5×5 inverses directly in your browser.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is this a det of matrix calculator?</strong><br>
+                    Yep — it calculates determinants, including 3×3 and 4×4. Just enter your matrix and hit Determinant.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Does this matrix calculator include RREF?</strong><br>
+                    Not yet. If you’re after a <em>matrix calculator with rref</em>, that feature is on our roadmap. For now, you can compute transpose, determinant, inverse, powers, and more.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Can I convert equations to a matrix here?</strong><br>
+                    If you’re looking for an <em>equation to matrix calculator</em> or a <em>matrix calculator equation</em> workflow, enter the coefficients into Matrix A manually to form your coefficient matrix. Direct equation parsing isn’t supported yet.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: How does this compare to the Desmos matrix calculator?</strong><br>
+                    This is a lightweight, focused alternative to a <em>Desmos matrix calculator</em> — no account needed, quick inputs, and fast results for common operations.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Do I need Python or a TI‑84?</strong><br>
+                    No. If you were searching for a <em>matrix calculator in Python</em> or a <em>matrix calculator TI‑84</em>, this web tool gives you the same core operations without installing anything or using a handheld calculator.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
-            <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Contents</h2>
-            <ul style="list-style:none;padding:0;">
-                <li style="margin-bottom:14px;">
-                    <a href="../blog/how-to-use-matrix-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">How to Use a Matrix Calculator for Education and Research in 2025 (Step-by-Step Guide)</a>
-                </li>
-                <li style="margin-bottom:14px;">
-                    <a href="../blog/how-to-detect-and-fix-skewed-3D-animations.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">How to Detect and Fix Skewed 3D Animations with a Matrix Calculator and Cut Production Costs by $200</a>
-                </li>
-                <li style="margin-bottom:14px;">
-                    <a href="../blog/how-to-use-a-matrix-calculator-to-save-money.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">How to Use a Matrix Calculator to Optimize Robotics Movements and Save $5,000 on Production</a>
-                </li>
-            </ul>
+    </div>
+    
+    <!-- Ad Sidebar -->
+    <div class="ad-sidebar">
+        <div class="ad-container">
+            <div>
+                <p>Advertisement</p>
+                <p style="font-size: 0.8em; margin-top: 10px;">Ad space for Google AdSense</p>
+            </div>
         </div>
-            </div>
+    </div>
+    </div>
 
-        <div class="info-section" style="max-width: 800px; margin: 40px auto; padding: 30px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);">
-            <h2 style="margin-top: 0; margin-bottom: 20px; color: #333; font-size: 1.8em; font-weight: 500;">🧠 Matrix Calculator – Because solving 3×3 matrices by hand is pure pain 😵‍💫</h2>
-            
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Let's face it:</p>
-            
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">The moment your math homework says "find the determinant", your brain says "find the exit".</p>
-            
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Whether you're an engineering student trying to survive, or just someone who's been betrayed by linear algebra one too many times, our Matrix Calculator is here to help — no sweat, no scribbles, just clean, fast math.</p>
-            
-            <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">💡 What does it do?</h3>
-            <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
-                <li style="margin-bottom: 10px;">Add, subtract, and multiply matrices — without breaking a pencil</li>
-                <li style="margin-bottom: 10px;">Transpose and invert like a pro (or at least look like one)</li>
-                <li style="margin-bottom: 10px;">Calculate determinants faster than your TA can say "Gaussian elimination"</li>
-                <li style="margin-bottom: 10px;">Supports up to 5×5 matrices — because anything bigger is just cruel</li>
-                <li style="margin-bottom: 10px;">Works right in your browser — no download, no math degree required</li>
-            </ul>
-            
-            <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – Because math hurts enough without more confusion</h3>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this free?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Yep. We won't charge you for math misery. Free to use, forever. Just the occasional chill ad.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Can it handle non-square matrices?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Totally. But inverse is square-only — even a calculator has standards.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Will this help me pass my exam?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: It can assist you. Whether you pass depends on how much you've ignored the lectures.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Does it store my data?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Nope. Your failed matrix attempts vanish into the void. No judgment.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Why not just use a spreadsheet?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Ever tried inverting a 4×4 matrix in Excel? Exactly.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Can I use this matrix calculator for school exams?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Absolutely. This matrix math calculator is great for high school, college, or even engineering-level problems.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this the same as a matrix multiplication calculator?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Yes! It supports matrix multiplication and more.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Does it work for 3×3 inverses?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Yes. If you searched for an <em>inverse matrix calculator 3x3</em> or an <em>inverse of a 3x3 matrix calculator</em>, this tool computes 2×2 up to 5×5 inverses directly in your browser.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this a det of matrix calculator?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Yep — it calculates determinants, including 3×3 and 4×4. Just enter your matrix and hit Determinant.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Does this matrix calculator include RREF?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Not yet. If you're after a <em>matrix calculator with rref</em>, that feature is on our roadmap. For now, you can compute transpose, determinant, inverse, powers, and more.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Can I convert equations to a matrix here?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: If you're looking for an <em>equation to matrix calculator</em> or a <em>matrix calculator equation</em> workflow, enter the coefficients into Matrix A manually to form your coefficient matrix. Direct equation parsing isn't supported yet.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How does this compare to the Desmos matrix calculator?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: This is a lightweight, focused alternative to a <em>Desmos matrix calculator</em> — no account needed, quick inputs, and fast results for common operations.</p>
-            </div>
-            
-            <div class="faq-item" style="margin-bottom: 20px;">
-                <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Do I need Python or a TI‑84?</p>
-                <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: No. If you were searching for a <em>matrix calculator in Python</em> or a <em>matrix calculator TI‑84</em>, this web tool gives you the same core operations without installing anything or using a handheld calculator.</p>
-            </div>
-
-        </div>
-
-
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
             <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
@@ -577,7 +628,12 @@
 
         // 显示结果
         function displayResult(matrix) {
+            const resultSection = document.querySelector('.result-section');
             const resultGrid = document.getElementById('result-grid');
+            
+            // 显示结果部分
+            resultSection.classList.add('show');
+            
             resultGrid.style.gridTemplateColumns = `repeat(${matrix[0].length}, 60px)`;
             resultGrid.innerHTML = '';
 
@@ -625,7 +681,11 @@
             }
 
             const det = determinant(matrix);
+            const resultSection = document.querySelector('.result-section');
             const resultGrid = document.getElementById('result-grid');
+            
+            // 显示结果部分
+            resultSection.classList.add('show');
             resultGrid.innerHTML = `<div class="result-cell">Determinant = ${det.toFixed(2)}</div>`;
         }
 
@@ -672,6 +732,10 @@
             const matrixA = getMatrixValues('a');
             const matrixB = getMatrixValues('b');
 
+            // 显示结果区域
+            const resultSection = document.querySelector('.result-section');
+            resultSection.classList.add('show');
+
             if (matrixA.length !== matrixB.length || matrixA[0].length !== matrixB[0].length) {
                 document.getElementById('error-message').textContent = 'Matrices must have the same dimensions for subtraction';
                 return;
@@ -686,6 +750,10 @@
         function multiplyMatrices() {
             const matrixA = getMatrixValues('a');
             const matrixB = getMatrixValues('b');
+
+            // 显示结果区域
+            const resultSection = document.querySelector('.result-section');
+            resultSection.classList.add('show');
 
             if (matrixA[0].length !== matrixB.length) {
                 document.getElementById('error-message').textContent = 'Number of columns in first matrix must equal number of rows in second matrix';
@@ -708,6 +776,15 @@
             const matrixB = getMatrixValues('b');
             setMatrixValues('a', matrixB);
             setMatrixValues('b', matrixA);
+            
+            // 显示结果区域并显示交换成功消息
+            const resultSection = document.querySelector('.result-section');
+            const resultGrid = document.getElementById('result-grid');
+            
+            resultSection.classList.add('show');
+            resultGrid.style.gridTemplateColumns = '1fr';
+            resultGrid.innerHTML = '<div style="text-align: center; padding: 15px; font-weight: 500; color: #2196F3; font-size: 1.1em;">✓ Matrices A and B swapped successfully!</div>';
+            document.getElementById('error-message').textContent = '';
         }
 
         // 计算行列式
@@ -815,6 +892,11 @@
         // 初始化矩阵
         initializeMatrix('a', 2, 2);
         initializeMatrix('b', 2, 2);
+
+        // Initialize AdSense ads
+        window.onload = function() {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        };
     </script>
 
     <script type="application/ld+json">
