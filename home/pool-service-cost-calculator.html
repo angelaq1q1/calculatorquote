@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Tired of unclear pool service quotes? Use our Pool Service Cost Calculator to see exact prices in seconds. Enter your pool size and service needs, and get a simple, clear estimate—avoid surprises and overpriced services.">
+    <meta name="keywords" content="pool service cost calculator, pool maintenance cost, swimming pool cleaning cost, pool service estimate">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/pool-service-cost-calculator.html">
+    <title>Worried About Pool Cleaning Costs? Try Our Free Calculator</title>
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Pool Service Cost Calculator",
+        "description": "Free online calculator to estimate pool service costs including pool service, pool service cost, pool service and cleaning, and swimming pool service",
+        "url": "https://www.calculatorquote.com/home/pool-service-cost-calculator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": ["pool service", "pool service cost", "pool service and cleaning", "swimming pool service"],
+        "author": {
+            "@type": "Organization",
+            "name": "CalculatorQuote"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CalculatorQuote"
+        }
+    }
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X373L6NGQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X373L6NGQT');
+    </script>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .unit-toggle {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .unit-toggle label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .unit-toggle input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Pool Service Cost Calculator
+        </div>
+        <h1>Struggling to Budget Your Pool Cleaning? Try Our Pool Service Cost Calculator</h1>
+        <div class="description">
+            Planning to clean your pool but unsure about the cost? Struggling with confusing quotes and hidden fees can ruin your budget. Our Pool Service Cost Calculator lets you estimate expenses in seconds. Simply enter your pool size and service needs, and get a clear, accurate cost—no surprises, no overspending.
+        </div>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="poolSize">Pool Size:</label>
+                    <input type="number" id="poolSize" min="1" placeholder="e.g. 15000" required>
+                    <div class="unit-toggle">
+                        <label>
+                            <input type="radio" name="unit" value="gallons" checked> Gallons
+                        </label>
+                        <label>
+                            <input type="radio" name="unit" value="sqft"> Square Feet (sq ft)
+                        </label>
+                    </div>
+                    <div class="note">
+                        <strong>Size Guidelines:</strong> Small: &lt;10,000 gallons | Medium: 10,000-20,000 gallons | Large: 20,000+ gallons
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="serviceFrequency">Service Frequency:</label>
+                    <select id="serviceFrequency">
+                        <option value="weekly">Weekly Service</option>
+                        <option value="biweekly" selected>Bi-weekly Service</option>
+                        <option value="monthly">Monthly Service</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="serviceType">Type of Service:</label>
+                    <select id="serviceType">
+                        <option value="basic">Basic Cleaning (Skimming, brushing, vacuuming)</option>
+                        <option value="full" selected>Full Service (Cleaning + chemicals)</option>
+                        <option value="premium">Premium Service (Cleaning + chemicals + equipment check + opening/closing)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="poolType">Pool Type:</label>
+                    <select id="poolType">
+                        <option value="aboveground">Above-ground Pool</option>
+                        <option value="inground" selected>In-ground Pool</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Additional Services:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="chemicalBalancing" value="20">
+                            <label for="chemicalBalancing">Chemical Balancing (+$20/visit)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="filterCleaning" value="30">
+                            <label for="filterCleaning">Filter Cleaning (+$30/visit)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="algaeRemoval" value="50">
+                            <label for="algaeRemoval">Algae Removal (+$50/visit)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="seasonalService" value="150">
+                            <label for="seasonalService">Seasonal Opening/Closing (+$150 one-time)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* Estimates are based on current market data and may vary. Consult with local pool service professionals for precise quotes.</div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Understanding Pool Service Costs</h2>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                Professional pool service costs vary significantly based on several factors. Our pool service cost calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you need basic cleaning or comprehensive pool maintenance, understanding the cost structure helps you budget effectively.
+            </p>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                <b>Key Factors Affecting Pool Service Costs:</b><br>
+                • <b>Pool Size:</b> Larger pools require more time, chemicals, and equipment, increasing costs proportionally<br>
+                • <b>Service Type:</b> Basic cleaning costs less than full service with chemicals or premium maintenance<br>
+                • <b>Service Frequency:</b> Regular maintenance often costs less per visit than one-time services<br>
+                • <b>Pool Type:</b> In-ground pools typically cost more to service due to accessibility requirements<br>
+                • <b>Additional Services:</b> Extra services like chemical balancing or algae removal add to total costs
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Pool Service Types & Pricing</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Basic Services</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Basic Cleaning:</b> $80-$120 per visit<br>
+                        <b>Skimming & Vacuuming:</b> $60-$100 per visit<br>
+                        <b>Wall Brushing:</b> $40-$80 per visit<br>
+                        <b>Basic Maintenance:</b> $70-$110 per visit
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Basic services focus on regular cleaning and maintenance. Costs depend on pool size and complexity.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Advanced Services</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Full Service:</b> $120-$200 per visit<br>
+                        <b>Premium Service:</b> $160-$280 per visit<br>
+                        <b>Chemical Balancing:</b> $20-$40 per visit<br>
+                        <b>Equipment Inspection:</b> $50-$100 per visit
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Advanced services require specialized knowledge and products, resulting in higher costs but better results.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin: 20px auto 0 auto; max-width: 700px; text-align: left;">
+            <p style="margin: 0; font-size: 0.85em; color: #888; font-style: italic;">
+                Note: These are not strict industry standards, but rather average prices based on the US market (data referenced from HomeAdvisor, Angi, Thumbtack 2023 quotes)
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Frequently Asked Questions</h2>
+            
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">How much is pool service?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    Pool service costs typically range from $80-$280 per visit, depending on pool size, service type, and frequency. Basic cleaning costs $80-$120, full service $120-$200, and premium service $160-$280. Monthly costs range from $80-$1,120 depending on service frequency and additional services.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">How do I find swimming pool service companies near me?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    Search online directories like HomeAdvisor, Angi, or Thumbtack for local pool service companies. Check reviews, compare quotes from at least 3 companies, and verify they're licensed and insured. Ask neighbors for recommendations and look for companies with experience in your pool type.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">What qualifications should a swimming pool service technician have?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A qualified pool service technician should be certified by organizations like the National Swimming Pool Foundation (NSPF) or Pool & Hot Tub Alliance (PHTA). They should have proper licensing, insurance, and experience with your specific pool type and equipment. Ask about their training and certifications before hiring.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">How much does pool maintenance cost?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    Pool maintenance costs vary by frequency and service level. Weekly maintenance costs $320-$1,120 monthly, bi-weekly costs $160-$560 monthly, and monthly service costs $80-$280 monthly. Additional factors like pool size, chemical needs, and equipment maintenance can increase costs by 20-50%.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">What does weekly pool service include?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    Weekly pool service typically includes skimming debris, vacuuming the pool floor, brushing walls and steps, checking and adjusting chemical levels, cleaning skimmer baskets, inspecting equipment, and testing water quality. Some services may also include emptying automatic cleaners and checking pool accessories.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function clearForm() {
+            document.getElementById('poolSize').value = '';
+            document.querySelector('input[name="unit"][value="gallons"]').checked = true;
+            document.getElementById('serviceFrequency').value = 'biweekly';
+            document.getElementById('serviceType').value = 'full';
+            document.getElementById('poolType').value = 'inground';
+            
+            // Clear checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
+
+        function calculateCost() {
+            const poolSize = parseFloat(document.getElementById('poolSize').value);
+            const unit = document.querySelector('input[name="unit"]:checked').value;
+            const serviceFrequency = document.getElementById('serviceFrequency').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const poolType = document.getElementById('poolType').value;
+            
+            // Get additional services
+            const additionalServices = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => additionalServices.push(checkbox.id));
+
+            if (!poolSize) {
+                alert('Please enter your pool size.');
+                return;
+            }
+
+            // Convert to gallons if needed
+            let poolSizeInGallons = poolSize;
+            if (unit === 'sqft') {
+                poolSizeInGallons = poolSize / 0.0267; // Convert sq ft to gallons
+            }
+
+            // Determine pool size category
+            let basePrice;
+            if (poolSizeInGallons < 10000) {
+                basePrice = 80; // Small pool
+            } else if (poolSizeInGallons <= 20000) {
+                basePrice = 120; // Medium pool
+            } else {
+                basePrice = 160; // Large pool
+            }
+
+            // Frequency multiplier
+            let frequencyMultiplier;
+            switch(serviceFrequency) {
+                case 'weekly':
+                    frequencyMultiplier = 4;
+                    break;
+                case 'biweekly':
+                    frequencyMultiplier = 2;
+                    break;
+                case 'monthly':
+                    frequencyMultiplier = 1;
+                    break;
+            }
+
+            // Service type add-on percentage
+            let serviceTypeMultiplier;
+            switch(serviceType) {
+                case 'basic':
+                    serviceTypeMultiplier = 0;
+                    break;
+                case 'full':
+                    serviceTypeMultiplier = 0.2;
+                    break;
+                case 'premium':
+                    serviceTypeMultiplier = 0.4;
+                    break;
+            }
+
+            // Pool type factor
+            let poolTypeFactor = poolType === 'inground' ? 1.2 : 1.0;
+
+            // Calculate base monthly cost
+            const baseMonthlyCost = basePrice * frequencyMultiplier;
+            const serviceTypeCost = baseMonthlyCost * serviceTypeMultiplier;
+            const adjustedCost = (baseMonthlyCost + serviceTypeCost) * poolTypeFactor;
+
+            // Calculate additional services
+            let additionalCost = 0;
+            let additionalServicesBreakdown = [];
+            
+            checkboxes.forEach(checkbox => {
+                const cost = parseFloat(checkbox.value);
+                let serviceCost = 0;
+                if (checkbox.id === 'seasonalService') {
+                    serviceCost = cost; // One-time fee
+                    additionalCost += serviceCost;
+                    additionalServicesBreakdown.push(`${checkbox.id}: $${serviceCost} (one-time)`);
+                } else {
+                    serviceCost = cost * frequencyMultiplier; // Per visit
+                    additionalCost += serviceCost;
+                    additionalServicesBreakdown.push(`${checkbox.id}: $${serviceCost} (${frequencyMultiplier} visits × $${cost})`);
+                }
+            });
+
+            const totalMonthlyCost = adjustedCost + additionalCost;
+            const yearlyCost = totalMonthlyCost * 12;
+            const perVisitCost = totalMonthlyCost / frequencyMultiplier;
+
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <strong>Estimated Monthly Cost: $${totalMonthlyCost.toFixed(0)}</strong><br>
+                <small>Yearly: $${yearlyCost.toFixed(0)} | Per Visit: $${perVisitCost.toFixed(0)}</small>
+            `;
+
+            document.getElementById('breakdown').style.display = 'block';
+            let breakdownHTML = `
+                <b>Cost Breakdown:</b><br>
+                <b>Base Service (${poolSizeInGallons.toFixed(0)} gallons):</b> $${baseMonthlyCost.toFixed(0)}<br>
+                <b>Service Type Adjustment:</b> $${serviceTypeCost.toFixed(0)}<br>
+                <b>Pool Type Factor:</b> $${(adjustedCost - baseMonthlyCost - serviceTypeCost).toFixed(0)}<br>
+            `;
+            
+            if (additionalServicesBreakdown.length > 0) {
+                breakdownHTML += `<b>Additional Services:</b><br>`;
+                additionalServicesBreakdown.forEach(service => {
+                    breakdownHTML += `&nbsp;&nbsp;• ${service}<br>`;
+                });
+                breakdownHTML += `<b>Total Additional Services:</b> $${additionalCost.toFixed(0)}<br>`;
+            } else {
+                breakdownHTML += `<b>Additional Services:</b> $0<br>`;
+            }
+            
+            breakdownHTML += `<b>Total Monthly Cost:</b> $${totalMonthlyCost.toFixed(0)}`;
+            
+            document.getElementById('breakdown').innerHTML = breakdownHTML;
+        }
+
+    </script>
+</body>
+</html>
