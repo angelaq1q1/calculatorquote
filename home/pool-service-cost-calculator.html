@@ -34,6 +34,10 @@
         "publisher": {
             "@type": "Organization",
             "name": "CalculatorQuote"
+        },
+        "potentialAction": {
+            "@type": "CalculateAction",
+            "target": "https://www.calculatorquote.com/home/pool-service-cost-calculator.html"
         }
     }
     </script>
@@ -134,6 +138,7 @@
         }
         .unit-toggle input[type="radio"] {
             margin-right: 8px;
+            cursor: pointer;
         }
 
         .checkbox-group {
@@ -298,19 +303,19 @@
                     <label>Additional Services:</label>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
-                            <input type="checkbox" id="chemicalBalancing" value="20">
+                            <input type="checkbox" id="chemicalBalancing" value="20" data-name="Chemical Balancing">
                             <label for="chemicalBalancing">Chemical Balancing (+$20/visit)</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="filterCleaning" value="30">
+                            <input type="checkbox" id="filterCleaning" value="30" data-name="Filter Cleaning">
                             <label for="filterCleaning">Filter Cleaning (+$30/visit)</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="algaeRemoval" value="50">
+                            <input type="checkbox" id="algaeRemoval" value="50" data-name="Algae Removal">
                             <label for="algaeRemoval">Algae Removal (+$50/visit)</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="seasonalService" value="150">
+                            <input type="checkbox" id="seasonalService" value="150" data-name="Seasonal Opening/Closing">
                             <label for="seasonalService">Seasonal Opening/Closing (+$150 one-time)</label>
                         </div>
                     </div>
@@ -454,57 +459,56 @@
             const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
             checkboxes.forEach(checkbox => additionalServices.push(checkbox.id));
 
-            if (!poolSize) {
-                alert('Please enter your pool size.');
+            if (isNaN(poolSize) || poolSize <= 0) {
+                alert('Please enter a valid pool size greater than 0.');
                 return;
             }
 
             // Convert to gallons if needed
             let poolSizeInGallons = poolSize;
             if (unit === 'sqft') {
-                poolSizeInGallons = poolSize / 0.0267; // Convert sq ft to gallons
+                poolSizeInGallons = poolSize * 7.48; // Convert sq ft to gallons (1 sqft ≈ 7.48 gallons)
             }
+
+            // Pricing configuration - easier to maintain
+            const pricingConfig = {
+                basePrices: {
+                    small: 80,   // < 10,000 gallons
+                    medium: 120, // 10,000-20,000 gallons
+                    large: 160   // > 20,000 gallons
+                },
+                frequencyMultipliers: {
+                    weekly: 4,
+                    biweekly: 2,
+                    monthly: 1
+                },
+                serviceTypeMultipliers: {
+                    basic: 0,
+                    full: 0.2,
+                    premium: 0.4
+                },
+                poolTypeFactors: {
+                    aboveground: 1.0,
+                    inground: 1.2
+                }
+            };
 
             // Determine pool size category
-            let basePrice;
+            let poolSizeCategory;
             if (poolSizeInGallons < 10000) {
-                basePrice = 80; // Small pool
+                poolSizeCategory = 'small';
             } else if (poolSizeInGallons <= 20000) {
-                basePrice = 120; // Medium pool
+                poolSizeCategory = 'medium';
             } else {
-                basePrice = 160; // Large pool
+                poolSizeCategory = 'large';
             }
+            
+            const basePrice = pricingConfig.basePrices[poolSizeCategory];
+            const frequencyMultiplier = pricingConfig.frequencyMultipliers[serviceFrequency];
+            const serviceTypeMultiplier = pricingConfig.serviceTypeMultipliers[serviceType];
+            const poolTypeFactor = pricingConfig.poolTypeFactors[poolType];
 
-            // Frequency multiplier
-            let frequencyMultiplier;
-            switch(serviceFrequency) {
-                case 'weekly':
-                    frequencyMultiplier = 4;
-                    break;
-                case 'biweekly':
-                    frequencyMultiplier = 2;
-                    break;
-                case 'monthly':
-                    frequencyMultiplier = 1;
-                    break;
-            }
-
-            // Service type add-on percentage
-            let serviceTypeMultiplier;
-            switch(serviceType) {
-                case 'basic':
-                    serviceTypeMultiplier = 0;
-                    break;
-                case 'full':
-                    serviceTypeMultiplier = 0.2;
-                    break;
-                case 'premium':
-                    serviceTypeMultiplier = 0.4;
-                    break;
-            }
-
-            // Pool type factor
-            let poolTypeFactor = poolType === 'inground' ? 1.2 : 1.0;
+            // Pool type factor is now handled in pricingConfig above
 
             // Calculate base monthly cost
             const baseMonthlyCost = basePrice * frequencyMultiplier;
@@ -517,15 +521,16 @@
             
             checkboxes.forEach(checkbox => {
                 const cost = parseFloat(checkbox.value);
+                const serviceName = checkbox.dataset.name || checkbox.id;
                 let serviceCost = 0;
                 if (checkbox.id === 'seasonalService') {
                     serviceCost = cost; // One-time fee
                     additionalCost += serviceCost;
-                    additionalServicesBreakdown.push(`${checkbox.id}: $${serviceCost} (one-time)`);
+                    additionalServicesBreakdown.push(`${serviceName}: $${serviceCost} (one-time)`);
                 } else {
                     serviceCost = cost * frequencyMultiplier; // Per visit
                     additionalCost += serviceCost;
-                    additionalServicesBreakdown.push(`${checkbox.id}: $${serviceCost} (${frequencyMultiplier} visits × $${cost})`);
+                    additionalServicesBreakdown.push(`${serviceName}: $${serviceCost} (${frequencyMultiplier} visits × $${cost})`);
                 }
             });
 
