@@ -438,133 +438,95 @@
             document.getElementById('serviceFrequency').value = 'biweekly';
             document.getElementById('serviceType').value = 'full';
             document.getElementById('poolType').value = 'inground';
-            
-            // Clear checkboxes
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => checkbox.checked = false);
-            
+            checkboxes.forEach(cb => cb.checked = false);
             document.getElementById('result').innerHTML = '';
             document.getElementById('breakdown').style.display = 'none';
         }
 
         function calculateCost() {
             const poolSize = parseFloat(document.getElementById('poolSize').value);
-            const unit = document.querySelector('input[name="unit"]:checked').value;
-            const serviceFrequency = document.getElementById('serviceFrequency').value;
-            const serviceType = document.getElementById('serviceType').value;
-            const poolType = document.getElementById('poolType').value;
-            
-            // Get additional services
-            const additionalServices = [];
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            checkboxes.forEach(checkbox => additionalServices.push(checkbox.id));
-
             if (isNaN(poolSize) || poolSize <= 0) {
                 alert('Please enter a valid pool size greater than 0.');
                 return;
             }
 
-            // Convert to gallons if needed
-            let poolSizeInGallons = poolSize;
-            if (unit === 'sqft') {
-                poolSizeInGallons = poolSize * 7.48; // Convert sq ft to gallons (1 sqft ≈ 7.48 gallons)
-            }
+            const unit = document.querySelector('input[name="unit"]:checked').value;
+            const frequency = document.getElementById('serviceFrequency').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const poolType = document.getElementById('poolType').value;
 
-            // Pricing configuration - easier to maintain
-            const pricingConfig = {
-                basePrices: {
-                    small: 80,   // < 10,000 gallons
-                    medium: 120, // 10,000-20,000 gallons
-                    large: 160   // > 20,000 gallons
-                },
-                frequencyMultipliers: {
-                    weekly: 4,
-                    biweekly: 2,
-                    monthly: 1
-                },
-                serviceTypeMultipliers: {
-                    basic: 0,
-                    full: 0.2,
-                    premium: 0.4
-                },
-                poolTypeFactors: {
-                    aboveground: 1.0,
-                    inground: 1.2
-                }
-            };
+            // Convert to gallons if needed (assume avgDepth = 1 ft)
+            let poolGallons = unit === 'sqft' ? poolSize * 7.48 * 1 : poolSize;
 
-            // Determine pool size category
-            let poolSizeCategory;
-            if (poolSizeInGallons < 10000) {
-                poolSizeCategory = 'small';
-            } else if (poolSizeInGallons <= 20000) {
-                poolSizeCategory = 'medium';
-            } else {
-                poolSizeCategory = 'large';
-            }
-            
-            const basePrice = pricingConfig.basePrices[poolSizeCategory];
-            const frequencyMultiplier = pricingConfig.frequencyMultipliers[serviceFrequency];
-            const serviceTypeMultiplier = pricingConfig.serviceTypeMultipliers[serviceType];
-            const poolTypeFactor = pricingConfig.poolTypeFactors[poolType];
+            // Base price
+            let basePrice = poolGallons < 10000 ? 80 : poolGallons <= 20000 ? 120 : 160;
 
-            // Pool type factor is now handled in pricingConfig above
+            // Frequency mapping
+            const freqMap = { weekly: 4, biweekly: 2, monthly: 1 };
+            const visitsPerMonth = freqMap[frequency];
 
-            // Calculate base monthly cost
-            const baseMonthlyCost = basePrice * frequencyMultiplier;
-            const serviceTypeCost = baseMonthlyCost * serviceTypeMultiplier;
-            const adjustedCost = (baseMonthlyCost + serviceTypeCost) * poolTypeFactor;
+            // Service type multiplier
+            const typeMap = { basic: 0, full: 0.2, premium: 0.4 };
+            const serviceMultiplier = typeMap[serviceType];
 
-            // Calculate additional services
+            // Pool type factor
+            const typeFactor = poolType === 'inground' ? 1.2 : 1.0;
+
+            // Base cost calculation
+            const baseMonthly = basePrice * visitsPerMonth;
+            const serviceCost = baseMonthly * serviceMultiplier;
+            const adjustedBase = (baseMonthly + serviceCost) * typeFactor;
+
+            // Additional services
             let additionalCost = 0;
-            let additionalServicesBreakdown = [];
-            
-            checkboxes.forEach(checkbox => {
-                const cost = parseFloat(checkbox.value);
-                const serviceName = checkbox.dataset.name || checkbox.id;
-                let serviceCost = 0;
-                if (checkbox.id === 'seasonalService') {
-                    serviceCost = cost; // One-time fee
-                    additionalCost += serviceCost;
-                    additionalServicesBreakdown.push(`${serviceName}: $${serviceCost} (one-time)`);
+            const breakdownItems = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                const name = cb.dataset.name || cb.id;
+                const cost = parseFloat(cb.value);
+                let c = 0;
+                if (cb.id === 'seasonalService') {
+                    c = cost; // one-time
+                    breakdownItems.push(`${name}: $${c} (one-time)`);
                 } else {
-                    serviceCost = cost * frequencyMultiplier; // Per visit
-                    additionalCost += serviceCost;
-                    additionalServicesBreakdown.push(`${serviceName}: $${serviceCost} (${frequencyMultiplier} visits × $${cost})`);
+                    c = cost * visitsPerMonth;
+                    breakdownItems.push(`${name}: $${c} (${visitsPerMonth} visits × $${cost})`);
                 }
+                additionalCost += c;
             });
 
-            const totalMonthlyCost = adjustedCost + additionalCost;
-            const yearlyCost = totalMonthlyCost * 12;
-            const perVisitCost = totalMonthlyCost / frequencyMultiplier;
+            const totalMonthly = adjustedBase + additionalCost;
 
-            // Display results
-            document.getElementById('result').innerHTML = `
-                <strong>Estimated Monthly Cost: $${totalMonthlyCost.toFixed(0)}</strong><br>
-                <small>Yearly: $${yearlyCost.toFixed(0)} | Per Visit: $${perVisitCost.toFixed(0)}</small>
-            `;
+            // Calculate per visit: only include per-visit services
+            let perVisitBase = adjustedBase;
+            let perVisitAdd = 0;
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                if (cb.id !== 'seasonalService') perVisitAdd += parseFloat(cb.value);
+            });
+            const perVisit = perVisitBase / visitsPerMonth + perVisitAdd;
 
-            document.getElementById('breakdown').style.display = 'block';
-            let breakdownHTML = `
-                <b>Cost Breakdown:</b><br>
-                <b>Base Service (${poolSizeInGallons.toFixed(0)} gallons):</b> $${baseMonthlyCost.toFixed(0)}<br>
-                <b>Service Type Adjustment:</b> $${serviceTypeCost.toFixed(0)}<br>
-                <b>Pool Type Factor:</b> $${(adjustedCost - baseMonthlyCost - serviceTypeCost).toFixed(0)}<br>
-            `;
-            
-            if (additionalServicesBreakdown.length > 0) {
+            const yearly = totalMonthly * 12;
+
+            // Display
+            document.getElementById('result').innerHTML = `<strong>Estimated Monthly Cost: $${totalMonthly.toFixed(0)}</strong><br>
+            <small>Yearly: $${yearly.toFixed(0)} | Per Visit: $${perVisit.toFixed(0)}</small>`;
+
+            // Breakdown
+            let breakdownHTML = `<b>Cost Breakdown:</b><br>
+                <b>Base Service (${poolGallons.toFixed(0)} gallons):</b> $${baseMonthly.toFixed(0)}<br>
+                <b>Service Type Adjustment:</b> $${serviceCost.toFixed(0)}<br>
+                <b>Pool Type Factor:</b> $${(adjustedBase - baseMonthly - serviceCost).toFixed(0)}<br>`;
+            if (breakdownItems.length > 0) {
                 breakdownHTML += `<b>Additional Services:</b><br>`;
-                additionalServicesBreakdown.forEach(service => {
-                    breakdownHTML += `&nbsp;&nbsp;• ${service}<br>`;
-                });
+                breakdownItems.forEach(i => breakdownHTML += `&nbsp;&nbsp;• ${i}<br>`);
                 breakdownHTML += `<b>Total Additional Services:</b> $${additionalCost.toFixed(0)}<br>`;
             } else {
                 breakdownHTML += `<b>Additional Services:</b> $0<br>`;
             }
-            
-            breakdownHTML += `<b>Total Monthly Cost:</b> $${totalMonthlyCost.toFixed(0)}`;
-            
-            document.getElementById('breakdown').innerHTML = breakdownHTML;
+            breakdownHTML += `<b>Total Monthly Cost:</b> $${totalMonthly.toFixed(0)}`;
+            const breakdownEl = document.getElementById('breakdown');
+            breakdownEl.style.display = 'block';
+            breakdownEl.innerHTML = breakdownHTML;
         }
 
     </script>
