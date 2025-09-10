@@ -189,6 +189,61 @@
             }
         }
 
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .main-container {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .content-wrapper {
+                width: 100%;
+                max-width: none;
+                padding: 20px 15px;
+                margin: 0;
+            }
+
+            .ad-sidebar {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .category {
+                padding: 12px;
+            }
+
+            .category-header {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+
+            .calculator-item {
+                padding: 5px 0;
+            }
+
+            .calculator-item a {
+                font-size: 0.9em;
+            }
+        }
+
         @media (max-width: 600px) {
             .ad-container {
                 height: 200px;
