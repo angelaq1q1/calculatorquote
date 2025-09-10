@@ -418,16 +418,16 @@ Home Security Systems Cost Calculator Logic:
             const homeSize = parseFloat(document.getElementById('home-size').value);
             const bedrooms = parseInt(document.getElementById('bedrooms').value);
             const livingAreas = parseInt(document.getElementById('living-areas').value);
-            
+
             const doorSensors = parseInt(document.getElementById('door-sensors').value);
             const cameras = parseInt(document.getElementById('cameras').value);
             const smokeDetectors = parseInt(document.getElementById('smoke-detectors').value);
             const doorbellCameras = parseInt(document.getElementById('doorbell-cameras').value);
             const smartLocks = parseInt(document.getElementById('smart-locks').value);
-            
+
             const installationType = document.getElementById('installation-type').value;
             const installHours = parseFloat(document.getElementById('install-hours').value) || 0;
-            
+
             const monitoringPlan = document.getElementById('monitoring-plan').value;
             const remoteAccess = document.getElementById('remote-access').checked;
             const cellularBackup = document.getElementById('cellular-backup').checked;
@@ -442,70 +442,56 @@ Home Security Systems Cost Calculator Logic:
                 return;
             }
 
-            // Calculate equipment costs
+            // Equipment costs
             const doorSensorCost = doorSensors * 25;
             const cameraCost = cameras * 150;
             const smokeDetectorCost = smokeDetectors * 50;
             const doorbellCameraCost = doorbellCameras * 200;
             const smartLockCost = smartLocks * 250;
-            
-            const totalEquipmentCost = doorSensorCost + cameraCost + smokeDetectorCost + doorbellCameraCost + smartLockCost;
 
-            // Calculate installation cost
+            const equipmentCost = doorSensorCost + cameraCost + smokeDetectorCost + doorbellCameraCost + smartLockCost;
+
+            // Installation cost
             let installationCost = 0;
-            if (installationType === 'Professional') {
+            if (installationType === "Professional") {
                 installationCost = installHours * 75;
             }
 
-            // Calculate monthly service cost
-            let monthlyServiceCost = 0;
-            switch(monitoringPlan) {
-                case 'Basic':
-                    monthlyServiceCost = 25;
-                    break;
-                case 'Standard':
-                    monthlyServiceCost = 35;
-                    break;
-                case 'Premium':
-                    monthlyServiceCost = 50;
-                    break;
-            }
+            // Monitoring plan monthly cost
+            let monitoringMonthly = 25;
+            if (monitoringPlan === "Standard") monitoringMonthly = 35;
+            if (monitoringPlan === "Premium") monitoringMonthly = 50;
 
-            // Add additional services
-            if (remoteAccess) monthlyServiceCost += 10;
-            if (cellularBackup) monthlyServiceCost += 10;
+            // Extra services
+            let extraMonthly = 0;
+            if (remoteAccess) extraMonthly += 10;
+            if (cellularBackup) extraMonthly += 10;
 
-            // Calculate total costs
-            const firstYearTotal = totalEquipmentCost + installationCost + (monthlyServiceCost * 12);
-            const longTermTotal = totalEquipmentCost + installationCost + (monthlyServiceCost * 12 * contractYears);
+            const monthlyTotal = monitoringMonthly + extraMonthly;
 
-            // Display results
-            const resultDiv = document.getElementById('result');
-            const breakdownDiv = document.getElementById('breakdown');
-            const monthlyCostDiv = document.getElementById('monthly-cost');
+            // First year total
+            const firstYearTotal = equipmentCost + installationCost + monthlyTotal * 12;
+            // Long-term total
+            const longTermTotal = equipmentCost + installationCost + monthlyTotal * 12 * contractYears;
 
-            resultDiv.innerHTML = `First Year Total: $${firstYearTotal.toLocaleString()}<br>${contractYears}-Year Total: $${longTermTotal.toLocaleString()}`;
-            resultDiv.style.color = '#28a745';
+            // Show result
+            document.getElementById('result').textContent = `✅ Estimated First Year Total: $${firstYearTotal.toLocaleString()}`;
+            document.getElementById('result').style.color = '#28a745';
 
-            // Detailed breakdown
-            let breakdown = `<b>Equipment Costs:</b><br>`;
-            breakdown += `• Door/Window Sensors (${doorSensors}): $${doorSensorCost.toLocaleString()}<br>`;
-            breakdown += `• Security Cameras (${cameras}): $${cameraCost.toLocaleString()}<br>`;
-            breakdown += `• Smoke/CO Detectors (${smokeDetectors}): $${smokeDetectorCost.toLocaleString()}<br>`;
-            breakdown += `• Doorbell Cameras (${doorbellCameras}): $${doorbellCameraCost.toLocaleString()}<br>`;
-            breakdown += `• Smart Locks (${smartLocks}): $${smartLockCost.toLocaleString()}<br>`;
-            breakdown += `<b>Total Equipment: $${totalEquipmentCost.toLocaleString()}</b><br><br>`;
-            
-            breakdown += `<b>Installation:</b> $${installationCost.toLocaleString()}<br>`;
-            breakdown += `<b>First Year Total: $${firstYearTotal.toLocaleString()}</b><br>`;
-            breakdown += `<b>${contractYears}-Year Total: $${longTermTotal.toLocaleString()}</b>`;
+            document.getElementById('breakdown').innerHTML = `
+                <b>Cost Breakdown:</b><br>
+                Equipment: $${equipmentCost.toLocaleString()}<br>
+                Installation: $${installationCost.toLocaleString()}<br>
+                Monitoring: $${monitoringMonthly}/month<br>
+                Extra Services: $${extraMonthly}/month<br>
+            `;
+            document.getElementById('breakdown').style.display = 'block';
 
-            breakdownDiv.innerHTML = breakdown;
-            breakdownDiv.style.display = 'block';
-
-            // Monthly cost display
-            monthlyCostDiv.innerHTML = `<b>Monthly Service Cost:</b> $${monthlyServiceCost.toLocaleString()}/month<br><small>Includes: ${monitoringPlan} monitoring${remoteAccess ? ', Remote access' : ''}${cellularBackup ? ', Cellular backup' : ''}</small>`;
-            monthlyCostDiv.style.display = 'block';
+            document.getElementById('monthly-cost').innerHTML = `
+                <b>Contract (${contractYears} years):</b> $${longTermTotal.toLocaleString()} total<br>
+                (Monthly: $${monthlyTotal})
+            `;
+            document.getElementById('monthly-cost').style.display = 'block';
         }
     </script>
 </body>
