@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online calculators for math, finance, health, home improvement, pets, and sports. Simple, accurate, and easy-to-use tools for all your calculation needs. No registration required.">
+    <meta name="keywords" content="calculator, online calculator, free calculator, math calculator, financial calculator, health calculator, mortgage calculator, BMI calculator">
     <meta name="robots" content="index, follow">
-    <title>Pet Calculators - Calculator Tools</title>
+    <link rel="canonical" href="https://www.calculatorquote.com/">
+    <title>Calculator Tools - Free Online Calculators</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X373L6NGQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X373L6NGQT');
+    </script>
+    
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,34 +32,51 @@
             font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 40px;
+            padding: 32px;
             background-color: #f5f5f5;
         }
 
-        .container {
-            max-width: 800px;
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            gap: 30px;
+            align-items: flex-start;
         }
 
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .ad-sidebar {
+            width: 300px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-container {
+            width: 100%;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #666;
-        }
-
-        .breadcrumb a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: #1976D2;
-        }
-
-        .breadcrumb span {
-            color: #666;
-            margin: 0 8px;
+            font-size: 0.9em;
+            text-align: center;
         }
 
         h1 {
@@ -59,108 +89,154 @@
         .subtitle {
             color: #666;
             font-size: 1.2em;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
-        .calculator-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            /* Fallback for older browsers */
-            display: -ms-grid;
-            -ms-grid-columns: 1fr 20px 1fr;
+            gap: 15px;
+            margin-top: 40px;
         }
 
-        /* Fallback for browsers that don't support CSS Grid */
-        @supports not (display: grid) {
-            .calculator-grid {
-                display: flex;
-                flex-wrap: wrap;
-                margin: -10px;
-            }
-            
-            .calculator-card {
-                flex: 1 1 calc(50% - 20px);
-                margin: 10px;
-            }
-        }
-
-        .calculator-card {
+        .category {
             background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Fallback for older browsers */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            -webkit-transition: transform 0.2s ease, box-shadow 0.2s ease;
-            -moz-transition: transform 0.2s ease, box-shadow 0.2s ease;
-            -o-transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .calculator-card:hover {
-            transform: translateY(-2px);
-            -webkit-transform: translateY(-2px);
-            -moz-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
-            -o-transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .calculator-card a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .calculator-card h2 {
-            color: #2196F3;
-            font-size: 1.3em;
-            margin: 0 0 10px 0;
+        .category-header {
             display: flex;
             align-items: center;
+            margin-bottom: 12px;
+            color: #2196F3;
+            font-size: 1.2em;
         }
 
-        .calculator-card .material-icons {
-            margin-right: 8px;
-            font-size: 24px;
-            vertical-align: middle;
-            display: inline-block;
+        .category-header .material-icons {
+            margin-right: 6px;
+            font-size: 18px;
         }
 
-        /* Fallback for Material Icons - no emoji fallback */
-        .calculator-card .material-icons:before {
-            content: "";
-            font-family: Arial, sans-serif;
-        }
-
-        .calculator-card .material-icons[data-icon="restaurant"]:before { content: ""; }
-        .calculator-card .material-icons[data-icon="pets"]:before { content: ""; }
-        .calculator-card .material-icons[data-icon="water"]:before { content: ""; }
-        .calculator-card .material-icons[data-icon="local_shipping"]:before { content: ""; }
-        .calculator-card .material-icons[data-icon="content_cut"]:before { content: ""; }
-        .calculator-card .material-icons[data-icon="security"]:before { content: ""; }
-
-        .calculator-card p {
-            color: #666;
+        .calculator-list {
+            list-style: none;
+            padding: 0;
             margin: 0;
+            text-align: left;
+        }
+
+        .calculator-item {
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .calculator-item:last-child {
+            border-bottom: none;
+        }
+
+        .calculator-item a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
             font-size: 0.95em;
         }
 
+        .calculator-item a:hover {
+            color: #2196F3;
+        }
+
+        .more-link {
+            display: block;
+            text-align: center;
+            padding: 8px 0 3px;
+            color: #2196F3;
+            font-weight: 500;
+            text-decoration: none;
+            border-top: 1px solid #eee;
+            margin-top: 6px;
+        }
+
+        .more-link:hover {
+            color: #1976D2;
+        }
+
+        .more-link .material-icons {
+            font-size: 16px;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .ad-sidebar {
+                width: 100%;
+                position: static;
+                order: -1;
+            }
+            
+            .ad-container {
+                height: 250px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .calculator-grid {
-                grid-template-columns: 1fr;
-                -ms-grid-columns: 1fr;
-            }
-            
             body {
-                padding: 20px;
+                padding: 16px;
+            }
+
+            .main-container {
+                flex-direction: column;
+                gap: 0;
             }
             
+            .content-wrapper {
+                width: 100%;
+                max-width: none;
+                padding: 20px 15px;
+                margin: 0;
+            }
+
+            .ad-sidebar {
+                display: none;
+            }
+
             h1 {
                 font-size: 2em;
+                margin-bottom: 8px;
             }
-            
+
             .subtitle {
                 font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .category {
+                padding: 12px;
+            }
+
+            .category-header {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+
+            .calculator-item {
+                padding: 5px 0;
+            }
+
+            .calculator-item a {
+                font-size: 0.9em;
             }
         }
 
@@ -203,69 +279,166 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            Pet Calculators
+
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <h1>Free Online Calculators</h1>
+        <div class="subtitle">Simple and powerful calculators for your daily needs</div>
+
+
+        <div class="grid">
+            <!-- Math Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">functions</span>
+                    Math Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/math/basic-calculator.html">Basic Calculator</a></li>
+                    <li class="calculator-item"><a href="/math/scientific-calculator.html">Scientific Calculator</a></li>
+                    <li class="calculator-item"><a href="/math/fraction-calculator.html">Fraction Calculator</a></li>
+                    <li class="calculator-item"><a href="/math/statistics-calculator.html">Statistics Calculator</a></li>
+                    <li class="calculator-item"><a href="/math/matrix-calculator.html">Matrix Calculator</a></li>
+                    <li class="calculator-item"><a href="/math/unit-converter.html">Unit Converter</a></li>
+                    <li><a href="/math/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Financial Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">account_balance</span>
+                    Financial Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/financial/army-retirement-calculator.html">Army Retirement Calculator</a></li>
+                    <li class="calculator-item"><a href="/financial/mortgage-calculator-navy-federal.html">Mortgage Calculator Navy Federal</a></li>
+                    <li class="calculator-item"><a href="/financial/USDA-financing-calculator.html">USDA Financing Calculator</a></li>
+                    <li class="calculator-item"><a href="/financial/401k-calculator.html">401k Retirement Calculator</a></li>
+                    <li class="calculator-item"><a href="/financial/compound-interest.html">Compound Interest</a></li>
+                    <li class="calculator-item"><a href="/financial/rv-loan-calculator.html">RV Loan Calculator</a></li>
+                    <li><a href="/financial/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Health Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">fitness_center</span>
+                    Health Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/health/medical-debt-calculator.html">Medical Debt Calculator</a></li>
+                    <li class="calculator-item"><a href="/health/bmi-calculator.html">BMI Calculator</a></li>
+                    <li class="calculator-item"><a href="/health/calorie-calculator.html">Calorie Calculator</a></li>
+                    <li class="calculator-item"><a href="/health/body-fat-calculator.html">Body Fat Calculator</a></li>
+                    <li class="calculator-item"><a href="/health/ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
+                    <li class="calculator-item"><a href="/health/anti-inflammatory-diet-calculator.html">Anti-Inflammatory Diet Calculator</a></li>
+                    <li><a href="/health/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Other Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">build</span>
+                    Other Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/other/immigration-points-calculator.html">Immigration Points Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/job-worth-calculator.html">Job Worth Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/portable-toilet-rentals-cost.html">Portable Toilet Rentals Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/water-damage-calculator.html">Water Damage Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/date-calculator.html">Date Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/time-zone-calculator.html">Time Zone Calculator</a></li>
+                    <li><a href="/other/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Home Improvement -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">home</span>
+                    Home Improvement
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/home/moving-cost-calculator.html">Moving Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/home/bathroom-remodel-cost-calculator.html">Bathroom Remodel Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/home/hvac-load-calculator.html">HVAC Load Calculator</a></li>
+                    <li class="calculator-item"><a href="/home/solar-panel-cost-estimator.html">Solar Panel Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/home/lawn-care-cost-calculator.html">Lawn Care Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/home/flooring-installation-estimator.html">Flooring Installation Calculator</a></li>
+                    <li><a href="/home/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Pet Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">pets</span>
+                    Pet Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/pet/dog-feeding-calculator.html">Dog Feeding Calculator</a></li>
+                    <li class="calculator-item"><a href="/pet/cat-feeding-calculator.html">Cat Feeding Calculator</a></li>
+                    <li class="calculator-item"><a href="/pet/aquarium-volume-calculator.html">Aquarium Volume Calculator</a></li>
+                    <li class="calculator-item"><a href="/pet/pet-transport-cost-calculator.html">Pet Transport Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/pet/pet-grooming-cost-calculator.html">Pet Grooming Cost Calculator</a></li>
+                    <li class="calculator-item"><a href="/other/pet-insurance-calculator.html">Pet Insurance Calculator</a></li>
+                    <li><a href="/pet/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Sports Calculators -->
+            <div class="category">
+                <div class="category-header">
+                    <span class="material-icons">sports_soccer</span>
+                    Sports Calculators
+                </div>
+                <ul class="calculator-list">
+                    <li class="calculator-item"><a href="/sports/football-score-predictor-calculator.html">Football Score Predictor Calculator</a></li>
+                    <li class="calculator-item"><a href="/sports/football-head-to-head-stats-comparison.html">Football Head-to-Head Stats Comparison</a></li>
+                    <li class="calculator-item"><a href="/sports/football-goal-conversion-rate-calculator.html">Football Goal Conversion Rate Calculator</a></li>
+                    <li class="calculator-item"><a href="/sports/swim-pace-calculator.html">Swim Pace Calculator</a></li>
+                    <li class="calculator-item"><a href="/sports/swimming-target-heart-rate-calculator.html">Swimming Target Heart Rate Calculator</a></li>
+                    <li><a href="/sports/index.html" class="more-link">MORE <span class="material-icons">arrow_forward</span></a></li>
+                </ul>
+            </div>
         </div>
 
-        <h1>Pet Calculators</h1>
-        <div class="subtitle">Essential tools for pet care, insurance, and financial planning</div>
+        </div>
 
-        <div class="calculator-grid">
-            <div class="calculator-card">
-                <a href="dog-feeding-calculator.html">
-                    <h2><span class="material-icons" data-icon="restaurant">restaurant</span>Dog Feeding Calculator</h2>
-                    <p>Calculate daily nutrition needs for adult dogs and puppies with scientific formulas</p>
-                </a>
-            </div>
-
-            <div class="calculator-card">
-                <a href="cat-feeding-calculator.html">
-                    <h2><span class="material-icons" data-icon="pets">pets</span>Cat Feeding Calculator</h2>
-                    <p>Calculate daily nutrition needs for kittens, adult cats, and senior cats with age-specific formulas</p>
-                </a>
-            </div>
-
-            <div class="calculator-card">
-                <a href="aquarium-volume-calculator.html">
-                    <h2><span class="material-icons" data-icon="water">water</span>Aquarium Volume Calculator</h2>
-                    <p>Calculate your aquarium's ideal size to avoid overcrowding and ensure a healthy environment for your fish</p>
-                </a>
-            </div>
-
-            <div class="calculator-card">
-                <a href="pet-transport-cost-calculator.html">
-                    <h2><span class="material-icons" data-icon="local_shipping">local_shipping</span>Pet Transport Cost Calculator</h2>
-                    <p>Calculate pet transport costs for ground and air transport with accurate pricing estimates</p>
-                </a>
-            </div>
-
-            <div class="calculator-card">
-                <a href="pet-grooming-cost-calculator.html">
-                    <h2><span class="material-icons" data-icon="content_cut">content_cut</span>Pet Grooming Cost Calculator</h2>
-                    <p>Calculate pet grooming costs for dogs and cats including bath, haircut, and full grooming services</p>
-                </a>
-            </div>
-
-            <div class="calculator-card">
-                <a href="../other/pet-insurance-calculator.html">
-                    <h2><span class="material-icons" data-icon="security">security</span>Pet Insurance Calculator</h2>
-                    <p>Compare top pet insurance providers and get instant quotes for dogs and cats</p>
-                </a>
+        <!-- Ad Sidebar -->
+        <div class="ad-sidebar">
+            <div class="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492" crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8831713993918492"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </div>
+
+
     <footer class="footer">
         <nav>
-            <a href="../about-us.html">About Us</a>
+            <a href="/blog/index.html">Blog</a>
             <span>|</span>
-            <a href="../terms-of-use.html">Terms of Use</a>
+            <a href="/about-us.html">About Us</a>
             <span>|</span>
-            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="/terms-of-use.html">Terms of Use</a>
+            <span>|</span>
+            <a href="/privacy-policy.html">Privacy Policy</a>
         </nav>
         <div class="copyright">&#169; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
 </body>
 </html>
