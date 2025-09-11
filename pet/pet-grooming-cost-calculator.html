@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate pet grooming costs instantly! Get accurate estimates for dog and cat grooming services including bath, haircut, full grooming, and home service options.">
+    <meta name="keywords" content="pet grooming cost calculator, dog grooming price, cat grooming cost, pet grooming estimate, grooming calculator, pet care cost">
+    <title>🐾 Pet Grooming Cost Calculator – Free Estimate Tool</title>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
+         crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 32px 24px;
+        }
+
+        .ad-sidebar {
+            width: 300px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-container {
+            width: 100%;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .calculator {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(135deg, #1976D2, #1565C0);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        .result-section {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .total-cost {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cost-breakdown {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+
+        .breakdown-item.total {
+            border-top: 2px solid #4caf50;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .price-range {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .ad-sidebar {
+                width: 100%;
+                position: static;
+                order: -1;
+            }
+            .ad-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ad-container {
+                height: 200px;
+            }
+            .calculator {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Pet Calculators</a>
+                <span>/</span>
+                Pet Grooming Cost Calculator
+            </div>
+
+            <div class="page-header">
+                <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">
+                    <span style="display: block;">Find a Reliable Pet Salon—Calculate Grooming Cost Instantly</span>
+                </h1>
+            </div>
+
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                Struggling to find a trustworthy pet salon? Use our Pet Grooming Cost Calculator to estimate baths, trims, and full grooming costs instantly. Compare prices and plan ahead to give your furry friend the care they deserve—without overpaying.
+            </p>
+
+            <div class="calculator">
+                <form id="groomingForm">
+                    <div class="form-group">
+                        <label for="petType">🐾 Pet Type</label>
+                        <select id="petType" required>
+                            <option value="">Select Pet Type</option>
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petSize">📏 Pet Size / Weight</label>
+                        <select id="petSize" required>
+                            <option value="">Select Size</option>
+                            <option value="small">Small (< 10kg)</option>
+                            <option value="medium">Medium (10-25kg)</option>
+                            <option value="large">Large (> 25kg)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="furType">🦁 Fur Type</label>
+                        <select id="furType" required>
+                            <option value="">Select Fur Type</option>
+                            <option value="short">Short Fur</option>
+                            <option value="medium">Medium Fur</option>
+                            <option value="long">Long Fur</option>
+                            <option value="curly">Curly Fur</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>✂️ Service Type</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="bath" value="bath">
+                                <label for="bath">Basic Bath</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="haircut" value="haircut">
+                                <label for="haircut">Haircut/Trim</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fullGrooming" value="fullGrooming">
+                                <label for="fullGrooming">Full Grooming</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🔧 Extra Services (Optional)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="earCleaning" value="earCleaning">
+                                <label for="earCleaning">Ear Cleaning (+$5)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="nailTrim" value="nailTrim">
+                                <label for="nailTrim">Nail Trim (+$5)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="teethCleaning" value="teethCleaning">
+                                <label for="teethCleaning">Teeth Cleaning (+$10)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeService">🏠 Home Service</label>
+                        <select id="homeService" required>
+                            <option value="no">No (Visit Grooming Salon)</option>
+                            <option value="yes">Yes (Home Visit +$15)</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="calculate-btn" onclick="calculateGroomingCost()">
+                        🧮 Calculate Grooming Cost
+                    </button>
+                </form>
+
+                <div id="resultSection" class="result-section">
+                    <div class="total-cost" id="totalCost">$0</div>
+                    <div class="cost-breakdown" id="costBreakdown"></div>
+                    <div class="price-range">
+                        * Prices may vary ±10% depending on location and groomer
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-description">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">🐾 Pet Grooming Cost Calculator – Because your furry friend deserves the best</p>
+                
+                <p>Use our Pet Grooming Cost Calculator to quickly estimate how much grooming your furry friend will cost. Finding a reliable pet salon can be stressful, and prices can vary widely. This calculator helps you plan ahead and avoid surprises, whether you're looking for pet grooming services near me or comparing mobile pet grooming options.</p>
+
+                <h3 style="margin: 20px 0 10px;">💡 How to use the calculator:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ <strong>Select Your Pet</strong> – choose whether you have a dog or a cat. Different pets have different grooming needs and pricing.</li>
+                    <li style="margin-bottom: 10px;">✅ <strong>Choose Services</strong> – pick from baths, haircuts, nail trims, or a full grooming package. You can select multiple services to get an accurate total.</li>
+                    <li style="margin-bottom: 10px;">✅ <strong>Enter Your Location</strong> – grooming prices vary by city or region. Entering your location ensures the estimate matches local salon rates.</li>
+                    <li style="margin-bottom: 10px;">✅ <strong>Click "Calculate"</strong> – instantly see the results.</li>
+                </ul>
+
+                <h3 style="margin: 20px 0 10px;">📊 What the results mean:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ <strong>Estimated Cost per Service</strong> – shows the average price a local salon charges for each service you selected.</li>
+                    <li style="margin-bottom: 10px;">✅ <strong>Total Grooming Cost</strong> – sums up all services for the session, giving you a clear budget estimate.</li>
+                    <li style="margin-bottom: 10px;">✅ <strong>Plan Your Visits</strong> – compare this cost with multiple salons to find a trustworthy place without overpaying.</li>
+                </ul>
+
+                <p style="margin: 20px 0;">Using this calculator helps you make informed decisions, ensuring your pet receives professional grooming while keeping costs reasonable. No more guessing, calling multiple salons, or worrying about hidden fees. Simply enter the details, and you'll have a realistic idea of what to expect when searching for pet grooming prices near me.</p>
+
+                <p style="margin: 20px 0;">Whether it's your puppy's first haircut, a regular bath, or a full grooming session, our calculator gives you peace of mind and confidence in choosing the right salon.</p>
+
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – because pet parents have questions</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: How much is pet grooming at PetSmart?</strong><br>
+                    A: PetSmart grooming prices typically range from $30-80 for basic services, with full grooming packages costing $50-120 depending on pet size and services. Our calculator provides estimates that are competitive with PetSmart's pricing structure, helping you compare costs across different grooming providers.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Why do different pet sizes cost different amounts?</strong><br>
+                    A: Larger pets require more time, products, and effort. A Great Dane's bath uses significantly more shampoo than a Chihuahua's, and the grooming time scales accordingly.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: What's included in "Full Grooming"?</strong><br>
+                    A: Full grooming typically includes bath, blow-dry, haircut/trim, nail trimming, ear cleaning, and basic styling. It's the complete spa package for your pet.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: Is home grooming service worth the extra cost?</strong><br>
+                    A: Home service is great for anxious pets, busy schedules, or multiple pets. The convenience often outweighs the extra cost, especially if you have multiple pets or a stressed-out fur baby.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q: How often should I groom my pet?</strong><br>
+                    A: It depends on breed, fur type, and lifestyle. Most dogs need grooming every 4-8 weeks, while cats may need it every 6-12 weeks. Long-haired breeds typically need more frequent grooming.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ad Sidebar -->
+        <div class="ad-sidebar">
+            <div class="ad-container">
+                <div>
+                    <p>Advertisement</p>
+                    <p style="font-size: 0.8em; margin-top: 10px;">Ad space for Google AdSense</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Pricing structure
+        const pricing = {
+            base: {
+                dog: { small: 30, medium: 50, large: 70 },
+                cat: { small: 25, medium: 40, large: 55 },
+                other: { small: 30, medium: 50, large: 70 }
+            },
+            fur: {
+                short: 0,
+                medium: 10,
+                long: 20,
+                curly: 25
+            },
+            services: {
+                bath: 0,
+                haircut: 20,
+                fullGrooming: 40
+            },
+            extras: {
+                earCleaning: 5,
+                nailTrim: 5,
+                teethCleaning: 10
+            },
+            homeService: 15
+        };
+
+        function calculateGroomingCost() {
+            // Get form values
+            const petType = document.getElementById('petType').value;
+            const petSize = document.getElementById('petSize').value;
+            const furType = document.getElementById('furType').value;
+            const homeService = document.getElementById('homeService').value;
+
+            // Get selected services
+            const selectedServices = [];
+            if (document.getElementById('bath').checked) selectedServices.push('bath');
+            if (document.getElementById('haircut').checked) selectedServices.push('haircut');
+            if (document.getElementById('fullGrooming').checked) selectedServices.push('fullGrooming');
+
+            // Get selected extras
+            const selectedExtras = [];
+            if (document.getElementById('earCleaning').checked) selectedExtras.push('earCleaning');
+            if (document.getElementById('nailTrim').checked) selectedExtras.push('nailTrim');
+            if (document.getElementById('teethCleaning').checked) selectedExtras.push('teethCleaning');
+
+            // Validate required fields
+            if (!petType || !petSize || !furType) {
+                alert('Please fill in all required fields (Pet Type, Size, and Fur Type)');
+                return;
+            }
+
+            // Calculate costs
+            let basePrice = pricing.base[petType][petSize];
+            let furAdjustment = pricing.fur[furType];
+            let serviceCost = 0;
+            let extraCost = 0;
+            let homeServiceCost = homeService === 'yes' ? pricing.homeService : 0;
+
+            // Calculate service costs
+            selectedServices.forEach(service => {
+                serviceCost += pricing.services[service];
+            });
+
+            // Calculate extra costs
+            selectedExtras.forEach(extra => {
+                extraCost += pricing.extras[extra];
+            });
+
+            // Calculate total
+            const totalCost = basePrice + furAdjustment + serviceCost + extraCost + homeServiceCost;
+
+            // Display results
+            displayResults({
+                total: totalCost,
+                basePrice: basePrice,
+                furAdjustment: furAdjustment,
+                serviceCost: serviceCost,
+                extraCost: extraCost,
+                homeServiceCost: homeServiceCost,
+                petType: petType,
+                petSize: petSize,
+                furType: furType
+            });
+        }
+
+        function displayResults(costs) {
+            const resultSection = document.getElementById('resultSection');
+            const totalCostElement = document.getElementById('totalCost');
+            const costBreakdownElement = document.getElementById('costBreakdown');
+
+            // Update total cost
+            totalCostElement.textContent = `$${costs.total}`;
+
+            // Create breakdown
+            let breakdownHTML = '<h4 style="margin-bottom: 15px; color: #333;">Cost Breakdown:</h4>';
+            
+            breakdownHTML += `<div class="breakdown-item">
+                <span>Base Price (${costs.petType} - ${costs.petSize})</span>
+                <span>$${costs.basePrice}</span>
+            </div>`;
+
+            if (costs.furAdjustment > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Fur Type Adjustment (${costs.furType})</span>
+                    <span>+$${costs.furAdjustment}</span>
+                </div>`;
+            }
+
+            if (costs.serviceCost > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Services</span>
+                    <span>+$${costs.serviceCost}</span>
+                </div>`;
+            }
+
+            if (costs.extraCost > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Extra Services</span>
+                    <span>+$${costs.extraCost}</span>
+                </div>`;
+            }
+
+            if (costs.homeServiceCost > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Home Service</span>
+                    <span>+$${costs.homeServiceCost}</span>
+                </div>`;
+            }
+
+            breakdownHTML += `<div class="breakdown-item total">
+                <span>Total Estimated Cost</span>
+                <span>$${costs.total}</span>
+            </div>`;
+
+            costBreakdownElement.innerHTML = breakdownHTML;
+            resultSection.classList.add('show');
+        }
+
+        // Add form validation
+        document.getElementById('groomingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateGroomingCost();
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Pet Grooming Cost Calculator",
+      "description": "Free pet grooming cost calculator for dogs and cats. Calculate grooming expenses based on pet type, size, fur type, and services including home visits.",
+      "url": "https://www.calculatorquote.com/pet/pet-grooming-cost-calculator.html",
+      "keywords": [
+        "pet grooming cost calculator",
+        "dog grooming price",
+        "cat grooming cost",
+        "pet grooming estimate",
+        "grooming calculator"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
+</body>
+</html>
