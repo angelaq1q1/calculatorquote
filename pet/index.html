@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
     <title>Pet Calculators - Calculator Tools</title>
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </noscript>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 40px;
@@ -63,6 +66,23 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            /* Fallback for older browsers */
+            display: -ms-grid;
+            -ms-grid-columns: 1fr 20px 1fr;
+        }
+
+        /* Fallback for browsers that don't support CSS Grid */
+        @supports not (display: grid) {
+            .calculator-grid {
+                display: flex;
+                flex-wrap: wrap;
+                margin: -10px;
+            }
+            
+            .calculator-card {
+                flex: 1 1 calc(50% - 20px);
+                margin: 10px;
+            }
         }
 
         .calculator-card {
@@ -70,11 +90,19 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            /* Fallback for older browsers */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -moz-transition: transform 0.2s ease, box-shadow 0.2s ease;
+            -o-transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .calculator-card:hover {
             transform: translateY(-2px);
+            -webkit-transform: translateY(-2px);
+            -moz-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+            -o-transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
@@ -94,7 +122,22 @@
         .calculator-card .material-icons {
             margin-right: 8px;
             font-size: 24px;
+            vertical-align: middle;
+            display: inline-block;
         }
+
+        /* Fallback for Material Icons - no emoji fallback */
+        .calculator-card .material-icons:before {
+            content: "";
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator-card .material-icons[data-icon="restaurant"]:before { content: ""; }
+        .calculator-card .material-icons[data-icon="pets"]:before { content: ""; }
+        .calculator-card .material-icons[data-icon="water"]:before { content: ""; }
+        .calculator-card .material-icons[data-icon="local_shipping"]:before { content: ""; }
+        .calculator-card .material-icons[data-icon="content_cut"]:before { content: ""; }
+        .calculator-card .material-icons[data-icon="security"]:before { content: ""; }
 
         .calculator-card p {
             color: #666;
@@ -105,11 +148,57 @@
         @media (max-width: 768px) {
             .calculator-grid {
                 grid-template-columns: 1fr;
+                -ms-grid-columns: 1fr;
             }
             
             body {
                 padding: 20px;
             }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+        }
+
+        /* Footer styles */
+        .footer {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding: 32px 0 0 0;
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+        }
+
+        .footer nav {
+            margin-bottom: 8px;
+        }
+
+        .footer nav a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 18px;
+            transition: color 0.2s ease;
+            -webkit-transition: color 0.2s ease;
+            -moz-transition: color 0.2s ease;
+            -o-transition: color 0.2s ease;
+        }
+
+        .footer nav a:hover {
+            color: #1976D2;
+        }
+
+        .footer nav span {
+            color: #ccc;
+        }
+
+        .footer .copyright {
+            color: #bbb;
+            font-size: 0.98em;
         }
     </style>
 </head>
@@ -127,56 +216,56 @@
         <div class="calculator-grid">
             <div class="calculator-card">
                 <a href="dog-feeding-calculator.html">
-                    <h2><span class="material-icons">restaurant</span>Dog Feeding Calculator</h2>
+                    <h2><span class="material-icons" data-icon="restaurant">restaurant</span>Dog Feeding Calculator</h2>
                     <p>Calculate daily nutrition needs for adult dogs and puppies with scientific formulas</p>
                 </a>
             </div>
 
             <div class="calculator-card">
                 <a href="cat-feeding-calculator.html">
-                    <h2><span class="material-icons">pets</span>Cat Feeding Calculator</h2>
+                    <h2><span class="material-icons" data-icon="pets">pets</span>Cat Feeding Calculator</h2>
                     <p>Calculate daily nutrition needs for kittens, adult cats, and senior cats with age-specific formulas</p>
                 </a>
             </div>
 
             <div class="calculator-card">
                 <a href="aquarium-volume-calculator.html">
-                    <h2><span class="material-icons">water</span>Aquarium Volume Calculator</h2>
+                    <h2><span class="material-icons" data-icon="water">water</span>Aquarium Volume Calculator</h2>
                     <p>Calculate your aquarium's ideal size to avoid overcrowding and ensure a healthy environment for your fish</p>
                 </a>
             </div>
 
             <div class="calculator-card">
                 <a href="pet-transport-cost-calculator.html">
-                    <h2><span class="material-icons">local_shipping</span>Pet Transport Cost Calculator</h2>
+                    <h2><span class="material-icons" data-icon="local_shipping">local_shipping</span>Pet Transport Cost Calculator</h2>
                     <p>Calculate pet transport costs for ground and air transport with accurate pricing estimates</p>
                 </a>
             </div>
 
             <div class="calculator-card">
                 <a href="pet-grooming-cost-calculator.html">
-                    <h2><span class="material-icons">content_cut</span>Pet Grooming Cost Calculator</h2>
+                    <h2><span class="material-icons" data-icon="content_cut">content_cut</span>Pet Grooming Cost Calculator</h2>
                     <p>Calculate pet grooming costs for dogs and cats including bath, haircut, and full grooming services</p>
                 </a>
             </div>
 
             <div class="calculator-card">
                 <a href="../other/pet-insurance-calculator.html">
-                    <h2><span class="material-icons">security</span>Pet Insurance Calculator</h2>
+                    <h2><span class="material-icons" data-icon="security">security</span>Pet Insurance Calculator</h2>
                     <p>Compare top pet insurance providers and get instant quotes for dogs and cats</p>
                 </a>
             </div>
         </div>
     </div>
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+    <footer class="footer">
+        <nav>
+            <a href="../about-us.html">About Us</a>
+            <span>|</span>
+            <a href="../terms-of-use.html">Terms of Use</a>
+            <span>|</span>
+            <a href="../privacy-policy.html">Privacy Policy</a>
         </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&#169; 2025 CalculatorQuote.com. All rights reserved.</div>
+        <div class="copyright">&#169; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 </body>
 </html>
