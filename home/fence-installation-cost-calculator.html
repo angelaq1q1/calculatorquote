@@ -450,6 +450,22 @@
             const numberOfGates = parseInt(document.getElementById('numberOfGates').value);
             const terrainDifficulty = document.getElementById('terrainDifficulty').value;
 
+            // Validate input values
+            if (isNaN(fenceLength) || fenceLength <= 0) {
+                alert('Please enter a valid fence length.');
+                return;
+            }
+            
+            if (isNaN(fenceHeight) || fenceHeight <= 0) {
+                alert('Please select a valid fence height.');
+                return;
+            }
+            
+            if (isNaN(numberOfGates) || numberOfGates < 0) {
+                alert('Please enter a valid number of gates.');
+                return;
+            }
+
             // Material cost per linear foot (min, max)
             const materialCosts = {
                 wood: [15, 30],
@@ -464,6 +480,10 @@
 
             // Get base material costs
             const baseCosts = materialCosts[fenceMaterial];
+            if (!baseCosts) {
+                alert('Please select a valid fence material.');
+                return;
+            }
             const minCostPerFoot = baseCosts[0] * heightFactor;
             const maxCostPerFoot = baseCosts[1] * heightFactor;
 
@@ -480,7 +500,7 @@
                 sloped: 0.125, // 12.5% average
                 rocky: 0.20
             };
-            const terrainFactor = terrainFactors[terrainDifficulty];
+            const terrainFactor = terrainFactors[terrainDifficulty] || 0;
 
             // Calculate terrain adjustment
             const minTerrainAdjustment = (minMaterialCost + gateCost) * terrainFactor;
@@ -491,18 +511,19 @@
             const maxTotalCost = maxMaterialCost + gateCost + maxTerrainAdjustment;
 
             // Display results
-            document.getElementById('totalCost').textContent = `$${Math.round(minTotalCost).toLocaleString()} - $${Math.round(maxTotalCost).toLocaleString()}`;
+            document.getElementById('totalCost').textContent = `$${Math.round(minTotalCost).toLocaleString('en-US')} - $${Math.round(maxTotalCost).toLocaleString('en-US')}`;
             document.getElementById('costPerFoot').textContent = `Cost per linear foot: $${minCostPerFoot.toFixed(2)} - $${maxCostPerFoot.toFixed(2)}`;
-            document.getElementById('materialCost').textContent = `$${Math.round(minMaterialCost).toLocaleString()} - $${Math.round(maxMaterialCost).toLocaleString()}`;
-            document.getElementById('gateCost').textContent = `$${gateCost.toLocaleString()}`;
-            document.getElementById('terrainAdjustment').textContent = `$${Math.round(minTerrainAdjustment).toLocaleString()} - $${Math.round(maxTerrainAdjustment).toLocaleString()}`;
-            document.getElementById('finalTotal').textContent = `$${Math.round(minTotalCost).toLocaleString()} - $${Math.round(maxTotalCost).toLocaleString()}`;
+            document.getElementById('materialCost').textContent = `$${Math.round(minMaterialCost).toLocaleString('en-US')} - $${Math.round(maxMaterialCost).toLocaleString('en-US')}`;
+            document.getElementById('gateCost').textContent = `$${gateCost.toLocaleString('en-US')}`;
+            document.getElementById('terrainAdjustment').textContent = `$${Math.round(minTerrainAdjustment).toLocaleString('en-US')} - $${Math.round(maxTerrainAdjustment).toLocaleString('en-US')}`;
+            document.getElementById('finalTotal').textContent = `$${Math.round(minTotalCost).toLocaleString('en-US')} - $${Math.round(maxTotalCost).toLocaleString('en-US')}`;
 
             // Show results
             document.getElementById('results').classList.add('show');
         }
 
         function clearForm() {
+            // Reset form values
             document.getElementById('fenceLength').value = '';
             document.getElementById('fenceHeight').value = '6';
             document.getElementById('fenceMaterial').value = 'wood';
@@ -511,6 +532,9 @@
             
             // Hide results
             document.getElementById('results').classList.remove('show');
+            
+            // Focus on first input for better UX
+            document.getElementById('fenceLength').focus();
         }
 
 
