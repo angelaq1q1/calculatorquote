@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get clear, upfront fence installation estimates in seconds. Compare costs for wood, vinyl, chain link, and more. Our calculator helps you budget smarter and avoid hidden fees before hiring a fence contractor.">
+    <meta name="keywords" content="fence installation cost, fence calculator, fence pricing, wood fence cost, vinyl fence cost, chain link fence cost, fence installation estimate">
+    <title>Fence Installation Cost Calculator | Don't Overpay Contractors</title>
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/fence-installation-cost-calculator.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fence Installation Cost Calculator",
+        "description": "Get clear, upfront fence installation estimates in seconds. Compare costs for wood, vinyl, chain link, and more.",
+        "url": "https://www.calculatorquote.com/home/fence-installation-cost-calculator.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": "fence service, wood fence service, chain link fence service, fence installation cost, fence calculator, fence pricing"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .calculator-form {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .results {
+            background-color: #e8f5e8;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .total-cost {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cost-range {
+            font-size: 1.2em;
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .breakdown {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .breakdown h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .tips {
+            background-color: transparent;
+            padding: 15px 0;
+            border-radius: 0;
+            border-left: none;
+        }
+
+        .tips h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .tips p {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.08em;
+            line-height: 1.7;
+        }
+
+        .tips p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 15px;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .calculator-form {
+                padding: 20px;
+            }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Fence Installation Cost Calculator
+        </div>
+        <h1>Fence Installation Cost Calculator: Get Accurate Estimates Before You Hire a Contractor</h1>
+        <p class="subtitle">Planning a new fence but worried about hidden costs or overpriced contractors? Use our Fence Installation Cost Calculator to estimate expenses based on length, material, and style. Get transparent pricing, avoid budget surprises, and hire with confidence.</p>
+
+        <div class="calculator-form">
+            <form id="fenceCalculator">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fenceLength">Fence Length (ft)</label>
+                        <input type="number" id="fenceLength" min="1" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fenceHeight">Fence Height (ft)</label>
+                        <select id="fenceHeight" required>
+                            <option value="4">4 ft</option>
+                            <option value="6" selected>6 ft</option>
+                            <option value="8">8 ft</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fenceMaterial">Fence Material</label>
+                    <select id="fenceMaterial" required>
+                        <option value="wood">Wood ($15 - $30/ft)</option>
+                        <option value="vinyl">Vinyl ($20 - $40/ft)</option>
+                        <option value="chainlink">Chain Link ($10 - $20/ft)</option>
+                        <option value="wroughtiron">Wrought Iron ($25 - $50/ft)</option>
+                        <option value="composite">Composite ($30 - $55/ft)</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="numberOfGates">Number of Gates</label>
+                        <input type="number" id="numberOfGates" min="0" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="terrainDifficulty">Terrain Difficulty</label>
+                        <select id="terrainDifficulty" required>
+                            <option value="flat">Flat (+0%)</option>
+                            <option value="sloped">Sloped (+10-15%)</option>
+                            <option value="rocky">Rocky (+20%)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-calculate">Calculate</button>
+                    <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                </div>
+            </form>
+            
+            <div class="note">
+                • DIY installation can save on labor costs but requires tools and time<br>
+                • This estimate does not include local permits and cleanup costs<br>
+                • Prices may vary based on location and contractor rates
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            <div class="total-cost" id="totalCost">$0 - $0</div>
+            <div class="cost-range" id="costPerFoot">Cost per linear foot: $0 - $0</div>
+
+            <div class="breakdown">
+                <h3>Cost Breakdown</h3>
+                <div class="breakdown-item">
+                    <span>Material Cost:</span>
+                    <span id="materialCost">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Gate Cost:</span>
+                    <span id="gateCost">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Terrain Adjustment:</span>
+                    <span id="terrainAdjustment">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Total Estimated Cost:</span>
+                    <span id="finalTotal">$0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tips">
+            <p>Planning a new fence project or repairing an old one can feel overwhelming—especially when every contractor quotes a different price. Our Fence Installation Cost Calculator helps you cut through the confusion and estimate costs in minutes.</p>
+            
+            <h3>How to Use the Calculator</h3>
+            <p><strong>Enter Your Fence Length & Height</strong> – Input the total feet and desired height of your fence.</p>
+            <p><strong>Select Material Type</strong> – Choose from wood, vinyl, chain link, or aluminum. Each material has different price ranges.</p>
+            <p><strong>Add Extra Options</strong> – Gate installation, post replacements, or decorative upgrades can be included.</p>
+            <p><strong>Choose Labor Option</strong> – Get a cost estimate for hiring professionals (like fence installation companies near me) or compare with a DIY installation estimate.</p>
+            
+            <h3>What the Results Mean</h3>
+            <p><strong>Fence Installation Cost</strong> – The calculator shows an average market estimate for materials + labor. This helps you know if a contractor's quote is fair before hiring.</p>
+            <p><strong>Fence Repair Cost</strong> – If you only need fence repair post or partial replacement, the results will break down lower costs compared to full installation.</p>
+            <p><strong>DIY vs Contractor</strong> – See how much you could save if you handle a fence installation DIY, or if it makes more sense to hire fence services near me for professional help.</p>
+            <p><strong>Regional Differences</strong> – Prices can vary by city. For example, fence installation Austin may differ from national averages due to local labor rates.</p>
+        </div>
+
+        <div style="margin-top: 28px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 24px 20px; color: #444; font-size: 1.08em; line-height: 1.7;">
+            <h2 style="font-size: 1.2em; color: #222; margin-bottom: 14px;">❓ Fence Installation FAQ: Costs, Setup, Services, and Tips</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much does fence installation cost?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Fence installation cost varies depending on the material, fence length, and labor in your area. On average, wood fences cost around $15–$30 per linear foot, vinyl fences range from $20–$40 per linear foot, and chain link fences usually fall between $10–$25 per linear foot. Additional expenses for posts, gates, and labor can increase the total cost, so it's best to get quotes from local installers.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How do I set up a fence?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Setting up a fence involves measuring and marking your fence line, digging post holes at the correct spacing, installing fence posts and making sure they are level, and then attaching the panels or rails depending on the type of fence. Gates and finishing touches complete the installation. It's important to check local building codes and consider professional help if you're unsure.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: Are there fence installation services near me?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Most cities and towns have local fence installation companies that you can find by searching online for "fence installation services near me" or checking local directories. Reading reviews and comparing multiple quotes can help you find a reliable and affordable installer.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How many posts do I need per fence panel?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Typically, a fence panel requires two posts, one at each end, to ensure stability. Depending on the type of fence, panel length, or uneven terrain, additional posts may be necessary, so always follow the manufacturer's recommendations.</p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: What type of fence is the cheapest?</p>
+                <p style="color: #555; margin-bottom: 0;">A: The most affordable fences are usually chain link fences, simple wire fences, or basic wood fences made from reclaimed materials. While these options cost less upfront, keep in mind that prices can vary depending on material quality, labor, and installation complexity.</p>
+            </div>
+            
+            <div style="margin-bottom: 0;">
+                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much is fence installation at Home Depot?</p>
+                <p style="color: #555; margin-bottom: 0;">A: Home Depot provides fence installation services with pricing that varies based on the fence material, height, and length. On average, professional installation ranges from $20–$40 per linear foot, and you can request an in-home estimate for precise costs. DIY options for materials are usually cheaper but require more time and effort.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.getElementById('fenceCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateFenceCost();
+        });
+
+        function calculateFenceCost() {
+            // Get input values
+            const fenceLength = parseFloat(document.getElementById('fenceLength').value);
+            const fenceHeight = parseInt(document.getElementById('fenceHeight').value);
+            const fenceMaterial = document.getElementById('fenceMaterial').value;
+            const numberOfGates = parseInt(document.getElementById('numberOfGates').value);
+            const terrainDifficulty = document.getElementById('terrainDifficulty').value;
+
+            // Material cost per linear foot (min, max)
+            const materialCosts = {
+                wood: [15, 30],
+                vinyl: [20, 40],
+                chainlink: [10, 20],
+                wroughtiron: [25, 50],
+                composite: [30, 55]
+            };
+
+            // Height adjustment factor
+            const heightFactor = fenceHeight === 4 ? 1 : fenceHeight === 6 ? 1.2 : 1.4;
+
+            // Get base material costs
+            const baseCosts = materialCosts[fenceMaterial];
+            const minCostPerFoot = baseCosts[0] * heightFactor;
+            const maxCostPerFoot = baseCosts[1] * heightFactor;
+
+            // Calculate base material cost
+            const minMaterialCost = fenceLength * minCostPerFoot;
+            const maxMaterialCost = fenceLength * maxCostPerFoot;
+
+            // Gate cost (average $400 per gate)
+            const gateCost = numberOfGates * 400;
+
+            // Terrain adjustment factor
+            const terrainFactors = {
+                flat: 0,
+                sloped: 0.125, // 12.5% average
+                rocky: 0.20
+            };
+            const terrainFactor = terrainFactors[terrainDifficulty];
+
+            // Calculate terrain adjustment
+            const minTerrainAdjustment = (minMaterialCost + gateCost) * terrainFactor;
+            const maxTerrainAdjustment = (maxMaterialCost + gateCost) * terrainFactor;
+
+            // Calculate total costs
+            const minTotalCost = minMaterialCost + gateCost + minTerrainAdjustment;
+            const maxTotalCost = maxMaterialCost + gateCost + maxTerrainAdjustment;
+
+            // Display results
+            document.getElementById('totalCost').textContent = `$${Math.round(minTotalCost).toLocaleString()} - $${Math.round(maxTotalCost).toLocaleString()}`;
+            document.getElementById('costPerFoot').textContent = `Cost per linear foot: $${minCostPerFoot.toFixed(2)} - $${maxCostPerFoot.toFixed(2)}`;
+            document.getElementById('materialCost').textContent = `$${Math.round(minMaterialCost).toLocaleString()} - $${Math.round(maxMaterialCost).toLocaleString()}`;
+            document.getElementById('gateCost').textContent = `$${gateCost.toLocaleString()}`;
+            document.getElementById('terrainAdjustment').textContent = `$${Math.round(minTerrainAdjustment).toLocaleString()} - $${Math.round(maxTerrainAdjustment).toLocaleString()}`;
+            document.getElementById('finalTotal').textContent = `$${Math.round(minTotalCost).toLocaleString()} - $${Math.round(maxTotalCost).toLocaleString()}`;
+
+            // Show results
+            document.getElementById('results').classList.add('show');
+        }
+
+        function clearForm() {
+            document.getElementById('fenceLength').value = '';
+            document.getElementById('fenceHeight').value = '6';
+            document.getElementById('fenceMaterial').value = 'wood';
+            document.getElementById('numberOfGates').value = '0';
+            document.getElementById('terrainDifficulty').value = 'flat';
+            
+            // Hide results
+            document.getElementById('results').classList.remove('show');
+        }
+
+
+    </script>
+</body>
+</html>
