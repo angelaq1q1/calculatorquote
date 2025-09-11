@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <title>Dog Walking Cost Calculator 🐕 | Calculate Professional Dog Walking Prices</title>
+    <meta name="description" content="Calculate dog walking costs with our free calculator. Get accurate pricing for professional dog walking services based on duration, number of dogs, frequency, and location. Plan your pet care budget today.">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Dog Walking Cost Calculator",
+      "description": "Free dog walking cost calculator to estimate professional dog walking service prices based on duration, number of dogs, frequency, and location.",
+      "keywords": "dog walking cost, dog walking service cost, dog walking rates near me",
+      "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does dog walking cost per walk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dog walking costs typically range from $15-30 per walk depending on duration (15-60 minutes) and number of dogs. Our calculator provides accurate pricing based on your specific needs and location."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate monthly dog walking costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our Dog Walking Cost Calculator to input your dog's walking schedule (frequency, duration, days per week) and get instant weekly, monthly, and yearly cost estimates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do dog walkers charge extra for multiple dogs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, most dog walkers charge an additional $5 per extra dog beyond the first one. Our calculator automatically includes multi-dog pricing adjustments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much should I budget for dog walking services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Budget varies by location and frequency. Use our calculator to get personalized estimates for weekly, monthly, and yearly dog walking costs based on your specific requirements."
+            }
+          }
+        ]
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #1976D2;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+            user-select: text;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            pointer-events: auto;
+            touch-action: manipulation;
+            -webkit-touch-callout: default;
+            -webkit-user-drag: none;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group input:not(:placeholder-shown) {
+            border-color: #ddd;
+            border-width: 1px;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #bbdefb;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: 500;
+            color: #666;
+        }
+        .result-value {
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 1.1em;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .info-box p {
+            margin-bottom: 12px;
+        }
+        .info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+        .pricing-breakdown {
+            background: #fff3e0;
+            border: 1px solid #ffcc02;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .pricing-breakdown h3 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        .pricing-note {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #666;
+        }
+        .pricing-note h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .pricing-note ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .pricing-note li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .input-group label {
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <a href="index.html">Pet Calculators</a> <span>/</span>
+            <span>Dog Walking Cost Calculator</span>
+        </div>
+        <h1>Business Trip or Vacation? Plan Dog Walking Costs with Experts</h1>
+        <div class="description">
+            <p>
+              Going on a business trip or vacation? Don't worry about your dog missing walks. Our Dog Walking Cost Calculator lets you plan exactly how much hiring a professional walker will cost. Compare rates, schedule walks, and ensure your furry friend stays happy and healthy while you're away.
+            </p>
+        </div>
+
+        <!-- Dog Walking Cost Calculator -->
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="num-dogs">Number of Dogs <span style="color:#e53935">*</span></label>
+                <input type="number" id="num-dogs" min="1" max="10" value="1" required>
+                <div class="error" id="error-num-dogs"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="walks-per-day">Walks per Day <span style="color:#e53935">*</span></label>
+                <input type="number" id="walks-per-day" min="1" max="10" value="2" required>
+                <div class="error" id="error-walks-per-day"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="duration">Walk Duration <span style="color:#e53935">*</span></label>
+                <select id="duration" required>
+                    <option value="15">15 minutes - $15</option>
+                    <option value="30" selected>30 minutes - $20</option>
+                    <option value="60">60 minutes - $30</option>
+                </select>
+                <div class="error" id="error-duration"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="days-per-week">Days per Week <span style="color:#e53935">*</span></label>
+                <input type="number" id="days-per-week" min="1" max="7" value="5" required>
+                <div class="error" id="error-days-per-week"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="owner-address">Owner Address <span style="color:#e53935">*</span></label>
+                <textarea id="owner-address" placeholder="Enter your address" required rows="1" style="resize: none; min-height: 40px; font-family: inherit; font-size: inherit; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; transition: border-color 0.3s; user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; pointer-events: auto; touch-action: manipulation;"></textarea>
+                <div class="error" id="error-owner-address"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="walker-address">Walker Address <span style="color:#e53935">*</span></label>
+                <textarea id="walker-address" placeholder="Enter walker's address" required rows="1" style="resize: none; min-height: 40px; font-family: inherit; font-size: inherit; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; transition: border-color 0.3s; user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; pointer-events: auto; touch-action: manipulation;"></textarea>
+                <div class="error" id="error-walker-address"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="treats">Include Treats & Playtime</label>
+                <select id="treats">
+                    <option value="no">No treats/playtime (Basic Walk)</option>
+                    <option value="yes" selected>Yes - Include treats & playtime (+$5)</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateDogWalkingCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+
+            <div class="pricing-note">
+                <h3 style="color: #666; font-size: 0.9em; font-weight: 400;">Notes</h3>
+                <ul style="color: #666; font-size: 0.85em;">
+                    <li><strong>Distance Fee:</strong> $5 per mile after the first 0.5 miles (calculated based on distance between owner and walker addresses)</li>
+                    <li><strong>Additional Dogs:</strong> $5 extra per dog beyond the first one</li>
+                    <li><strong>Treats & Playtime:</strong> Optional $5 add-on for enhanced service</li>
+                    <li><strong>Base Rates:</strong> 15min ($15), 30min ($20), 60min ($30)</li>
+                </ul>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>💰 Cost Breakdown</h2>
+                
+                <div class="pricing-breakdown">
+                    <h3>Pricing Details</h3>
+                    <div class="pricing-item">
+                        <span>Base rate (30 min walk):</span>
+                        <span id="base-rate">$20.00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Additional dogs:</span>
+                        <span id="additional-dogs">$0.00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Distance fee (0.5 miles):</span>
+                        <span id="distance-fee">$2.50</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Treats & playtime:</span>
+                        <span id="treats-cost">$5.00</span>
+                    </div>
+                    <div class="pricing-item" style="border-top: 1px solid #ffcc02; padding-top: 8px; font-weight: 600;">
+                        <span>Cost per walk:</span>
+                        <span id="cost-per-walk">$25.00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">Dog Walking Cost Calculator – Easily Estimate Your Dog Walking Costs</div>
+            <p>You don't have to worry about planning dog walks or spending too much. With our Dog Walking Cost Calculator, you can quickly find out how much it costs to hire a professional dog walker. This helps you plan your budget and keeps your dog's walks on schedule.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">How to use the calculator:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Enter your address and city.</li>
+                <li>• Fill in the number of walks per week and the duration of each walk.</li>
+                <li>• Click "Calculate" to see your results.</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">The calculator shows:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Total costs per week, month, and year</li>
+                <li>• Daily walk costs, vacation or travel care fees</li>
+                <li>• Local dog walking rates, including Wag dog walking cost and other dog walking service costs</li>
+            </ul>
+            <p>Whether you want to know dog sitting costs per day, dog walker insurance costs, or the typical rates in your city, this calculator gives you a clear estimate.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">When to use it:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Before hiring a dog walking service to plan your budget</li>
+                <li>• To set your own dog walking rates</li>
+                <li>• To compare prices and choose the best service</li>
+            </ul>
+            <p>This calculator is simple, fast, and accurate. It helps you manage dog walking cost, control spending, and make sure your dog gets regular walks every day.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Common Questions About Dog Walking Costs</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q1: How much should I expect to pay for dog walking?</strong><br>A: Dog walking costs typically range from $15-30 per walk depending on duration and location. Use our calculator to get personalized estimates based on your specific needs and schedule.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q2: Do dog walkers charge extra for multiple dogs?</strong><br>A: Yes, most professional dog walkers charge an additional $5 per extra dog beyond the first one. Our calculator automatically includes these multi-dog pricing adjustments.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q3: How do I calculate monthly dog walking costs?</strong><br>A: Our calculator multiplies your weekly cost by 4.3 weeks (average month length) to give you accurate monthly estimates. This accounts for the varying number of days in different months.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q4: Are dog walking prices higher in major cities?</strong><br>A: Yes, major cities like NYC, LA, and London typically charge 20% more due to higher operating costs, demand, and cost of living. Our calculator includes location-based pricing adjustments.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q5: What's included in a typical dog walking service?</strong><br>A: Professional dog walking usually includes leash walking, exercise, bathroom breaks, fresh water, and basic care. Some services may include feeding, medication administration, or playtime for additional fees.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q6: How can I find dog walking services near me?</strong><br>A: Search online for "dog walkers near me" or use apps like Rover, Wag, or Care.com. Ask your veterinarian, local pet stores, or neighbors for recommendations. Check reviews and verify insurance before hiring.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q7: How can I save money on dog walking costs?</strong><br>A: Consider group walks (if your dog is social), shorter duration walks, fewer days per week, or hiring a neighborhood teenager for basic walks. Our calculator helps you explore different cost scenarios.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateDogWalkingCost() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const numDogs = parseInt(document.getElementById('num-dogs').value);
+            const walksPerDay = parseInt(document.getElementById('walks-per-day').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const daysPerWeek = parseInt(document.getElementById('days-per-week').value);
+            const ownerAddress = document.getElementById('owner-address').value.trim();
+            const walkerAddress = document.getElementById('walker-address').value.trim();
+            const treats = document.getElementById('treats').value;
+            
+            // Validation
+            if (!numDogs || numDogs < 1) {
+                setError('error-num-dogs', 'Please enter at least 1 dog.');
+            }
+            
+            if (!walksPerDay || walksPerDay < 1) {
+                setError('error-walks-per-day', 'Please enter at least 1 walk per day.');
+            }
+            
+            if (!duration) {
+                setError('error-duration', 'Please select walk duration.');
+            }
+            
+            if (!daysPerWeek || daysPerWeek < 1 || daysPerWeek > 7) {
+                setError('error-days-per-week', 'Please enter 1-7 days per week.');
+            }
+            
+            if (!ownerAddress) {
+                setError('error-owner-address', 'Please enter owner address.');
+            }
+            
+            if (!walkerAddress) {
+                setError('error-walker-address', 'Please enter walker address.');
+            }
+            
+            if (!valid) return;
+            
+            // Base rates for different durations
+            let baseRate;
+            switch(duration) {
+                case 15: baseRate = 15; break;
+                case 30: baseRate = 20; break;
+                case 60: baseRate = 30; break;
+                default: baseRate = 20;
+            }
+            
+            // Calculate additional dogs cost
+            const additionalDogs = Math.max(0, numDogs - 1);
+            const additionalDogsCost = additionalDogs * 5;
+            
+            // Calculate treats & playtime cost
+            const treatsCost = treats === 'yes' ? 5 : 0;
+            
+            // Calculate distance fee (simplified calculation)
+            // In a real app, you would use Google Maps API or similar to calculate actual distance
+            const distance = calculateDistance(ownerAddress, walkerAddress);
+            const distanceFee = Math.max(0, (distance - 0.5) * 5); // $5 per mile after first 0.5 miles
+            
+            // Calculate cost per walk
+            let costPerWalk = baseRate + additionalDogsCost + treatsCost + distanceFee;
+            
+            // Display pricing breakdown
+            document.getElementById('base-rate').textContent = '$' + baseRate.toFixed(2);
+            document.getElementById('additional-dogs').textContent = '$' + additionalDogsCost.toFixed(2);
+            document.getElementById('distance-fee').textContent = '$' + distanceFee.toFixed(2) + ' (' + distance.toFixed(1) + ' miles)';
+            document.getElementById('treats-cost').textContent = '$' + treatsCost.toFixed(2);
+            document.getElementById('cost-per-walk').textContent = '$' + costPerWalk.toFixed(2);
+            
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function clearForm() {
+            document.getElementById('num-dogs').value = '1';
+            document.getElementById('walks-per-day').value = '2';
+            document.getElementById('duration').value = '30';
+            document.getElementById('days-per-week').value = '5';
+            document.getElementById('owner-address').value = '';
+            document.getElementById('walker-address').value = '';
+            document.getElementById('treats').value = 'yes';
+            document.getElementById('result').style.display = 'none';
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+        }
+        
+        // Simplified distance calculation function
+        // In a real application, you would use Google Maps API or similar service
+        function calculateDistance(address1, address2) {
+            // This is a simplified mock calculation
+            // Real implementation would use geocoding and distance calculation APIs
+            if (!address1 || !address2) return 0.5;
+            
+            // Mock calculation based on address similarity
+            const similarity = calculateStringSimilarity(address1.toLowerCase(), address2.toLowerCase());
+            return Math.max(0.1, (1 - similarity) * 10); // Distance between 0.1 and 10 miles
+        }
+        
+        function calculateStringSimilarity(str1, str2) {
+            const longer = str1.length > str2.length ? str1 : str2;
+            const shorter = str1.length > str2.length ? str2 : str1;
+            if (longer.length === 0) return 1.0;
+            return (longer.length - levenshteinDistance(longer, shorter)) / longer.length;
+        }
+        
+        function levenshteinDistance(str1, str2) {
+            const matrix = [];
+            for (let i = 0; i <= str2.length; i++) {
+                matrix[i] = [i];
+            }
+            for (let j = 0; j <= str1.length; j++) {
+                matrix[0][j] = j;
+            }
+            for (let i = 1; i <= str2.length; i++) {
+                for (let j = 1; j <= str1.length; j++) {
+                    if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+            return matrix[str2.length][str1.length];
+        }
+        
+        // Ensure paste functionality works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const ownerAddressInput = document.getElementById('owner-address');
+            const walkerAddressInput = document.getElementById('walker-address');
+            
+            // Enable paste events
+            [ownerAddressInput, walkerAddressInput].forEach(input => {
+                input.addEventListener('paste', function(e) {
+                    console.log('Paste event detected');
+                    // Allow default paste behavior
+                    setTimeout(() => {
+                        // Auto-resize textarea
+                        this.style.height = 'auto';
+                        this.style.height = Math.max(40, this.scrollHeight) + 'px';
+                        // Trigger input event to ensure value is processed
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+                    }, 0);
+                });
+                
+                // Ensure input is focusable and selectable
+                input.addEventListener('focus', function() {
+                    this.select();
+                });
+                
+                // Auto-resize on input
+                input.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = Math.max(40, this.scrollHeight) + 'px';
+                });
+                
+                // Allow all keyboard input
+                input.addEventListener('keydown', function(e) {
+                    // Allow all keys including Ctrl+V, Cmd+V
+                    return true;
+                });
+            });
+        });
+    </script>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
