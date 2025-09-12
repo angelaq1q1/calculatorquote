@@ -1,0 +1,572 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <title>Cat Sitting Cost Calculator – See How Much Your Cat Care Will Cost</title>
+    <meta name="description" content="Estimate cat sitting fees instantly based on cat size, duration, number of cats, and extra services like overnight care or medication. Plan your cat care stress-free!">
+    <!-- Load Google Fonts and Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Cat Sitting Cost Calculator",
+      "description": "Free cat sitting cost calculator to estimate professional cat sitting service prices based on number of cats, duration, and additional services.",
+      "keywords": "cat sitting cost, cat sitting services, cat sitting jobs, cat sitting apps, cat sitting rates overnight, cat sitting charge per day, cat sitting house sitting",
+      "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does cat sitting cost per day?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cat sitting costs typically range from $25-35 per day for basic care. Our calculator provides accurate pricing based on number of cats, duration, and additional services like medication or grooming."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate cat sitting costs for multiple cats?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our Cat Sitting Cost Calculator to input the number of cats and duration. The calculator automatically applies quantity multipliers: 2nd cat = 0.8x base rate, 3rd+ cats = 0.7x base rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in cat sitting services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Basic cat sitting includes feeding, water, litter box cleaning, and general care. Additional services like medication administration ($5/visit), overnight care ($20/night), and grooming ($30/session) are available for extra fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much should I budget for cat sitting services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Budget varies by number of cats, duration, and additional services. Use our calculator to get personalized estimates for daily and weekly cat sitting costs based on your specific requirements."
+            }
+          }
+        ]
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #1976D2;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: start;
+            gap: 15px;
+        }
+        .checkbox-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .checkbox-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+        .checkbox-item label {
+            font-weight: 400;
+            margin: 0;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .pricing-breakdown {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .pricing-breakdown h3 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        .pricing-note {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #666;
+        }
+        .pricing-note h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .pricing-note ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .pricing-note li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .info-box p {
+            margin-bottom: 12px;
+        }
+        .info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .input-group, .checkbox-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .input-group label, .checkbox-group label {
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <a href="index.html">Pet Calculators</a> <span>/</span>
+            <span>Cat Sitting Cost Calculator</span>
+        </div>
+        <h1>Cat Sitting Cost Calculator – Plan Stress-Free Cat Care Without Breaking the Bank</h1>
+        <div class="description">
+            <p>
+              Quickly estimate cat sitting fees based on duration, cat size, number of cats, and extra services like medication or overnight stays, so you can relax knowing your cat is well cared for.
+            </p>
+        </div>
+
+        <!-- Cat Sitting Cost Calculator -->
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="num-cats">Number of Cats <span style="color:#e53935">*</span></label>
+                <input type="number" id="num-cats" min="1" max="5" value="1" required>
+                <div class="error" id="error-num-cats"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="duration">Duration (Days) <span style="color:#e53935">*</span></label>
+                <input type="number" id="duration" min="1" max="30" value="1" required>
+                <div class="error" id="error-duration"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="cat-age">Cat Age Category <span style="color:#e53935">*</span></label>
+                <select id="cat-age" required>
+                    <option value="kitten">Kitten (Under 1 year) - $30/day</option>
+                    <option value="adult" selected>Adult Cat (1-7 years) - $25/day</option>
+                    <option value="senior">Senior Cat (7+ years) - $28/day</option>
+                </select>
+                <div class="error" id="error-cat-age"></div>
+            </div>
+
+            <div class="checkbox-group">
+                <label>Additional Services</label>
+                <div class="checkbox-options">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="medication" value="medication">
+                        <label for="medication">Medication Administration - $5/visit</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="overnight" value="overnight">
+                        <label for="overnight">Overnight Care - $20/night</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="grooming" value="grooming">
+                        <label for="grooming">Grooming Service - $30/session</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateCatSitting()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+
+            <div class="pricing-note">
+                <h3 style="color: #666; font-size: 0.9em; font-weight: 400;">Pricing Notes</h3>
+                <ul style="color: #666; font-size: 0.85em;">
+                    <li><strong>Base Rates:</strong> Kitten ($30/day), Adult ($25/day), Senior ($28/day)</li>
+                    <li><strong>Quantity Multipliers:</strong> 1st cat (1.0x), 2nd cat (0.8x), 3rd+ cats (0.7x)</li>
+                    <li><strong>Basic Services Included:</strong> Feeding, water, litter box cleaning, and general care</li>
+                    <li><strong>Additional Services:</strong> Medication ($5/visit), Overnight ($20/night), Grooming ($30/session)</li>
+                </ul>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>💰 Cost Breakdown</h2>
+                
+                <div class="pricing-breakdown">
+                    <h3>Pricing Details</h3>
+                    <div class="pricing-item">
+                        <span>Base rate per day:</span>
+                        <span id="base-rate">$25.00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Number of cats:</span>
+                        <span id="num-cats-display">1</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Duration:</span>
+                        <span id="duration-display">1 day</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Quantity adjustment:</span>
+                        <span id="quantity-adjustment">$25.00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Additional services:</span>
+                        <span id="additional-services">$0.00</span>
+                    </div>
+                    <div class="pricing-item" style="border-top: 1px solid #ffcc02; padding-top: 8px; font-weight: 600;">
+                        <span>Total cost:</span>
+                        <span id="total-cost">$25.00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">Cat Sitting Cost Calculator – Easily Estimate Your Cat Sitting Costs</div>
+            <p>You don't have to worry about planning cat care or spending too much. With our Cat Sitting Cost Calculator, you can quickly find out the rate for cat sitting and home cat sitting services. This helps you plan your budget and keeps your cat's care on schedule.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">How to use the calculator:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Enter the number of cats and their age category</li>
+                <li>• Select duration and any additional services needed</li>
+                <li>• Click "Calculate" to see detailed cost breakdown</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">The calculator shows:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Base rates for different cat age categories</li>
+                <li>• Quantity multipliers for multiple cats</li>
+                <li>• Additional service costs</li>
+                <li>• Total estimated cost</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Get the Right Price and Keep Your Cat Happy</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q1: How much does cat sitting cost per day?</strong><br>A: Cat sitting typically costs $25-35 per day for basic care. Use our calculator to get accurate pricing based on your specific needs, number of cats, and additional services.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q2: What's included in basic cat sitting services?</strong><br>A: Basic cat sitting includes feeding, fresh water, litter box cleaning, playtime, and general care. Additional services like medication administration, overnight care, or grooming are available for extra fees.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q3: How do I calculate costs for multiple cats?</strong><br>A: Our calculator automatically applies quantity discounts: 2nd cat = 0.8x base rate, 3rd+ cats = 0.7x base rate. This reflects the efficiency of caring for multiple cats together.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q4: What additional services are available for cats?</strong><br>A: Additional services include medication administration ($5/visit), overnight care ($20/night), and grooming services ($30/session). These can be added to basic care as needed.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q5: How much should I budget for cat sitting?</strong><br>A: Budget depends on number of cats, duration, and services needed. Use our calculator to get personalized estimates and plan your cat care budget effectively.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateCatSitting() {
+            let valid = true;
+            // Clear previous errors
+            var errorElements = document.querySelectorAll('.error');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
+            
+            function setError(id, msg) {
+                document.getElementById(id).textContent = msg;
+                valid = false;
+            }
+            
+            const numCats = parseInt(document.getElementById('num-cats').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const catAge = document.getElementById('cat-age').value;
+            
+            if (!numCats || numCats <= 0) {
+                setError('error-num-cats', 'Please enter a valid number of cats.');
+            }
+            
+            if (!duration || duration <= 0) {
+                setError('error-duration', 'Please enter a valid duration.');
+            }
+            
+            if (!catAge) {
+                setError('error-cat-age', 'Please select a cat age category.');
+            }
+            
+            if (!valid) return;
+            
+            // Base rates by age category
+            let baseRate;
+            switch(catAge) {
+                case 'kitten':
+                    baseRate = 30;
+                    break;
+                case 'adult':
+                    baseRate = 25;
+                    break;
+                case 'senior':
+                    baseRate = 28;
+                    break;
+            }
+            
+            // Calculate quantity adjustment for multiple cats
+            let totalBaseCost = 0;
+            for (let i = 0; i < numCats; i++) {
+                let multiplier;
+                if (i === 0) {
+                    multiplier = 1.0;  // First cat
+                } else if (i === 1) {
+                    multiplier = 0.8;  // Second cat
+                } else {
+                    multiplier = 0.7;  // Third+ cats
+                }
+                totalBaseCost += baseRate * multiplier;
+            }
+            
+            // Calculate additional services
+            let additionalCost = 0;
+            const medication = document.getElementById('medication').checked;
+            const overnight = document.getElementById('overnight').checked;
+            const grooming = document.getElementById('grooming').checked;
+            
+            if (medication) {
+                additionalCost += 5 * duration; // $5 per day
+            }
+            if (overnight) {
+                additionalCost += 20 * duration; // $20 per night
+            }
+            if (grooming) {
+                additionalCost += 30; // $30 per session (one-time)
+            }
+            
+            const totalCost = totalBaseCost * duration + additionalCost;
+            
+            // Display results
+            document.getElementById('base-rate').textContent = '$' + baseRate.toFixed(2);
+            document.getElementById('num-cats-display').textContent = numCats;
+            document.getElementById('duration-display').textContent = duration + (duration === 1 ? ' day' : ' days');
+            document.getElementById('quantity-adjustment').textContent = '$' + (totalBaseCost * duration).toFixed(2);
+            document.getElementById('additional-services').textContent = '$' + additionalCost.toFixed(2);
+            document.getElementById('total-cost').textContent = '$' + totalCost.toFixed(2);
+            
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function clearForm() {
+            document.getElementById('num-cats').value = '1';
+            document.getElementById('duration').value = '1';
+            document.getElementById('cat-age').value = 'adult';
+            document.getElementById('medication').checked = false;
+            document.getElementById('overnight').checked = false;
+            document.getElementById('grooming').checked = false;
+            document.getElementById('result').style.display = 'none';
+            // Clear errors
+            var errorElements = document.querySelectorAll('.error');
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = '';
+            }
+        }
+    </script>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
