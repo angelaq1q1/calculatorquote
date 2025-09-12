@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Got too much heavy junk to lift? Our free Junk Removal Service Calculator helps you instantly estimate professional hauling costs, compare options, and plan your cleanup. Stop struggling alone and see how affordable expert removal can be today">
+    <meta name="keywords" content="junk removal cost calculator, furniture removal cost, junk hauling cost, appliance disposal cost, junk removal estimate">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/junk-removal-service-calculator.html">
+    <title>Junk Removal Service Calculator – Estimate Cost & Save Time</title>
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Junk Removal Service Cost Calculator",
+        "description": "Free online calculator to estimate junk removal costs including furniture removal, appliance disposal, and junk hauling services",
+        "url": "https://www.calculatorquote.com/home/junk-removal-service-calculator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": ["junk removal service", "junk removal services near me", "junk removal service cost", "affordable junk removal service"],
+        "author": {
+            "@type": "Organization",
+            "name": "CalculatorQuote"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CalculatorQuote"
+        },
+        "potentialAction": {
+            "@type": "CalculateAction",
+            "target": "https://www.calculatorquote.com/home/junk-removal-service-calculator.html"
+        }
+    }
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X373L6NGQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X373L6NGQT');
+    </script>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .unit-toggle {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .unit-toggle label {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        .unit-toggle input[type="radio"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .radio-item input[type="radio"] {
+            margin: 0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Junk Removal Service Calculator
+        </div>
+        <h1>Too Many Heavy Items? Find Out How Affordable Junk Removal Services Can Be</h1>
+        <div class="description">
+            Got piles of junk that are just too heavy to lift? Don't struggle alone. Our Junk Removal Service Calculator shows you instant price estimates from professionals who can haul it all away. Save your time, protect your back, and discover how affordable expert junk removal can be today.
+        </div>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="volume">Junk Volume:</label>
+                    <input type="number" id="volume" min="0" step="0.1" placeholder="e.g. 3.5" required>
+                    <div class="unit-toggle">
+                        <label>
+                            <input type="radio" name="unit" value="cubic_yards" checked> Cubic Yards (cu yd)
+                        </label>
+                        <label>
+                            <input type="radio" name="unit" value="cubic_meters"> Cubic Meters (cu m)
+                        </label>
+                    </div>
+                    <div class="note">
+                        <strong>Volume Guidelines:</strong> Small: &lt;3 cu yd | Medium: 3-10 cu yd | Large: 10+ cu yd
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Item Types (Select all that apply):</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="furniture" name="itemTypes" value="furniture">
+                            <label for="furniture">Furniture ($60/item)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="appliances" name="itemTypes" value="appliances">
+                            <label for="appliances">Appliances ($85/item)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mattresses" name="itemTypes" value="mattresses">
+                            <label for="mattresses">Mattresses ($55/item)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="electronics" name="itemTypes" value="electronics">
+                            <label for="electronics">Electronics/TV ($25/item)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="construction" name="itemTypes" value="construction">
+                            <label for="construction">Construction Debris</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="itemCount">Number of Items (Optional):</label>
+                    <input type="number" id="itemCount" min="0" placeholder="e.g. 5">
+                    <div class="note">
+                        <strong>Note:</strong> Leave blank if you only know the volume. Used for per-item pricing calculation.
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Additional Difficulty Factors:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="stairs" name="difficulty" value="stairs">
+                            <label for="stairs">Stairs (×1.2)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="narrow" name="difficulty" value="narrow">
+                            <label for="narrow">Narrow Access (×1.3)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="distance" name="difficulty" value="distance">
+                            <label for="distance">Long Distance Carry (×1.2)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Service Options:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sameDay" name="serviceOptions" value="sameDay">
+                            <label for="sameDay">Same Day Service (+$50)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="disposal" name="serviceOptions" value="disposal">
+                            <label for="disposal">Disposal Fee (+$20)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="travel" name="serviceOptions" value="travel">
+                            <label for="travel">Extended Travel (+$30)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="zipCode">ZIP Code (Optional):</label>
+                    <input type="text" id="zipCode" placeholder="e.g. 10001">
+                    <div class="note">
+                        <strong>Note:</strong> ZIP code helps adjust pricing based on regional costs. Leave blank for average pricing.
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* Estimates are based on current market data and may vary. Consult with local junk removal professionals for precise quotes.</div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Understanding Junk Removal Costs</h2>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                Junk removal service costs vary based on volume, item types, and difficulty factors. Our junk removal cost calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you're clearing out a single room or an entire house, understanding the cost structure helps you budget effectively for your cleanup project and find affordable junk removal service options.
+            </p>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                <b>Key Factors Affecting Junk Removal Costs:</b><br>
+                • <b>Volume:</b> Larger volumes require bigger trucks and more labor, increasing costs<br>
+                • <b>Item Types:</b> Heavy appliances and furniture cost more to remove than lightweight items<br>
+                • <b>Difficulty:</b> Stairs, narrow access, and long distances significantly increase costs<br>
+                • <b>Location:</b> Urban areas typically cost more than rural areas due to higher disposal fees<br>
+                • <b>Timing:</b> Same-day service often costs 25-50% more than scheduled service
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Junk Removal Pricing Structure</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Pricing Methods</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Volume Pricing:</b> $50-$70 per cubic yard<br>
+                        <b>Per-Item Pricing:</b> Furniture $60, Appliances $85<br>
+                        <b>Truck Tier Pricing:</b> Small $200, Half $450, Full $800<br>
+                        <b>Minimum Charge:</b> $75-$100
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Most junk removal companies use the highest of these methods. Volume pricing works best for mixed loads, while per-item pricing is ideal for specific furniture or appliance removal. When getting a junk removal quote, always ask about their pricing structure to ensure you're getting the best deal.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Additional Fees</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Difficulty Factors:</b> Stairs ×1.2, Narrow ×1.3<br>
+                        <b>Same Day Service:</b> +$50<br>
+                        <b>Disposal Fee:</b> +$20<br>
+                        <b>Extended Travel:</b> +$30
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        These fees are added to the base cost. Multiple difficulty factors can compound, so a job with stairs and narrow access would multiply by 1.2 × 1.3 = 1.56.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin: 20px auto 0 auto; max-width: 700px; text-align: left;">
+            <p style="margin: 0; font-size: 0.85em; color: #888; font-style: italic;">
+                Note: These are not strict industry standards, but rather average prices based on the US market (data referenced from HomeAdvisor, Angi, Thumbtack 2023 quotes)
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Frequently Asked Questions</h2>
+            
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: How much does junk removal cost?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: Junk removal costs typically range from $50-$70 per cubic yard, with minimum charges of $75-$100. A small truck load (3 cu yd) costs $200-$300, while a full truck (20 cu yd) costs $800-$1,200. Heavy items like appliances and furniture add $60-$85 per item.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: What's the difference between DIY and professional junk removal?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: DIY junk removal requires renting a truck ($50-$100/day), disposal fees ($20-$50), and your time and effort. Professional services include truck, labor, disposal, and insurance. For heavy items or large volumes, professional services often cost less when you factor in time, effort, and disposal challenges.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: What items can junk removal companies take?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: Most junk removal companies accept furniture, appliances, electronics, mattresses, construction debris, and general household items. They typically cannot take hazardous materials, chemicals, paint, or items requiring special disposal. Some companies offer recycling services for electronics and appliances.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: How do I prepare for junk removal service?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: Clear pathways to items, remove personal belongings, and separate items you want to keep. Take photos for insurance purposes. Some companies require you to be present during pickup. Ask about any preparation requirements when booking your service.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: Can I get a free estimate for junk removal?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: Most junk removal companies offer free estimates, either in-person or over the phone with photos. In-person estimates are more accurate as they can assess difficulty factors like stairs and narrow access. Some companies provide instant online estimates based on photos you upload.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 500;">Q: What's the best time to schedule junk removal?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #555;">
+                    A: Weekdays typically offer better rates than weekends. Avoid peak moving seasons (summer) when demand is high. Schedule 2-3 days in advance for better rates than same-day service. Some companies offer discounts for multiple loads or recurring services.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+        function clearForm() {
+            document.getElementById('volume').value = '';
+            document.querySelector('input[name="unit"][value="cubic_yards"]').checked = true;
+            
+            // Clear checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            
+            document.getElementById('itemCount').value = '';
+            document.getElementById('zipCode').value = '';
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
+
+        function calculateCost() {
+            const volume = parseFloat(document.getElementById('volume').value);
+            if (isNaN(volume) || volume <= 0) {
+                alert('Please enter a valid volume greater than 0.');
+                return;
+            }
+
+            const unit = document.querySelector('input[name="unit"]:checked').value;
+            const itemCount = parseInt(document.getElementById('itemCount').value) || 0;
+            const zipCode = document.getElementById('zipCode').value.trim();
+
+            // Convert to cubic yards if needed
+            const volumeCuYd = unit === 'cubic_meters' ? volume * 1.308 : volume;
+
+            // Get selected item types
+            const selectedItemTypes = Array.from(document.querySelectorAll('input[name="itemTypes"]:checked')).map(cb => cb.value);
+            
+            // Get difficulty factors
+            const difficultyFactors = Array.from(document.querySelectorAll('input[name="difficulty"]:checked')).map(cb => cb.value);
+            
+            // Get service options
+            const serviceOptions = Array.from(document.querySelectorAll('input[name="serviceOptions"]:checked')).map(cb => cb.value);
+
+            // Base pricing rates
+            const ratePerCuYd = 60; // $60 per cubic yard
+            const itemPrices = {
+                'furniture': 60,
+                'appliances': 85,
+                'mattresses': 55,
+                'electronics': 25,
+                'construction': 50
+            };
+
+            // Calculate volume cost
+            const volumeCost = volumeCuYd * ratePerCuYd;
+
+            // Calculate per-item cost
+            let perItemCost = 0;
+            if (itemCount > 0 && selectedItemTypes.length > 0) {
+                const avgItemPrice = selectedItemTypes.reduce((sum, type) => sum + (itemPrices[type] || 0), 0) / selectedItemTypes.length;
+                perItemCost = itemCount * avgItemPrice;
+            }
+
+            // Calculate truck tier pricing
+            let truckTierCost = 0;
+            if (volumeCuYd < 3) {
+                truckTierCost = 200; // Small truck
+            } else if (volumeCuYd < 10) {
+                truckTierCost = 450; // Half truck
+            } else {
+                truckTierCost = 800; // Full truck
+            }
+
+            // Minimum charge
+            const minimumCharge = 75;
+
+            // Base price is the maximum of all pricing methods
+            const basePrice = Math.max(volumeCost, perItemCost, truckTierCost, minimumCharge);
+
+            // Calculate difficulty factor
+            let difficultyFactor = 1.0;
+            if (difficultyFactors.includes('stairs')) difficultyFactor *= 1.2;
+            if (difficultyFactors.includes('narrow')) difficultyFactor *= 1.3;
+            if (difficultyFactors.includes('distance')) difficultyFactor *= 1.2;
+
+            // Calculate extra fees
+            let extraFees = 0;
+            if (serviceOptions.includes('sameDay')) extraFees += 50;
+            if (serviceOptions.includes('disposal')) extraFees += 20;
+            if (serviceOptions.includes('travel')) extraFees += 30;
+
+            // Location factor
+            let locationFactor = 1.0;
+            if (zipCode) {
+                // Simple ZIP code based pricing (first digit)
+                const firstDigit = parseInt(zipCode.charAt(0));
+                if (firstDigit >= 0 && firstDigit <= 2) { // Northeast
+                    locationFactor = 1.2;
+                } else if (firstDigit >= 9) { // West Coast
+                    locationFactor = 1.3;
+                } else if (firstDigit >= 6 && firstDigit <= 7) { // South
+                    locationFactor = 0.9;
+                }
+            }
+
+            // Calculate final cost
+            const adjustedPrice = basePrice * difficultyFactor * locationFactor + extraFees;
+            const tax = adjustedPrice * 0.08; // 8% tax
+            const total = adjustedPrice + tax;
+
+            // Price range (±10%)
+            const priceRange = total * 0.1;
+            const minPrice = total - priceRange;
+            const maxPrice = total + priceRange;
+
+            // Display results
+            document.getElementById('result').innerHTML = `<strong>Junk Removal Cost Estimate</strong><br>
+            <small>Volume: ${volumeCuYd.toFixed(1)} cu yd | Items: ${itemCount || 'N/A'} | Location: ${zipCode || 'Average'}</small><br><br>
+            <strong>Estimated Cost: $${total.toFixed(2)}</strong><br>
+            <small>Price Range: $${minPrice.toFixed(2)} - $${maxPrice.toFixed(2)}</small>`;
+
+            // Breakdown
+            let breakdownHTML = `<b>Cost Breakdown:</b><br>
+                <b>Volume Cost:</b> $${volumeCost.toFixed(2)} (${volumeCuYd.toFixed(1)} cu yd × $${ratePerCuYd})<br>
+                <b>Per-Item Cost:</b> $${perItemCost.toFixed(2)} (${itemCount} items)<br>
+                <b>Truck Tier Cost:</b> $${truckTierCost.toFixed(2)}<br>
+                <b>Base Price:</b> $${basePrice.toFixed(2)} (highest of above)<br><br>
+                <b>Adjustments:</b><br>
+                <b>Difficulty Factor:</b> ${difficultyFactor.toFixed(2)}x${difficultyFactors.length ? ' (' + difficultyFactors.join(', ') + ')' : ''}<br>
+                <b>Location Factor:</b> ${locationFactor.toFixed(2)}x${zipCode ? ' (' + zipCode + ')' : ' (Average)'}<br>
+                <b>Extra Fees:</b> $${extraFees.toFixed(2)}${serviceOptions.length ? ' (' + serviceOptions.join(', ') + ')' : ''}<br>
+                <b>Tax (8%):</b> $${tax.toFixed(2)}<br><br>
+                <b>Total:</b> $${total.toFixed(2)}`;
+
+            const breakdownEl = document.getElementById('breakdown');
+            breakdownEl.style.display = 'block';
+            breakdownEl.innerHTML = breakdownHTML;
+        }
+
+    </script>
+</body>
+</html>
