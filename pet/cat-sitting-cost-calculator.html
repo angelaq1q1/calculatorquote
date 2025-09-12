@@ -365,7 +365,7 @@
                     </div>
                     <div class="checkbox-item">
                         <input type="checkbox" id="grooming" value="grooming">
-                        <label for="grooming">Grooming Service - $30/session</label>
+                        <label for="grooming">Grooming Service - $30/day</label>
                     </div>
                 </div>
             </div>
@@ -381,7 +381,7 @@
                     <li><strong>Base Rates:</strong> Kitten ($30/day), Adult ($25/day), Senior ($28/day)</li>
                     <li><strong>Quantity Multipliers:</strong> 1st cat (1.0x), 2nd cat (0.8x), 3rd+ cats (0.7x)</li>
                     <li><strong>Basic Services Included:</strong> Feeding, water, litter box cleaning, and general care</li>
-                    <li><strong>Additional Services:</strong> Medication ($5/visit), Overnight ($20/night), Grooming ($30/session)</li>
+                    <li><strong>Additional Services:</strong> Medication ($5/day), Overnight ($20/night), Grooming ($30/day)</li>
                 </ul>
             </div>
 
@@ -446,7 +446,7 @@
                 <strong>Q3: How do I calculate costs for multiple cats?</strong><br>A: Our calculator automatically applies quantity discounts: 2nd cat = 0.8x base rate, 3rd+ cats = 0.7x base rate. This reflects the efficiency of caring for multiple cats together.
             </div>
             <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q4: What additional services are available for cats?</strong><br>A: Additional services include medication administration ($5/visit), overnight care ($20/night), and grooming services ($30/session). These can be added to basic care as needed.
+                <strong>Q4: What additional services are available for cats?</strong><br>A: Additional services include medication administration ($5/day), overnight care ($20/night), and grooming services ($30/day). These can be added to basic care as needed.
             </div>
             <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
                 <strong>Q5: How much should I budget for cat sitting?</strong><br>A: Budget depends on number of cats, duration, and services needed. Use our calculator to get personalized estimates and plan your cat care budget effectively.
@@ -456,35 +456,48 @@
 
     <script>
         function calculateCatSitting() {
-            let valid = true;
-            // Clear previous errors
-            var errorElements = document.querySelectorAll('.error');
-            for (var i = 0; i < errorElements.length; i++) {
-                errorElements[i].textContent = '';
-            }
+            try {
+                let valid = true;
+                // Clear previous errors
+                var errorElements = document.querySelectorAll('.error');
+                for (var i = 0; i < errorElements.length; i++) {
+                    errorElements[i].textContent = '';
+                }
+                
+                function setError(id, msg) {
+                    const errorElement = document.getElementById(id);
+                    if (errorElement) {
+                        errorElement.textContent = msg;
+                    }
+                    valid = false;
+                }
+                
+                const numCatsElement = document.getElementById('num-cats');
+                const durationElement = document.getElementById('duration');
+                const catAgeElement = document.getElementById('cat-age');
+                
+                if (!numCatsElement || !durationElement || !catAgeElement) {
+                    alert('页面加载未完成，请稍后再试');
+                    return;
+                }
+                
+                const numCats = parseInt(numCatsElement.value);
+                const duration = parseInt(durationElement.value);
+                const catAge = catAgeElement.value;
             
-            function setError(id, msg) {
-                document.getElementById(id).textContent = msg;
-                valid = false;
-            }
-            
-            const numCats = parseInt(document.getElementById('num-cats').value);
-            const duration = parseInt(document.getElementById('duration').value);
-            const catAge = document.getElementById('cat-age').value;
-            
-            if (!numCats || numCats <= 0) {
-                setError('error-num-cats', 'Please enter a valid number of cats.');
-            }
-            
-            if (!duration || duration <= 0) {
-                setError('error-duration', 'Please enter a valid duration.');
-            }
-            
-            if (!catAge) {
-                setError('error-cat-age', 'Please select a cat age category.');
-            }
-            
-            if (!valid) return;
+                if (isNaN(numCats) || numCats <= 0) {
+                    setError('error-num-cats', 'Please enter a valid number of cats.');
+                }
+                
+                if (isNaN(duration) || duration <= 0) {
+                    setError('error-duration', 'Please enter a valid duration.');
+                }
+                
+                if (!catAge) {
+                    setError('error-cat-age', 'Please select a cat age category.');
+                }
+                
+                if (!valid) return;
             
             // Base rates by age category
             let baseRate;
@@ -514,47 +527,78 @@
                 totalBaseCost += baseRate * multiplier;
             }
             
-            // Calculate additional services
-            let additionalCost = 0;
-            const medication = document.getElementById('medication').checked;
-            const overnight = document.getElementById('overnight').checked;
-            const grooming = document.getElementById('grooming').checked;
+                // Calculate additional services
+                let additionalCost = 0;
+                const medicationElement = document.getElementById('medication');
+                const overnightElement = document.getElementById('overnight');
+                const groomingElement = document.getElementById('grooming');
+                
+                const medication = medicationElement ? medicationElement.checked : false;
+                const overnight = overnightElement ? overnightElement.checked : false;
+                const grooming = groomingElement ? groomingElement.checked : false;
             
-            if (medication) {
-                additionalCost += 5 * duration; // $5 per day
+                if (medication) {
+                    additionalCost += 5 * duration; // $5 per day
+                }
+                if (overnight) {
+                    additionalCost += 20 * duration; // $20 per night
+                }
+                if (grooming) {
+                    additionalCost += 30 * duration; // $30 per day
+                }
+                
+                const totalCost = totalBaseCost * duration + additionalCost;
+                
+                // Display results
+                const resultElement = document.getElementById('result');
+                if (resultElement) {
+                    const baseRateElement = document.getElementById('base-rate');
+                    const numCatsDisplayElement = document.getElementById('num-cats-display');
+                    const durationDisplayElement = document.getElementById('duration-display');
+                    const quantityAdjustmentElement = document.getElementById('quantity-adjustment');
+                    const additionalServicesElement = document.getElementById('additional-services');
+                    const totalCostElement = document.getElementById('total-cost');
+                    
+                    if (baseRateElement) baseRateElement.textContent = '$' + baseRate.toFixed(2);
+                    if (numCatsDisplayElement) numCatsDisplayElement.textContent = numCats;
+                    if (durationDisplayElement) durationDisplayElement.textContent = duration + (duration === 1 ? ' day' : ' days');
+                    if (quantityAdjustmentElement) quantityAdjustmentElement.textContent = '$' + (totalBaseCost * duration).toFixed(2);
+                    if (additionalServicesElement) additionalServicesElement.textContent = '$' + additionalCost.toFixed(2);
+                    if (totalCostElement) totalCostElement.textContent = '$' + totalCost.toFixed(2);
+                    
+                    resultElement.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error calculating cat sitting cost:', error);
+                alert('计算过程中出现错误，请检查输入并重试');
             }
-            if (overnight) {
-                additionalCost += 20 * duration; // $20 per night
-            }
-            if (grooming) {
-                additionalCost += 30; // $30 per session (one-time)
-            }
-            
-            const totalCost = totalBaseCost * duration + additionalCost;
-            
-            // Display results
-            document.getElementById('base-rate').textContent = '$' + baseRate.toFixed(2);
-            document.getElementById('num-cats-display').textContent = numCats;
-            document.getElementById('duration-display').textContent = duration + (duration === 1 ? ' day' : ' days');
-            document.getElementById('quantity-adjustment').textContent = '$' + (totalBaseCost * duration).toFixed(2);
-            document.getElementById('additional-services').textContent = '$' + additionalCost.toFixed(2);
-            document.getElementById('total-cost').textContent = '$' + totalCost.toFixed(2);
-            
-            document.getElementById('result').style.display = 'block';
         }
         
         function clearForm() {
-            document.getElementById('num-cats').value = '1';
-            document.getElementById('duration').value = '1';
-            document.getElementById('cat-age').value = 'adult';
-            document.getElementById('medication').checked = false;
-            document.getElementById('overnight').checked = false;
-            document.getElementById('grooming').checked = false;
-            document.getElementById('result').style.display = 'none';
-            // Clear errors
-            var errorElements = document.querySelectorAll('.error');
-            for (var i = 0; i < errorElements.length; i++) {
-                errorElements[i].textContent = '';
+            try {
+                const numCatsElement = document.getElementById('num-cats');
+                const durationElement = document.getElementById('duration');
+                const catAgeElement = document.getElementById('cat-age');
+                const medicationElement = document.getElementById('medication');
+                const overnightElement = document.getElementById('overnight');
+                const groomingElement = document.getElementById('grooming');
+                const resultElement = document.getElementById('result');
+                
+                if (numCatsElement) numCatsElement.value = '1';
+                if (durationElement) durationElement.value = '1';
+                if (catAgeElement) catAgeElement.value = 'adult';
+                if (medicationElement) medicationElement.checked = false;
+                if (overnightElement) overnightElement.checked = false;
+                if (groomingElement) groomingElement.checked = false;
+                if (resultElement) resultElement.style.display = 'none';
+                
+                // Clear errors
+                var errorElements = document.querySelectorAll('.error');
+                for (var i = 0; i < errorElements.length; i++) {
+                    errorElements[i].textContent = '';
+                }
+            } catch (error) {
+                console.error('Error clearing form:', error);
             }
         }
     </script>
