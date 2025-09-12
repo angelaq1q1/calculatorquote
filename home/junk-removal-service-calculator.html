@@ -488,9 +488,14 @@
             document.getElementById('volume').value = '';
             document.querySelector('input[name="unit"][value="cubic_yards"]').checked = true;
             
-            // Clear checkboxes
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => checkbox.checked = false);
+            // Clear only relevant checkboxes (item types, difficulty, service options)
+            const itemTypeCheckboxes = document.querySelectorAll('input[name="itemTypes"]');
+            const difficultyCheckboxes = document.querySelectorAll('input[name="difficulty"]');
+            const serviceCheckboxes = document.querySelectorAll('input[name="serviceOptions"]');
+            
+            [...itemTypeCheckboxes, ...difficultyCheckboxes, ...serviceCheckboxes].forEach(checkbox => {
+                checkbox.checked = false;
+            });
             
             document.getElementById('itemCount').value = '';
             document.getElementById('zipCode').value = '';
@@ -536,6 +541,10 @@
 
             // Calculate per-item cost
             let perItemCost = 0;
+            if (itemCount > 0 && selectedItemTypes.length === 0) {
+                alert('Please select item types when entering item count.');
+                return;
+            }
             if (itemCount > 0 && selectedItemTypes.length > 0) {
                 const avgItemPrice = selectedItemTypes.reduce((sum, type) => sum + (itemPrices[type] || 0), 0) / selectedItemTypes.length;
                 perItemCost = itemCount * avgItemPrice;
@@ -571,15 +580,23 @@
 
             // Location factor
             let locationFactor = 1.0;
+            let locationDescription = 'Average';
             if (zipCode) {
                 // Simple ZIP code based pricing (first digit)
                 const firstDigit = parseInt(zipCode.charAt(0));
                 if (firstDigit >= 0 && firstDigit <= 2) { // Northeast
                     locationFactor = 1.2;
+                    locationDescription = 'Northeast (High Cost)';
                 } else if (firstDigit >= 9) { // West Coast
                     locationFactor = 1.3;
+                    locationDescription = 'West Coast (Highest Cost)';
                 } else if (firstDigit >= 6 && firstDigit <= 7) { // South
                     locationFactor = 0.9;
+                    locationDescription = 'South (Lower Cost)';
+                } else {
+                    // 3, 4, 5, 8 - Midwest and other regions
+                    locationFactor = 1.0;
+                    locationDescription = 'Midwest/Other (Average)';
                 }
             }
 
@@ -595,7 +612,7 @@
 
             // Display results
             document.getElementById('result').innerHTML = `<strong>Junk Removal Cost Estimate</strong><br>
-            <small>Volume: ${volumeCuYd.toFixed(1)} cu yd | Items: ${itemCount || 'N/A'} | Location: ${zipCode || 'Average'}</small><br><br>
+            <small>Volume: ${Math.round(volumeCuYd * 10) / 10} cu yd | Items: ${itemCount || 'N/A'} | Location: ${locationDescription}</small><br><br>
             <strong>Estimated Cost: $${total.toFixed(2)}</strong><br>
             <small>Price Range: $${minPrice.toFixed(2)} - $${maxPrice.toFixed(2)}</small>`;
 
@@ -607,7 +624,7 @@
                 <b>Base Price:</b> $${basePrice.toFixed(2)} (highest of above)<br><br>
                 <b>Adjustments:</b><br>
                 <b>Difficulty Factor:</b> ${difficultyFactor.toFixed(2)}x${difficultyFactors.length ? ' (' + difficultyFactors.join(', ') + ')' : ''}<br>
-                <b>Location Factor:</b> ${locationFactor.toFixed(2)}x${zipCode ? ' (' + zipCode + ')' : ' (Average)'}<br>
+                <b>Location Factor:</b> ${locationFactor.toFixed(2)}x (${locationDescription})<br>
                 <b>Extra Fees:</b> $${extraFees.toFixed(2)}${serviceOptions.length ? ' (' + serviceOptions.join(', ') + ')' : ''}<br>
                 <b>Tax (8%):</b> $${tax.toFixed(2)}<br><br>
                 <b>Total:</b> $${total.toFixed(2)}`;
