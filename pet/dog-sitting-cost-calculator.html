@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <title>Dog Sitting Cost Calculator – Estimate Professional Dog Sitting Rates</title>
+    <meta name="description" content="Calculate dog sitting costs instantly! Estimate professional dog sitter rates based on your dog's size, number of dogs, duration, and extra services like feeding, medication, or overnight care. Plan your dog care stress-free.">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Dog Sitting Cost Calculator",
+      "description": "Free dog sitting cost calculator to estimate professional dog sitting service prices based on dog size, duration, service type, and location.",
+      "keywords": "dog sitting cost, dog sitting rates overnight, dog sitting charge per day, dog sitting house sitting",
+      "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does dog sitting cost per hour?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dog sitting costs typically range from $15-25 per hour depending on dog size (small: $15, medium: $20, large: $25). Our calculator provides accurate pricing based on your specific needs and location."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate dog sitting costs for multiple dogs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our Dog Sitting Cost Calculator to input the number of dogs, their sizes, and service duration. The calculator automatically applies quantity multipliers: 2 dogs = 1.5x base rate, 3+ dogs = 2x base rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in dog sitting services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Basic dog sitting includes feeding, water, bathroom breaks, and general care. Additional services like medication administration ($3/day) and bathing ($10/session) are available for extra fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much should I budget for dog sitting services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Budget varies by dog size, service type, and location. Use our calculator to get personalized estimates for hourly, daily, and weekly dog sitting costs based on your specific requirements."
+            }
+          }
+        ]
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2196F3;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #1976D2;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+            user-select: text;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            pointer-events: auto;
+            touch-action: manipulation;
+            -webkit-touch-callout: default;
+            -webkit-user-drag: none;
+        }
+        .input-group input:hover,
+        .input-group input:focus,
+        .input-group select:hover,
+        .input-group select:focus {
+            border-color: #2196F3;
+        }
+        .input-group input:not(:placeholder-shown) {
+            border-color: #ddd;
+            border-width: 1px;
+        }
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: start;
+            gap: 15px;
+        }
+        .checkbox-group label {
+            color: #333;
+            font-weight: 500;
+        }
+        .checkbox-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .checkbox-item label {
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-section h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #bbdefb;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-label {
+            font-weight: 500;
+            color: #666;
+        }
+        .result-value {
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 1.1em;
+        }
+        .error {
+            color: #e53935;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-top: 24px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .info-box div {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .info-box p {
+            margin-bottom: 12px;
+        }
+        .info-box ul {
+            margin-left: 1.2em;
+            margin-bottom: 12px;
+        }
+        .pricing-breakdown {
+            background: #fff3e0;
+            border: 1px solid #ffcc02;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .pricing-breakdown h3 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        .pricing-note {
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #666;
+        }
+        .pricing-note h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .pricing-note ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .pricing-note li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .input-group, .checkbox-group {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .input-group label, .checkbox-group label {
+                margin-bottom: 5px;
+            }
+            body {
+                padding: 10px;
+            }
+            .calculator-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span>/</span>
+            <a href="index.html">Pet Calculators</a> <span>/</span>
+            <span>Dog Sitting Cost Calculator</span>
+        </div>
+        <h1>Dog Sitting Cost Calculator – Find Out How Much It Costs to Hire a Dog Sitter</h1>
+        <div class="description">
+            <p>
+              Use this calculator to estimate professional dog sitting rates based on your dog's size, number of dogs, duration, and extra services like feeding, medication, or overnight care. Get a clear cost before booking.
+            </p>
+        </div>
+
+        <!-- Dog Sitting Cost Calculator -->
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="num-dogs">Number of Dogs <span style="color:#e53935">*</span></label>
+                <input type="number" id="num-dogs" min="1" max="10" value="1" required>
+                <div class="error" id="error-num-dogs"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="dog-size">Dog Size <span style="color:#e53935">*</span></label>
+                <select id="dog-size" required>
+                    <option value="small">Small Dog - $15/hour</option>
+                    <option value="medium" selected>Medium Dog - $20/hour</option>
+                    <option value="large">Large Dog - $25/hour</option>
+                </select>
+                <div class="error" id="error-dog-size"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="duration-type">Duration Type <span style="color:#e53935">*</span></label>
+                <select id="duration-type" required>
+                    <option value="hours" selected>Hours</option>
+                    <option value="days">Days (8 hours per day)</option>
+                </select>
+                <div class="error" id="error-duration-type"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="duration">Duration <span style="color:#e53935">*</span></label>
+                <input type="number" id="duration" min="1" max="168" value="3" required>
+                <div class="error" id="error-duration"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="service-type">Service Type <span style="color:#e53935">*</span></label>
+                <select id="service-type" required>
+                    <option value="walking">Dog Walking - 1.0x rate</option>
+                    <option value="basic" selected>Basic Care (House Sitting) - 1.2x rate</option>
+                    <option value="overnight">Overnight Care - 1.5x rate</option>
+                </select>
+                <div class="error" id="error-service-type"></div>
+            </div>
+
+            <div class="input-group">
+                <label for="location">Location <span style="color:#e53935">*</span></label>
+                <select id="location" required>
+                    <option value="high">High Cost City - 1.2x rate</option>
+                    <option value="medium" selected>Medium Cost City - 1.0x rate</option>
+                    <option value="low">Low Cost City - 0.9x rate</option>
+                </select>
+                <div class="error" id="error-location"></div>
+            </div>
+
+            <div class="checkbox-group">
+                <label>Additional Services</label>
+                <div class="checkbox-options">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="medication" value="medication">
+                        <label for="medication">Medication Administration - $3/day</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="bathing" value="bathing">
+                        <label for="bathing">Bathing Service - $10/session</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" id="calculate-btn">Calculate</button>
+                <button class="btn-clear" id="clear-btn">Clear</button>
+            </div>
+
+            <div class="pricing-note">
+                <h3 style="color: #666; font-size: 0.9em; font-weight: 400;">Pricing Notes</h3>
+                <ul style="color: #666; font-size: 0.85em;">
+                    <li><strong>Base Rates:</strong> Small ($15/hr), Medium ($20/hr), Large ($25/hr)</li>
+                    <li><strong>Quantity Multipliers:</strong> 1 dog (1.0x), 2 dogs (1.5x), 3+ dogs (2.0x)</li>
+                    <li><strong>Service Types:</strong> Walking (1.0x), Basic Care (1.2x), Overnight (1.5x)</li>
+                    <li><strong>Location Adjustments:</strong> High cost (1.2x), Medium (1.0x), Low (0.9x)</li>
+                    <li><strong>Basic Services Included:</strong> Feeding is included in all base services at no extra cost</li>
+                    <li><strong>Additional Services:</strong> Medication ($3/day), Bathing ($10/session)</li>
+                </ul>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>💰 Cost Breakdown</h2>
+                
+                <div class="pricing-breakdown">
+                    <h3>Pricing Details</h3>
+                    <div class="pricing-item">
+                        <span>Base rate per hour:</span>
+                        <span id="base-rate">$20.00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Quantity multiplier:</span>
+                        <span id="quantity-multiplier">1.0x</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Service type multiplier:</span>
+                        <span id="service-multiplier">1.2x</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Location adjustment:</span>
+                        <span id="location-multiplier">1.0x</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Duration:</span>
+                        <span id="duration-display">3 hours</span>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Additional services:</span>
+                        <span id="additional-services">$0.00</span>
+                    </div>
+                    <div class="pricing-item" style="border-top: 1px solid #ffcc02; padding-top: 8px; font-weight: 600;">
+                        <span>Total cost:</span>
+                        <span id="total-cost">$72.00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">Dog Sitting Cost Calculator – Easily Estimate Your Dog Sitting Costs</div>
+            <p>You don't have to worry about planning dog care or spending too much. With our Dog Sitting Cost Calculator, you can quickly find out how much it costs to hire a professional dog sitter. This helps you plan your budget and keeps your dog's care on schedule.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">How to use the calculator:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Enter the number of dogs and their size</li>
+                <li>• Select service type and duration (hours or days)</li>
+                <li>• Choose your location and any additional services</li>
+                <li>• Click "Calculate" to see detailed cost breakdown</li>
+            </ul>
+            <div style="margin: 18px 0 8px; font-weight: 500;">The calculator shows:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Base rates for different dog sizes</li>
+                <li>• Quantity multipliers for multiple dogs</li>
+                <li>• Service type and location adjustments</li>
+                <li>• Additional service fees</li>
+            </ul>
+            <p>This tool helps you budget for professional dog sitting services and compare different pricing options in your area. Whether you're searching for "dog sitting near me" or comparing "dog sitting costs" across different providers, our calculator gives you the insights you need.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">When to use it:</div>
+            <ul style="margin-left: 0; margin-bottom: 12px; list-style: none; padding-left: 0;">
+                <li>• Planning for vacations or business trips</li>
+                <li>• Setting competitive rates as a dog sitter</li>
+                <li>• Comparing service providers in your area</li>
+                <li>• Researching dog sitting and walking services for your pet</li>
+            </ul>
+            <p>This calculator provides accurate estimates to help you make informed decisions about dog sitting services and find the best value for your pet care needs.</p>
+            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Common Questions About Dog Sitting Costs</div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: How much does dog sitting cost per hour?</strong><br>A: Dog sitting costs range from $15-25 per hour depending on dog size. Small dogs cost $15/hr, medium dogs $20/hr, and large dogs $25/hr. Additional factors like service type and location affect the final price.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: Do dog sitters charge extra for multiple dogs?</strong><br>A: Yes, most professional dog sitters charge multipliers for multiple dogs. 2 dogs = 1.5x base rate, 3+ dogs = 2x base rate. Our calculator automatically includes these adjustments.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: What's the difference between dog walking and dog sitting?</strong><br>A: Dog walking is typically shorter duration (1-2 hours) focused on exercise. Dog sitting includes longer care periods with feeding, bathroom breaks, and general supervision. Overnight care provides 24/7 supervision.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: Are dog sitting prices higher in major cities?</strong><br>A: Yes, major cities typically charge 20% more due to higher operating costs and demand. Our calculator includes location-based pricing adjustments for high, medium, and low cost areas.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: What additional services do dog sitters offer?</strong><br>A: Common additional services include medication administration ($3/day), bathing ($10/session), grooming, training reinforcement, and special dietary needs. These services are charged separately from base rates.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: How can I find reliable dog sitters near me?</strong><br>A: Search online for "dog sitters near me" or use apps like Rover, Wag, or Care.com. Ask your veterinarian, local pet stores, or neighbors for recommendations. Check reviews, verify insurance, and meet the sitter before hiring.
+            </div>
+            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
+                <strong>Q: How can I save money on dog sitting costs?</strong><br>A: Consider shorter duration services, fewer additional services, or hiring a neighborhood teenager for basic care. Group sitting (if your dog is social) can also reduce costs. Our calculator helps you explore different cost scenarios.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateDogSittingCost() {
+            try {
+                let valid = true;
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                
+                function setError(id, msg) {
+                    document.getElementById(id).textContent = msg;
+                    valid = false;
+                }
+                
+                const numDogs = parseInt(document.getElementById('num-dogs').value);
+                const dogSize = document.getElementById('dog-size').value;
+                const durationType = document.getElementById('duration-type').value;
+                const duration = parseInt(document.getElementById('duration').value);
+                const serviceType = document.getElementById('service-type').value;
+                const location = document.getElementById('location').value;
+                const medication = document.getElementById('medication').checked;
+                const bathing = document.getElementById('bathing').checked;
+                
+                // Validation
+                if (isNaN(numDogs) || numDogs < 1 || numDogs > 10) {
+                    setError('error-num-dogs', 'Please enter 1-10 dogs.');
+                }
+                
+                if (isNaN(duration) || duration < 1 || duration > 168) {
+                    setError('error-duration', 'Please enter 1-168 hours/days.');
+                }
+                
+                if (!valid) return;
+            
+                // Base rates for different dog sizes
+                let baseRate;
+                switch(dogSize) {
+                    case 'small': baseRate = 15; break;
+                    case 'medium': baseRate = 20; break;
+                    case 'large': baseRate = 25; break;
+                    default: baseRate = 20;
+                }
+                
+                // Quantity multipliers
+                let quantityMultiplier;
+                if (numDogs === 1) {
+                    quantityMultiplier = 1.0;
+                } else if (numDogs === 2) {
+                    quantityMultiplier = 1.5;
+                } else {
+                    quantityMultiplier = 2.0;
+                }
+                
+                // Service type multipliers
+                let serviceMultiplier;
+                switch(serviceType) {
+                    case 'walking': serviceMultiplier = 1.0; break;
+                    case 'basic': serviceMultiplier = 1.2; break;
+                    case 'overnight': serviceMultiplier = 1.5; break;
+                    default: serviceMultiplier = 1.2;
+                }
+                
+                // Location multipliers
+                let locationMultiplier;
+                switch(location) {
+                    case 'high': locationMultiplier = 1.2; break;
+                    case 'medium': locationMultiplier = 1.0; break;
+                    case 'low': locationMultiplier = 0.9; break;
+                    default: locationMultiplier = 1.0;
+                }
+                
+                // Calculate duration in hours
+                let durationInHours;
+                if (durationType === 'days') {
+                    durationInHours = duration * 8; // 8 hours per day
+                } else {
+                    durationInHours = duration;
+                }
+                
+                // Calculate additional services
+                let additionalServices = 0;
+                if (medication) {
+                    // Medication is charged per day, so calculate based on duration
+                    const days = durationType === 'days' ? duration : Math.ceil(durationInHours / 24);
+                    additionalServices += days * 3;
+                }
+                if (bathing) {
+                    // Bathing is per session, assume 1 session per day
+                    const days = durationType === 'days' ? duration : Math.ceil(durationInHours / 24);
+                    additionalServices += days * 10;
+                }
+                
+                // Calculate total cost
+                const totalCost = baseRate * quantityMultiplier * serviceMultiplier * locationMultiplier * durationInHours + additionalServices;
+                
+                // Display results
+                document.getElementById('base-rate').textContent = '$' + baseRate.toFixed(2);
+                document.getElementById('quantity-multiplier').textContent = quantityMultiplier.toFixed(1) + 'x';
+                document.getElementById('service-multiplier').textContent = serviceMultiplier.toFixed(1) + 'x';
+                document.getElementById('location-multiplier').textContent = locationMultiplier.toFixed(1) + 'x';
+                document.getElementById('duration-display').textContent = durationInHours + ' hours';
+                document.getElementById('additional-services').textContent = '$' + additionalServices.toFixed(2);
+                document.getElementById('total-cost').textContent = '$' + totalCost.toFixed(2);
+                
+                document.getElementById('result').style.display = 'block';
+            } catch (error) {
+                console.error('Error calculating dog sitting cost:', error);
+                alert('An error occurred while calculating. Please check your inputs and try again.');
+            }
+        }
+        
+        function clearForm() {
+            try {
+                // Reset form inputs
+                document.getElementById('num-dogs').value = '1';
+                document.getElementById('dog-size').value = 'medium';
+                document.getElementById('duration-type').value = 'hours';
+                document.getElementById('duration').value = '3';
+                document.getElementById('service-type').value = 'basic';
+                document.getElementById('location').value = 'medium';
+                document.getElementById('medication').checked = false;
+                document.getElementById('bathing').checked = false;
+                
+                // Hide result section
+                document.getElementById('result').style.display = 'none';
+                
+                // Clear all error messages
+                document.querySelectorAll('.error').forEach(el => el.textContent = '');
+                
+                // Reset all pricing display values
+                document.getElementById('base-rate').textContent = '$0.00';
+                document.getElementById('quantity-multiplier').textContent = '1.0x';
+                document.getElementById('service-multiplier').textContent = '1.2x';
+                document.getElementById('location-multiplier').textContent = '1.0x';
+                document.getElementById('duration-display').textContent = '0 hours';
+                document.getElementById('additional-services').textContent = '$0.00';
+                document.getElementById('total-cost').textContent = '$0.00';
+            } catch (error) {
+                console.error('Error clearing form:', error);
+            }
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', calculateDogSittingCost);
+            }
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearForm);
+            }
+        });
+    </script>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+</body>
+</html>
