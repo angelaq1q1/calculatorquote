@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Calculator Online | Multiplication & Inverse – Find Inverse of a Matrix Calculator</title>
-    <meta name="description" content="Free matrix calculator online for addition, subtraction, multiplication, and inverse. Step-by-step results for matrix product A×B and inverse of a matrix — find inverse of a matrix calculator fast.">
+    <title>Fast 3×3 Matrix Calculator – Solve Homework in Seconds</title>
+    <meta name="description" content="Tired of struggling with 3×3 matrices? Instantly add, multiply, or find inverses with our easy-to-use Matrix Calculator. Save time, avoid mistakes, and finish your homework faster!">
     <meta name="keywords" content="find inverse of a matrix calculator, matrix calculator, inverse matrix calculator, matrix multiplication calculator, online matrix calculator">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Matrix Calculator",
+        "url": "https://www.calculatorquote.com/math/matrix-calculator.html",
+        "description": "Free online matrix calculator for addition, subtraction, multiplication, and inverse operations. Step-by-step results for matrix operations with detailed solutions.",
+        "applicationCategory": "MathApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://www.calculatorquote.com/math/matrix-calculator.html",
+            "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+            "Matrix addition and subtraction",
+            "Matrix multiplication",
+            "Matrix inverse calculation",
+            "Determinant calculation",
+            "Transpose operations",
+            "Step-by-step solutions",
+            "Support for various matrix sizes",
+            "Real-time calculation results"
+        ]
+    }
+    </script>
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
          crossorigin="anonymous"></script>
@@ -122,8 +153,9 @@
         .related-calculators {
             margin-top: 40px;
             padding: 20px;
-            background: none;
-            border-radius: 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
         }
 
         .related-calculators h2 {
@@ -251,6 +283,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
+            width: 100%;
         }
 
         .matrix-button {
@@ -384,11 +417,11 @@
 
             <div class="calculator-container">
                 <div class="page-header">
-                    <h1>Matrix Calculator Online – Multiplication, Product & Inverse (Step-by-Step)</h1>
+                    <h1>Struggling with 3×3 Matrices? Solve Your Homework Fast with Our Matrix Calculator</h1>
                 </div>
 
                 <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                    Use our matrix calculator online to add, subtract, and compute the product of matrices (A×B). Get step-by-step results for matrix multiplication and quickly find the inverse of a matrix — a simple, fast matrix by calculator experience for students and engineers. If you're looking for an inverse matrix calculator 3×3 or even an inverse of a 3×3 matrix calculator workflow, this tool handles it in-browser with no setup.
+                    Struggling with 3×3 matrices for your homework? Our Matrix Calculator makes it easy—add, multiply, or find inverses instantly. Save time, reduce errors, and understand each step so you can finish assignments faster and smarter.
                 </p>
         <div class="calculator-layout">
             <!-- Matrix A Section -->
@@ -469,6 +502,9 @@
             <div class="result-title">Result</div>
             <div id="result-grid" class="result-grid"></div>
             <div id="error-message" class="error"></div>
+            <div style="margin-top: 15px; text-align: center;">
+                <button class="matrix-button" onclick="copyResult()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Copy Result</button>
+            </div>
                 </div>
 
             <div class="related-calculators">
@@ -479,70 +515,58 @@
             </div>
 
             <div class="page-description">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Matrix Calculator – Because solving 3×3 matrices by hand is pure pain 😵‍💫</p>
-                <p>Let's face it:<br>
-                The moment your math homework says "find the determinant", your brain says "find the exit".</p>
-                <p>Whether you're an engineering student trying to survive, or just someone who's been betrayed by linear algebra one too many times, our Matrix Calculator is here to help — no sweat, no scribbles, just clean, fast math.</p>
-                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✅ Add, subtract, and multiply matrices — without breaking a pencil</li>
-                    <li style="margin-bottom: 10px;">✅ Transpose and invert like a pro (or at least look like one)</li>
-                    <li style="margin-bottom: 10px;">✅ Calculate determinants faster than your TA can say "Gaussian elimination"</li>
-                    <li style="margin-bottom: 10px;">✅ Supports up to 5×5 matrices — because anything bigger is just cruel</li>
-                    <li style="margin-bottom: 10px;">✅ Works right in your browser — no download, no math degree required</li>
+                <h2 style="margin: 20px 0 15px; color: #333; font-size: 1.5em;">How to Use Matrix Calculator</h2>
+                <p style="margin-bottom: 15px;"><strong>Choose Matrix Size:</strong> Set the number of rows and columns in the input box. You can either fill in the matrix manually or generate random values.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Select Operation:</strong> Choose one of the following operations:</p>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">• <strong>Addition (A + B)</strong> – adds corresponding elements of two matrices.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Subtraction (A - B)</strong> – subtracts corresponding elements of two matrices.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Matrix Calculator Multiplication (A × B)</strong> – multiplies two matrices (columns of the first must equal rows of the second).</li>
+                    <li style="margin-bottom: 8px;">• <strong>Transpose Matrix Calculator</strong> – swaps rows and columns of the matrix.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Online Inverse Matrix Calculator</strong> – finds the inverse of a square matrix if the determinant is not zero.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Determinant of the Matrix Calculator</strong> – calculates the determinant to check if the matrix is invertible.</li>
                 </ul>
-                <h3 style="margin: 20px 0 10px;">❓ FAQ – Because math hurts enough without more confusion</h3>
+                
+                <p style="margin-bottom: 15px;"><strong>View Results:</strong> Click Calculate, and the calculator will display the result along with detailed steps to help you understand the computation.</p>
+                
+                <h3 style="margin: 20px 0 10px; color: #333;">What the Results Mean</h3>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">• <strong>Addition (A + B):</strong> Shows the sum of corresponding elements. Only works for matrices of the same size.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Subtraction (A - B):</strong> Shows the difference of corresponding elements. Only works for matrices of the same size.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Matrix Calculator Multiplication (A × B):</strong> Provides the product of two matrices following matrix multiplication rules.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Transpose Matrix Calculator:</strong> Converts rows into columns and vice versa. Useful in linear algebra and solving equations.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Online Inverse Matrix Calculator:</strong> Returns the inverse matrix, which can be used to solve linear systems. Only square matrices with non-zero determinants have inverses.</li>
+                    <li style="margin-bottom: 8px;">• <strong>Determinant of the Matrix Calculator:</strong> Displays the determinant value. A zero determinant means the matrix is singular and cannot be inverted.</li>
+                </ul>
+                <h3 style="margin: 20px 0 10px;">❓ FAQ – Matrix Calculator</h3>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this free?</strong><br>
-                    Yep. We won't charge you for math misery. Free to use, forever. Just the occasional chill ad.</p>
+                    <p><strong>Q: How can I use the Find Inverse of Matrix Calculator?</strong><br>
+                    Simply enter a square matrix into the calculator and click "Calculate Inverse." The tool will compute the inverse matrix if it exists. Note: matrices with a determinant of zero cannot be inverted.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can it handle non-square matrices?</strong><br>
-                    Totally. But inverse is square-only — even a calculator has standards.</p>
+                    <p><strong>Q: What is the Desmos Matrix Calculator and how does it help?</strong><br>
+                    The Desmos Matrix Calculator allows you to perform various matrix operations visually, including addition, multiplication, and finding inverses. It's especially useful for students who want an interactive approach to learn matrix concepts.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Will this help me pass my exam?</strong><br>
-                    It can assist you. Whether you pass depends on how much you've ignored the lectures.</p>
+                    <p><strong>Q: How do I use the Diagonal Matrix Calculator?</strong><br>
+                    Enter a square matrix, and the calculator will extract or create a diagonal matrix from it. Diagonal matrices have non-zero values only along the main diagonal and zeros elsewhere, which simplifies many calculations.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Does it store my data?</strong><br>
-                    Nope. Your failed matrix attempts vanish into the void. No judgment.</p>
+                    <p><strong>Q: What does the Reduced Echelon Form Matrix Calculator do?</strong><br>
+                    This calculator converts any matrix into its reduced row echelon form (RREF). RREF is a simplified version of the matrix that helps solve linear systems efficiently.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Why not just use a spreadsheet?</strong><br>
-                    Ever tried inverting a 4×4 matrix in Excel? Exactly.</p>
+                    <p><strong>Q: Can I use the Destiny Matrix Calculator for predictions?</strong><br>
+                    The Destiny Matrix Calculator is a specialized tool often used for numerology or symbolic interpretations. Enter your matrix values according to the tool's instructions to explore outcomes or patterns.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use this matrix calculator for school exams?</strong><br>
-                    Absolutely. This matrix math calculator is great for high school, college, or even engineering-level problems.</p>
+                    <p><strong>Q: How does the Determinants of Matrix Calculator work?</strong><br>
+                    Enter a square matrix, and the calculator will return its determinant. A non-zero determinant means the matrix is invertible, while zero indicates it is singular and cannot be inverted.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this the same as a matrix multiplication calculator?</strong><br>
-                    Yes! It supports matrix multiplication and more.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Does it work for 3×3 inverses?</strong><br>
-                    Yes. If you searched for an <em>inverse matrix calculator 3x3</em> or an <em>inverse of a 3x3 matrix calculator</em>, this tool computes 2×2 up to 5×5 inverses directly in your browser.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this a det of matrix calculator?</strong><br>
-                    Yep — it calculates determinants, including 3×3 and 4×4. Just enter your matrix and hit Determinant.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Does this matrix calculator include RREF?</strong><br>
-                    Not yet. If you’re after a <em>matrix calculator with rref</em>, that feature is on our roadmap. For now, you can compute transpose, determinant, inverse, powers, and more.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I convert equations to a matrix here?</strong><br>
-                    If you’re looking for an <em>equation to matrix calculator</em> or a <em>matrix calculator equation</em> workflow, enter the coefficients into Matrix A manually to form your coefficient matrix. Direct equation parsing isn’t supported yet.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How does this compare to the Desmos matrix calculator?</strong><br>
-                    This is a lightweight, focused alternative to a <em>Desmos matrix calculator</em> — no account needed, quick inputs, and fast results for common operations.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Do I need Python or a TI‑84?</strong><br>
-                    No. If you were searching for a <em>matrix calculator in Python</em> or a <em>matrix calculator TI‑84</em>, this web tool gives you the same core operations without installing anything or using a handheld calculator.</p>
+                    <p><strong>Q: What is the Echelon Form Matrix Calculator used for?</strong><br>
+                    The Echelon Form Matrix Calculator transforms any matrix into row echelon form (REF). This simplifies solving linear equations and helps identify pivot positions in the matrix.</p>
                 </div>
             </div>
         </div>
@@ -645,6 +669,9 @@
                     resultGrid.appendChild(cell);
                 }
             }
+
+            // 清空错误信息
+            document.getElementById('error-message').textContent = '';
         }
 
         // 清除矩阵
@@ -662,7 +689,11 @@
         // 随机矩阵
         function randomMatrix(matrixId) {
             const inputs = document.querySelectorAll(`#matrix-${matrixId}-grid input`);
-            inputs.forEach(input => input.value = Math.floor(Math.random() * 10));
+            inputs.forEach(input => {
+                // 生成 -5 到 5 之间的随机数，包含小数
+                const value = (Math.random() - 0.5) * 10;
+                input.value = Math.round(value * 100) / 100; // 保留两位小数
+            });
         }
 
         // 转置矩阵
@@ -845,18 +876,25 @@
                 return;
             }
 
-            if (power < 1) {
-                document.getElementById('error-message').textContent = 'Power must be positive';
+            if (power < 0) {
+                document.getElementById('error-message').textContent = 'Power must be non-negative';
                 return;
             }
 
-            let result = matrix;
-            for (let i = 1; i < power; i++) {
-                result = multiplyMatricesHelper(result, matrix);
+            let result;
+            if (power === 0) {
+                // 单位矩阵
+                result = matrix.map((row, i) => row.map((_, j) => i === j ? 1 : 0));
+            } else if (power === 1) {
+                result = matrix;
+            } else {
+                result = matrix;
+                for (let i = 1; i < power; i++) {
+                    result = multiplyMatricesHelper(result, matrix);
+                }
             }
 
             displayResult(result);
-            document.getElementById('error-message').textContent = '';
         }
 
         // 添加新的标量乘法函数
@@ -884,10 +922,58 @@
                 document.getElementById(`matrix-${matrixId}-${dim}`).addEventListener('change', function() {
                     const rows = parseInt(document.getElementById(`matrix-${matrixId}-rows`).value);
                     const cols = parseInt(document.getElementById(`matrix-${matrixId}-cols`).value);
+                    
+                    // 验证输入范围
+                    if (rows < 1 || rows > 10 || cols < 1 || cols > 10) {
+                        alert('Matrix dimensions must be between 1 and 10');
+                        return;
+                    }
+                    
                     initializeMatrix(matrixId, rows, cols);
                 });
             });
         });
+
+        // 复制结果功能
+        function copyResult() {
+            const resultGrid = document.getElementById('result-grid');
+            const cells = resultGrid.querySelectorAll('.result-cell');
+            
+            if (cells.length === 0) {
+                alert('No result to copy');
+                return;
+            }
+            
+            // 获取矩阵维度
+            const cols = resultGrid.style.gridTemplateColumns.split(' ').length;
+            const rows = Math.ceil(cells.length / cols);
+            
+            let resultText = '';
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    const index = i * cols + j;
+                    if (index < cells.length) {
+                        row.push(cells[index].textContent);
+                    }
+                }
+                resultText += row.join('\t') + '\n';
+            }
+            
+            // 复制到剪贴板
+            navigator.clipboard.writeText(resultText).then(() => {
+                alert('Matrix result copied to clipboard!');
+            }).catch(() => {
+                // 备用方法
+                const textArea = document.createElement('textarea');
+                textArea.value = resultText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Matrix result copied to clipboard!');
+            });
+        }
 
         // 初始化矩阵
         initializeMatrix('a', 2, 2);
@@ -916,7 +1002,11 @@
         "matrix calculator power",
         "transpose matrix calculator",
         "matrix calculator determinant 3x3",
-        "determinant of the matrix calculator"
+        "determinant of the matrix calculator",
+        "inverse matrix calculator 3x3",
+        "matrix calculator eigenvalues",
+        "matrix calculator power",
+        "matrix calculator gaussian elimination"
       ],
       "publisher": {
         "@type": "Organization",
