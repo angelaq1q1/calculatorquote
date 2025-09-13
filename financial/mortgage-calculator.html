@@ -3,12 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free mortgage calculator additional payments tool. Calculate extra payments, estimate monthly home loan costs, and see how additional payments reduce your mortgage term. No registration, 100% free calculator for mortgage calculator extra payment planning.">
-    <meta name="keywords" content="mortgage calculator additional payments, mortgage calculator extra payment, mortgage calculator, home loan calculator, monthly payment calculator, mortgage payment estimator">
+    <meta name="description" content="Relocating is costly. Use our free mortgage calculator to estimate payments, compare options, and manage your new home budget with ease. Supports VA loans, FHA loans, and conventional mortgages.">
+    <meta name="keywords" content="mortgage calculator additional payments, mortgage calculator extra payment, mortgage calculator, mortgage calculator for va loan, va loan calculator, home loan calculator, monthly payment calculator, mortgage payment estimator">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/financial/mortgage-calculator.html">
-    <title>Mortgage Calculator Additional Payments - Free Extra Payment Calculator</title>
+    <title>Mortgage Calculator for Moving to a New City – VA Loan, FHA & Conventional</title>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Mortgage Calculator Additional Payments",
+        "url": "https://www.calculatorquote.com/financial/mortgage-calculator.html",
+        "description": "Free mortgage calculator with additional payments tool. Calculate extra payments, estimate monthly home loan costs, and see how additional payments reduce your mortgage term.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://www.calculatorquote.com/financial/mortgage-calculator.html",
+            "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+            "Monthly payment calculation",
+            "Additional payment planning",
+            "Interest savings calculation",
+            "Loan term reduction analysis",
+            "Property tax and insurance inclusion",
+            "PMI and HOA fee calculations"
+        ],
+        "keywords": [
+            "mortgage calculator",
+            "mortgage calculator payment",
+            "mortgage calculator additional payments",
+            "mortgage calculator extra payment",
+            "mortgage calculator for va loan",
+            "va loan calculator"
+        ]
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -352,8 +389,8 @@
             <span>/</span>
             Mortgage Calculator
         </div>
-            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Mortgage Calculator Additional Payments</h1>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Looking for a mortgage calculator additional payments tool? You're in the right place! Our mortgage calculator extra payment feature helps you estimate monthly home loan costs and see how additional payments can dramatically reduce your mortgage term and total interest. Calculate principal, interest, property tax, insurance, and PMI with our free, no-registration tool.</p>
+            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Moving to a New City? Use Our Mortgage Calculator to Plan Your Budget and Reduce Stress</h1>
+            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Moving to a new city brings many costs. Our mortgage calculator helps you see monthly payments clearly for VA loans, FHA loans, and conventional mortgages. You can plan your budget, compare options, and avoid surprises. Make smarter choices for your home and manage your finances with confidence. Start your calculations now for an easier move.</p>
         
         <div class="calculator-grid">
             <div class="input-section">
@@ -365,6 +402,17 @@
                 </div>
                 
                 <div class="input-group">
+                    <label for="loan-type">Loan Type</label>
+                    <div class="input-field-container">
+                        <select id="loan-type" onchange="toggleLoanType()">
+                            <option value="conventional">Conventional</option>
+                            <option value="va">VA Loan</option>
+                            <option value="fha">FHA Loan</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group" id="down-payment-group">
                     <label for="down-payment" data-tooltip="" title="">Down Payment</label>
                     <div class="input-field-container">
                         <input type="text" id="down-payment" value="20">
@@ -435,11 +483,19 @@
                         </div>
                     </div>
                     
-                    <div class="input-group">
+                    <div class="input-group" id="pmi-group">
                         <label for="pmi-insurance" data-tooltip="" title="">PMI Insurance</label>
                         <div class="input-field-container">
                             <input type="text" id="pmi-insurance" value="0">
                             <div class="unit">$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group" id="va-funding-fee-group" style="display: none;">
+                        <label for="va-funding-fee" data-tooltip="" title="">VA Funding Fee</label>
+                        <div class="input-field-container">
+                            <input type="text" id="va-funding-fee" value="2.3">
+                            <div class="unit">%</div>
                         </div>
                     </div>
                     
@@ -561,24 +617,31 @@
         
         <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
             <p style="font-size: 1.2em; margin-bottom: 20px;">🏠 Mortgage Calculator – Know if your dream house will destroy your bank account 💀</p>
-            <p>Okay, picture this:<br>
-            You find the one. Not a person — a house. Cute porch, great school district, maybe even a lemon tree. But before you call your real estate agent screaming "WE FOUND IT!", you should probably figure out… you know, if you can afford it.</p>
-            <p>That's where this Mortgage Calculator comes in. It's like your brutally honest financial BFF — but with math skills.</p>
-            <h3 style="margin: 20px 0 10px;">💡 How Our Mortgage Calculator Additional Payments Works</h3>
+            <p>Buying a home or planning to refinance can feel complex, but a mortgage calculator makes it simple. With just a few numbers, you can see your monthly payments and plan ahead. Here's how to use it and what the results mean.</p>
+            
+            <h3 style="margin: 20px 0 10px;">How to Use the Calculator</h3>
+            <p>Start by entering the loan amount, interest rate, and loan term. The tool will instantly show your estimated monthly payment. This works much like the Bankrate mortgage calculator, which many people use to test different scenarios before making a decision.</p>
+            <p>If you want to check special loan types, such as VA loans, select the option for mortgage calculator for VA loan. This is helpful for veterans or active military buyers who qualify for VA benefits, since these loans often come with no down payment and lower interest rates.</p>
+            
+            <h3 style="margin: 20px 0 10px;">What the Results Show</h3>
+            <p>Once you enter your details, the calculator will display:</p>
             <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;">✅ Tells you your monthly mortgage payment — principal, interest, taxes, insurance, everything but the emotional damage</li>
-                <li style="margin-bottom: 10px;">✅ Lets you tweak loan terms, down payment, interest rate — go wild</li>
-                <li style="margin-bottom: 10px;">✅ Works for first homes, forever homes, and that random Zillow mansion you're not actually buying (we've all been there)</li>
-                <li style="margin-bottom: 10px;">✅ No sign-ups, no nonsense — just cold, hard numbers</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Monthly Payment</strong> – how much you'll pay each month.</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Total Loan Cost</strong> – how much you'll pay over the life of the loan.</li>
+                <li style="margin-bottom: 10px;">✅ <strong>Amortization Schedule</strong> – a breakdown of principal and interest payments each month. If you want to see a full payoff schedule, you can use it as a mortgage calculator payoff calculator. This helps you understand how long it will take to clear the loan completely.</li>
             </ul>
-            <h3 style="margin: 20px 0 10px;">❓ Frequently Asked Questions About Mortgage Calculator Additional Payments</h3>
-            <div style="margin-bottom: 15px;"><strong>🧾 Can I factor in property taxes and insurance with the mortgage calculator additional payments?</strong><br>Yes, and you probably should! Our mortgage calculator additional payments tool includes property taxes, insurance, and PMI for accurate monthly payment estimates.</div>
-            <div style="margin-bottom: 15px;"><strong>💸 How do additional payments affect my mortgage calculator extra payment calculations?</strong><br>Our mortgage calculator extra payment feature shows how extra payments reduce your loan term and total interest. Even small additional payments can save thousands over time.</div>
-            <div style="margin-bottom: 15px;"><strong>👀 Is the mortgage calculator additional payments tool free to use?</strong><br>Absolutely! Our mortgage calculator additional payments tool is 100% free, requires no registration, and provides instant calculations for your mortgage planning.</div>
-            <h3 style="margin: 20px 0 10px;">🧠 Professional Advice for Mortgage Calculator Additional Payments</h3>
-            <p>Use our mortgage calculator additional payments tool BEFORE falling in love with a house. The mortgage calculator extra payment feature helps you understand how additional payments can dramatically reduce your loan term and save thousands in interest.</p>
-            <h3 style="margin: 20px 0 10px;">TL;DR:</h3>
-            <p>Our mortgage calculator additional payments tool can't stop your realtor from showing you $900k homes "just for fun," but it will tell you if the monthly payment is a joke or a jump scare. The mortgage calculator extra payment feature shows you exactly how additional payments can save you money.</p>
+            
+            <h3 style="margin: 20px 0 10px;">Extra Payments and Savings</h3>
+            <p>One of the most useful features is adding extra payments. With the mortgage calculator extra pay option, you can test what happens if you add $100 or $200 more each month. The tool will show how many years you can cut off your loan and how much interest you'll save. Many homeowners use this strategy to pay off their mortgage early.</p>
+            <p>👉 In short, the calculator helps you see not only your monthly payment but also how different loan types, extra payments, or payoff strategies affect your budget. It's a simple way to make smart choices before you commit to a loan.</p>
+            
+            <h3 style="margin: 20px 0 10px;">❓ Frequently Asked Questions</h3>
+            <div style="margin-bottom: 15px;"><strong>🧾 What is a mortgage payoff calculator?</strong><br>A mortgage payoff calculator is a tool that shows how long it will take to pay off your home loan. You enter your loan amount, interest rate, and monthly payment. The tool then shows the payoff date. If you add extra payments, you can see how many years you will save.</div>
+            <div style="margin-bottom: 15px;"><strong>📈 Will mortgage rates go down soon?</strong><br>Mortgage rates change based on the economy, inflation, and central bank policies. No one can say for sure if rates will go down. You can check trusted sources like Freddie Mac or Bankrate for current trends. Using a calculator with today's rate helps you plan better.</div>
+            <div style="margin-bottom: 15px;"><strong>🧮 How are mortgage payments calculated?</strong><br>Mortgage payments are calculated using the loan amount, interest rate, and loan term. The payment includes both principal and interest. If you choose escrow, it can also include taxes and insurance. A calculator makes this math easy by giving you the monthly cost right away.</div>
+            <div style="margin-bottom: 15px;"><strong>💰 What is a mortgage with points calculator?</strong><br>A mortgage with points calculator shows how buying discount points affects your loan. Mortgage points are fees you pay upfront to lower your interest rate. The calculator helps you see how much you save over time and whether the upfront cost is worth it.</div>
+            <div style="margin-bottom: 15px;"><strong>🏠 How much mortgage can I afford?</strong><br>You can find out with a how much mortgage calculator I can afford. Enter your income, debts, and down payment. The tool shows the loan size and monthly payment you can handle. This helps you avoid buying a home that stretches your budget too much.</div>
+            <div style="margin-bottom: 15px;"><strong>🤔 Which mortgage is right for me?</strong><br>The right mortgage depends on your income, credit, loan size, and how long you plan to stay in the home. Fixed-rate loans give steady payments. Adjustable-rate loans may start lower but can rise later. A calculator helps you test both options so you can choose the one that fits your needs.</div>
         </div>
         
 
@@ -622,24 +685,64 @@
             });
         }
         
+        // 切换贷款类型
+        function toggleLoanType() {
+            const loanType = document.getElementById('loan-type').value;
+            const downPaymentGroup = document.getElementById('down-payment-group');
+            const pmiGroup = document.getElementById('pmi-group');
+            const vaFundingFeeGroup = document.getElementById('va-funding-fee-group');
+            const downPaymentInput = document.getElementById('down-payment');
+            const pmiInput = document.getElementById('pmi-insurance');
+            
+            if (loanType === 'va') {
+                // VA贷款：0首付，无PMI，有VA Funding Fee
+                downPaymentGroup.style.display = 'none';
+                pmiGroup.style.display = 'none';
+                vaFundingFeeGroup.style.display = 'block';
+                downPaymentInput.value = '0';
+                pmiInput.value = '0';
+            } else if (loanType === 'fha') {
+                // FHA贷款：最低3.5%首付，有PMI，无VA Funding Fee
+                downPaymentGroup.style.display = 'block';
+                pmiGroup.style.display = 'block';
+                vaFundingFeeGroup.style.display = 'none';
+                if (downPaymentInput.value === '0') downPaymentInput.value = '3.5';
+                if (pmiInput.value === '0') pmiInput.value = '100';
+            } else {
+                // 传统贷款：默认20%首付，有PMI，无VA Funding Fee
+                downPaymentGroup.style.display = 'block';
+                pmiGroup.style.display = 'block';
+                vaFundingFeeGroup.style.display = 'none';
+                if (downPaymentInput.value === '0') downPaymentInput.value = '20';
+            }
+        }
+        
 
         
         // Calculate mortgage and update display
         function calculateMortgage() {
             // Get input values
             const homePrice = parseInput(document.getElementById('home-price').value);
+            const loanType = document.getElementById('loan-type').value;
             const downPaymentPercent = parseFloat(document.getElementById('down-payment').value);
             const loanTerm = parseInt(document.getElementById('loan-term').value);
             const interestRate = parseFloat(document.getElementById('interest-rate').value);
             const propertyTaxRate = parseFloat(document.getElementById('property-taxes').value);
             const homeInsurance = parseInput(document.getElementById('home-insurance').value);
             const pmiInsurance = parseInput(document.getElementById('pmi-insurance').value);
+            const vaFundingFeePercent = parseFloat(document.getElementById('va-funding-fee').value);
             const hoaFee = parseInput(document.getElementById('hoa-fee').value);
             const otherCosts = parseInput(document.getElementById('other-costs').value);
             
             // Calculate loan amount and payments
             const downPaymentAmount = homePrice * (downPaymentPercent / 100);
-            const loanAmount = homePrice - downPaymentAmount;
+            let loanAmount = homePrice - downPaymentAmount;
+            
+            // VA贷款特殊处理：添加VA Funding Fee到贷款金额
+            if (loanType === 'va') {
+                const vaFundingFee = loanAmount * (vaFundingFeePercent / 100);
+                loanAmount += vaFundingFee;
+            }
             const monthlyRate = interestRate / 100 / 12;
             const numberOfPayments = loanTerm * 12;
             
@@ -649,7 +752,7 @@
             // Calculate additional monthly costs
             const monthlyPropertyTax = homePrice * (propertyTaxRate / 100) / 12;
             const monthlyHomeInsurance = homeInsurance / 12;
-            const monthlyPMI = pmiInsurance / 12;
+            const monthlyPMI = (loanType === 'va') ? 0 : pmiInsurance / 12; // VA贷款无PMI
             const monthlyHOA = hoaFee / 12;
             const monthlyOtherCosts = otherCosts / 12;
             
@@ -802,6 +905,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The mortgage calculator extra payment feature shows how making additional payments beyond your regular monthly payment can dramatically reduce your loan term and save thousands in interest over the life of your mortgage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the mortgage calculator support VA loans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our mortgage calculator for VA loan includes VA funding fee calculations, 0% down payment option, and no PMI requirements. Perfect for veterans and active military members planning their home purchase."
           }
         }
       ]
