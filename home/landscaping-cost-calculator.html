@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscaping Cost Calculator – Estimate Your Garden & Yard Project Budget</title>
+    <meta name="description" content="Plan your landscaping project with confidence. Our free landscaping cost calculator estimates lawn, patio, plants, and water feature costs based on area, complexity, and materials. Get accurate budget ranges for your dream garden.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Landscaping Cost Calculator",
+        "description": "Free online landscaping cost calculator for estimating garden, lawn, patio, and outdoor project budgets. Calculate costs based on area, materials, and complexity.",
+        "url": "https://calculatorquote.com/home/landscaping-cost-calculator.html",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "Web Browser",
+        "keywords": "landscaping cost calculator, landscaping cost, backyard landscaping cost, how much does landscaping cost, average landscaping cost",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Lawn Cost Calculator",
+            "Patio Cost Calculator", 
+            "Plant Cost Calculator",
+            "Water Feature Calculator",
+            "Irrigation System Calculator",
+            "Landscaping Budget Planner"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #1976D2;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .btn-calculate {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-calculate:hover {
+            background-color: #1976D2;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-clear:hover {
+            background-color: #64b5f6;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .results-section {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .results-section h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cost-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .cost-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .cost-item .amount {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2196F3;
+        }
+
+        .total-cost {
+            background: #2196F3;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .total-cost h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .total-cost .amount {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .budget-ranges {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .budget-range {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .budget-range.low {
+            border-color: #4caf50;
+        }
+
+        .budget-range.average {
+            border-color: #ff9800;
+        }
+
+        .budget-range.high {
+            border-color: #f44336;
+        }
+
+        .budget-range h4 {
+            margin-bottom: 10px;
+        }
+
+        .budget-range.low h4 {
+            color: #4caf50;
+        }
+
+        .budget-range.average h4 {
+            color: #ff9800;
+        }
+
+        .budget-range.high h4 {
+            color: #f44336;
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
+            Landscaping Cost Calculator
+        </div>
+        <h1>Landscaping Cost Calculator for Homeowners – Save Time and Money</h1>
+        <div class="description">
+            Use our Landscaping Cost Calculator to estimate your yard or garden costs instantly. Compare options, avoid budgeting mistakes, and get accurate cost breakdowns for lawns, patios, and plants. Plan your landscaping efficiently and confidently.
+        </div>
+        <div class="input-section">
+                    <h3>Project Areas</h3>
+                    <div class="input-group">
+                        <label for="lawnArea">Lawn Area (sq ft)</label>
+                        <input type="number" id="lawnArea" value="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="patioArea">Patio/Pathway Area (sq ft)</label>
+                        <input type="number" id="patioArea" value="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="plantArea">Flower Beds/Plants Area (sq ft)</label>
+                        <input type="number" id="plantArea" value="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="waterArea">Water Features Area (sq ft)</label>
+                        <input type="number" id="waterArea" value="0" min="0">
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h3>Quality Level</h3>
+                    <div class="input-group">
+                        <label for="qualityLevel">Select Quality Level</label>
+                        <select id="qualityLevel">
+                            <option value="basic">Basic</option>
+                            <option value="standard" selected>Standard</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h3>Additional Features</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="irrigation">
+                            <label for="irrigation">Irrigation System</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lighting">
+                            <label for="lighting">Outdoor Lighting</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trees">
+                            <label for="trees">Trees/Large Plants</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="fencing">
+                            <label for="fencing">Garden Fencing</label>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateLandscapingCost()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note">* Estimates are based on current market data and may vary. Consult with local landscaping professionals for precise quotes.</div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Understanding Landscaping Costs</h2>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                Professional landscaping costs vary significantly based on several factors. Our landscaping cost calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you need basic lawn care or comprehensive outdoor design, understanding the cost structure helps you budget effectively. Get a detailed landscaping quote and understand the cost of landscaping per square foot for better planning.
+            </p>
+            <p style="margin: 0 0 15px 0; line-height: 1.7;">
+                <b>Key Factors Affecting Landscaping Costs:</b><br>
+                • <b>Project Size:</b> Larger areas require more materials and labor, increasing costs proportionally<br>
+                • <b>Material Quality:</b> Premium materials cost significantly more than basic options<br>
+                • <b>Design Complexity:</b> Complex designs with curves, levels, and special features cost more<br>
+                • <b>Site Conditions:</b> Difficult terrain, poor soil, or accessibility issues increase costs<br>
+                • <b>Additional Features:</b> Irrigation, lighting, and water features add substantial costs<br>
+                • <b>Location:</b> Urban areas typically have higher labor costs than rural areas
+            </p>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Landscaping Project Types & Pricing</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Basic Landscaping</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Lawn Installation:</b> $3-8 per sq ft<br>
+                        <b>Basic Patio:</b> $8-15 per sq ft<br>
+                        <b>Simple Plantings:</b> $5-12 per sq ft<br>
+                        <b>Basic Mulching:</b> $2-5 per sq ft<br>
+                        <b>Landscaping Rock Cost:</b> $3-8 per sq ft
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Basic landscaping focuses on essential elements with standard materials and simple designs. This includes basic landscaping design cost considerations for cost-effective solutions.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="color: #333; margin: 15px 0 10px 0; font-size: 1.2em;">Premium Landscaping</h3>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                        <b>Custom Patio:</b> $15-35 per sq ft<br>
+                        <b>Water Features:</b> $20-50 per sq ft<br>
+                        <b>Irrigation System:</b> $2,000-5,000<br>
+                        <b>Outdoor Lighting:</b> $1,500-4,000<br>
+                        <b>Landscaping Boulders Cost:</b> $50-200 per ton
+                    </p>
+                    <p style="margin: 0; line-height: 1.6;">
+                        Premium landscaping includes high-end materials, custom designs, and luxury features for maximum impact. Professional landscaping service cost typically includes design, installation, and maintenance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="advice">
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Landscaping Cost Calculator FAQs</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does landscaping cost per square foot?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Landscaping costs typically range from $5-35 per square foot, depending on project complexity and materials. Basic lawn installation costs $3-8 per sq ft, while premium patios with water features can cost $25-50 per sq ft. The cost of landscaping per square foot varies by region and project type. Use our landscaping costs calculator for personalized estimates based on your specific project.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What factors affect landscaping costs the most?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> The biggest cost factors are project size, material quality, design complexity, site conditions, and additional features. Premium materials, complex designs, difficult terrain, and features like irrigation or lighting significantly increase costs.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How do I reduce landscaping costs?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Consider starting with basic materials and upgrading later, focusing on high-impact areas first, doing some work yourself, and choosing native plants that require less maintenance. Our calculator helps you see cost differences between quality levels. For specific lawn care costs, check out our <a href="lawn-care-cost-calculator.html" style="color: #2196F3; text-decoration: none;">lawn care cost calculator</a> for detailed lawn maintenance estimates.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What is the average rocks for landscaping cost?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> The cost of rocks for landscaping depends on the type of material, size, and coverage area. On average, decorative rocks or gravel can range from $50 to $200 per ton. Using a Landscaping Cost Calculator helps you estimate total expenses based on your yard size and design needs.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does front yard landscaping cost?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Front yard landscaping costs vary depending on features such as lawns, flower beds, walkways, and lighting. Basic projects may start around $1,500, while more complex designs can exceed $10,000. A landscaping cost calculator gives homeowners an accurate breakdown before hiring professionals.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does landscaping cost for a small yard?</h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">
+                    <strong>A:</strong> Landscaping a small yard usually costs less but still depends on design complexity, materials, and labor. Simple projects might cost $500–$3,000, while customized designs can go higher. Using a landscaping cost calculator helps avoid surprises and ensures your project stays within budget.
+                </p>
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    </div>
+
+    <script>
+        // Base unit costs per square foot
+        const baseCosts = {
+            lawn: 3.50,
+            patio: 12.00,
+            plants: 8.00,
+            water: 25.00
+        };
+
+        // Quality multipliers
+        const qualityMultipliers = {
+            basic: 0.7,
+            standard: 1.0,
+            premium: 1.5
+        };
+
+        // Additional feature costs
+        const additionalCosts = {
+            irrigation: 2000,
+            lighting: 1500,
+            trees: 800,
+            fencing: 1200
+        };
+
+        function calculateLandscapingCost() {
+            // Get input values
+            const lawnArea = parseFloat(document.getElementById('lawnArea').value) || 0;
+            const patioArea = parseFloat(document.getElementById('patioArea').value) || 0;
+            const plantArea = parseFloat(document.getElementById('plantArea').value) || 0;
+            const waterArea = parseFloat(document.getElementById('waterArea').value) || 0;
+            const qualityLevel = document.getElementById('qualityLevel').value;
+            
+            // Get additional features
+            const irrigation = document.getElementById('irrigation').checked;
+            const lighting = document.getElementById('lighting').checked;
+            const trees = document.getElementById('trees').checked;
+            const fencing = document.getElementById('fencing').checked;
+
+            // Calculate project costs
+            const multiplier = qualityMultipliers[qualityLevel];
+            
+            const lawnCost = lawnArea * baseCosts.lawn * multiplier;
+            const patioCost = patioArea * baseCosts.patio * multiplier;
+            const plantCost = plantArea * baseCosts.plants * multiplier;
+            const waterCost = waterArea * baseCosts.water * multiplier;
+
+            // Calculate additional costs
+            let extraCost = 0;
+            if (irrigation) extraCost += additionalCosts.irrigation;
+            if (lighting) extraCost += additionalCosts.lighting;
+            if (trees) extraCost += additionalCosts.trees;
+            if (fencing) extraCost += additionalCosts.fencing;
+
+            // Calculate total
+            const totalCost = lawnCost + patioCost + plantCost + waterCost + extraCost;
+
+            // Calculate budget ranges
+            const lowCost = totalCost * 0.6; // 40% less for basic option
+            const averageCost = totalCost; // Standard option
+            const highCost = totalCost * 1.4; // 40% more for premium option
+
+            // Display results
+            displayResults({
+                lawnCost,
+                patioCost,
+                plantCost,
+                waterCost,
+                extraCost,
+                totalCost,
+                lowCost,
+                averageCost,
+                highCost
+            });
+        }
+
+        function displayResults(costs) {
+            // Display main result
+            document.getElementById('result').innerHTML = `
+                <strong>Estimated Total Cost: $${costs.totalCost.toFixed(0)}</strong>
+            `;
+
+            // Display detailed breakdown
+            document.getElementById('breakdown').style.display = 'block';
+            document.getElementById('breakdown').innerHTML = `
+                <b>Cost Breakdown:</b><br>
+                <b>Lawn (${document.getElementById('lawnArea').value || 0} sq ft):</b> $${costs.lawnCost.toFixed(0)}<br>
+                <b>Patio/Pathway (${document.getElementById('patioArea').value || 0} sq ft):</b> $${costs.patioCost.toFixed(0)}<br>
+                <b>Plants/Flower Beds (${document.getElementById('plantArea').value || 0} sq ft):</b> $${costs.plantCost.toFixed(0)}<br>
+                <b>Water Features (${document.getElementById('waterArea').value || 0} sq ft):</b> $${costs.waterCost.toFixed(0)}<br>
+                <b>Additional Features:</b> $${costs.extraCost.toFixed(0)}<br>
+                <b>Total Cost:</b> $${costs.totalCost.toFixed(0)}<br><br>
+                <b>Budget Options:</b><br>
+                <b>Basic Option:</b> $${costs.lowCost.toFixed(0)} (40% less)<br>
+                <b>Standard Option:</b> $${costs.averageCost.toFixed(0)} (current estimate)<br>
+                <b>Premium Option:</b> $${costs.highCost.toFixed(0)} (40% more)
+            `;
+        }
+
+        function clearForm() {
+            // Clear all input fields
+            document.getElementById('lawnArea').value = '0';
+            document.getElementById('patioArea').value = '0';
+            document.getElementById('plantArea').value = '0';
+            document.getElementById('waterArea').value = '0';
+            document.getElementById('qualityLevel').value = 'standard';
+            
+            // Clear all checkboxes
+            document.getElementById('irrigation').checked = false;
+            document.getElementById('lighting').checked = false;
+            document.getElementById('trees').checked = false;
+            document.getElementById('fencing').checked = false;
+            
+            // Clear results
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // No automatic calculation on page load
+            // Only calculate when button is clicked
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate are landscaping cost estimates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our calculator provides reliable estimates based on current market rates and industry standards. However, actual costs may vary depending on local labor rates, material availability, and specific project requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors affect landscaping costs the most?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The biggest cost factors are project size, material quality, labor complexity, and additional features. Premium materials and complex designs significantly increase costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I include professional installation costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, professional installation typically adds 30-50% to material costs. Our calculator includes labor estimates, but you can adjust based on whether you plan to DIY or hire professionals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reduce landscaping costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consider starting with basic materials and upgrading later, focusing on high-impact areas first, doing some work yourself, and choosing native plants that require less maintenance."
+          }
+        }
+      ]
+    }
+    </script>
+</body>
+</html>
