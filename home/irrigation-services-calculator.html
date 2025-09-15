@@ -42,11 +42,11 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "name": "How much does irrigation installation cost in 2025?"
+        "@id": "https://www.calculatorquote.com/home/irrigation-services-calculator.html"
       }
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
@@ -412,14 +412,29 @@
         }
 
         function calculateIrrigationCost() {
-            const area = parseFloat(document.getElementById('area').value);
+            const areaInput = document.getElementById('area').value.trim();
+            const area = parseFloat(areaInput);
             const unit = document.querySelector('input[name="unit"]:checked').value;
             const systemType = document.getElementById('system-type').value;
             const materialQuality = document.getElementById('material-quality').value;
             const laborRegion = document.getElementById('labor-region').value;
 
-            if (!area) {
+            // Enhanced input validation
+            if (!areaInput) {
                 alert('Please enter your lawn/garden area.');
+                document.getElementById('area').focus();
+                return;
+            }
+
+            if (isNaN(area) || area <= 0) {
+                alert('Please enter a valid positive number for the area.');
+                document.getElementById('area').focus();
+                return;
+            }
+
+            if (area > 1000000) {
+                alert('Area seems too large. Please check your input.');
+                document.getElementById('area').focus();
                 return;
             }
 
