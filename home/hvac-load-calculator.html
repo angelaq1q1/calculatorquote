@@ -9,6 +9,73 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.calculatorquote.com/home/hvac-load-calculator.html#page",
+  "name": "HVAC Load Calculator | Free Heat & AC Load Calculation Online",
+  "url": "https://www.calculatorquote.com/home/hvac-load-calculator.html",
+  "description": "Try our free HVAC Load Calculator to estimate heating and cooling needs quickly. Get accurate AC load calc, heat load calculation, and residential HVAC sizing results online in minutes.",
+  "inLanguage": "en",
+  "datePublished": "2025-09-06T00:00:00Z",
+  "dateModified": "2025-09-06T00:00:00Z",
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "HVAC Load Calculator",
+    "description": "Free online HVAC load calculator for estimating heating and cooling requirements",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "AC load calculation",
+      "Heat load calculation", 
+      "HVAC system sizing",
+      "BTU calculator",
+      "Tonnage calculator",
+      "Climate zone analysis",
+      "Insulation factor calculation"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://www.calculatorquote.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.calculatorquote.com/logo.png"
+    }
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "https://www.calculatorquote.com/home/hvac-load-calculator.html#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.calculatorquote.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home & Garden",
+        "item": "https://www.calculatorquote.com/home/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "HVAC Load Calculator",
+        "item": "https://www.calculatorquote.com/home/hvac-load-calculator.html"
+      }
+    ]
+  }
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -134,10 +201,30 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
+            flex: 1;
         }
         .btn-calculate:hover {
             background-color: #1976D2;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #90caf9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+        .btn-clear:hover {
+            background-color: #64b5f6;
         }
         .result {
             margin-top: 18px;
@@ -181,6 +268,10 @@
         @media (max-width: 768px) {
             .two-column {
                 grid-template-columns: 1fr;
+            }
+            .buttons {
+                gap: 12px;
+                max-width: 100%;
             }
         }
         .load-highlight {
@@ -301,7 +392,10 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-calculate" onclick="calculateHVACLoad()">Calculate HVAC Load</button>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateHVACLoad()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
             <div class="result" id="result"></div>
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note">* This calculator provides estimates based on standard load calculation methods. For precise sizing, consult with a licensed HVAC contractor.</div>
@@ -399,6 +493,24 @@
             'average': { heating: 1.0, cooling: 1.0 },
             'tight': { heating: 0.8, cooling: 0.9 }
         };
+
+        function clearForm() {
+            document.getElementById('home-area').value = '';
+            document.getElementById('climate-zone').value = '1';
+            document.getElementById('room-count').value = '6';
+            document.getElementById('ceiling-height').value = '8';
+            document.getElementById('window-type').value = 'single';
+            document.getElementById('window-count').value = '8';
+            document.getElementById('insulation').value = 'poor';
+            document.getElementById('orientation').value = 'north';
+            document.getElementById('occupants').value = '4';
+            document.getElementById('appliances').value = '5';
+            document.getElementById('sun-exposure').value = 'heavy';
+            document.getElementById('air-tightness').value = 'leaky';
+            
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
 
         function calculateHVACLoad() {
             const homeArea = parseFloat(document.getElementById('home-area').value) || 0;
