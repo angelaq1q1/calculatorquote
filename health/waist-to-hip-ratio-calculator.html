@@ -45,71 +45,79 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <!-- Template Main CSS -->
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
-        :root {
-            --text-primary: #333;
-            --text-secondary: #666;
+        
+        /* Override any other font declarations */
+        h1, h2, h3, h4, h5, h6, p, div, span, label, input, select, button, a, li, ul, ol, table, th, td {
+            font-family: 'Raleway', sans-serif !important;
         }
-
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto 20px auto;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
 
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+        /* Remove top margin from container to eliminate gap between navbar and content */
+        .container {
+            margin-top: 0;
+            padding-top: 0;
         }
 
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
         h1 {
-            color: var(--text-primary);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
-        .info-text {
-            color: var(--text-secondary);
-            font-size: 1.1em;
-            margin-bottom: 25px;
-        }
-
-        .calculator {
-            margin-bottom: 30px;
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .input-group {
@@ -129,7 +137,16 @@
             gap: 10px;
         }
 
-        .input-field-container input,
+        .input-field-container input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            max-width: 120px;
+        }
+
         .input-field-container select {
             flex: 1;
             padding: 12px;
@@ -137,19 +154,20 @@
             border-radius: 5px;
             font-size: 1em;
             outline: none;
+            max-width: 120px;
         }
 
         .input-field-container input:focus,
         .input-field-container select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .unit {
             padding: 12px;
-            background-color: #e3f2fd;
+            background-color: #f8f9fa;
             border: 1px solid #ddd;
             border-radius: 5px;
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             min-width: 60px;
             text-align: center;
@@ -177,7 +195,7 @@
         .gender-option label {
             display: block;
             padding: 12px;
-            border: 1px solid #2196F3;
+            border: 1px solid #eb5424;
             border-radius: 5px;
             text-align: center;
             cursor: pointer;
@@ -185,24 +203,24 @@
             font-weight: 500;
             font-size: 1em;
             background: white;
-            color: #2196F3;
+            color: #eb5424;
         }
 
         .gender-option input[type="radio"]:checked + label {
-            background: #2196F3;
+            background: #eb5424;
             color: white;
         }
 
         .buttons {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            max-width: 200px;
-            margin-top: 25px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -213,11 +231,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -228,46 +246,52 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .results {
-            flex: 1;
-            padding: 25px;
+            margin-top: 30px;
+            padding: 20px;
             background-color: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e9ecef;
         }
 
-        .results h2 {
+        .result-section h2 {
             color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            margin-bottom: 20px;
         }
 
-        .results p {
-            margin: 0;
-            padding: 8px 0;
-            font-size: 1.1em;
-            color: #333;
+        .result-main {
+            font-size: 2em;
+            color: #eb5424;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        .results .value {
-            color: #2196F3;
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .result-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .result-item h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .result-item p {
+            color: #eb5424;
+            font-size: 1.2em;
             font-weight: 500;
-            margin-left: 8px;
-        }
-
-        .whr-value {
-            font-size: 1.5em !important;
-            color: #2196F3 !important;
         }
 
         .risk-category {
@@ -323,24 +347,76 @@
         }
 
         @media (max-width: 768px) {
-            .result-section {
-                flex-direction: column;
+            .calculator-container {
+                padding: 20px;
             }
-            
+
+            .input-field-container {
+                flex-wrap: wrap;
+            }
+
+            .input-field-container input {
+                max-width: none;
+            }
+
+            .result-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .buttons {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 12px;
                 max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
             
             .gender-options {
                 flex-direction: column;
             }
         }
+
+        @media (max-width: 480px) {
+            .result-details {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../business/index.html" class="smoothScroll">Business</a></li>
+                    <li><a href="../lifestyle/index.html" class="smoothScroll">Lifestyle</a></li>
+                    <li><a href="../about-us.html" class="smoothScroll">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <div class="container">
+        <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -349,33 +425,38 @@
             <span>Waist-to-Hip Ratio Calculator</span>
         </div>
 
-        <h1>Waist to Hip Ratio Calculator – Know Your Health Risks</h1>
-        <p class="info-text">Worried about your body shape or health? Weight alone doesn't show fat distribution, which affects heart disease and diabetes risk. Our Waist to Hip Ratio Calculator measures your waist and hips instantly. See your ratio, understand your health, and make smarter choices for diet, exercise, and lifestyle today.</p>
+        <h1>Free Online Waist-to-Hip Ratio Calculator – Know Your Health Risks</h1>
+        <div class="description">Worried about your body shape or health? Weight alone doesn't show fat distribution, which affects heart disease and diabetes risk. Our Waist to Hip Ratio Calculator measures your waist and hips instantly. See your ratio, understand your health, and make smarter choices for diet, exercise, and lifestyle today.</div>
 
         <div class="calculator">
             <form id="whrForm">
-                <div class="input-group">
-                    <label for="waist">Waist Circumference:</label>
-                    <div class="input-field-container">
-                        <input type="number" id="waist" name="waist" step="0.1" min="0" placeholder="Enter waist measurement">
-                        <select id="waistUnit" name="waistUnit">
-                            <option value="cm">cm</option>
-                            <option value="in">inches</option>
-                        </select>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label for="waist">Waist Circumference:</label>
+                            <div class="input-field-container">
+                                <input type="number" id="waist" name="waist" step="0.1" min="0" placeholder="Enter waist measurement" class="form-control">
+                                <select id="waistUnit" name="waistUnit" class="form-control">
+                                    <option value="cm">cm</option>
+                                    <option value="in">inches</option>
+                                </select>
+                            </div>
+                            <div class="error" id="waistError">Please enter a valid waist measurement</div>
+                        </div>
                     </div>
-                    <div class="error" id="waistError">Please enter a valid waist measurement</div>
-                </div>
-
-                <div class="input-group">
-                    <label for="hip">Hip Circumference:</label>
-                    <div class="input-field-container">
-                        <input type="number" id="hip" name="hip" step="0.1" min="0" placeholder="Enter hip measurement">
-                        <select id="hipUnit" name="hipUnit">
-                            <option value="cm">cm</option>
-                            <option value="in">inches</option>
-                        </select>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label for="hip">Hip Circumference:</label>
+                            <div class="input-field-container">
+                                <input type="number" id="hip" name="hip" step="0.1" min="0" placeholder="Enter hip measurement" class="form-control">
+                                <select id="hipUnit" name="hipUnit" class="form-control">
+                                    <option value="cm">cm</option>
+                                    <option value="in">inches</option>
+                                </select>
+                            </div>
+                            <div class="error" id="hipError">Please enter a valid hip measurement</div>
+                        </div>
                     </div>
-                    <div class="error" id="hipError">Please enter a valid hip measurement</div>
                 </div>
 
                 <div class="gender-selection">
@@ -399,61 +480,84 @@
             </form>
 
             <div class="result-section" id="result-section" style="display: none;">
-                <div class="results">
-                    <h2>Results</h2>
-                    <p>Waist Circumference: <span id="waistResult" class="value">-</span></p>
-                    <p>Hip Circumference: <span id="hipResult" class="value">-</span></p>
-                    <p>Waist-to-Hip Ratio: <span id="whrResult" class="value whr-value">-</span></p>
-                    <p>Health Risk: <span id="riskLevel" class="value">-</span></p>
-                    <div id="risk-category-box" class="risk-category"></div>
+                <h2>Results</h2>
+                <div class="result-main" id="whrMain">-</div>
+                
+                <div class="result-details">
+                    <div class="result-item">
+                        <h3>Waist Circumference</h3>
+                        <p id="waistResult">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Hip Circumference</h3>
+                        <p id="hipResult">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Waist-to-Hip Ratio</h3>
+                        <p id="whrResult">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Health Risk</h3>
+                        <p id="riskLevel">-</p>
+                    </div>
                 </div>
+                <div id="risk-category-box" class="risk-category"></div>
             </div>
 
             <div class="tips">
                 <h3>💡 Health Tips</h3>
-                <ul>
-                    <li>Measure at the narrowest part of your waist (usually just above the belly button)</li>
-                    <li>Measure your hips at the widest part of your buttocks</li>
-                    <li>For best results, measure in the morning before eating</li>
-                    <li>Combine WHR with other health metrics like BMI for a complete assessment</li>
-                    <li>Regular exercise and a balanced diet can help improve your WHR</li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li>Measure at the narrowest part of your waist (usually just above the belly button)</li>
+                            <li>Measure your hips at the widest part of your buttocks</li>
+                            <li>For best results, measure in the morning before eating</li>
+                            <li>Combine WHR with other health metrics like BMI for a complete assessment</li>
+                            <li>Regular exercise and a balanced diet can help improve your WHR</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- FAQ Section -->
-    <div class="calculator-container" style="max-width: 800px; margin: 20px auto; padding: 30px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);">
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
+        <!-- FAQ Section -->
+        <div class="calculator-container" style="max-width: 800px; margin: 0 auto 20px auto; padding: 30px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);">
+            <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
+            <div class="row">
+                <div class="col-md-12">
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Why is waist-hip ratio important?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio (WHR) is an important health indicator because it measures the distribution of body fat. A higher WHR indicates more abdominal fat, which is associated with increased health risks including cardiovascular disease, diabetes, and metabolic syndrome. Unlike BMI, WHR specifically identifies where fat is stored in your body, making it a more accurate predictor of health risks related to obesity.</p>
-        </div>
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q1: Why is waist-hip ratio important?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio (WHR) is an important health indicator because it measures the distribution of body fat. A higher WHR indicates more abdominal fat, which is associated with increased health risks including cardiovascular disease, diabetes, and metabolic syndrome. Unlike BMI, WHR specifically identifies where fat is stored in your body, making it a more accurate predictor of health risks related to obesity.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q2: How should I measure waist and hips?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: <strong>Waist measurement:</strong> Stand straight and measure around the narrowest part of your waist, usually just above the belly button. Don't suck in your stomach or pull the tape too tight.<br><strong>Hip measurement:</strong> Measure around the widest part of your hips and buttocks. The tape should be parallel to the floor and snug but not tight. For best results, measure in the morning before eating, wear minimal clothing, and use a flexible measuring tape.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q3: How do I calculate the waist to hip ratio?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio is calculated by dividing your waist circumference by your hip circumference. The formula is: <strong>WHR = Waist Circumference ÷ Hip Circumference</strong>. For example, if your waist is 80 cm and your hips are 100 cm, your WHR would be 0.8. The ratio is expressed as a decimal number, and the interpretation depends on your gender and the resulting value.</p>
+                    </div>
         
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How should I measure waist and hips?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: <strong>Waist measurement:</strong> Stand straight and measure around the narrowest part of your waist, usually just above the belly button. Don't suck in your stomach or pull the tape too tight.<br><strong>Hip measurement:</strong> Measure around the widest part of your hips and buttocks. The tape should be parallel to the floor and snug but not tight. For best results, measure in the morning before eating, wear minimal clothing, and use a flexible measuring tape.</p>
-        </div>
-        
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How do I calculate the waist to hip ratio?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio is calculated by dividing your waist circumference by your hip circumference. The formula is: <strong>WHR = Waist Circumference ÷ Hip Circumference</strong>. For example, if your waist is 80 cm and your hips are 100 cm, your WHR would be 0.8. The ratio is expressed as a decimal number, and the interpretation depends on your gender and the resulting value.</p>
-        </div>
-        
-        <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: How does the waist to hip ratio calculator work?</p>
-            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Our calculator automatically computes your WHR by dividing your waist measurement by your hip measurement. Simply enter your waist and hip measurements in either centimeters or inches, select your gender, and click calculate. The calculator will instantly provide your WHR value and assess your health risk level based on established guidelines: for women, a WHR ≤0.80 is healthy, 0.81-0.85 is moderate risk, and >0.85 is high risk. For men, the thresholds are ≤0.90, 0.91-0.95, and >0.95 respectively.</p>
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q4: How does the waist to hip ratio calculator work?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Our calculator automatically computes your WHR by dividing your waist measurement by your hip measurement. Simply enter your waist and hip measurements in either centimeters or inches, select your gender, and click calculate. The calculator will instantly provide your WHR value and assess your health risk level based on established guidelines: for women, a WHR ≤0.80 is healthy, 0.81-0.85 is moderate risk, and >0.85 is high risk. For men, the thresholds are ≤0.90, 0.91-0.95, and >0.95 respectively.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -524,6 +628,7 @@
 
         function displayResults(waist, hip, waistUnit, hipUnit, whr, gender) {
             // Display measurements
+            document.getElementById('whrMain').textContent = `WHR: ${whr.toFixed(3)}`;
             document.getElementById('waistResult').textContent = `${waist} ${waistUnit}`;
             document.getElementById('hipResult').textContent = `${hip} ${hipUnit}`;
             document.getElementById('whrResult').textContent = whr.toFixed(3);
@@ -540,7 +645,7 @@
             riskCategoryBox.className = `risk-category category-${riskAssessment.category}`;
 
             // Show results
-            document.getElementById('result-section').style.display = 'flex';
+            document.getElementById('result-section').style.display = 'block';
         }
 
         function assessRisk(whr, gender) {
@@ -600,5 +705,20 @@
             document.getElementById('waistUnit').value = this.value;
         });
     </script>
+
+    <!-- jQuery JS -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- ImagesLoaded JS -->
+    <script src="../js/imagesloaded.min.js"></script>
+    <!-- Isotope JS -->
+    <script src="../js/isotope.js"></script>
+    <!-- jQuery Nav JS -->
+    <script src="../js/jquery.nav.js"></script>
+    <!-- SmoothScroll JS -->
+    <script src="../js/smoothscroll.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/custom.js"></script>
 </body>
 </html>

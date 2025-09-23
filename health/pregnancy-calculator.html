@@ -28,24 +28,24 @@
   }
 }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto 20px auto;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
@@ -53,58 +53,38 @@
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .calculator-options {
-            margin-bottom: 20px;
-        }
-
-        .calculator-options label {
-            display: block;
-            margin-bottom: 10px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .calculator-options select {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            outline: none;
-            margin-bottom: 20px;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .input-group {
@@ -122,8 +102,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
         }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            max-width: 120px;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #eb5424;
+        }
+
 
         .input-field-container input[type="date"] {
             flex: 1;
@@ -170,13 +166,15 @@
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -187,11 +185,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -202,7 +200,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
@@ -218,28 +216,35 @@
             margin-bottom: 20px;
         }
 
-        .result-table {
-            width: 100%;
-            border-collapse: collapse;
+        .result-main {
+            font-size: 2em;
+            color: #eb5424;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        .result-table th,
-        .result-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #dee2e6;
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .result-table th {
-            font-weight: 500;
-            color: #495057;
-            background-color: #e9ecef;
-            width: 40%;
+        .result-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .result-table td {
-            color: #2196F3;
+        .result-item h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .result-item p {
+            color: #eb5424;
+            font-size: 1.2em;
             font-weight: 500;
         }
 
@@ -249,17 +254,19 @@
 
         .reference-section h2 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .reference-section h3 {
-            color: #495057;
-            margin: 20px 0 10px;
+            color: #333;
+            margin-bottom: 10px;
+            margin-top: 25px;
+            font-size: 1.1em;
         }
 
         .reference-section p {
-            color: #666;
-            line-height: 1.6;
+            color: #606060;
+            line-height: 28px;
             margin-bottom: 15px;
         }
 
@@ -272,8 +279,25 @@
                 flex-wrap: wrap;
             }
 
-            .input-field-container input[type="date"] {
+            .input-field-container input {
                 max-width: none;
+            }
+
+            .result-details {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
         }
 
@@ -334,7 +358,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 16px;
@@ -407,7 +431,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232196F3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 16px;
@@ -416,337 +440,358 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Health Calculators</a>
-            <span>/</span>
-            Pregnancy Calculator
-        </div>
-
-        <h1>Pregnancy Calculator – Your Due Date Buddy (No Baby Book Required)</h1>
-        
-        <div class="description">
-            Expecting? 🎉 Our free online Pregnancy Calculator helps you estimate your due date, track how far along you are, and predict your baby's progress — all based on your last menstrual period or conception date. Whether you're planning nursery colors or counting trimesters, this tool gives you the clarity (and comfort) you need, without needing a medical degree or twelve baby apps.
-        </div>
-
-        <div class="calculator-options">
-            <label for="calculation-method">Calculate Based On:</label>
-            <select id="calculation-method" onchange="toggleInputs()">
-                <option value="due-date">Due Date</option>
-                <option value="last-period">Last Period</option>
-                <option value="ultrasound">Ultrasound</option>
-                <option value="conception">Conception Date</option>
-                <option value="ivf">IVF Transfer Date</option>
-            </select>
-        </div>
-
-        <div id="due-date-inputs" class="input-group">
-            <label>Due Date:</label>
-            <div class="input-field-container date-select-group">
-                <select id="due-date-month" class="date-select">
-                    <option value="" disabled>Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <select id="due-date-day" class="date-select">
-                    <option value="" disabled>Day</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                <input type="number" id="due-date-year" class="date-select year-input" placeholder="Year" min="2024" max="2100">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-        </div>
-
-        <div id="last-period-inputs" class="input-group" style="display: none;">
-            <label>First Day of Last Period:</label>
-            <div class="input-field-container">
-                <input type="date" id="last-period-date">
-            </div>
-            <label>Average Length of Cycles:</label>
-            <div class="input-field-container">
-                <select id="cycle-length">
-                    <option value="28">28 days</option>
-                    <option value="21">21 days</option>
-                    <option value="22">22 days</option>
-                    <option value="23">23 days</option>
-                    <option value="24">24 days</option>
-                    <option value="25">25 days</option>
-                    <option value="26">26 days</option>
-                    <option value="27">27 days</option>
-                    <option value="29">29 days</option>
-                    <option value="30">30 days</option>
-                    <option value="31">31 days</option>
-                    <option value="32">32 days</option>
-                    <option value="33">33 days</option>
-                    <option value="34">34 days</option>
-                    <option value="35">35 days</option>
-                </select>
-            </div>
-        </div>
-
-        <div id="ultrasound-inputs" class="input-group" style="display: none;">
-            <label>Ultrasound Date:</label>
-            <div class="input-field-container">
-                <input type="date" id="ultrasound-date">
-            </div>
-            <label>Length of Pregnancy at Time of Ultrasound:</label>
-            <div class="input-field-container">
-                <input type="number" id="ultrasound-weeks" min="0" max="42" placeholder="Weeks" style="width: 100px;">
-                <input type="number" id="ultrasound-days" min="0" max="6" placeholder="Days" style="width: 100px;">
-            </div>
-        </div>
-
-        <div id="conception-inputs" class="input-group" style="display: none;">
-            <label>Conception Date:</label>
-            <div class="input-field-container">
-                <input type="date" id="conception-date">
-            </div>
-        </div>
-
-        <div id="ivf-inputs" class="input-group" style="display: none;">
-            <label>Transfer Date:</label>
-            <div class="input-field-container">
-                <input type="date" id="transfer-date">
-            </div>
-            <label>Embryo Age:</label>
-            <div class="input-field-container">
-                <select id="embryo-age">
-                    <option value="3">3 days</option>
-                    <option value="5">5 days</option>
-                    <option value="6">6 days</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="buttons">
-            <button class="btn-calculate" onclick="calculateDates()">Calculate</button>
-            <button class="btn-clear" onclick="clearInputs()">Clear</button>
-        </div>
-
-        <div class="result-section" id="results" style="display: none;">
-            <h2>Pregnancy Timeline</h2>
-            <table class="result-table">
-                <tr>
-                    <th>Due Date</th>
-                    <td id="result-due-date">-</td>
-                </tr>
-                <tr>
-                    <th>Conception Date</th>
-                    <td id="result-conception-date">-</td>
-                </tr>
-                <tr>
-                    <th>Last Period Date</th>
-                    <td id="result-last-period">-</td>
-                </tr>
-                <tr>
-                    <th>Current Gestational Age</th>
-                    <td id="result-gestational-age">-</td>
-                </tr>
-                <tr>
-                    <th>First Trimester</th>
-                    <td id="result-first-trimester">-</td>
-                </tr>
-                <tr>
-                    <th>Second Trimester</th>
-                    <td id="result-second-trimester">-</td>
-                </tr>
-                <tr>
-                    <th>Third Trimester</th>
-                    <td id="result-third-trimester">-</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="reference-section">
-            <h2>Reference Information</h2>
-            
-            <h3>Pregnancy Term & Due Date</h3>
-            <p>Pregnancy typically lasts about 40 weeks (280 days) from the first day of your last menstrual period (LMP) to childbirth. The due date is an estimate, with only about 4% of births occurring on the exact due date. About 90% of births occur within two weeks of the due date.</p>
-            
-            <h3>Pregnancy Timeline</h3>
-            <p>• First Trimester: Weeks 1-13<br>
-               • Second Trimester: Weeks 14-26<br>
-               • Third Trimester: Weeks 27-40</p>
-
-            <h3>Important Notes</h3>
-            <p>• The due date is an estimate based on average pregnancy length<br>
-               • Only about 4% of babies are born on their exact due date<br>
-               • About 60% of babies are born within one week of their due date<br>
-               • About 90% of babies are born within two weeks of their due date<br>
-               • A pregnancy is considered full term between 37 and 42 weeks</p>
-
-            <h2>👶 Pregnancy Calculator – Because Pregnancy Math > Regular Math 💀</h2>
-            
-            <p>Let's be honest:<br>
-            You just peed on a stick, and now Google is your OB-GYN.</p>
-
-            <p>You're trying to figure out:<br>
-            "How many weeks pregnant am I?"<br>
-            "When is this baby due?"<br>
-            "Why am I crying at a diaper commercial?"</p>
-
-            <p>Good news: our Pregnancy Calculator is here to take the math out of motherhood (and mood swings). It's free, instant, and doesn't require a login—or a therapist.</p>
-
-            <h3>💡 What does it do?</h3>
-            <p>✅ Calculates your due date based on last menstrual period or conception<br>
-               ✅ Tracks how far along you are, week-by-week<br>
-               ✅ Tells you which trimester you're in (and when the nausea might chill)<br>
-               ✅ Helps you plan the baby shower, doctor appointments, and when to panic-buy onesies<br>
-               ✅ Works on any device — no app, no nonsense</p>
-
-            <h3>❓ FAQ – because Googling at 2 AM only helps so much</h3>
-            <p><strong>Q: Is this like... accurate?</strong><br>
-            A: It uses medically backed formulas. It's not magic, but it's also not guessing like your aunt Karen.</p>
-
-            <p><strong>Q: Do I need to download something?</strong><br>
-            A: Nope. This isn't 2007. Just bookmark and go.</p>
-
-            <p><strong>Q: I don't know my exact LMP. What now?</strong><br>
-            A: That's okay — you can estimate using conception date or early ultrasound info. We're chill.</p>
-
-            <p><strong>Q: Will this help deliver my baby too?</strong><br>
-            A: No. But it will deliver answers faster than your OB's voicemail.</p>
-
-            <h3>🧠 Pro tip:</h3>
-            <p>Bookmark this page now. Use it to track your baby's progress, impress your partner with trimester trivia, or shut down unsolicited advice with cold, hard dates.</p>
-
-            <p>Because pregnancy is already full of surprises — your calculator shouldn't be one of them.</p>
-
-            <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
-                <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Calculators</h2>
-                <ul style="list-style:none;padding:0;">
-                    <li style="margin-bottom:14px;">
-                        <a href="bmi-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">BMI Calculator</a>
-                        <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your Body Mass Index</span>
-                    </li>
-                    <li style="margin-bottom:14px;">
-                        <a href="calorie-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Calorie Calculator</a>
-                        <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your daily calorie needs</span>
-                    </li>
-                    <li style="margin-bottom:14px;">
-                        <a href="ideal-weight-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Ideal Weight Calculator</a>
-                        <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your ideal body weight</span>
-                    </li>
-                    <li style="margin-bottom:14px;">
-                        <a href="body-fat-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Body Fat Calculator</a>
-                        <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your body fat percentage</span>
-                    </li>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+        <div class="calculator-container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Health Calculators</a>
+                <span>/</span>
+                Pregnancy Calculator
+            </div>
+
+            <h1>Free Online Pregnancy Calculator – Track Your Due Date & Baby's Progress</h1>
+            
+            <div class="description">Expecting? 🎉 Our free online Pregnancy Calculator helps you estimate your due date, track how far along you are, and predict your baby's progress — all based on your last menstrual period or conception date. Whether you're planning nursery colors or counting trimesters, this tool gives you the clarity (and comfort) you need, without needing a medical degree or twelve baby apps.</div>
+
+            <div class="input-group">
+                <div class="input-field-container">
+                    <label for="calculation-method" style="margin-right: 10px; margin-bottom: 0; display: inline-block; min-width: 120px;">Calculate Based On:</label>
+                    <select id="calculation-method" onchange="toggleInputs()" style="max-width: 200px;">
+                        <option value="due-date">Due Date</option>
+                        <option value="last-period">Last Period</option>
+                        <option value="ultrasound">Ultrasound</option>
+                        <option value="conception">Conception Date</option>
+                        <option value="ivf">IVF Transfer Date</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="due-date-inputs" class="input-group">
+                <div class="input-field-container">
+                    <label style="margin-right: 10px; margin-bottom: 0; display: inline-block; min-width: 80px;">Due Date:</label>
+                    <select id="due-date-month" style="max-width: 120px;">
+                        <option value="" disabled>Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="due-date-day" style="max-width: 80px;">
+                        <option value="" disabled>Day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <input type="number" id="due-date-year" placeholder="Year" min="2024" max="2100" style="max-width: 100px;">
+                </div>
+            </div>
+
+            <div id="last-period-inputs" class="input-group" style="display: none;">
+                <label>First Day of Last Period:</label>
+                <div class="input-field-container">
+                    <input type="date" id="last-period-date">
+                </div>
+                <label>Average Length of Cycles:</label>
+                <div class="input-field-container">
+                    <select id="cycle-length">
+                        <option value="28">28 days</option>
+                        <option value="21">21 days</option>
+                        <option value="22">22 days</option>
+                        <option value="23">23 days</option>
+                        <option value="24">24 days</option>
+                        <option value="25">25 days</option>
+                        <option value="26">26 days</option>
+                        <option value="27">27 days</option>
+                        <option value="29">29 days</option>
+                        <option value="30">30 days</option>
+                        <option value="31">31 days</option>
+                        <option value="32">32 days</option>
+                        <option value="33">33 days</option>
+                        <option value="34">34 days</option>
+                        <option value="35">35 days</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="ultrasound-inputs" class="input-group" style="display: none;">
+                <label>Ultrasound Date:</label>
+                <div class="input-field-container">
+                    <input type="date" id="ultrasound-date">
+                </div>
+                <label>Length of Pregnancy at Time of Ultrasound:</label>
+                <div class="input-field-container">
+                    <input type="number" id="ultrasound-weeks" min="0" max="42" placeholder="Weeks">
+                    <input type="number" id="ultrasound-days" min="0" max="6" placeholder="Days">
+                </div>
+            </div>
+
+            <div id="conception-inputs" class="input-group" style="display: none;">
+                <label>Conception Date:</label>
+                <div class="input-field-container">
+                    <input type="date" id="conception-date">
+                </div>
+            </div>
+
+            <div id="ivf-inputs" class="input-group" style="display: none;">
+                <label>Transfer Date:</label>
+                <div class="input-field-container">
+                    <input type="date" id="transfer-date">
+                </div>
+                <label>Embryo Age:</label>
+                <div class="input-field-container">
+                    <select id="embryo-age">
+                        <option value="3">3 days</option>
+                        <option value="5">5 days</option>
+                        <option value="6">6 days</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateDates()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+
+            <div class="result-section" id="results" style="display: none;">
+                <h2>Results</h2>
+                <div class="result-main" id="pregnancyMain">-</div>
+                
+                <div class="result-details">
+                    <div class="result-item">
+                        <h3>Due Date</h3>
+                        <p id="result-due-date">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Conception Date</h3>
+                        <p id="result-conception-date">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Last Period Date</h3>
+                        <p id="result-last-period">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Current Gestational Age</h3>
+                        <p id="result-gestational-age">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>First Trimester</h3>
+                        <p id="result-first-trimester">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Second Trimester</h3>
+                        <p id="result-second-trimester">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Third Trimester</h3>
+                        <p id="result-third-trimester">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reference-section">
+                <h2>Reference Information</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Pregnancy Term & Due Date</h3>
+                        <p>Pregnancy typically lasts about 40 weeks (280 days) from the first day of your last menstrual period (LMP) to childbirth. The due date is an estimate, with only about 4% of births occurring on the exact due date. About 90% of births occur within two weeks of the due date.</p>
+                        
+                        <h3>Pregnancy Timeline</h3>
+                        <p>• First Trimester: Weeks 1-13<br>
+                           • Second Trimester: Weeks 14-26<br>
+                           • Third Trimester: Weeks 27-40</p>
+
+                        <h3>Important Notes</h3>
+                        <p>• The due date is an estimate based on average pregnancy length<br>
+                           • Only about 4% of babies are born on their exact due date<br>
+                           • About 60% of babies are born within one week of their due date<br>
+                           • About 90% of babies are born within two weeks of their due date<br>
+                           • A pregnancy is considered full term between 37 and 42 weeks</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="font-size: 1.2em;">👶 Pregnancy Calculator – Because Pregnancy Math > Regular Math 💀</h2>
+                    
+                    <div class="description">
+                        <p>Let's be real:</p>
+                        <p>You just peed on a stick, and now Google is your OB-GYN.</p>
+                        <p>You're trying to figure out:<br>
+                        "How many weeks pregnant am I?"<br>
+                        "When is this baby due?"<br>
+                        "Why am I crying at a diaper commercial?"</p>
+                        <p>Good news: our Pregnancy Calculator is here to take the math out of motherhood (and mood swings). It's free, instant, and doesn't require a login—or a therapist.</p>
+                    </div>
+
+                    <div class="description">
+                        <h3>💡 What does it do?</h3>
+                        <p>✅ Calculates your due date based on last menstrual period or conception</p>
+                        <p>✅ Tracks how far along you are, week-by-week</p>
+                        <p>✅ Tells you which trimester you're in (and when the nausea might chill)</p>
+                        <p>✅ Helps you plan the baby shower, doctor appointments, and when to panic-buy onesies</p>
+                        <p>✅ Works on any device — no app, no nonsense</p>
+                    </div>
+
+                    <div class="description">
+                        <h3>❓ FAQ – because Googling at 2 AM only helps so much</h3>
+                        <p><strong>Q1: Is this like... accurate?</strong><br>
+                        A: It uses medically backed formulas. It's not magic, but it's also not guessing like your aunt Karen.</p>
+
+                        <p><strong>Q2: Do I need to download something?</strong><br>
+                        A: Nope. This isn't 2007. Just bookmark and go.</p>
+
+                        <p><strong>Q3: I don't know my exact LMP. What now?</strong><br>
+                        A: That's okay — you can estimate using conception date or early ultrasound info. We're chill.</p>
+
+                        <p><strong>Q4: Will this help deliver my baby too?</strong><br>
+                        A: No. But it will deliver answers faster than your OB's voicemail.</p>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <script>
-        function toggleInputs() {
-            const method = document.getElementById('calculation-method').value;
-            const allInputs = ['due-date-inputs', 'last-period-inputs', 'ultrasound-inputs', 'conception-inputs', 'ivf-inputs'];
-            
-            allInputs.forEach(inputId => {
-                document.getElementById(inputId).style.display = 'none';
-            });
-            
-            document.getElementById(`${method}-inputs`).style.display = 'block';
-        }
+            <script>
+                function toggleInputs() {
+                    const method = document.getElementById('calculation-method').value;
+                    const allInputs = ['due-date-inputs', 'last-period-inputs', 'ultrasound-inputs', 'conception-inputs', 'ivf-inputs'];
+                    
+                    allInputs.forEach(inputId => {
+                        document.getElementById(inputId).style.display = 'none';
+                    });
+                    
+                    document.getElementById(`${method}-inputs`).style.display = 'block';
+                }
 
-        function formatDate(date) {
-            const months = [
-                'January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'
-            ];
-            
-            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-        }
+                function formatDate(date) {
+                    const months = [
+                        'January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'
+                    ];
+                    
+                    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+                }
 
-        function addDays(date, days) {
-            const result = new Date(date);
-            result.setDate(result.getDate() + days);
-            return result;
-        }
+                function addDays(date, days) {
+                    const result = new Date(date);
+                    result.setDate(result.getDate() + days);
+                    return result;
+                }
 
-        function subtractDays(date, days) {
-            return addDays(date, -days);
-        }
+                function subtractDays(date, days) {
+                    return addDays(date, -days);
+                }
 
-        function calculateGestationalAge(startDate) {
-            const today = new Date();
-            const diffTime = Math.abs(today - startDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            const weeks = Math.floor(diffDays / 7);
-            const days = diffDays % 7;
-            return `${weeks} weeks and ${days} days`;
-        }
+                function calculateGestationalAge(startDate) {
+                    const today = new Date();
+                    const diffTime = Math.abs(today - startDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    const weeks = Math.floor(diffDays / 7);
+                    const days = diffDays % 7;
+                    return `${weeks} weeks and ${days} days`;
+                }
 
-        // Set today's date as min date for inputs and placeholder
-        const today = new Date().toISOString().split('T')[0];
-        const dueDateInput = document.getElementById('due-date');
-        dueDateInput.min = today;
-        dueDateInput.placeholder = "YYYY/MM/DD";
+                // Set today's date as min date for inputs and placeholder
+                const today = new Date().toISOString().split('T')[0];
+                const dueDateInput = document.getElementById('due-date');
+                dueDateInput.min = today;
+                dueDateInput.placeholder = "YYYY/MM/DD";
 
-        // Format the date input display
-        document.getElementById('due-date').addEventListener('change', function(e) {
-            const date = new Date(this.value);
-            if (!isNaN(date.getTime())) {
-                this.type = 'text';
-                this.value = formatDate(date);
-            }
-        });
+                // Format the date input display
+                document.getElementById('due-date').addEventListener('change', function(e) {
+                    const date = new Date(this.value);
+                    if (!isNaN(date.getTime())) {
+                        this.type = 'text';
+                        this.value = formatDate(date);
+                    }
+                });
 
-        // Keep the original date value for calculations
-        let actualDueDate;
+                // Keep the original date value for calculations
+                let actualDueDate;
 
-        function calculateDates() {
+                function calculateDates() {
             const method = document.getElementById('calculation-method').value;
             let dueDate, conceptionDate, lastPeriodDate;
 
@@ -806,6 +851,7 @@
 
             // Display results
             document.getElementById('results').style.display = 'block';
+            document.getElementById('pregnancyMain').textContent = `Due Date: ${formatDate(dueDate)}`;
             document.getElementById('result-due-date').textContent = formatDate(dueDate);
             document.getElementById('result-conception-date').textContent = formatDate(conceptionDate);
             document.getElementById('result-last-period').textContent = formatDate(lastPeriodDate);
@@ -902,5 +948,20 @@
             }
         });
     </script>
+
+    <!-- jQuery JS -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- ImagesLoaded JS -->
+    <script src="../js/imagesloaded.min.js"></script>
+    <!-- Isotope JS -->
+    <script src="../js/isotope.js"></script>
+    <!-- jQuery Nav JS -->
+    <script src="../js/jquery.nav.js"></script>
+    <!-- SmoothScroll JS -->
+    <script src="../js/smoothscroll.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

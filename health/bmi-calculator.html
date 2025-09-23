@@ -51,69 +51,101 @@
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-          }
+      }
         }
       ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .calculator-container {
+        .content-area {
+            flex: 1;
             max-width: 800px;
-            margin: 20px auto;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
             padding: 30px;
-            background-color: #ffffff;
+            background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
-
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
         h1 {
-            color: var(--text-primary);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
-        .info-text {
-            color: var(--text-secondary);
-            font-size: 1.1em;
-            margin-bottom: 25px;
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
-
         .instruction-bar {
             display: none;
         }
@@ -127,21 +159,21 @@
         .unit-toggle button {
             flex: 1;
             padding: 10px;
-            border: 1px solid #2196F3;
+            border: 1px solid #eb5424;
             background: white;
-            color: #2196F3;
+            color: #eb5424;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .unit-toggle button.active {
-            background: #2196F3;
+            background: #eb5424;
             color: white;
         }
 
         .converter-section {
-            background-color: #e3f2fd;
+            background-color: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -161,15 +193,15 @@
         .converter-tab {
             padding: 8px 15px;
             background: white;
-            border: 1px solid #2196F3;
-            color: #2196F3;
+            border: 1px solid #eb5424;
+            color: #eb5424;
             cursor: pointer;
             border-radius: 5px;
             transition: all 0.3s;
         }
 
         .converter-tab.active {
-            background: #2196F3;
+            background: #eb5424;
             color: white;
         }
 
@@ -234,15 +266,15 @@
 
         .input-field-container input:focus,
         .input-field-container select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .unit {
             padding: 12px;
-            background-color: #e3f2fd;
+            background-color: #f8f9fa;
             border: 1px solid #ddd;
             border-radius: 5px;
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             min-width: 60px;
             text-align: center;
@@ -257,14 +289,14 @@
 
         .buttons {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            max-width: 200px;
-            margin-top: 25px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -275,11 +307,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -290,7 +322,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .results {
@@ -315,7 +347,7 @@
         }
 
         .results .value {
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             margin-left: 8px;
         }
@@ -343,30 +375,84 @@
             }
             
             .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
                 max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            /* 移动端改为单列布局 */
+            #standard-inputs > div,
+            #metric-inputs > div,
+            #other-inputs > div {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="./index.html">Health Calculators</a>
+            <a href="index.html">Health Calculators</a>
             <span>/</span>
-            <span>BMI Calculator</span>
+            BMI Calculator
         </div>
 
         <h1>Free Online BMI Calculator – Check Your Health Range Instantly</h1>
-        <p class="info-text">Quickly calculate your BMI and understand what it means for your health. Works for both adults and children.</p>
+        <div class="description">Quickly calculate your BMI and understand what it means for your health. Works for both adults and children.</div>
 
         <div class="instruction-bar">
             Enter your details and click Calculate
         </div>
 
+        <div id="other-inputs" style="display: none;">
+        </div>
         <div id="converter-section" class="converter-section" style="display: none;">
-            <h3>Use this converter to convert to the unit accepted by the calculator.</h3>
+            <h3>Convert your values to the units supported by this calculator.</h3>
             <div class="converter-tabs">
                 <button class="converter-tab active" onclick="setConverterType('length')">Length</button>
                 <button class="converter-tab" onclick="setConverterType('temperature')">Temperature</button>
@@ -407,146 +493,144 @@
         </div>
 
         <div id="standard-inputs">
-            <div class="input-group">
-                <label for="age">Age:</label>
-                <div class="input-field-container">
-                    <input type="number" id="age" min="2" max="120" value="25">
-                    <div class="unit">years</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="age" min="2" max="120" value="25">
+                        <div class="unit">years</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="gender">Gender:</label>
+                    <div class="input-field-container">
+                        <select id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="gender">Gender:</label>
-                <div class="input-field-container">
-                    <select id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="height-ft">Height:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="height-ft" min="1" max="8" value="5">
+                        <div class="unit">ft</div>
+                        <input type="number" id="height-in" min="0" max="11" value="10">
+                        <div class="unit">in</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label for="height-ft">Height:</label>
-                <div class="input-field-container">
-                    <input type="number" id="height-ft" min="1" max="8" value="5">
-                    <div class="unit">ft</div>
-                    <input type="number" id="height-in" min="0" max="11" value="10">
-                    <div class="unit">in</div>
-                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
-                    <input type="number" id="height-cm-standard" min="1" value="178" style="width: 80px;">
-                    <div class="unit">cm</div>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="weight-lb">Weight:</label>
-                <div class="input-field-container">
-                    <input type="number" id="weight-lb" min="1" value="160">
-                    <div class="unit">lbs</div>
-                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
-                    <input type="number" id="weight-kg-standard" min="1" value="73" style="width: 80px;">
-                    <div class="unit">kg</div>
+                <div class="input-group">
+                    <label for="weight-lb">Weight:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="weight-lb" min="1" value="160">
+                        <div class="unit">lbs</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="metric-inputs" style="display: none;">
-            <div class="input-group">
-                <label for="age-metric">Age:</label>
-                <div class="input-field-container">
-                    <input type="number" id="age-metric" min="2" max="120" value="25">
-                    <div class="unit">years</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="age-metric">Age:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="age-metric" min="2" max="120" value="25">
+                        <div class="unit">years</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="gender-metric">Gender:</label>
+                    <div class="input-field-container">
+                        <select id="gender-metric">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="gender-metric">Gender:</label>
-                <div class="input-field-container">
-                    <select id="gender-metric">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="height-cm">Height:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="height-cm-metric" min="1" value="178">
+                        <button type="button" tabindex="-1" style="background:#f8f9fa;color:#eb5424;border:1px solid #ddd;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">cm</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label for="height-cm">Height:</label>
-                <div class="input-field-container">
-                    <input type="number" id="height-ft-metric" min="1" max="8" value="5" style="width: 60px;">
-                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 12px;border-radius:5px;font-weight:500;margin-left:4px;min-width:32px;">ft</button>
-                    <input type="number" id="height-in-metric" min="0" max="11" value="10" style="width: 60px; margin-left: 8px;">
-                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 12px;border-radius:5px;font-weight:500;margin-left:4px;min-width:32px;">in</button>
-                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
-                    <input type="number" id="height-cm-metric" min="1" value="178">
-                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">cm</button>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="weight-kg">Weight:</label>
-                <div class="input-field-container">
-                    <input type="number" id="weight-lb-metric" min="1" value="160" style="width: 80px;">
-                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">lbs</button>
-                    <span style="margin: 0 10px; color: #666; font-size: 0.9em;">or</span>
-                    <input type="number" id="weight-kg-metric" min="1" value="73">
-                    <button type="button" tabindex="-1" style="background:#e3f2fd;color:#2196F3;border:none;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">kg</button>
+                <div class="input-group">
+                    <label for="weight-kg">Weight:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="weight-kg-metric" min="1" value="73">
+                        <button type="button" tabindex="-1" style="background:#f8f9fa;color:#eb5424;border:1px solid #ddd;padding:10px 16px;border-radius:5px;font-weight:500;margin-left:4px;min-width:40px;">kg</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="other-inputs" style="display: none;">
-            <div class="input-group">
-                <label for="age-other">Age:</label>
-                <div class="input-field-container">
-                    <input type="number" id="age-other" min="2" max="120" value="25">
-                    <div class="unit">years</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="age-other">Age:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="age-other" min="2" max="120" value="25">
+                        <div class="unit">years</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="gender-other">Gender:</label>
+                    <div class="input-field-container">
+                        <select id="gender-other">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="gender-other">Gender:</label>
-                <div class="input-field-container">
-                    <select id="gender-other">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group">
+                    <label for="height-other">Height:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="height-other" min="1" value="1.78">
+                        <select id="height-other-unit">
+                            <option value="m">Meters</option>
+                            <option value="cm">Centimeters</option>
+                            <option value="km">Kilometers</option>
+                            <option value="mm">Millimeters</option>
+                            <option value="μm">Micrometers</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label for="height-other">Height:</label>
-                <div class="input-field-container">
-                    <input type="number" id="height-other" min="1" value="1.78">
-                    <select id="height-other-unit">
-                        <option value="m">Meters</option>
-                        <option value="cm">Centimeters</option>
-                        <option value="km">Kilometers</option>
-                        <option value="mm">Millimeters</option>
-                        <option value="μm">Micrometers</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="weight-other">Weight:</label>
-                <div class="input-field-container">
-                    <input type="number" id="weight-other" min="1" value="73">
-                    <select id="weight-other-unit">
-                        <option value="kg">Kilograms</option>
-                        <option value="g">Grams</option>
-                        <option value="mg">Milligrams</option>
-                        <option value="lb">Pounds</option>
-                        <option value="oz">Ounces</option>
-                    </select>
+                <div class="input-group">
+                    <label for="weight-other">Weight:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="weight-other" min="1" value="73">
+                        <select id="weight-other-unit">
+                            <option value="kg">Kilograms</option>
+                            <option value="g">Grams</option>
+                            <option value="mg">Milligrams</option>
+                            <option value="lb">Pounds</option>
+                            <option value="oz">Ounces</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="result-section">
-            <div class="buttons">
+        <div class="buttons" id="main-buttons">
                 <button class="btn-calculate" onclick="calculateBMI()">Calculate</button>
                 <button class="btn-clear" onclick="clearInputs()">Clear</button>
             </div>
+        <div class="result-section" id="result-section" style="display: none;">
             <div class="results">
                 <h2>Results</h2>
                 <p>BMI: <span id="bmi-value" class="value">0.0</span></p>
@@ -557,7 +641,7 @@
             </div>
         </div>
 
-        <h2 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.8em; font-weight: 500;">🧮 BMI Calculator – Because Denial Isn't a Fitness Plan 💀</h2>
+        <h2 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.5em; font-weight: 500;">🧮 BMI Calculator – Because Denial Isn't a Fitness Plan 💀</h2>
         
         <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Okay, let's not lie to ourselves.</p>
         
@@ -566,69 +650,70 @@
         
         <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our free BMI Calculator is here to tell it like it is — whether you're built like The Rock or a sentient burrito. Just plug in your height and weight, and we'll do the emotional damage… I mean math.</p>
         
-        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">💡 What can it do?</h3>
-        <ul style="list-style: none; margin: 20px 0;">
-            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Instantly calculate your Body Mass Index (BMI)</li>
-            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>See if you're underweight, normal, overweight, or fighting gravity</li>
-            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Totally free – no judgment, no logins, no shady diet ads</li>
-            <li style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: #2196F3;">✅</span>Works on all devices – phone, tablet, fridge (okay, maybe not fridge)</li>
+        <!-- REPLACE FROM HERE: What can it do? section -->
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Is BMI and Why Does It Matter?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Your Body Mass Index (BMI) is a quick and widely used tool to help determine if your weight is in a healthy range based on your height. This simple number gives an indication of whether you're underweight, at a normal weight, overweight, or obese.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Understanding your BMI is important because it can highlight potential health risks such as heart disease, high blood pressure, type 2 diabetes, and other weight-related conditions. Although BMI doesn’t directly measure body fat, it’s a helpful starting point for setting fitness and health goals.</p>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Regularly checking your BMI with a reliable BMI calculator helps you track your health status over time and make more informed decisions about your body.</p>
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">When Should You Use a BMI Calculator?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">A BMI calculator is useful in many everyday situations. It’s especially valuable if you are:</p>
+        <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li>Starting a weight loss or muscle gain program</li>
+            <li>Monitoring pregnancy weight changes</li>
+            <li>Creating a personal health or fitness plan</li>
+            <li>Following your doctor’s or nutritionist’s recommendations</li>
+            <li>Checking your child or teenager’s BMI percentile</li>
+            <li>Curious about your ideal weight or healthy range</li>
         </ul>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Whether you’re just beginning your wellness journey or already maintaining an active lifestyle, BMI is a key number that gives you insight into your current body condition.</p>
+        <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">What Other Health Metrics Should You Track?</h3>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">While BMI offers a general overview, it doesn’t show the full picture. For a more accurate understanding of your health, consider tracking these additional indicators:</p>
+        <ul style="list-style: disc; margin: 0 0 20px 30px; color: #666; font-size: 1.1em; line-height: 1.6;">
+            <li><strong>Body Fat Percentage</strong> – Gives a better estimate of how much of your body is fat vs. muscle</li>
+            <li><strong>BMR (Basal Metabolic Rate)</strong> – Helps calculate how many calories your body burns at rest</li>
+            <li><strong>Waist-to-Hip Ratio</strong> – Useful for identifying abdominal fat and cardiovascular risk</li>
+            <li><strong>Healthy Weight Range</strong> – Understand the optimal weight zone for your height and body type</li>
+        </ul>
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Explore our other free tools like the Body Fat Calculator, BMR Calculator, or Healthy Weight Calculator to get deeper insights into your health and progress toward your goals.</p>
+        <!-- END REPLACE -->
 
         <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this gonna make me feel bad about myself?</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q1: Is this gonna make me feel bad about myself?</p>
             <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Only if the number does. We're just the messenger.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Will this help me lose weight?</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q2: Will this help me lose weight?</p>
             <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Nope. But knowing is half the battle. The other half is… salad.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Is this accurate?</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q3: Is this accurate?</p>
             <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: It's based on a standardized formula, so unless you're 99% muscle or 1% marshmallow, it'll give a decent ballpark.</p>
         </div>
         
         <div class="faq-item" style="margin-bottom: 20px;">
-            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q: Why not just use my fitness app?</p>
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;">Q4: Why not just use my fitness app?</p>
             <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Sure, if you like waiting for updates, account logins, and ads for protein powder.</p>
         </div>
 
-        <div class="pro-tip" style="background: none; color: #333; font-size: 1.1em; border-radius: 0; margin-top: 30px; padding: 20px; line-height: 1.6;">
-            🧠 Pro tip:<br>
-            Bookmark this calculator.<br>
-            Check it monthly. Or every time you eat a whole pizza "by accident."<br><br>
-            Because reality hits harder than leg day.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="related-calculators" style="margin-top:40px;padding:0;background:none;border-radius:0;max-width:900px;box-shadow:none;">
-            <h2 style="margin-bottom:20px;font-size:1.5em;font-weight:700;color:#111;">Related Calculators</h2>
-            <ul style="list-style:none;padding:0;">
-                <li style="margin-bottom:14px;">
-                    <a href="body-fat-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Body Fat Calculator</a>
-                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Estimate your body fat percentage</span>
-                </li>
-                <li style="margin-bottom:14px;">
-                    <a href="calorie-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Calorie Calculator</a>
-                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Calculate your daily caloric needs</span>
-                </li>
-                <li style="margin-bottom:14px;">
-                    <a href="ideal-weight-calculator.html" style="color:#2196F3;font-size:1.1em;font-weight:500;text-decoration:none;vertical-align:middle;">Ideal Weight Calculator</a>
-                    <span style="color:#111;font-size:1.1em;font-weight:400;vertical-align:middle;"> - Find your healthy weight range</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -748,8 +833,12 @@
                 const baseValue = fromValue * toBase[fromUnit];
                 result = baseValue / toBase[toUnit];
             }
-            
-            document.getElementById('converter-to-value').value = result ? result.toFixed(6) : '';
+            // 修改显示格式：整数只显示整数，否则保留两位小数
+            if (typeof result === 'number' && !isNaN(result)) {
+                document.getElementById('converter-to-value').value = (result % 1 === 0) ? result.toFixed(0) : result.toFixed(2);
+            } else {
+                document.getElementById('converter-to-value').value = '';
+            }
         }
 
         // Add event listeners for conversion
@@ -766,19 +855,21 @@
             document.getElementById('metric-inputs').style.display = unit === 'metric' ? 'block' : 'none';
             document.getElementById('other-inputs').style.display = unit === 'other' ? 'block' : 'none';
             document.getElementById('converter-section').style.display = unit === 'other' ? 'block' : 'none';
-            calculateBMI();
+            // 切换单位时隐藏结果区域
+            document.getElementById('result-section').style.display = 'none';
+            // Other Units 不显示按钮
+            document.getElementById('main-buttons').style.display = (unit === 'other') ? 'none' : 'grid';
         }
 
         // Auto-convert between units when values change
         function autoConvertHeight() {
             const heightFt = parseFloat(document.getElementById('height-ft').value) || 0;
             const heightIn = parseFloat(document.getElementById('height-in').value) || 0;
-            const heightCm = document.getElementById('height-cm-standard');
             
             if (heightFt > 0 || heightIn > 0) {
                 const totalInches = heightFt * 12 + heightIn;
                 const cmValue = Math.round(totalInches * 2.54);
-                heightCm.value = cmValue;
+                document.getElementById('height-cm-standard').value = cmValue;
             }
         }
 
@@ -799,11 +890,10 @@
 
         function autoConvertWeight() {
             const weightLb = parseFloat(document.getElementById('weight-lb').value) || 0;
-            const weightKg = document.getElementById('weight-kg-standard');
             
             if (weightLb > 0) {
                 const kgValue = Math.round((weightLb / 2.20462) * 10) / 10;
-                weightKg.value = kgValue;
+                document.getElementById('weight-kg-standard').value = kgValue;
             }
         }
 
@@ -881,73 +971,34 @@
             let weight, height, bmi;
             
             if (currentUnit === 'standard') {
-                // Get height values - prefer ft/in if both are filled, otherwise use cm
-                const heightFt = parseFloat(document.getElementById('height-ft').value);
-                const heightIn = parseFloat(document.getElementById('height-in').value);
-                const heightCm = parseFloat(document.getElementById('height-cm-standard').value);
+                // 只用 ft/in 和 lbs
+                const heightFt = parseFloat(document.getElementById('height-ft').value) || 0;
+                const heightIn = parseFloat(document.getElementById('height-in').value) || 0;
+                const weightLb = parseFloat(document.getElementById('weight-lb').value) || 0;
                 
-                let height;
-                if (heightFt > 0 || heightIn > 0) {
-                    // Use ft/in values
-                    height = (heightFt * 12 + heightIn); // Convert to inches
-                } else if (heightCm > 0) {
-                    // Use cm value
-                    height = heightCm / 2.54; // Convert cm to inches
+                // 转换为英寸
+                height = heightFt * 12 + heightIn;
+                weight = weightLb;
+                // 计算 BMI
+                if (height > 0 && weight > 0) {
+                    bmi = (weight * 703) / (height * height);
                 } else {
-                    height = 0;
+                    bmi = 0;
                 }
-                
-                // Get weight values - prefer lbs if both are filled, otherwise use kg
-                const weightLb = parseFloat(document.getElementById('weight-lb').value);
-                const weightKg = parseFloat(document.getElementById('weight-kg-standard').value);
-                
-                let weightLbFinal;
-                if (weightLb > 0) {
-                    // Use lbs value
-                    weightLbFinal = weightLb;
-                } else if (weightKg > 0) {
-                    // Use kg value
-                    weightLbFinal = weightKg * 2.20462; // Convert kg to lbs
-                } else {
-                    weightLbFinal = 0;
-                }
-                
-                // Calculate BMI using the standard formula
-                bmi = (weightLbFinal * 703) / (height * height);
             } else if (currentUnit === 'metric') {
-                // Get height values - prefer cm if both are filled, otherwise use ft/in
-                const heightCm = parseFloat(document.getElementById('height-cm-metric').value);
-                const heightFt = parseFloat(document.getElementById('height-ft-metric').value);
-                const heightIn = parseFloat(document.getElementById('height-in-metric').value);
+                // 只用 cm 和 kg
+                const heightCm = parseFloat(document.getElementById('height-cm-metric').value) || 0;
+                const weightKg = parseFloat(document.getElementById('weight-kg-metric').value) || 0;
                 
-                let height;
-                if (heightCm > 0) {
-                    // Use cm value
-                    height = heightCm / 100; // Convert cm to meters
-                } else if (heightFt > 0 || heightIn > 0) {
-                    // Use ft/in values
-                    height = (heightFt * 12 + heightIn) / 39.3701; // Convert ft/in to meters
+                // 转换为米
+                height = heightCm / 100;
+                weight = weightKg;
+                // 计算 BMI
+                if (height > 0 && weight > 0) {
+                    bmi = weight / (height * height);
                 } else {
-                    height = 0;
+                    bmi = 0;
                 }
-                
-                // Get weight values - prefer kg if both are filled, otherwise use lbs
-                const weightKg = parseFloat(document.getElementById('weight-kg-metric').value);
-                const weightLb = parseFloat(document.getElementById('weight-lb-metric').value);
-                
-                let weightKgFinal;
-                if (weightKg > 0) {
-                    // Use kg value
-                    weightKgFinal = weightKg;
-                } else if (weightLb > 0) {
-                    // Use lbs value
-                    weightKgFinal = weightLb / 2.20462; // Convert lbs to kg
-                } else {
-                    weightKgFinal = 0;
-                }
-                
-                // Calculate BMI using the metric formula
-                bmi = weightKgFinal / (height * height);
             } else if (currentUnit === 'other') {
                 let heightValue = parseFloat(document.getElementById('height-other').value);
                 let weightValue = parseFloat(document.getElementById('weight-other').value);
@@ -975,46 +1026,71 @@
                 weight = weightValue * weightToKg[weightUnit];
 
                 // Calculate BMI
+                if (height > 0 && weight > 0) {
                 bmi = weight / (height * height);
+                } else {
+                    bmi = 0;
+                }
             }
 
             // Update results
-            document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+            if (currentUnit === 'other') {
+                if (bmi > 0) {
+                    document.getElementById('bmi-value').textContent = (bmi % 1 === 0) ? bmi.toFixed(0) : bmi.toFixed(2);
+                } else {
+                    document.getElementById('bmi-value').textContent = '0.0';
+                }
+            } else {
+                document.getElementById('bmi-value').textContent = bmi > 0 ? bmi.toFixed(1) : '0.0';
+            }
             
             // Determine BMI category and set appropriate styling
             let category;
             const categoryBox = document.getElementById('bmi-category-box');
             
-            if (bmi < 18.5) {
+            if (bmi < 18.5 && bmi > 0) {
                 category = 'Underweight';
                 categoryBox.className = 'bmi-category category-underweight';
-            } else if (bmi < 25) {
+            } else if (bmi >= 18.5 && bmi < 25) {
                 category = 'Normal Weight';
                 categoryBox.className = 'bmi-category category-normal';
-            } else if (bmi < 30) {
+            } else if (bmi >= 25 && bmi < 30) {
                 category = 'Overweight';
                 categoryBox.className = 'bmi-category category-overweight';
-            } else {
+            } else if (bmi >= 30) {
                 category = 'Obese';
                 categoryBox.className = 'bmi-category category-obese';
+            } else {
+                category = '-';
+                categoryBox.className = 'bmi-category';
             }
             
             document.getElementById('bmi-category').textContent = category;
-            categoryBox.textContent = category;
+            categoryBox.textContent = category !== '-' ? category : '';
 
             // Calculate healthy weight range
             let minWeight, maxWeight;
             if (currentUnit === 'standard') {
+                if (height > 0) {
                 minWeight = (18.5 * height * height) / 703;
                 maxWeight = (25 * height * height) / 703;
                 document.getElementById('healthy-weight').textContent = 
                     `${minWeight.toFixed(1)} - ${maxWeight.toFixed(1)} lbs`;
+                } else {
+                    document.getElementById('healthy-weight').textContent = '-';
+                }
             } else if (currentUnit === 'metric' || currentUnit === 'other') {
+                if (height > 0) {
                 minWeight = 18.5 * height * height;
                 maxWeight = 25 * height * height;
                 document.getElementById('healthy-weight').textContent = 
                     `${minWeight.toFixed(1)} - ${maxWeight.toFixed(1)} kg`;
+                } else {
+                    document.getElementById('healthy-weight').textContent = '-';
             }
+            }
+            // 显示结果区域
+            document.getElementById('result-section').style.display = 'flex';
         }
 
         function clearInputs() {
@@ -1022,17 +1098,12 @@
                 document.getElementById('age').value = '';
                 document.getElementById('height-ft').value = '';
                 document.getElementById('height-in').value = '';
-                document.getElementById('height-cm-standard').value = '';
                 document.getElementById('weight-lb').value = '';
-                document.getElementById('weight-kg-standard').value = '';
             } else if (currentUnit === 'metric') {
                 document.getElementById('age-metric').value = '';
                 document.getElementById('gender-metric').value = '';
                 document.getElementById('height-cm-metric').value = '';
-                document.getElementById('height-ft-metric').value = '';
-                document.getElementById('height-in-metric').value = '';
                 document.getElementById('weight-kg-metric').value = '';
-                document.getElementById('weight-lb-metric').value = '';
             } else if (currentUnit === 'other') {
                 document.getElementById('age-other').value = '';
                 document.getElementById('gender-other').value = '';
@@ -1045,6 +1116,8 @@
             document.getElementById('bmi-category-box').className = 'bmi-category';
             document.getElementById('bmi-category-box').textContent = '';
             document.getElementById('healthy-weight').textContent = '-';
+            // 隐藏结果区域
+            document.getElementById('result-section').style.display = 'none';
         }
 
         // Add event listeners for automatic calculation
@@ -1100,9 +1173,19 @@
 
         // Initialize calculator
         window.onload = function() {
-            calculateBMI();
+            // 不自动显示结果
+            document.getElementById('result-section').style.display = 'none';
             addEventListeners();
         };
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 
