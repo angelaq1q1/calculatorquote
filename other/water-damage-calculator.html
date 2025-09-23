@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Damage Repair Cost Calculator | Free Estimates for Flood & Mold Damage</title>
-    <meta name="description" content="Use our free Water Damage Repair Cost Calculator to estimate repair prices for home water damage, flooding, leaks, and mold. Get instant cost estimates and free restoration quotes online.">
+    <title>Water Damage Restoration Calculator – Estimate Repair Costs & Prevent Mold</title>
+    <meta name="description" content="Quickly estimate water damage repair costs, including ceiling repairs, with our easy-to-use calculator. Plan ahead, avoid unexpected bills, and stop mold growth before it spreads.">
     <meta name="keywords" content="water damage calculator, water damage cost, flood damage estimate, water restoration cost">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/other/water-damage-calculator.html">
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
@@ -31,43 +69,51 @@
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
+        
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .calculator-section {
             background-color: #f8f9fa;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
         }
 
         .input-group {
@@ -94,6 +140,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-row input:hover,
+        .input-row input:focus {
+            border-color: #eb5424;
         }
 
         .input-row select {
@@ -102,6 +155,13 @@
             border-radius: 5px;
             font-size: 1em;
             background-color: white;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-row select:hover,
+        .input-row select:focus {
+            border-color: #eb5424;
         }
 
         .checkbox-group {
@@ -117,13 +177,15 @@
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -134,11 +196,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -149,7 +211,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
@@ -161,14 +223,24 @@
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 15px;
         }
 
         .result-value {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
+        }
+
+        .calculator-title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
 
         .info-section {
@@ -182,7 +254,7 @@
 
         .info-section h3 {
             color: #444;
-            margin: 20px 0 10px;
+            margin: 5px 0 5px;
         }
 
         .info-section p {
@@ -192,25 +264,8 @@
         }
 
         .damage-type {
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .calculator-container {
-                padding: 20px;
-            }
-
-            .input-row {
-                flex-direction: column;
-            }
-
-            .input-row input,
-            .input-row select {
-                width: 100%;
-            }
+            padding: 10px 0;
+            margin-bottom: 5px;
         }
 
         .cta-section {
@@ -232,7 +287,7 @@
         }
 
         .btn-quote {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
         }
 
@@ -242,18 +297,16 @@
         }
 
         .faq-section {
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px 0;
         }
 
         .faq-item h3 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 10px;
         }
 
@@ -267,32 +320,96 @@
         }
 
         .related-links a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             display: block;
             padding: 8px 0;
         }
 
         .related-links a:hover {
-            color: #1976D2;
+            color: #d4441a;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .input-row input,
+            .input-row select {
+                width: 100%;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Other Calculators</a>
-            <span>/</span>
-            Water Damage Calculator
-        </div>
 
-        <h1>Water Damage Repair Cost Calculator – Free Online Estimates</h1>
-        
-        <div class="description">
-            Our Water Damage Repair Cost Calculator helps you estimate repair costs for flooding, leaks, mold, and ceiling damage. Enter simple details to get instant repair estimates and free water damage restoration quotes online.
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START WATER DAMAGE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="date-calculator.html">Other Calculators</a>
+                                    <span>/</span>
+                                    Water Damage Calculator
+                                </div>
+
+                                <h1 class="calculator-title">Water Damage Restoration Calculator – Estimate Repair Costs Quickly</h1>
+                                
+                                <div class="description">
+                                    Quickly estimate water damage repair costs, including ceiling repairs, with our easy-to-use calculator. Plan ahead and prevent mold growth before it spreads.
+                                </div>
 
         <div class="calculator-section">
             <div class="input-group">
@@ -362,100 +479,92 @@
             <div class="result-value" id="demolitionCost"></div>
             <div class="result-value" id="totalCost"></div>
             <div class="result-note" id="insuranceNote"></div>
-            
-            <div class="cta-section">
-                <h3>Need Professional Help?</h3>
-                <p>Get immediate assistance from licensed water damage restoration experts in your area.</p>
-                <a href="#quote-form" class="btn-quote">Get Free Quotes</a>
-                <a href="tel:1-800-000-0000" class="btn-call">Call Now: 1-800-000-0000</a>
-            </div>
         </div>
 
-        <div class="info-section">
-            <h2>Understanding Water Damage Costs</h2>
+                                <div class="info-section">
+                                    <h2 class="calculator-title">Understanding Water Damage Costs</h2>
 
-            <div class="damage-type">
-                <h3>What Affects Water Damage Repair Costs?</h3>
-                <ul style="margin-left: 20px; color: #666;">
-                    <li>Affected Area Size (sq ft)</li>
-                    <li>Damage Level (1-3)</li>
-                    <li>Material Type</li>
-                    <li>Drying Equipment Usage</li>
-                    <li>Mold Presence</li>
-                    <li>Demolition & Reconstruction Needs</li>
-                    <li>Insurance Coverage</li>
-                </ul>
-            </div>
+                                    <div class="damage-type">
+                                        <p>Our Water Damage Restoration Calculator helps you plan home repairs and manage costs easily. You can use it for water damage ceiling repair, fixing leaks, or checking overall home damage. The tool gives quick estimates so you can make informed decisions and understand potential expenses.</p>
+                                    </div>
 
-            <div class="damage-type">
-                <h3>Average Water Damage Repair Costs</h3>
-                <p>Water damage restoration typically costs between $2,000 and $5,000, with the national average being around $3,000. However, costs can range from $1,000 for minor issues to over $10,000 for severe cases involving structural damage.</p>
-            </div>
+                                    <div class="damage-type">
+                                        <h3>⚡ Quick Solution: How to Use the Water Damage Restoration Calculator</h3>
+                                        
+                                        <h4>1️⃣ Enter Damage Details</h4>
+                                        <p>Add information about the affected areas, severity of the damage, and any structural issues. The calculator works for ceiling leaks, floor water damage, or walls affected by moisture. It's perfect if you want to check water damage home insurance coverage or plan repairs before contacting a water damage restoration company.</p>
+                                        
+                                        <h4>2️⃣ Ask Yourself Key Questions</h4>
+                                        <p>💦 "What should I do if my ceiling is leaking?"<br>
+                                        💰 "How much will water damage repair cost?"<br>
+                                        ☎️ "When should I contact a professional restoration service?"</p>
+                                        
+                                        <h4>3️⃣ Click Calculate</h4>
+                                        <p>Press the Calculate button. The tool instantly shows an estimated cost for professional water damage restoration services, including materials, labor, and other restoration work. It helps you compare quotes from a water damage restoration company near you.</p>
+                                        
+                                        <h4>4️⃣ Interpret Your Result</h4>
+                                        <p>Use the estimate to prioritize repairs, prevent mold growth, and avoid more serious structural issues. It gives you clarity before calling a water damage restoration service near me.</p>
+                                    </div>
 
-            <div class="faq-section">
-                <h2>💧 Water Damage Calculator – Because "Is That a Lake?" Is a Bad Question Indoors</h2>
-                
-                <div class="faq-item">
-                    <p>You walk into the kitchen.<br>
-                    Squish.<br>
-                    That's not a good sign.</p>
-                    
-                    <p>Congratulations — you've joined the unfortunate club of people googling "water damage repair cost" while holding a mop and quietly panicking.</p>
-                    
-                    <p>But hey, take a deep breath (not a moldy one): our Water Damage Calculator is here to help you figure out how much this watery disaster is going to cost — before your wallet drowns too.</p>
-                </div>
+                                    <div class="damage-type">
+                                        <h3>🎯 When to Use It</h3>
+                                        <p>🏠 After a burst pipe, heavy storm, or unnoticed leak, use the calculator to know potential costs.<br>
+                                        💼 Compare quotes from different restoration companies to make the best choice for your home.<br>
+                                        🛠️ Use it early to plan repairs for ceilings, walls, or floors and prevent long-term damage.</p>
+                                    </div>
 
-                <div class="faq-item">
-                    <h3>💡 What does it do?</h3>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>✅ Estimates cost based on water type (clean, gray, or ew)</strong></p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>✅ Calculates cleanup by square footage</strong></p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>✅ Adjusts for damage severity — from "just a towel" to "call the hazmat team"</strong></p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>✅ Helps you decide if insurance might actually cover this one</strong></p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>✅ Totally free. No account. No hidden fees. Just cold, hard water damage math.</strong></p>
-                    </div>
-                </div>
+                                    <div class="damage-type">
+                                        <h3>💰 What the Results Mean</h3>
+                                        <p>The results show an estimated cost for professional water damage repair. While it doesn't replace a formal inspection, it gives you a realistic idea of expenses. Whether it's fixing a water damage ceiling repair, checking your water damage home insurance, or hiring a water damage restoration company, this calculator helps you handle water damage efficiently and with peace of mind.</p>
+                                    </div>
 
-                <div class="faq-item">
-                    <h3>❓ FAQ – Because water waits for no one</h3>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>Q: How accurate is the water damage calculator?</strong><br>
-                        A: It's pretty solid for ballpark estimates—better than guessing, not as exact as a contractor's quote. Great for planning your next move.</p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>Q: Does it work for ceiling leaks or just flooding?</strong><br>
-                        A: Both! Whether it's a tiny drip or a full-on water warzone, the calculator's got your drywall damage covered.</p>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <p><strong>Q: Will my insurance actually pay for this mess?</strong><br>
-                        A: Depends. Sudden pipe burst? Usually covered. Long-term mystery mold? Not so much. Check your policy or, better yet, call your provider.</p>
-                    </div>
-                </div>
+                                    <div class="faq-section">
 
-                <div class="faq-item">
-                    <h3>🧠 Pro tip:</h3>
-                    <p>Bookmark this page before the next flood. Or keep it handy just in case your washing machine decides it wants to be a fountain.</p>
-                    <p>Because when life gives you water damage, the least you deserve is a decent estimate.</p>
+
+                                        <div class="faq-item">
+                                            <h3 style="color: #000000;">❓ FAQ – Because water waits for no one</h3>
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q1: How to fix water damage ceiling?</strong><br>
+                                                A1: To fix a water-damaged ceiling, first identify and stop the water source. Dry the area completely, remove damaged drywall or plaster, and repair with new materials. For extensive damage, it's best to contact a water damage restoration company.</p>
+                                            </div>
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q2: What is water damage restoration?</strong><br>
+                                                A2: Water damage restoration is the process of cleaning, drying, and repairing a home after water intrusion. It includes water extraction, drying, repairing structural damage, and preventing mold growth. Professional services often handle water damage ceiling repair and other affected areas.</p>
+                                            </div>
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q3: What does water damage look like?</strong><br>
+                                                A3: Signs of water damage include discoloration, peeling paint or wallpaper, sagging ceilings, warped floors, and mold growth. Even small leaks can cause long-term damage if not addressed early.</p>
+                                            </div>
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q4: Is water damage covered by insurance?</strong><br>
+                                                A4: Some types of water damage are covered by water damage home insurance, but coverage depends on your policy. Sudden events like burst pipes are usually covered, while gradual leaks or neglect may not be. Always check your insurance policy or contact your provider.</p>
+                                            </div>
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q5: What to do if my MacBook has water damage?</strong><br>
+                                                A5: If your MacBook gets water damage, turn it off immediately, unplug it, and avoid using it. Dry it gently and bring it to a professional repair service. Do not try to power it on while wet, as this can cause permanent damage.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- END WATER DAMAGE CALCULATOR -->
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -554,44 +663,84 @@
     </script>
 
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does water damage repair cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The average water damage repair cost ranges from $1,200 to $5,000, depending on the severity, location, and type of damage (ceiling, floor, flood, or mold)."
-        }
+{% raw %}
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Water Damage Repair Cost Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "url": "https://www.calculatorquote.com/other/water-damage-calculator.html",
+      "description": "Use our free Water Damage Repair Cost Calculator to estimate repair prices for home water damage, flooding, leaks, and mold. Get instant cost estimates and free restoration quotes online.",
+      "keywords": [
+        "water damage calculator",
+        "water damage cost",
+        "flood damage estimate",
+        "water restoration cost",
+        "water damage repair cost",
+        "flood damage calculator",
+        "mold damage cost",
+        "ceiling water damage repair",
+        "water damage restoration cost",
+        "home water damage estimate",
+        "water damage restoration near me",
+        "water damage repair near me",
+        "water damage ceiling repair",
+        "water damage mold"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
       },
-      {
-        "@type": "Question",
-        "name": "Can I get a free water damage estimate online?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our Water Damage Repair Cost Calculator provides instant free estimates for water damage restoration, flooding, and mold remediation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the cost of repairing ceiling water damage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Repairing ceiling water damage typically costs between $500 and $2,500 depending on the extent of the water leak and drywall replacement."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I calculate flood damage repair costs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can use our Flood Damage Cost Calculator to estimate repair costs. Flood repairs usually range from $2,000 to $8,000 depending on area size and severity."
-        }
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does water damage repair cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The average water damage repair cost ranges from $1,200 to $5,000, depending on the severity, location, and type of damage (ceiling, floor, flood, or mold)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get a free water damage estimate online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our Water Damage Repair Cost Calculator provides instant free estimates for water damage restoration, flooding, and mold remediation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the cost of repairing ceiling water damage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Repairing ceiling water damage typically costs between $500 and $2,500 depending on the extent of the water leak and drywall replacement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate flood damage repair costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can use our Flood Damage Cost Calculator to estimate repair costs. Flood repairs usually range from $2,000 to $8,000 depending on area size and severity."
+            }
+          }
+        ]
       }
-    ]
-  }
-  </script>
+    }
+{% endraw %}
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

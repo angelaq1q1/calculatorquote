@@ -5,38 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade Calculator – Calculate Your Weighted Average</title>
     <meta name="description" content="Struggling with grades? Use our free Grade Calculator to instantly compute GPA, final scores, and weighted averages. Perfect for students and teachers alike.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
+        
         .calculator-container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .grade-type-select {
-            margin-bottom: 18px;
-            font-size: 1em;
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
         }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
         .input-section {
-            padding: 20px;
             background-color: #f8f9fa;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
-            margin-bottom: 24px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            text-align: left;
         }
+
         .grade-table {
             width: 100%;
             border-collapse: collapse;
@@ -48,9 +103,9 @@
             text-align: left;
         }
         .grade-table th {
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
-            background: #e3f2fd;
+            background: #f8f9fa;
         }
         .grade-table td input, .grade-table td select {
             width: 100%;
@@ -58,109 +113,99 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
+            font-family: 'Raleway', sans-serif;
         }
         .grade-table td select {
             min-width: 70px;
         }
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 10px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            font-family: 'Raleway', sans-serif;
             transition: background-color 0.3s;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            font-family: 'Raleway', sans-serif;
             transition: background-color 0.3s;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .btn-add {
-            background-color: #43a047;
+            background-color: #ff7a4d;
             color: white;
             border: none;
             padding: 10px 18px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 15px;
+            font-family: 'Raleway', sans-serif;
             margin-bottom: 10px;
             transition: background-color 0.3s;
         }
         .btn-add:hover {
-            background-color: #388e3c;
+            background-color: #ff6b3a;
         }
         .result-section {
-            margin-top: 24px;
+            margin-top: 30px;
             padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            border: 1px solid #e9ecef;
+            display: none;
         }
+
         .result-section h2 {
-            color: #2196F3;
-            font-size: 1.3em;
-            margin-bottom: 10px;
+            color: #d4441a;
+            margin-bottom: 15px;
         }
+
         .result-section p {
-            font-size: 1.1em;
-            color: #333;
-            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: #606060;
+            margin-bottom: 10px;
+            line-height: 28px;
         }
+        
         .result-section .value {
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             margin-left: 8px;
         }
-        .section-title {
-            font-size: 1.1em;
-            color: #2196F3;
-            font-weight: 500;
-            margin: 18px 0 8px 0;
-        }
-        .target-section {
-            margin-top: 30px;
-            padding: 18px 0 0 0;
-            border-top: 1px solid #e0e0e0;
-        }
-        @media (max-width: 768px) {
-            .calculator-container {
-                padding: 20px;
-            }
-            .input-section {
-                padding: 12px;
-            }
-        }
+
         .tab-btn {
             font-size: 1em;
             padding: 10px 22px;
             border: none;
             border-radius: 6px;
             margin-right: 20px;
-            background: #e3f2fd;
-            color: #2196F3;
+            background: #f8f9fa;
+            color: #eb5424;
             cursor: pointer;
+            font-family: 'Raleway', sans-serif;
             transition: background 0.2s, color 0.2s;
         }
         .tab-btn.active {
-            background: #2196F3;
+            background: #eb5424;
             color: #fff;
         }
         .tab-btn:last-child {
@@ -170,30 +215,31 @@
             display: inline-flex;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 1px 2px rgba(33,150,243,0.04);
+            box-shadow: 0 1px 2px rgba(235, 84, 36, 0.04);
             margin-bottom: 18px;
         }
         .grade-type-segment button {
             border: none;
             outline: none;
             background: #fff;
-            color: #2196F3;
+            color: #eb5424;
             font-size: 1em;
             font-weight: 500;
             padding: 10px 28px;
             cursor: pointer;
+            font-family: 'Raleway', sans-serif;
             transition: background 0.2s, color 0.2s;
         }
         .grade-type-segment button:not(:last-child) {
-            border-right: 1px solid #e3f2fd;
+            border-right: 1px solid #f8f9fa;
         }
         .grade-type-segment button.active {
-            background: #2196F3;
+            background: #eb5424;
             color: #fff;
             z-index: 1;
         }
         .grade-type-segment button:hover:not(.active) {
-            background: #e3f2fd;
+            background: #f8f9fa;
         }
         #section-gpa .grade-table input,
         #section-gpa .grade-table select {
@@ -206,14 +252,76 @@
             box-sizing: border-box !important;
         }
         #section-gpa .grade-table th {
-            background: #e3f2fd !important;
-            color: #2196F3 !important;
+            background: #f8f9fa !important;
+            color: #eb5424 !important;
             font-weight: 700 !important;
             font-size: 1.13em !important;
             border: none !important;
         }
         #section-gpa .grade-table tr:not(:last-child) {
             border-bottom: 2px solid #f0f0f0 !important;
+        }
+
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: left;
+            padding: 30px;
+            background: #fafafa;
+            margin-top: 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .content-section {
+                font-size: 14px;
+            }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
         }
     </style>
     <script type="application/ld+json">
@@ -248,27 +356,65 @@
     </script>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb" style="margin-bottom: 20px; font-size: 1em; color: #666;">
-            <a href="../index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Home</a>
-            <span style="color: #666; margin: 0 8px;">/</span>
-            <a href="index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Other Calculators</a>
-            <span style="color: #666; margin: 0 8px;">/</span>
-            Grade Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
         </div>
-        <div style="margin-bottom: 28px;">
-            <h1 style="color:#333;font-size:2em;margin-bottom:20px;">Grade Calculator – Final, GPA & Weighted Averages Made Easy</h1>
-            <div class="description" style="color:#666;line-height:1.6;margin-bottom:30px;">Free Grade Calculator for Students & Teachers<br>Easily calculate your final grades, weighted scores, and GPA with our intuitive tool. Whether you're prepping for finals or tracking semester performance, this calculator does the math for you — no spreadsheets needed.</div>
-        </div>
-        <div style="display:flex;gap:20px;margin-bottom:32px;flex-wrap:wrap;">
-            <button onclick="showSection('grade')" id="tab-grade" class="tab-btn active">Grade Calculator</button>
-            <button onclick="showSection('final')" id="tab-final" class="tab-btn">Final Grade Calculator</button>
-            <button onclick="showSection('gpa')" id="tab-gpa" class="tab-btn">GPA Calculator</button>
-        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START GRADE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="date-calculator.html">Other Calculators</a>
+                            <span>/</span>
+                            Grade Calculator
+                        </div>
+
+                        <div class="page-title">Grade Calculator – Final, GPA & Weighted Averages Made Easy</div>
+                        
+                        <div class="page-description">
+                            Free Grade Calculator for Students & Teachers<br>Easily calculate your final grades, weighted scores, and GPA with our intuitive tool. Whether you're prepping for finals or tracking semester performance, this calculator does the math for you — no spreadsheets needed.
+                        </div>
+                        
+                        <div style="display:flex;gap:20px;margin-bottom:32px;flex-wrap:wrap;">
+                            <button onclick="showSection('grade')" id="tab-grade" class="tab-btn active">Grade Calculator</button>
+                            <button onclick="showSection('final')" id="tab-final" class="tab-btn">Final Grade Calculator</button>
+                            <button onclick="showSection('gpa')" id="tab-gpa" class="tab-btn">GPA Calculator</button>
+                        </div>
 
         <!-- Grade Calculator Section -->
         <div id="section-grade">
-            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">Grade Calculator</h2>
+            <h2 style="color:#eb5424;font-size:1.3em;margin-bottom:18px;">Grade Calculator</h2>
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px;">
                 <label for="grade-type" style="font-size: 1.08em; color: #222; font-weight: 500;">Select grade type</label>
                 <div class="grade-type-segment" id="grade-type-segment">
@@ -309,7 +455,7 @@
 
         <!-- Final Grade Calculator Section -->
         <div id="section-final" style="display:none;">
-            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">Final Grade Calculator</h2>
+            <h2 style="color:#eb5424;font-size:1.3em;margin-bottom:18px;">Final Grade Calculator</h2>
             <div class="input-section" style="max-width: 500px; margin: 0 auto;">
                 <form id="final-form" onsubmit="event.preventDefault(); calculateFinalGrade();" autocomplete="off">
                     <div style="display: flex; align-items: center; margin-bottom: 18px;">
@@ -350,7 +496,7 @@
 
         <!-- GPA Calculator Section -->
         <div id="section-gpa" style="display:none;">
-            <h2 style="color:#2196F3;font-size:1.3em;margin-bottom:18px;">GPA Calculator</h2>
+            <h2 style="color:#eb5424;font-size:1.3em;margin-bottom:18px;">GPA Calculator</h2>
             <div class="input-section" style="max-width: 520px; margin: 0 auto;">
                 <form id="gpa-form" onsubmit="event.preventDefault(); calculateGpa();">
                     <table class="grade-table" id="gpa-table" style="margin-bottom: 0;">
@@ -373,7 +519,7 @@
                     </div>
                 </form>
                 <div class="result-section" id="gpa-result-section" style="display:none;max-width:400px;margin:0 auto;">
-                    <h2 style="font-size:1.1em;color:#2196F3;margin-bottom:10px;">Result</h2>
+                    <h2 style="font-size:1.1em;color:#eb5424;margin-bottom:10px;">Result</h2>
                     <div style="display:flex;align-items:center;gap:12px;">
                         <span style="font-size:1.08em;color:#222;font-weight:500;">GPA:</span>
                         <span class="value" id="gpa-value" style="font-size:1.25em;">0.00</span>
@@ -381,34 +527,63 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div style="max-width:900px;margin:36px auto 0 auto;padding:32px 28px 28px 28px;background:#fff;border-radius:18px;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-family:'Roboto',sans-serif;">
-        <div style="font-size:1.45em;font-weight:600;color:#222;margin-bottom:10px;line-height:1.18;">🧠 Finals coming up?</div>
-        <div style="font-size:1.08em;color:#444;margin-bottom:18px;line-height:1.7;">Your brain: \"We got this!\"<br>Your grades: \"LOL no we don't.\"</div>
-        <div style="font-size:1.08em;color:#333;margin-bottom:18px;line-height:1.7;">Welcome to the magical land of last-minute panic. But before you spiral into creating an Excel sheet with 47 tabs and a caffeine-induced twitch, meet your new academic BFF:</div>
-        <div style="font-size:1.18em;font-weight:500;color:#1976D2;margin-bottom:8px;line-height:1.7;">🎓 Grade Calculator — Because Guessing Isn't a Study Strategy</div>
-        <ul style="font-size:1.05em;color:#333;margin-bottom:18px;line-height:1.7;padding-left:1.2em;">
-            <li>✅ Instantly see what you need on your final</li>
-            <li>✅ Input weighted grades (because not all assignments are created equal)</li>
-            <li>✅ GPA, final grade, class average — all in one place</li>
-            <li>✅ Built for students, teachers, and that one guy who still thinks participation is worth 50%</li>
-            <li>✅ No sign-up. No nonsense. Just grade math magic.</li>
-        </ul>
-        <div style="font-size:1.13em;font-weight:500;color:#222;margin-bottom:8px;line-height:1.7;">❓FAQ – Yes, we read your academic mind:</div>
-        <div style="font-size:1.05em;color:#333;margin-bottom:8px;line-height:1.7;"><b>Q: Will this calculator tell me if I'm doomed?</b><br>A: Yep. But gently. With math.</div>
-        <div style="font-size:1.05em;color:#333;margin-bottom:8px;line-height:1.7;"><b>Q: Can it handle weighted classes or multiple assignments?</b><br>A: Of course. It's smarter than your group project partner.</div>
-        <div style="font-size:1.05em;color:#333;margin-bottom:18px;line-height:1.7;"><b>Q: What if I already failed?</b><br>A: Then use it to calculate how many points you need next semester 😬</div>
-        <div style="font-size:1.08em;color:#1976D2;font-weight:500;margin-bottom:7px;line-height:1.7;">💡 Pro tip:</div>
-        <div style="font-size:1.05em;color:#444;margin-bottom:10px;line-height:1.7;">Use the Grade Calculator before emailing your professor at 2AM asking for extra credit.</div>
-        <div style="font-size:1.05em;color:#555;line-height:1.7;">Because let's be honest — math doesn't lie. But it can save your GPA.</div>
-    </div>
-    <footer style="max-width: 900px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+                        
+                        <div class="content-section">
+                            <h2>📊 Grade Calculator – Because "What's My Grade?" Shouldn't Be a Mystery</h2>
+                            
+                            <div class="faq-item">
+                                <p>Some days, you're acing every assignment.<br>
+                                Other days, you're wondering if participation points can save your GPA.<br>
+                                And occasionally, you're just trying to figure out if you can still pass after that disastrous midterm.</p>
+                                
+                                <p>Whatever the case, our Grade Calculator is here to save your brain cells from doing academic gymnastics.</p>
+                            </div>
+
+                            <div class="faq-item">
+                                <h3>🔧 What does it do?</h3>
+                                <p>✅ Instantly see what you need on your final</p>
+                                <p>✅ Input weighted grades (because not all assignments are created equal)</p>
+                                <p>✅ GPA, final grade, class average — all in one place</p>
+                                <p>✅ Built for students, teachers, and that one guy who still thinks participation is worth 50%</p>
+                                <p>✅ No sign-up. No nonsense. Just grade math magic.</p>
+                            </div>
+
+                            <div class="faq-item">
+                                <h3>❓FAQ – Yes, we read your academic mind</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q1: Will this calculator tell me if I'm doomed?</strong><br>
+                                    A: Yep. But gently. With math.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q2: Can it handle weighted classes or multiple assignments?</strong><br>
+                                    A: Of course. It's smarter than your group project partner.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q3: What if I already failed?</strong><br>
+                                    A: Then use it to calculate how many points you need next semester 😬</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q4: Is this really free? Where's the catch?</strong><br>
+                                    A: No catch, just calculators. We make a little from ads — like a digital tip jar — but the tool itself is totally free.</p>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END GRADE CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -737,5 +912,14 @@
         document.getElementById('gpa-result-section').style.display = 'block';
     }
     </script>
+
+    <!-- JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

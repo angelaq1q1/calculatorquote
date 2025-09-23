@@ -32,55 +32,111 @@
       }
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <!-- Custom font override - must be after all other CSS -->
     <style>
+        /* CRITICAL: Override all external CSS fonts with Raleway */
+        * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, label, input, select, button, small, b, strong, em, i, ul, li, nav, footer, .navbar, .navbar-brand, .navbar-nav, .form-control, .btn {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Override Bootstrap and template styles */
+        .navbar-default, .navbar-default .navbar-brand, .navbar-default .navbar-nav li a {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .form-control, .btn, .btn-calculate {
+            font-family: 'Raleway', sans-serif !important;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
         body {
             background-color: #f5f5f5;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+        }
+        
+        /* Template integration styles */
+        .main-content-wrapper {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .content-area {
+            padding: 0 20px 40px 20px; /* Remove extra top padding since navbar is not fixed */
         }
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
         }
         .input-section {
             background-color: #f8f9fa;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
         }
         .input-group {
             margin-bottom: 20px;
@@ -88,8 +144,9 @@
         .input-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
+            color: #303030;
+            font-weight: 400;
+            font-size: 16px;
         }
         .input-group input[type="number"],
         .input-group input[type="text"],
@@ -97,7 +154,7 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 16px;
             width: 100%;
             margin-bottom: 10px;
         }
@@ -109,10 +166,19 @@
         }
         .toggle-group label {
             margin-bottom: 0;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 16px;
         }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -120,17 +186,30 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
+        }
+        
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
         }
         .result {
             margin-top: 18px;
             font-weight: bold;
             text-align: center;
             color: #28a745;
-            font-size: 1.15em;
+            font-size: 16px;
         }
         .breakdown {
             margin: 18px auto 0 auto;
@@ -138,11 +217,12 @@
             background: #f8f9fa;
             border-radius: 8px;
             padding: 16px 20px;
-            color: #444;
-            font-size: 1em;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
         .note {
-            font-size: 13px;
+            font-size: 14px;
             color: #888;
             margin-top: 10px;
             text-align: left;
@@ -154,9 +234,9 @@
             border-radius: 14px;
             border: 1.5px solid #e0e0e0;
             box-shadow: 0 2px 8px rgba(33,150,243,0.07);
-            font-size: 1.08em;
-            color: #333;
-            line-height: 1.7;
+            font-size: 16px;
+            color: #606060;
+            line-height: 28px;
             padding: 22px 28px 18px 28px;
         }
         .score-display {
@@ -183,6 +263,7 @@
             background-color: #f8d7da;
             color: #721c24;
         }
+        
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -192,23 +273,145 @@
             .two-column {
                 grid-template-columns: 1fr;
             }
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .advice {
+                font-size: 14px;
+            }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    <!-- FINAL FONT OVERRIDE - Must be the very last CSS -->
+    <style>
+        /* ULTIMATE FONT OVERRIDE - This overrides ALL other CSS */
+        * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Specific overrides for common elements */
+        html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, label, input, select, button, small, b, strong, em, i, ul, li, nav, footer {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Override Bootstrap classes */
+        .navbar, .navbar-brand, .navbar-nav, .navbar-nav li a, .form-control, .btn, .btn-calculate {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Override template classes */
+        .main-content-wrapper, .content-area, .calculator-container, .breadcrumb, .page-title, .page-description, .input-section, .input-group, .advice, .breakdown, .result, .score-display {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Force override any external CSS that might load after this */
+        html[style*="font-family"], body[style*="font-family"], *[style*="font-family"] {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Nuclear option - override everything with maximum specificity */
+        html, html *, body, body * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Override any CSS that might be loaded dynamically */
+        [class*="font"], [id*="font"], .font-roboto, .font-arial, .font-helvetica {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Navigation styles */
+        .navbar-default {
+            background: #fff !important;
+            border: none !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        
+        .navbar-default .navbar-brand {
+            color: #212227 !important;
+            font-weight: bold !important;
+            font-size: 30px !important;
+        }
+        
+        .navbar-default .navbar-nav li a {
+            color: #202020 !important;
+            font-size: 13px !important;
+            font-weight: bold !important;
+            padding: 15px 20px !important;
+            transition: none !important; /* Remove hover transitions */
+        }
+        
+        .navbar-default .navbar-nav > .active > a {
+            color: #202020 !important;
+            background: transparent !important;
+        }
+        
+        .navbar-toggle {
+            border: none !important;
+        }
+        
+        .navbar-toggle .icon-bar {
+            background-color: #eb5424 !important;
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right main-navigation">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content-wrapper" style="font-family: 'Raleway', sans-serif !important; background: #fff; padding-top: 0;">
+        <div class="content-area" style="font-family: 'Raleway', sans-serif !important; padding-top: 0;">
+            <div class="calculator-container" style="font-family: 'Raleway', sans-serif !important;">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Other Calculators</a>
+            <a href="date-calculator.html">Other Calculators</a>
             <span>/</span>
             Job Worth Calculator
         </div>
-        <h1>How to Use the Job Worth Calculator to Know Your True Market Value</h1>
-        <div class="description">
+        <h1 class="page-title">How to Use the Job Worth Calculator to Know Your True Market Value</h1>
+        <div class="page-description">
             Not sure if you're being paid what you're worth? This easy-to-use Job Worth Calculator helps you estimate your salary potential based on your role, experience, and industry — so you can negotiate smarter or explore new opportunities with confidence.
         </div>
-        <div class="input-section">
+        <div class="input-section work-wrapper">
             <div class="two-column">
                 <div>
                     <div class="input-group">
@@ -361,12 +564,15 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-calculate" onclick="calculateJobWorth()">Calculate Job Worth</button>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateJobWorth()">Calculate</button>
+                <button class="btn-clear" onclick="clearJobWorthCalculator()">Clear</button>
+            </div>
             <div class="result" id="result"></div>
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note">* This calculator provides an estimate based on common factors. Individual circumstances may vary significantly.</div>
         </div>
-        <div class="advice">
+        <div class="advice tm-padding-top-bottom-100">
             <b>Discover Your True Market Value — Are You Being Underpaid?</b><br><br>
             Wondering if you're earning what you're worth? This Job Worth Calculator reveals the truth about your salary compared to industry standards.<br><br>
             <b>What This Calculator Does:</b><br>
@@ -382,7 +588,7 @@
             Most people are surprised by the results. You might discover you're worth 10-30% more than you're currently earning. Knowledge is power — especially when it comes to your paycheck.
         </div>
 
-        <div class="advice">
+        <div class="advice tm-padding-top-bottom-100">
             <b>❓ FAQ - Job Worth Calculation</b><br><br>
             <b>Q1: How accurate is this calculator?</b><br>
             A: This provides a general estimate based on common factors. Your personal situation may differ based on individual preferences and circumstances.<br><br>
@@ -394,19 +600,61 @@
             A: Consider recalculating when your circumstances change significantly, such as moving, getting a raise, or changing work arrangements.<br><br>
             <b>Q5: Can I improve my score without changing jobs?</b><br>
             A: Yes! Consider negotiating better terms, requesting flexible arrangements, or improving your work environment through communication.
+            </div>
         </div>
     </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
     <script>
+        // Force Raleway font on page load and continuously
+        function forceRalewayFont() {
+            console.log('Applying Raleway font...');
+            
+            // Apply font directly to all elements
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(function(el) {
+                el.style.fontFamily = 'Raleway, sans-serif !important';
+            });
+            
+            // Force on specific elements
+            document.documentElement.style.fontFamily = 'Raleway, sans-serif !important';
+            document.body.style.fontFamily = 'Raleway, sans-serif !important';
+            
+            // Check if font is loaded
+            if (document.fonts) {
+                document.fonts.load('16px Raleway').then(function() {
+                    console.log('✅ Raleway font loaded successfully');
+                }).catch(function() {
+                    console.log('❌ Raleway font failed to load');
+                });
+            }
+        }
+        
+        // Apply immediately when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, applying Raleway font...');
+            forceRalewayFont();
+            
+            // Apply again after a short delay
+            setTimeout(forceRalewayFont, 100);
+            setTimeout(forceRalewayFont, 500);
+            setTimeout(forceRalewayFont, 1000);
+        });
+        
+        // Also apply when window loads
+        window.addEventListener('load', function() {
+            console.log('Window loaded, applying Raleway font...');
+            forceRalewayFont();
+        });
+        
         const pppFactors = {
             'US': 1.00, 'UK': 0.70, 'CA': 1.21, 'AU': 1.47, 'DE': 0.75, 'FR': 0.73,
             'JP': 102.84, 'CN': 4.19, 'IN': 21.99, 'BR': 2.36, 'MX': 9.52,
@@ -559,6 +807,41 @@
             breakdownDiv.innerHTML = breakdown;
             breakdownDiv.style.display = 'block';
         }
+
+        // Clear Job Worth Calculator
+        function clearJobWorthCalculator() {
+            document.getElementById('annual-salary').value = '';
+            document.getElementById('country').value = 'US';
+            document.getElementById('work-days').value = '5';
+            document.getElementById('wfh-days').value = '0';
+            document.getElementById('vacation-days').value = '20';
+            document.getElementById('holidays').value = '10';
+            document.getElementById('sick-days').value = '10';
+            document.getElementById('work-hours').value = '8';
+            document.getElementById('commute-hours').value = '1';
+            document.getElementById('break-hours').value = '2';
+            document.getElementById('education').value = 'bachelor';
+            document.getElementById('experience').value = 'entry';
+            document.getElementById('company-type').value = 'government';
+            document.getElementById('work-environment').value = 'office';
+            document.getElementById('city-tier').value = 'tier1';
+            document.getElementById('hometown').value = 'no';
+            document.getElementById('manager').value = 'neutral';
+            document.getElementById('colleagues').value = 'neutral';
+            document.getElementById('shuttle').checked = false;
+            document.getElementById('cafeteria').checked = false;
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
     </script>
+    
+    <!-- Template JavaScript Files -->
+    <script src="../jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../jquery.nav.js"></script>
+    <script src="../smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

@@ -5,72 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Calculator - Add or Subtract Days from a Date</title>
     <meta name="description" content="Use our Date Calculator to add or subtract days, weeks, or months from any date. Instantly find future or past dates, calculate durations, and plan important events. No login needed.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
          crossorigin="anonymous"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
-
+        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .input-section {
-            padding: 20px;
-            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            text-align: left;
         }
 
         .input-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .input-group label {
@@ -84,6 +90,8 @@
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .date-inputs select,
@@ -107,6 +115,7 @@
             align-items: center;
             gap: 15px;
             margin-bottom: 15px;
+            justify-content: flex-start;
         }
 
         .operator-section select {
@@ -114,7 +123,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
-            color: #2196F3;
+            color: #eb5424;
             background-color: white;
             cursor: pointer;
             outline: none;
@@ -124,7 +133,7 @@
 
         .operator-section select:hover,
         .operator-section select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .operator-section input[type="number"] {
@@ -137,12 +146,15 @@
 
         .operator-section input[type="number"]:hover,
         .operator-section input[type="number"]:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
             outline: none;
         }
 
         .checkbox-group {
             margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .checkbox-group label {
@@ -160,24 +172,26 @@
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 15px;
         }
 
         .result-date {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -188,11 +202,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -203,7 +217,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .format-toggle {
@@ -212,9 +226,9 @@
 
         .format-toggle button {
             padding: 8px 15px;
-            border: 1px solid #2196F3;
+            border: 1px solid #eb5424;
             background: white;
-            color: #2196F3;
+            color: #eb5424;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -228,30 +242,15 @@
         }
 
         .format-toggle button.active {
-            background: #2196F3;
+            background: #eb5424;
             color: white;
-        }
-
-        @media (max-width: 768px) {
-            .calculator-container {
-                padding: 20px;
-            }
-
-            .date-inputs {
-                flex-wrap: wrap;
-            }
-
-            .date-inputs input,
-            .date-inputs select {
-                flex: 1;
-                min-width: 70px;
-            }
         }
 
         .today-group {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            align-items: flex-start;
         }
 
         .today-section {
@@ -265,7 +264,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
-            color: #2196F3;
+            color: #eb5424;
             background-color: white;
             cursor: pointer;
             outline: none;
@@ -274,7 +273,7 @@
 
         .today-section select:hover,
         .today-section select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .today-section label {
@@ -284,83 +283,178 @@
 
         .result-date {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
             padding: 8px 0;
         }
 
-        .info-section {
-            margin-top: 30px;
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: left;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+
+        /* AdSense Styles */
+        .adsense-container {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 600px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .adsense-placeholder {
+            color: #999;
+            font-size: 14px;
+            text-align: center;
             padding: 20px;
         }
 
-        .info-section h2 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
 
-        .info-section h3 {
-            color: #333;
-            font-size: 1.2em;
-            margin: 20px 0 10px;
-        }
-
-        .info-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
-        }
-
-        .faq-item p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .faq-item strong {
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .calculator-container {
-                padding: 20px;
+        @media (max-width: 1200px) {
+            .adsense-container {
+                display: none;
             }
+        }
 
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .content-section {
+                font-size: 14px;
+            }
             .date-inputs {
                 flex-wrap: wrap;
+                gap: 8px;
             }
 
             .date-inputs input,
             .date-inputs select {
                 flex: 1;
                 min-width: 70px;
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .operator-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .operator-section select,
+            .operator-section input[type="number"] {
+                width: 100%;
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Other Calculators</a>
-            <span>/</span>
-            Date Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-        <h1>Date Calculator – Quickly Add or Subtract Days Without a Calendar Meltdown</h1>
-        
-        <div class="description">
-            Need to figure out what day it'll be 90 days from now? Or how many days between your birthday and tax season? Our free <strong>Date Calculator</strong> does the date math for you — add or subtract days, weeks, months, or even years in seconds. Whether you're scheduling a trip, planning deadlines, or just satisfying calendar curiosity, this tool has your back.
-        </div>
+    <!-- START DATE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="date-calculator.html">Other Calculators</a>
+                            <span>/</span>
+                            Date Calculator
+                        </div>
 
-        <div class="input-section">
+                        <div class="page-title">Date Calculator – Quickly Add or Subtract Days Without a Calendar Meltdown</div>
+                        
+                        <div class="page-description">
+                            Need to figure out what day it'll be 90 days from now? Or how many days between your birthday and tax season? Our free Date Calculator does the date math for you — add or subtract days, weeks, months, or even years in seconds. Whether you're scheduling a trip, planning deadlines, or just satisfying calendar curiosity, this tool has your back.
+                        </div>
+
+                        <div class="input-section">
             <div class="input-group today-group">
                 <div class="today-section">
                     <label>Today is:</label>
@@ -403,76 +497,68 @@
                 <button class="btn-calculate" onclick="calculateDate()">Calculate</button>
                 <button class="btn-clear" onclick="clearInputs()">Clear</button>
             </div>
-        </div>
+                        </div>
 
-        <div class="result-section" id="results">
-            <h2>Result</h2>
-            <div class="result-date" id="result-date"></div>
-            <div id="repeat-link"></div>
-        </div>
+                        <div class="result-section" id="results">
+                            <h2>Result</h2>
+                            <div class="result-date" id="result-date"></div>
+                            <div id="repeat-link"></div>
+                        </div>
 
+                        <div class="content-section">
+                            <h2>📅 Date Calculator – Because "Two Weeks From Tuesday" Shouldn't Be a Math Problem</h2>
+                            
+                            <div class="faq-item">
+                                <p>Some days, you're planning a vacation.<br>
+                                Other days, you're figuring out how many days are left before your rent is due (again).<br>
+                                And occasionally, you're just trying to count how many days you've survived since your last existential crisis.</p>
+                                
+                                <p>Whatever the case, our Date Calculator is here to save your brain cells from doing calendar gymnastics.</p>
+                            </div>
 
-        <!-- AdSense广告单元 -->
-        <div style="margin: 30px 0; text-align: center;">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-8831713993918492"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        </div>
+                            <div class="faq-item">
+                                <h3>🔧 What does it do?</h3>
+                                <p>✅ Add or subtract days, weeks, months, or years from any date</p>
+                                <p>✅ Calculate duration between two dates</p>
+                                <p>✅ Plan deadlines, countdowns, or how long it's been since your last gym visit</p>
+                                <p>✅ Instant results, no mental math or weird leap year drama</p>
+                                <p>✅ Free. No logins. No pop-ups asking for your birthday (ironic, we know)</p>
+                            </div>
 
-        <div class="info-section">
-            <h2>📅 Date Calculator – Because "Two Weeks From Tuesday" Shouldn't Be a Math Problem</h2>
-            
-            <div class="faq-item">
-                <p>Some days, you're planning a vacation.<br>
-                Other days, you're figuring out how many days are left before your rent is due (again).<br>
-                And occasionally, you're just trying to count how many days you've survived since your last existential crisis.</p>
-                
-                <p>Whatever the case, our Date Calculator is here to save your brain cells from doing calendar gymnastics.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>🔧 What does it do?</h3>
-                <p>✅ Add or subtract days, weeks, months, or years from any date</p>
-                <p>✅ Calculate duration between two dates</p>
-                <p>✅ Plan deadlines, countdowns, or how long it's been since your last gym visit</p>
-                <p>✅ Instant results, no mental math or weird leap year drama</p>
-                <p>✅ Free. No logins. No pop-ups asking for your birthday (ironic, we know)</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>❓FAQ – We know your brain's too fried to count</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use this to plan my next vacation?</strong><br>
-                    A: Absolutely. Just don't blame us if it's 136 days away and you lose hope.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can it tell me how many days I've been alive?</strong><br>
-                    A: Yep. Warning: the number might be alarmingly high. Existential dread not included.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this just a calendar with a calculator taped to it?</strong><br>
-                    A: Basically, but prettier. And less judgmental than your wall calendar.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is it really free? Where's the catch?</strong><br>
-                    A: No catch, just calculators. We make a little from ads — like a digital tip jar — but the tool itself is totally free.</p>
+                            <div class="faq-item">
+                                <h3>❓FAQ – We know your brain's too fried to count</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q1: Can I use this to plan my next vacation?</strong><br>
+                                    A: Absolutely. Just don't blame us if it's 136 days away and you lose hope.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q2: Can it tell me how many days I've been alive?</strong><br>
+                                    A: Yep. Warning: the number might be alarmingly high. Existential dread not included.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q3: Is this just a calendar with a calculator taped to it?</strong><br>
+                                    A: Basically, but prettier. And less judgmental than your wall calendar.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q4: Is it really free? Where's the catch?</strong><br>
+                                    A: No catch, just calculators. We make a little from ads — like a digital tip jar — but the tool itself is totally free.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
+    </section>
+    <!-- END DATE CALCULATOR -->
 
-
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -606,7 +692,7 @@
             resultDateElement.textContent = formatDate(resultDate);
 
             // Add repeat link
-            repeatLink.innerHTML = `<a href="#" onclick="repeatCalculation(${days}); return false;" style="color: #2196F3; text-decoration: none;">Repeat ${currentOperator === 'add' ? '+' : '-'}${days} Days</a>`;
+            repeatLink.innerHTML = `<a href="#" onclick="repeatCalculation(${days}); return false;" style="color: #eb5424; text-decoration: none;">Repeat ${currentOperator === 'add' ? '+' : '-'}${days} Days</a>`;
         }
 
         function repeatCalculation(days) {
@@ -634,32 +720,64 @@
         // Initialize the calculator
         window.onload = function() {
             initTodayDate();
-            // Initialize AdSense ads
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            
+            // Initialize AdSense
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.log('AdSense initialization error:', e);
+            }
         };
     </script>
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Calculator",
-      "name": "Date Calculator",
-      "description": "Use our free Date Calculator to add or subtract days from a date, calculate durations between two dates, and plan timelines without confusion.",
-      "url": "https://www.calculatorquote.com/other/date-calculator.html",
-      "keywords": [
-        "Date calculator",
-        "Add days to date",
-        "Subtract days from date",
-        "Calculate duration between dates",
-        "Day calculator",
-        "Time between dates"
-      ],
-      "publisher": {
-        "@type": "Organization",
-        "name": "CalculatorQuote",
-        "url": "https://www.calculatorquote.com"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use the Date Calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simply enter a date, choose to add or subtract days, enter the number of days, and click Calculate. The tool will instantly show you the result date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I calculate business days only?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, check the 'Business Days Only' option to exclude weekends from your calculation. You can also include Saturdays as business days if needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What date formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The calculator supports multiple date formats: MM/DD/YYYY, DD/MM/YYYY, and YYYY-MM-DD. You can switch between formats using the dropdown menu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Date Calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our Date Calculator is completely free to use with no registration required. All calculations are performed instantly in your browser."
+          }
+        }
+      ]
     }
     </script>
+
+    <!-- JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

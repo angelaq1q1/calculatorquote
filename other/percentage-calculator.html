@@ -3,63 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percentage Calculator - Find Percent, Increase or Decrease</title>
-    <meta name="description" content="Easily calculate percentage increase, decrease, what is X% of Y, and more. This free Percentage Calculator helps with discounts, tips, finance, and homework. No login or app needed.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Weight Loss Percentage Calculator – Track Progress Instantly</title>
+    <meta name="description" content="Easily calculate your weight loss percentage with our free online calculator. See how much progress you've made, stay motivated, and keep your fitness journey on track with accurate results in seconds.">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
+        .content-area {
+            flex: 1;
+            max-width: 800px;
         }
 
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
+        
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
+        
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .calculator-section {
@@ -137,13 +174,15 @@
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -154,11 +193,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -169,7 +208,7 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
@@ -181,13 +220,13 @@
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #eb5424;
             margin-bottom: 15px;
         }
 
         .result-value {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
         }
 
@@ -196,18 +235,28 @@
         }
 
         .info-section h2 {
-            color: #333;
-            margin-bottom: 15px;
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
 
         .info-section h3 {
-            color: #444;
+            color: #000000;
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 1px;
             margin: 20px 0 10px;
+            padding-bottom: 5px;
         }
 
         .info-section p {
-            color: #666;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
             margin-bottom: 15px;
         }
 
@@ -219,12 +268,12 @@
         }
 
         .example-section h4 {
-            color: #333;
+            color: #000000;
             margin-bottom: 10px;
         }
 
         .example-section p {
-            color: #666;
+            color: #606060;
             margin-bottom: 10px;
         }
 
@@ -241,23 +290,72 @@
             .input-group input {
                 width: 100%;
             }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START PERCENTAGE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Other Calculators</a>
+            <a href="date-calculator.html">Other Calculators</a>
             <span>/</span>
             Percentage Calculator
         </div>
 
-        <h1>Percentage Calculator – For Discounts, Tips, and All Your Math Anxiety</h1>
+        <h1>Track Your Weight Loss Progress Instantly With Our Percentage Calculator</h1>
         
         <div class="description">
-            Need to figure out what 15% of your bill is, how much you've grown your crypto portfolio (or lost), or just want to finally understand your homework? Our <strong>Percentage Calculator</strong> makes it insanely easy to calculate percentage increase, decrease, X% of Y, or what % one number is of another. Whether you're a student, a shopper, or someone just trying to survive tax season — this tool's got your back.
+            Track your weight loss progress with ease. Many people struggle to see real results during their fitness journey. Our Percentage Calculator instantly shows how much weight you've lost as a clear percentage, helping you stay motivated, measure success accurately, and keep your goals on track.
         </div>
 
         <div class="calculator-section">
@@ -292,63 +390,86 @@
         </div>
 
         <div class="info-section">
-            <h2>🎯 Percentage Calculator – Because "What's 15% of $87.43?" Shouldn't Trigger a Panic Attack</h2>
+            <h2>📊 Percentage Calculator – How to Use and When It Helps</h2>
             
-            <div class="faq-item">
-                <p>Math teachers:<br>
-                "You'll use percentages every day as an adult!"</p>
-                
-                <p>You, standing in front of a checkout counter, sweating because you can't figure out a 20% discount on a $59 hoodie:<br>
-                "…they were right."</p>
-                
-                <p>Breathe easy. Our free Percentage Calculator is here to stop your brain from melting every time someone mentions "percent off," "percent increase," or "you gained 8% body fat during the holidays."</p>
-            </div>
+            <p>Our Percentage Calculator helps you solve everyday math problems fast and clearly. You can use it for weight loss, pay raise calculations, simple interest, or checking alcohol content. The tool turns numbers into easy-to-understand results.</p>
+
+            <h3>⚡ Quick Solution: How to Use the Percentage Calculator</h3>
+            
+            <h4>1️⃣ Select Your Calculation Type</h4>
+            <p>Start by choosing the type of percentage problem from the drop-down menu. Options include weight loss percentage calculator, pay raise percentage calculator, simple interest percentage calculator, and beer alcohol percentage calculator.</p>
+            
+            <h4>2️⃣ Enter Your Numbers</h4>
+            <p>Enter the numbers you have:</p>
+            <ul>
+                <li>📈 Original number – your starting point, base value, or principal.</li>
+                <li>📊 Percentage – the rate, change, or target.</li>
+                <li>🎯 Target value – if the problem needs it.</li>
+            </ul>
+            
+            <h4>3️⃣ Click Calculate</h4>
+            <p>Press the Calculate button. The calculator shows the result as a percentage instantly.</p>
+            
+            <h4>4️⃣ Interpret Your Result</h4>
+            <p>Look at the output. It shows the relationship between your numbers in percentage form. Use it to track progress, plan finances, or make lifestyle choices.</p>
+
+            <h3>🎯 When to Use It</h3>
+            
+            <p>🏃‍♀️ Use the weight loss percentage calculator to track how much of your starting weight you lost. It helps you stay motivated and see your progress clearly.</p>
+            
+            <p>💼 The pay raise percentage calculator shows how much your salary increases in numbers and percentages. It helps you understand how a raise or promotion affects your monthly budget.</p>
+            
+            <p>🍺 The beer alcohol percentage calculator tells you the alcohol content of a drink. You can compare drinks and stay safe while enjoying your favorite beverages.</p>
+            
+            <p>💰 Use the simple interest percentage calculator for money matters. It helps you calculate interest on loans, savings, or investments. Enter principal, rate, and time. You get a clear picture of how much you will earn or owe.</p>
+
+            <h3>📈 What the Results Mean</h3>
+            
+            <p>Every result shows the relationship between numbers in percentages. Whether it is body weight, income, alcohol, or financial returns, the calculator helps you understand your data and make better decisions.</p>
 
             <div class="faq-item">
-                <h3>🔧 What can it do? (Besides saving your dignity)</h3>
-                <p>✅ Calculate what X% of Y is (like 15% of your lunch bill)</p>
-                <p>✅ Find out what % one number is of another (for awkward grade math)</p>
-                <p>✅ Figure out percentage increase and decrease (great for crypto losses)</p>
-                <p>✅ No installs. No app. No logins. Just math magic in your browser.</p>
-                <p>✅ Works on phones, desktops, tablets, and even that ancient laptop from 2010.</p>
+                <h3>❓ FAQ – Percentage Calculator</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q1: What percentage will I pay in taxes?</strong><br>
+                    A: You can use a percentage calculator to estimate how much tax you will pay. Enter your total income and the tax rate, then press calculate. The result shows the exact percentage of your income you owe in taxes. 💰</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q2: How to use percentage calculator?</strong><br>
+                    A: First, choose the type of percentage problem from the drop-down menu. Then enter the numbers: original value, percentage, or target value. Press Calculate to see the result instantly. ⚡</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q3: How much percentage increase calculator?</strong><br>
+                    A: Use this calculator to find out how much a value has increased in percentage. Enter the original value and the new value, then click calculate. The output shows the percentage increase. 📈</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q4: What percentage discount calculator?</strong><br>
+                    A: Enter the original price and the discount amount or rate. The calculator will tell you how much percentage discount you get. This helps you quickly compare deals while shopping. 🛍️</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q5: What percentage off calculator?</strong><br>
+                    A: Similar to the discount calculator, this tool calculates the percentage off for any price reduction. Input the original price and the reduced price, then click calculate. 💸</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q6: What percentage decrease calculator?</strong><br>
+                    A: Use this to find out how much a number has decreased in percentage. Enter the original value and the new value. The calculator shows the percentage decrease automatically. 📉</p>
+                </div>
             </div>
 
-            <div class="faq-item">
-                <h3>❓ Real questions we've actually made up:</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use this to calculate my tip?</strong><br>
-                    A: Yes, and maybe your waiter will stop glaring at you.</p>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Will it help me figure out my grade?</strong><br>
-                    A: Absolutely. We can't promise it'll improve your grade though.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Why is math this hard?</strong><br>
-                    A: We don't know. Ask whoever invented percentages. Probably a tax collector.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: So it's really free? No sneaky pop-ups?</strong><br>
-                    A: Totally free. No "unlock premium" trapdoors. Just some light ads that fund our caffeine habits.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <h3>🧠 Pro tip:</h3>
-                <p>Save this bad boy in your bookmarks. Next time you're calculating a 17.5% off sale or wondering how much interest your bank "generously" gave you (spoiler: it's like $0.06), you'll be glad you did.</p>
-                <p>Math may be eternal…<br>
-                But struggling with percentages doesn't have to be. 🎯📉</p>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- END PERCENTAGE CALCULATOR -->
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -638,6 +759,15 @@
         };
     </script>
 
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -646,13 +776,10 @@
       "description": "Free online Percentage Calculator to calculate percentage increase, decrease, what is X% of Y, percent difference, and discounts. Perfect for math, shopping, finance, and homework.",
       "url": "https://www.calculatorquote.com/other/percentage-calculator.html",
       "keywords": [
-        "percentage calculator",
-        "percent increase calculator",
-        "discount calculator",
-        "tip calculator",
-        "percent of a number",
-        "percent difference",
-        "what is X% of Y"
+        "percentage calculator for weight loss",
+        "percentage calculator online",
+        "percentage calculator discount",
+        "percentage calculator for grades"
       ],
       "publisher": {
         "@type": "Organization",

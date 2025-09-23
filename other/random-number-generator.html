@@ -3,85 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Number Generator - Create Random Numbers Instantly</title>
-    <meta name="description" content="Use our free Random Number Generator to pick a number between 1 -2 or any range you choose. Perfect for games, raffles, simulations, and decision-making. No login, no fluff.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Random Number Generator Online – Fast & Fair Tournament Draws - CalculatorQuote</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
+        
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
-
+        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        
+        .page-title {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
+        
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
-
+        
         .input-section {
             background-color: #f8f9fa;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-bottom: 20px;
         }
-
+        
         .input-group {
             margin-bottom: 20px;
             display: grid;
-            grid-template-columns: 150px 1fr;
+            grid-template-columns: 120px 1fr;
             align-items: center;
             gap: 15px;
         }
-
+        
         .input-group label {
             color: #333;
             font-weight: 500;
         }
-
+        
         .input-group input,
         .input-group select {
             padding: 10px;
@@ -90,67 +92,74 @@
             font-size: 1em;
             outline: none;
             transition: border-color 0.3s;
-            width: 200px;
         }
-
+        
         .input-group input:hover,
         .input-group input:focus,
         .input-group select:hover,
         .input-group select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
-
-        .radio-group {
-            display: flex;
-            gap: 20px;
+        
+        .input-group input[type="number"] {
+            width: 200px;
         }
-
-        .radio-option {
+        
+        .checkbox-group {
+            margin: 20px 0;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
         }
-
-        .radio-option input[type="radio"] {
-            width: auto;
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
         }
-
+        
+        .checkbox-group label {
+            color: #333;
+            font-weight: 500;
+            margin: 0;
+        }
+        
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
-
-        .btn-generate {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .btn-generate:hover {
-            background-color: #1976D2;
-        }
-
+        
+        .btn-generate,
         .btn-clear {
-            background-color: #90caf9;
-            color: white;
-            border: none;
             padding: 12px 25px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            border: none;
         }
-
+        
+        .btn-generate {
+            background-color: #eb5424;
+            color: white;
+        }
+        
+        .btn-generate:hover {
+            background-color: #d4441a;
+        }
+        
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+        }
+        
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
-
+        
         .result-section {
             margin-top: 30px;
             padding: 20px;
@@ -158,272 +167,428 @@
             border-radius: 10px;
             display: none;
         }
-
+        
         .result-section h2 {
             color: #1976D2;
             margin-bottom: 15px;
-        }
-
-        .result-numbers {
             font-size: 1.2em;
-            color: #2196F3;
-            margin-bottom: 10px;
-            word-wrap: break-word;
+            font-weight: bold;
         }
-
-        .info-section {
+        
+        .result-content {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.6;
+            word-break: break-all;
+        }
+        
+        .alert {
+            border-radius: 5px;
+            border: none;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
             margin-top: 40px;
         }
-
-        .info-section h2 {
-            color: #333;
-            margin-bottom: 15px;
+        
+        .content-section h2, .content-section h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
-
-        .info-section h3 {
-            color: #444;
+        
+        .content-section h3 {
+            font-size: 18px;
             margin: 20px 0 10px;
+            padding-bottom: 5px;
         }
-
-        .info-section p {
-            color: #666;
-            line-height: 1.6;
+        
+        .content-section p {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
             margin-bottom: 15px;
         }
-
-        .example-section {
+        
+        .faq-item {
             margin-top: 20px;
             padding: 15px;
             background-color: #f5f5f5;
             border-radius: 5px;
         }
-
-        .example-section h4 {
-            color: #333;
+        
+        .faq-item h4 {
+            color: #eb5424;
             margin-bottom: 10px;
+            font-weight: bold;
         }
-
-        .example-section ul {
-            list-style-type: none;
-            padding-left: 0;
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
         }
-
-        .example-section li {
-            margin-bottom: 5px;
-            color: #666;
+        
+        .content-section a:hover {
+            color: #d4441a;
         }
-
+        
         @media (max-width: 768px) {
             .calculator-container {
                 padding: 20px;
             }
-
+            
             .input-group {
                 grid-template-columns: 1fr;
                 gap: 8px;
             }
-
+            
             .input-group input,
             .input-group select {
                 width: 100%;
             }
-
-            .radio-group {
-                flex-direction: column;
-                gap: 10px;
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
             }
+            
+            .btn-generate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Other Calculators</a>
-            <span>/</span>
-            Random Number Generator
-        </div>
 
-        <h1>Random Number Generator – Because Flipping a Coin is So Last Century</h1>
-        
-        <div class="description">
-            Need to pick a number between 1 -2? Or between 1 and 100? Or 1 and 10,000? Whether you're picking winners, building games, or avoiding responsibility, our Random Number Generator has your back. Instantly generate numbers within your chosen range—no dice, no drama, just results. Perfect for quick decisions like "pick a number between 1 -2" when you can't decide! From simple choices like "pick a number between 1 -3" to complex ranges up to "pick a number between 1 and 10000" - we've got you covered.
-        </div>
-
-        <div class="input-section">
-            <div class="input-group">
-                <label>Minimum Number:</label>
-                <input type="number" id="minNumber" value="1">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-
-            <div class="input-group">
-                <label>Maximum Number:</label>
-                <input type="number" id="maxNumber" value="100">
-            </div>
-
-            <div class="input-group">
-                <label>How Many Numbers:</label>
-                <input type="number" id="count" value="5" min="1">
-            </div>
-
-            <div class="input-group">
-                <label>Allow Repeats:</label>
-                <select id="allowRepeats">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label>Sort Numbers:</label>
-                <select id="sortOrder">
-                    <option value="none">Do not sort</option>
-                    <option value="asc">Low to High</option>
-                    <option value="desc">High to Low</option>
-                </select>
-            </div>
-
-            <div class="buttons">
-                <button class="btn-generate" onclick="generateNumbers()">Generate</button>
-                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-        <div class="result-section" id="results">
-            <h2>Generated Numbers</h2>
-            <div class="result-numbers" id="result-numbers"></div>
-        </div>
+    <!-- START RANDOM NUMBER GENERATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="date-calculator.html">Other Calculators</a>
+                            <span>/</span>
+                            Random Number Generator
+                        </div>
 
-        <div class="info-section">
-            <h2>🌀 Random Number Generator – For When You're Too Indecisive to Even Flip a Coin 🎲</h2>
-            
-            <div class="faq-item">
-                <p>Ever spent 30 minutes choosing a number between 1 and 10?</p>
-                <p>Yeah… same.</p>
-                <p>Whether you're picking a raffle winner, assigning chores, generating lottery numbers, or figuring out who buys the next round — our Random Number Generator has your back. No overthinking. No arguments. No "best out of three." Just click and boom — instant randomness.</p>
-            </div>
+                        <div class="page-title">Random Number Generator Online – Fast & Fair Tournament Draws</div>
+                        
+                        <div class="description">
+                            Save time and keep tournaments fair with our Random Number Generator online. Instantly create unbiased draws for sports, school events, or gaming matchups.
+                        </div>
 
-            <div class="faq-item">
-                <h3>💡 What can it do?</h3>
-                <p>✅ Pick a random number between any two values (yes, even pick a number between 1 -2 or 1 and 69420)</p>
-                <p>✅ Perfect for simple choices like "pick a number between 1 -2" when you can't decide</p>
-                <p>✅ Handle both simple ranges like "pick a number between 1 -3" and massive ranges like "pick a number between 1 and 10000"</p>
-                <p>✅ Zero fluff, no login, no captcha maze</p>
-                <p>✅ Instant results, even faster than your excuses</p>
-                <p>✅ Works on phone, desktop, tablet, smart fridge — whatever you've got</p>
-                <p>✅ Great for raffles, math games, simulations, teachers, indecisive humans</p>
-            </div>
+                        <div class="input-section">
+                            <div class="input-group">
+                                <label>Minimum Value:</label>
+                                <input type="number" id="min" value="1" min="0" step="1">
+                            </div>
 
-            <div class="faq-item">
-                <h3>🧠 Why not just ask Siri or Google?</h3>
-                <p>Because our RNG doesn't judge you for needing a random number for deciding which sock to wear.</p>
-            </div>
+                            <div class="input-group">
+                                <label>Maximum Value:</label>
+                                <input type="number" id="max" value="100" min="1" step="1">
+                            </div>
 
-            <div class="faq-item">
-                <h3>❓ FAQ – Also Random, But Helpful</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this really free?</strong><br>
-                    A: Yup. No paywalls, no freemium bait. Just randomness, no strings attached.</p>
+                            <div class="input-group">
+                                <label>Number of Random Numbers:</label>
+                                <input type="number" id="count" value="1" min="1" max="1000" step="1">
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="duplicates" checked>
+                                <label for="duplicates">Allow duplicate numbers</label>
+                            </div>
+
+                            <div class="buttons">
+                                <button class="btn-generate" onclick="generateRandomNumbers()">Generate</button>
+                                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                            </div>
+                        </div>
+
+                        <div id="alertContainer"></div>
+
+                        <div class="result-section">
+                            <h2>Generated Numbers</h2>
+                            <div id="result" class="result-content">Click "Generate" to see results</div>
+                        </div>
+
+
+                        <div class="content-section">
+                            <p>Organizing sports events, school games, or online matches can take a lot of time. Coaches, teachers, and players often spend minutes or even hours deciding matchups or splitting teams. Our Random Number Generator online tool solves this problem. You can quickly get fair and unbiased results in just a few clicks.</p>
+
+                            <h2>How to Use the Tool:</h2>
+
+                            <p>Enter the numbers or names into the box. You can use it as a google random number generator or pick numbers in a range, like random number generator 1 to 100 or random number generator 1-10. Choose how many results you want. Click the "Generate" button, and the tool instantly gives you random numbers. You can repeat or change the settings if needed. It works on both computer and phone, and you can also try the random number generator app for easy access on the go.</p>
+
+                            <h2>When to Use This Tool:</h2>
+
+                            <p>Use it to decide matchups in sports tournaments or friendly games. In football or basketball leagues, it can randomly assign teams to keep things fair. At school events, it helps split students into groups or decide game order. You can also use it with pages like <a href="../sports/football-head-to-head-stats-comparison.html">Football Head-to-Head Stats Comparison</a> to check past results before making random matchups.</p>
+
+                            <p>This tool is great for quick decisions and fair play. Whether you need a 1 3 random number generator, a random number generator picker, or a random number generator between 1 and 2, it keeps the process simple. It stops you from manually sorting names, avoids arguments, and gives every player or student an equal chance.</p>
+
+                            <p>Try our Random Number Generator online today. It works for tournaments, class groups, or any game where fairness and speed matter. You save time and make decisions instantly.</p>
+
+                            <div class="faq-item">
+                                <h3>❓ FAQ – Random Questions, Helpful Answers</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q1: How does a random number generator work?</strong><br>
+                                    A random number generator (RNG) works by using mathematical formulas or algorithms to produce numbers that appear random. Some generators use computer algorithms (pseudo-random), while others use physical processes, like atmospheric noise, to create true randomness.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q2: How to make a random number generator?</strong><br>
+                                    You can make a random number generator using programming languages like Python, JavaScript, or Excel formulas. Simple versions use built-in functions, such as RAND() in Excel or Math.random() in JavaScript.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q3: What is the most random number?</strong><br>
+                                    There is no single "most random number." True randomness means each number has an equal chance of appearing. The unpredictability is key, so any number can be the result depending on the generator.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q4: What is a wheel random number generator?</strong><br>
+                                    A wheel random number generator simulates spinning a wheel with numbers on it. It randomly selects a number when the wheel stops, similar to a roulette or prize wheel.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q5: How to use a random number generator?</strong><br>
+                                    To use a random number generator, enter the range or list of numbers you want, then click generate. The tool will quickly give you a random selection. You can repeat the process as needed.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q6: How to win a random number generator?</strong><br>
+                                    You cannot predict or guarantee a win with a true random number generator. Every number has the same chance. Using strategies like pattern tracking does not increase your odds, as randomness is designed to be fair.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Will it pick the same number twice?</strong><br>
-                    A: If you let it. But you can always hit refresh like it's 2010.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use it to pick lottery numbers?</strong><br>
-                    A: You can. Just don't sue us when you don't win.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can it help me decide what to eat?</strong><br>
-                    A: Sure. Assign numbers to your food options, and let the universe decide. Or simply pick a number between 1 -2 for quick yes/no decisions! For more options, try "pick a number between 1 -3" or go big with "pick a number between 1 and 10000" for restaurant menus!</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <h3>🔮 Pro Tip:</h3>
-                <p>Bookmark this bad boy. Next time someone says "you pick," just say, "hold on, let me consult the Random Number Oracle." Works every time. For quick decisions, just pick a number between 1 -2 and you're done! Need more variety? Try "pick a number between 1 -3" for three-way choices, or "pick a number between 1 and 10000" when you want to really mix things up!</p>
             </div>
         </div>
-    </div>
-
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    </section>
+    <!-- END RANDOM NUMBER GENERATOR -->
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
     <script>
-        function generateNumbers() {
-            const min = parseInt(document.getElementById('minNumber').value);
-            const max = parseInt(document.getElementById('maxNumber').value);
+        let totalGenerated = 0;
+        
+        function showAlert(message, type = 'danger') {
+            const alertContainer = document.getElementById('alertContainer');
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}" role="alert">
+                    ${message}
+                </div>
+            `;
+            
+            // Auto-hide alert after 5 seconds
+            setTimeout(() => {
+                alertContainer.innerHTML = '';
+            }, 5000);
+        }
+        
+        function updateStats(numbers) {
+            // Statistics functionality removed
+        }
+        
+        function generateRandomNumbers() {
+            // Clear previous alerts
+            document.getElementById('alertContainer').innerHTML = '';
+            
+            // Get input values
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(document.getElementById('max').value);
             const count = parseInt(document.getElementById('count').value);
-            const allowRepeats = document.getElementById('allowRepeats').value === 'yes';
-            const sortOrder = document.getElementById('sortOrder').value;
-
-            // Validation
+            const allowDuplicates = document.getElementById('duplicates').checked;
+            
+            // Validate inputs
             if (isNaN(min) || isNaN(max) || isNaN(count)) {
-                alert('Please enter valid numbers.');
+                showAlert('Please enter valid numbers for all fields.');
                 return;
             }
-
-            if (min > max) {
-                alert('Minimum number must be less than or equal to maximum number.');
+            
+            if (min >= max) {
+                showAlert('Minimum value must be less than maximum value.');
                 return;
             }
-
-            if (count < 1) {
-                alert('Number of items must be at least 1.');
+            
+            if (count <= 0) {
+                showAlert('Count must be a positive number.');
                 return;
             }
-
-            if (!allowRepeats && (max - min + 1) < count) {
-                alert('Cannot generate ' + count + ' unique numbers in the range ' + min + ' to ' + max + '.');
+            
+            const rangeSize = max - min + 1;
+            
+            if (!allowDuplicates && count > rangeSize) {
+                showAlert(`Cannot generate ${count} unique numbers from a range of ${rangeSize} numbers. Please reduce the count or allow duplicates.`);
                 return;
             }
-
-            // Generate numbers
-            let numbers = [];
-            if (allowRepeats) {
-                for (let i = 0; i < count; i++) {
-                    numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            
+            // Generate random numbers
+            const numbers = [];
+            const usedNumbers = new Set();
+            
+            while (numbers.length < count) {
+                const num = Math.floor(Math.random() * (max - min + 1)) + min;
+                
+                if (allowDuplicates) {
+                    numbers.push(num);
+                } else {
+                    if (!usedNumbers.has(num)) {
+                        usedNumbers.add(num);
+                        numbers.push(num);
+                    }
                 }
-            } else {
-                let pool = Array.from({length: max - min + 1}, (_, i) => min + i);
-                for (let i = 0; i < count; i++) {
-                    const index = Math.floor(Math.random() * pool.length);
-                    numbers.push(pool[index]);
-                    pool.splice(index, 1);
-                }
             }
-
-            // Sort if requested
-            if (sortOrder === 'asc') {
-                numbers.sort((a, b) => a - b);
-            } else if (sortOrder === 'desc') {
-                numbers.sort((a, b) => b - a);
-            }
-
+            
             // Display results
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('result-numbers').textContent = numbers.join(' ');
+            const resultElement = document.getElementById('result');
+            const resultSection = document.querySelector('.result-section');
+            resultElement.textContent = numbers.join(', ');
+            resultSection.style.display = 'block';
+            
+            // Update statistics
+            updateStats(numbers);
+            
+            // Show success message
+            const uniqueCount = new Set(numbers).size;
+            if (allowDuplicates) {
+                showAlert(`Successfully generated ${numbers.length} random numbers!`, 'success');
+            } else {
+                showAlert(`Successfully generated ${numbers.length} unique random numbers!`, 'success');
+            }
         }
-
+        
+        // Add event listeners for real-time validation
+        document.getElementById('min').addEventListener('input', function() {
+            const min = parseInt(this.value);
+            const max = parseInt(document.getElementById('max').value);
+            
+            if (!isNaN(min) && !isNaN(max) && min >= max) {
+                this.style.borderColor = '#ff6b6b';
+            } else {
+                this.style.borderColor = '#e9ecef';
+            }
+        });
+        
+        document.getElementById('max').addEventListener('input', function() {
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(this.value);
+            
+            if (!isNaN(min) && !isNaN(max) && min >= max) {
+                this.style.borderColor = '#ff6b6b';
+            } else {
+                this.style.borderColor = '#e9ecef';
+            }
+        });
+        
+        document.getElementById('count').addEventListener('input', function() {
+            const count = parseInt(this.value);
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(document.getElementById('max').value);
+            const allowDuplicates = document.getElementById('duplicates').checked;
+            
+            if (!isNaN(count) && !isNaN(min) && !isNaN(max)) {
+                const rangeSize = max - min + 1;
+                
+                if (!allowDuplicates && count > rangeSize) {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = '#e9ecef';
+                }
+            }
+        });
+        
+        document.getElementById('duplicates').addEventListener('change', function() {
+            // Trigger count validation when duplicates setting changes
+            document.getElementById('count').dispatchEvent(new Event('input'));
+        });
+        
         function clearInputs() {
-            document.getElementById('minNumber').value = '1';
-            document.getElementById('maxNumber').value = '100';
-            document.getElementById('count').value = '5';
-            document.getElementById('allowRepeats').value = 'yes';
-            document.getElementById('sortOrder').value = 'none';
-            document.getElementById('results').style.display = 'none';
+            document.getElementById('min').value = '1';
+            document.getElementById('max').value = '100';
+            document.getElementById('count').value = '1';
+            document.getElementById('duplicates').checked = true;
+            document.getElementById('result').textContent = 'Click "Generate" to see results';
+            document.getElementById('alertContainer').innerHTML = '';
+            totalGenerated = 0;
+            
+            // Hide result section
+            const resultSection = document.querySelector('.result-section');
+            resultSection.style.display = 'none';
         }
+        
     </script>
 
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -432,21 +597,23 @@
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "url": "https://www.calculatorquote.com/other/random-number-generator.html",
-      "description": "Use our free Random Number Generator to pick a number between 1 -2 or any range you choose. Ideal for games, raffles, decisions, or fun!",
+      "description": "Save time and keep tournaments fair with our Random Number Generator online. Instantly create unbiased draws for sports, school events, or gaming matchups.",
       "keywords": [
         "random number generator",
-        "number picker",
-        "generate random number online",
-        "pick a number between 1 -2",
-        "random number between 1 and 100",
-        "fair random selector",
-        "math tools online"
+        "random number generator website",
+        "random number generator picker",
+        "random number generator between 1 and 100",
+        "tournament draw",
+        "random draw generator",
+        "sports tournament",
+        "competition draw",
+        "unbiased draw"
       ],
       "featureList": [
-        "Pick a number between 1 -2",
-        "Generate random numbers in any range",
-        "Multiple number generation",
-        "Sort options",
+        "Create unbiased tournament draws",
+        "Generate random numbers for competitions",
+        "Fair sports event organization",
+        "Quick and transparent results",
         "No registration required"
       ],
       "screenshot": "https://www.calculatorquote.com/other/random-number-generator.html",
@@ -465,4 +632,4 @@
     }
     </script>
 </body>
-</html> 
+</html>

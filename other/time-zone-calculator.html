@@ -1,47 +1,67 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Zone Calculator | Convert & Calculate Time Between Time Zones</title>
     <meta name="description" content="Free Time Zone Calculator to convert and calculate time differences worldwide. Easily check time zones, plan international meetings, and adjust for Daylight Saving Time.">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.calculatorquote.com/other/time-zone-calculator.html" />
-
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Time Zone Calculator | Convert & Calculate Time Between Time Zones">
-    <meta property="og:description" content="Easily calculate and convert time zones worldwide. Perfect for meetings, travel, and international planning.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.calculatorquote.com/other/time-zone-calculator.html">
-    <meta property="og:image" content="https://www.calculatorquote.com/assets/time-zone.jpg">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Time Zone Calculator – Convert Time Zones Worldwide">
-    <meta name="twitter:description" content="Use our free tool to calculate and convert time zones instantly. Includes support for daylight saving time and international meetings.">
-    <meta name="twitter:image" content="https://www.calculatorquote.com/assets/time-zone.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="time zone calculator, time zone converter, time difference calculator, world clock, international time, time zone converter calculator, time zone difference calculator, world clock time calculator, time zone converter for meetings, international time calculator, travel time zone calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/other/time-zone-calculator.html">
+    <title>Free Time Zone Calculator – Convert & Calculate Time Between Time Zones</title>
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 30px;
             background-color: #ffffff;
             border-radius: 20px;
@@ -49,43 +69,51 @@ layout: null
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
+        
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .input-section {
             background-color: #f8f9fa;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
         }
 
         .input-group {
@@ -115,7 +143,7 @@ layout: null
         .input-group input:focus,
         .input-group select:hover,
         .input-group select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .input-group select {
@@ -132,13 +160,15 @@ layout: null
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -149,11 +179,11 @@ layout: null
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -164,26 +194,35 @@ layout: null
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e3f2fd;
-            border-radius: 10px;
             display: none;
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 15px;
         }
 
         .result-time {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        .calculator-title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
 
         .info-section {
@@ -218,20 +257,69 @@ layout: null
             .input-group select {
                 max-width: none;
             }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START TIME ZONE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Other Calculators</a>
+            <a href="date-calculator.html">Other Calculators</a>
             <span>/</span>
             Time Zone Calculator
         </div>
 
-        <h1>Time Zone Calculator – Convert & Calculate Time Across the World</h1>
+        <h1 class="calculator-title">Time Zone Calculator – Convert & Calculate Time Across the World</h1>
         
         <div class="description">
             Our free Time Zone Calculator helps you calculate and convert time between countries, cities, and regions. Perfect for scheduling meetings, travel planning, and adjusting for Daylight Saving Time (DST).
@@ -326,62 +414,77 @@ layout: null
             </div>
         </div>
 
-        <div class="info-section">
-            <h2>Related Contents</h2>
-            <div class="description">
-                <p style="margin-bottom: 15px; line-height: 1.6;">
-                    <a href="../blog/how-to-calculate-time-differences.html" style="color: #2196F3; text-decoration: none; font-weight: 500;">How to Calculate Time Differences to Save 30 Minutes per Week</a>
-                </p>
-            </div>
-        </div>
-
         <div class="result-section" id="results">
             <h2>Result</h2>
             <div class="result-time" id="result-time"></div>
         </div>
 
-        <div class="info-section">
-            <h2>Common Uses of the Time Zone Calculator</h2>
-            <ul style="margin-left: 20px; color: #666; line-height: 1.6;">
-                <li><strong>Plan International Meetings:</strong> Find the best meeting time across multiple time zones.</li>
-                <li><strong>Travel Planning:</strong> Check time differences before your trip to adjust your schedule.</li>
-                <li><strong>Daylight Saving Adjustments:</strong> Automatically accounts for DST changes.</li>
-                <li><strong>Work Across Countries:</strong> Compare local times between cities worldwide.</li>
-            </ul>
-
-            <h2 style="margin-top: 30px;">Calculate Time Zone Differences</h2>
-            <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">Whether you need a <em>time zone difference calculator</em>, a <em>world clock time calculator</em>, or a <em>time zone converter for meetings</em>, our tool covers it all. Simply choose your locations and get accurate results instantly.</p>
-
-            <h2 style="margin-top: 30px;">Convert Time Zones Instantly</h2>
-            <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">This tool works as a <em>time zone converter calculator</em>, <em>international time calculator</em>, and <em>travel time zone calculator</em>. It supports countries, cities, and UTC offsets worldwide.</p>
-
-            <h2 style="margin-top: 30px;">Frequently Asked Questions</h2>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 10px;">Q: How do I calculate time differences between time zones?</h3>
-                <p style="color: #666; line-height: 1.6;">A: Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 10px;">Q: Can I use the calculator for international meetings?</h3>
-                <p style="color: #666; line-height: 1.6;">A: Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 10px;">Q: Does the calculator support Daylight Saving Time?</h3>
-                <p style="color: #666; line-height: 1.6;">A: Yes. The calculator automatically accounts for DST changes so your results are always accurate.</p>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 10px;">Q: Can I calculate travel time zone changes?</h3>
-                <p style="color: #666; line-height: 1.6;">A: Yes. You can use it as a travel time zone calculator to estimate time differences during international trips.</p>
+        <div class="info-section" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+            <h2 class="calculator-title">Related Contents</h2>
+            <div class="description">
+                <p style="margin-bottom: 15px; line-height: 1.6;">
+                    <a href="../blog/how-to-calculate-time-differences.html" style="color: #eb5424; text-decoration: none; font-weight: 500;">How to Calculate Time Differences to Save 30 Minutes per Week</a>
+                </p>
             </div>
         </div>
-    </div>
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <div class="info-section">
+            <h2 class="calculator-title">Common Uses of the Time Zone Calculator</h2>
+            <div class="description">
+                <ul style="margin-left: 20px; color: #666; line-height: 1.6;">
+                    <li style="margin-bottom: 8px;"><strong>Plan International Meetings:</strong> Find the best meeting time across multiple time zones.</li>
+                    <li style="margin-bottom: 8px;"><strong>Travel Planning:</strong> Check time differences before your trip to adjust your schedule.</li>
+                    <li style="margin-bottom: 8px;"><strong>Daylight Saving Adjustments:</strong> Automatically accounts for DST changes.</li>
+                    <li style="margin-bottom: 8px;"><strong>Work Across Countries:</strong> Compare local times between cities worldwide.</li>
+                </ul>
+            </div>
+
+            <h2 class="calculator-title">Calculate Time Zone Differences</h2>
+            <div class="description">
+                <p style="margin-bottom: 15px; line-height: 1.6;">Whether you need a <em>time zone difference calculator</em>, a <em>world clock time calculator</em>, or a <em>time zone converter for meetings</em>, our tool covers it all. Simply choose your locations and get accurate results instantly.</p>
+            </div>
+
+            <h2 class="calculator-title">Convert Time Zones Instantly</h2>
+            <div class="description">
+                <p style="margin-bottom: 15px; line-height: 1.6;">This tool works as a <em>time zone converter calculator</em>, <em>international time calculator</em>, and <em>travel time zone calculator</em>. It supports countries, cities, and UTC offsets worldwide.</p>
+            </div>
+
+            <h2 class="calculator-title">Frequently Asked Questions</h2>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q1: How do I calculate time differences between time zones?</strong></h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">A: Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q2: Can I use the calculator for international meetings?</strong></h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">A: Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q3: Does the calculator support Daylight Saving Time?</strong></h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">A: Yes. The calculator automatically accounts for DST changes so your results are always accurate.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q4: Can I calculate travel time zone changes?</strong></h3>
+                <p style="margin: 0; line-height: 1.6; color: #666;">A: Yes. You can use it as a travel time zone calculator to estimate time differences during international trips.</p>
+            </div>
+        </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END TIME ZONE CALCULATOR -->
+
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -447,45 +550,80 @@ layout: null
 
     <script type="application/ld+json">
 {% raw %}
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I calculate time differences between time zones?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly."
-        }
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Time Zone Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "url": "https://www.calculatorquote.com/other/time-zone-calculator.html",
+      "description": "Free Time Zone Calculator to convert and calculate time differences worldwide. Easily check time zones, plan international meetings, and adjust for Daylight Saving Time.",
+      "keywords": [
+        "time zone calculator",
+        "time zone converter",
+        "time difference calculator",
+        "world clock",
+        "international time",
+        "time zone converter calculator",
+        "time zone difference calculator",
+        "world clock time calculator",
+        "time zone converter for meetings",
+        "international time calculator",
+        "travel time zone calculator"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
       },
-      {
-        "@type": "Question",
-        "name": "Can I use the calculator for international meetings?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does the calculator support Daylight Saving Time?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The calculator automatically accounts for DST changes so your results are always accurate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I calculate travel time zone changes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can use it as a travel time zone calculator to estimate time differences during international trips."
-        }
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate time differences between time zones?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter two cities or countries in our calculator. It shows the exact local time and time difference instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the calculator for international meetings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It's perfect for scheduling global meetings. It adjusts automatically for daylight saving time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the calculator support Daylight Saving Time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The calculator automatically accounts for DST changes so your results are always accurate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I calculate travel time zone changes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can use it as a travel time zone calculator to estimate time differences during international trips."
+            }
+          }
+        ]
       }
-    ]
-  }
+    }
 {% endraw %}
-  </script>
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

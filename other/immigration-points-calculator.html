@@ -105,51 +105,80 @@
       ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
+        
+        
         .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             text-align: left;
         }
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
             text-align: left;
         }
         .country-tabs {
@@ -173,13 +202,13 @@
             gap: 8px;
         }
         .country-tab.active {
-            border-color: #2196F3;
-            background: #2196F3;
+            border-color: #eb5424;
+            background: #eb5424;
             color: white;
         }
         .country-tab:hover {
-            border-color: #1976D2;
-            background: #1976D2;
+            border-color: #d4441a;
+            background: #d4441a;
             color: white;
         }
         .country-content {
@@ -190,39 +219,51 @@
         }
         .input-section {
             background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            text-align: left;
         }
+
         .input-group {
             margin-bottom: 20px;
+            text-align: left;
         }
+
         .input-group label {
             display: block;
             margin-bottom: 8px;
             color: #333;
             font-weight: 500;
         }
+
         .input-group input[type="number"],
         .input-group input[type="text"],
         .input-group select {
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 5px;
             font-size: 1em;
             width: 100%;
             margin-bottom: 10px;
             transition: border-color 0.3s;
         }
+
         .input-group input:focus,
         .input-group select:focus {
             outline: none;
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         @media (max-width: 768px) {
             .two-column {
@@ -232,22 +273,56 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .buttons {
+                flex-direction: column;
+                gap: 10px;
+                justify-content: flex-start;
+            }
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+                min-width: unset;
+                height: 48px;
+            }
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 12px 25px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 500;
             transition: background-color 0.3s;
-            width: 100%;
-            margin-top: 20px;
         }
+
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
         .result {
             margin-top: 25px;
@@ -258,10 +333,9 @@
             padding: 20px;
             background: #f8f9fa;
             border-radius: 10px;
-            border-left: 4px solid #28a745;
         }
         .score-highlight {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
+            background: linear-gradient(135deg, #eb5424, #d4441a);
             color: white;
             padding: 20px;
             border-radius: 12px;
@@ -283,7 +357,7 @@
             font-size: 14px;
             color: #888;
             margin-top: 15px;
-            text-align: center;
+            text-align: left;
             font-style: italic;
         }
         .advice {
@@ -292,7 +366,7 @@
             background: #fff;
             border-radius: 15px;
             border: 1.5px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            box-shadow: 0 2px 8px rgba(235,84,36,0.07);
             font-size: 1.1em;
             color: #333;
             line-height: 1.7;
@@ -302,19 +376,102 @@
             font-size: 20px;
             margin-right: 8px;
         }
+
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: left;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START IMMIGRATION POINTS CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="index.html">Other Calculators</a>
+            <a href="date-calculator.html">Other Calculators</a>
             <span>/</span>
             Immigration Points Calculator
         </div>
-        <h1>Free Immigration Points Calculator: Check Your CRS Score, H1B Points & Visa Eligibility 2025</h1>
-        <div class="description">
+        <div class="page-title">Free Immigration Points Calculator: Check Your CRS Score, H1B Points & Visa Eligibility 2025</div>
+        <div class="page-description">
             Calculate your immigration points for Canada CRS, USA H1B, UK Skilled Worker & Australia skilled migration. Get instant results to see if you qualify for permanent residency or work visas. Free online calculator with detailed breakdown.
         </div>
 
@@ -384,7 +541,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-calculate" onclick="calculateUSAPoints()">Calculate USA H1B Points</button>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateUSAPoints()">Calculate</button>
+                    <button class="btn-clear" onclick="clearUSACalculator()">Clear</button>
+                </div>
                 <div class="result" id="usa-result"></div>
                 <div class="breakdown" id="usa-breakdown" style="display:none;"></div>
             </div>
@@ -444,7 +604,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-calculate" onclick="calculateCanadaPoints()">Calculate Canada CRS Score</button>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateCanadaPoints()">Calculate</button>
+                    <button class="btn-clear" onclick="clearCanadaCalculator()">Clear</button>
+                </div>
                 <div class="result" id="canada-result"></div>
                 <div class="breakdown" id="canada-breakdown" style="display:none;"></div>
             </div>
@@ -497,7 +660,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-calculate" onclick="calculateUKPoints()">Calculate UK Points</button>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateUKPoints()">Calculate</button>
+                    <button class="btn-clear" onclick="clearUKCalculator()">Clear</button>
+                </div>
                 <div class="result" id="uk-result"></div>
                 <div class="breakdown" id="uk-breakdown" style="display:none;"></div>
             </div>
@@ -553,7 +719,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-calculate" onclick="calculateAustraliaPoints()">Calculate Australia Points</button>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateAustraliaPoints()">Calculate</button>
+                    <button class="btn-clear" onclick="clearAustraliaCalculator()">Clear</button>
+                </div>
                 <div class="result" id="australia-result"></div>
                 <div class="breakdown" id="australia-breakdown" style="display:none;"></div>
             </div>
@@ -561,51 +730,82 @@
 
         <div class="note">* This immigration points calculator provides estimates based on current 2025 immigration policies. For accurate assessment, consult with licensed immigration professionals or official government sources.</div>
 
-        <div class="advice">
-            <b>🌍 Immigration Points Calculator: Your Gateway to Global Opportunities in 2025</b><br><br>
-            Our comprehensive immigration points calculator helps you assess your eligibility for the world's most popular immigration destinations. Whether you're seeking work opportunities, permanent residency, or a new life abroad, understanding your points score is the first step toward your international journey. Use our free immigration points calculator to check your CRS score, H1B points, UK skilled worker points, and Australia skilled migration eligibility.<br><br>
-            <b>What Each Immigration Points Calculator Determines:</b><br>
-            • <b>Canada CRS Calculator:</b> Express Entry Comprehensive Ranking System score for permanent residency (target 470+ points)<br>
-            • <b>USA H1B Points Calculator:</b> Work visa eligibility based on education, experience, and job demand<br>
-            • <b>UK Skilled Worker Points Calculator:</b> Points-based system score for skilled worker visas (target 70+ points)<br>
-            • <b>Australia Skilled Migration Calculator:</b> Points calculation for various visa subclasses (target 65+ points)<br><br>
-            <b>💡 Key Factors That Boost Your Immigration Points Score:</b><br>
-            • <b>Education:</b> Higher degrees typically earn more points (PhD: 150 CRS points, Master's: 135 CRS points)<br>
-            • <b>Work Experience:</b> Relevant professional experience increases eligibility (6+ years: 80 CRS points)<br>
-            • <b>Language Skills:</b> Strong English/French proficiency is crucial (CLB 9+: 160 CRS points)<br>
-            • <b>Age:</b> Younger applicants often receive more points (25-32: 30 Australia points)<br>
-            • <b>Job Demand:</b> Skills in high-demand occupations score higher (STEM fields: +25 H1B points)<br>
-            • <b>Regional Preferences:</b> Some countries offer bonus points for regional areas (+15 Australia points)
+        <div class="content-section">
+            <h2>🌍 Immigration Points Calculator: Your Gateway to Global Opportunities in 2025</h2>
+            
+            <p>Our comprehensive immigration points calculator helps you assess your eligibility for the world's most popular immigration destinations. Whether you're seeking work opportunities, permanent residency, or a new life abroad, understanding your points score is the first step toward your international journey. Use our free immigration points calculator to check your CRS score, H1B points, UK skilled worker points, and Australia skilled migration eligibility.</p>
+
+            <h3>What Each Immigration Points Calculator Determines:</h3>
+            <ul>
+                <li><strong>Canada CRS Calculator:</strong> Express Entry Comprehensive Ranking System score for permanent residency (target 470+ points)</li>
+                <li><strong>USA H1B Points Calculator:</strong> Work visa eligibility based on education, experience, and job demand</li>
+                <li><strong>UK Skilled Worker Points Calculator:</strong> Points-based system score for skilled worker visas (target 70+ points)</li>
+                <li><strong>Australia Skilled Migration Calculator:</strong> Points calculation for various visa subclasses (target 65+ points)</li>
+            </ul>
+
+            <h3>💡 Key Factors That Boost Your Immigration Points Score:</h3>
+            <ul>
+                <li><strong>Education:</strong> Higher degrees typically earn more points (PhD: 150 CRS points, Master's: 135 CRS points)</li>
+                <li><strong>Work Experience:</strong> Relevant professional experience increases eligibility (6+ years: 80 CRS points)</li>
+                <li><strong>Language Skills:</strong> Strong English/French proficiency is crucial (CLB 9+: 160 CRS points)</li>
+                <li><strong>Age:</strong> Younger applicants often receive more points (25-32: 30 Australia points)</li>
+                <li><strong>Job Demand:</strong> Skills in high-demand occupations score higher (STEM fields: +25 H1B points)</li>
+                <li><strong>Regional Preferences:</strong> Some countries offer bonus points for regional areas (+15 Australia points)</li>
+            </ul>
         </div>
 
-        <div class="advice">
-            <b>❓ FAQ - Immigration Points Calculator Questions 2025</b><br><br>
-            <b>Q: How accurate is this immigration points calculator?</b><br>
-            A: Our immigration points calculator provides estimates based on current 2025 immigration policies and scoring systems. However, immigration rules change frequently, so we recommend consulting with licensed immigration professionals for the most up-to-date and accurate assessment. This free immigration points calculator is designed to give you a preliminary understanding of your eligibility.<br><br>
-            <b>Q: What's the minimum score needed for each country's immigration points calculator?</b><br>
-            A: Minimum scores vary by country and visa type. Canada CRS calculator typically requires 470+ points for Express Entry, UK skilled worker points calculator needs 70+ points, Australia skilled migration calculator requires 65+ points, and USA H1B points calculator uses a lottery system for oversubscribed categories.<br><br>
-            <b>Q: How can I improve my immigration points score using this calculator?</b><br>
-            A: Common strategies include improving language skills (aim for CLB 9+ for Canada), gaining more work experience (6+ years for maximum points), pursuing higher education (PhD offers highest points), learning additional languages (like French for Canada CRS), and targeting high-demand occupations in your field (STEM for H1B).<br><br>
-            <b>Q: How long does the immigration process take after using the immigration points calculator?</b><br>
-            A: Processing times vary significantly: Canada Express Entry (6-12 months), UK Skilled Worker (3-6 months), Australia skilled visas (6-18 months), and USA H1B (3-6 months if selected in lottery). The immigration points calculator helps you prepare your application strategy.<br><br>
-            <b>Q: Can I apply to multiple countries simultaneously using different immigration points calculators?</b><br>
-            A: Yes, you can apply to multiple countries at the same time using our immigration points calculator for each country. Many applicants start with their highest-scoring option from the immigration points calculator and have backup plans. Our free immigration points calculator allows you to compare your scores across all four countries.<br><br>
-            <b>Q: What documents do I need for immigration applications after checking the immigration points calculator?</b><br>
-            A: Common requirements include passport, educational credentials, work experience letters, language test results (IELTS for Australia, CLB for Canada), police certificates, medical exams, and proof of funds. Requirements vary by country and visa type. The immigration points calculator helps you understand which documents will be most valuable for your application.<br><br>
-            <b>Q: Which immigration points calculator should I use first?</b><br>
-            A: Start with the Canada CRS calculator as it's the most comprehensive and Canada offers the most straightforward path to permanent residency. Then try the UK skilled worker points calculator, Australia skilled migration calculator, and USA H1B points calculator to compare your options. Our free immigration points calculator makes it easy to test all scenarios.<br><br>
-            <b>Q: How often should I check the immigration points calculator?</b><br>
-            A: Check the immigration points calculator monthly as immigration policies and scoring systems can change. Also re-calculate when you gain new qualifications, work experience, or language skills. Our free immigration points calculator is updated regularly to reflect current policies.
+        <div class="content-section">
+            <h2>❓ FAQ - Immigration Points Calculator Questions 2025</h2>
+            
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q1: How accurate is this immigration points calculator?</strong><br>
+                A: Our immigration points calculator provides estimates based on current 2025 immigration policies and scoring systems. However, immigration rules change frequently, so we recommend consulting with licensed immigration professionals for the most up-to-date and accurate assessment. This free immigration points calculator is designed to give you a preliminary understanding of your eligibility.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q2: What's the minimum score needed for each country's immigration points calculator?</strong><br>
+                A: Minimum scores vary by country and visa type. Canada CRS calculator typically requires 470+ points for Express Entry, UK skilled worker points calculator needs 70+ points, Australia skilled migration calculator requires 65+ points, and USA H1B points calculator uses a lottery system for oversubscribed categories.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q3: How can I improve my immigration points score using this calculator?</strong><br>
+                A: Common strategies include improving language skills (aim for CLB 9+ for Canada), gaining more work experience (6+ years for maximum points), pursuing higher education (PhD offers highest points), learning additional languages (like French for Canada CRS), and targeting high-demand occupations in your field (STEM for H1B).</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q4: How long does the immigration process take after using the immigration points calculator?</strong><br>
+                A: Processing times vary significantly: Canada Express Entry (6-12 months), UK Skilled Worker (3-6 months), Australia skilled visas (6-18 months), and USA H1B (3-6 months if selected in lottery). The immigration points calculator helps you prepare your application strategy.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q5: Can I apply to multiple countries simultaneously using different immigration points calculators?</strong><br>
+                A: Yes, you can apply to multiple countries at the same time using our immigration points calculator for each country. Many applicants start with their highest-scoring option from the immigration points calculator and have backup plans. Our free immigration points calculator allows you to compare your scores across all four countries.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q6: What documents do I need for immigration applications after checking the immigration points calculator?</strong><br>
+                A: Common requirements include passport, educational credentials, work experience letters, language test results (IELTS for Australia, CLB for Canada), police certificates, medical exams, and proof of funds. Requirements vary by country and visa type. The immigration points calculator helps you understand which documents will be most valuable for your application.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q7: Which immigration points calculator should I use first?</strong><br>
+                A: Start with the Canada CRS calculator as it's the most comprehensive and Canada offers the most straightforward path to permanent residency. Then try the UK skilled worker points calculator, Australia skilled migration calculator, and USA H1B points calculator to compare your options. Our free immigration points calculator makes it easy to test all scenarios.</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q8: How often should I check the immigration points calculator?</strong><br>
+                A: Check the immigration points calculator monthly as immigration policies and scoring systems can change. Also re-calculate when you gain new qualifications, work experience, or language skills. Our free immigration points calculator is updated regularly to reflect current policies.</p>
+            </div>
         </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END IMMIGRATION POINTS CALCULATOR -->
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -703,6 +903,54 @@
 
             breakdownDiv.innerHTML = breakdownText;
             breakdownDiv.style.display = 'block';
+        }
+
+        // Clear USA Calculator
+        function clearUSACalculator() {
+            document.getElementById('usa-education').value = 'bachelor';
+            document.getElementById('usa-experience').value = '3';
+            document.getElementById('usa-salary').value = '80000';
+            document.getElementById('usa-age').value = '30';
+            document.getElementById('usa-language').value = 'native';
+            document.getElementById('usa-job-demand').value = 'high';
+            document.getElementById('usa-result').innerHTML = '';
+            document.getElementById('usa-breakdown').style.display = 'none';
+        }
+
+        // Clear Canada Calculator
+        function clearCanadaCalculator() {
+            document.getElementById('canada-age').value = '30';
+            document.getElementById('canada-education').value = 'bachelor';
+            document.getElementById('canada-experience').value = '3';
+            document.getElementById('canada-language').value = '8';
+            document.getElementById('canada-french').value = 'none';
+            document.getElementById('canada-adaptability').value = 'none';
+            document.getElementById('canada-result').innerHTML = '';
+            document.getElementById('canada-breakdown').style.display = 'none';
+        }
+
+        // Clear UK Calculator
+        function clearUKCalculator() {
+            document.getElementById('uk-job-offer').value = 'yes';
+            document.getElementById('uk-salary').value = '35000';
+            document.getElementById('uk-education').value = 'bachelor';
+            document.getElementById('uk-language').value = 'native';
+            document.getElementById('uk-experience').value = '3';
+            document.getElementById('uk-age').value = '30';
+            document.getElementById('uk-result').innerHTML = '';
+            document.getElementById('uk-breakdown').style.display = 'none';
+        }
+
+        // Clear Australia Calculator
+        function clearAustraliaCalculator() {
+            document.getElementById('australia-age').value = '30';
+            document.getElementById('australia-education').value = 'bachelor';
+            document.getElementById('australia-experience').value = '3';
+            document.getElementById('australia-language').value = '7';
+            document.getElementById('australia-skilled').value = 'yes';
+            document.getElementById('australia-regional').value = 'no';
+            document.getElementById('australia-result').innerHTML = '';
+            document.getElementById('australia-breakdown').style.display = 'none';
         }
 
         // Canada CRS Calculator
@@ -929,5 +1177,14 @@
             breakdownDiv.style.display = 'block';
         }
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../jquery.nav.js"></script>
+    <script src="../smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

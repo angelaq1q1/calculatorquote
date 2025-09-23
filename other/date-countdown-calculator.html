@@ -5,89 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Countdown Calculator – How Many Days Until Your Big Event?</title>
     <meta name="description" content="Planning a birthday, vacation, or deadline? Use our free Date Countdown Calculator to find out exactly how many days are left until any date.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 20px;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-        }
-
-        .content-wrapper {
-            flex: 1;
+        
+        .calculator-container {
             max-width: 800px;
-            background: none;
-            border-radius: 0;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
 
-        .ad-space {
-            width: 300px;
-            min-height: 600px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-        }
-
+        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
-        .page-header {
-            margin-bottom: 30px;
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
-
-        .page-header h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
+        
         .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .faq-title {
+            color: #000000 !important;
+            font-weight: normal !important;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+
 
         .countdown-container {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            background: linear-gradient(135deg, #eb5424 0%, #d43f00 100%);
             border-radius: 15px;
             padding: 30px;
             margin: 20px 0;
@@ -124,17 +147,28 @@
         }
         
         .calculator {
-            background-color: #ffffff;
-            border-radius: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
             padding: 30px;
             width: 100%;
-            max-width: 380px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            max-width: 500px;
+            border: 1px solid #e0e0e0;
             margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+        }
+        
+        .calculator h2 {
+            color: #eb5424;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: normal;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
         }
         
         .input-group {
             margin-bottom: 20px;
+            text-align: center;
         }
         
         .input-group label {
@@ -142,24 +176,28 @@
             margin-bottom: 8px;
             color: #333;
             font-weight: 500;
+            text-align: center;
         }
         
         .input-group input {
             width: 100%;
+            max-width: 300px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
             transition: border-color 0.3s;
+            margin: 0 auto;
+            display: block;
         }
         
         .input-group input:focus {
             outline: none;
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
         
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -167,17 +205,39 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
         }
         
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
         .cta-button {
             display: inline-block;
             background: none;
-            color: #2196F3;
+            color: #eb5424;
             padding: 0;
             border: none;
             border-radius: 0;
@@ -188,32 +248,32 @@
         }
 
         .cta-button:hover {
-            color: #1976D2;
+            color: #d43f00;
             background: none;
         }
         
         .result-section {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e3f2fd;
+            background-color: #fdf2f0;
             border-radius: 10px;
             display: none;
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #d43f00;
             margin-bottom: 15px;
         }
         
         .result-text {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
         }
         
         .event-name {
             font-weight: bold;
-            color: #2196F3;
+            color: #eb5424;
         }
         
         .quick-dates {
@@ -221,7 +281,7 @@
         }
         
         .quick-date-btn {
-            background-color: #90caf9;
+            background-color: #f4a261;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -233,7 +293,7 @@
         }
         
         .quick-date-btn:hover {
-            background-color: #64b5f6;
+            background-color: #e76f51;
         }
         
         .info-section {
@@ -241,23 +301,23 @@
             padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
         }
 
         .info-section h2 {
-            color: #333;
+            color: #303030;
             font-size: 1.5em;
             margin-bottom: 20px;
         }
 
         .info-section h3 {
-            color: #333;
+            color: #303030;
             font-size: 1.2em;
             margin: 20px 0 10px;
         }
 
         .info-section p {
-            color: #666;
+            color: #606060;
             line-height: 1.6;
             margin-bottom: 15px;
         }
@@ -276,35 +336,38 @@
         }
 
         .info-card h3 {
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 10px;
         }
 
         .info-card p {
-            color: #666;
+            color: #606060;
             line-height: 1.6;
         }
 
-        @media (max-width: 1200px) {
-            .main-container {
-                flex-direction: column;
-            }
-            
-            .ad-space {
-                width: 100%;
-                min-height: 250px;
-                position: static;
-                display: none;
-            }
-        }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .content-section {
+                font-size: 14px;
+            }
             .countdown-display {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .countdown-number {
                 font-size: 2rem;
+            }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
             }
         }
     </style>
@@ -330,129 +393,164 @@
     </script>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Other Calculators</a>
-                <span>/</span>
-                Date Countdown Calculator
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-
-            <div class="page-header">
-                <h1>
-                    <span style="display: block;">Date Countdown Calculator – Find Out How Many Days Until Any Event</span>
-                </h1>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
             </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                Counting down to your wedding, next vacation, or project deadline? This free Date Countdown Calculator tells you exactly how many days are left from today until any date you choose. No math, no calendars—just a clean, instant answer. 🎯
-            </p>
+    <!-- START DATE COUNTDOWN CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="date-calculator.html">Other Calculators</a>
+                            <span>/</span>
+                            Date Countdown Calculator
+                        </div>
 
-            <div class="calculator">
-                <h2>Set Your Target Date</h2>
-                
-                <div class="input-group">
-                    <label for="eventName">Event Name (Optional)</label>
-                    <input type="text" id="eventName" placeholder="e.g., Birthday, Vacation, Deadline">
-                </div>
-                
-                <div class="input-group">
-                    <label for="targetDate">Target Date</label>
-                    <input type="datetime-local" id="targetDate" required>
-                </div>
-                
-                <button class="btn-calculate" onclick="calculateCountdown()">Calculate Countdown</button>
-            </div>
+                        <div class="page-title">Date Countdown Calculator – Find Out How Many Days Until Any Event</div>
+                        
+                        <div class="page-description">
+                            Counting down to your wedding, next vacation, or project deadline? This free Date Countdown Calculator tells you exactly how many days are left from today until any date you choose. No math, no calendars—just a clean, instant answer. 🎯
+                        </div>
 
-            <div id="countdownResult" class="result-section" style="display: none;">
-                <div class="countdown-container">
-                    <h2 id="eventTitle">Countdown to <span class="event-name" id="eventNameDisplay"></span></h2>
-                    <div class="countdown-display">
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="days">0</span>
-                            <span class="countdown-label">Days</span>
+                        <div class="calculator">
+                            <h2>Set Your Target Date</h2>
+                            
+                            <div class="input-group">
+                                <label for="eventName">Event Name (Optional)</label>
+                                <input type="text" id="eventName" placeholder="e.g., Birthday, Vacation, Deadline">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="targetDate">Target Date</label>
+                                <input type="datetime-local" id="targetDate" lang="en" required>
+                            </div>
+                            
+                            <div class="buttons">
+                                <button class="btn-calculate" onclick="calculateCountdown()">Calculate</button>
+                                <button class="btn-clear" onclick="clearCountdown()">Clear</button>
+                            </div>
                         </div>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="hours">0</span>
-                            <span class="countdown-label">Hours</span>
+
+                        <div id="countdownResult" class="result-section" style="display: none;">
+                            <div class="countdown-container">
+                                <h2 id="eventTitle">Countdown to <span class="event-name" id="eventNameDisplay"></span></h2>
+                                <div class="countdown-display">
+                                    <div class="countdown-unit">
+                                        <span class="countdown-number" id="days">0</span>
+                                        <span class="countdown-label">Days</span>
+                                    </div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-number" id="hours">0</span>
+                                        <span class="countdown-label">Hours</span>
+                                    </div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-number" id="minutes">0</span>
+                                        <span class="countdown-label">Minutes</span>
+                                    </div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-number" id="seconds">0</span>
+                                        <span class="countdown-label">Seconds</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-text">
+                                <p id="countdownText"></p>
+                            </div>
                         </div>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="minutes">0</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="seconds">0</span>
-                            <span class="countdown-label">Seconds</span>
+
+                        <div class="content-section">
+                            <p style="font-size: 1.2em; margin-bottom: 20px;">⏰ Date Countdown Calculator – Because waiting is hard 💀</p>
+                            
+                            <p>Many people need to track time until important events. You may want to count down to a birthday, vacation, or project deadline. Doing this manually takes time and can lead to mistakes. An online countdown calculator makes the process fast and easy. You can open it on any device, set your target date, and see the countdown update in real-time.</p>
+
+                            <p>Our tool is a free countdown calculator, so you do not need to pay or download. It works in your browser. You can use it any time of the day. You just enter your target date and event name. The countdown shows days, hours, minutes, and seconds remaining. It is simple and saves time.</p>
+
+                            <p>This countdown calculator is also helpful for planning. Students use it for exam preparation or project deadlines. With it, you can track progress and reduce stress. It does not replace planning, but it helps you stay organized and focused. Teachers can also use it to track class schedules and important dates.</p>
+
+                            <p>At work, the calculator is useful for project management. You can track deadlines, plan milestones, or use it in meetings. At home, you can count down to holidays, birthdays, or special events. The tool is small but powerful. It saves you from missing important dates that may affect your plans.</p>
+
+                            <p>With this calculator, you can handle time tracking with less effort. It is online, free, and always ready for you.</p>
+
+                            <h3>💡 What does it do?</h3>
+                            <ul>
+                                <li>✅ Real-time countdown: Updates every second for precise timing</li>
+                                <li>✅ Flexible date selection: Choose any future date and time</li>
+                                <li>✅ Event naming: Personalize your countdown with event names</li>
+                                <li>✅ Quick date options: Pre-set buttons for common events</li>
+                                <li>✅ Mobile friendly: Works perfectly on all devices</li>
+                            </ul>
+
+                            <h3 class="faq-title">❓ FAQ – because we know you're too lazy to email us</h3>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q1: Is this countdown calculator actually free?</strong><br>
+                                A: Totally free. No sign-up. No paywall. No "upgrade to Pro" nonsense. We make a bit from the occasional ad, but nothing annoying.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q2: Do I need to install anything?</strong><br>
+                                A: Nope. It works in your browser. Like magic, but with time.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q3: Can I use this for multiple events?</strong><br>
+                                A: You can calculate one countdown at a time, but you can bookmark different dates for quick access.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q4: Does it store any of my data?</strong><br>
+                                A: Nah. We don't care what you're counting down to. Your secrets are safe (and forgotten instantly).</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q5: Why not just use my phone's calendar?</strong><br>
+                                A: Great question. Ours looks better, loads faster, and doesn't interrupt you with notifications about meetings you forgot about.</p>
+                            </div>
+                            <div style="margin-bottom: 0;">
+                                <p><strong>Q6: Can it count down to past dates?</strong><br>
+                                A: This one? No. It's designed for future events. If you're trying to count down to something that already happened, you might need a time machine instead.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="result-text">
-                    <p id="countdownText"></p>
-                </div>
-            </div>
-
-            <div class="page-description">
-                <p style="margin-bottom: 20px;">How many days until your big event?<br>
-Use our Date Countdown Calculator to track the exact number of days, hours, minutes, and even seconds until your special moment arrives. Whether it’s a birthday, anniversary, vacation, graduation, or a major deadline—you’ll always know how much time is left.</p>
-                <p style="margin-bottom: 20px;">Just enter the future date, and the countdown begins! Perfect for planning weddings, tracking due dates, preparing for product launches, or simply counting down to the weekend.</p>
-                <p style="margin-bottom: 20px;">Need to calculate how many days until a specific event? Our countdown tool makes it easy to figure out how many days are left—so you’ll never be caught off guard.</p>
-
-                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✅ Real-time countdown: Updates every second for precise timing</li>
-                    <li style="margin-bottom: 10px;">✅ Flexible date selection: Choose any future date and time</li>
-                    <li style="margin-bottom: 10px;">✅ Event naming: Personalize your countdown with event names</li>
-                    <li style="margin-bottom: 10px;">✅ Quick date options: Pre-set buttons for common events</li>
-                    <li style="margin-bottom: 10px;">✅ Mobile friendly: Works perfectly on all devices</li>
-                </ul>
-
-                <p style="margin: 20px 0;">TL;DR: It tells you exactly how long you have to wait. You're welcome.</p>
-
-                <h3 style="margin: 20px 0 10px;">❓ FAQ – because we know you're too lazy to email us</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is this countdown calculator actually free?</strong><br>
-                    A: Totally free. No sign-up. No paywall. No "upgrade to Pro" nonsense. We make a bit from the occasional ad, but nothing annoying.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Do I need to install anything?</strong><br>
-                    A: Nope. It works in your browser. Like magic, but with time.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use this for multiple events?</strong><br>
-                    A: You can calculate one countdown at a time, but you can bookmark different dates for quick access.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Does it store any of my data?</strong><br>
-                    A: Nah. We don't care what you're counting down to. Your secrets are safe (and forgotten instantly).</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Why not just use my phone's calendar?</strong><br>
-                    A: Great question. Ours looks better, loads faster, and doesn't interrupt you with notifications about meetings you forgot about.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can it count down to past dates?</strong><br>
-                    A: This one? No. It's designed for future events. If you're trying to count down to something that already happened, you might need a time machine instead.</p>
-                </div>
-
-                <p style="margin: 20px 0; font-style: italic;">🧠Pro tip：🔖Bookmark this page and check back anytime you need a fast, accurate date countdown.</p>
             </div>
         </div>
+    </section>
+    <!-- END DATE COUNTDOWN CALCULATOR -->
 
-        <div class="ad-space">
-            <!-- Ad space for 300x600 or similar ad units -->
-        </div>
-    </div>
-
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -543,13 +641,37 @@ Use our Date Countdown Calculator to track the exact number of days, hours, minu
             calculateCountdown();
         }
         
+        function clearCountdown() {
+            document.getElementById('eventName').value = '';
+            document.getElementById('targetDate').value = '';
+            document.getElementById('countdownResult').style.display = 'none';
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+        }
+        
         // Set default date to tomorrow
         window.onload = function() {
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             tomorrow.setHours(12, 0, 0, 0);
-            document.getElementById('targetDate').value = tomorrow.toISOString().slice(0, 16);
+            // Format date for datetime-local input (YYYY-MM-DDTHH:MM)
+            const year = tomorrow.getFullYear();
+            const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const day = String(tomorrow.getDate()).padStart(2, '0');
+            const hours = String(tomorrow.getHours()).padStart(2, '0');
+            const minutes = String(tomorrow.getMinutes()).padStart(2, '0');
+            document.getElementById('targetDate').value = `${year}-${month}-${day}T${hours}:${minutes}`;
         };
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 
