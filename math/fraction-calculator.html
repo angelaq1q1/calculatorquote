@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tired of manual fraction work? Our Fraction Calculator quickly adds, subtracts, and simplifies fractions with perfect accuracy. Ideal for students, teachers, and professionals—save time and avoid mistakes today.">
+    <meta name="keywords" content="fraction calculator, fraction calculator reduce, fraction calculator decimal, fraction calculator multiplication, fraction calculator with whole numbers">
     <title>Fraction Calculator – Add, Subtract & Simplify Fractions Instantly</title>
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -47,56 +55,54 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Raleway', sans-serif !important;
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #fff;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 20px;
         }
 
         .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            gap: 30px;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
 
         .content-wrapper {
-            flex: 1;
-            max-width: 800px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 32px 24px;
+            width: 100%;
+        }
+        
+        /* 使导航栏和内容区域无缝连接 */
+        .navbar-fixed-top {
+            position: relative !important;
+            top: 0 !important;
+        }
+        
+        /* 确保导航栏使用Raleway字体 */
+        .navbar, .navbar-brand, .nav, .nav a {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        body {
+            padding-top: 0 !important;
         }
 
-        .ad-space {
-            width: 300px;
-            min-height: 600px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-            display: block;
-        }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            font-family: 'Raleway', sans-serif;
+            color: #606060;
             position: static;
             left: auto;
             top: auto;
@@ -104,27 +110,28 @@
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
 
         h1 {
-            color: #222;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            font-weight: 700;
-            line-height: 1.3;
-            text-align: left;
+            font-size: 1.5em;
+            font-weight: 300;
+            font-family: 'Raleway', sans-serif;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .calculator-section {
@@ -138,7 +145,7 @@
         .calculator-container {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 15px;
             margin-bottom: 20px;
             flex-wrap: nowrap;
@@ -148,10 +155,11 @@
         }
 
         .calculator-title {
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 25px;
             font-size: 1.5em;
             font-weight: 500;
+            font-family: 'Raleway', sans-serif;
         }
 
         .fraction-input {
@@ -162,27 +170,33 @@
             min-width: 80px;
         }
 
+        .fraction-input span {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
         .fraction-line {
             width: 100%;
             height: 2px;
-            background-color: #2196F3;
+            background-color: #eb5424;
             margin: 5px 0;
         }
 
         input[type="number"] {
             width: 80px;
             height: 35px;
-            border: 2px solid #2196F3;
+            border: 2px solid #eb5424;
             border-radius: 5px;
             text-align: center;
             font-size: 1em;
+            font-family: 'Raleway', sans-serif;
             outline: none;
             padding: 0 5px;
         }
 
         input[type="number"]:focus {
-            border-color: #1976D2;
-            box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+            border-color: #d4441a;
+            box-shadow: 0 0 5px rgba(235, 84, 36, 0.3);
         }
 
         .mixed-number-input {
@@ -192,38 +206,47 @@
             flex-shrink: 0;
         }
 
+        .mixed-number-input span {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
         .mixed-number-input input[type="number"] {
             width: 80px;
             height: 35px;
             font-size: 1em;
+            font-family: 'Raleway', sans-serif;
         }
 
         .operator-select {
             width: 40px;
             height: 35px;
-            border: 2px solid #2196F3;
+            border: 2px solid #eb5424;
             border-radius: 5px;
             text-align: center;
             font-size: 1em;
-            background-color: #2196F3;
+            font-family: 'Raleway', sans-serif;
+            background-color: #eb5424;
             color: white;
             cursor: pointer;
             outline: none;
         }
 
         .operator-select:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
 
         .equals-sign {
             font-size: 1.5em;
-            color: #2196F3;
+            font-family: 'Raleway', sans-serif;
+            color: #eb5424;
             margin: 0 8px;
             flex-shrink: 0;
         }
 
         .result {
             font-size: 1.2em;
+            font-family: 'Raleway', sans-serif;
             color: #333;
             text-align: center;
             min-height: 40px;
@@ -231,28 +254,32 @@
         }
 
         button {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             font-size: 1.1em;
+            font-family: 'Raleway', sans-serif;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
 
         .error {
             color: #f44336;
             text-align: center;
+            font-family: 'Raleway', sans-serif;
             margin-top: 10px;
         }
 
         .decimal-input {
             width: 180px !important;
+            font-family: 'Raleway', sans-serif !important;
+            text-align: center !important;
         }
 
         .big-number-input {
@@ -260,61 +287,64 @@
             font-size: 0.9em !important;
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             .main-container {
-                flex-direction: column;
-            }
-            .ad-space {
-                width: 100%;
-                min-height: 250px;
-                position: static;
-                display: none;
+                margin: 20px;
+                padding: 30px 20px;
             }
         }
 
-        @media (max-width: 768px) {
-            .content-wrapper {
-                padding: 20px 16px;
-                max-width: 100%;
+        @media (max-width: 600px) {
+            .main-container {
+                margin: 10px;
+                padding: 20px 15px;
             }
             h1 {
-                font-size: 1.1em;
+                font-size: 1.2em;
+            }
+            .page-description {
+                font-size: 14px;
             }
             .calculator-section {
                 padding: 15px;
             }
             .calculator-container {
-                justify-content: flex-start;
+                justify-content: center;
                 padding-left: 10px;
             }
             .mixed-number-input input[type="number"] {
                 width: 70px;
                 height: 32px;
                 font-size: 0.9em;
+                font-family: 'Raleway', sans-serif;
             }
             .fraction-input input[type="number"] {
                 width: 70px;
                 height: 32px;
                 font-size: 0.9em;
+                font-family: 'Raleway', sans-serif;
             }
             .operator-select {
                 width: 35px;
                 height: 32px;
                 font-size: 0.9em;
+                font-family: 'Raleway', sans-serif;
             }
             .equals-sign {
                 font-size: 1.3em;
+                font-family: 'Raleway', sans-serif;
                 margin: 0 6px;
             }
             .big-number-input {
                 width: 140px !important;
                 font-size: 0.85em !important;
+                font-family: 'Raleway', sans-serif !important;
             }
         }
 
         /* Add specific styles for the Mixed Numbers Calculator section */
         #mixed-numbers .calculator-container {
-            justify-content: flex-start;
+            justify-content: center;
             padding: 10px 0;
             .mixed-number-input input[type="number"] {
                 width: 90px;
@@ -336,7 +366,18 @@
         .big-number-input {
             width: 140px !important;
             font-size: 0.85em !important;
+            font-family: 'Raleway', sans-serif !important;
             height: 35px !important;
+            border: 2px solid #eb5424;
+            border-radius: 5px;
+            text-align: center;
+            outline: none;
+            padding: 0 5px;
+        }
+
+        .big-number-input:focus {
+            border-color: #d4441a;
+            box-shadow: 0 0 5px rgba(235, 84, 36, 0.3);
         }
 
         #big-number-calculator .fraction-input {
@@ -349,6 +390,7 @@
             width: 35px;
             height: 35px;
             font-size: 0.9em;
+            font-family: 'Raleway', sans-serif;
             padding: 0;
             margin: 0;
             flex-shrink: 0;
@@ -357,7 +399,27 @@
         #big-number-calculator .equals-sign {
             margin: 0 10px;
             font-size: 1.3em;
+            font-family: 'Raleway', sans-serif;
             flex-shrink: 0;
+        }
+
+        .result-fraction span {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        .result-mixed span {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        #fraction-to-decimal-result {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+            min-height: 40px;
+            margin-top: 20px;
         }
 
         #big-number-calculator .result-fraction {
@@ -366,6 +428,7 @@
 
         #big-number-calculator .result-fraction span {
             font-size: 0.85em;
+            font-family: 'Raleway', sans-serif;
             word-break: break-all;
             max-width: 140px;
             overflow-wrap: break-word;
@@ -380,35 +443,39 @@
 
         @media (max-width: 768px) {
             #big-number-calculator .calculator-container {
-                justify-content: flex-start;
+                justify-content: center;
                 padding: 15px 0;
             }
 
             .big-number-input {
                 width: 120px !important;
                 font-size: 0.8em !important;
+                font-family: 'Raleway', sans-serif !important;
             }
 
             #big-number-calculator .operator-select {
                 width: 32px;
                 height: 32px;
                 font-size: 0.85em;
+                font-family: 'Raleway', sans-serif;
             }
 
             #big-number-calculator .equals-sign {
                 margin: 0 8px;
                 font-size: 1.2em;
+                font-family: 'Raleway', sans-serif;
             }
 
             #big-number-calculator .result-fraction span {
                 font-size: 0.8em;
+                font-family: 'Raleway', sans-serif;
                 max-width: 120px;
             }
         }
 
-        /* CSS: left-align all calculator-container formulas */
+        /* CSS: center-align all calculator-container formulas */
         .calculator-container {
-            justify-content: flex-start !important;
+            justify-content: center !important;
         }
 
         .related-calculators {
@@ -420,6 +487,7 @@
         .related-calculators h2 {
             color: #333;
             font-size: 1.5em;
+            font-family: 'Raleway', sans-serif;
             margin-bottom: 15px;
         }
         .related-calculators ul {
@@ -430,30 +498,61 @@
             margin-bottom: 10px;
         }
         .related-calculators a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .related-calculators a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Fraction Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-            <h1>Tired of Manual Fraction Work? Use Our Fraction Calculator</h1>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-            Solve fractions in seconds! Add, subtract, and simplify fractions easily with our Fraction Calculator—perfect for students, teachers, and professionals. Stop manual math mistakes and save time today.
-            </p>
+    <!-- START FRACTION CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0; background: #fff; min-height: calc(100vh - 200px);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                            <div class="breadcrumb">
+                                <a href="../index.html">Home</a>
+                                <span>/</span>
+                                <a href="index.html">Math Calculators</a>
+                                <span>/</span>
+                                Fraction Calculator
+                            </div>
+
+                            <h1>Tired of Manual Fraction Work? Use Our Fraction Calculator</h1>
+                            <p style="color: #606060; font-size: 16px; font-family: 'Raleway', sans-serif; line-height: 28px; margin-bottom: 40px;">
+                            Solve fractions in seconds! Add, subtract, and simplify fractions easily with our Fraction Calculator—perfect for students, teachers, and professionals. Stop manual math mistakes and save time today.
+                            </p>
 
             <!-- Move all calculator sections here -->
             <!-- Basic Fraction Calculator -->
@@ -618,67 +717,68 @@
             </div>
 
             <!-- Then the intro and description -->
-            <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                <h2 style="color: #333; font-size: 1.8em; margin-bottom: 20px;">How to Use Fraction Calculator</h2>
+            <div class="page-description" style="color: #606060; font-size: 16px; font-family: 'Raleway', sans-serif; line-height: 28px; margin-bottom: 40px;">
+                <h2 style="color: #eb5424; font-size: 20px; font-weight: bold; font-family: 'Raleway', sans-serif; letter-spacing: 1px; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">How to Use Fraction Calculator</h2>
 
-                <p>Our Fraction Calculator makes solving fraction problems quick and effortless. Start by entering your fractions—whether as simple fractions, mixed fractions, or decimals. You can use it as a mixed fraction calculator, reduce a fraction calculator, or decimal to fraction calculator, depending on your needs.</p>
+                <p style="font-family: 'Raleway', sans-serif;">Our Fraction Calculator makes solving fraction problems quick and effortless. Start by entering your fractions—whether as simple fractions, mixed fractions, or decimals. You can use it as a mixed fraction calculator, reduce a fraction calculator, or decimal to fraction calculator, depending on your needs.</p>
 
-                <p>Next, choose the operation you want to perform: addition, subtraction, multiplication, or division. You can also convert decimals to fractions, multiply fractions, or simplify results. After entering your numbers and selecting the operation, click the calculate button. The calculator instantly provides accurate results, saving you time and avoiding manual calculation errors.</p>
+                <p style="font-family: 'Raleway', sans-serif;">Next, choose the operation you want to perform: addition, subtraction, multiplication, or division. You can also convert decimals to fractions, multiply fractions, or simplify results. After entering your numbers and selecting the operation, click the calculate button. The calculator instantly provides accurate results, saving you time and avoiding manual calculation errors.</p>
 
-                <p>This tool is perfect for students, teachers, and professionals who need a fast, reliable way to handle fractions, decimals, and mixed numbers in everyday math problems or homework.</p>
+                <p style="font-family: 'Raleway', sans-serif;">This tool is perfect for students, teachers, and professionals who need a fast, reliable way to handle fractions, decimals, and mixed numbers in everyday math problems or homework.</p>
 
-                <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 15px;">What the Results Mean</h3>
-                <p>Once you calculate, the Fraction Calculator shows results in multiple formats for clarity. You will see the simplified fraction, the decimal equivalent, and, when applicable, the mixed number form.</p>
+                <h3 style="color: #eb5424; font-size: 20px; font-weight: bold; font-family: 'Raleway', sans-serif; letter-spacing: 1px; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">What the Results Mean</h3>
+                <p style="font-family: 'Raleway', sans-serif;">Once you calculate, the Fraction Calculator shows results in multiple formats for clarity. You will see the simplified fraction, the decimal equivalent, and, when applicable, the mixed number form.</p>
 
-                <p><strong>For example:</strong></p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">Using the mixed fraction calculator: <strong>1 1/2 + 2 3/4</strong> results in <strong>4 1/4</strong>.</li>
-                    <li style="margin-bottom: 10px;">Using the reduce a fraction calculator: <strong>6/8</strong> is simplified to <strong>3/4</strong>.</li>
-                    <li style="margin-bottom: 10px;">Using the decimal to fraction calculator: <strong>0.75</strong> converts to <strong>3/4</strong>.</li>
+                <p style="font-family: 'Raleway', sans-serif;"><strong>For example:</strong></p>
+                <ul style="list-style: none; padding-left: 0; font-family: 'Raleway', sans-serif;">
+                    <li style="margin-bottom: 10px; font-family: 'Raleway', sans-serif;">Using the mixed fraction calculator: <strong>1 1/2 + 2 3/4</strong> results in <strong>4 1/4</strong>.</li>
+                    <li style="margin-bottom: 10px; font-family: 'Raleway', sans-serif;">Using the reduce a fraction calculator: <strong>6/8</strong> is simplified to <strong>3/4</strong>.</li>
+                    <li style="margin-bottom: 10px; font-family: 'Raleway', sans-serif;">Using the decimal to fraction calculator: <strong>0.75</strong> converts to <strong>3/4</strong>.</li>
                 </ul>
 
-                <p>These results help you understand both the fraction and decimal forms, verify your calculations, and make fraction operations easier than ever. Whether adding, subtracting, multiplying, or dividing, this calculator ensures you get precise, quick answers every time.</p>
+                <p style="font-family: 'Raleway', sans-serif;">These results help you understand both the fraction and decimal forms, verify your calculations, and make fraction operations easier than ever. Whether adding, subtracting, multiplying, or dividing, this calculator ensures you get precise, quick answers every time.</p>
 
-                <h3 style="margin: 20px 0 10px;">❓ Frequently Asked Questions</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What fraction is…?</strong><br>
+                <h3 style="color: #eb5424; font-size: 20px; font-weight: bold; font-family: 'Raleway', sans-serif; letter-spacing: 1px; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">❓ Frequently Asked Questions</h3>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q1: What fraction is…?</strong><br>
                     A: A fraction represents a part of a whole. You can use our Fraction Calculator to convert numbers, decimals, or percentages into fractions, helping you understand how parts relate to the whole in math problems or real-life situations.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How do I calculate a whole number times a fraction?</strong><br>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q2: How do I calculate a whole number times a fraction?</strong><br>
                     A: Use our whole number times fraction calculator to quickly multiply any whole number by a fraction. Simply enter the whole number and the fraction, and the calculator will give you the simplified result instantly, saving time and avoiding mistakes.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is there a calculator that will do fractions for me?</strong><br>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q3: Is there a calculator that will do fractions for me?</strong><br>
                     A: Yes! Our calculator that will do fractions can handle addition, subtraction, multiplication, division, simplification, and conversions between fractions and decimals. It's perfect for students, teachers, and professionals who need fast and accurate fraction calculations.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is a whole fraction calculator?</strong><br>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q4: What is a whole fraction calculator?</strong><br>
                     A: A whole fraction calculator helps you work with fractions and whole numbers together. It can perform operations like multiplying fractions by whole numbers, converting improper fractions to mixed numbers, or simplifying complex fraction problems.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How can I convert a fraction to a decimal?</strong><br>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q5: How can I convert a fraction to a decimal?</strong><br>
                     A: With the fraction calculator fraction to decimal feature, simply enter any fraction, and the tool instantly provides the decimal equivalent. This helps you quickly check your work or use fractions in calculations that require decimals.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How do I convert a percent to a fraction?</strong><br>
+                <div style="margin-bottom: 15px; font-family: 'Raleway', sans-serif;">
+                    <p style="font-family: 'Raleway', sans-serif;"><strong>Q6: How do I convert a percent to a fraction?</strong><br>
                     A: Our percent as a fraction calculator lets you easily convert percentages into simplified fractions. Enter the percentage value, and the calculator will generate the corresponding fraction, useful for homework, finance, or everyday math problems.</p>
                 </div>
             </div>
 
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="ad-space">
-            <!-- Ad space content -->
-        </div>
-    </div>
+    </section>
+    <!-- END FRACTION CALCULATOR -->
 
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -1054,5 +1154,15 @@
             });
         });
     </script>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
 </body>
 </html> 

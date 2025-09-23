@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics Calculator – Solve Data Problems Instantly & Accurately | CalculatorQuote</title>
     <meta name="description" content="Tired of manual statistics work? Our Statistics Calculator quickly handles averages, variance, and standard deviation. Perfect for students, researchers, and professionals—save time, avoid errors, and simplify complex data analysis in seconds.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -39,158 +44,145 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 20px;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-        }
-
-        .content-wrapper {
-            flex: 1;
+        .calculator-container {
             max-width: 800px;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 32px 24px;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
-
-        .ad-space {
-            width: 300px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-            display: block;
-        }
-
+        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
         }
-
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
-
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
-
-        .page-header {
-            margin-bottom: 30px;
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        .page-header h1 {
-            color: #222;
-            font-size: 1.3em;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .calculator-container {
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            width: 100%;
-            max-width: 380px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
             margin-bottom: 40px;
         }
-
-        .display-area {
-            background: #2196F3;
-            color: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            position: relative;
-            border-radius: 5px;
+        
+        .calculator {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
         }
 
-        .count-display {
-            font-size: 0.9em;
-            position: absolute;
-            top: 5px;
-            left: 10px;
-        }
-
-        .number-display {
-            font-size: 2em;
+        #display {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 25px;
+            font-size: 3.2em;
             text-align: right;
-            padding-right: 10px;
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            color: #333;
+            border: none;
+            outline: none;
+            border-radius: 10px;
         }
 
-        .calculator-grid {
+        .buttons {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            padding: 5px;
         }
 
-        .calculator-button {
-            background: #fff;
-            border: 2px solid #2196F3;
-            padding: 15px 0;
-            font-size: 1.2em;
+        button {
+            width: 80px;
+            height: 80px;
+            font-size: 2em;
+            border: none;
+            border-radius: 50%;
             cursor: pointer;
-            transition: background-color 0.3s;
-            color: #2196F3;
-            border-radius: 5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
         }
 
-        .calculator-button:hover {
-            background: #2196F3;
-            color: #fff;
+        button:active {
+            transform: scale(0.95);
         }
 
-        .calculator-button.light {
-            background: #fff;
-            border: 2px solid #2196F3;
-            color: #2196F3;
+        .number {
+            background-color: #fff3e0;
+            color: #eb5424;
         }
 
-        .calculator-button.light:hover {
-            background: #2196F3;
-            color: #fff;
+        .number:hover {
+            background-color: #ffe0b2;
         }
 
-        .calculator-button.add {
-            color: #f44336;
-            border-color: #f44336;
+        .operator {
+            background-color: #eb5424;
+            color: white;
         }
 
-        .calculator-button.add:hover {
-            background: #f44336;
-            color: #fff;
+        .operator:hover {
+            background-color: #d4441a;
+        }
+
+        .function {
+            background-color: #ffb74d;
+            color: white;
+        }
+
+        .function:hover {
+            background-color: #ff9800;
+        }
+
+        .equals {
+            background-color: #d4441a;
+            color: white;
+        }
+
+        .equals:hover {
+            background-color: #bf3e17;
+        }
+
+        .zero {
+            grid-column: span 2;
+            width: 178px;
+            border-radius: 40px;
+            justify-content: flex-start;
+            padding-left: 32px;
         }
 
         .input-section {
@@ -198,10 +190,11 @@
             border: 1px solid #e0e0e0;
             padding: 20px;
             border-radius: 10px;
+            background-color: #f8f9fa;
         }
 
         .input-section h2 {
-            color: #2196F3;
+            color: #eb5424;
             font-size: 1.2em;
             margin-bottom: 20px;
             text-align: center;
@@ -212,7 +205,7 @@
             height: 100px;
             padding: 10px;
             margin-bottom: 20px;
-            border: 2px solid #2196F3;
+            border: 2px solid #eb5424;
             border-radius: 5px;
             resize: vertical;
             font-size: 1em;
@@ -233,203 +226,313 @@
         }
 
         .calculate-button {
-            background: #2196F3;
+            background: #eb5424;
             color: white;
             margin-right: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
-            border: 1.5px solid #2196F3;
+            border: 1.5px solid #eb5424;
         }
 
         .calculate-button:hover {
-            background: #1976D2;
+            background: #d4441a;
         }
 
         .clear-button {
-            background: #757575;
+            background: #f5c6cb;
             color: white;
             border-radius: 5px;
             transition: background-color 0.3s;
-            border: 1.5px solid #757575;
+            border: 1.5px solid #f5c6cb;
         }
 
         .clear-button:hover {
-            background: #616161;
+            background: #f1aeb5;
         }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
-
-        .related-calculators {
+        
+        .content-section h2, .content-section h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
             margin-top: 40px;
-            padding: 20px;
-            background: none;
-            border-radius: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
-
-        .related-calculators h2 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
         }
-
-        .related-calculators ul {
-            list-style: none;
-            padding: 0;
+        
+        .content-section li {
+            margin-bottom: 0.5em;
         }
-
-        .related-calculators li {
-            margin-bottom: 10px;
-        }
-
-        .related-calculators a {
-            color: #2196F3;
+        
+        .content-section a {
+            color: #eb5424;
             text-decoration: none;
-            transition: color 0.3s;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+        
+        .ad-sidebar {
+            width: 300px;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
         }
 
-        .related-calculators a:hover {
-            color: #1976D2;
+        .ad-container {
+            width: 100%;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
         }
-
-        @media (max-width: 1200px) {
+        
+        @media (max-width: 1024px) {
             .main-container {
                 flex-direction: column;
+                gap: 20px;
             }
-            .ad-space {
+            
+            .ad-sidebar {
                 width: 100%;
-                min-height: 250px;
                 position: static;
-                display: none;
+                order: -1;
+            }
+            .ad-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .content-section {
+                font-size: 14px;
+            }
+            .ad-container {
+                height: 200px;
+            }
+            .calculator {
+                padding: 20px;
+                max-width: 100%;
+            }
+            .buttons {
+                gap: 6px;
+                max-width: 100%;
+            }
+            button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+            }
+            #display {
+                font-size: 2.5em;
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Statistics Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-            <div class="page-header">
-                <h1>Struggling with Complex Data Analysis? Try Our Statistics Calculator</h1>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
             </div>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Our Statistics Calculator helps you solve averages, variance, and standard deviation instantly. Save time, avoid errors, and simplify data analysis—perfect for students, researchers, and professionals.</p>
-            
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-            <div class="calculator-container">
-                <div class="display-area">
-                    <div class="count-display">Count=0</div>
-                    <div class="number-display">0</div>
+    <!-- START STATISTICS CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Math Calculators</a>
+                            <span>/</span>
+                            Statistics Calculator
+                        </div>
+                        
+                        <div class="page-title">Struggling with Complex Data Analysis? Try Our Statistics Calculator</div>
+                        
+                        <div class="page-description">
+                            Our Statistics Calculator helps you solve averages, variance, and standard deviation instantly. Save time, avoid errors, and simplify data analysis—perfect for students, researchers, and professionals.
+                        </div>
+
+                        <div class="calculator">
+                            <input type="text" id="display" readonly>
+                            <div class="buttons">
+                                <button class="function" onclick="clearAll()">AC</button>
+                                <button class="function" onclick="toggleSign()">+/-</button>
+                                <button class="function" onclick="calculateMean()">x̄</button>
+                                <button class="operator" onclick="calculateSum()">Σx</button>
+                                
+                                <button class="number" onclick="appendNumber('7')">7</button>
+                                <button class="number" onclick="appendNumber('8')">8</button>
+                                <button class="number" onclick="appendNumber('9')">9</button>
+                                <button class="operator" onclick="calculateStdDev()">σ</button>
+                                
+                                <button class="number" onclick="appendNumber('4')">4</button>
+                                <button class="number" onclick="appendNumber('5')">5</button>
+                                <button class="number" onclick="appendNumber('6')">6</button>
+                                <button class="operator" onclick="calculateVariance()">σ²</button>
+                                
+                                <button class="number" onclick="appendNumber('1')">1</button>
+                                <button class="number" onclick="appendNumber('2')">2</button>
+                                <button class="number" onclick="appendNumber('3')">3</button>
+                                <button class="operator" onclick="calculateSampleStdDev()">s</button>
+                                
+                                <button class="number zero" onclick="appendNumber('0')">0</button>
+                                <button class="number" onclick="appendNumber('.')">.</button>
+                                <button class="equals" onclick="calculateAllStats()">=</button>
+                            </div>
+                            <div class="input-section">
+                                <h2>Two Ways to Enter Data:</h2>
+                                <p style="margin-bottom: 15px; font-size: 0.9em; color: #666;">
+                                    <strong>Method 1:</strong> Use the number pad above (type numbers, click ADD, then click =)<br>
+                                    <strong>Method 2:</strong> Enter multiple numbers separated by commas below
+                                </p>
+                                <textarea placeholder="10, 2, 38, 23, 38, 23, 21, 23"></textarea>
+                                <div class="button-group">
+                                    <button class="action-button calculate-button">Calculate</button>
+                                    <button class="action-button clear-button">Clear</button>
+                                </div>
+                            </div>
+                            <div id="results" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; display: none;">
+                                <h3 style="color: #eb5424; margin-bottom: 10px;">Statistical Results:</h3>
+                                <div id="results-content"></div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; background-color: #f8f9fa;">
+                    <h3 style="margin: 0 0 15px 0; color: #333; font-size: 1.3em;">Related Contents:</h3>
+                    <p style="margin-bottom: 20px;"><a href="https://www.calculatorquote.com/blog/7-rules-to-expand-your-lucky-surface-in-your-career.html" style="color: #eb5424; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='#d4441a'" onmouseout="this.style.color='#eb5424'">7 Rules to Expand Your Lucky Surface in Your Career</a></p>
                 </div>
-                <div class="calculator-grid">
-                    <button class="calculator-button">7</button>
-                    <button class="calculator-button">8</button>
-                    <button class="calculator-button">9</button>
-                    <button class="calculator-button light" onclick="calculateMean()">x̄</button>
-                    <button class="calculator-button light" onclick="calculateVariance()">x̄²</button>
-                    <button class="calculator-button">4</button>
-                    <button class="calculator-button">5</button>
-                    <button class="calculator-button">6</button>
-                    <button class="calculator-button light" onclick="calculateSum()">Σx</button>
-                    <button class="calculator-button light" onclick="calculateSumSquares()">Σx²</button>
-                    <button class="calculator-button">1</button>
-                    <button class="calculator-button">2</button>
-                    <button class="calculator-button">3</button>
-                    <button class="calculator-button light" onclick="calculateStdDev()">σ</button>
-                    <button class="calculator-button light" onclick="calculateVariance()">σ²</button>
-                    <button class="calculator-button">0</button>
-                    <button class="calculator-button">.</button>
-                    <button class="calculator-button">EXP</button>
-                    <button class="calculator-button light" onclick="calculateSampleStdDev()">s</button>
-                    <button class="calculator-button light" onclick="calculateSampleVariance()">s²</button>
-                    <button class="calculator-button">CAD</button>
-                    <button class="calculator-button">C</button>
-                    <button class="calculator-button add">ADD</button>
-                    <button class="calculator-button light" onclick="toggleSign()">±</button>
-                    <button class="calculator-button light" onclick="calculateGeometricMean()">GM</button>
+                
+                <p style="font-size: 1.2em; margin-bottom: 20px;">📊 Statistics Calculator – Because manual calculations are for masochists 💀</p>
+                
+                <p>Many people need to analyze data in daily life. You may want to calculate averages, check homework, or understand data patterns. Doing this by hand takes time and can lead to mistakes. An online statistics calculator makes the process fast and easy. You can open it on any device, enter your numbers, and see comprehensive results at once.</p>
+
+                <p>Our tool is a free statistics calculator, so you do not need to pay or download. It works in your browser. You can use it any time of the day. You just enter numbers and pick the function you want. You can calculate mean, median, mode, standard deviation, or variance. The answer shows right away. It is simple and saves time.</p>
+
+                <p>This statistics calculator is also helpful for students and researchers. Students use it for homework or practice. With it, you can check your answers and reduce stress. It does not replace learning, but it helps you avoid mistakes in complex calculations. Teachers can also use it as a quick way to verify statistical results.</p>
+
+                <p>At work, the calculator is useful for data analysis. You can review numbers in a report, analyze trends, or use it in research. At home, you can analyze personal data, compare datasets, or understand patterns. The tool is powerful but easy to use. It saves you from errors that may waste time or lead to wrong conclusions.</p>
+
+                <p>With this calculator, you can handle statistical analysis with less effort. It is online, free, and always ready for you.</p>
+
+                <h3 style="margin: 20px 0 10px;">💡 What does it do?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">✅ Mean, median, mode — the holy trinity of descriptive statistics</li>
+                    <li style="margin-bottom: 10px;">✅ Standard deviation and variance — because spread matters more than you think</li>
+                    <li style="margin-bottom: 10px;">✅ Population vs sample statistics — choose your statistical adventure</li>
+                    <li style="margin-bottom: 10px;">✅ Sum and count — basic but essential data insights</li>
+                    <li style="margin-bottom: 10px;">✅ Super clean interface — even your statistics professor would approve</li>
+                </ul>
+                            
+                <h3 style="margin: 20px 0 10px; color: #333; font-weight: normal;">❓ FAQ – because we know you're too lazy to email us</h3>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q1: What is a statistics calculator?</strong><br>
+                    A: A statistics calculator is a tool used to analyze numerical data quickly. You can calculate mean, median, mode, standard deviation, and variance. It helps you understand data patterns and make informed decisions without making calculation errors.</p>
                 </div>
-                <div class="input-section">
-                    <h2>Enter multiple numbers separated by commas for statistical analysis</h2>
-                    <textarea placeholder="10, 2, 38, 23, 38, 23, 21, 23"></textarea>
-                    <div class="button-group">
-                        <button class="action-button calculate-button">Calculate</button>
-                        <button class="action-button clear-button">Clear</button>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q2: Can I use a statistics calculator online?</strong><br>
+                    A: Yes, you can use a statistics calculator online. You do not need to download anything. Open it in your browser, enter your numbers, and see results instantly. It works on computers, tablets, and phones.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q3: How do I calculate standard deviation?</strong><br>
+                    A: You can use our statistics calculator to find standard deviation. Enter your dataset, and the calculator will automatically compute both population and sample standard deviation. This helps you understand how spread out your data is from the mean.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q4: What's the difference between population and sample statistics?</strong><br>
+                    A: Population statistics use the entire dataset (denoted by σ), while sample statistics use n-1 in the denominator (denoted by s). Use population stats when you have all data, sample stats when you're working with a subset of a larger population.</p>
+                </div>
+                <div style="margin-bottom: 0;">
+                    <p><strong>Q5: Can this calculator handle large datasets?</strong><br>
+                    A: Yes, our statistics calculator can handle large datasets efficiently. You can enter numbers separated by commas in the text area, and it will process them quickly to give you comprehensive statistical results.</p>
+                </div>
+                        </div>
                     </div>
                 </div>
-                <div id="results" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; display: none;">
-                    <h3 style="color: #2196F3; margin-bottom: 10px;">Statistical Results:</h3>
-                    <div id="results-content"></div>
-                </div>
-            </div>
-            <div class="page-description">
-                <h3 style="color: #222; font-size: 1.1em; margin: 20px 0 10px;">How to Use a Statistics Calculator</h3>
-                <p style="margin-bottom: 20px;">Using a statistics calculator is straightforward and saves you from manually computing complex data measures. First, enter your dataset into the input field, separating values with commas or spaces. Whether you are calculating averages, variances, or standard deviations, the statistics calculator online will process your numbers instantly. Once you click the "Calculate" button, you can view a comprehensive set of results including mean, median, mode, standard deviation, variance, and other relevant statistics. For more advanced needs, you can use specialized tools like the p statistics calculator, t statistics calculator, or z statistics calculator to perform hypothesis testing or probability analysis. This makes it easy to handle both simple and sophisticated statistical tasks quickly and accurately.</p>
-
-                <h3 style="color: #222; font-size: 1.1em; margin: 20px 0 10px;">What the Results Mean</h3>
-                <p style="margin-bottom: 20px;">The results provided by a statistics calculator help you understand the patterns, trends, and variability in your data. The mean shows the average value, the median identifies the middle point of your dataset, and the standard deviation indicates how spread out your numbers are. Using a probability in statistics calculator or power analysis statistics calculator, you can assess probabilities, significance levels, and the strength of your statistical tests. For example, the f statistics calculator can reveal whether group differences are statistically meaningful, while the ap statistics calculator helps interpret advanced classroom or research datasets. In short, the output explains the story behind your numbers and guides your decisions based on data rather than guesswork.</p>
-
-                <h3 style="color: #222; font-size: 1.1em; margin: 20px 0 10px;">When to Use a Statistics Calculator</h3>
-                <p style="margin-bottom: 20px;">A statistics calculator is useful in many situations where you need to analyze numerical data efficiently. You can use it for school or college assignments to quickly calculate averages, standard deviations, or test statistics. Researchers can apply it to analyze experiment results or survey data, using tools like the t statistics calculator or z statistics calculator for hypothesis testing. Business analysts and economists may use a probability and statistics calculator to interpret financial trends or labor statistics. Even in daily life, it can help you understand patterns in personal budgets, sports performance, or any dataset where understanding variability and probability matters. Essentially, whenever you need accurate, fast, and reliable statistical calculations, this tool can help.</p>
-                <h3 style="margin: 20px 0 10px;">❓ Frequently Asked Questions</h3>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is the best statistics calculator?</strong><br>
-                    A: The best statistics calculator depends on your needs. For general purposes, a statistics calculator that handles mean, median, mode, standard deviation, and variance is ideal. If you need advanced analyses, specialized tools like a descriptive statistics calculator, chi square statistics calculator, or online calculators such as statistics calculator ark can provide more precise results.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Do you need a calculator for statistics?</strong><br>
-                    A: While basic statistics can be done manually, a statistics calculator makes the process faster and more accurate, especially for large datasets or complex calculations. It is highly recommended for students, researchers, and professionals to save time and reduce errors.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How to use a statistics calculator?</strong><br>
-                    A: Using a statistics calculator is simple. Enter your dataset into the input field, separate numbers with commas or spaces, and click "Calculate." The calculator will provide key statistics such as mean, median, mode, standard deviation, variance, and other relevant measures. For advanced analysis, you can use calculators for specific tests, like chi square statistics calculator or a descriptive statistics calculator.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is a descriptive statistics calculator?</strong><br>
-                    A: A descriptive statistics calculator summarizes and describes the main features of your data. It provides measures like mean, median, mode, standard deviation, and range, giving you a quick overview of trends and variability in your dataset.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is a chi square statistics calculator?</strong><br>
-                    A: A chi square statistics calculator is used for hypothesis testing with categorical data. It helps you determine whether there is a significant association between variables, commonly used in research, surveys, and experiments.</p>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is the statistics calculator ark?</strong><br>
-                    A: The statistics calculator ark is an online tool designed to handle a wide range of statistical calculations. It combines general and advanced features, making it suitable for students, researchers, and anyone who needs quick and reliable statistical results.</p>
-                </div>
             </div>
         </div>
-        <div class="ad-space">
-            <!-- Ad space for 300x600 or similar ad units -->
-        </div>
-    </div>
+    </section>
+    <!-- END STATISTICS CALCULATOR -->
 
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
     <script>
         // DOM元素
-        const display = document.querySelector('.number-display');
-        const countDisplay = document.querySelector('.count-display');
+        const display = document.getElementById('display');
         const textarea = document.querySelector('textarea');
         const calculateButton = document.querySelector('.calculate-button');
         const clearButton = document.querySelector('.clear-button');
-        const buttons = document.querySelectorAll('.calculator-button');
         const resultsDiv = document.getElementById('results');
         const resultsContent = document.getElementById('results-content');
         
@@ -438,14 +541,24 @@
 
         // 更新显示
         function updateDisplay() {
-            display.textContent = currentNumber;
-            countDisplay.textContent = `Count=${numbers.length}`;
+            display.value = currentNumber;
         }
 
         // 显示结果
         function showResults(content) {
             resultsContent.innerHTML = content;
             resultsDiv.style.display = 'block';
+        }
+
+        // 添加数字
+        function appendNumber(number) {
+            if (currentNumber === '0' && number !== '.') {
+                currentNumber = number;
+            } else {
+                if (number === '.' && currentNumber.includes('.')) return;
+                currentNumber += number;
+            }
+            updateDisplay();
         }
 
         // 计算均值
@@ -455,7 +568,7 @@
                 return;
             }
             const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
-            display.textContent = mean.toFixed(4);
+            display.value = mean.toFixed(4);
             showResults(`<p><strong>Mean (x̄):</strong> ${mean.toFixed(4)}</p>`);
         }
 
@@ -469,7 +582,7 @@
             const mid = Math.floor(sorted.length / 2);
             const median = sorted.length % 2 === 0 ? 
                 (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
-            display.textContent = median.toFixed(4);
+            display.value = median.toFixed(4);
             showResults(`<p><strong>Median:</strong> ${median.toFixed(4)}</p>`);
         }
 
@@ -485,7 +598,7 @@
             });
             const maxFreq = Math.max(...Object.values(frequency));
             const modes = Object.keys(frequency).filter(num => frequency[num] === maxFreq);
-            display.textContent = modes.join(', ');
+            display.value = modes.join(', ');
             showResults(`<p><strong>Mode:</strong> ${modes.join(', ')}</p>`);
         }
 
@@ -496,7 +609,7 @@
                 return;
             }
             const sum = numbers.reduce((a, b) => a + b, 0);
-            display.textContent = sum.toFixed(4);
+            display.value = sum.toFixed(4);
             showResults(`<p><strong>Sum (Σx):</strong> ${sum.toFixed(4)}</p>`);
         }
 
@@ -507,7 +620,7 @@
                 return;
             }
             const sumSquares = numbers.reduce((a, b) => a + b * b, 0);
-            display.textContent = sumSquares.toFixed(4);
+            display.value = sumSquares.toFixed(4);
             showResults(`<p><strong>Sum of Squares (Σx²):</strong> ${sumSquares.toFixed(4)}</p>`);
         }
 
@@ -519,7 +632,7 @@
             }
             const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
             const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
-            display.textContent = variance.toFixed(4);
+            display.value = variance.toFixed(4);
             showResults(`<p><strong>Population Variance (σ²):</strong> ${variance.toFixed(4)}</p>`);
         }
 
@@ -531,7 +644,7 @@
             }
             const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
             const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (numbers.length - 1);
-            display.textContent = variance.toFixed(4);
+            display.value = variance.toFixed(4);
             showResults(`<p><strong>Sample Variance (s²):</strong> ${variance.toFixed(4)}</p>`);
         }
 
@@ -544,7 +657,7 @@
             const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
             const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
             const stdDev = Math.sqrt(variance);
-            display.textContent = stdDev.toFixed(4);
+            display.value = stdDev.toFixed(4);
             showResults(`<p><strong>Population Standard Deviation (σ):</strong> ${stdDev.toFixed(4)}</p>`);
         }
 
@@ -557,7 +670,7 @@
             const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
             const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (numbers.length - 1);
             const stdDev = Math.sqrt(variance);
-            display.textContent = stdDev.toFixed(4);
+            display.value = stdDev.toFixed(4);
             showResults(`<p><strong>Sample Standard Deviation (s):</strong> ${stdDev.toFixed(4)}</p>`);
         }
 
@@ -573,7 +686,7 @@
             }
             const product = numbers.reduce((a, b) => a * b, 1);
             const geometricMean = Math.pow(product, 1 / numbers.length);
-            display.textContent = geometricMean.toFixed(4);
+            display.value = geometricMean.toFixed(4);
             showResults(`<p><strong>Geometric Mean:</strong> ${geometricMean.toFixed(4)}</p>`);
         }
 
@@ -651,25 +764,14 @@
             updateDisplay();
         }
 
-        // 处理按钮点击
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const value = button.textContent;
-                
-                if (value === 'C' || value === 'Clear') {
-                    clearAll();
-                } else if (value === 'ADD') {
-                    addNumber();
-                } else if (!isNaN(value) || value === '.') {
-                    if (currentNumber === '0' && value !== '.') {
-                        currentNumber = value;
-                    } else {
-                        currentNumber += value;
-                    }
-                    updateDisplay();
-                }
-            });
-        });
+        // 添加数字到列表
+        function addNumber() {
+            if (currentNumber && currentNumber !== '0') {
+                numbers.push(parseFloat(currentNumber));
+                currentNumber = '0';
+                updateDisplay();
+            }
+        }
 
         // 处理文本框输入
         calculateButton.addEventListener('click', () => {

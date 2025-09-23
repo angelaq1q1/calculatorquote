@@ -7,6 +7,13 @@
     <meta name="keywords" content="basic calculator, basic calculus question, basic roi calculator, calculator online free, online calculator, math calculator, simple calculator, free calculator">
     <title>Basic Calculator Online | Quick and Easy Math Tool</title>
     
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -38,47 +45,188 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
          crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 20px;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .content-wrapper {
-            flex: 1;
+        .calculator-container {
             max-width: 800px;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 32px 24px;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
+        }
+        
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+        }
+        
+        .calculator {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
         }
 
+        #display {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 25px;
+            font-size: 3.2em;
+            text-align: right;
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            color: #333;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            padding: 5px;
+        }
+
+        button {
+            width: 80px;
+            height: 80px;
+            font-size: 2em;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .number {
+            background-color: #fff3e0;
+            color: #eb5424;
+        }
+
+        .number:hover {
+            background-color: #ffe0b2;
+        }
+
+        .operator {
+            background-color: #eb5424;
+            color: white;
+        }
+
+        .operator:hover {
+            background-color: #d4441a;
+        }
+
+        .function {
+            background-color: #ffb74d;
+            color: white;
+        }
+
+        .function:hover {
+            background-color: #ff9800;
+        }
+
+        .equals {
+            background-color: #d4441a;
+            color: white;
+        }
+
+        .equals:hover {
+            background-color: #bf3e17;
+        }
+
+        .zero {
+            grid-column: span 2;
+            width: 178px;
+            border-radius: 40px;
+            justify-content: flex-start;
+            padding-left: 32px;
+        }
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+        
         .ad-sidebar {
             width: 300px;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
             padding: 20px;
             position: sticky;
             top: 20px;
@@ -97,157 +245,7 @@
             font-size: 0.9em;
             text-align: center;
         }
-
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
-        }
-
-        .breadcrumb a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: #1976D2;
-        }
-
-        .breadcrumb span {
-            color: #666;
-            margin: 0 8px;
-        }
-
-        .page-header {
-            margin-bottom: 30px;
-        }
-
-        .page-header h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .calculator {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 30px;
-            width: 100%;
-            max-width: 380px;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 40px;
-        }
-
-        #display {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 25px;
-            font-size: 3em;
-            text-align: right;
-            padding: 20px 30px;
-            background-color: #f8f9fa;
-            color: #333;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            padding: 5px;
-        }
-
-        button {
-            width: 70px;
-            height: 70px;
-            font-size: 1.8em;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-
-        .number {
-            background-color: #e3f2fd;
-            color: #2196F3;
-        }
-
-        .number:hover {
-            background-color: #bbdefb;
-        }
-
-        .operator {
-            background-color: #2196F3;
-            color: white;
-        }
-
-        .operator:hover {
-            background-color: #1976D2;
-        }
-
-        .function {
-            background-color: #90caf9;
-            color: white;
-        }
-
-        .function:hover {
-            background-color: #64b5f6;
-        }
-
-        .equals {
-            background-color: #1976D2;
-            color: white;
-        }
-
-        .equals:hover {
-            background-color: #1565C0;
-        }
-
-        .zero {
-            grid-column: span 2;
-            width: 155px;
-            border-radius: 35px;
-            justify-content: flex-start;
-            padding-left: 28px;
-        }
-
-
-        .cta-button {
-            display: inline-block;
-            background: none;
-            color: #2196F3;
-            padding: 0;
-            border: none;
-            border-radius: 0;
-            text-decoration: underline;
-            margin-top: 20px;
-            transition: color 0.3s;
-            box-shadow: none;
-        }
-
-        .cta-button:hover {
-            color: #1976D2;
-            background: none;
-        }
-
+        
         @media (max-width: 1024px) {
             .main-container {
                 flex-direction: column;
@@ -265,6 +263,15 @@
         }
 
         @media (max-width: 600px) {
+            .calculator-container {
+                padding: 24px 20px;
+            }
+            .page-title {
+                font-size: 1.2em;
+            }
+            .content-section {
+                font-size: 14px;
+            }
             .ad-container {
                 height: 200px;
             }
@@ -272,59 +279,87 @@
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Basic Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-
-            <div class="page-header">
-                <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">
-                    <span style="display: block;">Need Quick Math for Bills or Homework? Use Our Basic Calculator to Avoid Mistakes and Save Time</span>
-                </h1>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
             </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                Do simple math in seconds without stress. Our Basic Calculator helps with daily bills, homework, or quick checks. You get fast answers, clear results, and fewer errors. Use it anytime you need quick numbers and focus on what really matters in your day.
-            </p>
+    <!-- START BASIC CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Math Calculators</a>
+                            <span>/</span>
+                            Basic Calculator
+                        </div>
+                        
+                        <div class="page-title">Need Quick Math for Bills or Homework? Use Our Basic Calculator to Avoid Mistakes and Save Time</div>
+                        
+                        <div class="page-description">
+                            Do simple math in seconds without stress. Our Basic Calculator helps with daily bills, homework, or quick checks. You get fast answers, clear results, and fewer errors. Use it anytime you need quick numbers and focus on what really matters in your day.
+                        </div>
 
-            <div class="calculator">
-                <input type="text" id="display" readonly>
-                <div class="buttons">
-                    <button class="function" onclick="clearDisplay()">AC</button>
-                    <button class="function" onclick="toggleSign()">+/-</button>
-                    <button class="function" onclick="percentage()">%</button>
-                    <button class="operator" onclick="setOperation('÷')">÷</button>
-                    
-                    <button class="number" onclick="appendNumber('7')">7</button>
-                    <button class="number" onclick="appendNumber('8')">8</button>
-                    <button class="number" onclick="appendNumber('9')">9</button>
-                    <button class="operator" onclick="setOperation('×')">×</button>
-                    
-                    <button class="number" onclick="appendNumber('4')">4</button>
-                    <button class="number" onclick="appendNumber('5')">5</button>
-                    <button class="number" onclick="appendNumber('6')">6</button>
-                    <button class="operator" onclick="setOperation('-')">-</button>
-                    
-                    <button class="number" onclick="appendNumber('1')">1</button>
-                    <button class="number" onclick="appendNumber('2')">2</button>
-                    <button class="number" onclick="appendNumber('3')">3</button>
-                    <button class="operator" onclick="setOperation('+')">+</button>
-                    
-                    <button class="number zero" onclick="appendNumber('0')">0</button>
-                    <button class="number" onclick="appendNumber('.')">.</button>
-                    <button class="equals" onclick="calculate()">=</button>
-                </div>
-            </div>
+                        <div class="calculator">
+                            <input type="text" id="display" readonly>
+                            <div class="buttons">
+                                <button class="function" onclick="clearDisplay()">AC</button>
+                                <button class="function" onclick="toggleSign()">+/-</button>
+                                <button class="function" onclick="percentage()">%</button>
+                                <button class="operator" onclick="setOperation('÷')">÷</button>
+                                
+                                <button class="number" onclick="appendNumber('7')">7</button>
+                                <button class="number" onclick="appendNumber('8')">8</button>
+                                <button class="number" onclick="appendNumber('9')">9</button>
+                                <button class="operator" onclick="setOperation('×')">×</button>
+                                
+                                <button class="number" onclick="appendNumber('4')">4</button>
+                                <button class="number" onclick="appendNumber('5')">5</button>
+                                <button class="number" onclick="appendNumber('6')">6</button>
+                                <button class="operator" onclick="setOperation('-')">-</button>
+                                
+                                <button class="number" onclick="appendNumber('1')">1</button>
+                                <button class="number" onclick="appendNumber('2')">2</button>
+                                <button class="number" onclick="appendNumber('3')">3</button>
+                                <button class="operator" onclick="setOperation('+')">+</button>
+                                
+                                <button class="number zero" onclick="appendNumber('0')">0</button>
+                                <button class="number" onclick="appendNumber('.')">.</button>
+                                <button class="equals" onclick="calculate()">=</button>
+                            </div>
+                        </div>
 
-            <div class="page-description">
+                        <div class="content-section">
                 <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; background-color: #f8f9fa;">
                     <h3 style="margin: 0 0 15px 0; color: #333; font-size: 1.3em;">Related Contents:</h3>
-                    <p style="margin-bottom: 20px;"><a href="https://www.calculatorquote.com/blog/7-rules-to-expand-your-lucky-surface-in-your-career.html" style="color: #2196F3; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='#1976D2'" onmouseout="this.style.color='#2196F3'">7 Rules to Expand Your Lucky Surface in Your Career</a></p>
+                    <p style="margin-bottom: 20px;"><a href="https://www.calculatorquote.com/blog/7-rules-to-expand-your-lucky-surface-in-your-career.html" style="color: #eb5424; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='#d4441a'" onmouseout="this.style.color='#eb5424'">7 Rules to Expand Your Lucky Surface in Your Career</a></p>
                 </div>
                 
                 <p style="font-size: 1.2em; margin-bottom: 20px;">🧮 Basic Calculator – Because mental math is a scam 💀</p>
@@ -348,49 +383,42 @@
                     <li style="margin-bottom: 10px;">✅ Super clean display — even your grandma could use this without asking you "how do I open the calculator app again?"</li>
                 </ul>
 
-                <h3 style="margin: 20px 0 10px;">❓ FAQ – because we know you're too lazy to email us</h3>
+                <h3 style="margin: 20px 0 10px; color: #333; font-weight: normal;">❓ FAQ – because we know you're too lazy to email us</h3>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What is a basic calculator?</strong><br>
+                    <p><strong>Q1: What is a basic calculator?</strong><br>
                     A: A basic calculator is a simple tool used to do math quickly. You can add, subtract, multiply, and divide numbers. It helps you check homework, bills, or small calculations without making mistakes.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use a calculator basic online?</strong><br>
+                    <p><strong>Q2: Can I use a calculator basic online?</strong><br>
                     A: Yes, you can use a basic calculator online. You do not need to download anything. Open it in your browser, type your numbers, and see results instantly. It works on computers, tablets, and phones.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How do I find what percent of 3 is 1?</strong><br>
+                    <p><strong>Q3: How do I find what percent of 3 is 1?</strong><br>
                     A: You can use a basic calculator to find percentages. Divide 1 by 3, then multiply by 100. The answer is about 33.33%. This is a simple example of how the calculator helps with percentage questions.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can I use this basic calculator for basic ROI calculations?</strong><br>
+                    <p><strong>Q4: Can I use this basic calculator for basic ROI calculations?</strong><br>
                     A: Yes, you can use it for simple ROI (Return on Investment) calculations. Enter your profit and investment amounts, then divide profit by investment and multiply by 100 to get the ROI percentage.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Can this calculator online graph functions?</strong><br>
-                    A: No, a basic online calculator does not graph functions. It is designed for simple math, percentages, and basic ROI calculations. For graphing, you need a graphing calculator or a specialized online tool.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Ad Sidebar -->
-        <div class="ad-sidebar">
-            <div class="ad-container">
-                <div>
-                    <p>Advertisement</p>
-                    <p style="font-size: 0.8em; margin-top: 10px;">Ad space for Google AdSense</p>
+                            <div style="margin-bottom: 0;">
+                                <p><strong>Q5: Can this calculator online graph functions?</strong><br>
+                                A: No, a basic online calculator does not graph functions. It is designed for simple math, percentages, and basic ROI calculations. For graphing, you need a graphing calculator or a specialized online tool.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- END BASIC CALCULATOR -->
 
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -533,5 +561,15 @@
       }
     }
     </script>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
 </body>
 </html> 

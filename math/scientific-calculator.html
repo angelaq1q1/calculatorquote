@@ -46,215 +46,135 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Template CSS -->
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-        }
-
-        .content-wrapper {
-            flex: 1;
-            max-width: 800px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 32px 24px;
-        }
-
-        .breadcrumb {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .breadcrumb a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: #1976D2;
-        }
-
-        .breadcrumb span {
-            color: #666;
-            margin: 0 8px;
-        }
-
-        .page-header {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .page-header h1 {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #222;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .page-header .subtitle {
-            display: block;
-            font-size: 0.95em;
-            color: #666;
-            font-weight: normal;
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
+        /* Calculator specific styles */
         .calculator {
-            max-width: 380px;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            box-sizing: border-box;
-        }
-
-        .display-container {
-            height: 120px;
-            margin-bottom: 25px;
-            padding: 40px 20px 20px;
             background-color: #f8f9fa;
             border-radius: 10px;
-            position: relative;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
         }
 
         #display {
             width: 100%;
-            height: 100%;
-            border: none;
-            background: transparent;
+            height: 80px;
+            margin-bottom: 20px;
             font-size: 2.5em;
             text-align: right;
-            font-weight: 300;
+            padding: 15px 20px;
+            background-color: #f8f9fa;
             color: #333;
-            padding: 0;
+            border: none;
+            outline: none;
+            border-radius: 10px;
         }
 
         .buttons {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
+            gap: 12px;
+            padding: 10px;
         }
 
         button {
+            width: 60px;
+            height: 60px;
+            font-size: 1em;
             border: none;
-            border-radius: 8px;
-            width: 100%;
-            height: 48px;
-            font-size: 1.1em;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            background-color: #f1f3f4;
-            color: #2196F3;
             transition: all 0.2s;
-            font-weight: 400;
-            padding: 0;
-            margin: 0;
+            margin: 0 auto;
         }
 
-        button:hover {
-            filter: brightness(0.95);
+        button:active {
+            transform: scale(0.95);
         }
 
         .operator {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
         }
 
         .operator:hover {
-            background-color: #1976D2;
+            background-color: #d84315;
         }
 
         .function {
-            background-color: #e3f2fd;
-            color: #2196F3;
-            font-size: 0.95em;
+            background-color: #ffb74d;
+            color: white;
         }
 
         .function:hover {
-            background-color: #bbdefb;
+            background-color: #ff9800;
         }
 
         .equals {
-            background-color: #2196F3;
+            background-color: #d4441a;
             color: white;
         }
 
         .equals:hover {
-            background-color: #1976D2;
+            background-color: #bf3e17;
         }
 
         .clear {
-            background-color: #ef5350;
+            background-color: #ffb74d;
             color: white;
         }
 
         .clear:hover {
-            background-color: #e53935;
+            background-color: #ff9800;
         }
 
         .memory {
-            background-color: #4caf50;
+            background-color: #ffb74d;
             color: white;
             font-size: 0.9em;
         }
 
         .memory:hover {
-            background-color: #43a047;
+            background-color: #ff9800;
         }
 
         .number {
-            background-color: #f5f5f5;
-            color: #333;
-            font-size: 1.2em;
-            font-weight: 400;
+            background-color: #fff3e0;
+            color: #eb5424;
         }
 
         .number:hover {
-            background-color: #e0e0e0;
+            background-color: #ffe0b2;
         }
 
         .mode {
-            background-color: #90caf9;
+            background-color: #ffb74d;
             color: white;
             font-size: 0.9em;
         }
 
         .mode.active {
-            background-color: #2196F3;
+            background-color: #eb5424;
         }
 
         .mode:hover {
-            background-color: #64b5f6;
+            background-color: #ff9800;
         }
 
         input:focus {
@@ -267,151 +187,259 @@
             top: -0.5em;
         }
 
-        .buttons button:active {
-            transform: scale(0.95);
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
         }
 
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+        }
+
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            word-break: break-word;
+        }
+        .page-description h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .page-description ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        .page-description li {
+            margin-bottom: 0.5em;
+        }
+        .page-description p {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+        }
+        .page-description div, .page-description strong {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+        }
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
 
         @media (max-width: 600px) {
-            .main-container {
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
+            .calculator-container {
+                padding: 24px 20px;
             }
-            .content-wrapper {
-                max-width: 100%;
-                width: 100%;
-                padding: 20px 16px;
+            .page-title {
+                font-size: 1.2em;
             }
-            .breadcrumb {
-                margin-bottom: 12px;
-            }
-            .page-header {
-                margin-top: 8px;
-                margin-bottom: 12px;
-            }
-            .page-header h1 {
-                font-size: 1.1em;
-                margin-bottom: 0.2em;
-            }
-            .page-header .subtitle {
-                font-size: 0.95em;
-                margin-top: 4px;
+            .content-section {
+                font-size: 14px;
             }
             .calculator {
                 max-width: 100%;
-                padding: 10px;
+                padding: 15px;
             }
             .page-description {
                 max-width: 100%;
                 padding: 0 2px;
+                font-size: 14px;
+            }
+            .buttons {
+                gap: 8px;
+                padding: 5px;
+            }
+            button {
+                width: 50px;
+                height: 50px;
+                font-size: 0.9em;
+            }
+            #display {
+                height: 60px;
+                font-size: 2em;
+                padding: 10px 15px;
             }
         }
-
-        .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            word-break: break-word;
-        }
-        .page-description h3 {
-            font-size: 1.1em;
-            color: #222;
-            margin: 20px 0 10px;
-        }
-        .page-description ul {
-            font-size: 1em;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        .page-description li {
-            font-size: 1em;
-            color: #444;
-        }
-        .page-description p {
-            font-size: 1.1em;
-            color: #222;
-        }
-        .page-description div, .page-description strong {
-            font-size: 1em;
-        }
-
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="index.html">Math Calculators</a>
-                <span>/</span>
-                Scientific Calculator
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-            <div class="page-header">
-                <h1>Stop Wasting Time on Trigonometry—Use This Scientific Calculator to Get Instant Results</h1>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
             </div>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Struggling with long trigonometry steps? Our scientific calculator online solves sine, cosine, tangent, and more in seconds. Just type your values and get accurate answers instantly. No more wasted time or confusing manual work—focus on learning the concept while the calculator handles the numbers for you.</p>
-            <div class="calculator">
-                <div class="display-container">
-                    <input type="text" id="display" readonly>
-                </div>
-                <div class="buttons">
-                    <!-- Row 1 -->
-                    <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
-                    <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memoryStore()">M+</button>
-                    <button class="memory" onclick="memoryRecall()">MR</button>
-                    <!-- Row 2 -->
-                    <button class="function" onclick="calculate('sin')">sin</button>
-                    <button class="function" onclick="calculate('cos')">cos</button>
-                    <button class="function" onclick="calculate('tan')">tan</button>
-                    <button class="memory" onclick="memorySubtract()">M-</button>
-                    <button class="memory" onclick="memoryClear()">MC</button>
-                    <!-- Row 3 -->
-                    <button class="function" onclick="calculate('log')">log</button>
-                    <button class="function" onclick="calculate('ln')">ln</button>
-                    <button class="function" onclick="appendToDisplay('Math.E')">e</button>
-                    <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
-                    <button class="operator" onclick="appendToDisplay('(')">(</button>
-                    <!-- Row 4 -->
-                    <button class="function" onclick="calculate('sqrt')">√</button>
-                    <button class="function" onclick="calculate('cbrt')">∛</button>
-                    <button class="function" onclick="appendToDisplay('^2')">x²</button>
-                    <button class="function" onclick="appendToDisplay('^3')">x³</button>
-                    <button class="operator" onclick="appendToDisplay(')')">)</button>
-                    <!-- Row 5 -->
-                    <button class="number" onclick="appendToDisplay('7')">7</button>
-                    <button class="number" onclick="appendToDisplay('8')">8</button>
-                    <button class="number" onclick="appendToDisplay('9')">9</button>
-                    <button class="operator" onclick="appendToDisplay('/')">/</button>
-                    <button class="function" onclick="calculate('factorial')">n!</button>
-                    <!-- Row 6 -->
-                    <button class="number" onclick="appendToDisplay('4')">4</button>
-                    <button class="number" onclick="appendToDisplay('5')">5</button>
-                    <button class="number" onclick="appendToDisplay('6')">6</button>
-                    <button class="operator" onclick="appendToDisplay('*')">×</button>
-                    <button class="function" onclick="calculate('reciprocal')">1/x</button>
-                    <!-- Row 7 -->
-                    <button class="number" onclick="appendToDisplay('1')">1</button>
-                    <button class="number" onclick="appendToDisplay('2')">2</button>
-                    <button class="number" onclick="appendToDisplay('3')">3</button>
-                    <button class="operator" onclick="appendToDisplay('-')">−</button>
-                    <button class="operator" onclick="appendToDisplay('%')">%</button>
-                    <!-- Row 8 -->
-                    <button class="number" onclick="appendToDisplay('0')">0</button>
-                    <button class="number" onclick="appendToDisplay('.')">.</button>
-                    <button class="clear" onclick="clearDisplay()">AC</button>
-                    <button class="operator" onclick="appendToDisplay('+')">+</button>
-                    <button class="equals" onclick="calculateResult()">=</button>
-                </div>
-            </div>
-            <div class="page-description">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Scientific Calculator – Because regular calculators tap out at "sin(30)" 😵‍💫</p>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START SCIENTIFIC CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Math Calculators</a>
+                            <span>/</span>
+                            Scientific Calculator
+                        </div>
+                        
+                        <div class="page-title">Stop Wasting Time on Trigonometry—Use This Scientific Calculator to Get Instant Results</div>
+                        
+                        <div class="page-description">
+                            Struggling with long trigonometry steps? Our scientific calculator online solves sine, cosine, tangent, and more in seconds. Just type your values and get accurate answers instantly. No more wasted time or confusing manual work—focus on learning the concept while the calculator handles the numbers for you.
+                        </div>
+
+                        <div class="calculator">
+                            <div class="display-container">
+                                <input type="text" id="display" readonly>
+                            </div>
+                            <div class="buttons">
+                                <!-- Row 1 -->
+                                <button class="mode" onclick="setMode('rad')" id="rad-btn">RAD</button>
+                                <button class="mode" onclick="setMode('deg')" id="deg-btn">DEG</button>
+                                <button class="function" onclick="calculate('tan')">tan</button>
+                                <button class="memory" onclick="memoryStore()">M+</button>
+                                <button class="memory" onclick="memoryRecall()">MR</button>
+                                <!-- Row 2 -->
+                                <button class="function" onclick="calculate('sin')">sin</button>
+                                <button class="function" onclick="calculate('cos')">cos</button>
+                                <button class="function" onclick="calculate('tan')">tan</button>
+                                <button class="memory" onclick="memorySubtract()">M-</button>
+                                <button class="memory" onclick="memoryClear()">MC</button>
+                                <!-- Row 3 -->
+                                <button class="function" onclick="calculate('log')">log</button>
+                                <button class="function" onclick="calculate('ln')">ln</button>
+                                <button class="function" onclick="appendToDisplay('Math.E')">e</button>
+                                <button class="function" onclick="appendToDisplay('Math.PI')">π</button>
+                                <button class="operator" onclick="appendToDisplay('(')">(</button>
+                                <!-- Row 4 -->
+                                <button class="function" onclick="calculate('sqrt')">√</button>
+                                <button class="function" onclick="calculate('cbrt')">∛</button>
+                                <button class="function" onclick="appendToDisplay('^2')">x²</button>
+                                <button class="function" onclick="appendToDisplay('^3')">x³</button>
+                                <button class="operator" onclick="appendToDisplay(')')">)</button>
+                                <!-- Row 5 -->
+                                <button class="number" onclick="appendToDisplay('7')">7</button>
+                                <button class="number" onclick="appendToDisplay('8')">8</button>
+                                <button class="number" onclick="appendToDisplay('9')">9</button>
+                                <button class="operator" onclick="appendToDisplay('/')">/</button>
+                                <button class="function" onclick="calculate('factorial')">n!</button>
+                                <!-- Row 6 -->
+                                <button class="number" onclick="appendToDisplay('4')">4</button>
+                                <button class="number" onclick="appendToDisplay('5')">5</button>
+                                <button class="number" onclick="appendToDisplay('6')">6</button>
+                                <button class="operator" onclick="appendToDisplay('*')">×</button>
+                                <button class="function" onclick="calculate('reciprocal')">1/x</button>
+                                <!-- Row 7 -->
+                                <button class="number" onclick="appendToDisplay('1')">1</button>
+                                <button class="number" onclick="appendToDisplay('2')">2</button>
+                                <button class="number" onclick="appendToDisplay('3')">3</button>
+                                <button class="operator" onclick="appendToDisplay('-')">−</button>
+                                <button class="operator" onclick="appendToDisplay('%')">%</button>
+                                <!-- Row 8 -->
+                                <button class="number" onclick="appendToDisplay('0')">0</button>
+                                <button class="number" onclick="appendToDisplay('.')">.</button>
+                                <button class="clear" onclick="clearDisplay()">AC</button>
+                                <button class="operator" onclick="appendToDisplay('+')">+</button>
+                                <button class="equals" onclick="calculateResult()">=</button>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
                 
-                <h3 style="margin: 20px 0 10px;">How to Use the Scientific Calculator</h3>
+                <h3 style="margin: 40px 0 20px;">How to Use the Scientific Calculator</h3>
                 <p>To get started, you open the online scientific calculator in your browser and make sure the mode is set correctly, such as degrees or radians. Clear any previous input so the field is empty. Enter your numbers and operators, using parentheses to control the order, then press the equals button to see the result.</p>
                 
                 <p>When you need functions, select keys like sine, cosine, tangent, logarithm, square root, or power, and type in the argument before calculating. If your problem involves rational numbers, you switch to scientific calculator fraction mode or press the fraction button. Enter the numerator and denominator separately, then calculate to get a reduced fraction or decimal.</p>
@@ -426,23 +454,27 @@
                 <p>Error messages indicate invalid inputs, such as dividing by zero or entering values outside the domain. In these cases, correcting the input and recalculating provides a valid result. All numeric answers are raw values, so if your problem involves physical units, you add them yourself when interpreting the results.</p>
                 
                 <h3 style="margin: 20px 0 10px;">Frequently Asked Questions</h3>
-                <div style="margin-bottom: 15px;"><p><strong>Q: What is a Casio calculator watch and how does it work?</strong><br>A Casio calculator watch is a digital wristwatch that includes a small Casio scientific calculator or basic calculator built into the display. It allows you to perform simple arithmetic directly from your wrist, making it popular for convenience and retro style.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: What does "built with science calculator" mean?</strong><br>When something is described as built with science calculator, it usually refers to tools, apps, or devices that integrate scientific calculator functions such as trigonometry, logarithms, and fractions. It means the product can handle more advanced math than a basic calculator.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: Where can I find a scientific calculator near me?</strong><br>You can search for scientific calculator near me to locate nearby stores like Walmart, Staples, or office supply shops. Many people also choose online sellers such as Amazon or Best Buy for quick delivery.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: When was the calculator invented?</strong><br>If you ask when calculator was invented, the first mechanical calculators appeared in the 1600s, developed by inventors like Blaise Pascal and Gottfried Leibniz. The first handheld electronic calculators came out in the 1960s, changing how people perform everyday math.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: What is the Texas Instruments TI-36X Pro scientific calculator?</strong><br>The Texas Instruments TI-36X Pro scientific calculator is a non-graphing scientific calculator used for algebra, trigonometry, engineering, and statistics. It is popular with students and professionals because it supports advanced functions without needing graphing capability.</p></div>
-                <div style="margin-bottom: 15px;"><p><strong>Q: What makes a Casio scientific calculator different?</strong><br>A scientific calculator Casio often includes durable keys, solar power, and a wide range of functions from fractions to statistical analysis. Casio calculators are widely used in schools and exams because of their reliability and simple interface.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q1: What is a Casio calculator watch and how does it work?</strong><br>A Casio calculator watch is a digital wristwatch that includes a small Casio scientific calculator or basic calculator built into the display. It allows you to perform simple arithmetic directly from your wrist, making it popular for convenience and retro style.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q2: What does "built with science calculator" mean?</strong><br>When something is described as built with science calculator, it usually refers to tools, apps, or devices that integrate scientific calculator functions such as trigonometry, logarithms, and fractions. It means the product can handle more advanced math than a basic calculator.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q3: Where can I find a scientific calculator near me?</strong><br>You can search for scientific calculator near me to locate nearby stores like Walmart, Staples, or office supply shops. Many people also choose online sellers such as Amazon or Best Buy for quick delivery.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q4: When was the calculator invented?</strong><br>If you ask when calculator was invented, the first mechanical calculators appeared in the 1600s, developed by inventors like Blaise Pascal and Gottfried Leibniz. The first handheld electronic calculators came out in the 1960s, changing how people perform everyday math.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q5: What is the Texas Instruments TI-36X Pro scientific calculator?</strong><br>The Texas Instruments TI-36X Pro scientific calculator is a non-graphing scientific calculator used for algebra, trigonometry, engineering, and statistics. It is popular with students and professionals because it supports advanced functions without needing graphing capability.</p></div>
+                <div style="margin-bottom: 15px;"><p><strong>Q6: What makes a Casio scientific calculator different?</strong><br>A scientific calculator Casio often includes durable keys, solar power, and a wide range of functions from fractions to statistical analysis. Casio calculators are widely used in schools and exams because of their reliability and simple interface.</p></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- END SCIENTIFIC CALCULATOR -->
 
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -644,5 +676,14 @@
             }
         });
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 
