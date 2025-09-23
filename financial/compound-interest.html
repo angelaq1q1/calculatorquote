@@ -40,72 +40,106 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* 隐藏所有可能的问号图标 */
-        [title]:after,
-        [data-title]:after,
-        [data-tooltip]:after,
-        .tooltip:after,
-        .has-tooltip:after,
-        label:after,
-        label:before,
-        *:after,
-        *:before {
-            content: none !important;
+        .content-area {
+            flex: 1;
+            max-width: 800px;
         }
-
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
+            border: 1px solid #e0e0e0;
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
 
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .instruction-bar {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             padding: 15px 30px;
             border-radius: 10px;
@@ -132,7 +166,7 @@
 
         .calculator-type select {
             width: 100%;
-            max-width: 350px;
+            max-width: 200px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -141,7 +175,7 @@
         }
 
         .input-group {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .input-group label {
@@ -165,7 +199,7 @@
         .input-field-container input,
         .input-field-container select {
             flex: 1;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1em;
@@ -175,16 +209,16 @@
 
         .input-field-container input:focus,
         .input-field-container select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .unit {
-            padding: 12px;
-            background-color: #e3f2fd;
+            padding: 10px;
+            background-color: #fde7e3;
             border: 1px solid #ddd;
             border-left: none;
             border-radius: 0 5px 5px 0;
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             min-width: 50px;
             text-align: center;
@@ -202,21 +236,34 @@
             max-width: 400px;
         }
 
+        .input-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
         .calculator-results {
             flex: 1;
             max-width: 350px;
         }
 
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             max-width: 400px;
-            margin-top: 25px;
-            margin-bottom: 40px;
+            margin: 25px auto 40px auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -227,11 +274,11 @@
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -242,15 +289,15 @@
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .results {
             flex: 1;
-            padding: 25px;
-            background-color: #f8f9fa;
+            padding: 20px;
+            background-color: #fff5f2;
             border-radius: 10px;
-            border: 1px solid #e9ecef;
+            border: 1px solid #ffccbc;
             max-width: 350px;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -263,13 +310,13 @@
         .results p {
             margin: 0;
             padding: 8px 0;
-            font-size: 1.1em;
+            font-size: 1em;
             color: #333;
             max-width: 350px;
         }
 
         .results .value {
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             margin-left: 8px;
         }
@@ -289,16 +336,62 @@
                 max-width: 100%;
             }
             
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            
             .buttons {
-                flex-direction: column;
-                max-width: 200px;
-                margin-bottom: 30px;
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="content-wrapper" style="max-width: 800px; margin: 0; padding: 0 20px; font-size: 1.1em; color: #666;">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
@@ -307,24 +400,26 @@
             <span>/</span>
             Compound Interest Calculator
         </div>
-            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">Calculate Your Compound Interest with Our Easy-to-Use Calculator</h1>
-            <p style="line-height: 1.6; margin-bottom: 20px;">
+            <h1>Compound Interest Calculator</h1>
+            <div class="description">
                 Concerned that your retirement income is meager? Our Compound Interest Calculator can help you know how your regular payments will grow and therefore be prepared and comfortable with your future finances.
-            </p>
+            </div>
 
         <div class="result-section">
             <div class="calculator-inputs">
-                <div class="calculator-type">
-                    <label for="calculation-type">Calculate:</label>
-                    <select id="calculation-type" onchange="toggleCalculationFields()">
+        <div class="calculator-type">
+            <label for="calculation-type">Calculate:</label>
+            <select id="calculation-type" onchange="toggleCalculationFields()">
                         <option value="total" selected>Total Amount (A)</option>
                         <option value="principal">Principal (P)</option>
                         <option value="pmt">Periodic Contribution (PMT)</option>
-                        <option value="rate">Rate (R)</option>
-                        <option value="time">Time (t)</option>
-                    </select>
-                </div>
+                <option value="rate">Rate (R)</option>
+                <option value="time">Time (t)</option>
+            </select>
+        </div>
 
+        <div class="input-rows">
+            <div class="input-row">
                 <div class="input-group" id="principal-group">
                     <label for="principal">Initial Principal (P):</label>
                     <div class="input-field-container">
@@ -340,7 +435,9 @@
                         <div class="unit">$</div>
                     </div>
                 </div>
+            </div>
 
+            <div class="input-row">
                 <div class="input-group" id="rate-group">
                     <label for="rate">Annual Rate (R):</label>
                     <div class="input-field-container">
@@ -367,7 +464,9 @@
                         </select>
                     </div>
                 </div>
+            </div>
 
+            <div class="input-row">
                 <div class="input-group" id="time-group">
                     <label for="time">Time (t in years):</label>
                     <div class="input-field-container">
@@ -375,65 +474,73 @@
                         <div class="unit">Years</div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculateInterest()">Calculate</button>
-                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
-                </div>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateInterest()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
             </div>
 
             <div class="calculator-results">
-                <div class="results">
-                    <p>Total Amount (A): <span id="total-amount" class="value">$0.00</span></p>
+            <div class="results">
+                <p>Total Amount (A): <span id="total-amount" class="value">$0.00</span></p>
                     <p>Initial Principal (P): <span id="principal-result" class="value">$0.00</span></p>
                     <p>Total Contributions: <span id="total-contributions" class="value">$0.00</span></p>
                     <p>Interest Earned: <span id="interest-amount" class="value">$0.00</span></p>
                 </div>
+                </div>
             </div>
-        </div>
 
-            <div class="page-description" style="line-height: 1.6; margin-bottom: 20px;">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Worried your retirement savings aren't enough? Try our Compound Interest Calculator. It shows how your money can grow with compound interest. Just enter your numbers to see your future savings.</p>
+            <div class="page-description" style="line-height: 1.7; margin-bottom: 20px;">
+                <p style="font-size: 1.08em; margin-bottom: 20px;">Worried your retirement savings aren't enough? Try our Compound Interest Calculator. It shows how your money can grow with compound interest. Just enter your numbers to see your future savings.</p>
                 
-                <h3 style="margin: 20px 0 10px;">How to Use the Calculator</h3>
-                <p><strong>Principal (P)</strong> – Enter the money you start with. This is your first investment or savings.</p>
-                <p><strong>Periodic Payment (PMT)</strong> – Enter how much you will add regularly, like every month or year.</p>
-                <p><strong>Annual Interest Rate (r)</strong> – Enter the yearly interest rate for your investment. For example, type 5 for 5%.</p>
-                <p><strong>Years (t)</strong> – Enter how many years you will keep your money invested.</p>
-                <p><strong>Compounding Frequency (n)</strong> – Choose how often interest is added:</p>
+                <h3 style="margin: 20px 0 10px; font-size: 1.4em; font-weight: 600;">How to Use the Calculator</h3>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Principal (P)</strong> – Enter the money you start with. This is your first investment or savings.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Periodic Payment (PMT)</strong> – Enter how much you will add regularly, like every month or year.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Annual Interest Rate (r)</strong> – Enter the yearly interest rate for your investment. For example, type 5 for 5%.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Years (t)</strong> – Enter how many years you will keep your money invested.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Compounding Frequency (n)</strong> – Choose how often interest is added:</p>
                 <ul style="list-style: none; padding-left: 20px;">
-                    <li style="margin-bottom: 5px;">Yearly = 1</li>
-                    <li style="margin-bottom: 5px;">Quarterly = 4</li>
-                    <li style="margin-bottom: 5px;">Monthly = 12</li>
-                    <li style="margin-bottom: 5px;">Daily = 365</li>
+                    <li style="margin-bottom: 5px; line-height: 1.6; font-size: 0.95em;">Yearly = 1</li>
+                    <li style="margin-bottom: 5px; line-height: 1.6; font-size: 0.95em;">Quarterly = 4</li>
+                    <li style="margin-bottom: 5px; line-height: 1.6; font-size: 0.95em;">Monthly = 12</li>
+                    <li style="margin-bottom: 5px; line-height: 1.6; font-size: 0.95em;">Daily = 365</li>
                 </ul>
-                <p>Click "Calculate" to see your results right away.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;">Click "Calculate" to see your results right away.</p>
                 
-                <h3 style="margin: 20px 0 10px;">What the Results Mean</h3>
-                <p><strong>Total Amount (A)</strong> – All the money you will have later, including your starting amount, what you added, and the interest.</p>
-                <p><strong>Total Interest</strong> – How much interest you earned over time.</p>
-                <p><strong>Graph / Yearly Breakdown (if shown)</strong> – See how your savings grow each year. This helps you understand the change.</p>
+                <h3 style="margin: 20px 0 10px; font-size: 1.4em; font-weight: 600;">What the Results Mean</h3>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Total Amount (A)</strong> – All the money you will have later, including your starting amount, what you added, and the interest.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Total Interest</strong> – How much interest you earned over time.</p>
+                <p style="line-height: 1.6; font-size: 0.95em;"><strong>Graph / Yearly Breakdown (if shown)</strong> – See how your savings grow each year. This helps you understand the change.</p>
                 
-                <h3 style="margin: 20px 0 10px;">Why It Helps</h3>
-                <p>With this calculator, you can plan better. You will see how saving small amounts regularly helps a lot over time. Check your progress, change your plan if needed, and feel more sure about your financial future.</p>
-                <h3 style="margin: 20px 0 10px;">📌 Frequently Asked Questions</h3>
-                <div style="margin-bottom: 15px;"><strong>Q: How do you find compound interest?</strong><br>A: You can find compound interest using the formula:<br><br><strong>A = P × (1 + r/n)^(n×t)</strong><br><br>where:<br>• <strong>A</strong> = Future value of the investment or loan, including interest<br>• <strong>P</strong> = Principal investment amount (the initial deposit or loan amount)<br>• <strong>r</strong> = Annual interest rate (as a decimal)<br>• <strong>n</strong> = Number of times that interest is compounded per year<br>• <strong>t</strong> = Number of years the money is invested or borrowed for<br><br>Our calculator does this automatically for you.</div>
-                <div style="margin-bottom: 15px;"><strong>Q: How does compound interest work?</strong><br>A: Compound interest works by adding earned interest back into your balance so it can earn interest again. This creates a "snowball effect," where money grows faster over time compared to simple interest.</div>
-                <div style="margin-bottom: 15px;"><strong>Q: How to invest compound interest?</strong><br>A: You can invest with compound interest through savings accounts, CDs, bonds, or reinvesting dividends in stocks. The key is consistency and time—regular contributions allow compound interest to work more effectively.</div>
-                <div style="margin-bottom: 15px;"><strong>Q: What is a compound interest daily calculator?</strong><br>A: A daily compound interest calculator shows how your money grows when interest is compounded every day instead of monthly or yearly. This typically results in higher returns since interest is added more frequently.</div>
-                <div style="margin-bottom: 15px;"><strong>Q: What is the compound interest formula in Excel?</strong><br>A: In Excel, you can calculate compound interest with the formula:<br><br>=Principal * (1 + Rate/Compounds)^(Compounds*Time)<br><br>For example:<br>=1000*(1+0.05/12)^(12*10)<br><br>This calculates $1,000 invested at 5% interest compounded monthly for 10 years.</div>
-                <div style="margin-bottom: 15px;"><strong>Q: What is the compound interest formula with monthly contributions?</strong><br>A: The formula with monthly contributions is:<br><br>A = P × (1 + r/n)^(n×t) + PMT × ((1 + r/n)^(n×t) - 1) / (r/n)<br><br>where PMT is the monthly contribution. This shows how small, consistent deposits can grow significantly over time.</div>
+                <h3 style="margin: 20px 0 10px; font-size: 1.4em; font-weight: 600;">Why It Helps</h3>
+                <p style="line-height: 1.6; font-size: 0.95em;">With this calculator, you can plan better. You will see how saving small amounts regularly helps a lot over time. Check your progress, change your plan if needed, and feel more sure about your financial future.</p>
+                <h3 style="margin: 20px 0 10px; font-size: 1.4em; font-weight: 600;">📌 Frequently Asked Questions</h3>
+                <div style="margin-bottom: 20px; padding-bottom: 20px;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q1: How do you find compound interest?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: You can find compound interest using the formula:<br><br><strong>A = P × (1 + r/n)^(n×t)</strong><br><br>where:<br>• <strong>A</strong> = Future value of the investment or loan, including interest<br>• <strong>P</strong> = Principal investment amount (the initial deposit or loan amount)<br>• <strong>r</strong> = Annual interest rate (as a decimal)<br>• <strong>n</strong> = Number of times that interest is compounded per year<br>• <strong>t</strong> = Number of years the money is invested or borrowed for<br><br>Our calculator does this automatically for you.</p></div>
+                <div style="margin-bottom: 20px; padding-bottom: 20px;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q2: How does compound interest work?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: Compound interest works by adding earned interest back into your balance so it can earn interest again. This creates a "snowball effect," where money grows faster over time compared to simple interest.</p></div>
+                <div style="margin-bottom: 20px; padding-bottom: 20px;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q3: How to invest compound interest?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: You can invest with compound interest through savings accounts, CDs, bonds, or reinvesting dividends in stocks. The key is consistency and time—regular contributions allow compound interest to work more effectively.</p></div>
+                <div style="margin-bottom: 20px; padding-bottom: 20px;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q4: What is a compound interest daily calculator?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: A daily compound interest calculator shows how your money grows when interest is compounded every day instead of monthly or yearly. This typically results in higher returns since interest is added more frequently.</p></div>
+                <div style="margin-bottom: 20px; padding-bottom: 20px;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q5: What is the compound interest formula in Excel?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: In Excel, you can calculate compound interest with the formula:<br><br>=Principal * (1 + Rate/Compounds)^(Compounds*Time)<br><br>For example:<br>=1000*(1+0.05/12)^(12*10)<br><br>This calculates $1,000 invested at 5% interest compounded monthly for 10 years.</p></div>
+                <div style="margin-bottom: 0; padding-bottom: 0;"><h4 style="color: #333; font-size: 1.1em; margin-bottom: 10px; font-weight: 500;">Q6: What is the compound interest formula with monthly contributions?</h4><p style="color: #666; line-height: 1.6; margin: 0; font-size: 0.95em;">A: The formula with monthly contributions is:<br><br>A = P × (1 + r/n)^(n×t) + PMT × ((1 + r/n)^(n×t) - 1) / (r/n)<br><br>where PMT is the monthly contribution. This shows how small, consistent deposits can grow significantly over time.</p></div>
             </div>
         </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -544,5 +651,14 @@
             document.getElementById('interest-amount').textContent = '$0.00';
         };
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

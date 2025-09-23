@@ -5,68 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collectible Toy Insurance Estimator - Calculate Protection Value for Rare Toys & Blind Boxes</title>
     <meta name="description" content="Estimate the insurance value of your collectible toys, Labubu figures, Pop Mart blind boxes, and vintage action figures. Free, easy, and no login required. Protect your collection now.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 1000px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
+            background-color: #fff;
+            border-radius: 0;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
 
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
         .info-text {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .calculator-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 30px;
         }
 
@@ -75,6 +114,17 @@
             padding: 25px;
             border-radius: 10px;
             border: 1px solid #e9ecef;
+        }
+
+        .input-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-column {
+            display: flex;
+            flex-direction: column;
         }
 
         .input-group {
@@ -106,28 +156,28 @@
 
         .input-field-container input:focus,
         .input-field-container select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .unit {
             padding: 12px;
-            background-color: #e3f2fd;
+            background-color: #fff3e0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             min-width: 60px;
             text-align: center;
         }
 
         .results {
-            background-color: #e3f2fd;
+            background-color: #fff3e0;
             padding: 25px;
             border-radius: 10px;
         }
 
         .results h2 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -151,85 +201,48 @@
         }
 
         .result-item span {
-            color: #2196F3;
+            color: #eb5424;
             font-size: 1.2em;
             font-weight: 500;
         }
 
-        .insurance-plans {
-            margin-top: 30px;
+
+        .buttons {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
 
-        .plan-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #e9ecef;
-            text-align: center;
-        }
-
-        .plan-card h3 {
-            color: #2196F3;
-            margin-bottom: 15px;
-        }
-
-        .plan-card ul {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .plan-card li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .plan-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4caf50;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #2196F3;
+        .btn-calculate {
+            background-color: #eb5424;
             color: white;
+            border: none;
             padding: 12px 25px;
             border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            border: none;
             cursor: pointer;
-            width: 100%;
-            font-size: 1em;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        .cta-button:hover {
-            background-color: #1976D2;
+        .btn-calculate:hover {
+            background-color: #d43d1a;
         }
 
-        .calculate-btn {
-            background-color: #2196F3;
+        .btn-clear {
+            background-color: #f5c6cb;
             color: white;
-            padding: 12px 25px;
             border: none;
+            padding: 12px 25px;
             border-radius: 5px;
-            font-weight: 500;
-            font-size: 1.1em;
             cursor: pointer;
+            font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
-            margin-top: 20px;
         }
 
-        .calculate-btn:hover {
-            background-color: #1976D2;
+        .btn-clear:hover {
+            background-color: #f1aeb5;
         }
 
         @media (max-width: 768px) {
@@ -237,14 +250,62 @@
                 grid-template-columns: 1fr;
             }
 
-            .insurance-plans {
+            .input-columns {
                 grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -253,128 +314,103 @@
             Collectible Toy Insurance Calculator
         </div>
 
-        <h1>Collectible Toy Insurance Calculator – Know What Your Labubu and Pop Mart Toys Are Really Worth</h1>
-        <p class="info-text">
+        <h1>Collectible Toy Insurance Calculator</h1>
+        <div class="info-text">
           Got a shelf full of Labubu, Molly, or other Pop Mart blind box figures? You're not alone. With collectible toys booming in value, it's smart to know what your stash is worth—and how much coverage you'd need if disaster struck. Whether it's limited-edition Funko Pops, retro Transformers, or an unopened mystery box from last year, our calculator gives you a quick insurance estimate to help protect your growing collection.
-        </p>
+        </div>
 
         <div class="calculator-grid">
             <div class="input-section">
-                <div class="input-group">
-                    <label for="total-value">Total Collection Value</label>
-                    <div class="input-field-container">
-                        <input type="number" id="total-value" min="0" step="100" value="3000">
-                        <div class="unit">USD</div>
+                <div class="input-columns">
+                    <div class="input-column">
+                        <div class="input-group">
+                            <label for="total-value">Total Collection Value</label>
+                            <div class="input-field-container">
+                                <input type="number" id="total-value" min="0" step="100" value="3000">
+                                <div class="unit">USD</div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="max-item-value">Highest Value Single Item</label>
+                            <div class="input-field-container">
+                                <input type="number" id="max-item-value" min="0" step="100" value="800">
+                                <div class="unit">USD</div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="storage-location">Storage Location</label>
+                            <div class="input-field-container">
+                                <select id="storage-location">
+                                    <option value="home">Home</option>
+                                    <option value="display">Display Case</option>
+                                    <option value="warehouse">Warehouse</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-column">
+                        <div class="input-group">
+                            <label for="display-use">Used for Exhibition</label>
+                            <div class="input-field-container">
+                                <select id="display-use">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="insurance-period">Insurance Period</label>
+                            <div class="input-field-container">
+                                <select id="insurance-period">
+                                    <option value="1">1 Year</option>
+                                    <option value="2">2 Years</option>
+                                    <option value="5">5 Years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="photo-evidence">Photo Documentation Available</label>
+                            <div class="input-field-container">
+                                <select id="photo-evidence">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label for="max-item-value">Highest Value Single Item</label>
-                    <div class="input-field-container">
-                        <input type="number" id="max-item-value" min="0" step="100" value="800">
-                        <div class="unit">USD</div>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateInsurance()">Calculate</button>
+                    <button class="btn-clear" onclick="clearForm()">Clear</button>
+                </div>
+
+                <div class="results" id="results-section" style="display: none; margin-top: 30px;">
+                    <h2>Insurance Estimate</h2>
+                    <div class="result-item">
+                        <strong>Annual Premium</strong>
+                        <span id="annual-premium">$0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <strong>Monthly Payment</strong>
+                        <span id="monthly-payment">$0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <strong>Risk Factor</strong>
+                        <span id="risk-factor">Low</span>
                     </div>
                 </div>
-
-                <div class="input-group">
-                    <label for="storage-location">Storage Location</label>
-                    <div class="input-field-container">
-                        <select id="storage-location">
-                            <option value="home">Home</option>
-                            <option value="display">Display Case</option>
-                            <option value="warehouse">Warehouse</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="display-use">Used for Exhibition</label>
-                    <div class="input-field-container">
-                        <select id="display-use">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="insurance-period">Insurance Period</label>
-                    <div class="input-field-container">
-                        <select id="insurance-period">
-                            <option value="1">1 Year</option>
-                            <option value="2">2 Years</option>
-                            <option value="5">5 Years</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="photo-evidence">Photo Documentation Available</label>
-                    <div class="input-field-container">
-                        <select id="photo-evidence">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button class="calculate-btn" onclick="calculateInsurance()">Calculate Insurance</button>
-            </div>
-
-            <div class="results">
-                <h2>Insurance Estimate</h2>
-                <div class="result-item">
-                    <strong>Annual Premium</strong>
-                    <span id="annual-premium">$0.00</span>
-                </div>
-                <div class="result-item">
-                    <strong>Monthly Payment</strong>
-                    <span id="monthly-payment">$0.00</span>
-                </div>
-                <div class="result-item">
-                    <strong>Risk Factor</strong>
-                    <span id="risk-factor">Low</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="insurance-plans">
-            <div class="plan-card">
-                <h3>Basic Plan</h3>
-                <ul>
-                    <li>Basic coverage up to $5,000</li>
-                    <li>Theft protection</li>
-                    <li>Fire damage coverage</li>
-                    <li>24/7 support</li>
-                </ul>
-                <a href="https://www.insure4collectibles.com?plan=basic" class="cta-button" target="_blank">Get Basic Quote</a>
-            </div>
-
-            <div class="plan-card">
-                <h3>Standard Plan</h3>
-                <ul>
-                    <li>Coverage up to $15,000</li>
-                    <li>Accidental damage</li>
-                    <li>Exhibition coverage</li>
-                    <li>Worldwide protection</li>
-                </ul>
-                <a href="https://www.insure4collectibles.com?plan=standard" class="cta-button" target="_blank">Get Standard Quote</a>
-            </div>
-
-            <div class="plan-card">
-                <h3>Premium Plan</h3>
-                <ul>
-                    <li>Unlimited coverage</li>
-                    <li>Full replacement value</li>
-                    <li>Transportation coverage</li>
-                    <li>Priority claims service</li>
-                </ul>
-                <a href="https://www.insure4collectibles.com?plan=premium" class="cta-button" target="_blank">Get Premium Quote</a>
             </div>
         </div>
 
-        <div class="content-section" style="margin-top: 30px; padding: 25px; background-color: #ffffff; border-radius: 10px; border: 1px solid #e9ecef; box-shadow: none; font-family: 'Roboto', sans-serif; font-size: 1.1em; color: #666; line-height: 1.6;">
-            <h2 style="color: #333; font-size: 1.5em; margin-bottom: 20px;">🧸 Collectible Toy Insurance – Because You Can't File a Claim for a Broken Heart 💔</h2>
+        <!-- Additional Information Section -->
+        <div style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef;">
+            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 20px;">🧸 Collectible Toy Insurance – Because You Can't File a Claim for a Broken Heart 💔</h3>
             <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
                 Let's say your shelf just took a tumble.<br>
                 Now your Labubu is missing an ear, your Pop Mart Molly has a scratch across her smug little face, and your prized Funko Pop Batman is... decapitated.<br><br>
@@ -382,56 +418,41 @@
                 Not having collectible toy insurance when your $500 blind box army falls victim to gravity.
             </p>
 
-            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 15px;">🧮 What does this tool do?</h3>
-            <ul style="list-style: none; margin-bottom: 20px;">
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✅ Estimates how much insurance coverage your rare and collectible toys should have</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✅ Works with Labubu, Pop Mart, Funko Pops, vintage action figures, LEGO sets — basically anything you won't let your kids touch</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✅ Helps you sleep better at night knowing your limited edition toys aren't one accident away from being "worthless plastic"</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✅ Fast, free, no sign-up, no "premium version" with sad puppy upsells</li>
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">🧮 What does this tool do?</h4>
+            <ul style="list-style: none; margin-bottom: 20px; padding-left: 0;">
+                <li style="margin-bottom: 10px; text-align: left;">✅ Estimates how much insurance coverage your rare and collectible toys should have</li>
+                <li style="margin-bottom: 10px; text-align: left;">✅ Works with Labubu, Pop Mart, Funko Pops, vintage action figures, LEGO sets — basically anything you won't let your kids touch</li>
+                <li style="margin-bottom: 10px; text-align: left;">✅ Helps you sleep better at night knowing your limited edition toys aren't one accident away from being "worthless plastic"</li>
+                <li style="margin-bottom: 10px; text-align: left;">✅ Fast, free, no sign-up, no "premium version" with sad puppy upsells</li>
             </ul>
 
-            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 15px;">❓ FAQ – For Collectors Who Take Their Hobbies Very Seriously</h3>
-            <ul style="list-style: none; margin-bottom: 20px;">
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><strong>Q: Will this calculator tell me if my Labubu is emotionally priceless?</strong><br>A: No, but it will tell you how much you could reasonably insure it for.</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><strong>Q: Is this only for ultra-rare collectors?</strong><br>A: Nope. Whether you've got one Pop Mart blind box or a full IKEA shrine, we've got you.</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><strong>Q: Can this get me a payout if my dog chews up my Sonic figurine?</strong><br>A: We can't promise that, but we can help you know what to ask for if your insurance provider is cool.</li>
-                <li style="margin-bottom: 10px; padding-left: 25px; position: relative;"><strong>Q: Why should I care?</strong><br>A: Because one day, that mystery box you forgot under your bed might be worth more than your actual 401(k).</li>
-            </ul>
-
-            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 15px;">🧠 Pro Tip:</h3>
-            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
-                📸 Take pictures of your collection.<br>
-                💼 Use this calculator.<br>
-                🛡️ Get a quote.<br>
-                Because one spilled soda, one jealous roommate, or one very curious toddler could cost you hundreds — and therapy isn't cheap.
-            </p>
-
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6;">
-                TL;DR: You insure your car, your phone, and even your teeth. Why not protect your rarest childhood dreams in plastic form?
-            </p>
-        </div>
-
-        <div class="related-calculators" style="margin-top: 40px; padding: 20px 0; background: none; border-radius: 0; max-width: 800px;">
-            <h2 style="margin-bottom: 15px;">Related Calculators</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Mortgage Calculator</a> - Estimate your monthly home loan</li>
-                <li style="margin-bottom: 10px;"><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Loan Calculator</a> - Calculate loan payments and interest</li>
-                <li style="margin-bottom: 10px;"><a href="compound-interest.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Compound Interest Calculator</a> - See your savings grow</li>
-                <li style="margin-bottom: 10px;"><a href="investment-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Investment Calculator</a> - Project investment returns</li>
-                <li style="margin-bottom: 10px;"><a href="income-tax-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Income Tax Calculator</a> - Estimate your taxes</li>
-                <li style="margin-bottom: 10px;"><a href="currency-converter.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Currency Converter</a> - Convert between currencies</li>
-                <li style="margin-bottom: 10px;"><a href="collectible-toy-insurance.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Collectible Toy Insurance</a> - Insure your valuable collectibles</li>
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">❓ FAQ – For Collectors Who Take Their Hobbies Very Seriously</h4>
+            <ul style="list-style: none; margin-bottom: 0; padding-left: 0;">
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q1: Will this calculator tell me if my Labubu is emotionally priceless?</strong><br>A: No, but it will tell you how much you could reasonably insure it for.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q2: Is this only for ultra-rare collectors?</strong><br>A: Nope. Whether you've got one Pop Mart blind box or a full IKEA shrine, we've got you.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q3: Can this get me a payout if my dog chews up my Sonic figurine?</strong><br>A: We can't promise that, but we can help you know what to ask for if your insurance provider is cool.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q4: Why should I care?</strong><br>A: Because one day, that mystery box you forgot under your bed might be worth more than your actual 401(k).</li>
             </ul>
         </div>
-    </div>
+            </div>
+        </div>
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -486,6 +507,9 @@
                 annualPremium *= (1 - (insurancePeriod - 1) * 0.05); // 5% discount per additional year
             }
 
+            // Show results section
+            document.getElementById('results-section').style.display = 'block';
+            
             // Update results
             document.getElementById('annual-premium').textContent = `$${annualPremium.toFixed(2)}`;
             document.getElementById('monthly-payment').textContent = `$${(annualPremium / 12).toFixed(2)}`;
@@ -500,8 +524,27 @@
             document.getElementById('risk-factor').textContent = riskText;
         }
 
-        // Calculate initial values on page load
-        window.onload = calculateInsurance;
+        function clearForm() {
+            // Reset all input fields to default values
+            document.getElementById('total-value').value = '3000';
+            document.getElementById('max-item-value').value = '800';
+            document.getElementById('storage-location').value = 'home';
+            document.getElementById('display-use').value = 'no';
+            document.getElementById('insurance-period').value = '1';
+            document.getElementById('photo-evidence').value = 'yes';
+            
+            // Hide results section
+            document.getElementById('results-section').style.display = 'none';
+        }
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

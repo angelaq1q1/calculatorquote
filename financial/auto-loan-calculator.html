@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Loan Calculator – Estimate Monthly Car Payments Instantly</title>
-    <meta name="description" content="Use our free Auto Loan Calculator to estimate your monthly car payment, total interest, and loan affordability. Enter vehicle price, loan term, APR, and down payment—get results instantly, no login.">
+    <title>SUV & Premium Used Car Loan Calculator – Estimate Monthly Payments Online</title>
+    <meta name="description" content="Calculate monthly payments for your SUV or premium used car loan in seconds. Use our free Auto Loan Calculator to compare loan terms, interest rates, and payment options to find the best deal for your budget.">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,61 +26,102 @@
   }
 }
 </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
+            background-color: #fff;
+            border-radius: 0;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
 
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
         .calculator-section {
@@ -88,6 +129,21 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-grid .input-group {
+            margin-bottom: 0;
+        }
+
+        .input-grid .input-group:last-child {
+            grid-column: 1 / -1;
         }
 
         .input-group {
@@ -116,6 +172,11 @@
             font-size: 1em;
         }
 
+        .input-row input#loanTerm {
+            flex: 0 0 50%;
+            width: 50%;
+        }
+
         .input-row select {
             padding: 10px;
             border: 1px solid #ddd;
@@ -126,23 +187,31 @@
 
         .term-options {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             align-items: center;
+            margin-left: 10px;
         }
 
         .term-options label {
-            margin-right: 15px;
+            margin-right: 0;
             font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .buttons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 18px;
+            margin-top: 25px;
+            justify-content: center;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -150,14 +219,15 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            min-width: 120px;
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -165,28 +235,29 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            min-width: 120px;
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .result-section {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e3f2fd;
+            background-color: #fff3e0;
             border-radius: 10px;
             display: none;
         }
 
         .result-section h2 {
-            color: #1976D2;
+            color: #e65100;
             margin-bottom: 15px;
         }
 
         .result-value {
             font-size: 1.2em;
-            color: #2196F3;
+            color: #ff9800;
             margin-bottom: 10px;
         }
 
@@ -197,11 +268,13 @@
         .info-section h2 {
             color: #333;
             margin-bottom: 15px;
+            font-size: 1.2em;
         }
 
         .info-section h3 {
             color: #444;
             margin: 20px 0 10px;
+            font-size: 1.2em;
         }
 
         .info-section p {
@@ -213,6 +286,10 @@
         @media (max-width: 768px) {
             .calculator-container {
                 padding: 20px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
             }
 
             .input-row {
@@ -232,10 +309,42 @@
     </style>
 </head>
 <body>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
-         crossorigin="anonymous"></script>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -244,35 +353,37 @@
             Auto Loan Calculator
         </div>
 
-        <h1>Auto Loan Calculator – Figure Out Your Car Payment Before the Dealership Does</h1>
+        <h1>SUV & Premium Used Car Loan Monthly Payment Calculator</h1>
         
         <div class="description">
-            Trying to guess your monthly car payment? Whether you're buying new, used, or just window-shopping that electric SUV, our Auto Loan Calculator breaks down everything—payment, interest, loan term—in seconds. So you can finance smart, not surprised.
+            Use our Auto Loan Calculator to quickly estimate monthly payments for your SUV or premium used car. Whether you're worried about high monthly costs, uncertain loan terms, or finding the best interest rate, this tool helps you plan your budget and choose the loan option that fits your needs.
         </div>
 
         <div class="calculator-section">
-            <div class="input-group">
-                <label>Loan Amount ($)</label>
-                <div class="input-row">
-                    <input type="number" id="loanAmount" min="0" step="0.01" placeholder="Enter loan amount">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label>Loan Term</label>
-                <div class="input-row">
-                    <input type="number" id="loanTerm" min="1" max="120" placeholder="Enter term length">
-                    <div class="term-options">
-                        <label><input type="radio" name="termUnit" value="months" checked> months</label>
-                        <label><input type="radio" name="termUnit" value="years"> years</label>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Loan Amount ($)</label>
+                    <div class="input-row">
+                        <input type="number" id="loanAmount" min="0" step="0.01" placeholder="Enter loan amount">
                     </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label>Interest Rate (%)</label>
-                <div class="input-row">
-                    <input type="number" id="interestRate" min="0" max="30" step="0.01" placeholder="Enter interest rate">
+                <div class="input-group">
+                    <label>Interest Rate (%)</label>
+                    <div class="input-row">
+                        <input type="number" id="interestRate" min="0" max="30" step="0.01" placeholder="Enter interest rate">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Loan Term</label>
+                    <div class="input-row">
+                        <input type="number" id="loanTerm" min="1" max="120" placeholder="Enter term length">
+                        <div class="term-options">
+                            <label><input type="radio" name="termUnit" value="months" checked> months</label>
+                            <label><input type="radio" name="termUnit" value="years"> years</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -291,66 +402,63 @@
         </div>
 
         <div class="info-section">
-            <h2>🛻 Auto Loan Calculator – Because Buying a Car Shouldn't Feel Like a Math Exam</h2>
+            <h2>Auto Loan Calculator – Plan Your Car Purchase Smartly</h2>
             
-            <p>Let's be real:<br>
-            You walk into the dealership thinking "$25k isn't bad,"<br>
-            …and walk out wondering if you accidentally financed a spaceship.</p>
-            
-            <p>Don't panic. Our free Auto Loan Calculator is here to break it all down—monthly payments, total interest, and how many years you'll be emotionally attached to that car loan.</p>
+            <p>Buying a car often means taking out a loan. Our auto loan calculator helps you understand your costs before you make a decision. You only need to enter a few numbers, and the tool will show you clear results in seconds.</p>
 
-            <h3>💡 What can it do?</h3>
-            <ul style="margin-left: 20px; color: #666;">
-                <li>✅ Estimate monthly payments (spoiler: it's more than just sticker price ÷ months)</li>
-                <li>✅ Calculate total interest (aka the price of being impatient)</li>
-                <li>✅ Customize term length, down payment, and APR (aka alphabet soup that costs money)</li>
-                <li>✅ No sign-ups, no spam, no "please upgrade to Premium for $29.99/mo"</li>
-            </ul>
+            <h3>How to Use the Tool</h3>
+            <p>You start by typing in the loan amount, the interest rate, and the length of the loan. If you have a down payment, you can add that too. The calculator will then give you your auto loan calculator payment. It will show how much you need to pay each month. If you want more details, you can use the auto loan calculator with amortization option. This shows a full schedule of how your balance goes down month by month.</p>
 
-            <h3>🔧 Perfect for:</h3>
-            <ul style="margin-left: 20px; color: #666;">
-                <li>First-time car buyers wondering if that shiny SUV is worth the debt</li>
-                <li>Budgeters calculating what they actually can afford (not what the ad says)</li>
-                <li>Anyone who's been personally victimized by balloon payments</li>
-            </ul>
+            <h3>When to Use This Tool</h3>
+            <p>This tool is helpful any time you are planning to buy a new or used car. You can use it when you compare offers from banks, credit unions, or online lenders. Many people also use it as an auto loan calculator payoff guide. By entering extra payments, you can see how fast you could clear the debt and how much interest you can save.</p>
 
-            <h3>❓FAQ – For the financially confused (no shame)</h3>
-            
-            <p><strong>Q: Can this calculator tell me if I'm overpaying?</strong><br>
-            A: Yep. Enter your loan details and compare against average rates—it'll expose dealer trickery faster than your uncle at Thanksgiving.</p>
-            
-            <p><strong>Q: What if I have bad credit?</strong><br>
-            A: Still works. The calculator doesn't judge—just change the APR to reflect your "oops" credit score.</p>
-            
-            <p><strong>Q: Does it work for used cars too?</strong><br>
-            A: Absolutely. Whether it's brand-new or barely starts, it crunches the same math.</p>
-            
-            <p><strong>Q: Is it really free?</strong><br>
-            A: Totally. Like "free sample at Costco" free. We just run a few ads to keep the lights on.</p>
+            <h3>What the Results Mean</h3>
+            <p>The results explain your monthly payment, the total you will pay over the full term, and the share that goes to interest. This makes it easy to check if the loan fits your budget. You can also see how much money you save if you pay more than the minimum.</p>
 
-            <p><strong>📌 Pro tip:</strong> Bookmark this. You'll need it every time a car ad screams "$199/mo!!!" and forgets to mention the 84-month loan and 12% APR.</p>
+            <p>With this auto loan calculator, you can plan ahead, compare loan options, and make a smarter choice before you buy your next car.</p>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <p><strong>Q1: How much auto loan can I get?</strong><br>
+            A: The amount you can get depends on your credit score, income, existing debts, and the lender's rules. Many lenders use a debt-to-income ratio to decide how much you qualify for. You can use our calculator to estimate an affordable loan amount.</p>
+            
+            <p><strong>Q2: How are car loans calculated?</strong><br>
+            A: Car loans are calculated based on the loan amount, interest rate, and loan term. The lender also considers down payment and taxes. Our auto loan calculator shows the exact monthly payment and total interest.</p>
+            
+            <p><strong>Q3: When will auto loan rates go down?</strong><br>
+            A: Auto loan rates move with the economy and central bank policies. Rates may go down if inflation slows or lending conditions improve. It's best to compare offers regularly to lock in a better deal.</p>
+            
+            <p><strong>Q4: How much auto loan can I afford?</strong><br>
+            A: Financial experts suggest your monthly car payment should not exceed 10–15% of your monthly take-home pay. By entering your numbers into the calculator, you can check what fits your budget.</p>
+            
+            <p><strong>Q5: Are auto loan rates going down?</strong><br>
+            A: Rates change often. Some lenders may offer lower rates for people with excellent credit, while others may raise rates if risk is higher. Always compare lenders before you apply.</p>
+            
+            <p><strong>Q6: How is auto loan interest calculated?</strong><br>
+            A: Interest is usually calculated on the remaining balance of your loan. Each monthly payment includes both principal and interest. An amortization schedule shows how much interest you pay over time.</p>
+            
+            <p><strong>Q7: How to calculate auto loan payment?</strong><br>
+            A: You need the loan amount, interest rate, and loan term. The formula can be complex, but our auto loan calculator does the math for you instantly.</p>
+            
+            <p><strong>Q8: Will auto loan rates go down?</strong><br>
+            A: It's hard to predict exactly. Rates may drop if the economy slows or lending demand decreases. Keeping an eye on the market and comparing lenders helps you find the lowest rate available.</p>
         </div>
 
-        <div class="info-section related-calculators" style="margin-top: 40px; padding: 20px 0; background: none; border-radius: 0; max-width: 800px;">
-            <h2 style="margin-bottom: 15px;">Related Calculators</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="../math/basic-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Basic Calculator</a> - Simple arithmetic calculations</li>
-                <li style="margin-bottom: 10px;"><a href="../other/percentage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Percentage Calculator</a> - Calculate percentages and discounts</li>
-                <li style="margin-bottom: 10px;"><a href="../other/date-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Date Calculator</a> - Calculate date differences and add/subtract days</li>
-                <li style="margin-bottom: 10px;"><a href="../other/random-number-generator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Random Number Generator</a> - Generate random numbers for various purposes</li>
-                <li style="margin-bottom: 10px;"><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Mortgage Calculator</a> - Calculate home loan payments and interest</li>
-                <li style="margin-bottom: 10px;"><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Loan Calculator</a> - General loan payment calculations</li>
-            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -412,5 +520,14 @@
             document.getElementById('results').style.display = 'none';
         }
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

@@ -5,345 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="401k retirement calculator to estimate your balance at retirement and monthly withdrawals. Includes an early withdrawal cost calculator, guidance on penalties, and FAQs to help you plan smarter.">
     <meta name="keywords" content="401k calculator, retirement calculator, 401k retirement, employer match, early withdrawal, retirement planning">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/401k-calculator.html">
     <title>401k Retirement Calculator – Estimate Your Balance at Retirement</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* 隐藏所有可能的问号图标 */
-        [title]:after,
-        [data-title]:after,
-        [data-tooltip]:after,
-        .tooltip:after,
-        .has-tooltip:after,
-        label:after,
-        label:before,
-        *:after,
-        *:before {
-            content: none !important;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .calculator-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px 20px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-        }
-        
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .breadcrumb a:hover {
-            color: #1976D2;
-        }
-        
-        .breadcrumb span {
-            color: #666;
-            margin: 0 8px;
-        }
-        
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        
-        .print-link {
-            float: right;
-            color: #2196F3;
-            text-decoration: none;
-        }
-        
-        .print-link:hover {
-            color: #1976D2;
-        }
-        
-        .calculator-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .input-section {
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
-        }
-        
-        .input-section h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .input-field-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .input-group input, .input-group select {
-            width: 150px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        
-        .input-group input:focus, .input-group select:focus {
-            outline: none;
-            border-color: #333;
-            box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.1);
-        }
-        
-        .input-group .unit {
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #e3f2fd;
-            border-radius: 0 5px 5px 0;
-            margin-left: -1px;
-            color: #2196F3;
-        }
-        
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            margin-top: 8px;
-        }
-        
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .radio-option input[type="radio"] {
-            width: auto;
-            margin: 0;
-        }
-        
-        .buttons {
-            margin-top: 20px;
-        }
-        
-        .btn-calculate {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-calculate:hover {
-            background-color: #1976D2;
-        }
-        
-        .btn-clear {
-            background-color: #90caf9;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-clear:hover {
-            background-color: #64b5f6;
-        }
-        
-        .results-section {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .result-card {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .result-card h3 {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-        
-        .result-card .value {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .result-card .label {
-            font-size: 0.8em;
-            opacity: 0.8;
-        }
-        
-        .info-section {
-            margin-top: 40px;
-            padding: 25px;
-            background-color: #f8f9fa;
-            border-radius: 15px;
-        }
-        
-        .info-section h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .info-section h3 {
-            color: #333;
-            margin: 20px 0 10px;
-        }
-        
-        .info-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .info-section ul {
-            color: #666;
-            line-height: 1.6;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .info-section li {
-            margin-bottom: 8px;
-        }
-        
-        .pros-cons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 20px 0;
-        }
-        
-        .pros, .cons {
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .pros {
-            background-color: #e8f5e8;
-            border-left: 4px solid #4caf50;
-        }
-        
-        .cons {
-            background-color: #ffebee;
-            border-left: 4px solid #f44336;
-        }
-        
-        .pros h4 {
-            color: #2e7d32;
-            margin-bottom: 15px;
-        }
-        
-        .cons h4 {
-            color: #c62828;
-            margin-bottom: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .calculator-section {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                margin-bottom: 30px;
-            }
-            
-            .calculator-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pros-cons {
-                grid-template-columns: 1fr;
-            }
-            
-            .input-field-container {
-                width: 100%;
-            }
-            
-            .input-group input, .input-group select {
-                width: 100%;
-            }
-            
-            .results-section {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "401k Retirement Calculator",
+      "url": "https://www.calculatorquote.com/financial/401k-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "401k retirement calculator to estimate your balance at retirement and monthly withdrawals. Includes an early withdrawal cost calculator, guidance on penalties, and FAQs to help you plan smarter.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "157"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "401k Retirement Calculator – Estimate Your Balance at Retirement",
-      "description": "401k retirement calculator to estimate your balance at retirement and monthly withdrawals. Includes an early withdrawal cost calculator, guidance on penalties, and FAQs to help you plan smarter."
+      "url": "https://www.calculatorquote.com/financial/401k-calculator.html",
+      "description": "401k retirement calculator to estimate your balance at retirement and monthly withdrawals. Includes an early withdrawal cost calculator, guidance on penalties, and FAQs to help you plan smarter.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "inLanguage": "en",
+      "datePublished": "2024-04-01",
+      "dateModified": "2025-06-29"
     }
     </script>
     <script type="application/ld+json">
@@ -394,305 +95,803 @@
       ]
     }
     </script>
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-start;
+            max-width: 400px;
+        }
+        
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #2196F3;
+        }
+        
+        .unit {
+            padding: 10px 12px;
+            background-color: #fff3e0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #eb5424;
+            font-weight: 500;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+            justify-content: center;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+        
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        
+        .result-section {
+            margin-top: 20px;
+            display: none;
+            text-align: left;
+        }
+        
+        .result-section.show {
+            display: block;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #eb5424 0%, #d43d1a 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .result-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .result-card .value {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .result-card .label {
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+        
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: left;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #333;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+            line-height: 1.6;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background-color: #fff3e0;
+        }
+        
+        .cons {
+            background-color: #ffe0b2;
+        }
+        
+        .pros h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+        
+        .cons h4 {
+            color: #ad1457;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 15px;
+                margin: 10px auto;
+            }
+            .input-section {
+                padding: 12px;
+            }
+            .input-group {
+                margin-bottom: 12px;
+            }
+            .input-field-container {
+                max-width: 100%;
+            }
+            .buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-calculate, .btn-clear {
+                width: 100%;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+            .description {
+                margin-bottom: 20px;
+            }
+            .content-section {
+                font-size: 14px;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Financial Calculators</a>
-            <span>/</span>
-            401k Calculator
-        </div>
-
-        <h1>401k Retirement Calculator – Estimate Your Balance at Retirement</h1>
-        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-            Use this 401k retirement calculator to estimate your balance at retirement and potential monthly withdrawals. It also includes a 401k calculator withdrawal tool so you can estimate taxes and penalties when withdrawing from a 401k before 59½.
-        </p>
-
-        <!-- 401k Calculator and Results Section -->
-        <div class="calculator-section">
-            <div class="input-section">
-                <h2>401k Retirement Calculator</h2>
-                
-                <div class="input-group">
-                    <label for="currentAge">Current Age</label>
-                    <input type="number" id="currentAge" min="18" max="100" value="30">
-                </div>
-
-                <div class="input-group">
-                    <label for="currentSalary">Current Annual Salary ($)</label>
-                    <input type="number" id="currentSalary" min="0" value="60000">
-                </div>
-
-                <div class="input-group">
-                    <label for="currentBalance">Current 401(k) Balance ($)</label>
-                    <input type="number" id="currentBalance" min="0" value="10000">
-                </div>
-
-                <div class="input-group">
-                    <label for="contributionPercent">Contribution (% of salary)</label>
-                    <input type="number" id="contributionPercent" min="0" max="100" step="0.1" value="6">
-                </div>
-
-                <div class="input-group">
-                    <label for="employerMatch">Employer Match (%)</label>
-                    <input type="number" id="employerMatch" min="0" max="100" step="0.1" value="3">
-                </div>
-
-                <div class="input-group">
-                    <label for="employerMatchLimit">Employer Match Limit (%)</label>
-                    <input type="number" id="employerMatchLimit" min="0" max="100" step="0.1" value="6">
-                </div>
-
-                <div class="input-group">
-                    <label for="retirementAge">Expected Retirement Age</label>
-                    <input type="number" id="retirementAge" min="50" max="80" value="65">
-                </div>
-
-                <div class="input-group">
-                    <label for="lifeExpectancy">Life Expectancy</label>
-                    <input type="number" id="lifeExpectancy" min="60" max="100" value="85">
-                </div>
-
-                <div class="input-group">
-                    <label for="salaryIncrease">Expected Salary Increase (% per year)</label>
-                    <input type="number" id="salaryIncrease" min="0" max="20" step="0.1" value="2">
-                </div>
-
-                <div class="input-group">
-                    <label for="annualReturn">Expected Annual Return (%)</label>
-                    <input type="number" id="annualReturn" min="0" max="20" step="0.1" value="7">
-                </div>
-
-                <div class="input-group">
-                    <label for="inflationRate">Expected Inflation Rate (%)</label>
-                    <input type="number" id="inflationRate" min="0" max="20" step="0.1" value="2.5">
-                </div>
-
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculate401k()">Calculate</button>
-                    <button class="btn-clear" onclick="clearInputs()">Clear</button>
-                </div>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
-
-            <!-- 401k Results -->
-            <div class="results-section" id="basicResults">
-                <h2>401k Retirement Results</h2>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <h3>Total Balance at Retirement</h3>
-                        <div class="value" id="totalBalance">$0</div>
-                        <div class="label">Final 401(k) Balance</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Total Contributions</h3>
-                        <div class="value" id="totalContributions">$0</div>
-                        <div class="label">Your Contributions</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Employer Match</h3>
-                        <div class="value" id="totalEmployerMatch">$0</div>
-                        <div class="label">Employer Contributions</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Investment Growth</h3>
-                        <div class="value" id="investmentGrowth">$0</div>
-                        <div class="label">Market Returns</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Monthly Distribution</h3>
-                        <div class="value" id="monthlyDistribution">$0</div>
-                        <div class="label">4% Rule Monthly</div>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-        <!-- Early Withdrawal Calculator and Results Section -->
-        <div class="calculator-section">
-            <div class="input-section">
-                <h2>401k Calculator Withdrawal – Early Withdrawal Cost Calculator</h2>
-                
-                <div class="input-group">
-                    <label for="withdrawalAmount">Early Withdrawal Amount ($)</label>
-                    <input type="number" id="withdrawalAmount" min="0" value="10000">
-                </div>
+    <!-- Main Content -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Financial Calculators</a>
+                                    <span>/</span>
+                                    401k Calculator
+                                </div>
 
-                <div class="input-group">
-                    <label for="federalTaxRate">Federal Income Tax Rate (%)</label>
-                    <input type="number" id="federalTaxRate" min="0" max="50" step="0.1" value="22">
-                </div>
+                                <h1>401k Retirement Calculator – Estimate Your Balance at Retirement</h1>
+                                <div class="description">
+                                    Use this 401k retirement calculator to estimate your balance at retirement and potential monthly withdrawals. It also includes a 401k calculator withdrawal tool so you can estimate taxes and penalties when withdrawing from a 401k before 59½.
+                                </div>
 
-                <div class="input-group">
-                    <label for="stateTaxRate">State Income Tax Rate (%)</label>
-                    <input type="number" id="stateTaxRate" min="0" max="20" step="0.1" value="5">
-                </div>
+                                <!-- 401k Calculator and Results Section -->
+                                <div class="input-section">
+                                    <h2>401k Retirement Calculator</h2>
+                                    
+                                    <div class="input-grid">
+                                        <div class="input-group">
+                                            <label for="currentAge">Current Age</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="currentAge" min="18" max="100" value="30">
+                                            </div>
+                                        </div>
 
-                <div class="input-group">
-                    <label for="localTaxRate">Local/City Tax Rate (%)</label>
-                    <input type="number" id="localTaxRate" min="0" max="10" step="0.1" value="0">
-                </div>
+                                        <div class="input-group">
+                                            <label for="currentSalary">Current Annual Salary ($)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="currentSalary" min="0" value="60000">
+                                                <div class="unit">$</div>
+                                            </div>
+                                        </div>
 
-                <div class="input-group">
-                    <label>Are you employed?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="employedYes" name="employed" value="yes" checked>
-                            <label for="employedYes">Yes</label>
+                                        <div class="input-group">
+                                            <label for="currentBalance">Current 401(k) Balance ($)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="currentBalance" min="0" value="10000">
+                                                <div class="unit">$</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="contributionPercent">Contribution (% of salary)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="contributionPercent" min="0" max="100" step="0.1" value="6">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="employerMatch">Employer Match (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="employerMatch" min="0" max="100" step="0.1" value="3">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="employerMatchLimit">Employer Match Limit (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="employerMatchLimit" min="0" max="100" step="0.1" value="6">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="retirementAge">Expected Retirement Age</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="retirementAge" min="50" max="80" value="65">
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="lifeExpectancy">Life Expectancy</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="lifeExpectancy" min="60" max="100" value="85">
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="salaryIncrease">Expected Salary Increase (% per year)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="salaryIncrease" min="0" max="20" step="0.1" value="2">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="annualReturn">Expected Annual Return (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="annualReturn" min="0" max="20" step="0.1" value="7">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="inflationRate">Expected Inflation Rate (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="inflationRate" min="0" max="20" step="0.1" value="2.5">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons">
+                                        <button class="btn-calculate" onclick="calculate401k()">Calculate</button>
+                                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                                    </div>
+                                </div>
+
+                                <!-- 401k Results -->
+                                <div class="result-section" id="basicResults">
+                                    <h2>401k Retirement Results</h2>
+                                    <div class="results-grid">
+                                        <div class="result-card">
+                                            <h3>Total Balance at Retirement</h3>
+                                            <div class="value" id="totalBalance">$0</div>
+                                            <div class="label">Final 401(k) Balance</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Total Contributions</h3>
+                                            <div class="value" id="totalContributions">$0</div>
+                                            <div class="label">Your Contributions</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Employer Match</h3>
+                                            <div class="value" id="totalEmployerMatch">$0</div>
+                                            <div class="label">Employer Contributions</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Investment Growth</h3>
+                                            <div class="value" id="investmentGrowth">$0</div>
+                                            <div class="label">Market Returns</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Monthly Distribution</h3>
+                                            <div class="value" id="monthlyDistribution">$0</div>
+                                            <div class="label">4% Rule Monthly</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Early Withdrawal Calculator and Results Section -->
+                                <div class="input-section">
+                                    <h2>401k Calculator Withdrawal – Early Withdrawal Cost Calculator</h2>
+                                    
+                                    <div class="input-grid">
+                                        <div class="input-group">
+                                            <label for="withdrawalAmount">Early Withdrawal Amount ($)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="withdrawalAmount" min="0" value="10000">
+                                                <div class="unit">$</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="federalTaxRate">Federal Income Tax Rate (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="federalTaxRate" min="0" max="50" step="0.1" value="22">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="stateTaxRate">State Income Tax Rate (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="stateTaxRate" min="0" max="20" step="0.1" value="5">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label for="localTaxRate">Local/City Tax Rate (%)</label>
+                                            <div class="input-field-container">
+                                                <input type="number" id="localTaxRate" min="0" max="10" step="0.1" value="0">
+                                                <div class="unit">%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label>Are you employed?</label>
+                                            <div class="radio-group">
+                                                <div class="radio-option">
+                                                    <input type="radio" id="employedYes" name="employed" value="yes" checked>
+                                                    <label for="employedYes">Yes</label>
+                                                </div>
+                                                <div class="radio-option">
+                                                    <input type="radio" id="employedNo" name="employed" value="no">
+                                                    <label for="employedNo">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label>Were you 55 or older when you left employment?</label>
+                                            <div class="radio-group">
+                                                <div class="radio-option">
+                                                    <input type="radio" id="age55Yes" name="age55" value="yes">
+                                                    <label for="age55Yes">Yes</label>
+                                                </div>
+                                                <div class="radio-option">
+                                                    <input type="radio" id="age55No" name="age55" value="no" checked>
+                                                    <label for="age55No">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label>Do you have a qualifying disability?</label>
+                                            <div class="radio-group">
+                                                <div class="radio-option">
+                                                    <input type="radio" id="disabilityYes" name="disability" value="yes">
+                                                    <label for="disabilityYes">Yes</label>
+                                                </div>
+                                                <div class="radio-option">
+                                                    <input type="radio" id="disabilityNo" name="disability" value="no" checked>
+                                                    <label for="disabilityNo">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <label>Do you qualify for other penalty exemptions?</label>
+                                            <div class="radio-group">
+                                                <div class="radio-option">
+                                                    <input type="radio" id="exemptionYes" name="exemption" value="yes">
+                                                    <label for="exemptionYes">Yes</label>
+                                                </div>
+                                                <div class="radio-option">
+                                                    <input type="radio" id="exemptionNo" name="exemption" value="no" checked>
+                                                    <label for="exemptionNo">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons">
+                                        <button class="btn-calculate" onclick="calculateEarlyWithdrawal()">Calculate</button>
+                                        <button class="btn-clear" onclick="clearWithdrawalInputs()">Clear</button>
+                                    </div>
+                                </div>
+
+                                <!-- Early Withdrawal Results -->
+                                <div class="result-section" id="withdrawalResults">
+                                    <h2>Early Withdrawal Cost Results</h2>
+                                    <div class="results-grid">
+                                        <div class="result-card">
+                                            <h3>Federal Tax</h3>
+                                            <div class="value" id="federalTax">$0</div>
+                                            <div class="label">Federal Income Tax</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>State Tax</h3>
+                                            <div class="value" id="stateTax">$0</div>
+                                            <div class="label">State Income Tax</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Local Tax</h3>
+                                            <div class="value" id="localTax">$0</div>
+                                            <div class="label">Local/City Tax</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Penalty</h3>
+                                            <div class="value" id="penalty">$0</div>
+                                            <div class="label">Early Withdrawal Penalty</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Total Taxes & Penalties</h3>
+                                            <div class="value" id="totalTaxes">$0</div>
+                                            <div class="label">Total Cost</div>
+                                        </div>
+                                        <div class="result-card">
+                                            <h3>Amount You Receive</h3>
+                                            <div class="value" id="netAmount">$0</div>
+                                            <div class="label">Net After Taxes</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Information Section -->
+                                <div class="content-section">
+                                    <h2>401(k) Information</h2>
+                                    
+                                    <p>A 401(k) is a retirement savings plan in the U.S. with tax benefits available through employers. Named after subsection 401(k) in the Internal Revenue Code, it allows employees to contribute pre-tax income to their retirement accounts. The 2025 contribution limit is $23,500 for those under 50, $31,000 for those 50+, and $34,750 for those 60-63.</p>
+
+                                    <div class="pros-cons">
+                                        <div class="pros">
+                                            <h4>Pros of 401(k)</h4>
+                                            <ul>
+                                                <li>Tax-deferred growth</li>
+                                                <li>Employer matching contributions</li>
+                                                <li>High contribution limits</li>
+                                                <li>Creditor protection</li>
+                                                <li>Always tax-deductible</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cons">
+                                            <h4>Cons of 401(k)</h4>
+                                            <ul>
+                                                <li>Limited investment options</li>
+                                                <li>Higher fees than other accounts</li>
+                                                <li>Illiquid until 59½</li>
+                                                <li>Vesting periods may apply</li>
+                                                <li>Waiting periods for participation</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <h3>Early Withdrawal Rules</h3>
+                                    <p>Early withdrawals before age 59½ typically incur a 10% penalty plus income taxes. However, exceptions exist for:</p>
+                                    <ul>
+                                        <li>Qualifying medical expenses</li>
+                                        <li>First-time home purchase</li>
+                                        <li>Higher education expenses</li>
+                                        <li>Disability or death</li>
+                                        <li>Age 55+ separation from employment</li>
+                                    </ul>
+
+                                    <h3>Required Minimum Distributions (RMD)</h3>
+                                    <p>Starting at age 73 (72 if you reached age 72 before Dec. 31, 2022), you must take annual distributions from your 401(k). The penalty for not taking RMDs is 50% of the required amount. RMDs are calculated based on your account balance and life expectancy.</p>
+
+                                    <h3>Roth 401(k) Option</h3>
+                                    <p>Some employers offer Roth 401(k) options where contributions are made after-tax, but qualified withdrawals in retirement are tax-free. This can be beneficial for those who expect to be in a higher tax bracket during retirement.</p>
+                                </div>
+
+                                <div class="content-section" id="faq">
+                                    <h2>401k FAQs</h2>
+                                    <div class="faq-item">
+                                        <h4>Q1: Is there a penalty for 401k withdrawal?</h4>
+                                        <p>A: Generally, withdrawals before age 59½ incur a 10% early withdrawal penalty plus income taxes, unless you qualify for an exception (for example, disability or separation from service at age 55+).</p>
+                                    </div>
+                                    <div class="faq-item">
+                                        <h4>Q2: Can I withdraw 401k at 59½?</h4>
+                                        <p>A: Yes. After 59½, the 10% early withdrawal penalty no longer applies. Traditional 401(k) withdrawals may still be taxed as ordinary income.</p>
+                                    </div>
+                                    <div class="faq-item">
+                                        <h4>Q3: How to calculate withdrawal from 401k?</h4>
+                                        <p>A: Use the early withdrawing from 401k calculator on this page. Enter your withdrawal amount and tax rates to estimate federal, state, local taxes and any 10% penalty, plus the net amount you receive.</p>
+                                    </div>
+                                    <div class="faq-item">
+                                        <h4>Q4: Can I estimate my 401k at retirement age?</h4>
+                                        <p>A: Yes. The 401k retirement calculator projects your future balance based on your contributions, employer match, expected returns and salary growth.</p>
+                                    </div>
+                                    <div class="faq-item">
+                                        <h4>Q5: How much should I have in my 401k at retirement?</h4>
+                                        <p>A: Rules of thumb vary, but many aim to replace 70–80% of pre-retirement income. Use this tool to tailor a target and see how different retirement ages affect your 401k balance at retirement.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="radio-option">
-                            <input type="radio" id="employedNo" name="employed" value="no">
-                            <label for="employedNo">No</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Were you 55 or older when you left employment?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="age55Yes" name="age55" value="yes">
-                            <label for="age55Yes">Yes</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="age55No" name="age55" value="no" checked>
-                            <label for="age55No">No</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Do you have a qualifying disability?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="disabilityYes" name="disability" value="yes">
-                            <label for="disabilityYes">Yes</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="disabilityNo" name="disability" value="no" checked>
-                            <label for="disabilityNo">No</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Do you qualify for other penalty exemptions?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="exemptionYes" name="exemption" value="yes">
-                            <label for="exemptionYes">Yes</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="exemptionNo" name="exemption" value="no" checked>
-                            <label for="exemptionNo">No</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculateEarlyWithdrawal()">Calculate</button>
-                    <button class="btn-clear" onclick="clearWithdrawalInputs()">Clear</button>
-                </div>
-            </div>
-
-            <!-- Early Withdrawal Results -->
-            <div class="results-section" id="withdrawalResults">
-                <h2>Early Withdrawal Cost Results</h2>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <h3>Federal Tax</h3>
-                        <div class="value" id="federalTax">$0</div>
-                        <div class="label">Federal Income Tax</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>State Tax</h3>
-                        <div class="value" id="stateTax">$0</div>
-                        <div class="label">State Income Tax</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Local Tax</h3>
-                        <div class="value" id="localTax">$0</div>
-                        <div class="label">Local/City Tax</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Penalty</h3>
-                        <div class="value" id="penalty">$0</div>
-                        <div class="label">Early Withdrawal Penalty</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Total Taxes & Penalties</h3>
-                        <div class="value" id="totalTaxes">$0</div>
-                        <div class="label">Total Cost</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>Amount You Receive</h3>
-                        <div class="value" id="netAmount">$0</div>
-                        <div class="label">Net After Taxes</div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Information Section -->
-        <div class="info-section">
-            <h2>401(k) Information</h2>
-            
-            <p>A 401(k) is a retirement savings plan in the U.S. with tax benefits available through employers. Named after subsection 401(k) in the Internal Revenue Code, it allows employees to contribute pre-tax income to their retirement accounts. The 2025 contribution limit is $23,500 for those under 50, $31,000 for those 50+, and $34,750 for those 60-63.</p>
-
-            <div class="pros-cons">
-                <div class="pros">
-                    <h4>Pros of 401(k)</h4>
-                    <ul>
-                        <li>Tax-deferred growth</li>
-                        <li>Employer matching contributions</li>
-                        <li>High contribution limits</li>
-                        <li>Creditor protection</li>
-                        <li>Always tax-deductible</li>
-                    </ul>
-                </div>
-                <div class="cons">
-                    <h4>Cons of 401(k)</h4>
-                    <ul>
-                        <li>Limited investment options</li>
-                        <li>Higher fees than other accounts</li>
-                        <li>Illiquid until 59½</li>
-                        <li>Vesting periods may apply</li>
-                        <li>Waiting periods for participation</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Early Withdrawal Rules</h3>
-            <p>Early withdrawals before age 59½ typically incur a 10% penalty plus income taxes. However, exceptions exist for:</p>
-            <ul>
-                <li>Qualifying medical expenses</li>
-                <li>First-time home purchase</li>
-                <li>Higher education expenses</li>
-                <li>Disability or death</li>
-                <li>Age 55+ separation from employment</li>
-            </ul>
-
-            <h3>Required Minimum Distributions (RMD)</h3>
-            <p>Starting at age 73 (72 if you reached age 72 before Dec. 31, 2022), you must take annual distributions from your 401(k). The penalty for not taking RMDs is 50% of the required amount. RMDs are calculated based on your account balance and life expectancy.</p>
-
-            <h3>Roth 401(k) Option</h3>
-            <p>Some employers offer Roth 401(k) options where contributions are made after-tax, but qualified withdrawals in retirement are tax-free. This can be beneficial for those who expect to be in a higher tax bracket during retirement.</p>
-        </div>
-        <div class="info-section" id="faq">
-            <h2>401k FAQs</h2>
-            <h3>Is there a penalty for 401k withdrawal?</h3>
-            <p>Generally, withdrawals before age 59½ incur a 10% early withdrawal penalty plus income taxes, unless you qualify for an exception (for example, disability or separation from service at age 55+).</p>
-            <h3>Can I withdraw 401k at 59½?</h3>
-            <p>Yes. After 59½, the 10% early withdrawal penalty no longer applies. Traditional 401(k) withdrawals may still be taxed as ordinary income.</p>
-            <h3>How to calculate withdrawal from 401k?</h3>
-            <p>Use the early withdrawing from 401k calculator on this page. Enter your withdrawal amount and tax rates to estimate federal, state, local taxes and any 10% penalty, plus the net amount you receive.</p>
-            <h3>Can I estimate my 401k at retirement age?</h3>
-            <p>Yes. The 401k retirement calculator projects your future balance based on your contributions, employer match, expected returns and salary growth.</p>
-            <h3>How much should I have in my 401k at retirement?</h3>
-            <p>Rules of thumb vary, but many aim to replace 70–80% of pre-retirement income. Use this tool to tailor a target and see how different retirement ages affect your 401k balance at retirement.</p>
-        </div>
-    </div>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
 
     <script>
         function formatCurrency(amount) {
@@ -840,16 +1039,21 @@
             document.getElementById('withdrawalResults').style.display = 'none';
         }
 
-        // Auto-calculate on page load with default values
+        // Initialize page on load
         window.addEventListener('load', function() {
-            // Ensure results are visible
-            document.getElementById('basicResults').style.display = 'block';
-            document.getElementById('withdrawalResults').style.display = 'block';
-            
-            // Calculate with default values
-            calculate401k();
-            calculateEarlyWithdrawal();
+            // Hide results initially
+            document.getElementById('basicResults').style.display = 'none';
+            document.getElementById('withdrawalResults').style.display = 'none';
         });
     </script>
+    
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>

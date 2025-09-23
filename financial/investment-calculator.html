@@ -3,372 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Use our free investment calculator to estimate future value, ROI, and growth. Plan smarter investments by understanding your returns over time.">
+    <title>Investment Calculator 2025 - Calculate ROI, Growth & Returns | Free Investment Calculator</title>
+    <meta name="description" content="Calculate investment returns with our free calculator. Find out how much your investments will grow, calculate ROI, and plan your financial future with our investment calculator.">
     <meta name="keywords" content="investment calculator, ROI calculator, compound interest calculator, investment returns, wealth calculator, financial planning tool">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/financial/investment-calculator.html">
-    <title>Investment Calculator - Calculate ROI, Growth & Returns</title>
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Investment Calculator - Grow Your Wealth",
+      "@type": "WebApplication",
+      "name": "Investment Calculator - Calculate ROI, Growth & Returns",
   "url": "https://www.calculatorquote.com/financial/investment-calculator.html",
-  "description": "Use our free investment calculator to estimate your potential returns based on initial investment, interest rate, and time period. Perfect for long-term planning and personal finance growth.",
+      "description": "Free investment calculator to estimate your potential returns based on initial investment, interest rate, and time period. Perfect for long-term planning and personal finance growth.",
+      "inLanguage": "en",
+      "datePublished": "2024-04-01",
+      "dateModified": "2025-06-29",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
   "publisher": {
     "@type": "Organization",
     "name": "CalculatorQuote",
-    "url": "https://www.calculatorquote.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.calculatorquote.com/logo.png"
-    }
-  },
-  "inLanguage": "en",
-  "datePublished": "2024-04-01",
-  "dateModified": "2025-06-29"
+        "url": "https://www.calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Financial Calculators",
+            "item": "https://www.calculatorquote.com/financial/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Investment Calculator",
+            "item": "https://www.calculatorquote.com/financial/investment-calculator.html"
+          }
+        ]
+      }
 }
 </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
-        /* 隐藏所有可能的问号图标 */
-        [title]:after,
-        [data-title]:after,
-        [data-tooltip]:after,
-        .tooltip:after,
-        .has-tooltip:after,
-        label:after,
-        label:before,
-        *:after,
-        *:before {
-            content: none !important;
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
-
         .calculator-container {
-            max-width: 1000px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
+            background-color: #fff;
+            border-radius: 0;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
-        
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
         
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
         
         h1 {
-            color: #333;
-            font-size: 2em;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .calculator-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 20px;
         }
-        
-        .print-link {
-            float: right;
-            color: #2196F3;
-            text-decoration: none;
-        }
-        
-        .print-link:hover {
-            color: #1976D2;
-        }
-        
-        .instruction-bar {
-            background-color: #2196F3;
-            color: white;
-            padding: 15px;
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        }
+        .input-group {
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
         }
-        
-        .instruction-bar .triangle {
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid #2196F3;
-            margin-right: 15px;
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
         }
-        
-        .calculator-grid {
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+            width: 100%;
+        }
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        
-        .input-section {
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+        @media (max-width: 768px) {
+            .calculator-section {
+                grid-template-columns: 1fr;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        .calculator-type {
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .results-section {
+            margin-top: 20px;
+            display: none;
+        }
+        .results-section.show {
+            display: block;
+        }
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
             margin-bottom: 20px;
         }
-        
-        .calculator-type label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .calculator-type select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            background-color: #fff;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .input-field-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .input-group input, .input-group select {
-            width: 150px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        
-        .input-group .unit {
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #e3f2fd;
-            border-radius: 0 5px 5px 0;
-            margin-left: -1px;
-            color: #2196F3;
-        }
-        
-        .buttons {
-            margin-top: 20px;
-        }
-        
-        .btn-calculate {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-calculate:hover {
-            background-color: #1976D2;
-        }
-        
-        .btn-clear {
-            background-color: #90caf9;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-clear:hover {
-            background-color: #64b5f6;
-        }
-        
-        .results-section {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
-        }
-        
-        .final-value {
-            background-color: #2196F3;
-            color: white;
-            padding: 15px;
-            font-size: 1.5em;
-            margin-top: 20px;
+        .cost-item {
             display: flex;
             justify-content: space-between;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
         }
-        
-        .save-icon {
-            cursor: pointer;
+        .cost-item:last-child {
+            border-bottom: none;
         }
-        
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .cost-item .label {
+            font-weight: 500;
+            color: #555;
         }
-        
-        .results-table th, .results-table td {
-            padding: 10px;
-            text-align: right;
-            border-bottom: 1px solid #ddd;
+        .cost-item .value {
+            font-weight: 600;
+            color: #eb5424;
+            font-size: 1.1em;
         }
-        
-        .results-table th:first-child, .results-table td:first-child {
-            text-align: left;
+        .total-cost {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
         }
-        
-        .results-table tr:nth-child(even) {
-            background-color: #e3f2fd;
+        .total-cost .label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
         }
-        
-        .chart-container {
-            margin: 20px 0;
-            height: 250px;
+        .total-cost .value {
+            font-size: 1.8em;
+            font-weight: 700;
         }
-        
         .investment-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        
         .investment-table th, .investment-table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
         }
-        
         .investment-table th {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
         }
-        
         .investment-table tr:nth-child(even) {
-            background-color: #e3f2fd;
-        }
-        
-        .interpretation {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e3f2fd;
-            border-radius: 10px;
-            border-left: 5px solid #2196F3;
-        }
-        
-        .interpretation h3 {
-            margin-bottom: 10px;
-            color: #1976D2;
-        }
-        
-        .interpretation p {
-            margin-bottom: 5px;
-        }
-        
-        .rate-box {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-top: 30px;
-            text-align: center;
-            border-radius: 10px;
             background-color: #f8f9fa;
         }
-        
-        .rate-box h3 {
+        .faq-section {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            padding: 22px 28px 18px 28px;
+        }
+        .faq-section h3 {
             color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
             margin-bottom: 10px;
+            font-weight: 500;
         }
-        
-        .rate-box a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s;
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
         }
-        
-        .rate-box a:hover {
-            color: #1976D2;
+        .current-rates {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
         }
-        
-        .rate-button {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 15px;
-            transition: background-color 0.3s;
+        .current-rates h4 {
+            color: #f57c00;
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
-        
-        .rate-button:hover {
-            background-color: #1976D2;
+        .rate-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
         }
-        
-        @media (max-width: 768px) {
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .input-field-container {
-                width: 100%;
-            }
-            
-            .input-group input, .input-group select {
-                width: 100%;
-            }
+        .rate-item:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START INVESTMENT CALCULATOR -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
     <div class="calculator-container">
-        <div class="content-wrapper" style="max-width: 800px; margin: 0; padding-left: 0;">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -376,195 +417,214 @@
             <span>/</span>
             Investment Calculator
         </div>
-            <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">How to Calculate Investment Returns and Grow Your Wealth</h1>
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Use this simple investment calculator to estimate your potential returns and watch your wealth grow over time—no spreadsheets required.</p>
         
-        <div class="calculator-grid">
+        <h1>Investment Calculator</h1>
+        <div class="description">
+            Plan your financial future with our comprehensive investment calculator. Calculate future account value, required investment amounts, interest rates, or regular contributions. Our calculator supports various compound frequencies and contribution schedules to give you accurate projections for your investment goals.
+                </div>
+                
+        <div class="current-rates">
+            <h4>Current Average Investment Returns (2025)</h4>
+            <div class="rate-item">
+                <span>S&P 500 (Stocks):</span>
+                <span>8-12% annually</span>
+                    </div>
+            <div class="rate-item">
+                <span>Bonds:</span>
+                <span>3-6% annually</span>
+                </div>
+            <div class="rate-item">
+                <span>Real Estate:</span>
+                <span>6-10% annually</span>
+                    </div>
+                </div>
+
+        <div class="calculator-section">
             <div class="input-section">
-                <div class="calculator-type">
-                    <label for="calculation-type">Calculate:</label>
-                    <select id="calculation-type" onchange="toggleCalculationFields()">
-                        <option value="future-value" selected>Future Account Value</option>
-                        <option value="investment-amount">Required Investment Amount</option>
-                        <option value="interest-rate">Required Interest Rate</option>
-                        <option value="contributions">Required Contributions</option>
+                <h3 style="color: #333; margin-bottom: 20px; font-size: 1.2em;">Investment Calculator</h3>
+                
+                <div class="input-group">
+                    <label for="calculationType">What would you like to calculate?</label>
+                    <select id="calculationType" onchange="toggleInputs()">
+                        <option value="futureValue">Future Account Value</option>
+                        <option value="requiredInvestment">Required Investment Amount</option>
+                        <option value="requiredRate">Required Interest Rate</option>
+                        <option value="requiredContribution">Required Regular Contribution</option>
                     </select>
+                    </div>
+
+                <div class="input-group" id="initialInvestmentGroup">
+                    <label for="initialInvestment">Initial Investment ($)</label>
+                    <input type="number" id="initialInvestment" placeholder="Enter amount" min="0" max="10000000" step="100" value="10000">
+                    <div class="note">Your starting investment amount</div>
                 </div>
                 
-                <div class="input-group" id="initial-investment-group">
-                    <label for="initial-investment">Investment Amount:</label>
-                    <div class="input-field-container">
-                        <input type="text" id="initial-investment" value="25,000">
-                        <div class="unit">$</div>
+                <div class="input-group" id="futureValueGroup" style="display: none;">
+                    <label for="futureValue">Future Account Value ($)</label>
+                    <input type="number" id="futureValue" placeholder="Enter target amount" min="0" max="10000000" step="100" value="100000">
+                    <div class="note">Your target future value</div>
                     </div>
-                    <small>Starting Balance</small>
+
+                <div class="input-group">
+                    <label for="timePeriod">Investment Period (Years)</label>
+                    <input type="number" id="timePeriod" placeholder="Enter years" min="1" max="50" step="1" value="10">
+                    <div class="note">How long you plan to invest</div>
                 </div>
-                
-                <div class="input-group" id="future-value-group" style="display: none;">
-                    <label for="future-value">Future Account Value:</label>
-                    <div class="input-field-container">
-                        <input type="text" id="future-value" value="100,000">
-                        <div class="unit">$</div>
-                    </div>
-                    <small>Target Amount</small>
+
+                <div class="input-group" id="interestRateGroup">
+                    <label for="interestRate">Annual Interest Rate (%)</label>
+                    <input type="number" id="interestRate" placeholder="Enter rate" min="0" max="50" step="0.1" value="7">
+                    <div class="note">Expected annual return percentage</div>
                 </div>
                 
                 <div class="input-group">
-                    <label for="investment-length">Number of Years:</label>
-                    <div class="input-field-container">
-                        <input type="text" id="investment-length" value="20">
-                    </div>
-                </div>
-                
-                <div class="input-group" id="interest-rate-group">
-                    <label for="interest-rate">Interest Rate:</label>
-                    <div class="input-field-container">
-                        <input type="text" id="interest-rate" value="7">
-                        <div class="unit">%</div>
-                    </div>
-                    <small>per year</small>
-                </div>
-                
-                <div class="input-group">
-                    <label for="compound-frequency">Compounding:</label>
-                    <div class="input-field-container">
-                        <select id="compound-frequency">
-                            <option value="daily-365">Daily (365/Yr)</option>
-                            <option value="daily-360">Daily (360/Yr)</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="biweekly">Biweekly</option>
-                            <option value="semimonthly">Semimonthly</option>
-                            <option value="monthly" selected>Monthly</option>
-                            <option value="bimonthly">Bimonthly</option>
-                            <option value="quarterly">Quarterly</option>
-                            <option value="semiannually">Semiannually</option>
-                            <option value="annually">Annually</option>
+                    <label for="compoundFrequency">Compound Frequency</label>
+                    <select id="compoundFrequency">
+                        <option value="365">Daily</option>
+                        <option value="52">Weekly</option>
+                        <option value="12" selected>Monthly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="2">Semi-annually</option>
+                        <option value="1">Annually</option>
                         </select>
-                    </div>
                 </div>
                 
-                <div class="input-group" id="contribution-group">
-                    <label for="contribution-amount">Contributions:</label>
-                    <div class="input-field-container">
-                        <input type="text" id="contribution-amount" value="500">
-                        <div class="unit">$</div>
-                    </div>
+                <div class="input-group" id="regularContributionGroup">
+                    <label for="regularContribution">Regular Contribution ($)</label>
+                    <input type="number" id="regularContribution" placeholder="Enter amount" min="0" max="100000" step="100" value="500">
+                    <div class="note">Amount you contribute regularly</div>
                 </div>
                 
                 <div class="input-group">
-                    <label for="contribution-frequency">Frequency:</label>
-                    <div class="input-field-container">
-                        <select id="contribution-frequency">
-                            <option value="daily-365">Daily 365</option>
-                            <option value="daily-360">Daily 360</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="biweekly">Bi-Weekly</option>
-                            <option value="semimonthly">Semi-Monthly</option>
-                            <option value="monthly" selected>Monthly</option>
-                            <option value="quarterly">Quarterly</option>
-                            <option value="semiannually">Semi-Annually</option>
-                            <option value="annually">Annually</option>
+                    <label for="contributionFrequency">Contribution Frequency</label>
+                    <select id="contributionFrequency">
+                        <option value="365">Daily</option>
+                        <option value="52">Weekly</option>
+                        <option value="26">Bi-weekly</option>
+                        <option value="12" selected>Monthly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="2">Semi-annually</option>
+                        <option value="1">Annually</option>
                         </select>
-                    </div>
-                    <small>of Contributions</small>
                 </div>
                 
-                <div class="buttons">
                     <button class="btn-calculate" onclick="calculateInvestment()">Calculate</button>
                     <button class="btn-clear" onclick="clearInputs()">Clear</button>
                 </div>
 
-                <div class="final-value">
-                    <div>Future Account Value = <span id="final-value">$361,431.80</span></div>
-                </div>
+            <div class="input-section" id="resultsContainer" style="display: none;">
+                <h3 style="color: #333; margin-bottom: 20px; font-size: 1.2em;">Results</h3>
+                
+                <div class="error-message" id="errorMessage"></div>
+                
+                <div class="results-section" id="resultsSection">
+                    <div class="total-cost" id="mainResult">
+                        <div class="label" id="resultLabel">Future Account Value</div>
+                        <div class="value" id="resultValue">$0</div>
             </div>
             
-            <div class="results-section" id="results-section">
-                <div class="chart-container" id="chart-container">
-                    <!-- Chart will be inserted here -->
+                    <div class="cost-breakdown" id="breakdownSection">
+                        <div class="cost-item">
+                            <span class="label">Initial Investment</span>
+                            <span class="value" id="initialAmount">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Total Contributions</span>
+                            <span class="value" id="totalContributions">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Interest Earned</span>
+                            <span class="value" id="interestEarned">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Total Growth</span>
+                            <span class="value" id="totalGrowth">$0</span>
+                        </div>
                 </div>
                 
-                <h3>Year-by-Year Breakdown</h3>
                 <div style="overflow-x: auto;">
-                    <table class="investment-table" id="investment-table">
+                        <table class="investment-table" id="investmentTable">
                         <thead>
                             <tr>
                                 <th>Year</th>
                                 <th>Starting Balance</th>
-                                <th>Annual Contribution</th>
+                                    <th>Contributions</th>
                                 <th>Interest Earned</th>
                                 <th>Ending Balance</th>
                             </tr>
                         </thead>
-                        <tbody id="investment-body">
+                            <tbody id="investmentTableBody">
                             <!-- Will be filled by JavaScript -->
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-        
-        <div class="rate-box">
-            <h3>Current Average Investment Returns:</h3>
-            <p>S&P 500: <a href="#">9.8%</a> &nbsp;&nbsp; Bonds: <a href="#">3.5%</a> &nbsp;&nbsp; Real Estate: <a href="#">7.1%</a></p>
-            <button class="rate-button">Compare Investment Options</button>
             </div>
         </div>
         
-        <div class="page-description" style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-            <p style="font-size: 1.2em; margin-bottom: 20px;">🧠 Investment Calculator – Because your savings deserve compound respect</p>
-            <p>Let's be honest:<br>
-            You've got big dreams. A beach house. Early retirement. Maybe just affording guac at Chipotle without checking your bank app.</p>
-            <p>But how do you get there? Math? Ew.<br>
-            That's where this free investment calculator comes in. It crunches the future for you, using that magical money-growing sauce known as compound interest.</p>
-            <h3 style="margin: 20px 0 10px;">💸 What does it do?</h3>
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;">✅ Shows you how your cash snowballs over time (but, like, in a good way)</li>
-                <li style="margin-bottom: 10px;">✅ Helps you figure out how rich you could be if you stop panic-buying NFTs</li>
-                <li style="margin-bottom: 10px;">✅ Projects your ROI — that's "Return On Investment," not "Rage Over Inflation"</li>
-                <li style="margin-bottom: 10px;">✅ Great for retirement planning, wealth-building, or impressing your financially literate crush</li>
-            </ul>
-            <h3 style="margin: 20px 0 10px;">📉 What it doesn't do:</h3>
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;">✖ Tell you which crypto will tank next</li>
-                <li style="margin-bottom: 10px;">✖ Make you rich overnight (this is a calculator, not a genie)</li>
-                <li style="margin-bottom: 10px;">✖ Fix your impulse purchases at 2 a.m.</li>
-            </ul>
-            <p style="margin: 20px 0;">TL;DR: Put in your numbers, see your money grow, then daydream about quitting your job in 12–47 years.</p>
-            <h3 style="margin: 20px 0 10px;">🧾 FAQ – Because yes, we saw your confused expression</h3>
-            <div style="margin-bottom: 15px;"><strong>Q: Can this calculator tell me when I can finally quit my job?</strong><br>A: Not exactly, but it can show you how long it'll take for your investments to carry you out of that cubicle life. Use the results as motivation (or a gentle reality check).</div>
-            <div style="margin-bottom: 15px;"><strong>Q: Will this guarantee I retire early?</strong><br>A: Only if you start now and don't blow it all on Funko Pops. We believe in you, though.</div>
-            <div style="margin-bottom: 15px;"><strong>Q: Do you save my inputs?</strong><br>A: Nope. Not our business how much you have in your Roth IRA. What happens on your keyboard stays on your keyboard.</div>
-            <div style="margin-bottom: 15px;"><strong>Q: Why not just ask ChatGPT to do it?</strong><br>A: Because this is faster, visual, and doesn't try to turn your question into a 3-paragraph TED Talk. (No offense, ChatGPT.)</div>
-            <h3 style="margin: 20px 0 10px;">💼 Final Thought:</h3>
-            <p>Investing is like planting a tree. You water it, wait years, and eventually — shade, fruit, or a squirrel colony.<br>
-            This calculator won't water it for you, but it'll show you just how big your money-tree might grow. 🌳💰</p>
+        <div class="advice">
+            <h3 style="color: #333; font-size: 1.4em; margin-bottom: 20px; font-weight: 600;">Investment Planning Tips</h3>
+            <p><strong>Start Early:</strong> The earlier you start investing, the more time your money has to grow through compound interest. Even small amounts invested regularly can grow significantly over time.</p>
+            <p><strong>Diversify Your Portfolio:</strong> Don't put all your eggs in one basket. Spread your investments across different asset classes like stocks, bonds, and real estate to reduce risk.</p>
+            <p><strong>Consider Your Risk Tolerance:</strong> Choose investments that match your risk tolerance and time horizon. Younger investors can typically take more risk, while those closer to retirement should be more conservative.</p>
+            <p><strong>Regular Contributions:</strong> Making regular contributions, even small ones, can significantly boost your investment returns over time. Set up automatic transfers to make this easier.</p>
+            <p><strong>Review and Rebalance:</strong> Regularly review your investment portfolio and rebalance as needed to maintain your desired asset allocation and risk level.</p>
         </div>
         
-        <div class="related-calculators" style="margin-top: 40px; padding: 20px; background: none; border-radius: 0; max-width: 800px;">
-            <h2 style="margin-bottom: 15px;">Related Calculators</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;"><a href="mortgage-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Mortgage Calculator</a> - Estimate your monthly home loan</li>
-                <li style="margin-bottom: 10px;"><a href="loan-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Loan Calculator</a> - Calculate loan payments and interest</li>
-                <li style="margin-bottom: 10px;"><a href="compound-interest.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Compound Interest Calculator</a> - See your savings grow</li>
-                <li style="margin-bottom: 10px;"><a href="investment-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Investment Calculator</a> - Project investment returns</li>
-                <li style="margin-bottom: 10px;"><a href="income-tax-calculator.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Income Tax Calculator</a> - Estimate your taxes</li>
-                <li style="margin-bottom: 10px;"><a href="currency-converter.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Currency Converter</a> - Convert between currencies</li>
-                <li style="margin-bottom: 10px;"><a href="collectible-toy-insurance.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Collectible Toy Insurance</a> - Insure your valuable collectibles</li>
-            </ul>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4><strong>Q1: How accurate is this investment calculator?</strong></h4>
+                <p><strong>A:</strong> This calculator provides estimates based on the inputs you provide. It assumes consistent returns and regular contributions. Actual investment performance will vary based on market conditions, fees, and other factors.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4><strong>Q2: What's the difference between simple and compound interest?</strong></h4>
+                <p><strong>A:</strong> Simple interest is calculated only on the principal amount, while compound interest is calculated on the principal plus any previously earned interest. Compound interest can significantly increase your returns over time.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4><strong>Q3: Should I invest monthly or annually?</strong></h4>
+                <p><strong>A:</strong> Monthly investing (dollar-cost averaging) can help reduce the impact of market volatility and potentially lower your average cost per share. It also allows you to start investing with smaller amounts.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4><strong>Q4: What investment types should I consider?</strong></h4>
+                <p><strong>A:</strong> Consider a mix of stocks, bonds, and other assets based on your risk tolerance and time horizon. Index funds and ETFs can provide diversification at low cost. Consult with a financial advisor for personalized advice.</p>
+        </div>
+        
+            <div class="faq-item">
+                <h4><strong>Q5: How do taxes affect my investments?</strong></h4>
+                <p><strong>A:</strong> Taxes can significantly impact your investment returns. Consider tax-advantaged accounts like 401(k)s and IRAs, and be aware of capital gains taxes on investments held outside these accounts.</p>
         </div>
     </div>
-    
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END INVESTMENT CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
     
     <script>
         // Format numbers with commas
@@ -572,112 +632,132 @@
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
         
-        // Parse input with commas
-        function parseInput(input) {
-            return parseFloat(input.replace(/,/g, ''));
-        }
-        
-        // Toggle calculation fields based on selected calculation type
-        function toggleCalculationFields() {
-            const calculationType = document.getElementById('calculation-type').value;
+        // Toggle input fields based on calculation type
+        function toggleInputs() {
+            const calculationType = document.getElementById('calculationType').value;
+            const initialInvestmentGroup = document.getElementById('initialInvestmentGroup');
+            const futureValueGroup = document.getElementById('futureValueGroup');
+            const interestRateGroup = document.getElementById('interestRateGroup');
+            const regularContributionGroup = document.getElementById('regularContributionGroup');
             
-            // Hide all variable fields first
-            document.getElementById('initial-investment-group').style.display = 'flex';
-            document.getElementById('future-value-group').style.display = 'none';
-            document.getElementById('interest-rate-group').style.display = 'flex';
-            document.getElementById('contribution-group').style.display = 'flex';
+            // Reset all groups
+            initialInvestmentGroup.style.display = 'block';
+            futureValueGroup.style.display = 'none';
+            interestRateGroup.style.display = 'block';
+            regularContributionGroup.style.display = 'block';
             
-            // Show/hide fields based on calculation type
             switch(calculationType) {
-                case 'future-value':
-                    // All fields visible except future value
+                case 'futureValue':
+                    // Show: initial investment, time period, interest rate, regular contribution
                     break;
-                case 'investment-amount':
-                    // Hide initial investment, show future value
-                    document.getElementById('initial-investment-group').style.display = 'none';
-                    document.getElementById('future-value-group').style.display = 'flex';
+                case 'requiredInvestment':
+                    // Show: future value, time period, interest rate, regular contribution
+                    initialInvestmentGroup.style.display = 'none';
+                    futureValueGroup.style.display = 'block';
                     break;
-                case 'interest-rate':
-                    // Hide interest rate, show future value
-                    document.getElementById('interest-rate-group').style.display = 'none';
-                    document.getElementById('future-value-group').style.display = 'flex';
+                case 'requiredRate':
+                    // Show: initial investment, future value, time period, regular contribution
+                    futureValueGroup.style.display = 'block';
+                    interestRateGroup.style.display = 'none';
                     break;
-                case 'contributions':
-                    // Hide contributions, show future value
-                    document.getElementById('contribution-group').style.display = 'none';
-                    document.getElementById('future-value-group').style.display = 'flex';
+                case 'requiredContribution':
+                    // Show: initial investment, future value, time period, interest rate
+                    futureValueGroup.style.display = 'block';
+                    regularContributionGroup.style.display = 'none';
                     break;
             }
         }
         
-        // Calculate investment and update display
+        // Calculate investment based on selected type
         function calculateInvestment() {
-            // Get calculation type
-            const calculationType = document.getElementById('calculation-type').value;
+            // Clear previous error
+            document.getElementById('errorMessage').classList.remove('show');
             
-            // Get input values
-            const initialInvestment = parseInput(document.getElementById('initial-investment').value || '0');
-            const futureValue = parseInput(document.getElementById('future-value').value || '0');
-            const investmentLength = parseInt(document.getElementById('investment-length').value);
-            const expectedReturn = parseFloat(document.getElementById('interest-rate').value) / 100;
-            const compoundFrequency = document.getElementById('compound-frequency').value;
-            const contributionAmount = parseInput(document.getElementById('contribution-amount').value || '0');
-            const contributionFrequency = document.getElementById('contribution-frequency').value;
+            const calculationType = document.getElementById('calculationType').value;
+            const timePeriod = parseInt(document.getElementById('timePeriod').value) || 0;
+            const compoundFrequency = parseInt(document.getElementById('compoundFrequency').value);
+            const contributionFrequency = parseInt(document.getElementById('contributionFrequency').value);
             
-            // Calculate number of contributions per year
-            let contributionsPerYear = 12; // Default monthly
-            if (contributionFrequency.includes('daily')) contributionsPerYear = 365;
-            if (contributionFrequency === 'weekly') contributionsPerYear = 52;
-            if (contributionFrequency === 'biweekly') contributionsPerYear = 26;
-            if (contributionFrequency === 'semimonthly') contributionsPerYear = 24;
-            if (contributionFrequency === 'quarterly') contributionsPerYear = 4;
-            if (contributionFrequency === 'semiannually') contributionsPerYear = 2;
-            if (contributionFrequency === 'annually') contributionsPerYear = 1;
+            // Validation
+            if (timePeriod <= 0) {
+                showError('Please enter a valid time period.');
+                return;
+            }
             
-            // Calculate number of compounds per year
-            let compoundsPerYear = 12; // Default monthly
-            if (compoundFrequency.includes('daily')) compoundsPerYear = 365;
-            if (compoundFrequency === 'weekly') compoundsPerYear = 52;
-            if (compoundFrequency === 'biweekly') compoundsPerYear = 26;
-            if (compoundFrequency === 'semimonthly') compoundsPerYear = 24;
-            if (compoundFrequency === 'bimonthly') compoundsPerYear = 6;
-            if (compoundFrequency === 'quarterly') compoundsPerYear = 4;
-            if (compoundFrequency === 'semiannually') compoundsPerYear = 2;
-            if (compoundFrequency === 'annually') compoundsPerYear = 1;
-            
-            // Calculate effective interest rate per compound period
-            const ratePerPeriod = Math.pow(1 + expectedReturn, 1 / compoundsPerYear) - 1;
-            
-            // Calculate total periods
-            const totalPeriods = investmentLength * compoundsPerYear;
-            
-            // Calculate contribution per compound period
-            const contributionPerPeriod = contributionAmount * contributionsPerYear / compoundsPerYear;
-            
-            // Initialize variables for calculation
-            let balance = initialInvestment;
-            let totalContributions = 0;
-            let totalInterest = 0;
+            let result;
             let yearlyData = [];
             
+            switch(calculationType) {
+                case 'futureValue':
+                    result = calculateFutureValue(yearlyData);
+                    break;
+                case 'requiredInvestment':
+                    result = calculateRequiredInvestment(yearlyData);
+                    break;
+                case 'requiredRate':
+                    result = calculateRequiredRate(yearlyData);
+                    break;
+                case 'requiredContribution':
+                    result = calculateRequiredContribution(yearlyData);
+                    break;
+            }
+            
+            if (result.error) {
+                showError(result.error);
+                return;
+            }
+            
+            // Update display
+            updateResults(result, yearlyData, calculationType);
+            
+            // Show results
+            document.getElementById('resultsContainer').style.display = 'block';
+            document.getElementById('resultsSection').classList.add('show');
+        }
+        
+        // Calculate future value
+        function calculateFutureValue(yearlyData) {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const regularContribution = parseFloat(document.getElementById('regularContribution').value) || 0;
+            const timePeriod = parseInt(document.getElementById('timePeriod').value) || 0;
+            const compoundFrequency = parseInt(document.getElementById('compoundFrequency').value);
+            const contributionFrequency = parseInt(document.getElementById('contributionFrequency').value);
+            
+            if (initialInvestment < 0) {
+                return { error: 'Please enter a valid initial investment amount.' };
+            }
+            
+            if (interestRate < 0) {
+                return { error: 'Please enter a valid interest rate.' };
+            }
+            
+            const annualRate = interestRate / 100;
+            const compoundRate = annualRate / compoundFrequency;
+            const contributionPerPeriod = regularContribution * compoundFrequency / contributionFrequency;
+            
+            let balance = initialInvestment;
+            let totalContributions = 0;
+            
             // Calculate year by year
-            for (let year = 1; year <= investmentLength; year++) {
+            for (let year = 1; year <= timePeriod; year++) {
                 let startBalance = balance;
                 let yearlyContribution = 0;
                 let yearlyInterest = 0;
                 
-                // Calculate for each compound period within the year
-                for (let period = 1; period <= compoundsPerYear; period++) {
-                    // Add contribution
+                // Calculate for each compound period in the year
+                for (let period = 1; period <= compoundFrequency; period++) {
+                    // Add contribution if it's a contribution period
+                    if (period % (compoundFrequency / contributionFrequency) === 0) {
                     balance += contributionPerPeriod;
                     yearlyContribution += contributionPerPeriod;
                     totalContributions += contributionPerPeriod;
+                    }
                     
-                    // Calculate interest
-                    let interest = balance * ratePerPeriod;
-                    balance += interest;
-                    yearlyInterest += interest;
-                    totalInterest += interest;
+                    // Calculate compound interest
+                    let periodInterest = balance * compoundRate;
+                    balance += periodInterest;
+                    yearlyInterest += periodInterest;
                 }
                 
                 // Store yearly data
@@ -690,25 +770,282 @@
                 });
             }
             
-            // Update results
-            document.getElementById('final-value').textContent = `$${formatNumber(balance.toFixed(2))}`;
+            const totalInterest = balance - initialInvestment - totalContributions;
+            const totalGrowth = balance - initialInvestment;
             
-            // Generate investment table
+            return {
+                futureValue: balance,
+                initialInvestment: initialInvestment,
+                totalContributions: totalContributions,
+                totalInterest: totalInterest,
+                totalGrowth: totalGrowth
+            };
+        }
+        
+        // Calculate required investment amount
+        function calculateRequiredInvestment(yearlyData) {
+            const futureValue = parseFloat(document.getElementById('futureValue').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const regularContribution = parseFloat(document.getElementById('regularContribution').value) || 0;
+            const timePeriod = parseInt(document.getElementById('timePeriod').value) || 0;
+            const compoundFrequency = parseInt(document.getElementById('compoundFrequency').value);
+            const contributionFrequency = parseInt(document.getElementById('contributionFrequency').value);
+            
+            if (futureValue <= 0) {
+                return { error: 'Please enter a valid future value.' };
+            }
+            
+            if (interestRate < 0) {
+                return { error: 'Please enter a valid interest rate.' };
+            }
+            
+            // Use binary search to find required initial investment
+            let low = 0;
+            let high = futureValue;
+            let bestGuess = 0;
+            
+            for (let i = 0; i < 100; i++) {
+                let mid = (low + high) / 2;
+                
+                // Calculate future value with this initial investment
+                let testResult = calculateFutureValueWithInitial(mid, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency);
+                
+                if (Math.abs(testResult.futureValue - futureValue) < 1) {
+                    bestGuess = mid;
+                    break;
+                } else if (testResult.futureValue < futureValue) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+                bestGuess = mid;
+            }
+            
+            // Calculate detailed breakdown with the found initial investment
+            const result = calculateFutureValueWithInitial(bestGuess, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData);
+            
+            return {
+                requiredInvestment: bestGuess,
+                futureValue: result.futureValue,
+                totalContributions: result.totalContributions,
+                totalInterest: result.totalInterest,
+                totalGrowth: result.totalGrowth
+            };
+        }
+        
+        // Calculate required interest rate
+        function calculateRequiredRate(yearlyData) {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
+            const futureValue = parseFloat(document.getElementById('futureValue').value) || 0;
+            const regularContribution = parseFloat(document.getElementById('regularContribution').value) || 0;
+            const timePeriod = parseInt(document.getElementById('timePeriod').value) || 0;
+            const compoundFrequency = parseInt(document.getElementById('compoundFrequency').value);
+            const contributionFrequency = parseInt(document.getElementById('contributionFrequency').value);
+            
+            if (initialInvestment < 0) {
+                return { error: 'Please enter a valid initial investment amount.' };
+            }
+            
+            if (futureValue <= 0) {
+                return { error: 'Please enter a valid future value.' };
+            }
+            
+            // Use binary search to find required interest rate
+            let low = 0;
+            let high = 50; // 50% maximum
+            let bestRate = 0;
+            
+            for (let i = 0; i < 100; i++) {
+                let mid = (low + high) / 2;
+                
+                // Calculate future value with this interest rate
+                let testResult = calculateFutureValueWithRate(initialInvestment, mid, regularContribution, timePeriod, compoundFrequency, contributionFrequency);
+                
+                if (Math.abs(testResult.futureValue - futureValue) < 1) {
+                    bestRate = mid;
+                    break;
+                } else if (testResult.futureValue < futureValue) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+                bestRate = mid;
+            }
+            
+            // Calculate detailed breakdown with the found interest rate
+            const result = calculateFutureValueWithRate(initialInvestment, bestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData);
+            
+            return {
+                requiredRate: bestRate,
+                futureValue: result.futureValue,
+                totalContributions: result.totalContributions,
+                totalInterest: result.totalInterest,
+                totalGrowth: result.totalGrowth
+            };
+        }
+        
+        // Calculate required contribution
+        function calculateRequiredContribution(yearlyData) {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
+            const futureValue = parseFloat(document.getElementById('futureValue').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const timePeriod = parseInt(document.getElementById('timePeriod').value) || 0;
+            const compoundFrequency = parseInt(document.getElementById('compoundFrequency').value);
+            const contributionFrequency = parseInt(document.getElementById('contributionFrequency').value);
+            
+            if (initialInvestment < 0) {
+                return { error: 'Please enter a valid initial investment amount.' };
+            }
+            
+            if (futureValue <= 0) {
+                return { error: 'Please enter a valid future value.' };
+            }
+            
+            if (interestRate < 0) {
+                return { error: 'Please enter a valid interest rate.' };
+            }
+            
+            // Use binary search to find required contribution
+            let low = 0;
+            let high = futureValue;
+            let bestContribution = 0;
+            
+            for (let i = 0; i < 100; i++) {
+                let mid = (low + high) / 2;
+                
+                // Calculate future value with this contribution
+                let testResult = calculateFutureValueWithContribution(initialInvestment, interestRate, mid, timePeriod, compoundFrequency, contributionFrequency);
+                
+                if (Math.abs(testResult.futureValue - futureValue) < 1) {
+                    bestContribution = mid;
+                    break;
+                } else if (testResult.futureValue < futureValue) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+                bestContribution = mid;
+            }
+            
+            // Calculate detailed breakdown with the found contribution
+            const result = calculateFutureValueWithContribution(initialInvestment, interestRate, bestContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData);
+            
+            return {
+                requiredContribution: bestContribution,
+                futureValue: result.futureValue,
+                totalContributions: result.totalContributions,
+                totalInterest: result.totalInterest,
+                totalGrowth: result.totalGrowth
+            };
+        }
+        
+        // Helper function to calculate future value with given initial investment
+        function calculateFutureValueWithInitial(initialInvestment, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData = null) {
+            const annualRate = interestRate / 100;
+            const compoundRate = annualRate / compoundFrequency;
+            const contributionPerPeriod = regularContribution * compoundFrequency / contributionFrequency;
+            
+            let balance = initialInvestment;
+            let totalContributions = 0;
+            
+            if (yearlyData) {
+                yearlyData.length = 0; // Clear array
+            }
+            
+            // Calculate year by year
+            for (let year = 1; year <= timePeriod; year++) {
+                let startBalance = balance;
+                let yearlyContribution = 0;
+                let yearlyInterest = 0;
+                
+                // Calculate for each compound period in the year
+                for (let period = 1; period <= compoundFrequency; period++) {
+                    // Add contribution if it's a contribution period
+                    if (period % (compoundFrequency / contributionFrequency) === 0) {
+                        balance += contributionPerPeriod;
+                        yearlyContribution += contributionPerPeriod;
+                        totalContributions += contributionPerPeriod;
+                    }
+                    
+                    // Calculate compound interest
+                    let periodInterest = balance * compoundRate;
+                    balance += periodInterest;
+                    yearlyInterest += periodInterest;
+                }
+                
+                // Store yearly data
+                if (yearlyData) {
+                    yearlyData.push({
+                        year: year,
+                        startBalance: startBalance,
+                        contribution: yearlyContribution,
+                        interest: yearlyInterest,
+                        endBalance: balance
+                    });
+                }
+            }
+            
+            const totalInterest = balance - initialInvestment - totalContributions;
+            const totalGrowth = balance - initialInvestment;
+            
+            return {
+                futureValue: balance,
+                totalContributions: totalContributions,
+                totalInterest: totalInterest,
+                totalGrowth: totalGrowth
+            };
+        }
+        
+        // Helper function to calculate future value with given interest rate
+        function calculateFutureValueWithRate(initialInvestment, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData = null) {
+            return calculateFutureValueWithInitial(initialInvestment, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData);
+        }
+        
+        // Helper function to calculate future value with given contribution
+        function calculateFutureValueWithContribution(initialInvestment, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData = null) {
+            return calculateFutureValueWithInitial(initialInvestment, interestRate, regularContribution, timePeriod, compoundFrequency, contributionFrequency, yearlyData);
+        }
+        
+        // Update results display
+        function updateResults(result, yearlyData, calculationType) {
+            const resultLabel = document.getElementById('resultLabel');
+            const resultValue = document.getElementById('resultValue');
+            
+            switch(calculationType) {
+                case 'futureValue':
+                    resultLabel.textContent = 'Future Account Value';
+                    resultValue.textContent = '$' + formatNumber(result.futureValue.toFixed(0));
+                    break;
+                case 'requiredInvestment':
+                    resultLabel.textContent = 'Required Initial Investment';
+                    resultValue.textContent = '$' + formatNumber(result.requiredInvestment.toFixed(0));
+                    break;
+                case 'requiredRate':
+                    resultLabel.textContent = 'Required Interest Rate';
+                    resultValue.textContent = result.requiredRate.toFixed(2) + '%';
+                    break;
+                case 'requiredContribution':
+                    resultLabel.textContent = 'Required Regular Contribution';
+                    resultValue.textContent = '$' + formatNumber(result.requiredContribution.toFixed(0));
+                    break;
+            }
+            
+            // Update breakdown
+            document.getElementById('initialAmount').textContent = '$' + formatNumber((result.initialInvestment || 0).toFixed(0));
+            document.getElementById('totalContributions').textContent = '$' + formatNumber((result.totalContributions || 0).toFixed(0));
+            document.getElementById('interestEarned').textContent = '$' + formatNumber((result.totalInterest || 0).toFixed(0));
+            document.getElementById('totalGrowth').textContent = '$' + formatNumber((result.totalGrowth || 0).toFixed(0));
+            
+            // Generate table
             generateInvestmentTable(yearlyData);
-            
-            // Initialize chart with the calculated values
-            initChart(initialInvestment, totalContributions, totalInterest, balance);
-            
-            // Show results
-            document.getElementById('results-section').style.display = 'block';
         }
         
         // Generate investment table
         function generateInvestmentTable(yearlyData) {
-            const investmentBody = document.getElementById('investment-body');
-            investmentBody.innerHTML = '';
+            const tableBody = document.getElementById('investmentTableBody');
+            tableBody.innerHTML = '';
             
-            for (const data of yearlyData) {
+            yearlyData.forEach(data => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${data.year}</td>
@@ -717,115 +1054,44 @@
                     <td>$${formatNumber(data.interest.toFixed(0))}</td>
                     <td>$${formatNumber(data.endBalance.toFixed(0))}</td>
                 `;
-                investmentBody.appendChild(row);
-            }
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
         }
         
         // Clear all inputs
         function clearInputs() {
-            document.getElementById('initial-investment').value = '';
-            document.getElementById('future-value').value = '';
-            document.getElementById('investment-length').value = '';
-            document.getElementById('interest-rate').value = '';
-            document.getElementById('contribution-amount').value = '';
-            document.getElementById('results-section').style.display = 'none';
-        }
-        
-        // Initialize with a calculation on page load
-        window.onload = function() {
-            toggleCalculationFields();
-            calculateInvestment();
-        };
-        
-        // Initialize chart with calculated values
-        function initChart(initialInvestment, totalContributions, totalInterest, totalAmount) {
-            const chartContainer = document.getElementById('chart-container');
-            chartContainer.innerHTML = `
-                <div style="text-align: center; height: 100%;">
-                    <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 15px;">
-                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                            <div style="width: 20px; height: 20px; background-color: #2196F3; margin-right: 8px;"></div>
-                            <span>Starting Amount</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                            <div style="width: 20px; height: 20px; background-color: #64b5f6; margin-right: 8px;"></div>
-                            <span>Total Contributions</span>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 20px; height: 20px; background-color: #1976D2; margin-right: 8px;"></div>
-                            <span>Total Interest</span>
-                        </div>
-                    </div>
-                    <div style="height: 160px; position: relative; background-color: #f5f5f5; display: flex; justify-content: center; align-items: center;">
-                        <svg width="200" height="200" viewBox="-100 -100 200 200">
-                            <circle cx="0" cy="0" r="90" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
-                        </svg>
-                    </div>
-                </div>
-            `;
-
-            // Calculate percentages
-            const startingPercentage = (initialInvestment / totalAmount) * 100;
-            const contributionsPercentage = (totalContributions / totalAmount) * 100;
-            const interestPercentage = (totalInterest / totalAmount) * 100;
-
-            // Create pie chart
-            const svg = chartContainer.querySelector('svg');
+            document.getElementById('initialInvestment').value = '';
+            document.getElementById('futureValue').value = '';
+            document.getElementById('timePeriod').value = '';
+            document.getElementById('interestRate').value = '';
+            document.getElementById('regularContribution').value = '';
+            document.getElementById('calculationType').value = 'futureValue';
             
-            // Convert percentages to angles (360 degrees total)
-            const startingAngle = (startingPercentage / 100) * 360;
-            const contributionsAngle = (contributionsPercentage / 100) * 360;
-            const interestAngle = (interestPercentage / 100) * 360;
-
-            // Helper function to create pie slice path
-            function createPieSlice(startAngle, endAngle, color) {
-                // Convert angles to radians
-                const start = (startAngle - 90) * (Math.PI / 180);
-                const end = (endAngle - 90) * (Math.PI / 180);
-
-                // Calculate points
-                const x1 = Math.cos(start) * 90;
-                const y1 = Math.sin(start) * 90;
-                const x2 = Math.cos(end) * 90;
-                const y2 = Math.sin(end) * 90;
-
-                // Determine which arc to use (large or small)
-                const largeArc = endAngle - startAngle <= 180 ? 0 : 1;
-
-                // Create path
-                const d = `
-                    M 0 0
-                    L ${x1} ${y1}
-                    A 90 90 0 ${largeArc} 1 ${x2} ${y2}
-                    Z
-                `;
-
-                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                path.setAttribute("d", d);
-                path.setAttribute("fill", color);
-                return path;
-            }
-
-            // Create and add pie slices
-            let currentAngle = 0;
-
-            // Starting Amount slice
-            if (startingPercentage > 0) {
-                svg.appendChild(createPieSlice(currentAngle, currentAngle + startingAngle, '#2196F3'));
-                currentAngle += startingAngle;
-            }
-
-            // Contributions slice
-            if (contributionsPercentage > 0) {
-                svg.appendChild(createPieSlice(currentAngle, currentAngle + contributionsAngle, '#64b5f6'));
-                currentAngle += contributionsAngle;
-            }
-
-            // Interest slice
-            if (interestPercentage > 0) {
-                svg.appendChild(createPieSlice(currentAngle, currentAngle + interestAngle, '#1976D2'));
-            }
+            // Reset display
+            toggleInputs();
+            
+            // Hide results
+            document.getElementById('resultsContainer').style.display = 'none';
+            document.getElementById('resultsSection').classList.remove('show');
+            document.getElementById('errorMessage').classList.remove('show');
         }
+        
+        // Initialize page
+        window.onload = function() {
+            toggleInputs();
+            // Set default values
+            document.getElementById('initialInvestment').value = '10000';
+            document.getElementById('timePeriod').value = '10';
+            document.getElementById('interestRate').value = '7';
+            document.getElementById('regularContribution').value = '500';
+        };
     </script>
 </body>
 </html> 

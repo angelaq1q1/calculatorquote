@@ -21,71 +21,104 @@
   },
   "inLanguage": "en",
   "datePublished": "2024-04-01",
-  "dateModified": "2025-01-27"
+  "dateModified": "2025-09-06"
 }
 </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* 隐藏所有可能的问号图标 */
-        [title]:after,
-        [data-title]:after,
-        [data-tooltip]:after,
-        .tooltip:after,
-        .has-tooltip:after,
-        label:after,
-        label:before,
-        *:after,
-        *:before {
-            content: none !important;
+        .content-area {
+            flex: 1;
+            max-width: 800px;
         }
-
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .calculator-container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 30px 20px;
-            background-color: #ffffff;
-            border-radius: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 0;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
         
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
         
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
         
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
         
         .print-link {
@@ -165,7 +198,7 @@
         }
         
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -178,11 +211,11 @@
         }
         
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
         
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -195,7 +228,7 @@
         }
         
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         
         .results-section {
@@ -211,7 +244,7 @@
         }
         
         .result-card {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            background: linear-gradient(135deg, #eb5424 0%, #d4441a 100%);
             color: white;
             padding: 20px;
             border-radius: 12px;
@@ -285,7 +318,42 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -294,12 +362,10 @@
             Army Retirement Calculator
         </div>
 
-        <h1 style="color: #333; font-size: 2em; margin-bottom: 20px;">
-            Army Retirement Calculator
-        </h1>
-        <p style="color: #666; line-height: 1.6; margin-bottom: 20px; font-size: 1.1em;">
+        <h1>Army Retirement Calculator</h1>
+        <div class="description">
             Calculate your Army retirement benefits, estimate pension amounts, and plan your post-service financial future. Our comprehensive Army Retirement Calculator helps you understand your military retirement pay based on years of service, rank, and retirement plan. Whether you're active duty, reserve, or planning for High-3 retirement, get accurate calculations for your military retirement planning.
-        </p>
+        </div>
 
         <div class="calculator-grid">
             <div class="input-section">
@@ -307,7 +373,7 @@
                 
                 <div class="input-group">
                     <label for="years-of-service">Years of Service</label>
-                    <input type="number" id="years-of-service" placeholder="Enter years of service" min="0" max="40" step="0.5">
+                    <input type="number" id="years-of-service" placeholder="Enter years of service" min="0" max="40" step="0.5" style="width: 100%; min-width: 200px;">
                 </div>
                 
                 <div class="input-group">
@@ -397,15 +463,15 @@
         </div>
 
         <div class="info-section">
-            <h2>How to Use the Army Retirement Calculator</h2>
+            <h2 style="font-size: 1.2em;">How to Use the Army Retirement Calculator</h2>
             <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">Follow these simple steps to calculate your Army retirement benefits:</p>
             <ol style="color: #666; line-height: 1.6; margin-left: 20px; margin-bottom: 15px;">
-                <li style="margin-bottom: 8px;"><strong>Step 1:</strong> Enter your years of service (including partial years)</li>
-                <li style="margin-bottom: 8px;"><strong>Step 2:</strong> Select your retirement plan (Legacy High-3 or BRS)</li>
-                <li style="margin-bottom: 8px;"><strong>Step 3:</strong> Input your base pay at retirement</li>
-                <li style="margin-bottom: 8px;"><strong>Step 4:</strong> Add any disability percentage if applicable</li>
-                <li style="margin-bottom: 8px;"><strong>Step 5:</strong> Include additional benefits like VA disability pay</li>
-                <li style="margin-bottom: 8px;"><strong>Step 6:</strong> Click "Calculate" to see your retirement estimates</li>
+                <li style="margin-bottom: 8px;">Enter your years of service (including partial years)</li>
+                <li style="margin-bottom: 8px;">Select your retirement plan (Legacy High-3 or BRS)</li>
+                <li style="margin-bottom: 8px;">Input your base pay at retirement</li>
+                <li style="margin-bottom: 8px;">Add any disability percentage if applicable</li>
+                <li style="margin-bottom: 8px;">Include additional benefits like VA disability pay</li>
+                <li style="margin-bottom: 8px;">Click "Calculate" to see your retirement estimates</li>
             </ol>
         </div>
 
@@ -484,76 +550,93 @@
             <h2>FAQ: Army vs. Military Retirement Calculators</h2>
             
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">Is the Army Retirement Calculator different from the Military Retirement Calculator?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q1: Is the Army Retirement Calculator different from the Military Retirement Calculator?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    No. The Army follows the same formula used across the U.S. military. This calculator works as both an Army Retirement Calculator and a Military Retirement Pay Calculator. The calculations are identical for all branches of service.
+                    <strong>A:</strong> No. The Army follows the same formula used across the U.S. military. This calculator works as both an Army Retirement Calculator and a Military Retirement Pay Calculator. The calculations are identical for all branches of service.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">Can this tool calculate Army Reserve and National Guard pensions?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q2: Can this tool calculate Army Reserve and National Guard pensions?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Yes, it covers Army Reserve retirement pay and National Guard benefits. Our Army Reserve Retirement Calculator and Army National Guard Retirement Calculator are built into this tool, providing accurate estimates for part-time service members.
+                    <strong>A:</strong> Yes, it covers Army Reserve retirement pay and National Guard benefits. Our Army Reserve Retirement Calculator and Army National Guard Retirement Calculator are built into this tool, providing accurate estimates for part-time service members.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">Does it include BRS and High-3 formulas?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q3: Does it include BRS and High-3 formulas?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Yes, the calculator supports Army High-3 retirement and the Blended Retirement System (BRS). You can select between Legacy (High-3) and BRS retirement plans to get accurate calculations for your specific situation.
+                    <strong>A:</strong> Yes, the calculator supports Army High-3 retirement and the Blended Retirement System (BRS). You can select between Legacy (High-3) and BRS retirement plans to get accurate calculations for your specific situation.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">How much is a 20 year Army pension worth?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q4: How much is a 20 year Army pension worth?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    A 20-year Army pension under the Legacy system equals 50% of your base pay (20 years × 2.5%). For example, if your base pay is $5,000/month, your monthly pension would be $2,500. Under BRS, it would be 40% of base pay ($2,000/month) plus TSP benefits.
+                    <strong>A:</strong> A 20-year Army pension under the Legacy system equals 50% of your base pay (20 years × 2.5%). For example, if your base pay is $5,000/month, your monthly pension would be $2,500. Under BRS, it would be 40% of base pay ($2,000/month) plus TSP benefits.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">What is the average Army retirement pay?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q5: What is the average Army retirement pay?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    The average Army retirement pay varies by rank and years of service. A typical E-7 with 20 years might receive around $2,500-$3,500 monthly, while an O-5 with 20 years could receive $5,000-$7,000 monthly. Use our calculator for your specific situation.
+                    <strong>A:</strong> The average Army retirement pay varies by rank and years of service. A typical E-7 with 20 years might receive around $2,500-$3,500 monthly, while an O-5 with 20 years could receive $5,000-$7,000 monthly. Use our calculator for your specific situation.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">How is Army retirement pay calculated?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q6: How is Army retirement pay calculated?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Army retirement pay is calculated using the formula: Years of Service × Multiplier × Average of Highest 36 Months of Basic Pay. The multiplier is 2.5% for Legacy and 2% for BRS.
+                    <strong>A:</strong> Army retirement pay is calculated using the formula: Years of Service × Multiplier × Average of Highest 36 Months of Basic Pay. The multiplier is 2.5% for Legacy and 2% for BRS.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">What's the difference between Legacy and BRS?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q7: What's the difference between Legacy and BRS?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Legacy provides a higher pension (2.5% multiplier) but no government TSP contributions. BRS offers a lower pension (2% multiplier) plus TSP matching and continuation pay.
+                    <strong>A:</strong> Legacy provides a higher pension (2.5% multiplier) but no government TSP contributions. BRS offers a lower pension (2% multiplier) plus TSP matching and continuation pay.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">Is Army retirement pay taxable?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q8: Is Army retirement pay taxable?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Yes, Army retirement pay is generally subject to federal income tax. However, some states don't tax military retirement, and VA disability pay is tax-free.
+                    <strong>A:</strong> Yes, Army retirement pay is generally subject to federal income tax. However, some states don't tax military retirement, and VA disability pay is tax-free.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">When can I start receiving Army retirement pay?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q9: When can I start receiving Army retirement pay?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    You can start receiving Army retirement pay immediately upon retirement if you have 20+ years of service, or at age 60 if you have less than 20 years but qualify for early retirement.
+                    <strong>A:</strong> You can start receiving Army retirement pay immediately upon retirement if you have 20+ years of service, or at age 60 if you have less than 20 years but qualify for early retirement.
                 </p>
             </div>
 
             <div style="margin-bottom: 25px;">
-                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;">How accurate is the US Army Retirement Calculator?</h3>
+                <h3 style="color: #333; margin-bottom: 10px; font-size: 1.1em;"><strong>Q10: How accurate is the US Army Retirement Calculator?</strong></h3>
                 <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                    Our US Army Retirement Calculator provides accurate estimates based on current military pay tables and retirement formulas. However, actual retirement pay may vary due to factors like promotions, special pay, and changes in military compensation policies. Always consult with your military personnel office for official calculations.
+                    <strong>A:</strong> Our US Army Retirement Calculator provides accurate estimates based on current military pay tables and retirement formulas. However, actual retirement pay may vary due to factors like promotions, special pay, and changes in military compensation policies. Always consult with your military personnel office for official calculations.
                 </p>
             </div>
         </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
 
     <script>
         // Format numbers with commas
@@ -631,16 +714,14 @@
             document.getElementById('tax-state').value = '0';
         };
     </script>
-    
-    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
-        </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
-    </footer>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>
