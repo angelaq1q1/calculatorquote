@@ -17,101 +17,129 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.calculatorquote.com/sports/swim-pace-calculator.html">
   
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Template CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
   <style>
-    :root {
-      --text-primary: #222;
-      --text-secondary: #666;
+    /* Custom styles for swim pace calculator */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background-color: #f5f5f5;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-    .calculator-container {
+
+    .content-wrapper {
+      flex: 1;
       max-width: 800px;
-      margin: 20px auto;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
       padding: 30px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
     }
     .breadcrumb {
-      margin: 0 auto 20px auto;
-      max-width: 800px;
+      margin-bottom: 20px;
       font-size: 1em;
       color: #666;
-      text-align: left;
     }
     .breadcrumb a {
-      color: #2196F3;
+      color: #eb5424;
       text-decoration: none;
       transition: color 0.3s;
     }
     .breadcrumb a:hover {
-      color: #1976D2;
+      color: #d43d1a;
     }
     .breadcrumb span {
       color: #666;
       margin: 0 8px;
     }
-    h1 {
-      color: var(--text-primary);
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      font-weight: 700;
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
     }
     h2 {
-      color: var(--text-primary);
+      color: #333;
       font-size: 1.2em;
       margin: 20px 0 14px 0;
       font-weight: 600;
     }
     h3 {
-      color: var(--text-primary);
+      color: #333;
       font-size: 1.1em;
       margin: 15px 0 10px 0;
       font-weight: 600;
     }
     .intro-text {
-      font-size: 1.1em;
+      font-size: 1em;
       line-height: 1.6;
-      margin-bottom: 20px;
-      color: var(--text-secondary);
+      margin-bottom: 30px;
+      color: #666;
     }
     .content-section {
       margin: 30px 0 20px 0;
-      padding: 20px 0;
+      padding: 25px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     .formula-box {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 15px;
       margin: 15px 0;
       font-family: monospace;
       font-size: 1.1em;
     }
+    .faq-section {
+      margin: 30px 0 20px 0;
+      padding: 25px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
     .faq-item {
-      margin-bottom: 25px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 20px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
     }
     .faq-question {
-      font-weight: 600;
-      color: var(--text-primary);
+      font-weight: normal;
+      color: #333;
       margin-bottom: 8px;
       font-size: 1.1em;
     }
     .faq-answer {
-      color: var(--text-secondary);
+      color: #666;
       line-height: 1.6;
     }
 
@@ -139,185 +167,330 @@
       border-color: #2196F3;
     }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
-    button { 
-      margin-top:25px; 
-      padding:12px 25px; 
-      border-radius:5px; 
-      border:0; 
-      background:#2196F3; 
-      color:#fff; 
-      font-weight:500; 
-      cursor:pointer; 
-      font-size:16px;
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    
+    .btn-calculate {
+      background-color: #eb5424;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
       transition: background-color 0.3s;
     }
-    button:hover {
-      background-color: #1976D2;
+    
+    .btn-calculate:hover {
+      background-color: #d43d1a;
     }
-    #clear:hover {
-      background-color: #64b5f6 !important;
+    
+    .btn-clear {
+      background-color: #f5c6cb;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      min-width: 120px;
+    }
+    
+    .btn-clear:hover {
+      background-color: #f1aeb5;
     }
     .result { 
-      margin-top:30px; 
-      padding:25px; 
+      margin-top:32px; 
+      padding:28px 22px; 
       background:#f8f9fa; 
       border-radius:10px; 
       border:1px solid #e9ecef; 
-      font-size:1.2em; 
-      color:#1976D2; 
+      font-size:1.08em; 
+      color:#222; 
       min-height:40px; 
     }
     table { width:100%; border-collapse:collapse; margin-top:8px; }
     td, th { padding:6px 8px; border-bottom:1px solid #eee; text-align:left; }
     .muted { color:#666; font-size:0.95rem; }
     .small { font-size:0.92rem; }
+    @media (max-width: 1024px) {
+      .main-container {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .content-wrapper {
+        padding: 20px;
+      }
+    }
+
+    /* Navigation alignment */
+    .navbar {
+        min-height: 60px;
+        padding: 10px 0;
+    }
+    
+    .navbar-header {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li a {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+    }
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .navbar-collapse {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile navigation button positioning */
+    @media (max-width: 767px) {
+        .navbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-toggle {
+            float: right !important;
+            margin-right: 15px;
+            margin-top: 8px;
+        }
+        
+        .navbar-brand {
+            float: left !important;
+        }
+    }
+
+    /* Footer links styling */
+    .tm-contact nav a {
+        color: #eb5424 !important;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .tm-contact nav a:hover {
+        color: #d4441a !important;
+    }
+
     @media (max-width: 768px) {
-      .calculator-container {
+      .content-container {
         padding: 15px;
       }
-      h1 {
-        font-size: 2em !important;
+      .page-title {
+        font-size: 1.2em !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span>></span>
-    <a href="index.html">Sports</a>
-    <span>></span>
-    <span>Swim Pace Calculator</span>
-  </div>
-  
-  <div class="calculator-container">
-    <h1 style="font-size: 2.5em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">Swim Pace Calculator (Meters & Yards)</h1>
-    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Calculate your swimming pace per 100m and 100yd with our free swim pace calculator. Perfect for triathlon training, open water swimming, and pool workouts. Simply enter your distance and time to get instant pace calculations and projected race times.</p>
-
-    <div class="formula-box">
-      <strong>Swim Pace Formula:</strong> Pace per 100 = (Total Time ÷ Distance) × 100
-    </div>
-      <div class="card" role="region" aria-label="Swim pace calculator">
-        <div class="input-group">
-          <label for="distance">Distance:</label>
-          <input id="distance" type="number" min="1" step="any" value="1500" />
-          <select id="unit" aria-label="distance unit" style="margin-top: 8px;">
-            <option value="m">meters (m)</option>
-            <option value="yd">yards (yd)</option>
-          </select>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- END NAVIGATION -->
 
-        <div class="input-group">
-          <label>Time (Hours : Minutes : Seconds):</label>
-          <div class="grid" style="grid-template-columns: 1fr 1fr 1fr;">
-            <input id="hours" type="number" min="0" value="0" placeholder="Hours" />
-            <input id="minutes" type="number" min="0" max="59" value="30" placeholder="Minutes" />
-            <input id="seconds" type="number" min="0" max="59" value="0" placeholder="Seconds" />
-          </div>
-        </div>
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-container">
+                    <div class="content-wrapper">
+                        <!-- Breadcrumb -->
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            <a href="index.html">Sports</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            Swim Pace Calculator
+                        </div>
+                        
+                        <div class="page-title">Swim Pace Calculator (Meters & Yards)</div>
+                        <p class="intro-text">Calculate your swimming pace per 100m and 100yd with our free swim pace calculator. Perfect for triathlon training, open water swimming, and pool workouts. Simply enter your distance and time to get instant pace calculations and projected race times.</p>
 
-    <button id="calc">Calculate</button>
-    <button id="clear" style="margin-left: 10px; background-color: #90caf9; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">Clear</button>
+                        <div class="formula-box" style="display: none;">
+                            <strong>Swim Pace Formula:</strong> Pace per 100 = (Total Time ÷ Distance) × 100
+                        </div>
+                        
+                        <div class="card" role="region" aria-label="Swim pace calculator">
+                            <div class="input-group">
+                                <label for="distance">Distance:</label>
+                                <input id="distance" type="number" min="1" step="any" value="1500" />
+                                <select id="unit" aria-label="distance unit" style="margin-top: 8px;">
+                                    <option value="m">meters (m)</option>
+                                    <option value="yd">yards (yd)</option>
+                                </select>
+                            </div>
 
-    <div id="error" class="muted" role="alert" style="margin-top:8px;"></div>
-    
-    <div id="output" class="result" style="display:none;">
-      <div id="paceSummary" class="small"></div>
+                            <div class="input-group">
+                                <label>Time (Hours : Minutes : Seconds):</label>
+                                <div class="grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                                    <input id="hours" type="number" min="0" value="0" placeholder="Hours" />
+                                    <input id="minutes" type="number" min="0" max="59" value="30" placeholder="Minutes" />
+                                    <input id="seconds" type="number" min="0" max="59" value="0" placeholder="Seconds" />
+                                </div>
+                            </div>
 
-      <table aria-live="polite">
-        <thead>
-          <tr><th>Metric</th><th>Value</th></tr>
-        </thead>
-        <tbody id="outputsTable">
-          <!-- filled by JS -->
-        </tbody>
-      </table>
+                            <div class="buttons">
+                                <button id="calc" class="btn-calculate">Calculate</button>
+                                <button id="clear" class="btn-clear">Clear</button>
+                            </div>
 
-      <div style="margin-top:10px;" class="muted small">
-        Tip: you can switch units. For yards the calculator also shows pace per 100yd.
-      </div>
-    </div>
-  </div>
+                            <div id="error" class="muted" role="alert" style="margin-top:8px;"></div>
+                            
+                            <div id="output" class="result" style="display:none;">
+                                <div id="paceSummary" class="small"></div>
 
-    <div class="content-section">
-      <h2>How to Calculate Swim Pace</h2>
-    <p>Understanding your swim pace is crucial for training and race planning. Our swimming pace calculator makes it easy to determine your pace per 100 meters or 100 yards.</p>
-    
-    <h3>Step-by-Step Guide:</h3>
-    <ol style="margin: 15px 0; padding-left: 20px; color: var(--text-secondary);">
-      <li><strong>Enter your distance:</strong> Input the distance you swam (in meters or yards)</li>
-      <li><strong>Select units:</strong> Choose between meters (m) or yards (yd)</li>
-      <li><strong>Enter your time:</strong> Input hours, minutes, and seconds</li>
-      <li><strong>Calculate:</strong> Click the calculate button to get your pace</li>
-    </ol>
-    
-      <p>The calculator will show your pace per 100m, pace per 100yd, average speed, and projected times for common swimming distances.</p>
-    </div>
+                                <table aria-live="polite">
+                                    <thead>
+                                        <tr><th>Metric</th><th>Value</th></tr>
+                                    </thead>
+                                    <tbody id="outputsTable">
+                                        <!-- filled by JS -->
+                                    </tbody>
+                                </table>
 
-    <div class="content-section">
-      <h2>Swim Pace Calculator for Different Uses</h2>
-    
-    <h3>Triathlon & Ironman Swim Pace Calculator</h3>
-    <p>For triathlon training, knowing your swim pace per 100m is essential. Use this pace calculator swim tool to:</p>
-    <ul style="margin: 10px 0; padding-left: 20px; color: var(--text-secondary);">
-      <li>Plan your Ironman swim split (3.8km/2.4 miles)</li>
-      <li>Calculate Half Ironman swim times (1.9km/1.2 miles)</li>
-      <li>Set realistic goals for Olympic distance (1.5km)</li>
-    </ul>
-    
-    <h3>Open Water Swimming Pace</h3>
-    <p>Open water swimming requires different pacing strategies. This swimming pace calculator helps you:</p>
-    <ul style="margin: 10px 0; padding-left: 20px; color: var(--text-secondary);">
-      <li>Account for currents and waves</li>
-      <li>Plan longer distance swims</li>
-      <li>Compare pool vs open water performance</li>
-    </ul>
-    
-    <h3>Pool Training Pace Calculator</h3>
-    <p>For pool workouts, use our pace calculator swimming tool to:</p>
-    <ul style="margin: 10px 0; padding-left: 20px; color: var(--text-secondary);">
-      <li>Set interval training times</li>
-      <li>Track improvement over time</li>
-        <li>Plan workout sets and rest periods</li>
-      </ul>
-    </div>
+                                <div style="margin-top:10px;" class="muted small">
+                                    Tip: you can switch units. For yards the calculator also shows pace per 100yd.
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="content-section">
-      <h2>Frequently Asked Questions</h2>
-    
-    <div class="faq-item">
-      <div class="faq-question">What is swim pace and how do I calculate it?</div>
-      <div class="faq-answer">Swim pace is the time it takes to swim a specific distance, typically expressed as time per 100 meters or 100 yards. To calculate swim pace, divide your total time by the distance swam, then multiply by 100. For example, if you swim 400m in 8:00, your pace per 100m is 2:00.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">How to calculate swim pace per 100 meters?</div>
-      <div class="faq-answer">Use the formula: Pace per 100m = (Total Time ÷ Distance in meters) × 100. Our swim pace calculator does this automatically - just enter your distance and time, and it will show your pace per 100m instantly.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">What's the difference between yard pace and meter pace?</div>
-      <div class="faq-answer">Yard pace is slightly faster than meter pace because yards are shorter (1 yard = 0.9144 meters). A 1:30 pace per 100 yards equals approximately 1:38 per 100 meters. Our swimming pace calculator shows both automatically.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">What is a good swim pace for beginners?</div>
-      <div class="faq-answer">For beginners, a good swim pace per 100m ranges from 2:30 to 4:00. Competitive swimmers often maintain 1:15-2:00 per 100m, while recreational swimmers typically swim 2:00-3:00 per 100m. Focus on consistency and gradual improvement.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">How do I use this for triathlon training?</div>
-      <div class="faq-answer">For triathlon training, use our swim pace calculator to set realistic goals. Olympic distance (1.5km) typically requires 1:45-2:30 per 100m pace. Ironman (3.8km) needs sustainable pacing around 2:00-2:45 per 100m. Practice at race pace during training.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">Can I use this calculator for open water swimming?</div>
-        <div class="faq-answer">Yes! While this pace calculator swim tool is based on pool distances, it's perfect for planning open water swims. Remember that open water conditions (currents, waves, temperature) can affect your actual pace, so add 10-20% to your pool pace for realistic open water planning.</div>
-      </div>
-    </div>
+                        <div class="content-section">
+                            <h2>How to Calculate Swim Pace</h2>
+                            <p>Understanding your swim pace is crucial for training and race planning. Our swimming pace calculator makes it easy to determine your pace per 100 meters or 100 yards.</p>
+                            
+                            <h3>Step-by-Step Guide:</h3>
+                            <ol style="margin: 15px 0; padding-left: 20px; color: #666;">
+                                <li><strong>Enter your distance:</strong> Input the distance you swam (in meters or yards)</li>
+                                <li><strong>Select units:</strong> Choose between meters (m) or yards (yd)</li>
+                                <li><strong>Enter your time:</strong> Input hours, minutes, and seconds</li>
+                                <li><strong>Calculate:</strong> Click the calculate button to get your pace</li>
+                            </ol>
+                            
+                            <p>The calculator will show your pace per 100m, pace per 100yd, average speed, and projected times for common swimming distances.</p>
+                        </div>
 
+                        <div class="content-section">
+                            <h2>Swim Pace Calculator for Different Uses</h2>
+                            
+                            <h3>Triathlon & Ironman Swim Pace Calculator</h3>
+                            <p>For triathlon training, knowing your swim pace per 100m is essential. Use this pace calculator swim tool to:</p>
+                            <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                                <li>Plan your Ironman swim split (3.8km/2.4 miles)</li>
+                                <li>Calculate Half Ironman swim times (1.9km/1.2 miles)</li>
+                                <li>Set realistic goals for Olympic distance (1.5km)</li>
+                            </ul>
+                            
+                            <h3>Open Water Swimming Pace</h3>
+                            <p>Open water swimming requires different pacing strategies. This swimming pace calculator helps you:</p>
+                            <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                                <li>Account for currents and waves</li>
+                                <li>Plan longer distance swims</li>
+                                <li>Compare pool vs open water performance</li>
+                            </ul>
+                            
+                            <h3>Pool Training Pace Calculator</h3>
+                            <p>For pool workouts, use our pace calculator swimming tool to:</p>
+                            <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                                <li>Set interval training times</li>
+                                <li>Track improvement over time</li>
+                                <li>Plan workout sets and rest periods</li>
+                            </ul>
+                        </div>
 
-  </div>
+                        <div class="faq-section">
+                            <h2>Frequently Asked Questions</h2>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q1:</strong> What is swim pace and how do I calculate it?</div>
+                                <div class="faq-answer"><strong>A:</strong> Swim pace is the time it takes to swim a specific distance, typically expressed as time per 100 meters or 100 yards. To calculate swim pace, divide your total time by the distance swam, then multiply by 100. For example, if you swim 400m in 8:00, your pace per 100m is 2:00.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q2:</strong> How to calculate swim pace per 100 meters?</div>
+                                <div class="faq-answer"><strong>A:</strong> Use the formula: Pace per 100m = (Total Time ÷ Distance in meters) × 100. Our swim pace calculator does this automatically - just enter your distance and time, and it will show your pace per 100m instantly.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q3:</strong> What's the difference between yard pace and meter pace?</div>
+                                <div class="faq-answer"><strong>A:</strong> Yard pace is slightly faster than meter pace because yards are shorter (1 yard = 0.9144 meters). A 1:30 pace per 100 yards equals approximately 1:38 per 100 meters. Our swimming pace calculator shows both automatically.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q4:</strong> What is a good swim pace for beginners?</div>
+                                <div class="faq-answer"><strong>A:</strong> For beginners, a good swim pace per 100m ranges from 2:30 to 4:00. Competitive swimmers often maintain 1:15-2:00 per 100m, while recreational swimmers typically swim 2:00-3:00 per 100m. Focus on consistency and gradual improvement.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q5:</strong> How do I use this for triathlon training?</div>
+                                <div class="faq-answer"><strong>A:</strong> For triathlon training, use our swim pace calculator to set realistic goals. Olympic distance (1.5km) typically requires 1:45-2:30 per 100m pace. Ironman (3.8km) needs sustainable pacing around 2:00-2:45 per 100m. Practice at race pace during training.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q6:</strong> Can I use this calculator for open water swimming?</div>
+                                <div class="faq-answer"><strong>A:</strong> Yes! While this pace calculator swim tool is based on pool distances, it's perfect for planning open water swims. Remember that open water conditions (currents, waves, temperature) can affect your actual pace, so add 10-20% to your pool pace for realistic open water planning.</div>
+                            </div>
+                        </div>
 
   <script>
     // --- Utility helpers ---
@@ -433,18 +606,31 @@
       });
     });
   </script>
-  </div>
-  
-  <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-    <nav style="margin-bottom: 8px;">
-      <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-      <span style="color: #ccc;">|</span>
-      <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-      <span style="color: #ccc;">|</span>
-      <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
-    </nav>
-    <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
-  </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
   
   <script type="application/ld+json">
   {

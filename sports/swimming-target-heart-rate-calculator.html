@@ -56,85 +56,92 @@
   <link rel="alternate" hreflang="en" href="https://www.calculatorquote.com/sports/swimming-target-heart-rate-calculator.html">
   <link rel="alternate" hreflang="x-default" href="https://www.calculatorquote.com/sports/swimming-target-heart-rate-calculator.html">
   
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Template CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
   <style>
-    :root {
-      --text-primary: #222;
-      --text-secondary: #666;
-      --primary-color: #2196F3;
-      --secondary-color: #1976D2;
-      --success-color: #4CAF50;
-      --warning-color: #FF9800;
-      --danger-color: #F44336;
+    /* Custom styles for swimming heart rate calculator */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background-color: #f5f5f5;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-    .calculator-container {
+
+    .content-wrapper {
+      flex: 1;
       max-width: 800px;
-      margin: 20px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+      padding: 32px 24px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .breadcrumb {
-      margin: 0 auto 20px auto;
-      max-width: 800px;
+      margin-bottom: 20px;
       font-size: 1em;
       color: #666;
-      text-align: left;
     }
     .breadcrumb a {
-      color: #2196F3;
+      color: #eb5424;
       text-decoration: none;
       transition: color 0.3s;
     }
     .breadcrumb a:hover {
-      color: #1976D2;
+      color: #d43d1a;
     }
     .breadcrumb span {
       color: #666;
       margin: 0 8px;
     }
-    h1 {
-      color: var(--text-primary);
-      font-size: 2.2em;
-      margin-bottom: 15px;
-      font-weight: 700;
-      line-height: 1.3;
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
     }
     h2 {
-      color: var(--text-primary);
+      color: #333;
       font-size: 1.2em;
       margin: 20px 0 14px 0;
       font-weight: 600;
     }
     h3 {
-      color: var(--text-primary);
+      color: #333;
       font-size: 1.1em;
       margin: 15px 0 10px 0;
       font-weight: 600;
     }
     .intro-text {
-      font-size: 1.1em;
+      font-size: 1em;
       line-height: 1.6;
-      margin-bottom: 20px;
-      color: var(--text-secondary);
+      margin-bottom: 30px;
+      color: #666;
     }
     .content-section {
       margin: 30px 0 20px 0;
-      padding: 20px 0;
+      padding: 25px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     .formula-box {
       background: #f8f9fa;
@@ -142,22 +149,32 @@
       border-radius: 8px;
       padding: 15px;
       margin: 15px 0;
-      font-family: monospace;
+      font-family: 'Raleway', sans-serif;
       font-size: 1.1em;
     }
+    .faq-section {
+      margin: 30px 0 20px 0;
+      padding: 25px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
     .faq-item {
-      margin-bottom: 25px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 20px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
     }
     .faq-question {
-      font-weight: 600;
-      color: var(--text-primary);
+      font-weight: normal;
+      color: #333;
       margin-bottom: 8px;
       font-size: 1.1em;
     }
     .faq-answer {
-      color: var(--text-secondary);
+      color: #666;
       line-height: 1.6;
     }
 
@@ -189,39 +206,60 @@
     }
     input[type="number"]:focus, select:focus {
       border-color: #2196F3;
-      box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
     }
     .grid { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
       gap: 10px; 
     }
-    button { 
-      margin-top: 25px; 
-      padding: 12px 25px; 
-      border-radius: 5px; 
-      border: 0; 
-      background: #2196F3; 
-      color: #fff; 
-      font-weight: 500; 
-      cursor: pointer; 
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    
+    .btn-calculate {
+      background-color: #eb5424;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
       font-size: 16px;
       transition: background-color 0.3s;
     }
-    button:hover {
-      background-color: #1976D2;
+    
+    .btn-calculate:hover {
+      background-color: #d43d1a;
+    }
+    
+    .btn-clear {
+      background-color: #f5c6cb;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      min-width: 120px;
+    }
+    
+    .btn-clear:hover {
+      background-color: #f1aeb5;
     }
     #clear:hover {
       background-color: #64b5f6 !important;
     }
     .result { 
-      margin-top: 30px; 
-      padding: 25px; 
+      margin-top: 32px; 
+      padding: 28px 22px; 
       background: #f8f9fa; 
       border-radius: 10px; 
       border: 1px solid #e9ecef; 
-      font-size: 1.2em; 
-      color: #1976D2; 
+      font-size: 1.08em; 
+      color: #222; 
       min-height: 40px; 
     }
     table { 
@@ -237,7 +275,7 @@
     th {
       background-color: #f8f9fa;
       font-weight: 600;
-      color: var(--text-primary);
+      color: #333;
     }
     .muted { 
       color: #666; 
@@ -255,16 +293,16 @@
     }
     .zone-title {
       font-weight: 600;
-      color: var(--text-primary);
+      color: #333;
       margin-bottom: 5px;
     }
     .zone-range {
       font-size: 1.2em;
-      color: var(--primary-color);
+      color: #eb5424;
       font-weight: 500;
     }
     .zone-description {
-      color: var(--text-secondary);
+      color: #666;
       font-size: 0.9em;
       margin-top: 5px;
     }
@@ -282,9 +320,9 @@
       border: 1px solid #ddd;
     }
     .method-toggle button.active {
-      background: #2196F3;
+      background: #eb5424;
       color: white;
-      border-color: #2196F3;
+      border-color: #eb5424;
     }
     .optional-field {
       opacity: 0.7;
@@ -292,13 +330,39 @@
     .optional-field.active {
       opacity: 1;
     }
-    @media (max-width: 768px) {
-      .calculator-container {
-        padding: 15px;
+    @media (max-width: 1024px) {
+      .main-container {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
       }
-      h1 {
-        font-size: 1.8em !important;
-        text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .content-wrapper {
+        padding: 20px;
+      }
+    }
+
+
+    /* Footer links styling */
+    .tm-contact nav a {
+        color: #eb5424 !important;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .tm-contact nav a:hover {
+        color: #d4441a !important;
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        padding: 20px 15px;
+      }
+      .page-title {
+        font-size: 1.2em !important;
+        text-align: left;
       }
       .method-toggle {
         flex-direction: column;
@@ -307,16 +371,49 @@
   </style>
 </head>
 <body>
-  <div class="breadcrumb">
-    <a href="../index.html">Home</a>
-    <span>></span>
-    <a href="index.html">Sports</a>
-    <span>></span>
-    <span>Swimming Target Heart Rate Calculator</span>
-  </div>
-  
-  <div class="calculator-container">
-    <h1>Swimming Target Heart Rate Calculator-Avoid Fatigue and Injury: Your Personal Swimming Heart Rate Calculator</h1>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-container">
+                    <div class="content-wrapper">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Sports</a>
+                            <span>/</span>
+                            Swimming Target Heart Rate Calculator
+                        </div>
+                            
+    <div class="page-title">Swimming Target Heart Rate Calculator-Avoid Fatigue and Injury: Your Personal Swimming Heart Rate Calculator</div>
     <p class="intro-text">Struggling to find the right intensity in your swim workouts? Swimming too hard can lead to fatigue, injury, or slow progress, while swimming too easy won't give you results. Our Swimming Target Heart Rate Calculator helps you instantly discover your personal heart rate zone, so you can train safely, burn fat efficiently, and improve endurance without overexertion.</p>
 
     <div class="formula-box">
@@ -366,8 +463,10 @@
         </div>
       </div>
 
-      <button id="calc">Calculate Heart Rate Zones</button>
-      <button id="clear" style="margin-left: 10px; background-color: #90caf9; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">Clear</button>
+      <div class="buttons">
+        <button id="calc" class="btn-calculate">Calculate</button>
+        <button id="clear" class="btn-clear">Clear</button>
+      </div>
 
       <div id="error" class="muted" role="alert" style="margin-top: 8px;"></div>
       
@@ -424,51 +523,63 @@
       <p>Used for endurance training and performance improvement. This zone challenges your cardiovascular system and builds swimming-specific fitness.</p>
     </div>
 
-    <div class="content-section">
+    <div class="faq-section">
       <h2>Frequently Asked Questions</h2>
     
       <div class="faq-item">
-        <div class="faq-question">What is the best heart rate for swimming?</div>
-        <div class="faq-answer">The best heart rate depends on your training goals. For general fitness and fat burning, aim for 60-70% of your maximum heart rate. For endurance training, use 70-85% of your max HR. Use our calculator to find your personalized zones.</div>
+        <div class="faq-question"><strong>Q1: What is the best heart rate for swimming?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> The best heart rate depends on your training goals. For general fitness and fat burning, aim for 60-70% of your maximum heart rate. For endurance training, use 70-85% of your max HR. Use our calculator to find your personalized zones.</div>
       </div>
       
       <div class="faq-item">
-        <div class="faq-question">How do I measure my resting heart rate?</div>
-        <div class="faq-answer">Measure your heart rate first thing in the morning, before getting out of bed. Count your pulse for 60 seconds or count for 15 seconds and multiply by 4. Do this for several days and take the average for the most accurate reading.</div>
+        <div class="faq-question"><strong>Q2: How do I measure my resting heart rate?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> Measure your heart rate first thing in the morning, before getting out of bed. Count your pulse for 60 seconds or count for 15 seconds and multiply by 4. Do this for several days and take the average for the most accurate reading.</div>
       </div>
       
       <div class="faq-item">
-        <div class="faq-question">Is swimming heart rate different from running heart rate?</div>
-        <div class="faq-answer">Swimming heart rate is typically 10-15 bpm lower than running heart rate due to the horizontal position and water's cooling effect. However, the same training zones apply - just adjust your target ranges accordingly.</div>
+        <div class="faq-question"><strong>Q3: Is swimming heart rate different from running heart rate?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> Swimming heart rate is typically 10-15 bpm lower than running heart rate due to the horizontal position and water's cooling effect. However, the same training zones apply - just adjust your target ranges accordingly.</div>
       </div>
       
       <div class="faq-item">
-        <div class="faq-question">How often should I train in each heart rate zone?</div>
-        <div class="faq-answer">For balanced training: 70% of your time in moderate zone (60-70% MHR), 20% in high zone (70-85% MHR), and 10% in light zone (50-60% MHR). This follows the 80/20 rule for optimal fitness development.</div>
+        <div class="faq-question"><strong>Q4: How often should I train in each heart rate zone?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> For balanced training: 70% of your time in moderate zone (60-70% MHR), 20% in high zone (70-85% MHR), and 10% in light zone (50-60% MHR). This follows the 80/20 rule for optimal fitness development.</div>
       </div>
       
       <div class="faq-item">
-        <div class="faq-question">Can I use this calculator for other water sports?</div>
-        <div class="faq-answer">Yes! This calculator works for any water-based cardio activity including water aerobics, water polo, synchronized swimming, and triathlon swimming. The heart rate zones are universal for cardiovascular training.</div>
+        <div class="faq-question"><strong>Q5: Can I use this calculator for other water sports?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> Yes! This calculator works for any water-based cardio activity including water aerobics, water polo, synchronized swimming, and triathlon swimming. The heart rate zones are universal for cardiovascular training.</div>
       </div>
       
       <div class="faq-item">
-        <div class="faq-question">What if my heart rate monitor shows different values?</div>
-        <div class="faq-answer">Heart rate monitors can vary in accuracy. Use our calculated zones as a guide, but listen to your body. If you feel comfortable and can maintain conversation in the moderate zone, you're on track. Adjust based on perceived exertion if needed.</div>
+        <div class="faq-question"><strong>Q6: What if my heart rate monitor shows different values?</strong></div>
+        <div class="faq-answer"><strong>A:</strong> Heart rate monitors can vary in accuracy. Use our calculated zones as a guide, but listen to your body. If you feel comfortable and can maintain conversation in the moderate zone, you're on track. Adjust based on perceived exertion if needed.</div>
       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-    <nav style="margin-bottom: 8px;">
-      <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-      <span style="color: #ccc;">|</span>
-      <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-      <span style="color: #ccc;">|</span>
-      <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
-    </nav>
-    <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
-  </footer>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 
   <script>
     // Method toggle functionality
@@ -652,8 +763,8 @@
     "url": "https://www.calculatorquote.com/sports/swimming-target-heart-rate-calculator.html",
     "description": "Free swimming target heart rate calculator 2025. Calculate your optimal heart rate zones for swimming training using simple & Karvonen methods. Get personalized zones for fat burning, endurance & recovery.",
     "keywords": "swimming heart rate calculator, target heart rate swimming, heart rate zones swimming, swimming training heart rate, swimming cardio zones",
-    "datePublished": "2025-01-27",
-    "dateModified": "2025-01-27",
+    "datePublished": "2025-09-06",
+    "dateModified": "2025-09-06",
     "inLanguage": "en-US",
     "isPartOf": {
       "@type": "WebSite",
@@ -741,8 +852,8 @@
         "url": "https://www.calculatorquote.com/images/logo.png"
       }
     },
-    "datePublished": "2025-01-27",
-    "dateModified": "2025-01-27",
+    "datePublished": "2025-09-06",
+    "dateModified": "2025-09-06",
     "mainEntityOfPage": "https://www.calculatorquote.com/sports/swimming-target-heart-rate-calculator.html",
     "articleSection": "Sports & Fitness",
     "keywords": "swimming heart rate, target heart rate zones, swimming training, heart rate calculator, swimming fitness, triathlon swimming, water sports training",
@@ -762,8 +873,8 @@
     "operatingSystem": "Web Browser",
     "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
     "softwareVersion": "1.0",
-    "datePublished": "2025-01-27",
-    "dateModified": "2025-01-27",
+    "datePublished": "2025-09-06",
+    "dateModified": "2025-09-06",
     "author": {
       "@type": "Organization",
       "name": "CalculatorQuote"
@@ -996,8 +1107,8 @@
       "@type": "Organization",
       "name": "CalculatorQuote"
     },
-    "datePublished": "2025-01-27",
-    "dateModified": "2025-01-27",
+    "datePublished": "2025-09-06",
+    "dateModified": "2025-09-06",
     "keywords": "swimming, heart rate, training zones, fitness data, sports science",
     "includedInDataCatalog": {
       "@type": "DataCatalog",
