@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +7,33 @@
     <meta name="robots" content="index, follow">
     <title>Cat Sitting Cost Calculator – See How Much Your Cat Care Will Cost</title>
     <meta name="description" content="Estimate cat sitting fees instantly based on cat size, duration, number of cats, and extra services like overnight care or medication. Plan your cat care stress-free!">
-    <!-- Load Google Fonts and Material Icons -->
+    <meta name="keywords" content="cat sitting cost, cat sitting services, cat sitting jobs, cat sitting apps, cat sitting rates overnight, cat sitting charge per day, cat sitting house sitting">
+    <meta name="author" content="CalculatorQuote">
+    <link rel="canonical" href="https://calculatorquote.com/pet/cat-sitting-cost-calculator.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cat Sitting Cost Calculator – See How Much Your Cat Care Will Cost">
+    <meta property="og:description" content="Estimate cat sitting fees instantly based on cat size, duration, number of cats, and extra services like overnight care or medication. Plan your cat care stress-free!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/pet/cat-sitting-cost-calculator.html">
+    <meta property="og:site_name" content="CalculatorQuote">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cat Sitting Cost Calculator – See How Much Your Cat Care Will Cost">
+    <meta name="twitter:description" content="Estimate cat sitting fees instantly based on cat size, duration, number of cats, and extra services like overnight care or medication. Plan your cat care stress-free!">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    
+    <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -64,20 +84,27 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Raleway', sans-serif;
         }
         body {
             background-color: #f5f5f5;
             min-height: 100vh;
-            padding: 40px 20px;
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+        }
+        .calculator-section {
             background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         .breadcrumb {
             margin-bottom: 20px;
@@ -85,26 +112,31 @@
             color: #666;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
         }
         .calculator-section {
             background-color: #f8f9fa;
@@ -113,20 +145,23 @@
             margin-bottom: 20px;
         }
         .section-title {
-            color: #2196F3;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            font-weight: 500;
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
         .formula-box {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
+            background: #fff5f2;
+            border: 1px solid #ffd4c4;
             border-radius: 5px;
             padding: 15px;
             margin: 15px 0;
             font-family: 'Courier New', monospace;
             font-size: 0.9em;
-            color: #1976D2;
+            color: #d4441a;
         }
         .input-group {
             margin-bottom: 20px;
@@ -152,7 +187,7 @@
         .input-group input:focus,
         .input-group select:hover,
         .input-group select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
         .input-group select {
             width: 100%;
@@ -175,7 +210,7 @@
         .checkbox-options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 2px;
         }
         .checkbox-item {
             display: flex;
@@ -191,13 +226,14 @@
             cursor: pointer;
         }
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -207,10 +243,10 @@
             transition: background-color 0.3s;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -220,17 +256,17 @@
             transition: background-color 0.3s;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .result-section {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e3f2fd;
+            background-color: #fff5f2;
             border-radius: 10px;
             display: none;
         }
         .result-section h2 {
-            color: #1976D2;
+            color: #d4441a;
             margin-bottom: 15px;
         }
         .pricing-breakdown {
@@ -258,7 +294,7 @@
             color: #666;
         }
         .pricing-note h3 {
-            color: #2196F3;
+            color: #eb5424;
             margin-bottom: 15px;
             font-size: 1.1em;
         }
@@ -292,10 +328,20 @@
         }
         .info-box p {
             margin-bottom: 12px;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
         .info-box ul {
             margin-left: 1.2em;
             margin-bottom: 12px;
+        }
+        
+        .info-box li {
+            margin-bottom: 0.5em;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
         @media (max-width: 768px) {
             .input-group, .checkbox-group {
@@ -311,25 +357,70 @@
             .calculator-container {
                 padding: 20px;
             }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a> <span>/</span>
-            <a href="index.html">Pet Calculators</a> <span>/</span>
-            <span>Cat Sitting Cost Calculator</span>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
         </div>
-        <h1>Cat Sitting Cost Calculator – Plan Stress-Free Cat Care Without Breaking the Bank</h1>
-        <div class="description">
-            <p>
-              Quickly estimate cat sitting fees based on duration, cat size, number of cats, and extra services like medication or overnight stays, so you can relax knowing your cat is well cared for.
-            </p>
-        </div>
+    </nav>
 
-        <!-- Cat Sitting Cost Calculator -->
-        <div class="calculator-section">
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a> <span>/</span>
+                        <a href="index.html">Pet Calculators</a> <span>/</span>
+                        <span>Cat Sitting Cost Calculator</span>
+                    </div>
+                    <div class="page-title">Cat Sitting Cost Calculator – Plan Stress-Free Cat Care Without Breaking the Bank</div>
+                    <div class="description">
+                        <p>Quickly estimate cat sitting fees based on duration, cat size, number of cats, and extra services like medication or overnight stays, so you can relax knowing your cat is well cared for.</p>
+                    </div>
+
+                    <!-- Cat Sitting Cost Calculator -->
+                    <div class="calculator-section">
+                        <h2 class="section-title">🐱 Cat Sitting Cost Calculator</h2>
+                        
             <div class="input-group">
                 <label for="num-cats">Number of Cats <span style="color:#e53935">*</span></label>
                 <input type="number" id="num-cats" min="1" max="5" value="1" required>
@@ -435,24 +526,50 @@
                 <li>• Additional service costs</li>
                 <li>• Total estimated cost</li>
             </ul>
-            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Get the Right Price and Keep Your Cat Happy</div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q1: How much does cat sitting cost per day?</strong><br>A: Cat sitting typically costs $25-35 per day for basic care. Use our calculator to get accurate pricing based on your specific needs, number of cats, and additional services.
+            <h3 style="margin: 20px 0 10px;">❓ FAQ – Get the Right Price and Keep Your Cat Happy</h3>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q1: How much does cat sitting cost per day?</strong><br>
+                A: Cat sitting typically costs $25-35 per day for basic care. Use our calculator to get accurate pricing based on your specific needs, number of cats, and additional services.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q2: What's included in basic cat sitting services?</strong><br>A: Basic cat sitting includes feeding, fresh water, litter box cleaning, playtime, and general care. Additional services like medication administration, overnight care, or grooming are available for extra fees.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q2: What's included in basic cat sitting services?</strong><br>
+                A: Basic cat sitting includes feeding, fresh water, litter box cleaning, playtime, and general care. Additional services like medication administration, overnight care, or grooming are available for extra fees.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q3: How do I calculate costs for multiple cats?</strong><br>A: Our calculator automatically applies quantity discounts: 2nd cat = 0.8x base rate, 3rd+ cats = 0.7x base rate. This reflects the efficiency of caring for multiple cats together.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q3: How do I calculate costs for multiple cats?</strong><br>
+                A: Our calculator automatically applies quantity discounts: 2nd cat = 0.8x base rate, 3rd+ cats = 0.7x base rate. This reflects the efficiency of caring for multiple cats together.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q4: What additional services are available for cats?</strong><br>A: Additional services include medication administration ($5/day), overnight care ($20/night), and grooming services ($30/day). These can be added to basic care as needed.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q4: What additional services are available for cats?</strong><br>
+                A: Additional services include medication administration ($5/day), overnight care ($20/night), and grooming services ($30/day). These can be added to basic care as needed.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q5: How much should I budget for cat sitting?</strong><br>A: Budget depends on number of cats, duration, and services needed. Use our calculator to get personalized estimates and plan your cat care budget effectively.
+            <div style="margin-bottom: 0;">
+                <p><strong>Q5: How much should I budget for cat sitting?</strong><br>
+                A: Budget depends on number of cats, duration, and services needed. Use our calculator to get personalized estimates and plan your cat care budget effectively.</p>
+            </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Template JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/custom.js"></script>
 
     <script>
         function calculateCatSitting() {
@@ -602,15 +719,6 @@
             }
         }
     </script>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
-        <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
-            <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
-        </nav>
-        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
-    </footer>
+
 </body>
 </html>

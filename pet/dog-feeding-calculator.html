@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
     <title>Dog Feeding Calculator 🐶 | Charts, Guides, and Raw Food Calculator</title>
     <meta name="description" content="Use our free Dog Feeding Calculator to find the perfect food portions for your dog. Get feeding charts by age, weight, and size. Includes puppy feeding guide, raw food calculator, transition tips, and printable charts.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="dog feeding calculator, puppy feeding, dog food calculator, dog nutrition, dog calories, dog feeding guide, raw dog food, dog food transition">
+    <link rel="canonical" href="https://calculatorquote.com/pet/dog-feeding-calculator.html">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -50,25 +63,32 @@
         ]
     }
     </script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/pet/dog-feeding-calculator.html">
+    <meta property="og:title" content="Dog Feeding Calculator - Calculate Daily Food Requirements">
+    <meta property="og:description" content="Free dog feeding calculator to determine daily calorie and food requirements for puppies, adult dogs, and senior dogs.">
+    <meta property="og:image" content="https://calculatorquote.com/images/dog-feeding-calculator-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorquote.com/pet/dog-feeding-calculator.html">
+    <meta property="twitter:title" content="Dog Feeding Calculator - Calculate Daily Food Requirements">
+    <meta property="twitter:description" content="Free dog feeding calculator to determine daily calorie and food requirements for puppies, adult dogs, and senior dogs.">
+    <meta property="twitter:image" content="https://calculatorquote.com/images/dog-feeding-calculator-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+        /* Custom styles for dog feeding calculator */
         .calculator-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
         }
         .breadcrumb {
             margin-bottom: 20px;
@@ -76,26 +96,31 @@
             color: #666;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d43d1a;
         }
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
         }
         .calculator-section {
             background-color: #f8f9fa;
@@ -104,20 +129,23 @@
             margin-bottom: 20px;
         }
         .section-title {
-            color: #2196F3;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            font-weight: 500;
+            color: #eb5424;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
         .formula-box {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
+            background: #fdf2f0;
+            border: 1px solid #f5c6cb;
             border-radius: 5px;
             padding: 15px;
             margin: 15px 0;
             font-family: 'Courier New', monospace;
             font-size: 0.9em;
-            color: #1976D2;
+            color: #d43d1a;
         }
         .input-group {
             margin-bottom: 20px;
@@ -143,7 +171,7 @@
         .input-group input:focus,
         .input-group select:hover,
         .input-group select:focus {
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
         .input-group select {
             width: 100%;
@@ -153,13 +181,14 @@
             cursor: pointer;
         }
         .buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -169,10 +198,10 @@
             transition: background-color 0.3s;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -182,17 +211,17 @@
             transition: background-color 0.3s;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .result-section {
             margin-top: 30px;
             padding: 20px;
-            background-color: #e3f2fd;
+            background-color: #fdf2f0;
             border-radius: 10px;
             display: none;
         }
         .result-section h2 {
-            color: #1976D2;
+            color: #d43d1a;
             margin-bottom: 15px;
         }
         .result-item {
@@ -200,7 +229,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             padding: 8px 0;
-            border-bottom: 1px solid #bbdefb;
+            border-bottom: 1px solid #f5c6cb;
         }
         .result-item:last-child {
             border-bottom: none;
@@ -211,7 +240,7 @@
         }
         .result-value {
             font-weight: 600;
-            color: #2196F3;
+            color: #eb5424;
         }
         .error {
             color: #e53935;
@@ -235,10 +264,20 @@
         }
         .info-box p {
             margin-bottom: 12px;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
         .info-box ul {
             margin-left: 1.2em;
             margin-bottom: 12px;
+        }
+        
+        .info-box li {
+            margin-bottom: 0.5em;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
         }
         @media (max-width: 768px) {
             .input-group {
@@ -248,23 +287,65 @@
             .input-group label {
                 margin-bottom: 5px;
             }
-            body {
-                padding: 10px;
-            }
             .calculator-container {
                 padding: 20px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a> <span>/</span>
             <a href="index.html">Pet Calculators</a> <span>/</span>
             <span>Dog Feeding Calculator</span>
         </div>
-        <h1>Dog Feeding Calculator – Stop Overfeeding and Keep Your Dog at a Healthy Weight</h1>
+        <div class="page-title">Dog Feeding Calculator – Stop Overfeeding and Keep Your Dog at a Healthy Weight</div>
         <div class="description">
             <p>
               Worried about whether you're feeding too much or too little? Our Dog Feeding Calculator takes the guesswork out by giving you the right dog food portion based on your pet's age, weight, and activity level. Whether you're raising a playful puppy or managing an older dog, proper feeding helps prevent overweight issues and keeps your pup happy, healthy, and full of energy.
@@ -275,11 +356,6 @@
         <div class="calculator-section">
             <h2 class="section-title">🐕 Adult Dog Feeding Calculator</h2>
             
-            <div class="formula-box">
-                <strong>Calculation Formula:</strong><br>
-                RER = 70 × (Weight in kg ^ 0.75)<br>
-                MER = RER × Age Factor × Activity Factor
-            </div>
 
             <div class="input-group">
                 <label for="adult-weight">Dog Weight (kg) <span style="color:#e53935">*</span></label>
@@ -334,12 +410,6 @@
         <div class="calculator-section">
             <h2 class="section-title">🐶 Puppy Feeding Calculator</h2>
             
-            <div class="formula-box">
-                <strong>Calculation Formula:</strong><br>
-                RER = 70 × (Weight in kg ^ 0.75)<br>
-                MER = RER × Age Factor<br>
-                2-4 months: 3.0× | 4-12 months: 2.0×
-            </div>
 
             <div class="input-group">
                 <label for="puppy-weight">Puppy Weight (kg) <span style="color:#e53935">*</span></label>
@@ -399,7 +469,7 @@
                     <li>Recommended meal frequency</li>
                 </ul>
                 <p><strong>📌 Example Output:</strong></p>
-                <div style="background: #e3f2fd; border: 1px solid #bbdefb; border-radius: 5px; padding: 15px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; color: #1976D2;">
+                <div style="background: #fdf2f0; border: 1px solid #f5c6cb; border-radius: 5px; padding: 15px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 0.9em; color: #d43d1a;">
                     🐕 Dog Result: "A 20kg adult dog needs 1060 kcal daily, approximately 300g dry food, recommended 2 meals per day."
                 </div>
             </div>
@@ -419,30 +489,40 @@
                 <li>People who say "I'll figure it out later" but then end up with an overweight or underweight dog</li>
                 <li>Dog owners who want to ensure optimal nutrition without overfeeding or underfeeding</li>
             </ul>
-            <div style="margin: 18px 0 8px; font-weight: 500;">❓ FAQ – Answers to Your Questions About Meals and Growth</div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q1: How much should I feed my puppy by weight?</strong><br>A: Use our dog feeding calculator to determine the exact portion for your puppy. You can also check the dog feeding chart puppy to see daily portions by weight and age. This helps ensure your puppy gets the right nutrition without overfeeding or underfeeding.
+            <h3 style="margin: 20px 0 10px;">❓ FAQ – Answers to Your Questions About Meals and Growth</h3>
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q1: How much should I feed my puppy by weight?</strong><br>
+                A: Use our dog feeding calculator to determine the exact portion for your puppy. You can also check the dog feeding chart puppy to see daily portions by weight and age. This helps ensure your puppy gets the right nutrition without overfeeding or underfeeding.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q2: Is raw feeding safe for dogs?</strong><br>A: Raw feeding can be safe if done correctly. Use the raw dog food calculator app or a dog food calculator raw to figure out proper meal sizes. Always balance protein, fat, and other nutrients, and consult your vet if you are unsure.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q2: Is raw feeding safe for dogs?</strong><br>
+                A: Raw feeding can be safe if done correctly. Use the raw dog food calculator app or a dog food calculator raw to figure out proper meal sizes. Always balance protein, fat, and other nutrients, and consult your vet if you are unsure.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q3: How do I calculate protein in my dog's food?</strong><br>A: Try our dog food protein calculator to find out how much protein your puppy needs each day. Combined with the dog food serving calculator, it helps you measure meals accurately and maintain a healthy diet.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q3: How do I calculate protein in my dog's food?</strong><br>
+                A: Try our dog food protein calculator to find out how much protein your puppy needs each day. Combined with the dog food serving calculator, it helps you measure meals accurately and maintain a healthy diet.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q4: What's the best way to transition to new dog food?</strong><br>A: Use a dog food transition calculator to gradually introduce new food over 7–10 days. This prevents digestive upset while helping your puppy adjust to the new diet safely.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q4: What's the best way to transition to new dog food?</strong><br>
+                A: Use a dog food transition calculator to gradually introduce new food over 7–10 days. This prevents digestive upset while helping your puppy adjust to the new diet safely.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q5: How much should I feed my dog calculator?</strong><br>A: You can use our dog feeding calculator to find out exactly how much food your dog needs each day. The tool works for puppies and adult dogs, helping you balance meals and prevent overfeeding. You can also reference the dog feeding chart by age or dog feeding chart weight for a quick guide.
+            <div style="margin-bottom: 15px;">
+                <p><strong>Q5: How much should I feed my dog calculator?</strong><br>
+                A: You can use our dog feeding calculator to find out exactly how much food your dog needs each day. The tool works for puppies and adult dogs, helping you balance meals and prevent overfeeding. You can also reference the dog feeding chart by age or dog feeding chart weight for a quick guide.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q6: How many calories does my dog need daily?</strong><br>A: Our dog feeding guide calculator or dog food feeding calculator can estimate daily calorie needs based on your puppy's age, size, and activity level. It ensures your pup gets the right energy without overeating.
+            <div style="margin-bottom: 0;">
+                <p><strong>Q6: How many calories does my dog need daily?</strong><br>
+                A: Our dog feeding guide calculator or dog food feeding calculator can estimate daily calorie needs based on your puppy's age, size, and activity level. It ensures your pup gets the right energy without overeating.</p>
             </div>
-            <div style="margin-bottom: 10px; color: #666; font-size: 1.1em; line-height: 1.7; font-weight: 400;">
-                <strong>Q7: Do large breed dogs need a different feeding guide?</strong><br>A: Yes. Large breeds have slower growth and need carefully measured meals. Use our dog feeding chart weight and dog feeding guide dry food to plan balanced meals and prevent joint problems.
+            <div style="margin-bottom: 0;">
+                <p><strong>Q7: Do large breed dogs need a different feeding guide?</strong><br>
+                A: Yes. Large breeds have slower growth and need carefully measured meals. Use our dog feeding chart weight and dog feeding guide dry food to plan balanced meals and prevent joint problems.</p>
+            </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <script>
         function calculateAdultDog() {
@@ -543,16 +623,22 @@
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
         }
     </script>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>
 

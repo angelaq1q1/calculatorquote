@@ -6,68 +6,47 @@
     <meta name="description" content="Calculate pet grooming costs instantly! Get accurate estimates for dog and cat grooming services including bath, haircut, full grooming, and home service options.">
     <meta name="keywords" content="pet grooming cost calculator, dog grooming price, cat grooming cost, pet grooming estimate, grooming calculator, pet care cost">
     <title>🐾 Pet Grooming Cost Calculator – Free Estimate Tool</title>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
-         crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://calculatorquote.com/pet/pet-grooming-cost-calculator.html">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/pet/pet-grooming-cost-calculator.html">
+    <meta property="og:title" content="Pet Grooming Cost Calculator - Free Estimate Tool">
+    <meta property="og:description" content="Calculate pet grooming costs instantly! Get accurate estimates for dog and cat grooming services including bath, haircut, full grooming, and home service options.">
+    <meta property="og:image" content="https://calculatorquote.com/images/pet-grooming-cost-calculator-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorquote.com/pet/pet-grooming-cost-calculator.html">
+    <meta property="twitter:title" content="Pet Grooming Cost Calculator - Free Estimate Tool">
+    <meta property="twitter:description" content="Calculate pet grooming costs instantly! Get accurate estimates for dog and cat grooming services including bath, haircut, full grooming, and home service options.">
+    <meta property="twitter:image" content="https://calculatorquote.com/images/pet-grooming-cost-calculator-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+        /* Custom styles for pet grooming cost calculator */
 
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 20px;
-        }
-
-        .main-container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .content-wrapper {
-            flex: 1;
+        .blog-container {
             max-width: 800px;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 32px 24px;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
         }
 
-        .ad-sidebar {
-            width: 300px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-        }
-
-        .ad-container {
-            width: 100%;
-            height: 600px;
-            background: #f8f9fa;
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.9em;
-            text-align: center;
-        }
 
         .breadcrumb {
             margin-bottom: 20px;
@@ -76,13 +55,13 @@
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d43d1a;
         }
 
         .breadcrumb span {
@@ -94,17 +73,39 @@
             margin-bottom: 30px;
         }
 
-        .page-header h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 15px;
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1::before,
+        .page-header h1::after {
+            display: none !important;
+        }
+        
+        .page-header h1 span {
+            border: none !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+            outline: none !important;
         }
 
         .page-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
         }
 
         .calculator {
@@ -142,7 +143,7 @@
         .form-group select:focus,
         .form-group input:focus {
             outline: none;
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
         .checkbox-group {
@@ -169,24 +170,38 @@
             font-size: 1em;
         }
 
-        .calculate-btn {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-calculate {
+            background-color: #eb5424;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: 500;
+            padding: 12px 25px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
-
-        .calculate-btn:hover {
-            background: linear-gradient(135deg, #1976D2, #1565C0);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
         }
 
         .result-section {
@@ -239,26 +254,23 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 1024px) {
-            .main-container {
-                flex-direction: column;
-                gap: 20px;
+
+        @media (max-width: 768px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
             }
             
-            .ad-sidebar {
+            .btn-calculate,
+            .btn-clear {
                 width: 100%;
-                position: static;
-                order: -1;
-            }
-            .ad-container {
-                height: 250px;
+                padding: 15px;
+                font-size: 16px;
             }
         }
 
         @media (max-width: 600px) {
-            .ad-container {
-                height: 200px;
-            }
             .calculator {
                 padding: 20px;
             }
@@ -266,8 +278,39 @@
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-container">
             <div class="breadcrumb">
                 <a href="../index.html">Home</a>
                 <span>/</span>
@@ -277,14 +320,12 @@
             </div>
 
             <div class="page-header">
-                <h1 style="font-size: 1.3em; font-weight: 700; color: #222; line-height: 1.3; margin-bottom: 20px;">
-                    <span style="display: block;">Find a Reliable Pet Salon—Calculate Grooming Cost Instantly</span>
-                </h1>
+                <div class="page-title">Find a Reliable Pet Salon—Calculate Grooming Cost Instantly</div>
             </div>
 
-            <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
-                Struggling to find a trustworthy pet salon? Use our Pet Grooming Cost Calculator to estimate baths, trims, and full grooming costs instantly. Compare prices and plan ahead to give your furry friend the care they deserve—without overpaying.
-            </p>
+            <div class="description">
+                <p>🐾 Struggling to find a trustworthy pet salon? Use our Pet Grooming Cost Calculator to estimate baths, trims, and full grooming costs instantly. Compare prices and plan ahead to give your furry friend the care they deserve—without overpaying.</p>
+            </div>
 
             <div class="calculator">
                 <form id="groomingForm">
@@ -363,9 +404,10 @@
                         </select>
                     </div>
 
-                    <button type="button" class="calculate-btn" onclick="calculateGroomingCost()">
-                        🧮 Calculate Grooming Cost
-                    </button>
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateGroomingCost()">Calculate</button>
+                        <button class="btn-clear" onclick="clearForm()">Clear</button>
+                    </div>
                 </form>
 
                 <div id="resultSection" class="result-section">
@@ -378,7 +420,7 @@
             </div>
 
             <div class="page-description">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">🐾 Pet Grooming Cost Calculator – Because your furry friend deserves the best</p>
+                <p style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🐾 Pet Grooming Cost Calculator – Because your furry friend deserves the best</p>
                 
                 <p>Use our Pet Grooming Cost Calculator to quickly estimate how much grooming your furry friend will cost. Finding a reliable pet salon can be stressful, and prices can vary widely. This calculator helps you plan ahead and avoid surprises, whether you're looking for pet grooming services near me or comparing mobile pet grooming options.</p>
 
@@ -403,50 +445,50 @@
 
                 <h3 style="margin: 20px 0 10px;">❓ FAQ – because pet parents have questions</h3>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How much is pet grooming at PetSmart?</strong><br>
+                    <p><strong>Q1: How much is pet grooming at PetSmart?</strong><br>
                     A: PetSmart grooming prices typically range from $30-80 for basic services, with full grooming packages costing $50-120 depending on pet size and services. Our calculator provides estimates that are competitive with PetSmart's pricing structure, helping you compare costs across different grooming providers.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Why do different pet sizes cost different amounts?</strong><br>
+                    <p><strong>Q2: Why do different pet sizes cost different amounts?</strong><br>
                     A: Larger pets require more time, products, and effort. A Great Dane's bath uses significantly more shampoo than a Chihuahua's, and the grooming time scales accordingly.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: What's included in "Full Grooming"?</strong><br>
+                    <p><strong>Q3: What's included in "Full Grooming"?</strong><br>
                     A: Full grooming typically includes bath, blow-dry, haircut/trim, nail trimming, ear cleaning, and basic styling. It's the complete spa package for your pet.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q: Is home grooming service worth the extra cost?</strong><br>
+                    <p><strong>Q4: Is home grooming service worth the extra cost?</strong><br>
                     A: Home service is great for anxious pets, busy schedules, or multiple pets. The convenience often outweighs the extra cost, especially if you have multiple pets or a stressed-out fur baby.</p>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <p><strong>Q: How often should I groom my pet?</strong><br>
+                <div style="margin-bottom: 0;">
+                    <p><strong>Q5: How often should I groom my pet?</strong><br>
                     A: It depends on breed, fur type, and lifestyle. Most dogs need grooming every 4-8 weeks, while cats may need it every 6-12 weeks. Long-haired breeds typically need more frequent grooming.</p>
                 </div>
             </div>
 
         </div>
-
-        <!-- Ad Sidebar -->
-        <div class="ad-sidebar">
-            <div class="ad-container">
-                <div>
-                    <p>Advertisement</p>
-                    <p style="font-size: 0.8em; margin-top: 10px;">Ad space for Google AdSense</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer style="max-width: 1200px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../term-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/custom.js"></script>
 
     <script>
         // Pricing structure
@@ -585,6 +627,26 @@
 
             costBreakdownElement.innerHTML = breakdownHTML;
             resultSection.classList.add('show');
+        }
+
+        // Clear form function
+        function clearForm() {
+            // Reset all form fields
+            document.getElementById('petType').value = '';
+            document.getElementById('petSize').value = '';
+            document.getElementById('furType').value = '';
+            document.getElementById('homeService').value = 'no';
+            
+            // Uncheck all checkboxes
+            document.getElementById('bath').checked = false;
+            document.getElementById('haircut').checked = false;
+            document.getElementById('fullGrooming').checked = false;
+            document.getElementById('earCleaning').checked = false;
+            document.getElementById('nailTrim').checked = false;
+            document.getElementById('teethCleaning').checked = false;
+            
+            // Hide results
+            document.getElementById('resultSection').classList.remove('show');
         }
 
         // Add form validation

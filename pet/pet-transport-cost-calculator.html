@@ -23,8 +23,39 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Transport Cost Calculator | Pet Shipping & Transportation Pricing</title>
     <meta name="description" content="Calculate pet transport costs with our comprehensive calculator. Get accurate pricing for pet shipping, ground transport, air transport, and pet relocation services. Find the best pet transportation rates.">
+    <meta name="keywords" content="pet transport cost calculator, pet shipping cost, pet transportation, pet relocation, pet transport services, pet shipping rates">
+    <title>🚚 Pet Transport Cost Calculator – Free Shipping Estimate Tool</title>
+    <link rel="canonical" href="https://calculatorquote.com/pet/pet-transport-cost-calculator.html">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/pet/pet-transport-cost-calculator.html">
+    <meta property="og:title" content="Pet Transport Cost Calculator - Free Shipping Estimate Tool">
+    <meta property="og:description" content="Calculate pet transport costs with our comprehensive calculator. Get accurate pricing for pet shipping, ground transport, air transport, and pet relocation services.">
+    <meta property="og:image" content="https://calculatorquote.com/images/pet-transport-cost-calculator-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorquote.com/pet/pet-transport-cost-calculator.html">
+    <meta property="twitter:title" content="Pet Transport Cost Calculator - Free Shipping Estimate Tool">
+    <meta property="twitter:description" content="Calculate pet transport costs with our comprehensive calculator. Get accurate pricing for pet shipping, ground transport, air transport, and pet relocation services.">
+    <meta property="twitter:image" content="https://calculatorquote.com/images/pet-transport-cost-calculator-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
     <script type="application/ld+json">
     [
       {
@@ -96,93 +127,144 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
       }
     ]
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
     <style>
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
-        }
-        .calculator-container {
+        /* Custom styles for pet transport cost calculator */
+
+        .blog-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 20px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
         }
+
         .breadcrumb {
             margin-bottom: 20px;
             font-size: 1em;
             color: #666;
         }
+
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
+
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d43d1a;
         }
+
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .description {
-            color: #666;
+
+        .page-header {
             margin-bottom: 30px;
-            line-height: 1.6;
         }
-        .input-section {
+
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .page-header h1::before,
+        .page-header h1::after {
+            display: none !important;
+        }
+        
+        .page-header h1 span {
+            border: none !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+        }
+
+        .calculator {
             background-color: #f8f9fa;
-            padding: 20px;
             border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        .input-group label {
+
+        .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
             font-weight: 500;
+            color: #333;
+            font-size: 1.1em;
         }
-        .input-group select,
-        .input-group input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
             font-size: 1em;
-            width: 100%;
-            margin-bottom: 10px;
+            transition: border-color 0.3s;
         }
-        .input-group input[type="number"] {
-            width: 100%;
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #eb5424;
         }
+
         .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
         }
+
         .checkbox-item {
             display: flex;
             align-items: center;
             gap: 8px;
         }
+
         .checkbox-item input[type="checkbox"] {
             width: auto;
             margin: 0;
         }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -190,239 +272,317 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
         }
+        
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
-        .result {
-            margin-top: 18px;
-            font-weight: bold;
-            text-align: center;
-            color: #28a745;
-            font-size: 1.15em;
-        }
-        .breakdown {
-            margin: 18px auto 0 auto;
-            max-width: 500px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 16px 20px;
-            color: #444;
-            font-size: 1em;
-        }
-        .price-range {
-            margin: 12px auto 0 auto;
-            max-width: 500px;
-            background: #e3f2fd;
-            border-radius: 8px;
-            padding: 16px 20px;
-            color: #1976d2;
-            font-size: 1em;
-            border-left: 4px solid #2196f3;
-        }
-        .note {
-            font-size: 13px;
-            color: #888;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .tip {
-            margin: 32px auto 0 auto;
-            max-width: 700px;
-            background: #fff;
-            border-radius: 14px;
-            border: 1.5px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
-            font-size: 1.08em;
-            color: #333;
-            line-height: 1.7;
-            padding: 22px 28px 18px 28px;
-        }
-        .section-title {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: #333;
-            margin: 20px 0 10px 0;
-            padding-bottom: 5px;
-        }
-        .cta-section {
-            margin: 32px auto 0 auto;
-            max-width: 700px;
-            background: linear-gradient(135deg, #2196F3, #1976D2);
-            border-radius: 14px;
-            padding: 24px 28px;
-            text-align: center;
+        
+        .btn-clear {
+            background-color: #f5c6cb;
             color: white;
-        }
-        .cta-section h3 {
-            margin: 0 0 12px 0;
-            font-size: 1.3em;
-        }
-        .cta-section p {
-            margin: 0 0 20px 0;
-            opacity: 0.9;
-        }
-        .cta-button {
-            background-color: white;
-            color: #2196F3;
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
-        .cta-button:hover {
-            background-color: #f5f5f5;
-            transform: translateY(-2px);
+        
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .result-section {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .total-cost {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cost-breakdown {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+
+        .breakdown-item.total {
+            border-top: 2px solid #4caf50;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .price-range {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+        }
+
+
+        @media (max-width: 768px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculator {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a>
-            <span>/</span>
-            <a href="index.html">Pet Calculators</a>
-            <span>/</span>
-            Pet Transport Cost Calculator
-        </div>
-        <h1>Pet Transport Cost Calculator</h1>
-        <div class="description">
-            Pet Transport Cost Calculator for pet owners and transportation professionals to calculate shipping costs, ground transport fees, and air transport expenses. Solve pricing uncertainty and budget planning challenges with accurate cost estimates for pet relocation services.
-        </div>
-        <div class="input-section">
-            <div class="section-title">1. Pet Information</div>
-            <div class="input-group">
-                <label for="pet-type">Pet Type:</label>
-                <select id="pet-type" required>
-                    <option value="">Select pet type</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="other">Other Small Animal</option>
-                </select>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
             </div>
-            <div class="input-group">
-                <label for="pet-size">Pet Size/Weight:</label>
-                <select id="pet-size" required>
-                    <option value="">Select pet size</option>
-                    <option value="small">Small (< 10kg / 22 lbs)</option>
-                    <option value="medium">Medium (10-25kg / 22-55 lbs)</option>
-                    <option value="large">Large (25-40kg / 55-88 lbs)</option>
-                    <option value="extra-large">Extra Large (40kg+ / 88+ lbs)</option>
-                </select>
-            </div>
-
-            <div class="section-title">2. Transport Details</div>
-            <div class="input-group">
-                <label for="transport-mode">Transport Mode:</label>
-                <select id="transport-mode" required>
-                    <option value="">Select transport method</option>
-                    <option value="ground">Ground Transport (Van, Shuttle, Private)</option>
-                    <option value="air-domestic">Air Transport (Domestic)</option>
-                    <option value="air-international">Air Transport (International)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="distance">Distance:</label>
-                <select id="distance" required>
-                    <option value="">Select distance range</option>
-                    <option value="short">Short Distance (< 100 miles)</option>
-                    <option value="medium">Medium Distance (100-500 miles)</option>
-                    <option value="long">Long Distance (500-1000 miles)</option>
-                    <option value="cross-country">Cross-Country/International (1000+ miles)</option>
-                </select>
-            </div>
-            <div class="input-group" id="distance-miles-group" style="display:none;">
-                <label for="distance-miles">Exact Distance (miles):</label>
-                <input type="number" id="distance-miles" min="1" max="5000" placeholder="Enter exact distance in miles">
-            </div>
-
-            <div class="section-title">3. Additional Services</div>
-            <div class="checkbox-group">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="pickup-service">
-                    <label for="pickup-service">Pickup Service (+$50-$150)</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="crate-rental">
-                    <label for="crate-rental">Crate Rental (+$30-$100)</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="health-check">
-                    <label for="health-check">Health Check & Vaccinations (+$50-$120)</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="pet-insurance">
-                    <label for="pet-insurance">Pet Insurance (2%-5% of total)</label>
-                </div>
-            </div>
-
-            <button class="btn-calculate" onclick="calculatePetTransportCost()">Calculate Transport Cost</button>
-            <div class="result" id="result"></div>
-            <div class="breakdown" id="breakdown" style="display:none;"></div>
-            <div class="price-range" id="price-range" style="display:none;"></div>
-            <div class="note" style="text-align:left;">* This is an estimated range. Actual costs may vary by region, provider, and specific requirements. Professional quotes recommended for accurate pricing.</div>
-        </div>
-        <div class="tip">
-            <b>Tip:</b> Pet transport costs vary significantly based on distance, pet size, and transport method. Ground transport is usually most cost-effective for shorter distances, while air transport becomes necessary for longer trips. Always ensure your pet has proper health documentation and consider pet insurance for peace of mind during transport.
-        </div>
-
-        <div class="user-guide-faq" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-size:1.08em;color:#333;line-height:1.7;">
-            <div style="font-size:1.18em;font-weight:600;color:#222;margin-bottom:10px;">Why Use Our Pet Transport Cost Calculator?</div>
-            <div style="margin-bottom:18px;">
-                Transporting your beloved pet safely and affordably requires careful planning and budgeting. With pet transport costs ranging from hundreds to thousands of dollars, understanding pricing helps you make informed decisions.<br><br>
-                This comprehensive calculator helps pet owners find the best transport solution by:
-                <ul style="margin:10px 0 10px 24px;">
-                    <li>Calculating accurate transport costs based on pet size and distance</li>
-                    <li>Comparing ground vs. air transport options for different distances</li>
-                    <li>Understanding additional service costs like pickup and health checks</li>
-                    <li>Budgeting for essential services like pet insurance and proper documentation</li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
                 </ul>
             </div>
-            <div style="font-size:1.08em;font-weight:normal;margin-bottom:8px;">Pet Transport Cost Breakdown</div>
-            <div style="margin-bottom:18px;">
-                <b>Base Fees:</b> $100-$250 - Covers booking, coordination, and basic services<br>
-                <b>Ground Transport:</b> $0.50-$1.50 per mile - Most cost-effective for shorter distances<br>
-                <b>Air Transport (Domestic):</b> $200-$500 - Required for longer distances and time-sensitive moves<br>
-                <b>Air Transport (International):</b> $500-$2,000 - Includes customs, documentation, and quarantine costs<br>
-                <b>Pet Size Fees:</b> Small pets (no extra), Medium (+$50-$100), Large (+$150-$300), Extra Large (+$400+)
-            </div>
-            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Additional Services and Requirements</div>
-            <div style="margin-bottom:18px;">
-                <b>Pickup Service:</b> $50-$150 - Door-to-door service for convenience<br>
-                <b>Crate Rental:</b> $30-$100 - IATA-approved travel crates for air transport<br>
-                <b>Health Check & Vaccinations:</b> $50-$120 - Required veterinary examination, vaccination updates, and documentation<br>
-                <b>Pet Insurance:</b> 2%-5% of total cost - Protects against transport-related incidents<br>
-                <b>Documentation:</b> Health certificates, vaccination records, and import permits as required
-            </div>
-            
-            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Frequently Asked Questions (FAQ)</div>
-            <div style="margin-bottom:18px;padding-left:0;">
-                <div style="margin-bottom:8px;"><b>Q: How much does pet transport cost?</b><br>A: Pet transport costs typically range from $200-$2,500 depending on distance, pet size, and transport method. Ground transport costs $0.50-$1.50 per mile plus base fees, while air transport ranges from $200-$500 for domestic flights to $500-$2,000 for international. Additional services like pickup, health checks, and insurance add $50-$300 to the total cost.</div>
-                <div style="margin-bottom:8px;"><b>Q: What is the cheapest way to transport a pet?</b><br>A: Ground transport is usually the cheapest way to transport pets for distances under 500 miles. DIY ground transport with your own vehicle costs only gas and time, while professional ground transport services cost $0.50-$1.50 per mile. For longer distances, air transport becomes more cost-effective, especially for smaller pets that can travel in the cabin.</div>
-                <div style="margin-bottom:8px;"><b>Q: How do I ship my pet safely?</b><br>A: To ship your pet safely, choose a reputable pet transport service, ensure proper health documentation, use an appropriate travel crate, and consider pet insurance. For air travel, book direct flights when possible, avoid extreme weather conditions, and provide familiar items in the crate. Always verify the transport company's credentials and read reviews from other pet owners.</div>
-                <div style="margin-bottom:8px;"><b>Q: Do I need a health certificate and vaccinations for pet transport?</b><br>A: Yes, most airlines and professional pet transport services require a health certificate issued by a licensed veterinarian within 10 days of travel. The certificate must confirm your pet is healthy, up-to-date on vaccinations (especially rabies), and free from contagious diseases. International transport may require additional vaccination documentation and quarantine periods depending on the destination country.</div>
-                <div style="margin-bottom:8px;"><b>Q: Can I transport my pet in the cabin?</b><br>A: Small pets (typically under 20 pounds) can often travel in the cabin with you on most airlines for an additional fee of $75-$200. Pets must remain in an airline-approved carrier that fits under the seat. Larger pets must travel in the cargo hold. Each airline has specific size and weight restrictions, so check with your chosen carrier before booking.</div>
-                <div style="margin-bottom:8px;"><b>Q: What documents do I need for international pet transport?</b><br>A: International pet transport requires a health certificate, proof of current vaccinations (especially rabies), microchip identification, and often an import permit from the destination country. Some countries require blood tests, quarantine periods, or specific vaccination schedules. Contact the destination country's embassy or agricultural department for exact requirements, as regulations vary significantly between countries.</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Pet Calculators</a>
+                            <span>/</span>
+                            Pet Transport Cost Calculator
+                        </div>
+
+                        <div class="page-header">
+                            <div class="page-title">🚚 Pet Transport Cost Calculator – Free Shipping Estimate Tool</div>
+                        </div>
+
+                        <div class="description">
+                            <p>🚚 Struggling to find reliable pet transport services? Use our Pet Transport Cost Calculator to estimate shipping costs, ground transport fees, and air transport expenses instantly. Compare prices and plan ahead to give your furry friend safe transportation—without overpaying.</p>
+                        </div>
+
+                        <div class="calculator">
+                            <form id="transportForm">
+                                <div class="form-group">
+                                    <label for="pet-type">🐾 Pet Type</label>
+                                    <select id="pet-type" required>
+                                        <option value="">Select Pet Type</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="other">Other Small Animal</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pet-size">📏 Pet Size / Weight</label>
+                                    <select id="pet-size" required>
+                                        <option value="">Select Size</option>
+                                        <option value="small">Small (< 10kg / 22 lbs)</option>
+                                        <option value="medium">Medium (10-25kg / 22-55 lbs)</option>
+                                        <option value="large">Large (25-40kg / 55-88 lbs)</option>
+                                        <option value="extra-large">Extra Large (40kg+ / 88+ lbs)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="transport-mode">🚚 Transport Mode</label>
+                                    <select id="transport-mode" required>
+                                        <option value="">Select Transport Method</option>
+                                        <option value="ground">Ground Transport (Van, Shuttle, Private)</option>
+                                        <option value="air-domestic">Air Transport (Domestic)</option>
+                                        <option value="air-international">Air Transport (International)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="distance">📏 Distance</label>
+                                    <select id="distance" required>
+                                        <option value="">Select Distance Range</option>
+                                        <option value="short">Short Distance (< 100 miles)</option>
+                                        <option value="medium">Medium Distance (100-500 miles)</option>
+                                        <option value="long">Long Distance (500-1000 miles)</option>
+                                        <option value="cross-country">Cross-Country/International (1000+ miles)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="distance-miles-group" style="display:none;">
+                                    <label for="distance-miles">📏 Exact Distance (miles)</label>
+                                    <input type="number" id="distance-miles" min="1" max="5000" placeholder="Enter exact distance in miles">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>🔧 Additional Services (Optional)</label>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="pickup-service" value="pickup">
+                                            <label for="pickup-service">Pickup Service (+$50-$150)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="crate-rental" value="crate">
+                                            <label for="crate-rental">Crate Rental (+$30-$100)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="health-check" value="health">
+                                            <label for="health-check">Health Check & Vaccinations (+$50-$120)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="pet-insurance" value="insurance">
+                                            <label for="pet-insurance">Pet Insurance (2%-5% of total)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="btn-calculate" onclick="calculatePetTransportCost()">Calculate</button>
+                                    <button class="btn-clear" onclick="clearForm()">Clear</button>
+                                </div>
+                                <div class="note" style="text-align:left; margin-top: 15px; font-size: 0.9em; color: #666;">* This is an estimated range. Actual costs may vary by region, provider, and specific requirements. Professional quotes recommended for accurate pricing.</div>
+                            </form>
+
+                            <div id="resultSection" class="result-section">
+                                <div class="total-cost" id="totalCost">$0</div>
+                                <div class="cost-breakdown" id="costBreakdown"></div>
+                                <div class="price-range">
+                                    * Prices may vary ±10% depending on location and transport provider
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-description">
+                            <p style="font-size: 1.2em; margin-bottom: 12px; font-weight: 500;">🚚 Pet Transport Cost Calculator – Because your furry friend deserves safe travel</p>
+                            
+                            <p>Use our Pet Transport Cost Calculator to quickly estimate how much transporting your beloved pet will cost. Finding reliable pet transport services can be stressful, and prices can vary widely. This calculator helps you plan ahead and avoid surprises, whether you're looking for pet shipping services or comparing ground vs. air transport options.</p>
+
+                            <h3 style="margin: 20px 0 10px;">💡 How to use the calculator:</h3>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 10px;">✅ <strong>Select Your Pet</strong> – choose whether you have a dog, cat, or other small animal. Different pets have different transport requirements and pricing.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Choose Transport Method</strong> – pick from ground transport, domestic air, or international air transport. Each method has different pricing structures.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Enter Distance</strong> – transport costs vary significantly by distance. Ground transport is usually cheaper for shorter distances, while air transport becomes necessary for longer trips.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Select Additional Services</strong> – optionally choose pickup service, crate rental, health check, or pet insurance to get a complete cost estimate.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Click "Calculate"</strong> – instantly see the results.</li>
+                            </ul>
+
+                            <h3 style="margin: 20px 0 10px;">📊 What the results mean:</h3>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 10px;">✅ <strong>Estimated Cost per Service</strong> – shows the average price transport companies charge for each service you selected.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Total Transport Cost</strong> – sums up all services for the journey, giving you a clear budget estimate.</li>
+                                <li style="margin-bottom: 10px;">✅ <strong>Plan Your Pet's Journey</strong> – compare this cost with multiple transport providers to find a trustworthy service without overpaying.</li>
+                            </ul>
+
+                            <p style="margin: 20px 0;">Using this calculator helps you make informed decisions, ensuring your pet receives safe and professional transport while keeping costs reasonable. No more guessing, calling multiple transport companies, or worrying about hidden fees. Simply enter the details, and you'll have a realistic idea of what to expect when searching for pet transport services.</p>
+
+                            <p style="margin: 20px 0;">Whether it's a local move, cross-country relocation, or international pet transport, our calculator gives you peace of mind and confidence in choosing the right transport service.</p>
+
+                            <h3 style="margin: 20px 0 10px;">❓ FAQ – because pet parents have questions</h3>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q1: How much does pet transport cost?</strong><br>
+                                A: Pet transport costs typically range from $200-$2,500 depending on distance, pet size, and transport method. Ground transport costs $0.50-$1.50 per mile plus base fees, while air transport ranges from $200-$500 for domestic flights to $500-$2,000 for international. Additional services like pickup, health checks, and insurance add $50-$300 to the total cost.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q2: What is the cheapest way to transport a pet?</strong><br>
+                                A: Ground transport is usually the cheapest way to transport pets for distances under 500 miles. DIY ground transport with your own vehicle costs only gas and time, while professional ground transport services cost $0.50-$1.50 per mile. For longer distances, air transport becomes more cost-effective, especially for smaller pets that can travel in the cabin.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q3: How do I ship my pet safely?</strong><br>
+                                A: To ship your pet safely, choose a reputable pet transport service, ensure proper health documentation, use an appropriate travel crate, and consider pet insurance. For air travel, book direct flights when possible, avoid extreme weather conditions, and provide familiar items in the crate. Always verify the transport company's credentials and read reviews from other pet owners.</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p><strong>Q4: Do I need a health certificate for pet transport?</strong><br>
+                                A: Yes, most airlines and professional pet transport services require a health certificate issued by a licensed veterinarian within 10 days of travel. The certificate must confirm your pet is healthy, up-to-date on vaccinations, and free from contagious diseases. International transport may require additional documentation and quarantine periods depending on the destination country.</p>
+                            </div>
+                            <div style="margin-bottom: 0;">
+                                <p><strong>Q5: Can I transport my pet in the cabin?</strong><br>
+                                A: Small pets (typically under 20 pounds) can often travel in the cabin with you on most airlines for an additional fee of $75-$200. Pets must remain in an airline-approved carrier that fits under the seat. Larger pets must travel in the cargo hold. Each airline has specific size and weight restrictions, so check with your chosen carrier before booking.</p>
+                            </div>
+                            <div style="margin-bottom: 0;">
+                                <p><strong>Q6: What documents do I need for international pet transport?</strong><br>
+                                A: International pet transport requires a health certificate, proof of current vaccinations (especially rabies), microchip identification, and often an import permit from the destination country. Some countries require blood tests, quarantine periods, or specific vaccination schedules. Contact the destination country's embassy or agricultural department for exact requirements, as regulations vary significantly between countries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/custom.js"></script>
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -457,10 +617,7 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
 
             // Validate inputs
             if (!petType || !petSize || !transportMode || !distance) {
-                document.getElementById('result').textContent = 'Please fill in all required fields.';
-                document.getElementById('result').style.color = '#dc3545';
-                document.getElementById('breakdown').style.display = 'none';
-                document.getElementById('price-range').style.display = 'none';
+                alert('Please fill in all required fields (Pet Type, Size, Transport Mode, and Distance)');
                 return;
             }
 
@@ -554,43 +711,130 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
             const totalMax = baseTotalMax + insuranceMax;
 
             // Display results
-            const resultDiv = document.getElementById('result');
-            const breakdownDiv = document.getElementById('breakdown');
-            const priceRangeDiv = document.getElementById('price-range');
-
-            resultDiv.innerHTML = `✅ Estimated Total Cost: $${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
-            resultDiv.style.color = '#28a745';
-
-            // Detailed breakdown
-            let breakdown = `<b>Cost Breakdown:</b><br>`;
-            breakdown += `Base Fee: $${baseFeeMin.toLocaleString()} - $${baseFeeMax.toLocaleString()}<br>`;
-            
-            if (transportMode === 'ground') {
-                breakdown += `Distance (${actualDistance} miles): $${distanceCostMin.toLocaleString()} - $${distanceCostMax.toLocaleString()}<br>`;
-            } else {
-                breakdown += `Air Transport: $${distanceCostMin.toLocaleString()} - $${distanceCostMax.toLocaleString()}<br>`;
-            }
-            
-            breakdown += `Pet Size Fee: $${weightFeeMin.toLocaleString()} - $${weightFeeMax.toLocaleString()}<br>`;
-            
-            if (extrasMin > 0) {
-                breakdown += `Additional Services: $${extrasMin.toLocaleString()} - $${extrasMax.toLocaleString()}<br>`;
-            }
-            
-            if (petInsurance) {
-                breakdown += `Pet Insurance: $${insuranceMin.toLocaleString()} - $${insuranceMax.toLocaleString()}<br>`;
-            }
-
-            breakdownDiv.innerHTML = breakdown;
-            breakdownDiv.style.display = 'block';
-
-            // Price range display
-            let rangeText = `<b>Estimated Price Range:</b> $${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}<br>`;
-            rangeText += `<small>Costs may vary based on specific requirements, season, and provider</small>`;
-            
-            priceRangeDiv.innerHTML = rangeText;
-            priceRangeDiv.style.display = 'block';
+            displayResults({
+                totalMin: totalMin,
+                totalMax: totalMax,
+                baseFeeMin: baseFeeMin,
+                baseFeeMax: baseFeeMax,
+                distanceCostMin: distanceCostMin,
+                distanceCostMax: distanceCostMax,
+                weightFeeMin: weightFeeMin,
+                weightFeeMax: weightFeeMax,
+                extrasMin: extrasMin,
+                extrasMax: extrasMax,
+                insuranceMin: insuranceMin,
+                insuranceMax: insuranceMax,
+                transportMode: transportMode,
+                actualDistance: actualDistance,
+                petType: petType,
+                petSize: petSize
+            });
         }
+
+        function displayResults(costs) {
+            const resultSection = document.getElementById('resultSection');
+            const totalCostElement = document.getElementById('totalCost');
+            const costBreakdownElement = document.getElementById('costBreakdown');
+
+            // Update total cost
+            totalCostElement.textContent = `$${costs.totalMin.toLocaleString()} - $${costs.totalMax.toLocaleString()}`;
+
+            // Create breakdown
+            let breakdownHTML = '<h4 style="margin-bottom: 15px; color: #333;">Cost Breakdown:</h4>';
+            
+            breakdownHTML += `<div class="breakdown-item">
+                <span>Base Fee</span>
+                <span>$${costs.baseFeeMin.toLocaleString()} - $${costs.baseFeeMax.toLocaleString()}</span>
+            </div>`;
+
+            if (costs.transportMode === 'ground') {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Distance (${costs.actualDistance} miles)</span>
+                    <span>$${costs.distanceCostMin.toLocaleString()} - $${costs.distanceCostMax.toLocaleString()}</span>
+                </div>`;
+            } else {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Air Transport</span>
+                    <span>$${costs.distanceCostMin.toLocaleString()} - $${costs.distanceCostMax.toLocaleString()}</span>
+                </div>`;
+            }
+
+            if (costs.weightFeeMin > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Pet Size Fee (${costs.petSize})</span>
+                    <span>$${costs.weightFeeMin.toLocaleString()} - $${costs.weightFeeMax.toLocaleString()}</span>
+                </div>`;
+            }
+
+            if (costs.extrasMin > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Additional Services</span>
+                    <span>$${costs.extrasMin.toLocaleString()} - $${costs.extrasMax.toLocaleString()}</span>
+                </div>`;
+            }
+
+            if (costs.insuranceMin > 0) {
+                breakdownHTML += `<div class="breakdown-item">
+                    <span>Pet Insurance</span>
+                    <span>$${costs.insuranceMin.toLocaleString()} - $${costs.insuranceMax.toLocaleString()}</span>
+                </div>`;
+            }
+
+            breakdownHTML += `<div class="breakdown-item total">
+                <span>Total Estimated Cost</span>
+                <span>$${costs.totalMin.toLocaleString()} - $${costs.totalMax.toLocaleString()}</span>
+            </div>`;
+
+            costBreakdownElement.innerHTML = breakdownHTML;
+            resultSection.classList.add('show');
+        }
+
+        // Clear form function
+        function clearForm() {
+            // Reset all form fields
+            document.getElementById('pet-type').value = '';
+            document.getElementById('pet-size').value = '';
+            document.getElementById('transport-mode').value = '';
+            document.getElementById('distance').value = '';
+            document.getElementById('distance-miles').value = '';
+            
+            // Uncheck all checkboxes
+            document.getElementById('pickup-service').checked = false;
+            document.getElementById('crate-rental').checked = false;
+            document.getElementById('health-check').checked = false;
+            document.getElementById('pet-insurance').checked = false;
+            
+            // Hide results
+            document.getElementById('resultSection').classList.remove('show');
+        }
+
+        // Add form validation
+        document.getElementById('transportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculatePetTransportCost();
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Calculator",
+      "name": "Pet Transport Cost Calculator",
+      "description": "Free pet transport cost calculator for dogs and cats. Calculate transport expenses based on pet type, size, transport method, and additional services including pickup and insurance.",
+      "url": "https://www.calculatorquote.com/pet/pet-transport-cost-calculator.html",
+      "keywords": [
+        "pet transport cost calculator",
+        "pet shipping cost",
+        "pet transportation",
+        "pet relocation",
+        "pet transport services"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
     </script>
 </body>
 </html>
