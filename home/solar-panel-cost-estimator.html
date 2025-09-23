@@ -41,22 +41,32 @@
       }
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Template CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
         }
         .breadcrumb {
             margin-bottom: 20px;
@@ -64,26 +74,32 @@
             color: #666;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -121,7 +137,7 @@
             font-weight: 500;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -132,7 +148,7 @@
             width: 100%;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
         .buttons {
             display: grid;
@@ -142,7 +158,7 @@
             margin: 25px auto 0 auto;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -152,13 +168,13 @@
             transition: background-color 0.3s;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .result {
             margin-top: 18px;
             font-weight: bold;
             text-align: center;
-            color: #28a745;
+            color: #eb5424;
             font-size: 1.15em;
         }
         .breakdown {
@@ -182,7 +198,7 @@
             background: #fff;
             border-radius: 14px;
             border: 1.5px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.07);
             font-size: 1.08em;
             color: #333;
             line-height: 1.7;
@@ -206,7 +222,39 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -216,7 +264,7 @@
         </div>
         <h1>Solar Panel Cost Calculator - Tired of Rising Power Bills but Unsure How Much Solar Panels Really Cost?</h1>
         <div class="description">
-            Tired of rising power bills? Wondering if solar panels are really worth the investment? Our solar panel cost estimator lets you quickly see the cost of installing solar panels for your home. You can calculate solar panel cost in just a few minutes and use the solar install cost calculator to check your potential savings and <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">payback period</a>. With this tool, you'll know if switching to solar fits your budget and starts saving you money.
+            Tired of rising power bills? Wondering if solar panels are really worth the investment? Our solar panel cost estimator lets you quickly see the cost of installing solar panels for your home. You can calculate solar panel cost in just a few minutes and use the solar install cost calculator to check your potential savings and <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">payback period</a>. With this tool, you'll know if switching to solar fits your budget and starts saving you money.
         </div>
         <div class="input-section">
             <div class="two-column">
@@ -324,7 +372,7 @@
         <div class="related-content" style="margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e0e0e0;">
             <h3 style="margin: 0 0 15px 0; color: #333; font-size: 1.2em;">Related Contents:</h3>
             <p style="margin: 0; line-height: 1.6;">
-                <a href="../blog/how-to-use-solar-panel-cost-calculator.html" style="color: #2196F3; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='#1976D2'" onmouseout="this.style.color='#2196F3'">How to Use a Solar Panel Cost Calculator for Home Energy Savings in 2025</a>
+                <a href="../blog/how-to-use-solar-panel-cost-calculator.html" style="color: #eb5424; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='#d4441a'" onmouseout="this.style.color='#eb5424'">How to Use a Solar Panel Cost Calculator for Home Energy Savings in 2025</a>
             </p>
         </div>
 
@@ -334,7 +382,7 @@
                 Solar panel installation is one of the smartest investments you can make for your home, but understanding the true costs and benefits can be overwhelming. Our solar panel cost calculator cuts through the confusion by providing accurate, location-specific estimates that help you make an informed decision.
             </p>
             <p style="margin: 0 0 15px 0; line-height: 1.7;">
-                Whether you're looking to <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">reduce your electricity bills</a>, increase your home's value, or contribute to environmental sustainability, solar panels offer significant long-term benefits. The key is getting the right system size and understanding all available incentives to maximize your <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">return on investment</a>.
+                Whether you're looking to <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">reduce your electricity bills</a>, increase your home's value, or contribute to environmental sustainability, solar panels offer significant long-term benefits. The key is getting the right system size and understanding all available incentives to maximize your <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">return on investment</a>.
             </p>
             <p style="margin: 0; line-height: 1.7;">
                 <b>What Our Solar Panel Cost Calculator Determines:</b><br>
@@ -342,10 +390,10 @@
                 • <b>Installation Costs:</b> Total upfront investment before incentives<br>
                 • <b>Federal Tax Credit:</b> 30% credit that reduces your net cost significantly<br>
                 • <b>State Incentives:</b> Additional savings available in your area<br>
-                • <b><a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Annual Savings</a>:</b> How much you'll save on electricity bills<br>
-                • <b><a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Payback Period</a>:</b> Time to recoup your investment through savings<br>
-                • <b><a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">25-Year ROI</a>:</b> Total financial benefit over the system's lifetime<br><br>
-                <i>💡 For detailed savings analysis and long-term projections, try our <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Solar Savings Calculator</a>.</i>
+                • <b><a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">Annual Savings</a>:</b> How much you'll save on electricity bills<br>
+                • <b><a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">Payback Period</a>:</b> Time to recoup your investment through savings<br>
+                • <b><a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">25-Year ROI</a>:</b> Total financial benefit over the system's lifetime<br><br>
+                <i>💡 For detailed savings analysis and long-term projections, try our <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">Solar Savings Calculator</a>.</i>
             </p>
         </div>
 
@@ -364,7 +412,7 @@
                         <b>Connecticut:</b> $0.21/kWh electricity, 4.1 sun hours/day
                     </p>
                     <p style="margin: 0; line-height: 1.6;">
-                        These states have high electricity rates, making solar panels pay for themselves faster despite higher installation costs. <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Calculate your specific savings</a> to see the exact ROI for your home.
+                        These states have high electricity rates, making solar panels pay for themselves faster despite higher installation costs. <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">Calculate your specific savings</a> to see the exact ROI for your home.
                     </p>
                 </div>
                 <div>
@@ -376,7 +424,7 @@
                         <b>Nevada:</b> $0.12/kWh electricity, 5.8 sun hours/day
                     </p>
                     <p style="margin: 0; line-height: 1.6;">
-                        These states offer good sunlight and moderate electricity rates, providing solid solar investment returns. Use our <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">savings calculator</a> to see your potential annual and long-term benefits.
+                        These states offer good sunlight and moderate electricity rates, providing solid solar investment returns. Use our <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">savings calculator</a> to see your potential annual and long-term benefits.
                     </p>
                 </div>
             </div>
@@ -385,7 +433,7 @@
         <div class="advice">
             <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;"><a href="solar-savings-calculator.html" style="color: #333; text-decoration: none;">How Much Can You Save with Solar?</a></h2>
             <p style="margin: 0 0 15px 0; line-height: 1.7;">
-                Solar panel savings depend on three main factors: your electricity rate, system size, and available incentives. Our solar cost calculator shows you exactly how much you can save monthly and annually. For comprehensive <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">savings analysis</a> including 25-year projections, try our dedicated savings calculator.
+                Solar panel savings depend on three main factors: your electricity rate, system size, and available incentives. Our solar cost calculator shows you exactly how much you can save monthly and annually. For comprehensive <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">savings analysis</a> including 25-year projections, try our dedicated savings calculator.
             </p>
             <p style="margin: 0 0 15px 0; line-height: 1.7;">
                 <b>💡 Why Solar Panel Costs Vary:</b><br>
@@ -400,7 +448,7 @@
                 • <b>California Home:</b> $200/month bill → $1,200 annual savings → 4-6 year payback<br>
                 • <b>Texas Home:</b> $150/month bill → $900 annual savings → 6-8 year payback<br>
                 • <b>Florida Home:</b> $180/month bill → $1,080 annual savings → 5-7 year payback<br><br>
-                <i>💡 Want to see your exact savings? Use our <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">Solar Savings Calculator</a> for personalized projections.</i>
+                <i>💡 Want to see your exact savings? Use our <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">Solar Savings Calculator</a> for personalized projections.</i>
             </p>
         </div>
 
@@ -408,69 +456,73 @@
             <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Solar Cost Calculator FAQs</h2>
             
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">How much does it cost to install solar panels at home?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q1: How much does it cost to install solar panels at home?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Solar panel installation costs typically range from $15,000 to $25,000 for a 6-8 kW system before incentives. After the 30% federal tax credit, your net cost would be $10,500 to $17,500. Use our solar cost calculator with your specific location and energy usage for the most accurate estimate. For detailed <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">savings projections</a>, try our savings calculator.
+                    <strong>A:</strong> Solar panel installation costs typically range from $15,000 to $25,000 for a 6-8 kW system before incentives. After the 30% federal tax credit, your net cost would be $10,500 to $17,500. Use our solar cost calculator with your specific location and energy usage for the most accurate estimate. For detailed <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">savings projections</a>, try our savings calculator.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Does this solar cost calculator work for California, Texas, and Massachusetts?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q2: Does this solar cost calculator work for California, Texas, and Massachusetts?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Yes! Our solar cost calculator includes all 50 states with location-specific data. California, Texas, and Massachusetts have different electricity rates and sunlight hours, so the calculator adjusts estimates accordingly. California and Massachusetts have higher electricity rates, making solar more cost-effective despite higher installation costs.
+                    <strong>A:</strong> Yes! Our solar cost calculator includes all 50 states with location-specific data. California, Texas, and Massachusetts have different electricity rates and sunlight hours, so the calculator adjusts estimates accordingly. California and Massachusetts have higher electricity rates, making solar more cost-effective despite higher installation costs.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Can I estimate both installation cost and long-term savings?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q3: Can I estimate both installation cost and long-term savings?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Absolutely! Our solar cost calculator provides comprehensive estimates including upfront installation costs, federal and state tax credits, annual electricity savings, payback period, and 25-year total savings. This gives you a complete picture of your solar investment's financial impact.
+                    <strong>A:</strong> Absolutely! Our solar cost calculator provides comprehensive estimates including upfront installation costs, federal and state tax credits, annual electricity savings, payback period, and 25-year total savings. This gives you a complete picture of your solar investment's financial impact.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">What is the average cost per watt for solar panels?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q4: What is the average cost per watt for solar panels?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    The average cost per watt for solar panels in 2024 ranges from $2.50 to $3.50, depending on system size, location, and equipment quality. Larger systems typically cost less per watt due to economies of scale. Our calculator uses current market rates for accurate estimates.
+                    <strong>A:</strong> The average cost per watt for solar panels in 2024 ranges from $2.50 to $3.50, depending on system size, location, and equipment quality. Larger systems typically cost less per watt due to economies of scale. Our calculator uses current market rates for accurate estimates.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">How long does it take to pay off solar panels?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q5: How long does it take to pay off solar panels?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Solar panel payback periods typically range from 6 to 12 years, depending on your electricity rates, system cost, and available incentives. In states with high electricity rates and good incentives, payback can be as short as 4-6 years. Use our calculator to see your specific payback timeline. For comprehensive <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">ROI analysis</a>, try our savings calculator.
+                    <strong>A:</strong> Solar panel payback periods typically range from 6 to 12 years, depending on your electricity rates, system cost, and available incentives. In states with high electricity rates and good incentives, payback can be as short as 4-6 years. Use our calculator to see your specific payback timeline. For comprehensive <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">ROI analysis</a>, try our savings calculator.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Do solar panels increase home value?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q6: Do solar panels increase home value?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Yes, solar panels typically increase home value by 3-4% on average. According to studies, homes with solar panels sell for about $15,000 more than comparable homes without solar. The exact value increase depends on your location, system size, and local real estate market.
+                    <strong>A:</strong> Yes, solar panels typically increase home value by 3-4% on average. According to studies, homes with solar panels sell for about $15,000 more than comparable homes without solar. The exact value increase depends on your location, system size, and local real estate market.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">What happens to solar panels during power outages?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q7: What happens to solar panels during power outages?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Standard grid-tied solar systems automatically shut off during power outages for safety reasons. However, systems with battery backup (like Tesla Powerwall) can continue providing power to your home during outages. Battery storage adds $10,000-$15,000 to your total system cost.
+                    <strong>A:</strong> Standard grid-tied solar systems automatically shut off during power outages for safety reasons. However, systems with battery backup (like Tesla Powerwall) can continue providing power to your home during outages. Battery storage adds $10,000-$15,000 to your total system cost.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">How do I get the best solar panel installation quote?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em; font-weight: 700;">Q8: How do I get the best solar panel installation quote?</h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    Get quotes from at least 3-5 local solar installers, compare equipment quality and warranties, check installer reviews and certifications, and ask about financing options. Use our solar panel cost calculator first to understand your system requirements, then use that information to evaluate quotes effectively. Also try our <a href="solar-savings-calculator.html" style="color: #2196F3; text-decoration: none;">savings calculator</a> to understand the long-term financial benefits.
+                    <strong>A:</strong> Get quotes from at least 3-5 local solar installers, compare equipment quality and warranties, check installer reviews and certifications, and ask about financing options. Use our solar panel cost calculator first to understand your system requirements, then use that information to evaluate quotes effectively. Also try our <a href="solar-savings-calculator.html" style="color: #eb5424; text-decoration: none;">savings calculator</a> to understand the long-term financial benefits.
                 </p>
+            </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    </section>
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -554,6 +606,7 @@
             const monthlyBill = parseFloat(document.getElementById('monthly-bill').value);
             const state = document.getElementById('location').value;
             const roofArea = parseFloat(document.getElementById('roof-area').value) || 0;
+            const roofOrientation = document.getElementById('roof-orientation').value;
             const solarOffset = parseFloat(document.getElementById('solar-offset').value) || 80;
             const systemSizeInput = parseFloat(document.getElementById('system-size').value);
             const includeFinancing = document.getElementById('financing').checked;
@@ -564,35 +617,65 @@
             }
 
             const data = solarData[state];
-            const annualUsage = monthlyBill * 12 / data.rate; // kWh/year
-            let systemSize = systemSizeInput || ((annualUsage * solarOffset / 100) / (data.production * 365));
-            systemSize = parseFloat(systemSize.toFixed(2)); // kW
+            const orientationFactor = orientationFactors[roofOrientation] || 1.0;
+            
+            // Calculate annual usage in kWh
+            const annualUsage = monthlyBill * 12 / data.rate;
+            
+            // Calculate system size based on energy needs and roof orientation
+            let systemSize = systemSizeInput || ((annualUsage * solarOffset / 100) / (data.production * 365 * orientationFactor));
+            
+            // Validate system size against roof area if provided
+            if (roofArea > 0) {
+                const maxSystemSize = roofArea * 0.15; // 15 watts per sq ft max
+                if (systemSize > maxSystemSize) {
+                    systemSize = maxSystemSize;
+                }
+            }
+            
+            systemSize = parseFloat(systemSize.toFixed(2));
 
+            // Cost calculations
             const costPerWatt = 3; // average cost per watt
-            let totalCost = systemSize * 1000 * costPerWatt; // total installation cost
+            let totalCost = systemSize * 1000 * costPerWatt;
 
+            // Apply tax credits
             const federalCredit = 0.30;
             const stateCredit = data.stateCredit || 0;
             const netCost = totalCost * (1 - federalCredit - stateCredit);
 
-            const annualSavings = systemSize * data.production * 365 * data.rate;
+            // Calculate savings with orientation factor
+            const annualSavings = systemSize * data.production * 365 * data.rate * orientationFactor;
             const paybackYears = parseFloat((netCost / annualSavings).toFixed(1));
 
-            const financingMultiplier = includeFinancing ? 1.05 : 1; // 5% extra if financed
+            // Apply financing multiplier
+            const financingMultiplier = includeFinancing ? 1.05 : 1;
             const finalCost = netCost * financingMultiplier;
 
+            // Display results
             document.getElementById('result').innerHTML = `Estimated Net Cost: $${finalCost.toLocaleString()} <br>Annual Savings: $${annualSavings.toFixed(0)} <br>Payback Period: ${paybackYears} years`;
 
             document.getElementById('breakdown').style.display = 'block';
             document.getElementById('breakdown').innerHTML = `
                 <b>System Size:</b> ${systemSize} kW<br>
+                <b>Roof Orientation Factor:</b> ${(orientationFactor * 100).toFixed(0)}%<br>
                 <b>Total Installation Cost:</b> $${totalCost.toLocaleString()}<br>
                 <b>Federal Tax Credit (30%):</b> $${(totalCost * federalCredit).toLocaleString()}<br>
                 <b>State Incentive:</b> $${(totalCost * stateCredit).toLocaleString()}<br>
                 <b>Net Cost:</b> $${netCost.toLocaleString()}<br>
-                <b>Financing Adjustment:</b> ${includeFinancing ? 'Included (+5%)' : 'Not included'}
+                <b>Financing Adjustment:</b> ${includeFinancing ? 'Included (+5%)' : 'Not included'}<br>
+                <b>25-Year Total Savings:</b> $${(annualSavings * 25).toLocaleString()}
             `;
         }
     </script>
+    
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LED Resistor Calculator | Calculate Resistor Value for LEDs (5V, 12V, RGB)</title>
     <meta name="description" content="Learn how to calculate LED resistor value in 3 simple steps using Ohm's law. Our free calculator helps you determine the correct resistor value, power rating (0.25W, 0.5W, 1W), and find the nearest standard resistor for safe LED operation. Perfect for 12V, 5V, and 3.3V LED circuits.">
     <meta name="keywords" content="LED resistor calculator, calculate resistor for LED, LED current limiting resistor calculator, resistor wattage calculator, LED series resistor calculator, LED 12V resistor calculator, how to calculate LED resistor, Arduino LED resistor calculator">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/home/led-resistor-calculator.html">
-    <title>LED Resistor Calculator | Calculate Resistor Value for LEDs (5V, 12V, RGB)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X373L6NGQT"></script>
@@ -246,49 +257,83 @@
       ]
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
     <style>
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
+        
+        /* Hyperlink colors */
+        a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #d4441a;
+        }
+        
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -320,35 +365,42 @@
             outline: none;
             border-color: #2196F3;
         }
-        .calculate-btn {
-            background: #2196F3;
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 12px 25px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 500;
             transition: background-color 0.3s;
-            width: 100%;
-            margin-bottom: 20px;
         }
-        .calculate-btn:hover {
-            background: #1976D2;
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
         }
-        .button-container {
-            display: flex;
-            gap: 10px;
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
-        .button-container .calculate-btn {
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        .clear-btn {
-            background: #90caf9 !important;
-        }
-        .clear-btn:hover {
-            background: #64b5f6 !important;
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
         }
         .result-section {
             background: #f8f9fa;
@@ -363,7 +415,6 @@
             padding: 10px;
             background: white;
             border-radius: 5px;
-            border-left: 4px solid #2196F3;
         }
         .result-label {
             font-weight: 500;
@@ -383,7 +434,7 @@
         }
         .formula-section h3 {
             margin-top: 0;
-            color: #1976D2;
+            color: #eb5424;
         }
         .formula {
             background: white;
@@ -401,7 +452,7 @@
         }
         .example-section h3 {
             margin-top: 0;
-            color: #1976D2;
+            color: #eb5424;
         }
         .example-section p {
             line-height: 1.8;
@@ -430,14 +481,61 @@
             h1 {
                 font-size: 1.8em;
             }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
-            <a href="https://www.calculatorquote.com/">Home</a> <span>/</span>
-            <a href="https://www.calculatorquote.com/home/">Home Improvement</a> <span>/</span>
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Home Improvement</a>
+            <span>/</span>
             LED Resistor Calculator
         </div>
 
@@ -490,9 +588,9 @@
                     <input type="number" id="customCurrent" step="1" min="0" placeholder="Enter custom current">
                 </div>
 
-                <div class="button-container">
-                    <button class="calculate-btn" onclick="calculateResistor()">Calculate</button>
-                    <button class="calculate-btn clear-btn" onclick="clearForm()">Clear</button>
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateResistor()">Calculate</button>
+                    <button class="btn-clear" onclick="clearForm()">Clear</button>
                 </div>
             </div>
 
@@ -500,7 +598,7 @@
             <div id="errorMsg" role="alert" aria-live="assertive" style="color:#b00020; margin:12px 0; display:none;"></div>
 
             <div class="result-section" id="resultSection" aria-live="polite" role="status" style="display:none;">
-                <h3 style="margin-top: 0; color: #1976D2;">Results</h3>
+                <h3 style="margin-top: 0; color: #eb5424;">Results</h3>
                 <div class="result-item">
                     <div class="result-label">Required Resistor Value:</div>
                     <div class="result-value" id="resistorValue">-</div>
@@ -519,27 +617,9 @@
                 </div>
             </div>
 
-            <div class="formula-section">
-                <h3>📐 Calculation Formulas</h3>
-                <div class="formula">
-                    <strong>Resistor Value (R):</strong><br>
-                    R = (Vs - Vf) / If<br>
-                    Where:<br>
-                    • Vs = Supply Voltage<br>
-                    • Vf = LED Forward Voltage<br>
-                    • If = LED Forward Current
-                </div>
-                <div class="formula">
-                    <strong>Power Dissipation (P):</strong><br>
-                    P = If² × R<br>
-                    Where:<br>
-                    • If = LED Forward Current (in Amperes)<br>
-                    • R = Resistor Value
-                </div>
-            </div>
 
             <div class="example-section">
-                <h3>🔢 Example Calculation</h3>
+                <h3>🧮 Example Calculation</h3>
                 <p><strong>Input Parameters:</strong></p>
                 <ul>
                     <li>Supply Voltage (Vs): 12V</li>
@@ -556,7 +636,7 @@
                 </div>
                 <p><strong>Recommendation:</strong> Use a 0.5W or higher resistor for safety.</p>
                 
-                <h4 style="color: #1976D2; margin-top: 30px; margin-bottom: 15px;">Why Use an LED Resistor Calculator?</h4>
+                <h4 style="color: #eb5424; margin-top: 30px; margin-bottom: 15px;">Why Use an LED Resistor Calculator?</h4>
                 <p style="line-height: 1.8; margin-bottom: 15px;">
                     LED resistor calculators are essential tools for electronics enthusiasts and DIY projects. When connecting LEDs to power sources like 12V batteries or 5V Arduino boards, you need to calculate resistor for LED circuits to:
                 </p>
@@ -569,76 +649,89 @@
                     <li><strong>Handle series circuits:</strong> Calculate resistance for LED series connections automatically</li>
                 </ul>
                 
-                <h4 style="color: #1976D2; margin-top: 30px; margin-bottom: 15px;">Frequently Asked Questions (FAQ)</h4>
+                <h4 style="color: #eb5424; margin-top: 30px; margin-bottom: 15px;">Frequently Asked Questions (FAQ)</h4>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What is the formula for LED resistor calculation?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q1: What is the formula for LED resistor calculation?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: The LED resistor formula is R = (Vs - Vf) / If, where Vs is supply voltage, Vf is LED forward voltage, and If is LED forward current.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How do I calculate LED resistor for 12V?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q2: How do I calculate LED resistor for 12V?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: For 12V supply, subtract the LED forward voltage (typically 2-3.3V) from 12V, then divide by the desired current (usually 20mA = 0.02A).</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What resistor do I need for a 5V LED?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q3: What resistor do I need for a 5V LED?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: For 5V supply with a 2V LED at 20mA: R = (5V - 2V) / 0.02A = 150Ω. Use a 150Ω resistor with 0.25W or higher power rating.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How do I find the nearest standard resistor value?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q4: How do I find the nearest standard resistor value?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: Our calculator automatically finds the nearest E12 series resistor value. Common values include 100Ω, 150Ω, 220Ω, 330Ω, 470Ω, 680Ω, and 1kΩ.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What happens if I use the wrong resistor value?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q5: What happens if I use the wrong resistor value?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: Too low resistance can burn out the LED, while too high resistance makes the LED too dim. Always calculate the correct value for optimal performance.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: Can I use this calculator for different LED colors?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q6: Can I use this calculator for different LED colors?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: Yes! Different LED colors have different forward voltages: Red (1.8-2.2V), Green (2.2V), Blue/White (3.0-3.4V). Select the appropriate voltage in the calculator.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How to calculate LED current limiting resistor?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q7: How to calculate LED current limiting resistor?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: Use the formula R = (Vs - Vf) / If. For example, a 5V supply with 2V LED at 20mA needs R = (5-2)/0.02 = 150Ω. Our calculator handles current limiting automatically.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What is LED forward voltage calculator?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q8: What is LED forward voltage calculator?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: Our calculator includes LED forward voltage values for common LED types. You can also input custom forward voltage values for specialized LEDs.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How to calculate resistor for Arduino LED projects?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q9: How to calculate resistor for Arduino LED projects?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: For Arduino (5V), use our calculator with 5V supply voltage. Most Arduino LEDs work well with 150-330Ω resistors for standard 20mA current.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: What resistor do I need calculator for RGB LEDs?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q10: What resistor do I need calculator for RGB LEDs?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: RGB LEDs have different forward voltages for each color (Red: 2V, Green: 2.2V, Blue: 3V). Calculate each color separately using our LED resistor calculator.</p>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;">Q: How to calculate LED series resistor for multiple LEDs?</h5>
+                    <h5 style="color: #333; margin-bottom: 8px; font-size: 1.1em;"><strong>Q11: How to calculate LED series resistor for multiple LEDs?</strong></h5>
                     <p style="line-height: 1.8; margin-bottom: 0;">A: For series LEDs, add all forward voltages together, then use R = (Vs - Total_Vf) / I. Our calculator can help determine the total forward voltage for series circuits.</p>
                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        
+        </div>
+    </section>
 
-    </div>
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 
     <script>
       // E12 base mantissas (we will scale by decades)

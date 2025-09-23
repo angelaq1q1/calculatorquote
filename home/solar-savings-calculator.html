@@ -35,22 +35,32 @@
   }
 }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Template CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
         }
         .breadcrumb {
             margin-bottom: 20px;
@@ -58,26 +68,32 @@
             color: #666;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -115,7 +131,7 @@
             font-weight: 500;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -123,16 +139,35 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            width: 100%;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
         }
         .result {
             margin-top: 18px;
             font-weight: bold;
             text-align: center;
-            color: #28a745;
+            color: #eb5424;
             font-size: 1.15em;
         }
         .breakdown {
@@ -156,7 +191,7 @@
             background: #fff;
             border-radius: 14px;
             border: 1.5px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.07);
             font-size: 1.08em;
             color: #333;
             line-height: 1.7;
@@ -171,6 +206,11 @@
             .two-column {
                 grid-template-columns: 1fr;
             }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
         }
         .savings-highlight {
             background: linear-gradient(135deg, #4CAF50, #45a049);
@@ -183,7 +223,39 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -299,19 +371,22 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-calculate" onclick="calculateSolarSavings()">Calculate Solar Savings</button>
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateSolarSavings()">Calculate</button>
+                <button class="btn-clear" onclick="clearForm()">Clear</button>
+            </div>
             <div class="result" id="result"></div>
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note">* Estimates are based on current market data and historical trends. Actual savings may vary based on system performance and future electricity rates.</div>
         </div>
         <div style="margin: 32px auto 0 auto; max-width: 700px; background: #fff; border-radius: 14px; border: 1.5px solid #e0e0e0; box-shadow: 0 2px 8px rgba(33,150,243,0.07); font-size: 1.08em; color: #333; line-height: 1.7; padding: 22px 28px 18px 28px;">
             <b>Related Contents:</b><br>
-            <a href="../blog/how-to-cut-home-expenses.html" style="color: #2196F3; text-decoration: none;">How to Cut Unexpected Home Expenses by Planning Smart Energy Solutions</a>
+            <a href="../blog/how-to-cut-home-expenses.html" style="color: #eb5424; text-decoration: none;">How to Cut Unexpected Home Expenses by Planning Smart Energy Solutions</a>
         </div>
         <div class="advice">
             <b>💰 Solar Savings Calculator: Your Complete Financial Analysis Tool</b><br><br>
             Solar panels are one of the most profitable home investments you can make, but understanding the true financial impact requires careful analysis. Our solar savings calculator goes beyond simple cost estimates to show you exactly how much money you'll save over the lifetime of your system.<br><br>
-            Unlike basic calculators that only show upfront costs, our advanced tool factors in electricity rate increases, federal and state incentives, system degradation, and financing options to give you a realistic picture of your 25-year return on investment. For detailed <a href="solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">solar panel cost</a> breakdown, use our comprehensive cost calculator. This comprehensive analysis helps you make an informed decision about whether solar is the right financial choice for your home.<br><br>
+            Unlike basic calculators that only show upfront costs, our advanced tool factors in electricity rate increases, federal and state incentives, system degradation, and financing options to give you a realistic picture of your 25-year return on investment. For detailed <a href="solar-panel-cost-estimator.html" style="color: #eb5424; text-decoration: none;">solar panel cost</a> breakdown, use our comprehensive cost calculator. This comprehensive analysis helps you make an informed decision about whether solar is the right financial choice for your home.<br><br>
             <b>What Our Solar Savings Calculator Determines:</b><br>
             • <b>System Size (kW):</b> Optimal capacity based on your energy consumption<br>
             • <b>Annual Savings:</b> Yearly electricity bill reduction<br>
@@ -326,33 +401,37 @@
             • <b>Location Factors:</b> Sunlight hours, state incentives, and utility policies affect savings<br>
             • <b>Rate Increases:</b> Historical 2-3% annual increases compound your savings over time<br>
             • <b>Financing Choice:</b> Cash purchases have higher ROI, but loans provide immediate savings<br>
-            • <b>Installation Cost:</b> <a href="solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">Installation cost</a> varies significantly by region and affects overall ROI
+            • <b>Installation Cost:</b> <a href="solar-panel-cost-estimator.html" style="color: #eb5424; text-decoration: none;">Installation cost</a> varies significantly by region and affects overall ROI
         </div>
         <div class="advice">
             <b>❓ FAQ - Solar Savings Calculator Questions</b><br><br>
-            <b>Q: How much money will I save with solar panels?</b><br>
-            A: Solar savings vary significantly by location and energy usage. A typical 6kW system can save $1,200-$3,600 annually, with total 25-year savings ranging from $30,000 to $90,000. Use our <a href="solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">solar calculator</a> with your specific electricity bill and location for accurate estimates.<br><br>
-            <b>Q: What is the average payback period for solar panels?</b><br>
+            <b>Q1: How much money will I save with solar panels?</b><br>
+            A: Solar savings vary significantly by location and energy usage. A typical 6kW system can save $1,200-$3,600 annually, with total 25-year savings ranging from $30,000 to $90,000. Use our <a href="solar-panel-cost-estimator.html" style="color: #eb5424; text-decoration: none;">solar calculator</a> with your specific electricity bill and location for accurate estimates.<br><br>
+            <b>Q2: What is the average payback period for solar panels?</b><br>
             A: Solar panel payback periods typically range from 6 to 12 years, depending on your electricity rates and available incentives. In high-rate states like California and Hawaii, payback can be as short as 4-6 years. Lower-rate states may take 8-12 years to break even.<br><br>
-            <b>Q: How do I calculate solar panel ROI?</b><br>
-            A: Solar ROI is calculated by dividing your total 25-year savings by your net <a href="solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">installation cost</a> (after incentives). Most residential solar systems achieve 200-400% ROI over 25 years. Our calculator automatically computes this based on your location, energy usage, and system specifications.<br><br>
-            <b>Q: Should I pay cash or finance my solar panels?</b><br>
+            <b>Q3: How do I calculate solar panel ROI?</b><br>
+            A: Solar ROI is calculated by dividing your total 25-year savings by your net <a href="solar-panel-cost-estimator.html" style="color: #eb5424; text-decoration: none;">installation cost</a> (after incentives). Most residential solar systems achieve 200-400% ROI over 25 years. Our calculator automatically computes this based on your location, energy usage, and system specifications.<br><br>
+            <b>Q4: Should I pay cash or finance my solar panels?</b><br>
             A: Cash purchases typically provide 10-15% higher ROI due to avoiding loan interest. However, solar loans allow you to start saving immediately while paying monthly. Compare both options in our calculator to see which works better for your financial situation.<br><br>
-            <b>Q: How much do solar panels cost to install?</b><br>
-            A: <a href="solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">Solar panel cost</a> varies by location and system size, typically ranging from $2.70-$4.00 per watt. A 6kW system costs $16,200-$24,000 before incentives. Use our detailed cost calculator to get precise estimates for your home.<br><br>
-            <b>Q: How do electricity rate increases affect my solar savings?</b><br>
+            <b>Q5: How much do solar panels cost to install?</b><br>
+            A: <a href="solar-panel-cost-estimator.html" style="color: #eb5424; text-decoration: none;">Solar panel cost</a> varies by location and system size, typically ranging from $2.70-$4.00 per watt. A 6kW system costs $16,200-$24,000 before incentives. Use our detailed cost calculator to get precise estimates for your home.<br><br>
+            <b>Q6: How do electricity rate increases affect my solar savings?</b><br>
             A: Electricity rates historically increase 2-3% annually. As rates rise, your solar savings grow proportionally. A $150 monthly bill today could be $300+ in 15 years, making your solar savings much more valuable over time. Our calculator factors in these increases for realistic long-term projections.<br><br>
-            <b>Q: What's the difference between annual savings and 25-year savings?</b><br>
+            <b>Q7: What's the difference between annual savings and 25-year savings?</b><br>
             A: Annual savings show your immediate yearly benefit, while 25-year savings include the cumulative effect of electricity rate increases and represent your total financial gain over the system's lifetime. The 25-year figure is typically 2-3 times higher than simple annual savings multiplied by 25.
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    </section>
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -419,6 +498,20 @@
             'east': 0.85,
             'north': 0.65
         };
+
+        function clearForm() {
+            document.getElementById('monthly-bill').value = '';
+            document.getElementById('location').value = 'CA';
+            document.getElementById('roof-orientation').value = 'south';
+            document.getElementById('roof-size').value = '';
+            document.getElementById('solar-offset').value = 90;
+            document.getElementById('custom-cost').value = '';
+            document.getElementById('electricity-increase').value = 2.5;
+            document.getElementById('include-battery').checked = false;
+            document.getElementById('compare-financing').checked = false;
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('breakdown').style.display = 'none';
+        }
 
         function calculateSolarSavings() {
             const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 0;
@@ -539,5 +632,14 @@
             breakdownDiv.style.display = 'block';
         }
     </script>
+    
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html> 

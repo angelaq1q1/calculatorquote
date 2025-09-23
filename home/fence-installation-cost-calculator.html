@@ -10,7 +10,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/home/fence-installation-cost-calculator.html">
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     
     <script type="application/ld+json">
     {
@@ -31,111 +36,148 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
         }
-
-        body {
-            background-color: #f5f5f5;
-            line-height: 1.6;
-            color: #333;
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
         }
-
-        .container {
-            max-width: 800px;
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
 
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
-        .calculator-form {
+        .input-section {
             background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
-        .form-group {
-            margin-bottom: 25px;
+        .input-group {
+            margin-bottom: 20px;
         }
 
-        .form-group label {
+        .input-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 500;
             color: #333;
+            font-weight: 500;
         }
 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .input-group input:focus,
+        .input-group select:focus {
             outline: none;
-            border-color: #2196F3;
+            border-color: #eb5424;
         }
 
-        .form-row {
+        .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
         .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
             max-width: 400px;
             margin: 25px auto 0 auto;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            justify-content: center;
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -143,14 +185,15 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            min-width: 120px;
         }
 
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
 
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -158,83 +201,116 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            min-width: 120px;
         }
 
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
-        .results {
-            background-color: #e8f5e8;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 30px;
+        .results-section {
+            margin-top: 20px;
             display: none;
         }
-
-        .results.show {
+        .results-section.show {
             display: block;
         }
 
         .total-cost {
-            font-size: 2em;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .total-cost .label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .total-cost .value {
+            font-size: 1.8em;
             font-weight: 700;
-            color: #2e7d32;
+        }
+
+        .range-display {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
+            margin: 15px 0;
+            border: 1px solid #ffeaa7;
+        }
+        .range-display .label {
+            font-size: 1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .range-display .value {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
             margin-bottom: 20px;
         }
 
-        .cost-range {
-            font-size: 1.2em;
-            color: #666;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .breakdown {
-            background-color: white;
-            padding: 20px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .breakdown h3 {
+        .cost-breakdown h3 {
             color: #333;
             margin-bottom: 15px;
             font-size: 1.3em;
         }
 
-        .breakdown-item {
+        .cost-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            align-items: center;
             padding: 8px 0;
             border-bottom: 1px solid #eee;
         }
 
-        .breakdown-item:last-child {
+        .cost-item:last-child {
             border-bottom: none;
+        }
+        .cost-item .label {
+            font-weight: 500;
+            color: #555;
+        }
+        .cost-item .value {
             font-weight: 600;
+            color: #eb5424;
             font-size: 1.1em;
         }
 
         .tips {
-            background-color: transparent;
-            padding: 15px 0;
-            border-radius: 0;
-            border-left: none;
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            padding: 24px 20px;
+            color: #444;
+            font-size: 1.08em;
+            line-height: 1.7;
         }
 
         .tips h3 {
-            color: #333;
-            margin-bottom: 15px;
+            color: #eb5424;
+            margin-bottom: 14px;
             font-size: 1.2em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .tips p {
-            color: #333;
-            margin-bottom: 15px;
+            color: #444;
+            margin-bottom: 14px;
             font-size: 1.08em;
             line-height: 1.7;
         }
@@ -242,18 +318,54 @@
         .tips p:last-child {
             margin-bottom: 0;
         }
+        .faq-section {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+            padding: 22px 28px 18px 28px;
+        }
+        .faq-section h4 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
 
         .note {
             font-size: 13px;
             color: #888;
-            margin-top: 15px;
+            margin-top: 10px;
             text-align: left;
-            line-height: 1.4;
         }
 
 
         @media (max-width: 768px) {
-            .container {
+            .calculator-container {
                 margin: 0;
                 padding: 20px;
                 box-shadow: none;
@@ -263,17 +375,16 @@
                 font-size: 1.5em;
             }
             
-            .form-row {
+            .two-column {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
             
-            .calculator-form {
+            .input-section {
                 padding: 20px;
             }
             
             .buttons {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 12px;
                 max-width: 100%;
             }
@@ -281,7 +392,43 @@
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START FENCE INSTALLATION CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -290,49 +437,50 @@
             Fence Installation Cost Calculator
         </div>
         <h1>Fence Installation Cost Calculator: Get Accurate Estimates Before You Hire a Contractor</h1>
-        <p class="subtitle">Planning a new fence but worried about hidden costs or overpriced contractors? Use our Fence Installation Cost Calculator to estimate expenses based on length, material, and style. Get transparent pricing, avoid budget surprises, and hire with confidence.</p>
+        <div class="description">Planning a new fence but worried about hidden costs or overpriced contractors? Use our Fence Installation Cost Calculator to estimate expenses based on length, material, and style. Get transparent pricing, avoid budget surprises, and hire with confidence.</div>
 
-        <div class="calculator-form">
+        <div class="input-section">
             <form id="fenceCalculator">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fenceLength">Fence Length (ft)</label>
-                        <input type="number" id="fenceLength" min="1" step="0.1" required>
+                <div class="two-column">
+                    <div>
+                        <div class="input-group">
+                            <label for="fenceLength">Fence Length (ft)</label>
+                            <input type="number" id="fenceLength" min="1" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fenceHeight">Fence Height (ft)</label>
+                            <select id="fenceHeight" required>
+                                <option value="4">4 ft</option>
+                                <option value="6" selected>6 ft</option>
+                                <option value="8">8 ft</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="fenceHeight">Fence Height (ft)</label>
-                        <select id="fenceHeight" required>
-                            <option value="4">4 ft</option>
-                            <option value="6" selected>6 ft</option>
-                            <option value="8">8 ft</option>
-                        </select>
+                    <div>
+                        <div class="input-group">
+                            <label for="fenceMaterial">Fence Material</label>
+                            <select id="fenceMaterial" required>
+                                <option value="wood">Wood ($15 - $30/ft)</option>
+                                <option value="vinyl">Vinyl ($20 - $40/ft)</option>
+                                <option value="chainlink">Chain Link ($10 - $20/ft)</option>
+                                <option value="wroughtiron">Wrought Iron ($25 - $50/ft)</option>
+                                <option value="composite">Composite ($30 - $55/ft)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="numberOfGates">Number of Gates</label>
+                            <input type="number" id="numberOfGates" min="0" value="0" required>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="fenceMaterial">Fence Material</label>
-                    <select id="fenceMaterial" required>
-                        <option value="wood">Wood ($15 - $30/ft)</option>
-                        <option value="vinyl">Vinyl ($20 - $40/ft)</option>
-                        <option value="chainlink">Chain Link ($10 - $20/ft)</option>
-                        <option value="wroughtiron">Wrought Iron ($25 - $50/ft)</option>
-                        <option value="composite">Composite ($30 - $55/ft)</option>
+                <div class="input-group">
+                    <label for="terrainDifficulty">Terrain Difficulty</label>
+                    <select id="terrainDifficulty" required>
+                        <option value="flat">Flat (+0%)</option>
+                        <option value="sloped">Sloped (+10-15%)</option>
+                        <option value="rocky">Rocky (+20%)</option>
                     </select>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="numberOfGates">Number of Gates</label>
-                        <input type="number" id="numberOfGates" min="0" value="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="terrainDifficulty">Terrain Difficulty</label>
-                        <select id="terrainDifficulty" required>
-                            <option value="flat">Flat (+0%)</option>
-                            <option value="sloped">Sloped (+10-15%)</option>
-                            <option value="rocky">Rocky (+20%)</option>
-                        </select>
-                    </div>
                 </div>
 
                 <div class="buttons">
@@ -348,28 +496,30 @@
             </div>
         </div>
 
-        <div class="results" id="results">
-            <div class="total-cost" id="totalCost">$0 - $0</div>
-            <div class="cost-range" id="costPerFoot">Cost per linear foot: $0 - $0</div>
+        <div class="results-section" id="results">
+            <div class="cost-breakdown">
+                <div class="cost-item">
+                    <span class="label">Material Cost:</span>
+                    <span class="value" id="materialCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Gate Cost:</span>
+                    <span class="value" id="gateCost">$0</span>
+                </div>
+                <div class="cost-item">
+                    <span class="label">Terrain Adjustment:</span>
+                    <span class="value" id="terrainAdjustment">$0</span>
+                </div>
+            </div>
 
-            <div class="breakdown">
-                <h3>Cost Breakdown</h3>
-                <div class="breakdown-item">
-                    <span>Material Cost:</span>
-                    <span id="materialCost">$0</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Gate Cost:</span>
-                    <span id="gateCost">$0</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Terrain Adjustment:</span>
-                    <span id="terrainAdjustment">$0</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Total Estimated Cost:</span>
-                    <span id="finalTotal">$0</span>
-                </div>
+            <div class="total-cost">
+                <div class="label">Total Estimated Cost</div>
+                <div class="value" id="totalCost">$0 - $0</div>
+            </div>
+
+            <div class="range-display">
+                <div class="label">Cost per linear foot</div>
+                <div class="value" id="costPerFoot">$0 - $0</div>
             </div>
         </div>
 
@@ -389,49 +539,54 @@
             <p><strong>Regional Differences</strong> – Prices can vary by city. For example, fence installation Austin may differ from national averages due to local labor rates.</p>
         </div>
 
-        <div style="margin-top: 28px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; padding: 24px 20px; color: #444; font-size: 1.08em; line-height: 1.7;">
-            <h2 style="font-size: 1.2em; color: #222; margin-bottom: 14px;">❓ Fence Installation FAQ: Costs, Setup, Services, and Tips</h2>
+        <div class="faq-section">
+            <h4 style="color: #000; margin-top: 30px; margin-bottom: 15px;">❓ Frequently Asked Questions</h4>
             
             <div style="margin-bottom: 20px;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much does fence installation cost?</p>
-                <p style="color: #555; margin-bottom: 0;">A: Fence installation cost varies depending on the material, fence length, and labor in your area. On average, wood fences cost around $15–$30 per linear foot, vinyl fences range from $20–$40 per linear foot, and chain link fences usually fall between $10–$25 per linear foot. Additional expenses for posts, gates, and labor can increase the total cost, so it's best to get quotes from local installers.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q1: How much does fence installation cost?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Fence installation cost varies depending on the material, fence length, and labor in your area. On average, wood fences cost around $15–$30 per linear foot, vinyl fences range from $20–$40 per linear foot, and chain link fences usually fall between $10–$25 per linear foot. Additional expenses for posts, gates, and labor can increase the total cost, so it's best to get quotes from local installers.</p>
             </div>
             
             <div style="margin-bottom: 20px;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How do I set up a fence?</p>
-                <p style="color: #555; margin-bottom: 0;">A: Setting up a fence involves measuring and marking your fence line, digging post holes at the correct spacing, installing fence posts and making sure they are level, and then attaching the panels or rails depending on the type of fence. Gates and finishing touches complete the installation. It's important to check local building codes and consider professional help if you're unsure.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q2: How do I set up a fence?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Setting up a fence involves measuring and marking your fence line, digging post holes at the correct spacing, installing fence posts and making sure they are level, and then attaching the panels or rails depending on the type of fence. Gates and finishing touches complete the installation. It's important to check local building codes and consider professional help if you're unsure.</p>
             </div>
             
             <div style="margin-bottom: 20px;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: Are there fence installation services near me?</p>
-                <p style="color: #555; margin-bottom: 0;">A: Most cities and towns have local fence installation companies that you can find by searching online for "fence installation services near me" or checking local directories. Reading reviews and comparing multiple quotes can help you find a reliable and affordable installer.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q3: Are there fence installation services near me?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Most cities and towns have local fence installation companies that you can find by searching online for "fence installation services near me" or checking local directories. Reading reviews and comparing multiple quotes can help you find a reliable and affordable installer.</p>
             </div>
             
             <div style="margin-bottom: 20px;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How many posts do I need per fence panel?</p>
-                <p style="color: #555; margin-bottom: 0;">A: Typically, a fence panel requires two posts, one at each end, to ensure stability. Depending on the type of fence, panel length, or uneven terrain, additional posts may be necessary, so always follow the manufacturer's recommendations.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q4: How many posts do I need per fence panel?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Typically, a fence panel requires two posts, one at each end, to ensure stability. Depending on the type of fence, panel length, or uneven terrain, additional posts may be necessary, so always follow the manufacturer's recommendations.</p>
             </div>
             
             <div style="margin-bottom: 20px;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: What type of fence is the cheapest?</p>
-                <p style="color: #555; margin-bottom: 0;">A: The most affordable fences are usually chain link fences, simple wire fences, or basic wood fences made from reclaimed materials. While these options cost less upfront, keep in mind that prices can vary depending on material quality, labor, and installation complexity.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q5: What type of fence is the cheapest?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: The most affordable fences are usually chain link fences, simple wire fences, or basic wood fences made from reclaimed materials. While these options cost less upfront, keep in mind that prices can vary depending on material quality, labor, and installation complexity.</p>
             </div>
             
             <div style="margin-bottom: 0;">
-                <p style="font-weight: 600; color: #333; margin-bottom: 8px;">Q: How much is fence installation at Home Depot?</p>
-                <p style="color: #555; margin-bottom: 0;">A: Home Depot provides fence installation services with pricing that varies based on the fence material, height, and length. On average, professional installation ranges from $20–$40 per linear foot, and you can request an in-home estimate for precise costs. DIY options for materials are usually cheaper but require more time and effort.</p>
+                <h5 style="color: #000; margin-bottom: 8px; font-size: 1.1em;">Q6: How much is fence installation at Home Depot?</h5>
+                <p style="line-height: 1.8; margin-bottom: 0; color: #000;">A: Home Depot provides fence installation services with pricing that varies based on the fence material, height, and length. On average, professional installation ranges from $20–$40 per linear foot, and you can request an in-home estimate for precise costs. DIY options for materials are usually cheaper but require more time and effort.</p>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+    <!-- END FENCE INSTALLATION CALCULATOR -->
 
-    </div>
-
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
@@ -512,11 +667,10 @@
 
             // Display results
             document.getElementById('totalCost').textContent = `$${Math.round(minTotalCost).toLocaleString('en-US')} - $${Math.round(maxTotalCost).toLocaleString('en-US')}`;
-            document.getElementById('costPerFoot').textContent = `Cost per linear foot: $${minCostPerFoot.toFixed(2)} - $${maxCostPerFoot.toFixed(2)}`;
+            document.getElementById('costPerFoot').textContent = `$${minCostPerFoot.toFixed(2)} - $${maxCostPerFoot.toFixed(2)}`;
             document.getElementById('materialCost').textContent = `$${Math.round(minMaterialCost).toLocaleString('en-US')} - $${Math.round(maxMaterialCost).toLocaleString('en-US')}`;
             document.getElementById('gateCost').textContent = `$${gateCost.toLocaleString('en-US')}`;
             document.getElementById('terrainAdjustment').textContent = `$${Math.round(minTerrainAdjustment).toLocaleString('en-US')} - $${Math.round(maxTerrainAdjustment).toLocaleString('en-US')}`;
-            document.getElementById('finalTotal').textContent = `$${Math.round(minTotalCost).toLocaleString('en-US')} - $${Math.round(maxTotalCost).toLocaleString('en-US')}`;
 
             // Show results
             document.getElementById('results').classList.add('show');
@@ -539,5 +693,14 @@
 
 
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>

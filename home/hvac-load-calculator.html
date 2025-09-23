@@ -6,6 +6,16 @@
     <title>HVAC Load Calculator | Free Heat & AC Load Calculation Online</title>
     <meta name="description" content="Try our free HVAC Load Calculator to estimate heating and cooling needs quickly. Get accurate AC load calc, heat load calculation, and residential HVAC sizing results online in minutes.">
     <meta name="keywords" content="HVAC load calculator, HVAC sizing calculator, BTU calculator, tonnage calculator, air conditioner size calculator, heating load calculator, cooling load calculator, HVAC system size, free HVAC calculator, 2 ton HVAC, 3 ton HVAC, 4 ton HVAC, 5 ton HVAC, HVAC installation cost, energy efficient HVAC">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/hvac-load-calculator.html">
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,49 +123,96 @@
   ]
 }
 </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
     <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Override template padding for better spacing */
+        .tm-padding-top-bottom-100 {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 20px;
+            text-align: left;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -193,7 +250,7 @@
             font-weight: 500;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -201,10 +258,10 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d4441a;
         }
         .buttons {
             display: flex;
@@ -213,7 +270,7 @@
             margin: 25px auto 0 auto;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -221,10 +278,10 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .result {
             margin-top: 18px;
@@ -275,7 +332,7 @@
             }
         }
         .load-highlight {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
+            background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
             padding: 15px;
             border-radius: 8px;
@@ -285,6 +342,41 @@
     </style>
 </head>
 <body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HVAC LOAD CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
     <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
@@ -400,48 +492,53 @@
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note">* This calculator provides estimates based on standard load calculation methods. For precise sizing, consult with a licensed HVAC contractor.</div>
         </div>
-        <div class="advice">
-            <b>❄️ HVAC Load Calculator: The Key to Proper System Sizing</b><br><br>
-            Choosing the right HVAC system size is one of the most critical decisions for your home's comfort and energy efficiency. An oversized system will cycle on and off too frequently, wasting energy and creating temperature swings. An undersized system will run constantly, struggle to maintain comfort, and wear out prematurely.<br><br>
-            Our HVAC load calculator uses industry-standard Manual J calculation methods to determine your home's specific heating and cooling requirements. By analyzing factors like square footage, insulation quality, window efficiency, and local climate conditions, we provide accurate BTU and tonnage recommendations that ensure optimal performance.<br><br>
-            <b>What Our HVAC Load Calculator Determines:</b><br>
-            • <b>Cooling Load (BTU/hr):</b> The amount of heat your air conditioner must remove<br>
-            • <b>Heating Load (BTU/hr):</b> The heat output needed from your furnace or heat pump<br>
-            • <b>System Capacity (Tons):</b> The recommended HVAC unit size for your home<br>
-            • <b>Load Factors:</b> How your home's characteristics affect heating and cooling needs<br><br>
-            <b>💡 Why Proper HVAC Sizing Matters:</b><br>
-            • <b>Energy Efficiency:</b> Correctly sized systems use 15-30% less energy<br>
-            • <b>Comfort:</b> Proper sizing eliminates hot/cold spots and humidity issues<br>
-            • <b>System Longevity:</b> Right-sized equipment lasts longer and requires fewer repairs<br>
-            • <b>Cost Savings:</b> Avoid expensive oversizing or undersizing mistakes<br>
-            • <b>Home Value:</b> Efficient HVAC systems increase property resale value
+        <div class="tip">
+            <b>Tip:</b> Proper HVAC sizing is crucial for energy efficiency and comfort. Our calculator uses industry-standard Manual J methods to help you find the right system size for your home.
         </div>
-        <div class="advice">
-            <b>❓ FAQ - HVAC Load Calculator Questions</b><br><br>
-            <b>Q: How accurate is this HVAC load calculator?</b><br>
-            A: Our calculator uses industry-standard Manual J calculation methods and provides estimates within 10-15% accuracy for most homes. For precise sizing, especially for complex layouts or commercial applications, we recommend consulting with a licensed HVAC contractor for a professional Manual J load calculation.<br><br>
-            <b>Q: What size HVAC system do I need for a 2,000 sq ft house?</b><br>
-            A: For a 2,000 sq ft home, you typically need between 2.5 to 4 tons of cooling capacity, depending on your climate zone, insulation quality, and other factors. Use our HVAC load calculator with your specific home details for the most accurate recommendation.<br><br>
-            <b>Q: How do I calculate HVAC load manually?</b><br>
-            A: Manual HVAC load calculations involve measuring room dimensions, calculating heat gain/loss through walls, windows, and roof, adding internal loads from people and appliances, and applying climate-specific factors. Our calculator automates this complex process using proven formulas and industry standards.<br><br>
-            <b>Q: What's the difference between heating load and cooling load?</b><br>
-            A: Heating load measures how much heat your home loses to the outside (requiring furnace/heat pump output), while cooling load measures how much heat your home gains from outside and internal sources (requiring air conditioner capacity). They're calculated differently and often result in different system size requirements.<br><br>
-            <b>Q: How much does it cost to replace an HVAC system?</b><br>
-            A: HVAC system replacement costs range from $4,000 to $12,000 depending on system size, efficiency ratings, and installation complexity. Proper sizing from our HVAC load calculator helps ensure you don't overpay for unnecessary capacity or underpay for inadequate performance.<br><br>
-            <b>Q: What SEER rating should I choose for my air conditioner?</b><br>
-            A: SEER (Seasonal Energy Efficiency Ratio) ratings range from 13 to 25+. Higher SEER ratings mean lower energy bills but higher upfront costs. For most homes, a SEER 14-16 system provides the best balance of efficiency and cost. Use our HVAC load calculator first to determine the right size, then choose the highest SEER rating within your budget.
+
+        <div class="user-guide-faq" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);font-size:1.08em;color:#333;line-height:1.7;">
+            <div style="font-size:1.18em;font-weight:600;color:#222;margin-bottom:10px;">Why Use Our HVAC Load Calculator?</div>
+            <div style="margin-bottom:18px;">
+                Choosing the right HVAC system size is one of the most critical decisions for your home's comfort and energy efficiency. An oversized system will cycle on and off too frequently, wasting energy and creating temperature swings. An undersized system will run constantly, struggle to maintain comfort, and wear out prematurely.<br><br>
+                Our HVAC load calculator uses industry-standard Manual J calculation methods to determine your home's specific heating and cooling requirements. By analyzing factors like square footage, insulation quality, window efficiency, and local climate conditions, we provide accurate BTU and tonnage recommendations that ensure optimal performance.
+            </div>
+            <div style="font-size:1.08em;font-weight:500;margin-bottom:8px;">Frequently Asked Questions (FAQ)</div>
+            <div style="margin-bottom:18px;">
+                <div style="margin-bottom:8px;"><b>Q1: How accurate is this HVAC load calculator?</b><br>A: Our calculator uses industry-standard Manual J calculation methods and provides estimates within 10-15% accuracy for most homes. For precise sizing, especially for complex layouts or commercial applications, we recommend consulting with a licensed HVAC contractor for a professional Manual J load calculation.</div>
+                <div style="margin-bottom:8px;"><b>Q2: What size HVAC system do I need for a 2,000 sq ft house?</b><br>A: For a 2,000 sq ft home, you typically need between 2.5 to 4 tons of cooling capacity, depending on your climate zone, insulation quality, and other factors. Use our HVAC load calculator with your specific home details for the most accurate recommendation.</div>
+                <div style="margin-bottom:8px;"><b>Q3: How do I calculate HVAC load manually?</b><br>A: Manual HVAC load calculations involve measuring room dimensions, calculating heat gain/loss through walls, windows, and roof, adding internal loads from people and appliances, and applying climate-specific factors. Our calculator automates this complex process using proven formulas and industry standards.</div>
+                <div style="margin-bottom:8px;"><b>Q4: What's the difference between heating load and cooling load?</b><br>A: Heating load measures how much heat your home loses to the outside (requiring furnace/heat pump output), while cooling load measures how much heat your home gains from outside and internal sources (requiring air conditioner capacity). They're calculated differently and often result in different system size requirements.</div>
+                <div style="margin-bottom:8px;"><b>Q5: How much does it cost to replace an HVAC system?</b><br>A: HVAC system replacement costs range from $4,000 to $12,000 depending on system size, efficiency ratings, and installation complexity. Proper sizing from our HVAC load calculator helps ensure you don't overpay for unnecessary capacity or underpay for inadequate performance.</div>
+                <div style="margin-bottom:8px;"><b>Q6: What SEER rating should I choose for my air conditioner?</b><br>A: SEER (Seasonal Energy Efficiency Ratio) ratings range from 13 to 25+. Higher SEER ratings mean lower energy bills but higher upfront costs. For most homes, a SEER 14-16 system provides the best balance of efficiency and cost. Use our HVAC load calculator first to determine the right size, then choose the highest SEER rating within your budget.</div>
+            </div>
         </div>
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HVAC LOAD CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
     <script>
         // Climate zone data - base BTU per sq ft for heating and cooling
         const climateData = {

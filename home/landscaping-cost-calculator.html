@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Landscaping Cost Calculator – Estimate Your Garden & Yard Project Budget</title>
     <meta name="description" content="Plan your landscaping project with confidence. Our free landscaping cost calculator estimates lawn, patio, plants, and water feature costs based on area, complexity, and materials. Get accurate budget ranges for your dream garden.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="landscaping cost calculator, landscaping cost, backyard landscaping cost, how much does landscaping cost, average landscaping cost">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/landscaping-cost-calculator.html">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -35,22 +49,33 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        /* Ensure Raleway font is applied to all elements */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
@@ -58,31 +83,48 @@
         }
 
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
+        }
+        
+        /* Hyperlink colors */
+        a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #d4441a;
         }
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
 
@@ -91,6 +133,12 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+        }
+        
+        .project-areas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         .input-section h3 {
             margin-bottom: 20px;
@@ -135,7 +183,7 @@
         }
 
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -143,22 +191,21 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
-
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
-
         .buttons {
-            display: flex;
-            gap: 15px;
             max-width: 400px;
             margin: 25px auto 0 auto;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            justify-content: center;
         }
-
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -166,11 +213,10 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
-
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
 
         .note {
@@ -324,7 +370,11 @@
             .two-column {
                 grid-template-columns: 1fr;
             }
+            .project-areas-grid {
+                grid-template-columns: 1fr;
+            }
             .buttons {
+                flex-direction: column;
                 gap: 12px;
                 max-width: 100%;
             }
@@ -332,7 +382,41 @@
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../../index.html">Home</a>
             <span>/</span>
@@ -346,21 +430,23 @@
         </div>
         <div class="input-section">
                     <h3>Project Areas</h3>
-                    <div class="input-group">
-                        <label for="lawnArea">Lawn Area (sq ft)</label>
-                        <input type="number" id="lawnArea" value="0" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label for="patioArea">Patio/Pathway Area (sq ft)</label>
-                        <input type="number" id="patioArea" value="0" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label for="plantArea">Flower Beds/Plants Area (sq ft)</label>
-                        <input type="number" id="plantArea" value="0" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label for="waterArea">Water Features Area (sq ft)</label>
-                        <input type="number" id="waterArea" value="0" min="0">
+                    <div class="project-areas-grid">
+                        <div class="input-group">
+                            <label for="lawnArea">Lawn Area (sq ft)</label>
+                            <input type="number" id="lawnArea" value="0" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="patioArea">Patio/Pathway Area (sq ft)</label>
+                            <input type="number" id="patioArea" value="0" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="plantArea">Flower Beds/Plants Area (sq ft)</label>
+                            <input type="number" id="plantArea" value="0" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="waterArea">Water Features Area (sq ft)</label>
+                            <input type="number" id="waterArea" value="0" min="0">
+                        </div>
                     </div>
                 </div>
 
@@ -458,63 +544,75 @@
             <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Landscaping Cost Calculator FAQs</h2>
             
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does landscaping cost per square foot?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q1:</strong> <strong>How much does landscaping cost per square foot?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Landscaping costs typically range from $5-35 per square foot, depending on project complexity and materials. Basic lawn installation costs $3-8 per sq ft, while premium patios with water features can cost $25-50 per sq ft. The cost of landscaping per square foot varies by region and project type. Use our landscaping costs calculator for personalized estimates based on your specific project.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What factors affect landscaping costs the most?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q2:</strong> <strong>What factors affect landscaping costs the most?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> The biggest cost factors are project size, material quality, design complexity, site conditions, and additional features. Premium materials, complex designs, difficult terrain, and features like irrigation or lighting significantly increase costs.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How do I reduce landscaping costs?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q3:</strong> <strong>How do I reduce landscaping costs?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
-                    <strong>A:</strong> Consider starting with basic materials and upgrading later, focusing on high-impact areas first, doing some work yourself, and choosing native plants that require less maintenance. Our calculator helps you see cost differences between quality levels. For specific lawn care costs, check out our <a href="lawn-care-cost-calculator.html" style="color: #2196F3; text-decoration: none;">lawn care cost calculator</a> for detailed lawn maintenance estimates.
+                    <strong>A:</strong> Consider starting with basic materials and upgrading later, focusing on high-impact areas first, doing some work yourself, and choosing native plants that require less maintenance. Our calculator helps you see cost differences between quality levels. For specific lawn care costs, check out our <a href="lawn-care-cost-calculator.html">lawn care cost calculator</a> for detailed lawn maintenance estimates.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What is the average rocks for landscaping cost?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q4:</strong> <strong>What is the average rocks for landscaping cost?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> The cost of rocks for landscaping depends on the type of material, size, and coverage area. On average, decorative rocks or gravel can range from $50 to $200 per ton. Using a Landscaping Cost Calculator helps you estimate total expenses based on your yard size and design needs.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does front yard landscaping cost?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q5:</strong> <strong>How much does front yard landscaping cost?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Front yard landscaping costs vary depending on features such as lawns, flower beds, walkways, and lighting. Basic projects may start around $1,500, while more complex designs can exceed $10,000. A landscaping cost calculator gives homeowners an accurate breakdown before hiring professionals.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does landscaping cost for a small yard?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q6:</strong> <strong>How much does landscaping cost for a small yard?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Landscaping a small yard usually costs less but still depends on design complexity, materials, and labor. Simple projects might cost $500–$3,000, while customized designs can go higher. Using a landscaping cost calculator helps avoid surprises and ensures your project stays within budget.
                 </p>
             </div>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        </div>
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
-    </div>
 
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    
     <script>
         // Base unit costs per square foot
         const baseCosts = {

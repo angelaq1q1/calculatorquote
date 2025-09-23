@@ -46,49 +46,85 @@
       }
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
         body {
-            background-color: #f5f5f5;
+            background: #ffffff;
             min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
         }
         .calculator-container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
         }
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
         }
+        
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
+        
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
+        
         .breadcrumb span {
-            color: #666;
+            color: #606060;
             margin: 0 8px;
         }
+        
         h1 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
         .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
         }
         .input-section {
             background-color: #f8f9fa;
@@ -117,19 +153,21 @@
         }
         .unit-toggle {
             display: flex;
-            align-items: center;
-            gap: 16px;
+            flex-direction: column;
+            gap: 8px;
             margin-bottom: 16px;
         }
         .unit-toggle label {
             margin-bottom: 0;
-            font-weight: 500;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
         }
         .unit-toggle input[type="radio"] {
             margin-right: 8px;
         }
         .btn-calculate {
-            background-color: #2196F3;
+            background-color: #eb5424;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -137,19 +175,21 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
         .btn-calculate:hover {
-            background-color: #1976D2;
+            background-color: #d43d1a;
         }
         .buttons {
-            display: flex;
-            gap: 15px;
             max-width: 400px;
             margin: 25px auto 0 auto;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            justify-content: center;
         }
         .btn-clear {
-            background-color: #90caf9;
+            background-color: #f5c6cb;
             color: white;
             border: none;
             padding: 12px 25px;
@@ -157,10 +197,10 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            flex: 1;
+            min-width: 120px;
         }
         .btn-clear:hover {
-            background-color: #64b5f6;
+            background-color: #f1aeb5;
         }
         .result {
             margin-top: 18px;
@@ -206,14 +246,50 @@
                 grid-template-columns: 1fr;
             }
             .buttons {
+                flex-direction: column;
                 gap: 12px;
                 max-width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
-    <div class="calculator-container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
@@ -223,7 +299,7 @@
         </div>
         <h1>Confused About Drip or Sprinkler Costs? Use Our Irrigation Calculator</h1>
         <div class="description">
-            Quickly estimate installation and maintenance costs for your lawn or garden. Enter your area, system type, and materials to get an accurate cost breakdown and plan your irrigation project with confidence. Explore more <a href="index.html" style="color: #2196F3; text-decoration: none;">home and garden calculators</a> for comprehensive project planning.
+            Quickly estimate installation and maintenance costs for your lawn or garden. Enter your area, system type, and materials to get an accurate cost breakdown and plan your irrigation project with confidence. Explore more <a href="index.html" style="color: #eb5424; text-decoration: none;">home and garden calculators</a> for comprehensive project planning.
         </div>
         <div class="input-section">
             <div class="two-column">
@@ -280,7 +356,7 @@
         <div class="advice">
             <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">Understanding Irrigation Installation Costs</h2>
             <p style="margin: 0 0 15px 0; line-height: 1.7;">
-                Professional irrigation installation costs vary significantly based on several factors. Our irrigation services calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you need drip irrigation or a smart sprinkler system, understanding the cost structure helps you budget effectively. For comprehensive landscaping projects, consider using our <a href="landscaping-cost-calculator.html" style="color: #2196F3; text-decoration: none;">landscaping cost calculator</a> to plan your entire outdoor space renovation.
+                Professional irrigation installation costs vary significantly based on several factors. Our irrigation services calculator helps you understand these variables and get accurate estimates for your specific needs. Whether you need drip irrigation or a smart sprinkler system, understanding the cost structure helps you budget effectively. For comprehensive landscaping projects, consider using our <a href="landscaping-cost-calculator.html" style="color: #eb5424; text-decoration: none;">landscaping cost calculator</a> to plan your entire outdoor space renovation.
             </p>
             <p style="margin: 0 0 15px 0; line-height: 1.7;">
                 <b>Key Factors Affecting Irrigation Costs:</b><br>
@@ -331,7 +407,7 @@
                     <b>Installation:</b> Complex with technology integration
                 </p>
                 <p style="margin: 0; line-height: 1.6;">
-                    Smart irrigation systems use weather data, soil sensors, and mobile apps to optimize watering schedules. Highest efficiency but requires professional installation. For comprehensive outdoor projects, pair with our <a href="landscaping-cost-calculator.html" style="color: #2196F3; text-decoration: none;">landscaping cost calculator</a> to budget your complete outdoor transformation.
+                    Smart irrigation systems use weather data, soil sensors, and mobile apps to optimize watering schedules. Highest efficiency but requires professional installation. For comprehensive outdoor projects, pair with our <a href="landscaping-cost-calculator.html" style="color: #eb5424; text-decoration: none;">landscaping cost calculator</a> to budget your complete outdoor transformation.
                 </p>
             </div>
         </div>
@@ -340,65 +416,81 @@
             <h2 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em;">FAQ for Irrigation Services Calculator</h2>
             
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does irrigation cost?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q1: How much does irrigation cost?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> The cost of irrigation depends on your lawn or garden size, system type (drip, sprinkler, or smart irrigation), materials, and labor. Use our Irrigation Services Calculator to get an instant cost estimate tailored to your project.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How many irrigation zones do I need?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q2: How many irrigation zones do I need?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> The number of zones depends on the size of your lawn and the water requirements of different areas. Larger yards or areas with varied plant types typically need multiple zones. Our calculator can help you plan and estimate costs for each zone.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: How much does an irrigation system cost?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q3: How much does an irrigation system cost?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Irrigation system costs vary widely based on system type, materials, and labor. Basic sprinkler systems are generally cheaper than drip or smart systems. Use our calculator to compare options and see an estimated total cost.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What are sprinkler and irrigation services?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q4: What are sprinkler and irrigation services?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Sprinkler and irrigation services include installation, maintenance, and repair of watering systems for lawns and gardens. These services ensure efficient water use, healthy plants, and cost-effective irrigation.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What are lawn irrigation services?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q5: What are lawn irrigation services?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Lawn irrigation services help homeowners install and maintain watering systems for their lawns. They can include sprinklers, drip irrigation, timers, and smart controllers to keep your lawn healthy while saving water.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: Where can I find irrigation services near me?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q6: Where can I find irrigation services near me?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> You can search online for local irrigation service providers or contractors. Our calculator can help you estimate costs before contacting professionals for quotes in your area.
                 </p>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;">Q: What is the definition of irrigation systems?</h3>
+                <h3 style="color: #333; margin: 0 0 10px 0; font-size: 1.1em;"><strong>Q7: What is the definition of irrigation systems?</strong></h3>
                 <p style="margin: 0; line-height: 1.6; color: #666;">
                     <strong>A:</strong> Irrigation systems are setups designed to deliver water efficiently to plants, lawns, or gardens. They can include sprinklers, drip lines, valves, pumps, and timers to control water flow based on the landscape's needs.
                 </p>
             </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    
     <script>
         function clearForm() {
             document.getElementById('area').value = '';
