@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us – CalculatorQuote.com</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/templatemo-style.css" rel="stylesheet">
+    
     <style>
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            margin: 0;
-            padding: 40px 0;
-            font-family: 'Roboto', sans-serif;
-        }
         .about-container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 0 auto;
             background: #fff;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 40px 32px 36px 32px;
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
+            padding: 30px 32px 30px 32px;
         }
         .about-title {
             font-size: 2.2em;
-            font-weight: 700;
-            color: #1976D2;
+            font-weight: 400;
+            color: #eb5424;
             margin-bottom: 24px;
             letter-spacing: -1px;
         }
@@ -33,6 +36,25 @@
             font-size: 1.18em;
             line-height: 1.8;
             margin-bottom: 0;
+        }
+        .breadcrumb {
+            margin: 0 auto 20px auto;
+            max-width: 800px;
+            font-size: 1em;
+            color: #666;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d43d1a;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
         }
         @media (max-width: 600px) {
             .about-container {
@@ -45,14 +67,58 @@
                 font-size: 1em;
             }
         }
+
+        /* Footer links styling */
+        .tm-contact nav a {
+            color: #eb5424 !important;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .tm-contact nav a:hover {
+            color: #d4441a !important;
+        }
     </style>
 </head>
 <body>
-    <div class="about-container">
-        <div class="breadcrumb" style="margin-bottom: 24px; font-size: 1em; color: #666;">
-            <a href="index.html" style="color: #2196F3; text-decoration: none; transition: color 0.3s;">Home</a> <span style="color: #666; margin: 0 8px;">/</span>
-            <span>About Us</span>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="math/index.html">Math</a></li>
+                    <li><a href="financial/index.html">Financial</a></li>
+                    <li><a href="health/index.html">Health</a></li>
+                    <li><a href="home/index.html">Home & Garden</a></li>
+                    <li><a href="pet/index.html">Pet</a></li>
+                    <li><a href="sports/index.html">Sports</a></li>
+                    <li><a href="other/index.html">Other</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="padding-top: 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-container">
+                    <!-- Breadcrumb -->
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>&nbsp;/&nbsp;</span>
+                        About Us
+                    </div>
         <div class="about-title">About Us</div>
         <div class="about-content">
             Welcome to CalculatorQuote.com — born from a simple but powerful idea: life's full of numbers, and sometimes all we need is the right calculator to make sense of them.<br><br>
@@ -65,7 +131,7 @@
         <!-- Contact Form Section -->
         <div class="contact-section" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e0e0e0;">
             <h3 style="color: #333; font-size: 1.5em; margin-bottom: 20px;">Contact Us</h3>
-            <p style="color: #666; margin-bottom: 25px; font-size: 1em;">Have questions or feedback? We would like to hear from you. Send us an email to <a href="mailto:contact@calculatorquote.com" style="color: #2196F3; text-decoration: none;">contact@calculatorquote.com</a>, or fill the below sheet and We will respond to you as soon as possible.</p>
+            <p style="color: #666; margin-bottom: 25px; font-size: 1em;">Have questions or feedback? We would like to hear from you. Send us an email to <a href="mailto:contact@calculatorquote.com" style="color: #eb5424; text-decoration: none;">contact@calculatorquote.com</a>, or fill the below sheet and We will respond to you as soon as possible.</p>
             
             <!-- 使用Netlify Forms自动发送邮件 -->
             <form name="contact" method="POST" data-netlify="true" style="background: #f8f9fa; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0;">
@@ -76,37 +142,47 @@
                 
                 <div style="margin-bottom: 20px;">
                     <label for="name" style="display: block; margin-bottom: 8px; color: #333; font-weight: 500;">Your name:</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box;">
+                    <input type="text" id="name" name="name" autocomplete="name" required style="width: 100%; padding: 12px; border: 1px solid #eb5424; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box;">
                 </div>
                 
                 <div style="margin-bottom: 20px;">
                     <label for="email" style="display: block; margin-bottom: 8px; color: #333; font-weight: 500;">Your email:</label>
-                    <input type="email" id="email" name="email" autocomplete="email" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box;">
+                    <input type="email" id="email" name="email" autocomplete="email" required style="width: 100%; padding: 12px; border: 1px solid #eb5424; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box;">
                 </div>
                 
                 <div style="margin-bottom: 20px;">
                     <label for="message" style="display: block; margin-bottom: 8px; color: #333; font-weight: 500;">Message to us:</label>
-                    <textarea id="message" name="message" rows="6" autocomplete="off" required style="width: 100%; padding: 12px; border: 1px solid #1976D2; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box; resize: vertical;"></textarea>
+                    <textarea id="message" name="message" rows="6" autocomplete="off" required style="width: 100%; padding: 12px; border: 1px solid #eb5424; border-radius: 4px; font-size: 1em; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box; resize: vertical;"></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn" id="submitBtn" style="background: #2196F3; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send Message</button>
+                <button type="submit" class="submit-btn" id="submitBtn" style="background: #eb5424; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.3s; width: 100%;">Send Message</button>
                 
                 <div id="formStatus" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
             </form>
+                </div>
+            </div>
         </div>
     </div>
+
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
-    
 
+    <!-- Template JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
     
     <script>
         // 处理表单提交

@@ -100,60 +100,39 @@
       gtag('config', 'G-X373L6NGQT');
     </script>
     
-    <!-- Load Google Fonts and Material Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Raleway', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 32px;
+            padding: 0;
             background-color: #f5f5f5;
+        }
+
+        .main-content {
+            padding: 20px 32px 32px 32px;
         }
 
         .main-container {
             display: flex;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            gap: 30px;
-            align-items: flex-start;
+            justify-content: center;
         }
 
         .content-wrapper {
-            flex: 1;
-            max-width: 800px;
+            width: 100%;
             background: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
             padding: 32px 24px;
-            text-align: center;
-        }
-
-        .ad-sidebar {
-            width: 300px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-        }
-
-        .ad-container {
-            width: 100%;
-            height: 600px;
-            background: #f8f9fa;
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.9em;
             text-align: center;
         }
 
@@ -188,7 +167,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            color: #2196F3;
+            color: #eb5424;
             font-size: 1.2em;
         }
 
@@ -221,14 +200,14 @@
         }
 
         .calculator-item a:hover {
-            color: #2196F3;
+            color: #eb5424;
         }
 
         .more-link {
             display: block;
             text-align: center;
             padding: 8px 0 3px;
-            color: #2196F3;
+            color: #eb5424;
             font-weight: 500;
             text-decoration: none;
             border-top: 1px solid #eee;
@@ -236,7 +215,7 @@
         }
 
         .more-link:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .more-link .material-icons {
@@ -246,42 +225,17 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .main-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .ad-sidebar {
-                width: 100%;
-                position: static;
-                order: -1;
-            }
-            
-            .ad-container {
-                height: 250px;
-            }
-        }
-
         @media (max-width: 768px) {
-            body {
+            .main-content {
                 padding: 16px;
             }
 
             .main-container {
-                flex-direction: column;
-                gap: 0;
+                max-width: none;
             }
             
             .content-wrapper {
-                width: 100%;
-                max-width: none;
                 padding: 20px 15px;
-                margin: 0;
-            }
-
-            .ad-sidebar {
-                display: none;
             }
 
             h1 {
@@ -318,48 +272,85 @@
             }
         }
 
-        /* Footer styles */
-        .footer {
-            max-width: 1200px;
-            margin: 40px auto 0 auto;
-            padding: 32px 0 0 0;
-            text-align: center;
-            color: #888;
-            font-size: 1em;
+        /* Navigation alignment */
+        .navbar {
+            min-height: 50px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-nav li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-nav li a {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
         }
 
-        .footer nav {
-            margin-bottom: 8px;
-        }
-
-        .footer nav a {
-            color: #2196F3;
+        /* Footer links styling */
+        .tm-contact nav a {
+            color: #eb5424 !important;
             text-decoration: none;
-            margin: 0 18px;
-            transition: color 0.2s ease;
-            -webkit-transition: color 0.2s ease;
-            -moz-transition: color 0.2s ease;
-            -o-transition: color 0.2s ease;
+            transition: color 0.3s;
+        }
+        
+        .tm-contact nav a:hover {
+            color: #d4441a !important;
         }
 
-        .footer nav a:hover {
-            color: #1976D2;
-        }
-
-        .footer nav span {
-            color: #ccc;
-        }
-
-        .footer .copyright {
-            color: #bbb;
-            font-size: 0.98em;
-        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="math/index.html">Math</a></li>
+                    <li><a href="financial/index.html">Financial</a></li>
+                    <li><a href="health/index.html">Health</a></li>
+                    <li><a href="home/index.html">Home & Garden</a></li>
+                    <li><a href="pet/index.html">Pet</a></li>
+                    <li><a href="sports/index.html">Sports</a></li>
+                    <li><a href="other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-    <div class="main-container">
+    <!-- START HOME -->
+    <section id="home" class="tm-home">
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-container">
         <div class="content-wrapper">
             <h1>Free Online Calculators</h1>
         <div class="subtitle">Simple and powerful calculators for your daily needs</div>
@@ -487,37 +478,35 @@
 
         </div>
 
-        <!-- Ad Sidebar -->
-        <div class="ad-sidebar">
-            <div class="ad-container">
-                <!-- Google AdSense - HTML validator may show warnings for <ins> + <script> combination, but this is standard AdSense implementation -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492" crossorigin="anonymous"></script>
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-8831713993918492"
-                     data-ad-slot="1234567890"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- END HOME -->
 
-
-    <footer class="footer">
-        <nav>
-            <a href="blog/index.html">Blog</a>
-            <span>|</span>
-            <a href="about-us.html">About Us</a>
-            <span>|</span>
-            <a href="terms-of-use.html">Terms of Use</a>
-            <span>|</span>
-            <a href="privacy-policy.html">Privacy Policy</a>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="blog/index.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Blog</a>
+            <span style="color: #ccc;">|</span>
+            <a href="about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
-        <div class="copyright">&#169; 2025 CalculatorQuote.com. All rights reserved.</div>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
 
 </body>
 </html>
