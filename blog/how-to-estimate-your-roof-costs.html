@@ -1,6 +1,3 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,26 +160,27 @@ layout: null
     }
     {% endraw %}
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
         body {
-            background-color: #f5f5f5;
+            font-family: 'Raleway', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #606060;
+            background: #ffffff;
         }
 
-        .container {
+        .blog-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            
         }
 
         .breadcrumb {
@@ -192,13 +190,13 @@ layout: null
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
@@ -207,16 +205,9 @@ layout: null
         }
 
         h1 {
-            color: #333;
+            color: #303030;
             font-size: 2em;
             margin: 30px 30px 20px 30px;
-            font-weight: 500;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-            margin: 0 30px 30px 30px;
             font-weight: 300;
         }
 
@@ -231,17 +222,17 @@ layout: null
         }
 
         .content h2 {
-            color: #333;
+            color: #303030;
             font-size: 1.6em;
             margin: 35px 0 20px 0;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .content h3 {
-            color: #333;
+            color: #303030;
             font-size: 1.3em;
-            margin: 15px 0 15px 0;
-            font-weight: 500;
+            margin: 25px 0 15px 0;
+            font-weight: 300;
         }
 
         .content ul {
@@ -253,49 +244,22 @@ layout: null
             line-height: 1.6;
         }
 
-        .article-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #e9ecef;
-            transition: background-color 0.2s;
-        }
-
-        .article-item:hover {
-            background-color: #f8f9fa;
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-left: -10px;
-            margin-right: -10px;
-            border-radius: 6px;
-        }
-
-        .article-item h3 {
-            margin: 0;
-            font-size: 1.2em;
-            font-weight: 500;
-        }
-
-        .article-item a {
-            color: #2196F3;
+        .content a {
+            color: #eb5424;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
 
-        .article-item a:hover {
-            color: #1976D2;
-        }
-
-        .article-date {
-            color: #888;
-            font-size: 0.9em;
-            margin-top: 5px;
+        .content a:hover {
+            color: #d4441a;
+            text-decoration: underline;
         }
 
         .highlight-box {
             background-color: #f8f9fa;
-            border-left: 4px solid #2196F3;
             padding: 20px;
             margin: 25px 0;
-            border-radius: 0 6px 6px 0;
+            border-radius: 6px;
         }
 
         .highlight-box p {
@@ -304,19 +268,35 @@ layout: null
             color: #555;
         }
 
+        .highlight-box a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+
+        .highlight-box a:hover {
+            color: #d4441a;
+            text-decoration: underline;
+        }
+
+        /* Footer links styling */
+        .tm-contact nav a {
+            color: #eb5424 !important;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .tm-contact nav a:hover {
+            color: #d4441a !important;
+        }
+
         @media (max-width: 768px) {
-            .container {
+            .blog-container {
                 margin: 0;
-                box-shadow: none;
             }
             
             h1 {
                 font-size: 1.8em;
                 margin: 20px 20px 15px 20px;
-            }
-            
-            .subtitle {
-                margin: 0 20px 20px 20px;
             }
             
             .content {
@@ -330,11 +310,60 @@ layout: null
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HOME -->
+    <section id="home" class="tm-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                        <div class="content-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HOME -->
+
+        <!-- START BLOG CONTENT -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-container">
         <div class="breadcrumb">
-            <a href="/index.html">Home</a>
+            <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="/blog/index.html">Blog</a>
+            <a href="index.html">Blog</a>
             <span>/</span>
             How to Estimate Your Roof Costs Without Wasting $500 or More
         </div>
@@ -346,7 +375,7 @@ layout: null
 
             <p>If you have planned a roofing project, you know this feeling. Estimating roof costs is tricky. Miscalculating the area or the number of shingles can easily waste $500 or more. You may order too many tiles or pay for extra labor. Small mistakes can cause big delays and extra expenses. According to a study by HomeAdvisor, roofing projects often go over budget by 10–15% because of inaccurate material estimates.</p>
 
-            <p>I needed a simpler solution. That is when I found an online <a href="/home/solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">roofing calculator</a>. At first, I thought it would be complicated. But the tool was simple and easy to use. I could enter the roof's length, width, and slope. The calculator gave me the total area, required materials, and estimated cost in seconds.</p>
+            <p>I needed a simpler solution. That is when I found an online <a href="../home/solar-panel-cost-estimator.html">roofing calculator</a>. At first, I thought it would be complicated. But the tool was simple and easy to use. I could enter the roof's length, width, and slope. The calculator gave me the total area, required materials, and estimated cost in seconds.</p>
 
             <p>Using a roof calculator saved me both time and stress. I did not have to measure every corner myself. I did not have to guess the number of shingles. The tool also allowed me to compare different roofing materials. I could see how each material affected the total cost. This helped me avoid ordering too much or too little, saving over $500.</p>
 
@@ -356,7 +385,7 @@ layout: null
             <p>Measure the length, width, and slope. If you are unsure about the slope, most calculators let you enter the angle or pitch. Correct measurements give a more accurate estimate.</p>
 
             <h3>Use a Roofing Calculator</h3>
-            <p>Open a <a href="/home/solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">roofing calculator</a> or roofing material calculator online. Enter your measurements and choose the material. The calculator shows the total roof area, number of shingles or tiles, and estimated cost.</p>
+            <p>Open a <a href="../home/solar-panel-cost-estimator.html">roofing calculator</a> or roofing material calculator online. Enter your measurements and choose the material. The calculator shows the total roof area, number of shingles or tiles, and estimated cost.</p>
 
             <h3>Compare Materials</h3>
             <p>Some calculators let you test different materials or sizes. This helps you pick options that fit your budget. You can avoid buying expensive materials you don't need.</p>
@@ -365,50 +394,40 @@ layout: null
             <p>With the estimate, set a clear budget. You know how much materials and labor will cost. This reduces surprises during your project.</p>
 
             <div class="highlight-box">
-                <p><strong>Pro Tip:</strong> I also learned that roofing calculators can help with roof types. For example, gable, hip, or flat roofs have different material needs. Using a calculator designed for your roof type ensures accuracy. Studies show that material waste can reach up to 15% if roof measurements are incorrect, so accurate calculation saves both money and materials (<a href="https://nrcawebstorage.blob.core.windows.net/files/resources/PDFs/Annual-Report.pdf" style="color: #2196F3; text-decoration: none;" target="_blank">National Roofing Contractors Association, 2022</a>).</p>
+                <p><strong>Pro Tip:</strong> I also learned that roofing calculators can help with roof types. For example, gable, hip, or flat roofs have different material needs. Using a calculator designed for your roof type ensures accuracy. Studies show that material waste can reach up to 15% if roof measurements are incorrect, so accurate calculation saves both money and materials (<a href="https://nrcawebstorage.blob.core.windows.net/files/resources/PDFs/Annual-Report.pdf" target="_blank">National Roofing Contractors Association, 2022</a>).</p>
             </div>
 
             <p>Using a simple roofing calculator made my project easier and more predictable. I saved over $500 and avoided hours of manual work. Instead of guessing or relying only on contractor quotes, I had a clear plan.</p>
 
-            <p>If you are planning a roofing project, try a <a href="/home/solar-panel-cost-estimator.html" style="color: #2196F3; text-decoration: none;">roofing calculator</a>. It takes a few minutes to use and can save hundreds of dollars. You get accurate roof measurements, material estimates, and a realistic budget. The tool makes planning your roof project simple and stress-free.</p>
+            <p>If you are planning a roofing project, try a <a href="../home/solar-panel-cost-estimator.html">roofing calculator</a>. It takes a few minutes to use and can save hundreds of dollars. You get accurate roof measurements, material estimates, and a realistic budget. The tool makes planning your roof project simple and stress-free.</p>
         </div>
     </div>
-    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BLOG CONTENT -->
+
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="/about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="index.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Blog</a>
             <span style="color: #ccc;">|</span>
-            <a href="/terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="/privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
-    
-    <script>
-        // Dynamic date generation for article publication dates
-        function updateDates() {
-            const dateElements = document.querySelectorAll('.dynamic-date');
-            
-            dateElements.forEach(element => {
-                const daysAgo = parseInt(element.getAttribute('data-days-ago')) || 0;
-                const publishDate = new Date();
-                publishDate.setDate(publishDate.getDate() - daysAgo);
-                
-                const year = publishDate.getFullYear();
-                const month = String(publishDate.getMonth() + 1).padStart(2, '0');
-                const day = String(publishDate.getDate()).padStart(2, '0');
-                const formattedDate = `${year}.${month}.${day}`;
-                
-                element.innerText = formattedDate;
-            });
-        }
-        
-        // Execute after page load
-        document.addEventListener('DOMContentLoaded', updateDates);
-        
-        // Update dates every minute (ensure automatic update across days)
-        setInterval(updateDates, 60000);
-    </script>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>

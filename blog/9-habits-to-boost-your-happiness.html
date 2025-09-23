@@ -15,24 +15,32 @@
   "description": "Learn 9 proven daily habits to boost happiness instantly. From gratitude practice to exercise tips, discover simple ways to improve mood and mental wellness every day.",
   "author": {
     "@type": "Organization",
-    "name": "CalculatorQuote"
+    "name": "CalculatorQuote",
+    "url": "https://www.calculatorquote.com"
   },
   "publisher": {
     "@type": "Organization",
     "name": "CalculatorQuote",
-    "url": "https://www.calculatorquote.com"
+    "url": "https://www.calculatorquote.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.calculatorquote.com/logo.png"
+    }
   },
-  "datePublished": "2025-01-27",
-  "dateModified": "2025-01-27",
+  "datePublished": "2025-09-06",
+  "dateModified": "2025-09-06",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.calculatorquote.com/blog/9-habits-to-boost-your-happiness.html"
+    "@id": "https://www.calculatorquote.com/blog/9-habits-to-boost-your-happiness.html",
+    "name": "9 Simple Habits That Can Instantly Boost Your Happiness",
+    "description": "Complete guide to daily habits that boost happiness and mental wellness"
   },
   "image": {
     "@type": "ImageObject",
     "url": "https://www.calculatorquote.com/images/happiness-habits.jpg",
     "width": 1200,
-    "height": 630
+    "height": 630,
+    "caption": "9 Simple Habits That Can Instantly Boost Your Happiness"
   },
   "articleSection": "Mental Health & Wellness",
   "keywords": "happiness habits, daily happiness, mood boosters, positive habits, mental health, wellness tips, gratitude practice, exercise for happiness, meditation tips, stress relief, emotional wellness, daily routine, positive mindset, mental health tips, happiness techniques",
@@ -43,132 +51,202 @@
 }
 </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
 
     <style>
         body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            padding: 40px 20px;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: #606060;
+            background: #ffffff;
         }
+
         .blog-container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            
         }
+
         .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 1em;
-            color: #666;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            margin-bottom: 0;
         }
+
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
+
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
+
         .breadcrumb span {
             color: #666;
             margin: 0 8px;
         }
-        h1 {
-            color: #333;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            line-height: 1.3;
+
+        .content {
+            padding: 0 30px 40px 30px;
         }
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-size: 1.1em;
-        }
+
         .habit-section {
             margin-bottom: 35px;
             padding: 25px;
             background-color: #f8f9fa;
             border-radius: 12px;
         }
+
         .habit-number {
             display: inline-block;
-            color: #333;
+            color: #303030;
             font-weight: bold;
             margin-right: 15px;
             font-size: 1.2em;
         }
+
         .habit-title {
             display: inline-block;
-            color: #333;
+            color: #303030;
             font-size: 1.4em;
             margin-bottom: 15px;
-            font-weight: 600;
+            font-weight: 300;
         }
+
         .habit-content {
             color: #555;
             font-size: 1em;
             line-height: 1.7;
         }
-        .highlight-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-            border: 1px solid #e1bee7;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            text-align: center;
-        }
-        .highlight-box h3 {
-            color: #7b1fa2;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        .highlight-box p {
-            color: #555;
-            margin: 0;
-        }
+
         .related-content {
             margin-top: 40px;
-            padding: 25px;
-            background-color: #fff3e0;
-            border-radius: 12px;
-            border: 1px solid #ffcc02;
+            padding: 0;
+            background-color: transparent;
+            border-radius: 0;
+            border: none;
         }
+
         .related-content h3 {
-            color: #f57c00;
+            color: #303030;
             margin-bottom: 15px;
+            font-weight: 300;
         }
+
         .related-content a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
         }
+
         .related-content a:hover {
+            color: #d4441a;
             text-decoration: underline;
+        }
+
+        /* Footer links styling */
+        .tm-contact nav a {
+            color: #eb5424 !important;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .tm-contact nav a:hover {
+            color: #d4441a !important;
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                margin: 0;
+            }
+            
+            .content {
+                padding: 0 20px 30px 20px;
+            }
+            
+            .breadcrumb {
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="blog-container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HOME -->
+    <section id="home" class="tm-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                        <div class="content-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HOME -->
+
+        <!-- START BLOG CONTENT -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-container">
         <div class="breadcrumb">
-            <a href="/index.html">Home</a>
+            <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="/blog/index.html">Blog</a>
+            <a href="index.html">Blog</a>
             <span>/</span>
             9 Habits to Boost Happiness
         </div>
         
-        <h1>9 Simple Habits That Can Instantly Boost Your Happiness</h1>
-        
-        <div class="description">
-            Life often feels busy, stressful, and sometimes a little dull. The good news is that small actions done every day can improve your happiness in big ways. Here are nine simple habits you can start right now.
-        </div>
+        <div class="content">
+            <h1>9 Simple Habits That Can Instantly Boost Your Happiness</h1>
+            
+            <div class="description">
+                Life often feels busy, stressful, and sometimes a little dull. The good news is that small actions done every day can improve your happiness in big ways. Here are nine simple habits you can start right now.
+            </div>
 
         <div class="habit-section">
             <div class="habit-number">1</div>
@@ -184,7 +262,7 @@
             <div class="habit-content">
                 Exercise is one of the fastest ways to boost your mood and energy. You don't need a gym or expensive equipment. A few minutes of stretching, yoga, or light bodyweight moves at home can already make you feel better. Moving your body releases endorphins, which are natural chemicals that reduce stress and increase happiness. Regular activity also helps you sleep better and stay more focused during the day.
                 <br><br>
-                If you want to stay on track, you can use simple tools to measure your progress. There is a <a href="../health/calorie-calculator.html" style="color: #2196F3;">Calorie Calculator</a> which makes it easy to see how your daily activity and food choices affect your health. It keeps fitness fun and helps you stay motivated without extra pressure. By combining small workouts with mindful tracking, you build a habit that supports both your body and your happiness.
+                If you want to stay on track, you can use simple tools to measure your progress. There is a <a href="../health/calorie-calculator.html" style="color: #eb5424;">Calorie Calculator</a> which makes it easy to see how your daily activity and food choices affect your health. It keeps fitness fun and helps you stay motivated without extra pressure. By combining small workouts with mindful tracking, you build a habit that supports both your body and your happiness.
             </div>
         </div>
 
@@ -243,18 +321,33 @@
                 Smiling is a small action with a big effect. Even when you don't feel happy, forcing a smile can trick your brain into releasing chemicals that improve your mood. Smiling also makes others respond positively, which creates better social interactions. Start by smiling at yourself in the mirror or at people you meet during the day. This simple habit spreads good energy to you and the people around you. Happiness often comes from the little things, and a smile is the easiest one to share.
             </div>
         </div>
-
     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BLOG CONTENT -->
 
-    <footer style="max-width: 1000px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="/about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="index.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Blog</a>
             <span style="color: #ccc;">|</span>
-            <a href="/terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="/privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>

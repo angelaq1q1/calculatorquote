@@ -31,7 +31,7 @@
     <meta property="og:url" content="https://www.calculatorquote.com/blog/">
     <meta property="og:site_name" content="CalculatorQuote.com">
     <meta property="og:image" content="https://www.calculatorquote.com/images/blog-header.jpg">
-    <meta property="og:image:alt" content="CalculatorQuote Blog">
+    <meta property="og:image:alt" content="CalculatorQuote">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +47,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "CalculatorQuote Blog",
+        "name": "CalculatorQuote",
         "description": "Expert guides and tips on home improvement, health, finance, money making, and more",
         "url": "https://www.calculatorquote.com/blog/",
         "mainEntityOfPage": {
@@ -116,26 +116,38 @@
         "description": "Free online calculators and financial tools to help you make better decisions"
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
         body {
-            background-color: #f5f5f5;
+            font-family: 'Raleway', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #606060;
+            background: #ffffff;
+            padding-top: 0; /* 移除固定导航栏的顶部间距 */
         }
 
-        .container {
+        /* 导航栏跟随页面滚动 */
+        .navbar-fixed-top {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            z-index: 1030 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .blog-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
         }
 
         .breadcrumb {
@@ -145,13 +157,13 @@
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
@@ -160,10 +172,10 @@
         }
 
         h1 {
-            color: #333;
+            color: #303030;
             font-size: 2em;
             margin: 30px 30px 20px 30px;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .subtitle {
@@ -184,17 +196,17 @@
         }
 
         .content h2 {
-            color: #333;
+            color: #303030;
             font-size: 1.6em;
             margin: 35px 0 20px 0;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .content h3 {
-            color: #333;
+            color: #303030;
             font-size: 1.3em;
             margin: 15px 0 15px 0;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .content ul {
@@ -224,17 +236,18 @@
         .article-item h3 {
             margin: 0;
             font-size: 1.2em;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .article-item a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .article-item a:hover {
-            color: #1976D2;
+            color: #d4441a;
+            text-decoration: underline;
         }
 
         .article-date {
@@ -243,10 +256,10 @@
             margin-top: 5px;
         }
 
+
         @media (max-width: 768px) {
-            .container {
+            .blog-container {
                 margin: 0;
-                box-shadow: none;
             }
             
             h1 {
@@ -269,9 +282,53 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HOME -->
+    <section id="home" class="tm-home" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                        <div class="content-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HOME -->
+
+    <div class="blog-container">
         <div class="breadcrumb">
-            <a href="/index.html">Home</a>
+            <a href="../index.html">Home</a>
             <span>/</span>
             Blog
         </div>
@@ -366,17 +423,28 @@
             </div>
         </div>
     </div>
-    
+
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="/about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="index.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Blog</a>
             <span style="color: #ccc;">|</span>
-            <a href="/terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="/privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
     
     <script>
         // Dynamic date generation for article publication dates

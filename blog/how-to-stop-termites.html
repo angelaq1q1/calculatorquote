@@ -29,7 +29,11 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://calculatorquote.com/blog/how-to-stop-termites.html">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -92,24 +96,21 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
         body {
-            background-color: #f5f5f5;
+            font-family: 'Raleway', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #606060;
+            background: #ffffff;
         }
 
-        .container {
+        .blog-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            
         }
 
         .breadcrumb {
@@ -119,13 +120,13 @@
         }
 
         .breadcrumb a {
-            color: #2196F3;
+            color: #eb5424;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #1976D2;
+            color: #d4441a;
         }
 
         .breadcrumb span {
@@ -134,10 +135,10 @@
         }
 
         h1 {
-            color: #333;
+            color: #303030;
             font-size: 2em;
             margin: 30px 30px 20px 30px;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .subtitle {
@@ -158,17 +159,17 @@
         }
 
         .content h2 {
-            color: #333;
+            color: #303030;
             font-size: 1.6em;
             margin: 35px 0 20px 0;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .content h3 {
-            color: #333;
+            color: #303030;
             font-size: 1.3em;
             margin: 15px 0 15px 0;
-            font-weight: 500;
+            font-weight: 300;
         }
 
         .content ul {
@@ -180,12 +181,39 @@
             line-height: 1.6;
         }
 
+        .content a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .content a:hover {
+            color: #d4441a;
+            text-decoration: underline;
+        }
+
         .highlight-box {
             background-color: #f8f9fa;
-            border-left: 4px solid #2196F3;
+            border-left: 4px solid #eb5424;
             padding: 20px;
             margin: 25px 0;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .highlight-box a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+
+        .highlight-box a:hover {
+            color: #d4441a;
+            text-decoration: underline;
         }
 
         .cost-section {
@@ -194,8 +222,9 @@
         }
 
         .cost-section h3 {
-            color: #333;
+            color: #303030;
             margin-bottom: 15px;
+            font-weight: 300;
         }
 
         .conclusion {
@@ -204,14 +233,25 @@
         }
 
         .conclusion h2 {
-            color: #333;
+            color: #303030;
             margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        /* Footer links styling */
+        .tm-contact nav a {
+            color: #eb5424 !important;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .tm-contact nav a:hover {
+            color: #d4441a !important;
         }
 
         @media (max-width: 768px) {
-            .container {
+            .blog-container {
                 margin: 0;
-                box-shadow: none;
             }
             
             h1 {
@@ -234,11 +274,60 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HOME -->
+    <section id="home" class="tm-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-container">
+                        <div class="content-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END HOME -->
+
+        <!-- START BLOG CONTENT -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-container">
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="../blog/">Blog</a>
+            <a href="index.html">Blog</a>
             <span>/</span>
             How to Stop Termites
         </div>
@@ -248,31 +337,47 @@
         <div class="content">
             <p>Termites are one of the most destructive pests homeowners face. They silently eat wooden structures and can cause thousands of dollars in damage. If you searched for ways to stop termites, it is likely because you want to protect your home and save money on repairs.</p>
 
-            <p>Imagine walking into your living room and noticing warped floors, cracked wooden doors, or hollow-sounding beams. These are common signs of termite activity. The longer you wait, the worse the damage gets. Repair costs can reach $5,000 or more. The stress, financial burden, and hassle of fixing termite damage can overwhelm any homeowner. (<a href="https://www.angi.com/articles/termite-damage-cost.htm" target="_blank" rel="noopener" style="color: #2196F3; text-decoration: none;">Angi</a>)</p>
+            <p>Imagine walking into your living room and noticing warped floors, cracked wooden doors, or hollow-sounding beams. These are common signs of termite activity. The longer you wait, the worse the damage gets. Repair costs can reach $5,000 or more. The stress, financial burden, and hassle of fixing termite damage can overwhelm any homeowner. (<a href="https://www.angi.com/articles/termite-damage-cost.htm" target="_blank" rel="noopener">Angi</a>)</p>
 
-            <p>The good news is that you can stop termites before they ruin your property. Home termite prevention and early termite detection are key. Start by inspecting your foundation, wooden furniture, and outdoor decks. Look for tiny holes, mud tubes, or discarded wings. Termites are attracted to moisture, so fix leaks and ensure proper ventilation in crawl spaces. This simple step reduces the risk significantly. (<a href="https://entomology.ca.uky.edu/ef640" target="_blank" rel="noopener" style="color: #2196F3; text-decoration: none;">University of Kentucky Entomology</a>)</p>
+            <p>The good news is that you can stop termites before they ruin your property. Home termite prevention and early termite detection are key. Start by inspecting your foundation, wooden furniture, and outdoor decks. Look for tiny holes, mud tubes, or discarded wings. Termites are attracted to moisture, so fix leaks and ensure proper ventilation in crawl spaces. This simple step reduces the risk significantly. (<a href="https://entomology.ca.uky.edu/ef640" target="_blank" rel="noopener">University of Kentucky Entomology</a>)</p>
 
             <p>If you already see signs of termites, take action immediately. Professional termite treatment, such as liquid barriers or baiting systems, can eliminate infestations. These solutions target the colony and protect your home. For homeowners on a budget, DIY options like borate wood treatments or termite-resistant coatings serve as a first line of defense.</p>
 
-            <p>Regular monitoring is essential. Set up termite inspection schedules or use bait stations around your property. Early termite detection helps you stop termites before they cause serious damage. Combine these strategies with proper home maintenance. Keep wood away from soil, trim tree branches near structures, and seal cracks. Together, these steps create a strong defense system. (<a href="https://www.orkin.com/pests/termites" target="_blank" rel="noopener" style="color: #2196F3; text-decoration: none;">Orkin</a>)</p>
+            <p>Regular monitoring is essential. Set up termite inspection schedules or use bait stations around your property. Early termite detection helps you stop termites before they cause serious damage. Combine these strategies with proper home maintenance. Keep wood away from soil, trim tree branches near structures, and seal cracks. Together, these steps create a strong defense system. (<a href="https://www.orkin.com/pests/termites" target="_blank" rel="noopener">Orkin</a>)</p>
 
-            <p>To make planning easier, you can use our <a href="../other/pest-control-cost-calculator.html" style="color: #2196F3; text-decoration: none;">pest control calculator</a> to estimate termite risk and determine the best preventive measures for your home. The calculator guides you to the right home termite prevention and helps you plan effective termite treatment.</p>
+            <p>To make planning easier, you can use our <a href="../other/pest-control-cost-calculator.html">pest control calculator</a> to estimate termite risk and determine the best preventive measures for your home. The calculator guides you to the right home termite prevention and helps you plan effective termite treatment.</p>
 
             <p>By taking these actions, you protect your home and save thousands of dollars in repairs. Homeowners who implement preventive measures enjoy peace of mind knowing their property is safe from termites. Remember, acting early is always easier and cheaper than repairing major damage later.</p>
 
-            <p>Whether you are a first-time homeowner or managing an older property, stopping termites before they cause damage is essential. Inspect, prevent, and treat termite activity now. Using tools like a <a href="../other/pest-control-cost-calculator.html" style="color: #2196F3; text-decoration: none;">pest control calculator</a>, combined with early termite detection and professional termite treatment, ensures your home remains safe. Protect your investment and avoid unnecessary repair costs today.</p>
+            <p>Whether you are a first-time homeowner or managing an older property, stopping termites before they cause damage is essential. Inspect, prevent, and treat termite activity now. Using tools like a <a href="../other/pest-control-cost-calculator.html">pest control calculator</a>, combined with early termite detection and professional termite treatment, ensures your home remains safe. Protect your investment and avoid unnecessary repair costs today.</p>
         </div>
     </div>
-    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BLOG CONTENT -->
+
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="index.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Blog</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #2196F3; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
+
+    <!-- Template JavaScript -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>
