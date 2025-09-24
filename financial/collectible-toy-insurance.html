@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collectible Toy Insurance Estimator - Calculate Protection Value for Rare Toys & Blind Boxes</title>
     <meta name="description" content="Estimate the insurance value of your collectible toys, Labubu figures, Pop Mart blind boxes, and vintage action figures. Free, easy, and no login required. Protect your collection now.">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Collectible Toy Insurance Calculator",
+        "description": "Free calculator to estimate insurance value for collectible toys, Labubu figures, Pop Mart blind boxes, and vintage action figures",
+        "url": "https://calculatorquote.com/financial/collectible-toy-insurance.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": [
+            "collectible car insurance",
+            "collectors insurance agency", 
+            "is valuable personal property insurance worth it",
+            "antiques & collectibles insurance group",
+            "collectible toy insurance",
+            "Labubu insurance",
+            "Pop Mart insurance",
+            "vintage toy insurance",
+            "blind box insurance",
+            "collectible figure insurance"
+        ],
+        "provider": {
+            "@type": "Organization",
+            "name": "CalculatorQuote",
+            "url": "https://calculatorquote.com"
+        }
+    }
+    </script>
+    
     <!-- Template CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -245,6 +281,103 @@
             background-color: #f1aeb5;
         }
 
+        /* Plan Comparison Styles */
+        .plan-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            width: 100%;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .basic-plan {
+            border-color: #6c757d;
+        }
+
+        .standard-plan {
+            border-color: #eb5424;
+            border-width: 3px;
+        }
+
+        .premium-plan {
+            border-color: #ffd700;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .plan-header h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .plan-rate {
+            color: #eb5424;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .plan-details {
+            space-y: 12px;
+        }
+
+        .detail-row {
+            display: block;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row .label {
+            color: #666;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .detail-row .value {
+            color: #eb5424;
+            font-weight: 600;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .plan-note {
+            background-color: #f8f9fa;
+            color: #666;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .standard-plan .plan-note {
+            background-color: #fff3e0;
+            color: #d4441a;
+        }
+
         @media (max-width: 768px) {
             .calculator-grid {
                 grid-template-columns: 1fr;
@@ -314,9 +447,9 @@
             Collectible Toy Insurance Calculator
         </div>
 
-        <h1>Collectible Toy Insurance Calculator</h1>
+        <h1>Fire, Theft, or Water Damage – Will Your Home Insurance Cover Collectible Toys?</h1>
         <div class="info-text">
-          Got a shelf full of Labubu, Molly, or other Pop Mart blind box figures? You're not alone. With collectible toys booming in value, it's smart to know what your stash is worth—and how much coverage you'd need if disaster struck. Whether it's limited-edition Funko Pops, retro Transformers, or an unopened mystery box from last year, our calculator gives you a quick insurance estimate to help protect your growing collection.
+          Most standard home insurance policies don't fully cover high-value collectible toys. That means fire, theft, or water damage could leave you with major losses. Specialized collectible toy insurance ensures your rare items are properly protected, giving you peace of mind and real financial security.
         </div>
 
         <div class="calculator-grid">
@@ -343,7 +476,7 @@
                             <label for="storage-location">Storage Location</label>
                             <div class="input-field-container">
                                 <select id="storage-location">
-                                    <option value="home">Home</option>
+                                    <option value="home">Home Cabinet</option>
                                     <option value="display">Display Case</option>
                                     <option value="warehouse">Warehouse</option>
                                 </select>
@@ -382,8 +515,10 @@
                                 </select>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
 
                 <div class="buttons">
                     <button class="btn-calculate" onclick="calculateInsurance()">Calculate</button>
@@ -391,47 +526,124 @@
                 </div>
 
                 <div class="results" id="results-section" style="display: none; margin-top: 30px;">
-                    <h2>Insurance Estimate</h2>
-                    <div class="result-item">
-                        <strong>Annual Premium</strong>
-                        <span id="annual-premium">$0.00</span>
-                    </div>
-                    <div class="result-item">
-                        <strong>Monthly Payment</strong>
-                        <span id="monthly-payment">$0.00</span>
-                    </div>
-                    <div class="result-item">
-                        <strong>Risk Factor</strong>
-                        <span id="risk-factor">Low</span>
+                    <h2>Insurance Plan Comparison</h2>
+                    <div class="plan-comparison">
+                        <div class="plan-card basic-plan">
+                            <div class="plan-header">
+                                <h3>🔹 Basic Plan</h3>
+                                <div class="plan-rate">1.5% Annual Rate</div>
+                            </div>
+                            <div class="plan-details">
+                                <div class="detail-row">
+                                    <span class="label">Annual Premium:</span>
+                                    <span class="value" id="basic-premium">$0.00</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Coverage:</span>
+                                    <span class="value" id="basic-coverage">60%</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Deductible:</span>
+                                    <span class="value">$1,000</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Estimated Payout:</span>
+                                    <span class="value" id="basic-payout">$0.00</span>
+                                </div>
+                                <div class="plan-note">No exhibition coverage</div>
+                            </div>
+                        </div>
+
+                        <div class="plan-card standard-plan">
+                            <div class="plan-header">
+                                <h3>🔹 Standard Plan</h3>
+                                <div class="plan-rate">2.0% Annual Rate</div>
+                            </div>
+                            <div class="plan-details">
+                                <div class="detail-row">
+                                    <span class="label">Annual Premium:</span>
+                                    <span class="value" id="standard-premium">$0.00</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Coverage:</span>
+                                    <span class="value" id="standard-coverage">80%</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Deductible:</span>
+                                    <span class="value">$500</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Estimated Payout:</span>
+                                    <span class="value" id="standard-payout">$0.00</span>
+                                </div>
+                                <div class="plan-note">Most Popular</div>
+                            </div>
+                        </div>
+
+                        <div class="plan-card premium-plan">
+                            <div class="plan-header">
+                                <h3>🔹 Premium Plan</h3>
+                                <div class="plan-rate">2.5% Annual Rate</div>
+                            </div>
+                            <div class="plan-details">
+                                <div class="detail-row">
+                                    <span class="label">Annual Premium:</span>
+                                    <span class="value" id="premium-premium">$0.00</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Coverage:</span>
+                                    <span class="value" id="premium-coverage">100%</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Deductible:</span>
+                                    <span class="value">$250</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Estimated Payout:</span>
+                                    <span class="value" id="premium-payout">$0.00</span>
+                                </div>
+                                <div class="plan-note">Best Protection</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Additional Information Section -->
-        <div style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef;">
-            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 20px;">🧸 Collectible Toy Insurance – Because You Can't File a Claim for a Broken Heart 💔</h3>
+        <div style="margin-top: 40px; padding: 30px;">
+            <h3 style="color: #333; font-size: 1.3em; margin-bottom: 20px;">🛡️ Collectible Toy Insurance – Because You Can't File a Claim for a Broken Heart 💔</h3>
             <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
-                Let's say your shelf just took a tumble.<br>
-                Now your Labubu is missing an ear, your Pop Mart Molly has a scratch across her smug little face, and your prized Funko Pop Batman is... decapitated.<br><br>
-                What's worse than heartbreak?<br>
-                Not having collectible toy insurance when your $500 blind box army falls victim to gravity.
+                Protecting your collectible toys is both a hobby choice and a smart money move. Our Collectible Toy Insurance Calculator helps you see costs and coverage fast. You enter your total collection value, the highest-value item, storage details, and risk factors. The calculator returns instant estimates for three plans. This tool works like calculators for collectible car insurance and collector vehicle insurance. It also helps you get a quick collectibles insurance quote.
             </p>
 
-            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">🧮 What does this tool do?</h4>
-            <ul style="list-style: none; margin-bottom: 20px; padding-left: 0;">
-                <li style="margin-bottom: 10px; text-align: left;">✅ Estimates how much insurance coverage your rare and collectible toys should have</li>
-                <li style="margin-bottom: 10px; text-align: left;">✅ Works with Labubu, Pop Mart, Funko Pops, vintage action figures, LEGO sets — basically anything you won't let your kids touch</li>
-                <li style="margin-bottom: 10px; text-align: left;">✅ Helps you sleep better at night knowing your limited edition toys aren't one accident away from being "worthless plastic"</li>
-                <li style="margin-bottom: 10px; text-align: left;">✅ Fast, free, no sign-up, no "premium version" with sad puppy upsells</li>
-            </ul>
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">🛠️ How do you use this calculator?</h4>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
+                You open the tool and fill in the form. You type the total value and the top item value. You pick storage and whether you display the items. You set deductible and coverage limit if you want. The calculator shows yearly premium, monthly cost, coverage percent, and estimated payout.
+            </p>
+
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">📅 When should you buy collectible insurance?</h4>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
+                You should buy it when your collection is worth more than your home policy limits. You should buy it if you show items at events or store them off-site. You should buy it when you worry about fire, theft, or water damage. A policy for collectors covers gaps that home insurance may miss.
+            </p>
+
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">📈 What do the results mean?</h4>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
+                The results show cost and protection side by side. The yearly premium is what you would pay per year. The coverage percent shows how much value the plan will cover. The deductible is what you pay out of pocket on a claim. The estimated payout is the likely amount the insurer would pay after a covered loss.
+            </p>
+
+            <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">👥 Who is each plan for?</h4>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em; line-height: 1.6;">
+                The Basic Plan is for casual collectors on a budget. The Standard Plan is for most collectors who want balance. The Premium Plan is for serious collectors with rare or high-value items. Use the tool to compare plans. Then request a collectibles insurance quote to get a final offer from an insurer.
+            </p>
 
             <h4 style="color: #333; font-size: 1.2em; margin-bottom: 15px;">❓ FAQ – For Collectors Who Take Their Hobbies Very Seriously</h4>
             <ul style="list-style: none; margin-bottom: 0; padding-left: 0;">
-                <li style="margin-bottom: 10px; text-align: left;"><strong>Q1: Will this calculator tell me if my Labubu is emotionally priceless?</strong><br>A: No, but it will tell you how much you could reasonably insure it for.</li>
-                <li style="margin-bottom: 10px; text-align: left;"><strong>Q2: Is this only for ultra-rare collectors?</strong><br>A: Nope. Whether you've got one Pop Mart blind box or a full IKEA shrine, we've got you.</li>
-                <li style="margin-bottom: 10px; text-align: left;"><strong>Q3: Can this get me a payout if my dog chews up my Sonic figurine?</strong><br>A: We can't promise that, but we can help you know what to ask for if your insurance provider is cool.</li>
-                <li style="margin-bottom: 10px; text-align: left;"><strong>Q4: Why should I care?</strong><br>A: Because one day, that mystery box you forgot under your bed might be worth more than your actual 401(k).</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q1: What is a collectible insurance policy?</strong><br>A: A collectible insurance policy protects valuable items like toys, cars, motorcycles, or rare collectibles. It covers risks such as fire, theft, or <a href="../other/water-damage-calculator.html" style="color: #eb5424; text-decoration: none;">water damage</a> that standard home insurance may not fully cover.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q2: How much does collectibles insurance cost?</strong><br>A: Collectibles insurance cost depends on the total value of your collection, storage location, and risk factors. Using a calculator or requesting a collectibles insurance quote helps estimate your yearly premium.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q3: How do I find collectible car insurance companies?</strong><br>A: You can search for collectible car insurance companies online or consult a collectors insurance agency. They specialize in high-value or rare vehicles and can provide tailored coverage plans.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q4: Is there insurance for collector motorcycles?</strong><br>A: Yes, collector motorcycle insurance is available for rare or vintage motorcycles. It offers protection against theft, accident damage, and other risks not typically covered by standard vehicle insurance.</li>
+                <li style="margin-bottom: 10px; text-align: left;"><strong>Q5: Where can I contact a collectors insurance agency?</strong><br>A: A collectors insurance agency can help you find the right policy for your toys, cars, motorcycles, or other collectibles. They provide personalized advice and can arrange the best coverage for your collection.</li>
             </ul>
         </div>
             </div>
@@ -467,61 +679,80 @@
             const insurancePeriod = parseInt(document.getElementById('insurance-period').value);
             const photoEvidence = document.getElementById('photo-evidence').value;
 
-            // Calculate risk factor based on storage and display use
-            let riskFactor = 1.0;
-            switch(storageLocation) {
-                case 'home':
-                    riskFactor = 1.0;
+            // Insurance period discount
+            let periodDiscount = 0;
+            switch(insurancePeriod) {
+                case 1:
+                    periodDiscount = 0; // No discount
                     break;
-                case 'display':
-                    riskFactor = 1.4;
+                case 2:
+                    periodDiscount = 0.05; // -5%
                     break;
-                case 'warehouse':
-                    riskFactor = 1.8;
+                case 5:
+                    periodDiscount = 0.15; // -15%
                     break;
             }
 
-            // Adjust risk factor based on display use
-            if (displayUse === 'yes') {
-                riskFactor *= 1.2;
+            // Basic Plan calculation
+            let basicPremium = totalValue * 0.015; // 1.5% annual rate
+            // Basic Plan doesn't cover exhibition risk, so no exhibition risk calculation
+            let basicRiskAdjustment = 0;
+            if (storageLocation === 'warehouse') {
+                basicRiskAdjustment += 0.2; // +20%
             }
-
-            // Adjust based on photo evidence
             if (photoEvidence === 'no') {
-                riskFactor *= 1.1;
+                basicRiskAdjustment += 0.1; // +10%
             }
+            basicPremium = basicPremium * (1 + basicRiskAdjustment - periodDiscount);
+            let basicCoverageLimit = totalValue * 0.6; // 60%
+            let basicPayout = Math.max(0, basicCoverageLimit - 1000); // $1,000 deductible
 
-            // Calculate base rate (between 1.5% and 5%)
-            let baseRate = 0.015; // Start with minimum 1.5%
-            if (totalValue > 10000) {
-                baseRate = 0.02;
-            } else if (totalValue > 25000) {
-                baseRate = 0.03;
+            // Standard Plan calculation
+            let standardPremium = totalValue * 0.02; // 2% annual rate
+            let standardRiskAdjustment = 0;
+            if (storageLocation === 'warehouse') {
+                standardRiskAdjustment += 0.2; // +20%
             }
-
-            // Calculate annual premium
-            let annualPremium = totalValue * baseRate * riskFactor;
-
-            // Apply multi-year discount
-            if (insurancePeriod > 1) {
-                annualPremium *= (1 - (insurancePeriod - 1) * 0.05); // 5% discount per additional year
+            if (displayUse === 'yes') {
+                standardRiskAdjustment += 0.15; // +15%
             }
+            if (photoEvidence === 'no') {
+                standardRiskAdjustment += 0.1; // +10%
+            }
+            standardPremium = standardPremium * (1 + standardRiskAdjustment - periodDiscount);
+            let standardCoverageLimit = totalValue * 0.8; // 80%
+            let standardPayout = Math.max(0, standardCoverageLimit - 500); // $500 deductible
+
+            // Premium Plan calculation
+            let premiumPremium = totalValue * 0.025; // 2.5% annual rate
+            let premiumRiskAdjustment = 0;
+            if (storageLocation === 'warehouse') {
+                premiumRiskAdjustment += 0.1; // +10%
+            }
+            if (displayUse === 'yes') {
+                premiumRiskAdjustment += 0.1; // +10%
+            }
+            if (photoEvidence === 'yes') {
+                premiumRiskAdjustment -= 0.05; // -5% photo documentation discount
+            }
+            premiumPremium = premiumPremium * (1 + premiumRiskAdjustment - periodDiscount);
+            let premiumCoverageLimit = totalValue * 1.0; // 100%
+            let premiumPayout = Math.max(0, premiumCoverageLimit - 250); // $250 deductible
 
             // Show results section
             document.getElementById('results-section').style.display = 'block';
             
-            // Update results
-            document.getElementById('annual-premium').textContent = `$${annualPremium.toFixed(2)}`;
-            document.getElementById('monthly-payment').textContent = `$${(annualPremium / 12).toFixed(2)}`;
-            
-            // Set risk factor text
-            let riskText = 'Low';
-            if (riskFactor > 1.5) {
-                riskText = 'High';
-            } else if (riskFactor > 1.2) {
-                riskText = 'Medium';
-            }
-            document.getElementById('risk-factor').textContent = riskText;
+            // Update Basic Plan results
+            document.getElementById('basic-premium').textContent = `$${basicPremium.toFixed(2)}`;
+            document.getElementById('basic-payout').textContent = `$${basicPayout.toFixed(2)}`;
+
+            // Update Standard Plan results
+            document.getElementById('standard-premium').textContent = `$${standardPremium.toFixed(2)}`;
+            document.getElementById('standard-payout').textContent = `$${standardPayout.toFixed(2)}`;
+
+            // Update Premium Plan results
+            document.getElementById('premium-premium').textContent = `$${premiumPremium.toFixed(2)}`;
+            document.getElementById('premium-payout').textContent = `$${premiumPayout.toFixed(2)}`;
         }
 
         function clearForm() {
