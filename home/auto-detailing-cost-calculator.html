@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Detailing Cost Calculator | Boost Resale Value $2,500</title>
+    <meta name="description" content="See how much auto detailing costs before selling your car. Use our calculator to compare options and boost resale value by up to $2,500.">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Auto Detailing Cost Calculator - Free Price Estimator",
+  "url": "https://www.calculatorquote.com/home/auto-detailing-cost-calculator.html",
+  "description": "Calculate auto detailing costs instantly. Get accurate estimates for car wash, interior cleaning, ceramic coating, and premium detailing services by vehicle type and location.",
+  "keywords": "auto detailing cost, auto detailing rates, auto detailing prices near me, auto detailing packages",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://www.calculatorquote.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.calculatorquote.com/logo.png"
+    }
+  },
+  "inLanguage": "en",
+  "datePublished": "2024-04-01",
+  "dateModified": "2025-06-29"
+}
+</script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+        }
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: auto;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            width: auto;
+        }
+        .radio-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .advice {
+            margin: 32px auto 0 auto;
+            max-width: 900px;
+            background: #fff;
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+        }
+        .advice h4 {
+            font-size: 1.5em;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .buttons {
+                flex-direction: column;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+        .savings-highlight {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .results-section {
+            margin-top: 20px;
+            display: none;
+        }
+        .results-section.show {
+            display: block;
+        }
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+        .cost-item .label {
+            font-weight: 500;
+            color: #555;
+        }
+        .cost-item .value {
+            font-weight: 600;
+            color: #eb5424;
+            font-size: 1.1em;
+        }
+        .total-cost {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .total-cost .label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .total-cost .value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .range-display {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+            border: 1px solid #ffeaa7;
+        }
+        .range-display .label {
+            font-size: 1em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .range-display .value {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .faq-section {
+            margin: 16px auto 0 auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px 28px 18px 28px;
+        }
+        .faq-section h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .faq-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-wrapper">
+        <div class="content-area">
+            <div class="calculator-container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="index.html">Home & Garden</a>
+                    <span>/</span>
+                    Auto Detailing Cost Calculator
+                </div>
+                
+                <h1>Selling Your Car? Auto Detailing Can Boost Resale Value by $2,500</h1>
+                <div class="description">
+                    Thinking of selling your car but worried about scratches, dull paint, or messy interiors lowering the price? Many buyers notice these flaws first, cutting hundreds or even thousands from your offer. Our Auto Detailing Cost Calculator helps you see the real value of professional detailing before listing your car. In just minutes, you'll know the cost, compare options, and discover how a small investment could boost resale value by up to $2,500.
+                </div>
+
+                <div class="input-section">
+                    <div class="two-column">
+                        <div>
+                            <div class="input-group">
+                                <label for="vehicleType">🚗 Vehicle Type *</label>
+                                <select id="vehicleType" required>
+                                    <option value="">Select vehicle type</option>
+                                    <option value="compact">Compact / Sedan</option>
+                                    <option value="suv">SUV / Pickup Truck</option>
+                                    <option value="van">Large Van</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="location">📍 Location Type *</label>
+                                <select id="location" required>
+                                    <option value="">Select location</option>
+                                    <option value="rural">Rural / Small Town (0.9x)</option>
+                                    <option value="suburban">Suburban (1.0x)</option>
+                                    <option value="urban">Urban / Big City (1.2x)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-group">
+                                <label>⭐ Service Level *</label>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="radio-group">
+                                        <input type="radio" id="basic" name="serviceLevel" value="basic">
+                                        <label for="basic">Basic Wash & Vacuum ($50-$80)</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input type="radio" id="standard" name="serviceLevel" value="standard">
+                                        <label for="standard">Standard Interior + Exterior ($100-$150)</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input type="radio" id="full" name="serviceLevel" value="full">
+                                        <label for="full">Full Detailing Package ($200-$300)</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input type="radio" id="premium" name="serviceLevel" value="premium">
+                                        <label for="premium">Premium / Ceramic Coating ($400+)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🔧 Additional Services (Optional)</label>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="petHair" name="addons" value="petHair">
+                                <label for="petHair">Pet Hair Removal (+$20-$50)</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="stainRemoval" name="addons" value="stainRemoval">
+                                <label for="stainRemoval">Stain Removal (+$40-$80)</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="engineBay" name="addons" value="engineBay">
+                                <label for="engineBay">Engine Bay Cleaning (+$30-$60)</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="headlightRestore" name="addons" value="headlightRestore">
+                                <label for="headlightRestore">Headlight Restoration (+$40-$70)</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="odorRemoval" name="addons" value="odorRemoval">
+                                <label for="odorRemoval">Odor Removal (+$50-$100)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
+                        <button type="button" class="btn-calculate" onclick="calculateDetailingCost()">Calculate</button>
+                        <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                    </div>
+                </div>
+
+                <div id="resultsSection" class="results-section">
+                    <div class="total-cost">
+                        <div class="label">Total Estimated Cost</div>
+                        <div class="value" id="totalPrice">$0</div>
+                    </div>
+                    
+                    <div class="range-display">
+                        <div class="label">Price Range</div>
+                        <div class="value" id="priceRange">$0 - $0</div>
+                    </div>
+                    
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <span class="label">Base Service</span>
+                            <span class="value" id="basePrice">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Additional Services</span>
+                            <span class="value" id="addonPrice">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Location Factor</span>
+                            <span class="value" id="locationFactor">1.0x</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="label">Estimated Time</span>
+                            <span class="value" id="estimatedTime">0 hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="advice">
+                    <h4>💰 Check Auto Detailing Prices Near You Before You Book – Save Money and Increase Your Car's Value</h4>
+                    <p>🚗 Auto detailing is more than a regular car wash. It is a deep cleaning and restoration process that makes a car look fresh again. Many people who want to sell or trade their vehicle choose detailing to increase value. Our Auto Detailing Cost Calculator gives you a quick way to check the real cost. It is useful for car owners, sellers, and even people looking for auto detailing jobs near me. If you search for auto detailing mobile near me or compare auto detailing packages, this tool helps you see clear numbers before you spend money.</p>
+                    
+                    <p>📊 The calculator works with local and national pricing data. You can select services such as exterior polish, interior shampoo, or full auto detailing packages. The tool then shows an estimated cost. Basic exterior cleaning often costs $75–$125. A full interior service may cost $150–$300. Extra options like odor removal or ceramic coating will add to the total, but they also improve resale value.</p>
+                    
+                    <p>📍 Many things affect the price. Vehicle size, location, and service type all play a role. For example, auto detailing Houston or auto detailing Dallas can be higher than auto detailing Tucson because of labor rates. If you want the service to come to you, auto detailing mobile is very convenient, but mobile work often has higher auto detailing rates.</p>
+                    
+                    <p>🔧 Detailing shops use special tools to get the best results. They may use auto detailing brushes, a full auto detailing kit, or even a pressure washer. Always check what each package includes. Some shops only clean the outside, while others also handle auto detailing interior near me with carpets, seats, and odor treatment. Confirm the services first so you do not face surprise charges.</p>
+                    
+                    <p>💎 Auto detailing is a small investment that can bring a big return. A clean interior and polished paint can make a buyer feel confident. It can also add up to $2,500 to your selling price. Our Auto Detailing Cost Calculator helps you compare auto detailing prices near me and choose the right service.</p>
+                    
+                    <p>✅ If you are ready to book, use the calculator first. You will know what to expect and where to get the best deal. Then explore our other tools. We also provide calculators for car insurance, auto loans, and repair costs. Each one helps you save money and make smarter choices. Start with detailing today, and keep using our tools to protect your wallet tomorrow.</p>
+                </div>
+
+                <div class="faq-section">
+                    <h3>❓ Everything You Need to Know About Auto Detailing – FAQs for Car Owners</h3>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q1: What is the meaning of auto detailing?</strong></h4>
+                        <p><strong>A:</strong> Auto detailing is the process of thoroughly cleaning a vehicle. It goes beyond a regular car wash by focusing on deep cleaning the interior and polishing the exterior. This often involves hand-cleaning methods.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q2: Is detailing a car worth it?</strong></h4>
+                        <p><strong>A:</strong> Yes! Car detailing is a valuable investment for your car. This process is much more thorough than a regular car wash and aims to restore and maintain your car's appearance both inside and out. Every detail is carefully attended to, resulting in a car that looks brand-new and has improved aesthetics.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q3: How often should you detail a car?</strong></h4>
+                        <p><strong>A:</strong> Most experts recommend having your car detailed at least 2-3 times a year. There is no universal time frame and it mostly depends on the use of your car. The exterior of your vehicle should be washed, cleaned and waxed at least twice a year to protect the car paint and prevent rust.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q4: Why is detailing so expensive?</strong></h4>
+                        <p><strong>A:</strong> At its core, professional detailing is more than just washing and waxing—it's an intricate process that requires high-end products, specialized tools, and trained experts. Reliable car detailers invest significant time and effort into ensuring a vehicle looks its best while also preserving its longevity.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q5: What tools do I need for detailing?</strong></h4>
+                        <p><strong>A:</strong> Must-have car detailing tools includes: Polishers, Cleaning Shampoo, Microfiber Towels, Buffing & Polishing Pads, High-pressure Washer and Interior and Exterior Detailing Brushes, vacuum cleaner and steam cleaner.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4><strong>Q6: What is the best time to detail a car?</strong></h4>
+                        <p><strong>A:</strong> Ideally, after the harsh winter months, springtime is the best time to get your car cleaned. If you're diligent about keeping your car clean, regularly washing off dirt and debris, and protecting it from harsh weather conditions, a comprehensive car detail might be necessary less frequently.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Service level base prices
+        const servicePrices = {
+            basic: { min: 50, max: 80, time: 2 },
+            standard: { min: 100, max: 150, time: 3 },
+            full: { min: 200, max: 300, time: 5 },
+            premium: { min: 400, max: 600, time: 6 }
+        };
+
+        // Vehicle type multipliers
+        const vehicleMultipliers = {
+            compact: 1.0,
+            suv: 1.25,
+            van: 1.45
+        };
+
+        // Location multipliers
+        const locationMultipliers = {
+            rural: 0.9,
+            suburban: 1.0,
+            urban: 1.2
+        };
+
+        // Add-on prices
+        const addonPrices = {
+            petHair: { min: 20, max: 50 },
+            stainRemoval: { min: 40, max: 80 },
+            engineBay: { min: 30, max: 60 },
+            headlightRestore: { min: 40, max: 70 },
+            odorRemoval: { min: 50, max: 100 }
+        };
+
+        function calculateDetailingCost() {
+            const vehicleType = document.getElementById('vehicleType').value;
+            const location = document.getElementById('location').value;
+            const serviceLevel = document.querySelector('input[name="serviceLevel"]:checked');
+            const addons = document.querySelectorAll('input[name="addons"]:checked');
+
+            if (!vehicleType || !location || !serviceLevel) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Get base service price
+            const service = servicePrices[serviceLevel.value];
+            const vehicleMultiplier = vehicleMultipliers[vehicleType];
+            const locationMultiplier = locationMultipliers[location];
+
+            // Calculate base price with vehicle multiplier
+            const baseMin = service.min * vehicleMultiplier;
+            const baseMax = service.max * vehicleMultiplier;
+
+            // Calculate add-on costs
+            let addonMin = 0;
+            let addonMax = 0;
+            addons.forEach(addon => {
+                const addonPrice = addonPrices[addon.value];
+                addonMin += addonPrice.min;
+                addonMax += addonPrice.max;
+            });
+
+            // Calculate total before location adjustment
+            const subtotalMin = baseMin + addonMin;
+            const subtotalMax = baseMax + addonMax;
+
+            // Apply location multiplier
+            const totalMin = Math.round(subtotalMin * locationMultiplier);
+            const totalMax = Math.round(subtotalMax * locationMultiplier);
+
+            // Calculate average for display
+            const average = Math.round((totalMin + totalMax) / 2);
+
+            // Get estimated time
+            const estimatedTime = service.time;
+
+            // Update display
+            document.getElementById('totalPrice').textContent = `$${average.toLocaleString()}`;
+            document.getElementById('priceRange').textContent = `$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`;
+            document.getElementById('basePrice').textContent = `$${Math.round(baseMin)} - $${Math.round(baseMax)}`;
+            document.getElementById('addonPrice').textContent = addonMin > 0 ? `$${addonMin} - $${addonMax}` : '$0';
+            document.getElementById('locationFactor').textContent = `${locationMultiplier}x`;
+            document.getElementById('estimatedTime').textContent = `${estimatedTime} hours`;
+
+            // Show results
+            document.getElementById('resultsSection').classList.add('show');
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearForm() {
+            document.getElementById('vehicleType').value = '';
+            document.getElementById('location').value = '';
+            document.querySelectorAll('input[name="serviceLevel"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('input[name="addons"]').forEach(checkbox => checkbox.checked = false);
+            document.getElementById('resultsSection').classList.remove('show');
+        }
+
+        // Remove real-time calculation - only calculate when Calculate button is clicked
+    </script>
+</body>
+</html>
