@@ -303,6 +303,12 @@
                 padding: 15px;
                 font-size: 16px;
             }
+            
+            /* 移动端时让Dog Weight和Dog Age垂直堆叠 */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
         }
     </style>
 </head>
@@ -357,20 +363,21 @@
             <h2 class="section-title">🐕 Adult Dog Feeding Calculator</h2>
             
 
-            <div class="input-group">
-                <label for="adult-weight">Dog Weight (kg) <span style="color:#e53935">*</span></label>
-                <input type="number" id="adult-weight" step="0.1" min="1" max="100" placeholder="e.g., 20" required>
-                <div class="error" id="error-adult-weight"></div>
-            </div>
-
-            <div class="input-group">
-                <label for="adult-age">Dog Age <span style="color:#e53935">*</span></label>
-                <select id="adult-age" required>
-                    <option value="">Select Age Range</option>
-                    <option value="1.6">1-6 years (Adult)</option>
-                    <option value="1.3">7+ years (Senior)</option>
-                </select>
-                <div class="error" id="error-adult-age"></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="adult-weight">Dog Weight (kg) <span style="color:#e53935">*</span></label>
+                    <input type="number" id="adult-weight" step="0.1" min="1" max="100" placeholder="e.g., 20" required>
+                    <div class="error" id="error-adult-weight"></div>
+                </div>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="adult-age">Dog Age <span style="color:#e53935">*</span></label>
+                    <select id="adult-age" required>
+                        <option value="">Select Age Range</option>
+                        <option value="1.6">1-6 years (Adult)</option>
+                        <option value="1.3">7+ years (Senior)</option>
+                    </select>
+                    <div class="error" id="error-adult-age"></div>
+                </div>
             </div>
 
             <div class="input-group">
@@ -411,20 +418,21 @@
             <h2 class="section-title">🐶 Puppy Feeding Calculator</h2>
             
 
-            <div class="input-group">
-                <label for="puppy-weight">Puppy Weight (kg) <span style="color:#e53935">*</span></label>
-                <input type="number" id="puppy-weight" step="0.1" min="0.5" max="50" placeholder="e.g., 5" required>
-                <div class="error" id="error-puppy-weight"></div>
-            </div>
-
-            <div class="input-group">
-                <label for="puppy-age">Puppy Age <span style="color:#e53935">*</span></label>
-                <select id="puppy-age" required>
-                    <option value="">Select Age Range</option>
-                    <option value="3.0">2-4 months (3.0×)</option>
-                    <option value="2.0" selected>4-12 months (2.0×)</option>
-                </select>
-                <div class="error" id="error-puppy-age"></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="puppy-weight">Puppy Weight (kg) <span style="color:#e53935">*</span></label>
+                    <input type="number" id="puppy-weight" step="0.1" min="0.5" max="50" placeholder="e.g., 5" required>
+                    <div class="error" id="error-puppy-weight"></div>
+                </div>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="puppy-age">Puppy Age <span style="color:#e53935">*</span></label>
+                    <select id="puppy-age" required>
+                        <option value="">Select Age Range</option>
+                        <option value="3.0">2-4 months (3.0×)</option>
+                        <option value="2.0" selected>4-12 months (2.0×)</option>
+                    </select>
+                    <div class="error" id="error-puppy-age"></div>
+                </div>
             </div>
 
             <div class="buttons">
@@ -519,7 +527,7 @@
                 A: Yes. Large breeds have slower growth and need carefully measured meals. Use our dog feeding chart weight and dog feeding guide dry food to plan balanced meals and prevent joint problems.</p>
             </div>
                     </div>
-                </div>
+                    </div>                </div>
             </div>
         </div>
     </section>

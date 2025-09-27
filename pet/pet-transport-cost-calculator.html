@@ -196,9 +196,9 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
         .calculator {
             background-color: #f8f9fa;
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px;
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             border: 1px solid #e0e0e0;
             margin-bottom: 40px;
         }
@@ -364,6 +364,12 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
                 padding: 15px;
                 font-size: 16px;
             }
+            
+            /* 移动端时让两栏布局垂直堆叠 */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
         }
 
         @media (max-width: 600px) {
@@ -425,46 +431,50 @@ Total Cost = Base Fee + (Distance × Rate) + Weight Fee + Extras
 
                         <div class="calculator">
                             <form id="transportForm">
-                                <div class="form-group">
-                                    <label for="pet-type">🐾 Pet Type</label>
-                                    <select id="pet-type" required>
-                                        <option value="">Select Pet Type</option>
-                                        <option value="dog">Dog</option>
-                                        <option value="cat">Cat</option>
-                                        <option value="other">Other Small Animal</option>
-                                    </select>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label for="pet-type">🐾 Pet Type</label>
+                                        <select id="pet-type" required>
+                                            <option value="">Select Pet Type</option>
+                                            <option value="dog">Dog</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="other">Other Small Animal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label for="pet-size">📏 Pet Size / Weight</label>
+                                        <select id="pet-size" required>
+                                            <option value="">Select Size</option>
+                                            <option value="small">Small (< 10kg / 22 lbs)</option>
+                                            <option value="medium">Medium (10-25kg / 22-55 lbs)</option>
+                                            <option value="large">Large (25-40kg / 55-88 lbs)</option>
+                                            <option value="extra-large">Extra Large (40kg+ / 88+ lbs)</option>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="pet-size">📏 Pet Size / Weight</label>
-                                    <select id="pet-size" required>
-                                        <option value="">Select Size</option>
-                                        <option value="small">Small (< 10kg / 22 lbs)</option>
-                                        <option value="medium">Medium (10-25kg / 22-55 lbs)</option>
-                                        <option value="large">Large (25-40kg / 55-88 lbs)</option>
-                                        <option value="extra-large">Extra Large (40kg+ / 88+ lbs)</option>
-                                    </select>
-                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label for="transport-mode">🚚 Transport Mode</label>
+                                        <select id="transport-mode" required>
+                                            <option value="">Select Transport Method</option>
+                                            <option value="ground">Ground Transport (Van, Shuttle, Private)</option>
+                                            <option value="air-domestic">Air Transport (Domestic)</option>
+                                            <option value="air-international">Air Transport (International)</option>
+                                        </select>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="transport-mode">🚚 Transport Mode</label>
-                                    <select id="transport-mode" required>
-                                        <option value="">Select Transport Method</option>
-                                        <option value="ground">Ground Transport (Van, Shuttle, Private)</option>
-                                        <option value="air-domestic">Air Transport (Domestic)</option>
-                                        <option value="air-international">Air Transport (International)</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="distance">📏 Distance</label>
-                                    <select id="distance" required>
-                                        <option value="">Select Distance Range</option>
-                                        <option value="short">Short Distance (< 100 miles)</option>
-                                        <option value="medium">Medium Distance (100-500 miles)</option>
-                                        <option value="long">Long Distance (500-1000 miles)</option>
-                                        <option value="cross-country">Cross-Country/International (1000+ miles)</option>
-                                    </select>
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label for="distance">📏 Distance</label>
+                                        <select id="distance" required>
+                                            <option value="">Select Distance Range</option>
+                                            <option value="short">Short Distance (< 100 miles)</option>
+                                            <option value="medium">Medium Distance (100-500 miles)</option>
+                                            <option value="long">Long Distance (500-1000 miles)</option>
+                                            <option value="cross-country">Cross-Country/International (1000+ miles)</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="form-group" id="distance-miles-group" style="display:none;">

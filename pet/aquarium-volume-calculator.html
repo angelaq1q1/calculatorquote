@@ -305,6 +305,12 @@
             .input-group label {
                 margin-bottom: 5px;
             }
+            
+            /* 移动端：两栏布局改为单栏堆叠 */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
 
             .buttons {
                 grid-template-columns: 1fr;
@@ -374,26 +380,31 @@
                             <p>Enter your aquarium dimensions in any unit to calculate the volume in both liters and gallons. Our calculator also provides fish capacity recommendations and filter flow rate suggestions.</p>
                         </div>
 
-                        <div class="input-group">
-                            <label for="length">Length:</label>
-                            <input type="number" id="length" placeholder="e.g. 100" min="0">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div class="input-group">
+                                <label for="length">Length:</label>
+                                <input type="number" id="length" placeholder="e.g. 100" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="width">Width:</label>
+                                <input type="number" id="width" placeholder="e.g. 50" min="0">
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <label for="width">Width:</label>
-                            <input type="number" id="width" placeholder="e.g. 50" min="0">
-                        </div>
-                        <div class="input-group">
-                            <label for="height">Height:</label>
-                            <input type="number" id="height" placeholder="e.g. 40" min="0">
-                        </div>
-                        <div class="input-group">
-                            <label for="unit">Unit:</label>
-                            <select id="unit">
-                                <option value="cm">Centimeters (cm)</option>
-                                <option value="inch">Inches (inch)</option>
-                                <option value="m">Meters (m)</option>
-                                <option value="ft">Feet (ft)</option>
-                            </select>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div class="input-group">
+                                <label for="height">Height:</label>
+                                <input type="number" id="height" placeholder="e.g. 40" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="unit">Unit:</label>
+                                <select id="unit">
+                                    <option value="cm">Centimeters (cm)</option>
+                                    <option value="inch">Inches (inch)</option>
+                                    <option value="m">Meters (m)</option>
+                                    <option value="ft">Feet (ft)</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="buttons">

@@ -359,6 +359,12 @@
                 padding: 15px;
                 font-size: 16px;
             }
+            
+            /* 移动端时让两栏布局垂直堆叠 */
+            div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
         }
     </style>
 </head>
@@ -410,32 +416,34 @@
 
         <!-- Dog Walking Cost Calculator -->
         <div class="calculator-section">
-            <div class="input-group">
-                <label for="num-dogs">Number of Dogs <span style="color:#e53935">*</span></label>
-                <input type="number" id="num-dogs" min="1" max="10" value="1" required>
-                <div class="error" id="error-num-dogs"></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="num-dogs">Number of Dogs <span style="color:#e53935">*</span></label>
+                    <input type="number" id="num-dogs" min="1" max="10" value="1" required>
+                    <div class="error" id="error-num-dogs"></div>
+                </div>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="walks-per-day">Walks per Day <span style="color:#e53935">*</span></label>
+                    <input type="number" id="walks-per-day" min="1" max="10" value="2" required>
+                    <div class="error" id="error-walks-per-day"></div>
+                </div>
             </div>
 
-            <div class="input-group">
-                <label for="walks-per-day">Walks per Day <span style="color:#e53935">*</span></label>
-                <input type="number" id="walks-per-day" min="1" max="10" value="2" required>
-                <div class="error" id="error-walks-per-day"></div>
-            </div>
-
-            <div class="input-group">
-                <label for="duration">Walk Duration <span style="color:#e53935">*</span></label>
-                <select id="duration" required>
-                    <option value="15">15 minutes - $15</option>
-                    <option value="30" selected>30 minutes - $20</option>
-                    <option value="60">60 minutes - $30</option>
-                </select>
-                <div class="error" id="error-duration"></div>
-            </div>
-
-            <div class="input-group">
-                <label for="days-per-week">Days per Week <span style="color:#e53935">*</span></label>
-                <input type="number" id="days-per-week" min="1" max="7" value="5" required>
-                <div class="error" id="error-days-per-week"></div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="duration">Walk Duration <span style="color:#e53935">*</span></label>
+                    <select id="duration" required>
+                        <option value="15">15 minutes - $15</option>
+                        <option value="30" selected>30 minutes - $20</option>
+                        <option value="60">60 minutes - $30</option>
+                    </select>
+                    <div class="error" id="error-duration"></div>
+                </div>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="days-per-week">Days per Week <span style="color:#e53935">*</span></label>
+                    <input type="number" id="days-per-week" min="1" max="7" value="5" required>
+                    <div class="error" id="error-days-per-week"></div>
+                </div>
             </div>
 
             <div class="input-group">
@@ -556,7 +564,7 @@
                 A: Consider group walks (if your dog is social), shorter duration walks, fewer days per week, or hiring a neighborhood teenager for basic walks. Our calculator helps you explore different cost scenarios.</p>
             </div>
                     </div>
-                </div>
+                    </div>                </div>
             </div>
         </div>
     </section>
