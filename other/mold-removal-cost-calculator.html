@@ -3,9 +3,8 @@
 Mold Removal Cost Calculator Logic:
 
 1. Area (sq ft):
-   - 0–10 sq ft: $500–$1,500 (midpoint $1,000)
-   - 10–100 sq ft: $1,500–$4,000 (midpoint $2,750)
-   - 100+ sq ft: $4,000+ (use $5,000 as base)
+   - Base cost: $10-$25 per square foot (uses $17.5 midpoint)
+   - Example: 25 sq ft = $250-$625 (midpoint $437.50)
 
 2. Mold Type/Severity:
    - If HVAC mold, add 50% to base cost
@@ -23,7 +22,7 @@ Mold Removal Cost Calculator Logic:
    - Show a range: ±15% of calculated total
 
 Example (pseudo-code):
-baseCost = areaSqft * unitRate (or use segment midpoint)
+baseCost = areaSqft * 17.5; // $10-$25 per sq ft midpoint
 if (moldType === 'HVAC') baseCost *= 1.5;
 if (location === 'Basement') baseCost += 500;
 if (needTesting) baseCost += 300;
@@ -272,8 +271,14 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
             margin: 0 auto 40px auto;
             text-align: left;
         }
-        .input-group {
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 0;
             text-align: left;
         }
         .input-group label {
@@ -297,13 +302,21 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
         .toggle-group {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             margin-bottom: 16px;
             justify-content: flex-start;
+            flex-wrap: wrap;
         }
         .toggle-group label {
             margin-bottom: 0;
             font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .toggle-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            transform: scale(0.9);
         }
         .btn-calculate {
             background-color: #eb5424;
@@ -410,6 +423,13 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
         }
         
         @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .input-group {
+                margin-bottom: 20px;
+            }
             .buttons {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -459,42 +479,54 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
         <div class="breadcrumb">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <a href="date-calculator.html">Other Calculators</a>
+            <a href="index.html">Other Calculators</a>
             <span>/</span>
             Mold Removal Cost Calculator
         </div>
-        <h1>Mold Removal Cost Calculator</h1>
+        <h1>🏠 Mold Removal Cost Calculator - Get Instant Estimates 💰</h1>
         <div class="description">
-            Get a free mold remediation estimate in minutes. Use this mold removal cost calculator to see typical mold removal price, cost per square foot, and whether insurance may cover it—so you’ll know how much mold removal can cost for your home.
+            Mold in a home is not just ugly. It can harm walls, lower property value, and even affect health. 🏠 Our Mold Removal Cost Calculator helps you see what mold cleanup may cost before you call a company. This tool is made for homeowners, renters, and property managers who want clear numbers, not vague guesses. If you have mold in a bathroom, basement, or attic, this calculator gives you a fast and useful mold removal estimate. 💰 You can plan your budget and avoid paying more than expected.
         </div>
         <div class="input-section">
-            <div class="input-group">
-                <label for="area">Mold-affected area (sq ft):</label>
-                <input type="number" id="area" min="1" placeholder="Enter area in square feet" required>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="area">📏 Mold-affected area (sq ft):</label>
+                    <input type="number" id="area" min="1" placeholder="Enter area in square feet" required>
+                </div>
+                <div class="input-group">
+                    <label for="location">📍 Mold Location:</label>
+                    <select id="location">
+                        <option value="Basement">Basement</option>
+                        <option value="Attic">Attic</option>
+                        <option value="HVAC">HVAC System</option>
+                        <option value="Walls">Inside Walls</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="mold-type">🦠 Mold Type / Severity:</label>
+                    <select id="mold-type">
+                        <option value="Surface">Surface Mold</option>
+                        <option value="Inside Walls">Inside Walls</option>
+                        <option value="HVAC">HVAC Mold</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <!-- Empty div to maintain grid layout -->
+                </div>
             </div>
             <div class="input-group">
-                <label for="location">Mold Location:</label>
-                <select id="location">
-                    <option value="Basement">Basement</option>
-                    <option value="Attic">Attic</option>
-                    <option value="HVAC">HVAC System</option>
-                    <option value="Walls">Inside Walls</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="mold-type">Mold Type / Severity:</label>
-                <select id="mold-type">
-                    <option value="Surface">Surface Mold</option>
-                    <option value="Inside Walls">Inside Walls</option>
-                    <option value="HVAC">HVAC Mold</option>
-                </select>
-            </div>
-            <div class="toggle-group">
-                <label for="testing">Need lab testing?</label>
-                <input type="checkbox" id="testing">
-                <label for="repair">Need reconstruction?</label>
-                <input type="checkbox" id="repair">
+                <label>🔧 Additional Services:</label>
+                <div class="toggle-group">
+                    <label for="testing">🧪 Need lab testing?</label>
+                    <input type="checkbox" id="testing">
+                    <label for="repair">🔨 Need reconstruction?</label>
+                    <input type="checkbox" id="repair">
+                </div>
             </div>
             <div class="buttons">
                 <button class="btn-calculate" onclick="calculateMoldCost()">Calculate</button>
@@ -504,86 +536,65 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
             <div class="breakdown" id="breakdown" style="display:none;"></div>
             <div class="note" style="text-align:left;">* This is an estimated range. Actual costs may vary by region and provider. For health and safety, address mold issues promptly.</div>
         </div>
-        <div class="tip">
-            <b>Tip:</b> Mold remediation is an urgent health-related repair. Actual costs may vary by region and the extent of damage. For large or hidden mold, always consult a professional for a full assessment and safe removal.
-        </div>
-        <div class="content-section" style="max-width:700px;margin:16px auto 0 auto;padding:16px 20px 16px 20px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);">
-            <h3>Related Content</h3>
+        <div class="content-section" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);">
+            <h3>🔗 Related Content</h3>
             <div style="margin-bottom:8px;">
                 <a href="../blog/how-to-remove-mold-in-8-steps.html">How to Safety Remove Mold from a Crawl Space in 8 Steps</a>
             </div>
         </div>
-        <div class="content-section" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);">
-            <h3>Why Use Our Mold Remediation Cost Calculator?</h3>
+        <div class="content-section" style="max-width:700px;margin:8px auto 0 auto;padding:16px 20px 16px 20px;background:#fff;">
+            <h3>⚙️ How the Calculator Works</h3>
             <div style="margin-bottom:18px;">
-                Mold can be more than just an eyesore—it can damage your property and negatively affect your health. Whether you’ve discovered mold in your attic, crawl space, or drywall, mold remediation costs can vary significantly.<br><br>
-                This free tool helps homeowners and property managers:
-                <ul style="margin:10px 0 10px 24px;">
-                    <li>Estimate mold removal costs per square foot</li>
-                    <li>Plan budgets based on mold location and severity</li>
-                    <li>Understand the cost impact of HVAC contamination or structural repairs</li>
-                    <li>Know when to consider professional mold remediation services.</li>
-                </ul>
+                Mold in a home is not just ugly. It can harm walls, lower property value, and even affect health. Our Mold Removal Cost Calculator helps you see what mold cleanup may cost before you call a company. This tool is made for homeowners, renters, and property managers who want clear numbers, not vague guesses. If you have mold in a bathroom, basement, or attic, this calculator gives you a fast and useful mold removal estimate. You can plan your budget and avoid paying more than expected. Whether you need mold removal from walls, mold removal drywall, or mold removal in attic cost, our calculator provides accurate estimates.
             </div>
-            <h3>Estimates and Quotes</h3>
             <div style="margin-bottom:18px;">
-                Need a mold removal free estimate? Use this calculator for an instant baseline, then request a local mold remediation quote to confirm scope and pricing. Many companies offer a visual mold inspection estimate at no charge, while formal lab testing or detailed reports may incur a fee. If you’re wondering how much does mold removal usually cost, most standard jobs fall around $1,500–$3,500, but the final price depends on square footage, access, and repairs.
+                The calculator is simple. It looks at three main parts: the size of the area, the level of mold, and the location in the house.
             </div>
-            <h3>How Mold Removal Costs Are Calculated</h3>
             <div style="margin-bottom:18px;">
-                Our calculator takes into account:
-                <ul style="margin:10px 0 10px 24px;">
-                    <li>Size of affected area (in square feet)</li>
-                    <li>Type of mold (black mold, white mold, etc.)</li>
-                    <li>Contamination severity (surface-level vs. deep contamination)</li>
-                    <li>Cleanup methods (DIY vs. professional)</li>
-                    <li>Extra repairs (e.g., drywall replacement, HVAC cleaning)</li>
-                </ul>
-                <b>Average mold remediation costs range from $500 to $6,000, depending on the scope and region.</b>
+                Area size (square feet): A larger area usually means a higher mold cleanup cost.
             </div>
-            
-                            </div>
-        <div class="content-section" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;border-radius:14px;border:1.5px solid #e0e0e0;box-shadow:0 2px 8px rgba(33,150,243,0.07);">
-            <h3>Frequently Asked Questions (FAQ)</h3>
             <div style="margin-bottom:18px;">
-                <p><strong>Q1: How much does mold removal cost per square foot?</strong><br>
-                A: On average, mold removal costs $10 to $25 per square foot, depending on the type of mold and contamination level.</p>
+                Mold severity (low, medium, high): This shows if you only need surface cleaning or full mold remediation.
+            </div>
+            <div style="margin-bottom:18px;">
+                Location (bathroom, basement, attic, whole house): Some places are harder to treat and may cost more.
+            </div>
+            <div style="margin-bottom:18px;">
+                To use the tool, you type in the size of the area and pick the mold level. You also select where the mold is found. In seconds, the mold removal cost calculator gives you an estimate based on common industry rates.
+            </div>
+            <div style="margin-bottom:18px;">
+                The result shows a likely price range for mold remediation. Local labor, extra repairs, or hidden water damage may change the final price. Still, the calculator gives you a solid starting point. It lets you prepare, compare, and plan before hiring help.
+            </div>
+            <div style="margin-bottom:18px;">
+                When you know the cost, you can make better choices. The Mold Removal Cost Calculator removes guesswork and helps you act with confidence. ⚡ Mold problems do not get cheaper if you wait. A fast check can save you from big repair bills later.
+            </div>
+            <div style="margin-bottom:18px;">
+                After you get your mold removal estimate, you can also use our other free tools. Try the water damage calculator, roof repair estimator, or air quality check. Each tool helps you protect your home, save money, and keep your family safe. Use the calculator now and take your first step toward a mold-free house.
+            </div>
+        </div>
+        <div class="content-section" style="max-width:700px;margin:8px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;">
+            <h3>❓ Frequently Asked Questions (FAQ)</h3>
+            <div style="margin-bottom:18px;">
+                <p>Q1: 🧽 How do I remove mold myself?<br>
+                A: To remove mold naturally, mix equal parts water and white vinegar in a spray bottle. Apply to affected areas, let it sit for an hour, then scrub and rinse. You can also use baking soda mixed with water for scrubbing. Ensure proper ventilation to prevent mold regrowth.</p>
                 
-                <p><strong>Q2: Is black mold more expensive to remove?</strong><br>
-                A: Yes. Black mold removal tends to be pricier due to health risks and the need for specialized handling, with costs ranging from $1,500 to $6,000+.</p>
+                <p>Q2: ⚠️ What are the 10 warning signs of mold toxicity?<br>
+                A: Although symptoms can vary, the most common symptoms seen in people exposed to mold indoors include: Nasal and sinus congestion, Eye irritation, such as itchy, red, watery eyes, Wheezing and difficulty breathing, Cough, Throat irritation, Skin irritation, such as a rash, Headache.</p>
                 
-                <p><strong>Q3: Can I remove mold myself?</strong><br>
-                A: Minor surface mold on tiles or walls can be cleaned using DIY methods. However, for widespread or toxic mold, professional removal is recommended to ensure safety and prevent regrowth.</p>
+                <p>Q3: ❌ Can mold ever be fully removed?<br>
+                A: Mold can grow on or fill in the empty spaces and crevices of porous materials, so the mold may be difficult or impossible to remove completely.</p>
                 
-                <p><strong>Q4: Does insurance cover mold removal?</strong><br>
-                A: It depends on your policy. Homeowners insurance may cover mold removal if it was caused by a covered peril (e.g., burst pipe), but not due to negligence or flooding without flood insurance.</p>
+                <p>Q4: 🌿 What plant removes 78% of airborne mold?<br>
+                A: English Ivy has been shown to eliminate up to 78% of airborne mold in 12 hours, making it ideal for allergy-prone areas like bathrooms or basements.</p>
                 
-                <p><strong>Q5: What are signs I need professional mold remediation?</strong><br>
-                A: Strong musty odor, visible black/green mold patches, recurring mold spots, or health symptoms like coughing, wheezing, or allergies are red flags.</p>
+                <p>Q5: 👷 How do professionals remove mold?<br>
+                A: Mold remediation experts use a multi-step approach that includes: 1. HEPA vacuuming to remove loose spores, 2. Antimicrobial treatments to kill mould at the root level, 3. ULV (Ultra Low Volume) fogging to disinfect and remove airborne spores, 4. Encapsulation techniques to prevent future regrowth.</p>
                 
-                <p><strong>Q6: How much does mold removal cost in attic?</strong><br>
-                A: Attic mold removal commonly ranges from $1,000–$4,000. Costs increase when insulation must be removed/replaced or when ventilation issues need correction.</p>
+                <p>Q6: 🎨 Can you paint over mold?<br>
+                A: The short answer: No, you absolutely shouldn't paint over mold. Even though it's tempting to cover a moldy spot with a fresh coat of paint, it will not solve the problem. Mold is a living organism, and painting over mold just hides the issue without stopping the growth underneath.</p>
                 
-                <p><strong>Q7: How much does mold removal cost for basement?</strong><br>
-                A: Basement remediation usually costs $1,500–$6,000+. Price drivers include moisture control, wall repairs, and any needed drain or sump upgrades.</p>
-                
-                <p><strong>Q8: What is the cost of mold removal in a crawl space?</strong><br>
-                A: Expect roughly $500–$3,000+, depending on access, clearance, and whether encapsulation, vapor barriers, or drainage improvements are added.</p>
-                
-                <p><strong>Q9: How much does mold removal cost for an entire house?</strong><br>
-                A: Whole‑house mold removal can span $2,000–$10,000+ when multiple rooms or HVAC are affected. Large projects require more containment, labor, and materials.</p>
-                
-                <p><strong>Q10: How much does mold removal usually cost?</strong><br>
-                A: Typical single‑area projects fall around $1,500–$3,500, but small jobs can be near $500 and extensive contamination may exceed $6,000.</p>
-                
-                <p><strong>Q11: How expensive is mold removal?</strong><br>
-                A: Costs vary by scope and access. Small areas are a few hundred dollars; average jobs are in the low thousands; whole‑home or HVAC work can reach five figures.</p>
-                
-                <p><strong>Q12: Can I get a mold removal free estimate?</strong><br>
-                A: Many contractors provide a free visual estimate and a written mold remediation quote. Formal lab testing or detailed reporting may add $200–$700 to the inspection.</p>
-                
-                <p><strong>Q13: What is a mold inspection estimate or mold remediation quote?</strong><br>
-                A: A quote typically outlines scope (containment, HEPA filtration, removal), labor, materials, and exclusions (e.g., reconstruction). Ask for cost per square foot, testing fees, and warranty terms for clarity.</p>
+                <p>Q7: 🍶 Will spraying vinegar in the shower prevent mold?<br>
+                A: Plus, it is great at preventing mold in the first place. Vinegar contains no toxic fumes like many other agents used to kill mold, such as bleach. Pour mild white vinegar into a spray bottle, do not dilute with water. Vinegar's acidic qualities make it quite deadly to mold, that's why you don't want to water it down.</p>
             </div>
         </div>
                             </div>
@@ -642,20 +653,12 @@ range = totalCost * 0.85 ~ totalCost * 1.15;
                 return;
             }
 
-            // Area-based base cost
-            let baseCost = 0;
-            let areaLabel = '';
-            if (area <= 10) {
-                baseCost = 1000; // midpoint of $500–$1,500
-                areaLabel = 'Small area (0–10 sq ft)';
-            } else if (area <= 100) {
-                baseCost = 2750; // midpoint of $1,500–$4,000
-                areaLabel = 'Medium area (10–100 sq ft)';
-            } else {
-                baseCost = 5000; // $4,000+ for large
-                areaLabel = 'Large area (100+ sq ft)';
-            }
-            let breakdown = `<b>Area:</b> ${area} sq ft (${areaLabel})<br>Base cost: $${baseCost.toLocaleString()}`;
+            // Area-based base cost ($10-$25 per sq ft)
+            const costPerSqFt = 17.5; // midpoint of $10-$25
+            let baseCost = area * costPerSqFt;
+            const minCost = area * 10;
+            const maxCost = area * 25;
+            let breakdown = `<b>Area:</b> ${area} sq ft × $${costPerSqFt}/sq ft<br>Base cost: $${baseCost.toLocaleString()} (range: $${minCost.toLocaleString()} - $${maxCost.toLocaleString()})`;
 
             // Mold type/severity adjustment
             if (moldType === 'HVAC') {
