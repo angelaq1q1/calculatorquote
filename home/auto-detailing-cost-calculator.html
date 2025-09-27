@@ -23,15 +23,15 @@
     }
   },
   "inLanguage": "en",
-  "datePublished": "2024-04-01",
-  "dateModified": "2025-06-29"
+  "datePublished": "2024-04-01T00:00:00Z",
+  "dateModified": "2025-06-29T00:00:00Z"
 }
 </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
         body, * {
@@ -378,9 +378,9 @@
         <div class="content-area">
             <div class="calculator-container">
                 <div class="breadcrumb">
-                    <a href="../index.html">Home</a>
+                    <a href="/index.html">Home</a>
                     <span>/</span>
-                    <a href="index.html">Home & Garden</a>
+                    <a href="/home/index.html">Home & Garden</a>
                     <span>/</span>
                     Auto Detailing Cost Calculator
                 </div>
@@ -390,84 +390,86 @@
                     Thinking of selling your car but worried about scratches, dull paint, or messy interiors lowering the price? Many buyers notice these flaws first, cutting hundreds or even thousands from your offer. Our Auto Detailing Cost Calculator helps you see the real value of professional detailing before listing your car. In just minutes, you'll know the cost, compare options, and discover how a small investment could boost resale value by up to $2,500.
                 </div>
 
-                <div class="input-section">
-                    <div class="two-column">
-                        <div>
-                            <div class="input-group">
-                                <label for="vehicleType">🚗 Vehicle Type *</label>
-                                <select id="vehicleType" required>
-                                    <option value="">Select vehicle type</option>
-                                    <option value="compact">Compact / Sedan</option>
-                                    <option value="suv">SUV / Pickup Truck</option>
-                                    <option value="van">Large Van</option>
-                                </select>
+                <form id="detailingForm">
+                    <div class="input-section">
+                        <div class="two-column">
+                            <div>
+                                <div class="input-group">
+                                    <label for="vehicleType">🚗 Vehicle Type *</label>
+                                    <select id="vehicleType" name="vehicleType" required>
+                                        <option value="">Select vehicle type</option>
+                                        <option value="compact">Compact / Sedan</option>
+                                        <option value="suv">SUV / Pickup Truck</option>
+                                        <option value="van">Large Van</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="location">📍 Location Type *</label>
+                                    <select id="location" name="location" required>
+                                        <option value="">Select location</option>
+                                        <option value="rural">Rural / Small Town (0.9x)</option>
+                                        <option value="suburban">Suburban (1.0x)</option>
+                                        <option value="urban">Urban / Big City (1.2x)</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input-group">
-                                <label for="location">📍 Location Type *</label>
-                                <select id="location" required>
-                                    <option value="">Select location</option>
-                                    <option value="rural">Rural / Small Town (0.9x)</option>
-                                    <option value="suburban">Suburban (1.0x)</option>
-                                    <option value="urban">Urban / Big City (1.2x)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="input-group">
-                                <label>⭐ Service Level *</label>
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <div class="radio-group">
-                                        <input type="radio" id="basic" name="serviceLevel" value="basic">
-                                        <label for="basic">Basic Wash & Vacuum ($50-$80)</label>
-                                    </div>
-                                    <div class="radio-group">
-                                        <input type="radio" id="standard" name="serviceLevel" value="standard">
-                                        <label for="standard">Standard Interior + Exterior ($100-$150)</label>
-                                    </div>
-                                    <div class="radio-group">
-                                        <input type="radio" id="full" name="serviceLevel" value="full">
-                                        <label for="full">Full Detailing Package ($200-$300)</label>
-                                    </div>
-                                    <div class="radio-group">
-                                        <input type="radio" id="premium" name="serviceLevel" value="premium">
-                                        <label for="premium">Premium / Ceramic Coating ($400+)</label>
+                            <div>
+                                <div class="input-group">
+                                    <label>⭐ Service Level *</label>
+                                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                                        <div class="radio-group">
+                                            <input type="radio" id="basic" name="serviceLevel" value="basic" required>
+                                            <label for="basic">Basic Wash & Vacuum ($50-$80)</label>
+                                        </div>
+                                        <div class="radio-group">
+                                            <input type="radio" id="standard" name="serviceLevel" value="standard" required>
+                                            <label for="standard">Standard Interior + Exterior ($100-$150)</label>
+                                        </div>
+                                        <div class="radio-group">
+                                            <input type="radio" id="full" name="serviceLevel" value="full" required>
+                                            <label for="full">Full Detailing Package ($200-$300)</label>
+                                        </div>
+                                        <div class="radio-group">
+                                            <input type="radio" id="premium" name="serviceLevel" value="premium" required>
+                                            <label for="premium">Premium / Ceramic Coating ($400+)</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="input-group">
-                        <label>🔧 Additional Services (Optional)</label>
-                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="petHair" name="addons" value="petHair">
-                                <label for="petHair">Pet Hair Removal (+$20-$50)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="stainRemoval" name="addons" value="stainRemoval">
-                                <label for="stainRemoval">Stain Removal (+$40-$80)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="engineBay" name="addons" value="engineBay">
-                                <label for="engineBay">Engine Bay Cleaning (+$30-$60)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="headlightRestore" name="addons" value="headlightRestore">
-                                <label for="headlightRestore">Headlight Restoration (+$40-$70)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="odorRemoval" name="addons" value="odorRemoval">
-                                <label for="odorRemoval">Odor Removal (+$50-$100)</label>
+                        <div class="input-group">
+                            <label>🔧 Additional Services (Optional)</label>
+                            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="petHair" name="addons" value="petHair">
+                                    <label for="petHair">Pet Hair Removal (+$20-$50)</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="stainRemoval" name="addons" value="stainRemoval">
+                                    <label for="stainRemoval">Stain Removal (+$40-$80)</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="engineBay" name="addons" value="engineBay">
+                                    <label for="engineBay">Engine Bay Cleaning (+$30-$60)</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="headlightRestore" name="addons" value="headlightRestore">
+                                    <label for="headlightRestore">Headlight Restoration (+$40-$70)</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="odorRemoval" name="addons" value="odorRemoval">
+                                    <label for="odorRemoval">Odor Removal (+$50-$100)</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
-                        <button type="button" class="btn-calculate" onclick="calculateDetailingCost()">Calculate</button>
-                        <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                        <div class="buttons" style="max-width:400px;margin:25px auto 0 auto;display:flex;flex-direction:row;gap:18px;justify-content:center;">
+                            <button type="button" class="btn-calculate" onclick="calculateDetailingCost()">Calculate</button>
+                            <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                        </div>
                     </div>
-                </div>
+                </form>
 
                 <div id="resultsSection" class="results-section">
                     <div class="total-cost">
@@ -554,11 +556,11 @@
 
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
         <nav style="margin-bottom: 8px;">
-            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <a href="/about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
             <span style="color: #ccc;">|</span>
-            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <a href="/terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
             <span style="color: #ccc;">|</span>
-            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+            <a href="/privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
         </nav>
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
