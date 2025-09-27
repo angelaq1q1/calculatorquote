@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Calculator - Add or Subtract Days from a Date</title>
-    <meta name="description" content="Use our Date Calculator to add or subtract days, weeks, or months from any date. Instantly find future or past dates, calculate durations, and plan important events. No login needed.">
+    <title>Blue Prince Date Calculator – Avoid 48-Hour Quest & Puzzle Timing Mistakes</title>
+    <meta name="description" content="Missing quest deadlines in Blue Prince can cost you 48 hours of progress. Use our free Blue Prince Date Calculator to track puzzle clues, event timers, and plan your in-game tasks accurately. Never miss a clue or lose valuable time again!">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -74,6 +74,17 @@
             text-align: left;
         }
 
+        .input-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-row .input-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
         .input-group {
             margin-bottom: 20px;
             text-align: left;
@@ -84,6 +95,25 @@
             margin-bottom: 8px;
             color: #333;
             font-weight: 500;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="number"] {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input-group input[type="text"]:hover,
+        .input-group input[type="text"]:focus,
+        .input-group input[type="number"]:hover,
+        .input-group input[type="number"]:focus {
+            border-color: #eb5424;
+            outline: none;
         }
 
         .date-inputs {
@@ -246,39 +276,22 @@
             color: white;
         }
 
-        .today-group {
+        .mode-selection {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 15px;
         }
 
-        .today-section {
+        .mode-selection label {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        .today-section select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            color: #eb5424;
-            background-color: white;
+            gap: 8px;
             cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s;
+            font-weight: normal;
         }
 
-        .today-section select:hover,
-        .today-section select:focus {
-            border-color: #eb5424;
-        }
-
-        .today-section label {
-            margin-bottom: 0;
-            white-space: nowrap;
+        .mode-selection input[type="radio"] {
+            margin: 0;
         }
 
         .result-date {
@@ -390,6 +403,15 @@
                 padding: 10px;
             }
 
+            .input-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .input-row .input-group {
+                flex: none;
+            }
+
             .buttons {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -448,100 +470,94 @@
                             Date Calculator
                         </div>
 
-                        <div class="page-title">Date Calculator – Quickly Add or Subtract Days Without a Calendar Meltdown</div>
+                        <div class="page-title">🤴🏻Playing Blue Prince? Avoid 48-Hour Timing Mistakes with Our Date Calculator</div>
                         
                         <div class="page-description">
-                            Need to figure out what day it'll be 90 days from now? Or how many days between your birthday and tax season? Our free Date Calculator does the date math for you — add or subtract days, weeks, months, or even years in seconds. Whether you're scheduling a trip, planning deadlines, or just satisfying calendar curiosity, this tool has your back.
+                            Missing a quest deadline in Blue Prince can cost you 48 hours of progress. Many players lose track of puzzle clues or event timers, leading to frustration and missed rewards. Our Blue Prince Date Calculator makes it easy: enter the dates of your tasks and get precise timing instantly. Stay on track, plan ahead, and avoid costly mistakes.
                         </div>
 
                         <div class="input-section">
-            <div class="input-group today-group">
-                <div class="today-section">
-                    <label>Today is:</label>
-                    <select id="dateFormat" onchange="setDateFormat(this.value)">
-                        <option value="mm/dd/yyyy">mm/dd/yyyy</option>
-                        <option value="dd/mm/yyyy">dd/mm/yyyy</option>
-                        <option value="yyyy-mm-dd">yyyy-mm-dd</option>
-                    </select>
-                </div>
-                <div id="today-date" class="result-date"></div>
-            </div>
-
             <div class="input-group">
-                <label>Date:</label>
-                <div class="date-inputs">
-                    <input type="number" id="month" placeholder="MM" min="1" max="12">
-                    <input type="number" id="day" placeholder="DD" min="1" max="31">
-                    <input type="number" id="year" placeholder="YYYY" min="1900" max="2100">
+                <label>Mode:</label>
+                <div class="mode-selection">
+                    <label>
+                        <input type="radio" name="mode" value="standard" checked>
+                        Standard Date
+                    </label>
+                    <label>
+                        <input type="radio" name="mode" value="blue-prince">
+                        Blue Prince Day
+                    </label>
                 </div>
             </div>
 
-            <div class="operator-section">
-                <select id="operator" onchange="setOperator(this.value)">
-                    <option value="add">Add (+)</option>
-                    <option value="subtract">Subtract (-)</option>
-                </select>
-                <input type="number" id="days" placeholder="Number of days" min="1">
-            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label id="start-label">Start Date:</label>
+                    <input type="text" id="start-date" placeholder="YYYY-MM-DD">
+                </div>
 
-            <div class="checkbox-group">
-                <label>
-                    <input type="checkbox" id="businessDays"> Business Days Only
-                </label>
-                <label>
-                    <input type="checkbox" id="includeSaturday"> Include Saturday as Business Day
-                </label>
+                <div class="input-group">
+                    <label>Days to add/subtract:</label>
+                    <input type="number" id="days-input" placeholder="Days to add/subtract">
+                </div>
             </div>
 
             <div class="buttons">
-                <button class="btn-calculate" onclick="calculateDate()">Calculate</button>
+                <button class="btn-calculate" id="calculate-btn">Calculate</button>
                 <button class="btn-clear" onclick="clearInputs()">Clear</button>
             </div>
                         </div>
 
                         <div class="result-section" id="results">
                             <h2>Result</h2>
-                            <div class="result-date" id="result-date"></div>
-                            <div id="repeat-link"></div>
+                            <div class="result-date" id="result"></div>
                         </div>
 
                         <div class="content-section">
-                            <h2>📅 Date Calculator – Because "Two Weeks From Tuesday" Shouldn't Be a Math Problem</h2>
+                            <h2>Easy Date Calculation Tools: Due Dates, Time, and Duration 📅</h2>
                             
                             <div class="faq-item">
-                                <p>Some days, you're planning a vacation.<br>
-                                Other days, you're figuring out how many days are left before your rent is due (again).<br>
-                                And occasionally, you're just trying to count how many days you've survived since your last existential crisis.</p>
+                                <p>Missing an important date can cause big problems. Our online calculators help you stay on track ✅. Use a due date calculator, a date and time calculator, or a date to date calculator to get results fast. Whether you are an expecting parent 🤰, a busy professional, or a student, these tools make planning simple. You can check a baby's arrival with a pregnancy due date calculator or calculate deadlines for work and events. With our calculators, you avoid mistakes and save time. Don't risk forgetting a date—get it right in seconds.</p>
+                            </div>
+
+                            <div class="faq-item">
+                                <h3>How These Calculators Work</h3>
+                                <p>Our calculators are easy to use and precise. A baby due date calculator or ivf due date calculator adds 280 days to your last period or IVF fertilization date. The date duration calculator and days between dates calculator show how many days separate two events. You can also use the date calculator add days tool to plan ahead.</p>
                                 
-                                <p>Whatever the case, our Date Calculator is here to save your brain cells from doing calendar gymnastics.</p>
+                                <p>These calculators work in many situations. Track pregnancy milestones, plan events, manage deadlines, or calculate age with a date of birth calculator 🎂. Make sure to enter correct dates and consider leap years. Using the calculate due date from IVF tool keeps your planning accurate. For general scheduling, the time and date calculator helps you see upcoming deadlines clearly. With these tools, you stay ahead of your schedule and avoid surprises.</p>
                             </div>
 
                             <div class="faq-item">
-                                <h3>🔧 What does it do?</h3>
-                                <p>✅ Add or subtract days, weeks, months, or years from any date</p>
-                                <p>✅ Calculate duration between two dates</p>
-                                <p>✅ Plan deadlines, countdowns, or how long it's been since your last gym visit</p>
-                                <p>✅ Instant results, no mental math or weird leap year drama</p>
-                                <p>✅ Free. No logins. No pop-ups asking for your birthday (ironic, we know)</p>
+                                <h3>Get More from Our Date Tools 🚀</h3>
+                                <p>Want to stay on top of every important date? Try our other calculators like the date of conception calculator or date range calculator. Use the dates calculator to calculate days between two dates or check deadlines quickly. These tools help you plan confidently and act fast. Don't wait and risk missing important milestones. Start using our calculators today and see how easy it is to manage your schedule. Keep calculating dates and stay ahead of every event.</p>
                             </div>
 
                             <div class="faq-item">
-                                <h3>❓FAQ – We know your brain's too fried to count</h3>
+                                <h3>📅 Date & Time Calculation FAQ: Periods, Age, and Excel Formulas</h3>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q1: Can I use this to plan my next vacation?</strong><br>
-                                    A: Absolutely. Just don't blame us if it's 136 days away and you lose hope.</p>
+                                    <p><strong>Q1: How can you calculate your due date?</strong><br>
+                                    A: You can calculate your pregnancy due date by counting 40 weeks (280 days) from the first day of your last menstrual period. There are also online pregnancy calculators that can do this automatically.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q2: Can it tell me how many days I've been alive?</strong><br>
-                                    A: Yep. Warning: the number might be alarmingly high. Existential dread not included.</p>
+                                    <p><strong>Q2: How to calculate your next period date?</strong><br>
+                                    A: To estimate your next period, add your average menstrual cycle length (usually 28 days) to the first day of your last period. This gives you an approximate date for your next cycle.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q3: Is this just a calendar with a calculator taped to it?</strong><br>
-                                    A: Basically, but prettier. And less judgmental than your wall calendar.</p>
+                                    <p><strong>Q3: How to calculate the difference in dates in Excel?</strong><br>
+                                    A: In Excel, you can calculate the difference between two dates using the formula: =End_Date - Start_Date. This will return the number of days between the dates.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q4: Is it really free? Where's the catch?</strong><br>
-                                    A: No catch, just calculators. We make a little from ads — like a digital tip jar — but the tool itself is totally free.</p>
+                                    <p><strong>Q4: How to calculate age in Excel with date of birth?</strong><br>
+                                    A: Use the formula =DATEDIF(Birth_Date, TODAY(), "Y") in Excel. It will calculate the number of full years from the birth date to today.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q5: How can I calculate my due date of pregnancy?</strong><br>
+                                    A: You can calculate your due date by adding 280 days (or 40 weeks) to the first day of your last menstrual period. Many online calculators can provide this date instantly.</p>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Q6: How to tell the date in Blue Prince?</strong><br>
+                                    A: You need to add the number of days you have been exploring (shown on the pause screen) to that start date to figure out the date in Blue Prince. For example, if you are on "Day 22" of exploration, then the current date in the game would be Nov. 28.</p>
                                 </div>
                             </div>
                         </div>
@@ -564,162 +580,65 @@
     </footer>
 
     <script>
-        let currentDateFormat = 'mm/dd/yyyy';
-        let currentOperator = 'add';
+        // 获取模式选择
+        const modeRadios = document.querySelectorAll('input[name="mode"]');
+        let currentMode = 'standard';
 
-        // Initialize today's date
-        function initTodayDate() {
-            const today = new Date();
-            document.getElementById('today-date').textContent = formatDate(today);
-            
-            // Set default date inputs
-            document.getElementById('month').value = today.getMonth() + 1;
-            document.getElementById('day').value = today.getDate();
-            document.getElementById('year').value = today.getFullYear();
-        }
+        modeRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                currentMode = e.target.value;
+                updateInputPlaceholder();
+            });
+        });
 
-        function setDateFormat(format) {
-            currentDateFormat = format;
-            document.getElementById('dateFormat').value = format;
-            // Update displayed dates
-            initTodayDate();
-            const resultSection = document.getElementById('results');
-            if (resultSection.style.display === 'block') {
-                calculateDate();
+        function updateInputPlaceholder() {
+            const inputStart = document.getElementById('start-date');
+            const inputDays = document.getElementById('days-input');
+            const startLabel = document.getElementById('start-label');
+
+            if (currentMode === 'standard') {
+                inputStart.placeholder = 'YYYY-MM-DD';
+                inputDays.placeholder = 'Days to add/subtract';
+                startLabel.textContent = 'Start Date:';
+            } else if (currentMode === 'blue-prince') {
+                inputStart.placeholder = 'Enter Blue Prince Day number';
+                inputDays.placeholder = 'Optional: add/subtract days';
+                startLabel.textContent = 'Blue Prince Day:';
             }
         }
 
-        function setOperator(op) {
-            currentOperator = op;
-            document.getElementById('operator').value = op;
-        }
+        // 计算按钮
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const startInput = document.getElementById('start-date').value;
+            const daysInput = parseInt(document.getElementById('days-input').value, 10) || 0;
 
-        function formatDate(date) {
-            const month = date.getMonth() + 1;
-            const day = date.getDate();
-            const year = date.getFullYear();
-            
-            switch(currentDateFormat) {
-                case 'mm/dd/yyyy':
-                    return `${month}/${day}/${year}`;
-                case 'dd/mm/yyyy':
-                    return `${day}/${month}/${year}`;
-                case 'yyyy-mm-dd':
-                    return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-                default:
-                    return `${month}/${day}/${year}`;
-            }
-        }
-
-        function isBusinessDay(date) {
-            const day = date.getDay();
-            const includeSaturday = document.getElementById('includeSaturday').checked;
-            
-            if (includeSaturday) {
-                return day !== 0; // Not Sunday
-            }
-            return day !== 0 && day !== 6; // Not Saturday or Sunday
-        }
-
-        function addDays(date, days, countBusinessDays) {
-            const result = new Date(date);
-            
-            if (!countBusinessDays) {
-                result.setDate(result.getDate() + days);
-                return result;
-            }
-
-            let addedDays = 0;
-            let daysToAdd = days;
-
-            while (addedDays < daysToAdd) {
-                result.setDate(result.getDate() + 1);
-                if (isBusinessDay(result)) {
-                    addedDays++;
-                }
-            }
-
-            return result;
-        }
-
-        function subtractDays(date, days, countBusinessDays) {
-            const result = new Date(date);
-            
-            if (!countBusinessDays) {
-                result.setDate(result.getDate() - days);
-                return result;
-            }
-
-            let subtractedDays = 0;
-            let daysToSubtract = days;
-
-            while (subtractedDays < daysToSubtract) {
-                result.setDate(result.getDate() - 1);
-                if (isBusinessDay(result)) {
-                    subtractedDays++;
-                }
-            }
-
-            return result;
-        }
-
-        function calculateDate() {
-            const month = parseInt(document.getElementById('month').value);
-            const day = parseInt(document.getElementById('day').value);
-            const year = parseInt(document.getElementById('year').value);
-            const days = parseInt(document.getElementById('days').value);
-            const countBusinessDays = document.getElementById('businessDays').checked;
-
-            if (!month || !day || !year || !days) {
-                alert('Please fill in all date fields and number of days.');
-                return;
-            }
-
-            const startDate = new Date(year, month - 1, day);
             let resultDate;
 
-            if (currentOperator === 'add') {
-                resultDate = addDays(startDate, days, countBusinessDays);
-            } else {
-                resultDate = subtractDays(startDate, days, countBusinessDays);
+            if (currentMode === 'standard') {
+                const startDate = new Date(startInput);
+                resultDate = new Date(startDate);
+                resultDate.setDate(startDate.getDate() + daysInput);
+            } else if (currentMode === 'blue-prince') {
+                // 假设 Day 1 对应 2025-09-01
+                const startDate = new Date('2025-09-01');
+                const dayNumber = parseInt(startInput, 10);
+                resultDate = new Date(startDate);
+                resultDate.setDate(startDate.getDate() + dayNumber - 1 + daysInput);
             }
 
-            const resultSection = document.getElementById('results');
-            const resultDateElement = document.getElementById('result-date');
-            const repeatLink = document.getElementById('repeat-link');
-
-            resultSection.style.display = 'block';
-            resultDateElement.textContent = formatDate(resultDate);
-
-            // Add repeat link
-            repeatLink.innerHTML = `<a href="#" onclick="repeatCalculation(${days}); return false;" style="color: #eb5424; text-decoration: none;">Repeat ${currentOperator === 'add' ? '+' : '-'}${days} Days</a>`;
-        }
-
-        function repeatCalculation(days) {
-            const resultDate = document.getElementById('result-date').textContent;
-            const [month, day, year] = resultDate.split('/');
-            
-            document.getElementById('month').value = month;
-            document.getElementById('day').value = day;
-            document.getElementById('year').value = year;
-            document.getElementById('days').value = days;
-            
-            calculateDate();
-        }
+            document.getElementById('result').textContent = `Result Date: ${resultDate.toISOString().slice(0,10)}`;
+            document.getElementById('results').style.display = 'block';
+        });
 
         function clearInputs() {
-            document.getElementById('month').value = '';
-            document.getElementById('day').value = '';
-            document.getElementById('year').value = '';
-            document.getElementById('days').value = '';
-            document.getElementById('businessDays').checked = false;
-            document.getElementById('includeSaturday').checked = false;
+            document.getElementById('start-date').value = '';
+            document.getElementById('days-input').value = '';
             document.getElementById('results').style.display = 'none';
         }
 
         // Initialize the calculator
         window.onload = function() {
-            initTodayDate();
+            updateInputPlaceholder();
             
             // Initialize AdSense
             try {
@@ -765,6 +684,38 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes, our Date Calculator is completely free to use with no registration required. All calculations are performed instantly in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this as a court date calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our Date Calculator can be used as a court date calculator to calculate deadlines, filing dates, and legal timeframes. Simply enter your court date and add or subtract the required number of days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate months between two dates in Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While our Date Calculator provides instant results, you can also calculate months between two dates in Excel using the DATEDIF function: =DATEDIF(start_date,end_date,\"M\") for months or =DATEDIF(start_date,end_date,\"D\") for days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate difference in dates in Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate difference in dates in Excel, use the DATEDIF function: =DATEDIF(start_date,end_date,\"D\") for days, =DATEDIF(start_date,end_date,\"M\") for months, or =DATEDIF(start_date,end_date,\"Y\") for years. Our Date Calculator provides the same results instantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this as a refill date calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our Date Calculator works perfectly as a refill date calculator for medications, prescriptions, or any recurring items. Enter your last refill date and add the number of days until your next refill to get the exact date."
           }
         }
       ]
