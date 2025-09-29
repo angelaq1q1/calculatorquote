@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Use our free Amortization Calculator to calculate monthly loan payments, total interest, and repayment schedule. Ideal for mortgages, auto loans, student loans and more.">
-    <meta name="keywords" content="amortization calculator, loan payment calculator, loan schedule calculator, mortgage amortization">
+    <meta name="keywords" content="amortization calculator, loan payment calculator, loan schedule calculator, mortgage amortization, car loan payoff calculator, auto loan calculator extra payments, balloon loan calculator, extra payment calculator auto">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/financial/amortization-calculator.html">
@@ -17,7 +17,7 @@
       "url": "https://www.calculatorquote.com/financial/amortization-calculator.html",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
-      "description": "Free amortization calculator to calculate monthly loan payments, total interest, and full repayment schedule.",
+      "description": "Free amortization calculator to calculate monthly loan payments, total interest, and full repayment schedule. Includes car loan payoff calculator, auto loan calculator with extra payments, balloon loan calculator, and extra payment calculator for auto loans.",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
@@ -36,7 +36,7 @@
       "@type": "WebPage",
       "name": "Amortization Calculator – Plan Your Loan Payments",
       "url": "https://www.calculatorquote.com/financial/amortization-calculator.html",
-      "description": "Use our free Amortization Calculator to plan monthly payments, interest costs, and repayment schedule for mortgages, auto loans, student loans and more.",
+      "description": "Use our free Amortization Calculator to plan monthly payments, interest costs, and repayment schedule for mortgages, auto loans, student loans and more. Features car loan payoff calculator, auto loan calculator with extra payments, balloon loan calculator, and extra payment calculator for auto loans.",
       "publisher": {
         "@type": "Organization",
         "name": "CalculatorQuote",
@@ -476,8 +476,8 @@
                     <span>/</span>
                     Amortization Calculator
                 </div>
-                <h1>Amortization Calculator</h1>
-                <div class="description">Want to understand how much you'll pay each month toward principal and interest? Just enter your loan amount, interest rate, and term to generate a complete repayment schedule in seconds.</div>
+                <h1>Save $10,000 in Interest — Plan Smarter with Our Amortization Calculator</h1>
+                <div class="description">Paying off a loan without a clear plan can cost you thousands in extra interest. Many borrowers don't realize how small changes, like adding $100 a month, can cut years off repayment. Our Amortization Calculator shows you exactly how much you owe, how long payoff will take, and how much interest you'll save. Whether it's a mortgage, car loan, or student debt, this tool gives you control over your financial future.</div>
         
         <div class="input-section">
             <div class="input-grid">
@@ -496,28 +496,38 @@
                     </div>
                 </div>
                 <div class="input-group">
-                    <label for="num-payments">Number of Payments:</label>
+                    <label for="loan-term">Loan Term (years):</label>
                     <div class="input-field-container">
-                        <input type="number" id="num-payments" min="1" step="1" placeholder="e.g. 360">
+                        <input type="number" id="loan-term" min="1" step="1" placeholder="e.g. 30">
+                        <div class="unit">years</div>
                     </div>
-                    <small style="color:#888;">For a 30-year loan, enter 360 (30 × 12)</small>
                 </div>
                 <div class="input-group">
                     <label for="frequency">Payment Frequency:</label>
                     <div class="input-field-container">
                         <select id="frequency">
                             <option value="monthly">Monthly</option>
-                            <option value="daily-365">Daily (365/yr)</option>
-                            <option value="daily-360">Daily (360/yr)</option>
-                            <option value="weekly">Weekly</option>
                             <option value="biweekly">Biweekly</option>
-                            <option value="semimonthly">Semimonthly</option>
-                            <option value="bimonthly">Bimonthly</option>
+                            <option value="weekly">Weekly</option>
                             <option value="quarterly">Quarterly</option>
-                            <option value="semiannually">Semiannually</option>
-                            <option value="annually">Annually</option>
                         </select>
                     </div>
+                </div>
+                <div class="input-group">
+                    <label for="extra-payment">Extra Monthly Payment:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="extra-payment" min="0" step="0.01" placeholder="e.g. 100">
+                        <div class="unit">$</div>
+                    </div>
+                    <small style="color:#888;">Even an extra $100/month can cut years off your loan and save thousands in interest.</small>
+                </div>
+                <div class="input-group">
+                    <label for="lump-sum">One-Time Lump Sum Payment:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="lump-sum" min="0" step="0.01" placeholder="e.g. 5000">
+                        <div class="unit">$</div>
+                    </div>
+                    <small style="color:#888;">Optional: One-time payment to reduce principal</small>
                 </div>
             </div>
             <div class="buttons">
@@ -526,47 +536,136 @@
             </div>
         </div>
         <div class="result-section" id="result-section" style="display:none;">
-            <h2>Result</h2>
-            <p>Payment per period: <span class="value" id="payment-value">$0.00</span></p>
-            <p>Total interest: <span class="value" id="total-interest">$0.00</span></p>
-            <p>Total paid: <span class="value" id="total-paid">$0.00</span></p>
+            <h2>📊 Summary</h2>
+            <div class="breakdown">
+                <p>Monthly Payment: <span class="value" id="payment-value">$0.00</span></p>
+                <p>Total Interest: <span class="value" id="total-interest">$0.00</span></p>
+                <p>Total Payment: <span class="value" id="total-paid">$0.00</span></p>
+                <p>Time Saved with Extra Payments: <span class="value" id="time-saved">0 Years</span></p>
+                <p>Interest Saved: <span class="value" id="interest-saved">$0.00</span></p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <h3>📅 Amortization Schedule</h3>
+                <div id="schedule-container" style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 5px;">
+                    <table id="schedule-table" style="width: 100%; border-collapse: collapse;">
+                        <thead style="background-color: #f8f9fa; position: sticky; top: 0;">
+                            <tr>
+                                <th style="padding: 8px; border: 1px solid #ddd;">Payment #</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">Payment Amount</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">Principal</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">Interest</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-body">
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="btn-calculate" onclick="downloadCSV()" style="margin-right: 10px;">📥 Download CSV</button>
+                    <button class="btn-clear" onclick="downloadPDF()">📄 Download PDF</button>
+                </div>
+            </div>
         </div>
 
         <div class="content-section">
-            <h2>💸 Amortization Calculator – Because Debt Deserves to Be Broken Down Too</h2>
+            <h2>💡 Smarter Loan Planning with Our Amortization Calculator</h2>
             
-            <div class="faq-item">
-                <p>You took out a loan. Now your bank statements feel like a slow-motion horror movie. Interest here. Principal there. Monthly payments forever. You just want to know: When does this end?!</p>
+            <div class="faq-item" style="margin-bottom: 15px;">
+                <p>When you borrow money, every payment counts. Without a clear plan, you could end up paying thousands more in interest than you expected. Our Amortization Calculator shows you exactly how much you owe, how long it will take to repay, and how extra payments can change your loan. This tool is built for anyone who wants to manage debt better and save money. It can help you with:</p>
                 
-                <p>Good news: our amortization schedule calculator is here to break down your debt drama into something that makes actual sense — without needing a finance degree or an emotional support spreadsheet.</p>
+                <ul>
+                    <li>🚗 Car loan payoff calculator</li>
+                    <li>⚡ Auto payoff calculator</li>
+                    <li>📊 Loan scenario testing tool</li>
+                </ul>
             </div>
 
-            <div class="faq-item">
-                <h3>💡 What does this amortization calculator do?</h3>
-                <p>✅ Calculates loan amortization with monthly payments</p>
-                <p>✅ Breaks down each payment schedule into principal and interest</p>
-                <p>✅ Gives you a full amortization table — year by year, month by month</p>
-                <p>✅ Works for all types of loans: mortgage, car loan, student loan, personal loan</p>
-                <p>✅ Totally free. No sign-up. Mobile-friendly. Amortization chart included.</p>
+            <div class="faq-item" style="margin-bottom: 15px;">
+                <h3>🔧 How the Calculator Works and Why It Matters</h3>
+                <p>An amortized loan splits each monthly payment into principal and interest. Early on, most of your money goes toward interest. Over time, more of each payment reduces the principal. That's why features like our auto loan calculator extra payments option or additional payment calculator auto can make a big difference. Benefits include:</p>
+                
+                <ul>
+                    <li>⏰ Reduce your loan term</li>
+                    <li>💰 Save thousands in interest</li>
+                    <li>🚀 Plan extra payments to pay off loans faster</li>
+                </ul>
+                
+                <p>For example, imagine a $30,000 auto loan over 60 months. If you only pay the regular monthly car rates, the total interest may surprise you. But if you add extra payments, you can see your balance drop much faster. Users often compare this approach with other calculators, such as:</p>
+                
+                <ul>
+                    <li>🎈 Balloon loan calculator</li>
+                    <li>💳 Line of credit payment calculator</li>
+                    <li>📈 Debt service calculator</li>
+                </ul>
             </div>
 
-            <div class="faq-item">
-                <h3>❓ FAQ – Because debt doesn't come with an instruction manual</h3>
+            <div class="faq-item" style="margin-bottom: 15px;">
+                <h3>🎯 Flexible for Many Situations</h3>
+                <p>This calculator works for a variety of scenarios. For instance:</p>
+                
+                <ul>
+                    <li>🚙 Car buyers: estimate monthly car payment rates (Colorado, Georgia, etc.)</li>
+                    <li>🏠 Real estate borrowers: use land contract calculator or land mortgage payment calculator</li>
+                    <li>📅 Frequent payers: pair with a biweekly loan calculator to reduce interest faster</li>
+                </ul>
+                
+                <p>Many people wonder if paying off a car loan early is worth it. With our paying off car loan early calculator, you can see the exact savings. Whether you are comparing bank options or exploring lenders like American Bank Credit or auto loans in AZ, this tool gives clear numbers to help you make smart decisions.</p>
+            </div>
+
+            <div class="faq-item" style="margin-bottom: 15px;">
+                <h3>🎬 Take Action and Explore More Tools</h3>
+                <p>Don't let a loan control your finances. Our Amortization Calculator lets you:</p>
+                
+                <ul>
+                    <li>📋 View your full repayment schedule</li>
+                    <li>🧪 Test extra payments</li>
+                    <li>💡 See how much interest you can save</li>
+                </ul>
+                
+                <p>It works as more than a car payment calculator. You can also use it as:</p>
+                
+                <ul>
+                    <li>🧮 Loan calculator</li>
+                    <li>🎈 Amortization calculator with balloon payment</li>
+                    <li>🔗 Entry point to explore tools like Bret Whissel amortization tool</li>
+                </ul>
+                
+                <p>Run your own numbers today. Then check our related tools:</p>
+                
+                <ul>
+                    <li>🚗 Car Loan Payoff Calculator</li>
+                    <li>📊 Debt Service Calculator</li>
+                    <li>💳 Line of Credit Payment Calculator</li>
+                    <li>🔧 Bret Whissel Amortization Tool</li>
+                </ul>
+                
+                <p><strong>⚡ The sooner you plan, the more you save.</strong></p>
+            </div>
+
+            <div class="faq-item" style="margin-bottom: 15px;">
+                <h3>❓ FAQ – Loan & Car Payment Questions</h3>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q1: Do I need to understand financial terms like principal, interest, or loan balance?</strong><br>
-                    A: Nope. This loan amortization calculator is made for humans, not accountants.</p>
+                    <p><strong>Q1: How do I calculate interest on a loan?</strong><br>
+                    A: Calculating interest on a loan depends on the type of loan and interest rate. For a simple loan, multiply the principal by the interest rate and time period. For amortized loans, each monthly payment includes both principal and interest, and the interest decreases over time as the balance is paid down. You can use our amortization calculator to see exactly how much interest you will pay.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q2: Can I use this for a mortgage amortization schedule?</strong><br>
-                    A: Absolutely. It shows monthly loan payments, interest, and total cost. Plug in your mortgage and see how it plays out.</p>
+                    <p><strong>Q2: How much loan can I qualify for?</strong><br>
+                    A: The amount you can qualify for depends on your income, credit score, and existing debts. A loan qualification calculator can estimate the maximum loan you might be approved for based on these factors. It helps you plan your budget and choose the right loan.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q3: Will this help me plan extra payments?</strong><br>
-                    A: Yes! You can explore how extra payments affect your repayment schedule and total interest paid.</p>
+                    <p><strong>Q3: What is an amortization schedule?</strong><br>
+                    A: An amortization schedule is a table that shows each payment on a loan over time. It breaks down every payment into principal and interest. Early payments mostly go toward interest, while later payments reduce the principal faster. Using an amortization schedule helps you see your progress and plan extra payments.</p>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <p><strong>Q4: Can I download the schedule?</strong><br>
-                    A: Not yet, but the amortization schedule is easy to read on any device. And you can screenshot like a pro.</p>
+                    <p><strong>Q4: How much will my monthly payment be?</strong><br>
+                    A: Your monthly payment depends on the loan amount, interest rate, and repayment term. You can calculate it manually, but the easiest way is to use a loan payment calculator. It will show your monthly payment, total interest, and total loan cost.</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p><strong>Q5: How does interest work on a car loan?</strong><br>
+                    A: Car loans usually use amortized interest. This means your monthly payment includes both principal and interest. Early in the loan, more of your payment goes toward interest. Over time, the principal portion grows. Extra payments can reduce interest and shorten your loan term. Our auto loan calculator can help you see how interest works on your specific car loan.</p>
                 </div>
             </div>
 
@@ -590,51 +689,259 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
     <script>
+        let amortizationData = [];
+        
         function getPaymentFrequencyMultiplier(frequency) {
             const multipliers = {
-                'daily-365': 365,
-                'daily-360': 360,
                 'weekly': 52,
                 'biweekly': 26,
-                'semimonthly': 24,
                 'monthly': 12,
-                'bimonthly': 6,
-                'quarterly': 4,
-                'semiannually': 2,
-                'annually': 1
+                'quarterly': 4
             };
             return multipliers[frequency] || 12;
         }
+        
         function calculateAmortization() {
             const P = parseFloat(document.getElementById('loan-amount').value);
             const r = parseFloat(document.getElementById('interest-rate').value);
-            const n = parseInt(document.getElementById('num-payments').value);
+            const termYears = parseInt(document.getElementById('loan-term').value);
+            const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+            const lumpSum = parseFloat(document.getElementById('lump-sum').value) || 0;
             const freq = document.getElementById('frequency').value;
-            if (!P || !r || !n) {
-                alert('Please fill in all fields with valid values.');
+            
+            if (!P || !r || !termYears) {
+                alert('Please fill in all required fields with valid values.');
                 return;
             }
-            const periods = getPaymentFrequencyMultiplier(freq);
-            const i = r / 100 / periods;
-            let payment;
+            
+            const periodsPerYear = getPaymentFrequencyMultiplier(freq);
+            const n = termYears * periodsPerYear;
+            const i = r / 100 / periodsPerYear;
+            
+            // Calculate standard payment
+            let standardPayment;
             if (i === 0) {
-                payment = P / n;
+                standardPayment = P / n;
             } else {
-                payment = P * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+                standardPayment = P * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
             }
-            const totalPaid = payment * n;
-            const totalInterest = totalPaid - P;
-            document.getElementById('payment-value').textContent = '$' + payment.toFixed(2);
+            
+            // Calculate with extra payments
+            const totalPayment = standardPayment + extraPayment;
+            let balance = P - lumpSum;
+            let totalInterest = 0;
+            let paymentCount = 0;
+            amortizationData = [];
+            
+            // Generate amortization schedule
+            while (balance > 0.01 && paymentCount < n * 2) { // Safety limit
+                paymentCount++;
+                const interestPayment = balance * i;
+                let principalPayment = Math.min(totalPayment - interestPayment, balance);
+                
+                // If this would be the last payment, adjust to pay off exactly
+                if (balance - principalPayment < 0.01) {
+                    principalPayment = balance;
+                }
+                
+                balance -= principalPayment;
+                totalInterest += interestPayment;
+                
+                amortizationData.push({
+                    payment: paymentCount,
+                    amount: Math.min(totalPayment, principalPayment + interestPayment),
+                    principal: principalPayment,
+                    interest: interestPayment,
+                    balance: Math.max(0, balance)
+                });
+                
+                if (balance <= 0.01) break;
+            }
+            
+            // Calculate standard loan for comparison
+            let standardBalance = P;
+            let standardInterest = 0;
+            let standardPayments = 0;
+            
+            for (let j = 0; j < n; j++) {
+                const interestPayment = standardBalance * i;
+                const principalPayment = standardPayment - interestPayment;
+                standardBalance -= principalPayment;
+                standardInterest += interestPayment;
+                standardPayments++;
+                if (standardBalance <= 0.01) break;
+            }
+            
+            const totalPaid = (standardPayment * standardPayments) + (extraPayment * paymentCount) + lumpSum;
+            const timeSaved = Math.max(0, standardPayments - paymentCount);
+            const interestSaved = Math.max(0, standardInterest - totalInterest);
+            
+            // Update display
+            document.getElementById('payment-value').textContent = '$' + standardPayment.toFixed(2);
             document.getElementById('total-interest').textContent = '$' + totalInterest.toFixed(2);
             document.getElementById('total-paid').textContent = '$' + totalPaid.toFixed(2);
+            document.getElementById('time-saved').textContent = Math.floor(timeSaved / periodsPerYear) + ' Years';
+            document.getElementById('interest-saved').textContent = '$' + interestSaved.toFixed(2);
+            
+            // Generate schedule table
+            generateScheduleTable();
+            
             document.getElementById('result-section').style.display = 'block';
         }
+        
+        function generateScheduleTable() {
+            const tbody = document.getElementById('schedule-body');
+            tbody.innerHTML = '';
+            
+            // Show first 12 payments and last 12 payments
+            const showPayments = Math.min(24, amortizationData.length);
+            const startIndex = Math.max(0, amortizationData.length - showPayments);
+            
+            for (let i = startIndex; i < amortizationData.length; i++) {
+                const row = amortizationData[i];
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="padding: 8px; border: 1px solid #ddd;">${row.payment}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">$${row.amount.toFixed(2)}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">$${row.principal.toFixed(2)}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">$${row.interest.toFixed(2)}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">$${row.balance.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+        
+        function downloadCSV() {
+            if (amortizationData.length === 0) {
+                alert('Please calculate first.');
+                return;
+            }
+            
+            let csv = 'Payment #,Payment Amount,Principal,Interest,Balance\n';
+            amortizationData.forEach(row => {
+                csv += `${row.payment},${row.amount.toFixed(2)},${row.principal.toFixed(2)},${row.interest.toFixed(2)},${row.balance.toFixed(2)}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'amortization_schedule.csv';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function downloadPDF() {
+            if (amortizationData.length === 0) {
+                alert('Please calculate first.');
+                return;
+            }
+            
+            // Create a new window for PDF content
+            const printWindow = window.open('', '_blank');
+            const loanAmount = document.getElementById('loan-amount').value;
+            const interestRate = document.getElementById('interest-rate').value;
+            const loanTerm = document.getElementById('loan-term').value;
+            const extraPayment = document.getElementById('extra-payment').value || 0;
+            const lumpSum = document.getElementById('lump-sum').value || 0;
+            
+            let htmlContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Amortization Schedule</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .header { text-align: center; margin-bottom: 30px; }
+                        .summary { background: #f8f9fa; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+                        .summary h3 { margin-top: 0; color: #333; }
+                        .summary p { margin: 5px 0; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                        th { background-color: #f2f2f2; }
+                        .footer { margin-top: 30px; text-align: center; color: #666; font-size: 12px; }
+                        @media print {
+                            body { margin: 0; }
+                            .no-print { display: none; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>Amortization Schedule Report</h1>
+                        <p>Generated on ${new Date().toLocaleDateString()}</p>
+                    </div>
+                    
+                    <div class="summary">
+                        <h3>Loan Summary</h3>
+                        <p><strong>Loan Amount:</strong> $${parseFloat(loanAmount).toLocaleString()}</p>
+                        <p><strong>Interest Rate:</strong> ${interestRate}%</p>
+                        <p><strong>Loan Term:</strong> ${loanTerm} years</p>
+                        <p><strong>Extra Monthly Payment:</strong> $${parseFloat(extraPayment).toLocaleString()}</p>
+                        <p><strong>One-Time Payment:</strong> $${parseFloat(lumpSum).toLocaleString()}</p>
+                        <p><strong>Monthly Payment:</strong> $${document.getElementById('payment-value').textContent}</p>
+                        <p><strong>Total Interest:</strong> $${document.getElementById('total-interest').textContent}</p>
+                        <p><strong>Total Payment:</strong> $${document.getElementById('total-paid').textContent}</p>
+                        <p><strong>Time Saved:</strong> ${document.getElementById('time-saved').textContent}</p>
+                        <p><strong>Interest Saved:</strong> $${document.getElementById('interest-saved').textContent}</p>
+                    </div>
+                    
+                    <h3>Payment Schedule</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Payment #</th>
+                                <th>Payment Amount</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            // Add all payment rows
+            amortizationData.forEach(row => {
+                htmlContent += `
+                    <tr>
+                        <td>${row.payment}</td>
+                        <td>$${row.amount.toFixed(2)}</td>
+                        <td>$${row.principal.toFixed(2)}</td>
+                        <td>$${row.interest.toFixed(2)}</td>
+                        <td>$${row.balance.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+            
+            htmlContent += `
+                        </tbody>
+                    </table>
+                    
+                    <div class="footer">
+                        <p>Generated by CalculatorQuote.com - Free Financial Calculators</p>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(htmlContent);
+            printWindow.document.close();
+            
+            // Wait for content to load, then trigger print dialog
+            printWindow.onload = function() {
+                printWindow.print();
+            };
+        }
+        
         function clearInputs() {
             document.getElementById('loan-amount').value = '';
             document.getElementById('interest-rate').value = '';
-            document.getElementById('num-payments').value = '';
+            document.getElementById('loan-term').value = '';
+            document.getElementById('extra-payment').value = '';
+            document.getElementById('lump-sum').value = '';
             document.getElementById('frequency').value = 'monthly';
             document.getElementById('result-section').style.display = 'none';
+            amortizationData = [];
         }
     </script>
 
