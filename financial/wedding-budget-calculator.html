@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take control of your wedding costs with our free Wedding Budget Calculator. Instantly plan a $20,000 wedding, allocate expenses for venue, catering, and photography, and avoid overspending while staying stress-free.">
+    <meta name="keywords" content="wedding budget calculator, wedding cost estimator, wedding planning, wedding expenses, wedding budget planner, free wedding calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/wedding-budget-calculator.html">
+    <title>Wedding Budget Calculator | Plan Your $20,000 Wedding in 3 Minutes</title>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Wedding Budget Calculator",
+        "url": "https://www.calculatorquote.com/financial/wedding-budget-calculator.html",
+        "description": "Free wedding budget calculator to plan your perfect wedding. Track expenses, allocate funds, and stay within budget for your special day.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://www.calculatorquote.com/financial/wedding-budget-calculator.html",
+            "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+            "Wedding budget planning",
+            "Expense tracking",
+            "Budget allocation",
+            "Cost breakdown",
+            "Budget vs actual comparison",
+            "Wedding planning tools"
+        ],
+        "keywords": [
+            "wedding budget calculator",
+            "wedding cost estimator",
+            "wedding planning",
+            "wedding expenses tracker",
+            "wedding budget planner",
+            "wedding flower budget calculator",
+            "online wedding budget calculator",
+            "checklist wedding preparation",
+            "wedding budget planner"
+        ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(235, 84, 36, 0.15);
+        }
+        
+        .content-wrapper {
+            max-width: 100%;
+            margin: 0;
+            padding-left: 0;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            text-align: left;
+        }
+        
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .input-section {
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.1);
+        }
+        
+        .input-section h3 {
+            color: #eb5424;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-section h3 .material-icons {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        
+        #total-budget-input {
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: white;
+            padding: 8px;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 2px #eb5424;
+        }
+        
+        .expense-item {
+            background: white;
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+            position: relative;
+        }
+        
+        .expense-item:hover {
+            box-shadow: 0 4px 8px rgba(235, 84, 36, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* 确保输入框有适当的边框 */
+        .expense-item input {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* 强制移除所有可能的边框 */
+        .expense-item,
+        .expense-item::before,
+        .expense-item::after {
+            border: none !important;
+            outline: none !important;
+        }
+        
+        .expense-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .expense-name {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+        
+        .expense-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            background: white;
+            min-width: 36px;
+            min-height: 36px;
+            padding: 0;
+            margin: 0;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-edit {
+            color: #666;
+        }
+        
+        .btn-edit:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn-delete {
+            color: #dc3545;
+        }
+        
+        .btn-delete:hover {
+            background-color: #dc3545;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .btn-delete:active {
+            transform: scale(0.95);
+        }
+        
+        /* 隐藏被删除的项目 */
+        .expense-item.deleted {
+            display: none !important;
+        }
+        
+        /* 删除确认样式 */
+        .delete-confirm {
+            background-color: #ffebee;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            box-shadow: none;
+        }
+        
+        .delete-confirm-buttons {
+            margin-top: 10px;
+        }
+        
+        .btn-confirm-delete {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        
+        .btn-cancel-delete {
+            background-color: #757575;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        
+        .expense-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .expense-inputs input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f8f9fa;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #f1f3f4;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 10px;
+            border: none;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #eb5424, #d4441a);
+            transition: width 0.3s;
+        }
+        
+        .results-section {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.1);
+            display: none !important;
+            visibility: hidden !important;
+        }
+        
+        .results-section.show {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        .results-section h3 {
+            color: #eb5424;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .results-section h3 .material-icons {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .expense-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expense-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .expense-row:last-child {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #eb5424;
+        }
+        
+        .expense-category {
+            flex: 1;
+        }
+        
+        .expense-amount {
+            font-weight: 500;
+        }
+        
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+        
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        
+        .btn-add {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .btn-add:hover {
+            background-color: #f57c00;
+        }
+        
+        /* Additional Content Styles - Within Page Border */
+        .additional-content {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.1);
+        }
+        
+        .additional-content h2 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .additional-content h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .additional-content h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .additional-content p {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .additional-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .budget-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .expense-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .budget-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <div class="calculator-container">
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Financial Calculators</a>
+                <span>/</span>
+                Wedding Budget Calculator
+            </div>
+            
+            <h1>💒 Wedding Budget Calculator: Plan Your Dream Day in Just 3 Minutes</h1>
+            <p class="description">👉 Struggling to organize wedding costs? The average wedding now costs $30,000, and overspending is common. Our free Wedding Budget Calculator instantly breaks down any budget across venue, catering, dress, and more—helping you avoid hidden costs, save money, and stay in control.</p>
+        
+
+            <div class="calculator-grid">
+                <div class="input-section">
+                    <h3><span class="material-icons">account_balance_wallet</span>Budget Setup</h3>
+                    
+                    <div class="input-group">
+                        <label for="total-budget-input">Total Wedding Budget</label>
+                        <input type="text" id="total-budget-input" value="25000" placeholder="Enter your total budget">
+                    </div>
+                    
+                    <h3 style="margin-top: 30px; margin-bottom: 15px;"><span class="material-icons">list</span>Wedding Expenses</h3>
+                    
+                    <div id="expenses-container">
+                        <!-- Default wedding expenses -->
+                        <div class="expense-item" data-category="venue">
+                            <div class="expense-header">
+                                <div class="expense-name">Venue & Reception</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="8000" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="catering">
+                            <div class="expense-header">
+                                <div class="expense-name">Catering & Food</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="5000" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="photography">
+                            <div class="expense-header">
+                                <div class="expense-name">Photography & Videography</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="3000" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="attire">
+                            <div class="expense-header">
+                                <div class="expense-name">Wedding Attire</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="2000" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="flowers">
+                            <div class="expense-header">
+                                <div class="expense-name">Flowers & Decorations</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="1500" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="music">
+                            <div class="expense-header">
+                                <div class="expense-name">Music & Entertainment</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="1200" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="invitations">
+                            <div class="expense-header">
+                                <div class="expense-name">Invitations & Stationery</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="500" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="transportation">
+                            <div class="expense-header">
+                                <div class="expense-name">Transportation</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="800" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expense-item" data-category="miscellaneous">
+                            <div class="expense-header">
+                                <div class="expense-name">Miscellaneous</div>
+                                <div class="expense-controls">
+                                    <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                                    <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                                </div>
+                            </div>
+                            <div class="expense-inputs">
+                                <input type="text" placeholder="Budget Amount" value="1000" onchange="updateBudget()">
+                                <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="delete-confirm" style="display: none;">
+                                <p>Are you sure you want to delete this expense category?</p>
+                                <div class="delete-confirm-buttons">
+                                    <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                                    <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-add" onclick="addNewExpense()">
+                        <span style="font-size: 18px; margin-right: 5px;">+</span>
+                        Add New Expense Category
+                    </button>
+                    
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateBudget()">Calculate</button>
+                        <button class="btn-clear" onclick="clearAll()">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="results-section" id="results-section">
+                    <h3><span class="material-icons">analytics</span>Budget Summary</h3>
+                    
+                    <div class="expense-summary">
+                        <div class="expense-row">
+                            <div class="expense-category">Total Budget</div>
+                            <div class="expense-amount" id="summary-total-budget">$25,000</div>
+                        </div>
+                        <div class="expense-row">
+                            <div class="expense-category">Total Allocated</div>
+                            <div class="expense-amount" id="summary-allocated">$0</div>
+                        </div>
+                        <div class="expense-row">
+                            <div class="expense-category">Total Spent</div>
+                            <div class="expense-amount" id="summary-spent">$0</div>
+                        </div>
+                        <div class="expense-row">
+                            <div class="expense-category">Remaining Budget</div>
+                            <div class="expense-amount" id="summary-remaining">$25,000</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><span class="material-icons">pie_chart</span>Expense Breakdown</h3>
+                    <div id="expense-breakdown">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Content Section -->
+            <div class="additional-content">
+                <h2>Wedding Budget Calculator: Plan Smarter, Spend Wisely</h2>
+                
+                <p>Planning a wedding is exciting, but managing costs can feel stressful. Couples often face high expenses for venues, catering, attire, and photography. Our Wedding Budget Calculator helps you stay organized. It guides families and couples who want clarity. The tool prevents overspending and makes budgeting simple. Whether you plan a small ceremony or a grand celebration, it works for anyone planning a budget for a wedding. 💒</p>
+                
+                <h3>Easily Plan Every Part of Your Wedding Budget</h3>
+                <p>The calculator starts with your total budget. It then allocates funds to common categories. These include venue, catering, attire, photography, entertainment, and more. Couples with a $20,000 budget see suggested percentages for each category. This method keeps spending balanced. It also highlights hidden costs like décor, transportation, and tips.</p>
+                
+                <p>Many couples overspend because they forget small expenses. The marriage expense calculator shows these costs clearly. You can adjust amounts before overspending occurs. The tool also lets you change numbers or add custom categories. You can prioritize items like food or flowers if they matter most.</p>
+                
+                <p>The calculator doubles as a checklist for wedding preparation. Each category reminds you what to plan. This approach replaces messy spreadsheets. It shows exactly where your money goes. Using a wedding money gift calculator, you can estimate how guest contributions offset costs. These tools reduce stress and simplify decision-making. 📋</p>
+                
+                <h3>Make Every Dollar Count on Your Big Day</h3>
+                <p>Your wedding is a once-in-a-lifetime event. Financial peace of mind matters. The free Wedding Budget Calculator helps you plan wisely. It keeps you within your budget and focused on memories, not money. Try it today. Then explore other tools, like our wedding money gift calculator. They make every part of your celebration smooth and stress-free. Plan your dream wedding one calculation at a time. 💰</p>
+                
+                <h3>Wedding Budget FAQs: Everything You Need to Know</h3>
+                
+                <h4><strong>Q1: How do I calculate my wedding budget?</strong></h4>
+                <p><strong>A:</strong> <strong>Wedding Budget Breakdown:</strong></p>
+                <ol>
+                    <li>RECEPTION VENUE, CATERING, & RENTALS (45%) 🏰</li>
+                    <li>WEDDING PLANNER/COORDINATOR (5-15%) 📋</li>
+                    <li>CEREMONY (3%) 💒</li>
+                    <li>PHOTOGRAPHY AND/OR VIDEOGRAPHY (12%) 📸</li>
+                    <li>STATIONERY (3%) 📝</li>
+                    <li>WEDDING ATTIRE & BEAUTY (9%) 👗</li>
+                    <li>WEDDING RINGS (2%) 💍</li>
+                    <li>CAKE (2%) 🎂</li>
+                </ol>
+                
+                <h4><strong>Q2: What is the ideal budget for a wedding?</strong></h4>
+                <p><strong>A:</strong> The average Indian wedding cost typically ranges between Rs. 10 lakh to Rs. 50 lakh, making financial planning essential. Whether you are planning an intimate gathering or a lavish affair, understanding the average wedding cost in India is crucial for effective financial planning. 💰</p>
+                
+                <h4><strong>Q3: What is a realistic budget for a 100 person wedding?</strong></h4>
+                <p><strong>A:</strong> The average cost of a midsize (100 person) wedding in North America is about $25-30k, based on what I've read when I was looking to set our budget. Depending on where you live and size of wedding that cost could be more or less. That average seems about right to me. 📊</p>
+                
+                <h4><strong>Q4: What is the cheapest month to get married?</strong></h4>
+                <p><strong>A:</strong> The cheapest months to get married are January, December and November. Late fall through all through winter and into early spring are considered the off-season for weddings. Only 23% of weddings happened between November and March last year, according to The Knot 2025 Real Weddings Study. ❄️</p>
+                
+                <h4><strong>Q5: What is the most expensive part of the wedding?</strong></h4>
+                <p><strong>A:</strong> The venue is often the most expensive part of a wedding. Whether you're hosting your ceremony, reception, or both, the venue sets the stage for your entire event. Costs can vary widely depending on location, size, and the time of year. 🏛️</p>
+                
+                <h4><strong>Q6: Who pays for a wedding?</strong></h4>
+                <p><strong>A:</strong> According to traditional wedding etiquette, the bride's family assumes most of the financial costs associated with a wedding, including the wedding planner, invitations, dress, ceremony, reception, flowers, photography, and music. 👨‍👩‍👧‍👦</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    
+    <script>
+        // Format numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Parse input with commas
+        function parseInput(input) {
+            return parseFloat(input.replace(/,/g, '')) || 0;
+        }
+        
+        // Update budget calculations (without showing results)
+        function updateBudget() {
+            // Don't auto-show results when typing
+            // calculateBudget();
+        }
+        
+        function updateSpent() {
+            // Don't auto-show results when typing
+            // calculateBudget();
+        }
+        
+        // Calculate total budget
+        function calculateBudget() {
+            const totalBudget = parseInput(document.getElementById('total-budget-input').value);
+            const expenseItems = document.querySelectorAll('.expense-item');
+            
+            let totalAllocated = 0;
+            let totalSpent = 0;
+            
+            expenseItems.forEach(item => {
+                const budgetInput = item.querySelector('input[placeholder="Budget Amount"]');
+                const spentInput = item.querySelector('input[placeholder="Spent Amount"]');
+                const progressBar = item.querySelector('.progress-fill');
+                
+                const budget = parseInput(budgetInput.value);
+                const spent = parseInput(spentInput.value);
+                
+                totalAllocated += budget;
+                totalSpent += spent;
+                
+                // Update progress bar
+                const percentage = budget > 0 ? Math.min((spent / budget) * 100, 100) : 0;
+                progressBar.style.width = percentage + '%';
+                
+                // Change color based on spending
+                if (percentage > 100) {
+                    progressBar.style.background = 'linear-gradient(90deg, #dc3545, #c82333)';
+                } else if (percentage > 80) {
+                    progressBar.style.background = 'linear-gradient(90deg, #ffc107, #e0a800)';
+                } else {
+                    progressBar.style.background = 'linear-gradient(90deg, #eb5424, #d4441a)';
+                }
+            });
+            
+            const remaining = totalBudget - totalAllocated;
+            
+            
+            // Update summary
+            document.getElementById('summary-total-budget').textContent = '$' + formatNumber(totalBudget);
+            document.getElementById('summary-allocated').textContent = '$' + formatNumber(totalAllocated);
+            document.getElementById('summary-spent').textContent = '$' + formatNumber(totalSpent);
+            document.getElementById('summary-remaining').textContent = '$' + formatNumber(remaining);
+            
+            // Update expense breakdown
+            updateExpenseBreakdown(expenseItems);
+            
+            // Show results section
+            const resultsSection = document.getElementById('results-section');
+            if (resultsSection) {
+                resultsSection.classList.add('show');
+                resultsSection.style.display = 'block';
+                resultsSection.style.visibility = 'visible';
+                resultsSection.style.opacity = '1';
+                resultsSection.style.height = 'auto';
+                resultsSection.style.overflow = 'visible';
+                console.log('Results section shown');
+            } else {
+                console.log('Results section not found for show');
+            }
+        }
+        
+        // Update expense breakdown
+        function updateExpenseBreakdown(expenseItems) {
+            const breakdown = document.getElementById('expense-breakdown');
+            breakdown.innerHTML = '';
+            
+            expenseItems.forEach(item => {
+                const name = item.querySelector('.expense-name').textContent;
+                const budgetInput = item.querySelector('input[placeholder="Budget Amount"]');
+                const spentInput = item.querySelector('input[placeholder="Spent Amount"]');
+                
+                const budget = parseInput(budgetInput.value);
+                const spent = parseInput(spentInput.value);
+                
+                if (budget > 0) {
+                    const row = document.createElement('div');
+                    row.className = 'expense-row';
+                    row.innerHTML = `
+                        <div class="expense-category">${name}</div>
+                        <div class="expense-amount">$${formatNumber(spent)} / $${formatNumber(budget)}</div>
+                    `;
+                    breakdown.appendChild(row);
+                }
+            });
+        }
+        
+        // Add new expense category
+        function addNewExpense() {
+            const container = document.getElementById('expenses-container');
+            const newExpense = document.createElement('div');
+            newExpense.className = 'expense-item';
+            newExpense.innerHTML = `
+                <div class="expense-header">
+                    <div class="expense-name">
+                        <input type="text" placeholder="Category Name" style="border: none; background: transparent; font-weight: 600; color: #333; width: 100%;">
+                    </div>
+                    <div class="expense-controls">
+                        <button class="btn-small btn-edit" onclick="editExpense(this)" title="Edit">✏️</button>
+                        <button class="btn-small btn-delete" onclick="this.closest('.expense-item').querySelector('.delete-confirm').style.display='block'" title="删除" type="button">×</button>
+                    </div>
+                </div>
+                <div class="expense-inputs">
+                    <input type="text" placeholder="Budget Amount" value="0" onchange="updateBudget()">
+                    <input type="text" placeholder="Spent Amount" value="0" onchange="updateSpent()">
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="delete-confirm" style="display: none;">
+                    <p>Are you sure you want to delete this expense category?</p>
+                    <div class="delete-confirm-buttons">
+                        <button class="btn-confirm-delete" onclick="confirmDelete(this)">Confirm Delete</button>
+                        <button class="btn-cancel-delete" onclick="cancelDelete(this)">Cancel</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newExpense);
+        }
+        
+        // Edit expense
+        function editExpense(button) {
+            const expenseItem = button.closest('.expense-item');
+            const nameElement = expenseItem.querySelector('.expense-name');
+            const nameInput = nameElement.querySelector('input');
+            
+            if (nameInput) {
+                nameInput.focus();
+            } else {
+                const currentName = nameElement.textContent;
+                nameElement.innerHTML = `<input type="text" value="${currentName}" style="border: none; background: transparent; font-weight: 600; color: #333; width: 100%;">`;
+                nameElement.querySelector('input').focus();
+            }
+        }
+        
+        // 最简单的删除函数
+        function deleteExpense(button) {
+            alert('删除按钮被点击了！');
+            
+            // 直接查找父级元素
+            var parent = button.parentNode;
+            while (parent && !parent.className.includes('expense-item')) {
+                parent = parent.parentNode;
+            }
+            
+            if (parent) {
+                if (confirm('确定要删除这个费用类别吗？')) {
+                    parent.remove();
+                    calculateBudget();
+                    alert('删除成功！');
+                }
+            } else {
+                alert('找不到要删除的项目');
+            }
+        }
+        
+        // Clear all inputs
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all data?')) {
+                document.getElementById('total-budget-input').value = '25000';
+                
+                const expenseItems = document.querySelectorAll('.expense-item');
+                expenseItems.forEach(item => {
+                    const budgetInput = item.querySelector('input[placeholder="Budget Amount"]');
+                    const spentInput = item.querySelector('input[placeholder="Spent Amount"]');
+                    const progressBar = item.querySelector('.progress-fill');
+                    
+                    budgetInput.value = '0';
+                    spentInput.value = '0';
+                    progressBar.style.width = '0%';
+                });
+                
+                // Hide results section
+                const resultsSection = document.getElementById('results-section');
+                if (resultsSection) {
+                    resultsSection.classList.remove('show');
+                    resultsSection.style.display = 'none';
+                    resultsSection.style.visibility = 'hidden';
+                    resultsSection.style.opacity = '0';
+                    resultsSection.style.height = '0';
+                    resultsSection.style.overflow = 'hidden';
+                    console.log('Results section hidden');
+                } else {
+                    console.log('Results section not found');
+                }
+                
+                // Don't call calculateBudget() to avoid showing results
+            }
+        }
+        
+        // 简化的删除功能 - 只处理确认删除
+        function confirmDelete(button) {
+            button.closest('.expense-item').classList.add('deleted');
+            calculateBudget();
+        }
+        
+        // 取消删除
+        function cancelDelete(button) {
+            button.closest('.delete-confirm').style.display = 'none';
+        }
+        
+        // Initialize on page load
+        window.onload = function() {
+            // Don't auto-calculate on page load
+            // calculateBudget();
+        };
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use the wedding budget calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start by entering your total wedding budget, then allocate amounts to different categories like venue, catering, photography, etc. Track your actual spending and monitor your progress with visual indicators."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What wedding expenses should I include in my budget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Include venue, catering, photography, attire, flowers, music, invitations, transportation, and miscellaneous expenses. The calculator provides default categories that you can customize."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I stay within my wedding budget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Allocate 40-50% to venue and catering, 10-15% to photography, keep 5-10% as buffer, track all expenses, consider DIY options, and book vendors early for better rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add custom expense categories to the wedding budget calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can add unlimited custom expense categories using the 'Add New Expense Category' button. You can also edit or delete existing categories as needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the wedding budget calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our wedding budget calculator is completely free to use, requires no registration, and works instantly on any device."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
