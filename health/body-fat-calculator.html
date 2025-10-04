@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Fat Calculator - Estimate Body Fat Percentage Online</title>
-    <meta name="description" content="Use our free Body Fat Calculator to estimate your body fat percentage using height, weight, waist, and neck measurements. Perfect for fitness, bodybuilding, and health tracking. No login needed.">
+    <title>Body Fat Calculator – Track Real Fat Loss & Muscle Progress</title>
+    <meta name="description" content="Lost 10 lbs but still look the same? Use our Body Fat Calculator to find your real fat percentage, monitor muscle retention, and see true fitness results instantly.">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -19,7 +19,11 @@
     "Fitness body measurement calculator",
     "Online health calculator",
     "Waist to height ratio",
-    "Body fat tracker"
+    "Body fat tracker",
+    "army fat body calculator",
+    "15 percent body fat 5 ft 11 male",
+    "health percentage body fat",
+    "body fat 25 female"
   ],
   "publisher": {
     "@type": "Organization",
@@ -532,8 +536,8 @@
             Body Fat Calculator
         </div>
 
-        <h1>Free Online Body Fat Calculator – Estimate Your Body Fat Percentage</h1>
-        <div class="description">Think you're all muscle? Or carrying more than you'd like? Use our free online Body Fat Calculator to estimate your body fat percentage based on standard formulas. Just input your height, weight, and a few body measurements — and instantly get results. Whether you're into bodybuilding, health optimization, or just want to track your fitness journey, this tool gives you the numbers you need.</div>
+        <h1>💪 Lose 10 lbs but Still Look the Same? Check Your Real Body Fat %</h1>
+        <div class="description">The scale doesn't tell the whole story. Use our Body Fat Calculator to see your true fat percentage, track real progress, and plan smarter workouts. Stop guessing — get results you can see.</div>
 
         <div class="unit-toggle">
             <button onclick="setUnit('standard')" id="btn-standard" class="active">US Units</button>
@@ -616,21 +620,21 @@
 
             <div class="input-row">
                 <div class="input-group">
-                    <label for="neck-ft">Neck:</label>
-                    <div class="input-field-container">
-                        <input type="number" id="neck-ft" min="0" max="3" value="1">
-                        <div class="unit">ft</div>
-                        <input type="number" id="neck-in" min="0" max="11" value="2">
-                        <div class="unit">in</div>
-                    </div>
-                </div>
-
-                <div class="input-group">
                     <label for="waist-ft">Waist:</label>
                     <div class="input-field-container">
                         <input type="number" id="waist-ft" min="0" max="5" value="2">
                         <div class="unit">ft</div>
                         <input type="number" id="waist-in" min="0" max="11" value="8">
+                        <div class="unit">in</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="neck-ft">Neck:</label>
+                    <div class="input-field-container">
+                        <input type="number" id="neck-ft" min="0" max="3" value="1">
+                        <div class="unit">ft</div>
+                        <input type="number" id="neck-in" min="0" max="11" value="2">
                         <div class="unit">in</div>
                     </div>
                 </div>
@@ -688,17 +692,17 @@
 
             <div class="input-row">
                 <div class="input-group">
-                    <label for="neck-cm">Neck:</label>
+                    <label for="waist-cm">Waist:</label>
                     <div class="input-field-container">
-                        <input type="number" id="neck-cm" min="20" value="35">
+                        <input type="number" id="waist-cm" min="40" value="82">
                         <div class="unit">cm</div>
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label for="waist-cm">Waist:</label>
+                    <label for="neck-cm">Neck:</label>
                     <div class="input-field-container">
-                        <input type="number" id="waist-cm" min="40" value="82">
+                        <input type="number" id="neck-cm" min="20" value="35">
                         <div class="unit">cm</div>
                     </div>
                 </div>
@@ -724,8 +728,12 @@
             
             <div class="result-details">
                 <div class="result-item">
-                    <h3>Body Fat (U.S. Navy Method)</h3>
-                    <p id="body-fat-navy"></p>
+                    <h3>Body Fat (BMI Method)</h3>
+                    <p id="body-fat-bmi"></p>
+                </div>
+                <div class="result-item">
+                    <h3>Body Fat (Waist Method)</h3>
+                    <p id="body-fat-waist"></p>
                 </div>
                 <div class="result-item">
                     <h3>Body Fat Category</h3>
@@ -743,133 +751,114 @@
                     <h3>Ideal Body Fat</h3>
                     <p id="ideal-body-fat"></p>
                 </div>
-                <div class="result-item">
-                    <h3>Body Fat to Lose to Reach Ideal</h3>
-                    <p id="fat-to-lose"></p>
-                </div>
             </div>
         </div>
 
-        <div class="reference-section">
-            <h2>Reference</h2>
-            <h3>The American Council on Exercise Body Fat Categorization</h3>
-            <table>
-                <tr>
-                    <th>Description</th>
-                    <th>Women</th>
-                    <th>Men</th>
-                </tr>
-                <tr>
-                    <td>Essential fat</td>
-                    <td>10-13%</td>
-                    <td>2-5%</td>
-                </tr>
-                <tr>
-                    <td>Athletes</td>
-                    <td>14-20%</td>
-                    <td>6-13%</td>
-                </tr>
-                <tr>
-                    <td>Fitness</td>
-                    <td>21-24%</td>
-                    <td>14-17%</td>
-                </tr>
-                <tr>
-                    <td>Average</td>
-                    <td>25-31%</td>
-                    <td>18-24%</td>
-                </tr>
-                <tr>
-                    <td>Obese</td>
-                    <td>32+%</td>
-                    <td>25+%</td>
-                </tr>
-            </table>
+        <div class="additional-content" style="margin-top: 30px; padding: 25px 0;">
+            <h2 style="color: #333; font-size: 1.3em; margin-bottom: 20px;">Body Fat Calculator: See the Real Change Behind the Numbers</h2>
+            
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;">Knowing your body fat percentage tells you much more than the scale. Our Body Fat Calculator helps you see how much of your body is fat and how much is lean muscle. It is perfect for anyone aiming to lose fat, gain muscle, or track overall fitness. If you want to know the average body fat percentage for women or compare yourself to men body fat percentage pictures, this tool gives fast, reliable results. You can also see how your progress measures up with visual guides from body fat percentage and pictures. 📊</p>
 
-            <h3>Jackson & Pollock Ideal Body Fat Percentages</h3>
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;">Many people lose weight but see little difference in the mirror. That happens because the scale doesn't show fat loss or muscle gain. This calculator uses simple inputs—weight, height, waist, hips, and gender—to estimate your fat percentage. Then, you can compare results to the body fat percentage for female chart to understand where you stand. Visual references in body fat percentage and pictures help you match numbers to real-life body types. Knowing this information makes it easier to plan workouts, track changes, and stay motivated. 💪</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;">For example, a woman may weigh the same after a month of training, yet her fat decreases and muscles tone up. Men can see similar changes, as shown in men body fat percentage pictures, where small reductions in fat lead to more visible definition. Every body is different, so results can vary based on hydration, time of day, or measurement method. Still, this calculator provides one of the simplest ways to track real progress without expensive equipment. 🎯</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;">Tracking your average body fat percentage for women or men's healthy ranges helps you set realistic goals. You can plan workouts, monitor diet, and avoid plateauing. Using a calculator regularly ensures you are not just chasing the number on the scale but improving your body composition meaningfully. The body fat percentage for female chart and visual guides make comparisons easy and understandable. 📈</p>
+
+            <p style="margin-bottom: 0; color: #444; font-size: 1.08em; line-height: 1.7;">Try the Body Fat Calculator today to discover your true body fat percentage. Once you have your results, explore other tools like our BMI Calculator, Calorie Intake Calculator, and Protein Calculator. Together, these tools help you create a complete fitness plan. Stop guessing and start measuring. Your body tells the truth—track it accurately and see the real progress you are making. 🏆</p>
+
+            <h2 style="color: #333; font-size: 1.3em; margin: 30px 0 20px 0;">Body Fat Calculator – Frequently Asked Questions ✅</h2>
+            
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q1: What is the normal body fat?</strong><br>
+            A: A healthy body fat range is 25-31% for women and 18-24% for men; this doesn't consider age or athletic status." To determine if you are a healthy weight, Edgemon suggests looking at both BMI and body fat percentage.</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q2: How can I reduce my body fat?</strong><br>
+            A: To lose body fat, create a consistent calorie deficit by eating a healthy, high-protein diet and reducing processed foods, while also increasing physical activity through a combination of strength training and regular aerobic exercise. Additionally, improve your sleep, manage stress, and stay hydrated, as these lifestyle factors also contribute significantly to long-term fat loss.</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q3: How does sleep affect body fat?</strong><br>
+            A: Sleep appears to be important in maintaining the BMI during periods of reduced calorie intake, and the amount of sleep helps to maintain the body fat mass during periods of reduced energy intake.</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q4: What are the signs of unhealthy body fat?</strong><br>
+            A: You may have a normal BMI but if you have a large waist circumference, you may have more fat in your abdomen than elsewhere. For men, an unhealthy waist circumference is greater than 40 inches. For women, an unhealthy waist circumference is greater than 35 inches.</p>
+
+            <p style="margin-bottom: 16px; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q5: Can I lose 7% body fat in 2 months?</strong><br>
+            A: It depends on many factors, including age, genetics, your current BMI (body mass index), and your weight loss approach. But most adults can safely lose roughly two percent of their body fat in a month.</p>
+
+            <p style="margin-bottom: 0; color: #444; font-size: 1.08em; line-height: 1.7;"><strong>Q6: How much water should I drink to lose weight?</strong><br>
+            A: According to experts in a recent study, drinking just 2 cups of water, which is smaller than the size of a bottled soda, before meals helped dieters lose an extra five pounds yearly and help you maintain your weight loss.</p>
+        </div>
+
+        <div class="reference-section" id="reference-section" style="display: none;">
+            <h2>Reference</h2>
+            <h3>Body Fat Percentage Standards</h3>
+            
+            <h4>Female Body Fat Standards</h4>
             <table>
                 <tr>
                     <th>Age</th>
-                    <th>Women</th>
-                    <th>Men</th>
+                    <th>Underweight</th>
+                    <th>Normal</th>
+                    <th>Overweight</th>
+                    <th>Obese</th>
                 </tr>
                 <tr>
-                    <td>20</td>
-                    <td>17.7%</td>
-                    <td>8.5%</td>
+                    <td>18-39 years</td>
+                    <td>5-20%</td>
+                    <td>21-34%</td>
+                    <td>35-39%</td>
+                    <td>40-45%</td>
                 </tr>
                 <tr>
-                    <td>25</td>
-                    <td>18.4%</td>
-                    <td>10.5%</td>
+                    <td>40-59 years</td>
+                    <td>5-21%</td>
+                    <td>21-34%</td>
+                    <td>35-39%</td>
+                    <td>41-45%</td>
                 </tr>
                 <tr>
-                    <td>30</td>
-                    <td>19.3%</td>
-                    <td>12.7%</td>
-                </tr>
-                <tr>
-                    <td>35</td>
-                    <td>21.5%</td>
-                    <td>13.7%</td>
-                </tr>
-                <tr>
-                    <td>40</td>
-                    <td>22.2%</td>
-                    <td>15.3%</td>
-                </tr>
-                <tr>
-                    <td>45</td>
-                    <td>22.9%</td>
-                    <td>16.4%</td>
-                </tr>
-                <tr>
-                    <td>50</td>
-                    <td>25.2%</td>
-                    <td>18.9%</td>
-                </tr>
-                <tr>
-                    <td>55</td>
-                    <td>26.3%</td>
-                    <td>20.9%</td>
+                    <td>60+ years</td>
+                    <td>5-22%</td>
+                    <td>23-36%</td>
+                    <td>37-41%</td>
+                    <td>42-45%</td>
                 </tr>
             </table>
-        </div>
 
-        <div class="reference-section">
-            <h2 style="font-size: 1.2em;">🧮 Body Fat Calculator – Because "Big-Boned" Isn't a Medical Term 💀</h2>
+            <h4>Male Body Fat Standards</h4>
+            <table>
+                <tr>
+                    <th>Age</th>
+                    <th>Underweight</th>
+                    <th>Normal</th>
+                    <th>Overweight</th>
+                    <th>Obese</th>
+                </tr>
+                <tr>
+                    <td>18-39 years</td>
+                    <td>5-10%</td>
+                    <td>11-21%</td>
+                    <td>22-26%</td>
+                    <td>27-45%</td>
+                </tr>
+                <tr>
+                    <td>40-59 years</td>
+                    <td>5-11%</td>
+                    <td>12-22%</td>
+                    <td>23-27%</td>
+                    <td>28-45%</td>
+                </tr>
+                <tr>
+                    <td>60+ years</td>
+                    <td>5-13%</td>
+                    <td>14-24%</td>
+                    <td>25-29%</td>
+                    <td>30-45%</td>
+                </tr>
+            </table>
             
-            <div class="description">
-                <p>Let's be real:</p>
-                <p>You can skip leg day, but you can't skip math — especially when it's telling you your "gains" might just be last weekend's pizza.</p>
-                <p>Our Body Fat Calculator is here to break the truth gently (okay, maybe not that gently). Just plug in your height, weight, waist, and neck measurements — and boom: your body fat percentage. No mirrors, no denial, just cold hard numbers. 🧊</p>
-            </div>
-
-            <div class="description">
-                <h3>💡 What does it do?</h3>
-                <p>✅ Estimates your body fat percentage using proven formulas (US Navy Method, not astrology)</p>
-                <p>✅ Tells you if you're shredded, average, or possibly just well-insulated</p>
-                <p>✅ No login, no app, no judgment — just instant results</p>
-                <p>✅ Works for men and women — body fat discrimination has no place here</p>
-                <p>✅ Mobile-friendly — so you can calculate at the gym, or while eating chips on the couch</p>
-            </div>
-
-            <div class="description">
-                <h3>❓ FAQ – because deep down, you knew this day would come</h3>
-                <p><strong>Q1: Wait, is this just going to hurt my feelings?</strong><br>
-                A: Only if you're emotionally attached to cake. But hey, information is power (and slightly painful sometimes).</p>
-
-                <p><strong>Q2: Will this help me lose fat?</strong><br>
-                A: Nope. It tells you how much fat. Burning it is your job, champ.</p>
-
-                <p><strong>Q3: Do I need to measure my neck? Really?</strong><br>
-                A: Yes, and we promise it's for science — not weird internet reasons.</p>
-
-                <p><strong>Q4: Can I lie to the calculator about my waist size?</strong><br>
-                A: Sure, but it's like lying to your diary. The truth always finds you.</p>
-            </div>
-
+            <p><strong>Female Special Note:</strong> Female essential body fat is 12-14%, healthy body fat is 25-30%, health and comfort are most important!</p>
         </div>
+
     </div>
 
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
@@ -1062,7 +1051,7 @@
         }
 
         function calculateBodyFat() {
-            let weight, height, neck, waist, hip, age, gender;
+            let weight, height, waist, age, gender;
             
             if (currentUnit === 'standard') {
                 // Get values from US units inputs
@@ -1074,58 +1063,40 @@
                 const heightIn = parseFloat(document.getElementById('height-in').value);
                 height = (heightFt * 12 + heightIn) * 2.54; // Convert to cm
                 
-                const neckFt = parseFloat(document.getElementById('neck-ft').value);
-                const neckIn = parseFloat(document.getElementById('neck-in').value);
-                neck = (neckFt * 12 + neckIn) * 2.54; // Convert to cm
-                
                 const waistFt = parseFloat(document.getElementById('waist-ft').value);
                 const waistIn = parseFloat(document.getElementById('waist-in').value);
                 waist = (waistFt * 12 + waistIn) * 2.54; // Convert to cm
-                
-                if (gender === 'female') {
-                    const hipFt = parseFloat(document.getElementById('hip-ft').value);
-                    const hipIn = parseFloat(document.getElementById('hip-in').value);
-                    hip = (hipFt * 12 + hipIn) * 2.54; // Convert to cm
-                }
             } else {
                 // Get values from metric inputs
                 gender = document.getElementById('gender-metric').value;
                 age = parseFloat(document.getElementById('age-metric').value);
                 weight = parseFloat(document.getElementById('weight-kg').value) * 2.20462; // Convert to lbs
                 height = parseFloat(document.getElementById('height-cm').value);
-                neck = parseFloat(document.getElementById('neck-cm').value);
                 waist = parseFloat(document.getElementById('waist-cm').value);
-                if (gender === 'female') {
-                    hip = parseFloat(document.getElementById('hip-cm').value);
-                }
             }
 
-            // Calculate body fat percentage using U.S. Navy method
-            let bodyFat;
-            if (gender === 'male') {
-                bodyFat = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76;
-            } else {
-                bodyFat = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(height) - 78.387;
-            }
-
-            // Calculate BMI method body fat
+            // Calculate BMI
             const heightM = height / 100;
             const weightKg = weight / 2.20462;
             const bmi = weightKg / (heightM * heightM);
-            let bmiFat;
-            if (age >= 18) { // Adult
-                if (gender === 'male') {
-                    bmiFat = 1.20 * bmi + 0.23 * age - 16.2;
-                } else {
-                    bmiFat = 1.20 * bmi + 0.23 * age - 5.4;
-                }
-            } else { // Child
-                if (gender === 'male') {
-                    bmiFat = 1.51 * bmi - 0.70 * age - 2.2;
-                } else {
-                    bmiFat = 1.51 * bmi - 0.70 * age + 1.4;
-                }
+
+            // Method 1: BMI-based formula
+            // 1.2×BMI+0.23×年龄-5.4-10.8×性别（男性为1，女生为0）=体脂率
+            const genderValue = gender === 'male' ? 1 : 0;
+            const bodyFatBMI = 1.2 * bmi + 0.23 * age - 5.4 - 10.8 * genderValue;
+
+            // Method 2: Waist-based formula
+            // 男生:腰围×0.74-（体重×0.082+44.74）÷体重
+            // 女生:腰围×0.74-（体重×0.082+34.89）÷体重
+            let bodyFatWaist;
+            if (gender === 'male') {
+                bodyFatWaist = waist * 0.74 - (weight * 0.082 + 44.74) / weight;
+            } else {
+                bodyFatWaist = waist * 0.74 - (weight * 0.082 + 34.89) / weight;
             }
+
+            // Use BMI method as primary result
+            const bodyFat = Math.max(0, bodyFatBMI);
 
             // Calculate fat mass and lean mass
             const fatMass = (weight * bodyFat / 100);
@@ -1134,35 +1105,61 @@
             // Get ideal body fat percentage based on age and gender
             const idealFat = getIdealBodyFat(age, gender);
 
-            // Calculate fat to lose
-            const currentFatMass = weight * (bodyFat / 100);
-            const idealFatMass = weight * (idealFat / 100);
-            const fatToLose = Math.max(0, currentFatMass - idealFatMass);
-
             // Update results
             document.getElementById('results').style.display = 'block';
             document.getElementById('body-fat-main').textContent = `Body Fat: ${bodyFat.toFixed(1)}%`;
-            document.getElementById('body-fat-navy').textContent = `${bodyFat.toFixed(1)}%`;
-            document.getElementById('body-fat-category').textContent = getBodyFatCategory(bodyFat, gender);
+            document.getElementById('body-fat-bmi').textContent = `${bodyFatBMI.toFixed(1)}%`;
+            document.getElementById('body-fat-waist').textContent = `${bodyFatWaist.toFixed(1)}%`;
+            document.getElementById('body-fat-category').textContent = getBodyFatCategory(bodyFat, gender, age);
             document.getElementById('fat-mass').textContent = `${fatMass.toFixed(1)} lbs`;
             document.getElementById('lean-mass').textContent = `${leanMass.toFixed(1)} lbs`;
             document.getElementById('ideal-body-fat').textContent = `${idealFat.toFixed(1)}%`;
-            document.getElementById('fat-to-lose').textContent = `${fatToLose.toFixed(1)} lbs`;
+            
+            // Show reference section
+            document.getElementById('reference-section').style.display = 'block';
         }
 
-        function getBodyFatCategory(bodyFat, gender) {
+        function getBodyFatCategory(bodyFat, gender, age) {
             if (gender === 'male') {
-                if (bodyFat < 5) return 'Essential Fat';
-                if (bodyFat < 13) return 'Athletes';
-                if (bodyFat < 17) return 'Fitness';
-                if (bodyFat < 24) return 'Average';
-                return 'Obese';
+                if (age >= 18 && age <= 39) {
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 10) return 'Underweight';
+                    if (bodyFat <= 21) return 'Normal';
+                    if (bodyFat <= 26) return 'Overweight';
+                    return 'Obese';
+                } else if (age >= 40 && age <= 59) {
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 11) return 'Underweight';
+                    if (bodyFat <= 22) return 'Normal';
+                    if (bodyFat <= 27) return 'Overweight';
+                    return 'Obese';
+                } else { // 60+ years old
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 13) return 'Underweight';
+                    if (bodyFat <= 24) return 'Normal';
+                    if (bodyFat <= 29) return 'Overweight';
+                    return 'Obese';
+                }
             } else {
-                if (bodyFat < 13) return 'Essential Fat';
-                if (bodyFat < 20) return 'Athletes';
-                if (bodyFat < 24) return 'Fitness';
-                if (bodyFat < 31) return 'Average';
-                return 'Obese';
+                if (age >= 18 && age <= 39) {
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 20) return 'Underweight';
+                    if (bodyFat <= 34) return 'Normal';
+                    if (bodyFat <= 39) return 'Overweight';
+                    return 'Obese';
+                } else if (age >= 40 && age <= 59) {
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 21) return 'Underweight';
+                    if (bodyFat <= 34) return 'Normal';
+                    if (bodyFat <= 39) return 'Overweight';
+                    return 'Obese';
+                } else { // 60+ years old
+                    if (bodyFat < 5) return 'Underweight';
+                    if (bodyFat <= 22) return 'Underweight';
+                    if (bodyFat <= 36) return 'Normal';
+                    if (bodyFat <= 41) return 'Overweight';
+                    return 'Obese';
+                }
             }
         }
 
@@ -1204,22 +1201,20 @@
                 document.getElementById('weight-lb').value = '';
                 document.getElementById('height-ft').value = '';
                 document.getElementById('height-in').value = '';
-                document.getElementById('neck-ft').value = '';
-                document.getElementById('neck-in').value = '';
                 document.getElementById('waist-ft').value = '';
                 document.getElementById('waist-in').value = '';
-                document.getElementById('hip-ft').value = '';
-                document.getElementById('hip-in').value = '';
+                document.getElementById('neck-ft').value = '';
+                document.getElementById('neck-in').value = '';
             } else {
                 document.getElementById('age-metric').value = '';
                 document.getElementById('weight-kg').value = '';
                 document.getElementById('height-cm').value = '';
-                document.getElementById('neck-cm').value = '';
                 document.getElementById('waist-cm').value = '';
-                document.getElementById('hip-cm').value = '';
+                document.getElementById('neck-cm').value = '';
             }
             
             document.getElementById('results').style.display = 'none';
+            document.getElementById('reference-section').style.display = 'none';
         }
 
         // Initialize calculator
