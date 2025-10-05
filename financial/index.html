@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Financial Calculators 💰 | Plan Loans, Savings & Retirement Smarter</title>
     <meta name="description" content="Avoid losing $20,000+ on loans, savings, or retirement planning. Use our free financial calculators to estimate payments, returns, and long-term growth. Get accurate numbers, save time, and make better financial decisions today.">
     <meta name="keywords" content="financial calculators, mortgage calculator, loan calculator, investment calculator, retirement calculator, tax calculator, 401k calculator, compound interest, financial planning tools, free calculators, mobile friendly, no registration required">
@@ -239,8 +240,8 @@
     }
     </script>
     <!-- Template CSS Files -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/templatemo-style.css" rel="stylesheet">
@@ -264,7 +265,14 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Fallback for Material Icons if font fails to load */
+        .material-icons:before {
+            content: "●";
+            font-family: Arial, sans-serif;
         }
         
         .main-content-wrapper {
@@ -416,7 +424,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START FINANCIAL CALCULATORS -->
-    <section style="padding-top: 0px !important; padding-bottom: 0.5px;">
+    <section style="padding-top: 0px !important; padding-bottom: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -571,12 +579,12 @@
     </footer>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="../js/jquery.js" onerror="console.warn('jQuery failed to load')"></script>
+    <script src="../js/bootstrap.min.js" onerror="console.warn('Bootstrap failed to load')"></script>
+    <script src="../js/imagesloaded.min.js" onerror="console.warn('ImagesLoaded failed to load')"></script>
+    <script src="../js/isotope.js" onerror="console.warn('Isotope failed to load')"></script>
+    <script src="../js/jquery.nav.js" onerror="console.warn('jQuery Nav failed to load')"></script>
+    <script src="../js/smoothscroll.js" onerror="console.warn('SmoothScroll failed to load')"></script>
+    <script src="../js/custom.js" onerror="console.warn('Custom JS failed to load')"></script>
 </body>
 </html> 
