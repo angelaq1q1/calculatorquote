@@ -67,7 +67,7 @@
     <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
-        body, * {
+        body, *:not(.material-icons) {
             font-family: 'Raleway', sans-serif !important;
         }
         
@@ -564,7 +564,7 @@
                             <div class="col-md-4">
                                 <label class="form-label" style="font-size: 14px;">Action</label>
                                 <div class="d-flex gap-2">
-                                    <button type="button" class="btn btn-outline-danger" onclick="clearFirstHolidayInputs()" id="clearFirstBtn">Remove</button>
+                                    <button type="button" class="btn btn-outline-danger" id="clearFirstBtn">Remove</button>
                                 </div>
                             </div>
                         </div>
@@ -795,12 +795,16 @@
 
         // Set default date on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Fix timezone issue - use local date instead of UTC
             const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('startDate').value = tomorrow.toISOString().split('T')[0];
+            const tomorrow = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+            const yyyy = tomorrow.getFullYear();
+            const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const dd = String(tomorrow.getDate()).padStart(2, '0');
+            document.getElementById('startDate').value = `${yyyy}-${mm}-${dd}`;
             
-            // Add event listener for the first remove button
+            // Add event listener for the first remove button (remove HTML onclick)
             const clearFirstBtn = document.getElementById('clearFirstBtn');
             if (clearFirstBtn) {
                 clearFirstBtn.addEventListener('click', function() {
@@ -952,10 +956,14 @@
 
         // Clear form and results
         function clearForm() {
-            // Reset form fields
+            // Reset form fields with proper local date
+            const today = new Date();
             const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('startDate').value = tomorrow.toISOString().split('T')[0];
+            tomorrow.setDate(today.getDate() + 1);
+            const yyyy = tomorrow.getFullYear();
+            const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const dd = String(tomorrow.getDate()).padStart(2, '0');
+            document.getElementById('startDate').value = `${yyyy}-${mm}-${dd}`;
             document.getElementById('chaptersPerDay').value = '3';
             document.getElementById('skipWeekends').checked = true;
             document.getElementById('skipHolidays').checked = true;
