@@ -171,6 +171,21 @@
                         "url": "https://www.calculatorquote.com/other/portable-toilet-rentals-cost.html",
                         "availability": "https://schema.org/InStock"
                     }
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Bible Reading Plan Calculator",
+                    "url": "https://www.calculatorquote.com/other/bible-reading-plan-calculator.html",
+                    "description": "Calculate how long it takes to read the Bible and create a personalized reading schedule",
+                    "applicationCategory": "EducationalApplication",
+                    "operatingSystem": "All",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD",
+                        "url": "https://www.calculatorquote.com/other/bible-reading-plan-calculator.html",
+                        "availability": "https://schema.org/InStock"
+                    }
                 }
             ]
         },
@@ -202,12 +217,12 @@
     <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
-        body, * {
+        body, *:not(.material-icons) {
             font-family: 'Raleway', sans-serif !important;
         }
         
-        /* Ensure Material Icons use their own font */
-        .material-icons {
+        /* Ensure Material Icons use their own font with higher specificity */
+        .material-icons, span.material-icons, .calculator-card .material-icons {
             font-family: 'Material Icons' !important;
             font-weight: normal;
             font-style: normal;
@@ -459,6 +474,14 @@
                                     <a href="portable-toilet-rentals-cost.html">
                                         <h2><span class="material-icons">build</span>Portable Toilet Rentals Cost Calculator</h2>
                                         <p>Calculate how many portable toilets you need for events, weddings, and construction sites</p>
+                                    </a>
+                                </div>
+
+                                <!-- Faith & Spiritual Calculators -->
+                                <div class="calculator-card">
+                                    <a href="bible-reading-plan-calculator.html">
+                                        <h2><span class="material-icons">book</span>Bible Reading Plan Calculator</h2>
+                                        <p>Calculate how long it takes to read the Bible and create a personalized reading schedule</p>
                                     </a>
                                 </div>
                             </div>

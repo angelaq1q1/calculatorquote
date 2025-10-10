@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Long to Read the Bible? Calculate Your Reading Plan Duration</title>
+    <meta name="description" content="Curious about how many days it takes to read the Bible? Our Bible Reading Plan Calculator helps you determine your personalized reading schedule. Whether you're setting a goal to read it in a year or a shorter time, this tool makes planning easy and achievable.">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "How Long to Read the Bible? Calculate Your Reading Plan Duration",
+        "description": "Curious about how many days it takes to read the Bible? Our Bible Reading Plan Calculator helps you determine your personalized reading schedule. Whether you're setting a goal to read it in a year or a shorter time, this tool makes planning easy and achievable.",
+        "url": "https://calculatorquote.com/other/bible-reading-plan-calculator.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": [
+            "bible gateway audio bible",
+            "reading plan bible",
+            "the bible in chronological order",
+            "daily bible reading plan",
+            "bible reading calculator",
+            "bible study plan",
+            "bible reading schedule",
+            "christian reading plan",
+            "bible chapters calculator",
+            "bible reading tracker"
+        ],
+        "featureList": [
+            "Calculate reading duration",
+            "Skip weekends and holidays",
+            "Custom holiday settings",
+            "Export to CSV",
+            "Personalized reading schedule",
+            "Bible reading plan generator"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "CalculatorQuote",
+            "url": "https://calculatorquote.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CalculatorQuote",
+            "url": "https://calculatorquote.com"
+        },
+        "dateCreated": "2025-01-27",
+        "dateModified": "2025-01-27",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "screenshot": "https://calculatorquote.com/images/bible-reading-calculator-screenshot.png"
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
+        }
+        .form-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+        }
+        .result-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            display: none;
+            margin-top: 20px;
+        }
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            font-size: 16px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+        .form-control:hover {
+            border-color: #eb5424;
+            background-color: #fff;
+        }
+        
+        .form-control:focus {
+            border-color: #eb5424;
+            box-shadow: 0 0 0 0.2rem rgba(235, 84, 36, 0.25);
+            outline: none;
+            background-color: #fff;
+        }
+        
+        /* Select dropdown specific styles */
+        select.form-control {
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px 12px;
+            padding-right: 40px;
+            padding-left: 12px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            min-height: 44px;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: unset;
+        }
+        
+        select.form-control:hover {
+            border-color: #eb5424;
+            background-color: #fff;
+        }
+        
+        select.form-control:focus {
+            border-color: #eb5424;
+            box-shadow: 0 0 0 0.2rem rgba(235, 84, 36, 0.25);
+            outline: none;
+            background-color: #fff;
+        }
+        
+        /* Ensure option text is fully visible */
+        select.form-control option {
+            padding: 10px 12px;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.4;
+            white-space: nowrap;
+            min-height: 20px;
+            display: block;
+        }
+        
+        /* Ensure selected text is fully visible */
+        select.form-control:focus,
+        select.form-control:active {
+            color: #333;
+            background-color: #fff;
+        }
+        .btn-primary {
+            background-color: #eb5424;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #d4441a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(235, 84, 36, 0.3);
+        }
+        .reading-day {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .reading-day:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+        .day-number {
+            background: #eb5424;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .date-info {
+            color: #606060;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .chapters-info {
+            font-weight: 500;
+            color: #303030;
+            font-size: 16px;
+        }
+        .summary-card {
+            background: #eb5424;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .holiday-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px;
+            background: #f8f9fa;
+        }
+        .holiday-item {
+            padding: 8px 12px;
+            margin: 2px 0;
+            background: white;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .export-buttons {
+            margin-top: 20px;
+        }
+        .export-btn {
+            margin: 5px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        /* Button styles to match random-password-generator.html */
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-generate,
+        .btn-clear {
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        
+        .btn-generate {
+            background-color: #eb5424;
+            color: white;
+        }
+        
+        .btn-generate:hover {
+            background-color: #d4441a;
+        }
+        
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+        }
+        
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        
+        @media (max-width: 768px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-generate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #eb5424;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .page-description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        .holiday-range-inputs {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .holiday-item {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .holiday-item:hover {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+        }
+        
+        .holiday-item .btn {
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        
+        /* Checkbox styles to match date-calculator.html */
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-check-input:checked {
+            background-color: #eb5424;
+            border-color: #eb5424;
+        }
+        
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.2rem rgba(235, 84, 36, 0.25);
+            border-color: #eb5424;
+        }
+        
+        .form-check-input:hover {
+            border-color: #eb5424;
+        }
+        
+        /* Date input styling to ensure English format */
+        input[type="date"] {
+            font-family: 'Raleway', sans-serif;
+            color: #333;
+        }
+        
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START BIBLE READING PLAN CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>/</span>
+                            <a href="index.html">Other Calculators</a>
+                            <span>/</span>
+                            Bible Reading Plan Calculator
+                        </div>
+        <div class="page-title">How Many Days Does It Take to Read the Bible? Plan with This Calculator</div>
+        <div class="page-description">Wondering how long it will take to read through the entire Bible? 📖 Use our Bible Reading Plan Calculator to determine exactly how many days you need based on your reading pace. Whether you're aiming to finish in 30 days, 90 days, or a full year, our tool helps you break down your plan into manageable chunks. Get started today and stay on track with your Bible reading goals!</div>
+
+        <div class="form-section">
+            <h3 style="color: #303030; font-size: 1.2em; font-weight: 500; margin-bottom: 20px;">📥 Set Your Reading Plan</h3>
+            <form id="readingPlanForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="chaptersPerDay" class="form-label">Chapters Per Day</label>
+                        <select class="form-control" id="chaptersPerDay" required>
+                            <option value="1">1 Chapter</option>
+                            <option value="2">2 Chapters</option>
+                            <option value="3" selected>3 Chapters</option>
+                            <option value="4">4 Chapters</option>
+                            <option value="5">5 Chapters</option>
+                            <option value="6">6 Chapters</option>
+                            <option value="7">7 Chapters</option>
+                            <option value="10">10 Chapters</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input me-2" type="checkbox" id="skipWeekends" checked>
+                        <label class="form-check-label mb-0" for="skipWeekends">
+                            Skip Weekends (Saturday & Sunday)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mb-4" style="margin-top: 8px;">
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input me-2" type="checkbox" id="skipHolidays" checked>
+                        <label class="form-check-label mb-0" for="skipHolidays">
+                            Skip Holidays
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3" style="margin-top: 20px;">
+                    <label class="form-label">Custom Holidays (Optional)</label>
+                    <div class="holiday-range-inputs">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label" style="font-size: 14px;">From Date</label>
+                                <input type="date" class="form-control" id="holidayFromDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" style="font-size: 14px;">To Date</label>
+                                <input type="date" class="form-control" id="holidayToDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" style="font-size: 14px;">Action</label>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-outline-danger" onclick="clearFirstHolidayInputs()" id="clearFirstBtn">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic holiday input rows will be added here -->
+                        <div id="dynamicHolidayInputs"></div>
+                        
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-warning" onclick="addHolidayInputRow()">Add Holiday Range</button>
+                        </div>
+                        <div class="mt-2">
+                            <small class="text-muted">You can add single days or date ranges. Leave the second date field empty for single day.</small>
+                        </div>
+                        
+                    </div>
+                    <div id="customHolidaysList" class="holiday-list mt-2" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>Custom Holidays List:</strong>
+                            <button type="button" class="btn btn-sm btn-outline-danger" onclick="clearCustomHolidays()">Clear All</button>
+                        </div>
+                        <div id="holidaysList"></div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-generate">Generate</button>
+                    <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Content Section -->
+        <div style="margin-top: 40px; padding: 0;">
+            <h3 style="color: #303030; font-size: 1.2em; font-weight: 500; margin-bottom: 20px;">📖 Plan Your Bible Journey: Discover How Long It Takes to Read the Bible</h3>
+            <div style="line-height: 1.8; color: #555; font-size: 16px;">
+                <p>Reading the entire Bible can feel like a big challenge, but it becomes much easier with a clear plan. Our Bible Reading Plan Calculator helps you see exactly how many days it will take to finish reading the Bible based on your pace and daily reading time. Whether you follow a one year Bible daily reading plan, use Bible Gateway reading plans, or want to create your own schedule, this tool gives you a realistic timeline. It's perfect for anyone who wants to build a consistent habit—new believers, daily readers, or anyone using a devotional Bible for reflection and growth. 📚</p>
+                
+                <p>This calculator uses the average Bible word count—about 775,000 words—and divides it by how fast you read and how much time you spend each day. For example, if you read for 15 minutes daily, it might take about a year to finish. If you double your time to 30 minutes, you could complete it in roughly six months. The tool lets you adjust these settings to match your schedule, helping you stay organized and consistent. ⏰</p>
+                
+                <p>Many people use a one year Bible daily reading plan to keep things simple, dividing the text into daily portions from the Old Testament, New Testament, Psalms, or Proverbs. Others prefer Bible Gateway reading plans, which offer flexible formats such as chronological, thematic, or classic reading styles. Our calculator works with all of them. You can estimate completion time, track your progress, or build your own reading plan for the Bible that fits your lifestyle. 📅</p>
+                
+                <p>The goal isn't to read faster but to stay steady. Consistent reading allows you to understand and connect with the message better. Pair your plan with a devotional Bible to add reflection and make each reading more meaningful. 💪</p>
+                
+                <p>Start your Bible journey today with our easy-to-use calculator. You'll find out how long it takes to read the Bible and can create a plan that fits your daily routine. Whether you want to finish in a year or take more time, this tool helps you stay focused and encouraged. You can also combine it with Bible Gateway reading plans or use it alongside your devotional Bible for deeper study. After setting your schedule, explore our other faith-based tools—such as prayer planners, fasting trackers, and scripture memorization aids—to grow in your spiritual walk. Stay consistent, stay inspired, and let the Word shape your life day by day. ✨</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div style="margin-top: 40px; padding: 0;">
+            <h3 style="color: #303030; font-size: 1.2em; font-weight: 500; margin-bottom: 25px;">❓ Bible Reading Plan FAQs — Everything You Need to Know Before You Start</h3>
+            
+            <div style="line-height: 1.8; color: #555; font-size: 16px;">
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q1: What is a good Bible reading plan?</h4>
+                    <p><strong>A:</strong> The Best Plan™ is to read 3 chapters a day, starting with Genesis 1. When you hit the Psalms, read about what would be 3 averageish chapters (Psalm 119 is enough for one day). You may have a couple extra chapters to read on day 365, or maybe a couple less.</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q2: What is the correct order to read your Bible?</h4>
+                    <p><strong>A:</strong> Reading the Bible from cover to cover can be very intimidating and confusing. The books in the Bible were arranged according to the type of book it is. But this does not mean we have to read it in that order. There is no right or wrong order or way to read the Bible, it is a personal choice.</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q3: What word is written 365 times in the Bible?</h4>
+                    <p><strong>A:</strong> Someone pointed out that the phrase, "Fear Not" is found 365 times in the Bible. That is one "fear Not" for every day of the year. The Bible is filled thousands of other promises as well that God has made to His children.</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q4: How many times does the Bible say love?</h4>
+                    <p><strong>A:</strong> The Bible has a lot to say about love. Like a LOT a lot. Depending on which translation you pick up, you will find the word love dropped in the Bible between 310 times (the King James Version) and 801 times (the New Living Translation).</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q5: What's a good Bible reading plan?</h4>
+                    <p><strong>A:</strong> The 5x5x5 New Testament Bible Reading Plan. In this Bible reading plan, read through the New Testament in 5 days a week, 5 minutes a day: 5 minutes a day | If you're not used to reading the Bible daily, this easy-to-use Bible reading plan will take you through all 260 chapters of the New Testament, one chapter per day.</p>
+                </div>
+                
+                <div style="margin-bottom: 0;">
+                    <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q6: What is the 555 Bible reading plan?</h4>
+                    <p><strong>A:</strong> The 5x5x5 plan means we read a designated chapter for 5 minutes a day, 5 days a week and use 5 ways to go deeper with that passage. The scripture passages are already chosen and you will receive a bookmark showing these each month to place in your bible (or keep somewhere handy if you read from a device).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Calculating your reading plan...</p>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="summary-card">
+                <h4 class="mb-3">📊 Reading Plan Overview</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="totalDays">0</h5>
+                            <small>Total Reading Days</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="totalWeeks">0</h5>
+                            <small>Estimated Weeks</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="completionDate">-</h5>
+                            <small>Estimated Completion Date</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="skippedDays">0</h5>
+                            <small>Skipped Days</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-buttons text-center">
+                <button class="btn btn-warning export-btn" onclick="exportToCSV()">
+                    <i class="fa fa-file-excel-o"></i> Export CSV
+                </button>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BIBLE READING PLAN CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        // Bible books data
+        const bibleBooks = [
+            { name: "Genesis", chapters: 50 },
+            { name: "Exodus", chapters: 40 },
+            { name: "Leviticus", chapters: 27 },
+            { name: "Numbers", chapters: 36 },
+            { name: "Deuteronomy", chapters: 34 },
+            { name: "Joshua", chapters: 24 },
+            { name: "Judges", chapters: 21 },
+            { name: "Ruth", chapters: 4 },
+            { name: "1 Samuel", chapters: 31 },
+            { name: "2 Samuel", chapters: 24 },
+            { name: "1 Kings", chapters: 22 },
+            { name: "2 Kings", chapters: 25 },
+            { name: "1 Chronicles", chapters: 29 },
+            { name: "2 Chronicles", chapters: 36 },
+            { name: "Ezra", chapters: 10 },
+            { name: "Nehemiah", chapters: 13 },
+            { name: "Esther", chapters: 10 },
+            { name: "Job", chapters: 42 },
+            { name: "Psalms", chapters: 150 },
+            { name: "Proverbs", chapters: 31 },
+            { name: "Ecclesiastes", chapters: 12 },
+            { name: "Song of Songs", chapters: 8 },
+            { name: "Isaiah", chapters: 66 },
+            { name: "Jeremiah", chapters: 52 },
+            { name: "Lamentations", chapters: 5 },
+            { name: "Ezekiel", chapters: 48 },
+            { name: "Daniel", chapters: 12 },
+            { name: "Hosea", chapters: 14 },
+            { name: "Joel", chapters: 3 },
+            { name: "Amos", chapters: 9 },
+            { name: "Obadiah", chapters: 1 },
+            { name: "Jonah", chapters: 4 },
+            { name: "Micah", chapters: 7 },
+            { name: "Nahum", chapters: 3 },
+            { name: "Habakkuk", chapters: 3 },
+            { name: "Zephaniah", chapters: 3 },
+            { name: "Haggai", chapters: 2 },
+            { name: "Zechariah", chapters: 14 },
+            { name: "Malachi", chapters: 4 },
+            { name: "Matthew", chapters: 28 },
+            { name: "Mark", chapters: 16 },
+            { name: "Luke", chapters: 24 },
+            { name: "John", chapters: 21 },
+            { name: "Acts", chapters: 28 },
+            { name: "Romans", chapters: 16 },
+            { name: "1 Corinthians", chapters: 16 },
+            { name: "2 Corinthians", chapters: 13 },
+            { name: "Galatians", chapters: 6 },
+            { name: "Ephesians", chapters: 6 },
+            { name: "Philippians", chapters: 4 },
+            { name: "Colossians", chapters: 4 },
+            { name: "1 Thessalonians", chapters: 5 },
+            { name: "2 Thessalonians", chapters: 3 },
+            { name: "1 Timothy", chapters: 6 },
+            { name: "2 Timothy", chapters: 4 },
+            { name: "Titus", chapters: 3 },
+            { name: "Philemon", chapters: 1 },
+            { name: "Hebrews", chapters: 13 },
+            { name: "James", chapters: 5 },
+            { name: "1 Peter", chapters: 5 },
+            { name: "2 Peter", chapters: 3 },
+            { name: "1 John", chapters: 5 },
+            { name: "2 John", chapters: 1 },
+            { name: "3 John", chapters: 1 },
+            { name: "Jude", chapters: 1 },
+            { name: "Revelation", chapters: 22 }
+        ];
+
+        // US Federal Holidays
+        const usHolidays = [
+            "2025-01-01", "2025-01-20", "2025-02-17", "2025-05-26", "2025-06-19", 
+            "2025-07-04", "2025-09-01", "2025-10-13", "2025-11-11", "2025-11-27", "2025-12-25",
+            "2026-01-01", "2026-01-19", "2026-02-16", "2026-05-25", "2026-06-19", 
+            "2026-07-04", "2026-09-07", "2026-10-12", "2026-11-11", "2026-11-26", "2026-12-25"
+        ];
+
+        let customHolidays = [];
+        let currentReadingPlan = [];
+        let holidayInputRows = [];
+
+        // Set default date on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('startDate').value = tomorrow.toISOString().split('T')[0];
+            
+            // Add event listener for the first remove button
+            const clearFirstBtn = document.getElementById('clearFirstBtn');
+            if (clearFirstBtn) {
+                clearFirstBtn.addEventListener('click', function() {
+                    console.log('Remove button clicked via event listener');
+                    clearFirstHolidayInputs();
+                });
+            }
+        });
+
+        // Add holiday input row
+        function addHolidayInputRow() {
+            const rowId = 'holidayRow_' + Date.now();
+            const rowHtml = `
+                <div class="row mt-3" id="${rowId}">
+                    <div class="col-md-4">
+                        <label class="form-label" style="font-size: 14px;">From Date</label>
+                        <input type="date" class="form-control holiday-from-date">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" style="font-size: 14px;">To Date</label>
+                        <input type="date" class="form-control holiday-to-date">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" style="font-size: 14px;">Action</label>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-danger" onclick="removeHolidayRow('${rowId}')">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Insert before the "Add Holiday Range" button
+            const addButton = document.querySelector('button[onclick="addHolidayInputRow()"]');
+            const buttonContainer = addButton.parentElement;
+            buttonContainer.insertAdjacentHTML('beforebegin', rowHtml);
+            
+            holidayInputRows.push(rowId);
+        }
+        
+        // Remove holiday input row
+        function removeHolidayRow(rowId) {
+            const row = document.getElementById(rowId);
+            if (row) {
+                row.remove();
+                holidayInputRows = holidayInputRows.filter(id => id !== rowId);
+            }
+        }
+        
+        
+
+        // Update holidays list display
+        function updateHolidaysList() {
+            const holidaysList = document.getElementById('holidaysList');
+            const holidaysContainer = document.getElementById('customHolidaysList');
+            
+            if (customHolidays.length > 0) {
+                holidaysContainer.style.display = 'block';
+                
+                // Sort holidays by date
+                const sortedHolidays = [...customHolidays].sort();
+                
+                // Group consecutive dates into ranges
+                const groupedHolidays = groupConsecutiveDates(sortedHolidays);
+                
+                holidaysList.innerHTML = groupedHolidays.map(group => {
+                    if (group.length === 1) {
+                        return `<div class="holiday-item d-flex justify-content-between">
+                            <span>${formatDate(group[0])}</span>
+                            <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeCustomHoliday('${group[0]}')">×</button>
+                        </div>`;
+                    } else {
+                        return `<div class="holiday-item d-flex justify-content-between">
+                            <span>${formatDate(group[0])} - ${formatDate(group[group.length - 1])} (${group.length} days)</span>
+                            <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeCustomHolidayRange('${group[0]}', '${group[group.length - 1]}')">×</button>
+                        </div>`;
+                    }
+                }).join('');
+            } else {
+                holidaysContainer.style.display = 'none';
+            }
+        }
+        
+        // Group consecutive dates
+        function groupConsecutiveDates(dates) {
+            if (dates.length === 0) return [];
+            
+            const groups = [];
+            let currentGroup = [dates[0]];
+            
+            for (let i = 1; i < dates.length; i++) {
+                const prevDate = new Date(dates[i - 1]);
+                const currentDate = new Date(dates[i]);
+                const diffDays = (currentDate - prevDate) / (1000 * 60 * 60 * 24);
+                
+                if (diffDays === 1) {
+                    currentGroup.push(dates[i]);
+                } else {
+                    groups.push([...currentGroup]);
+                    currentGroup = [dates[i]];
+                }
+            }
+            
+            groups.push(currentGroup);
+            return groups;
+        }
+
+        // Remove custom holiday
+        function removeCustomHoliday(holiday) {
+            customHolidays = customHolidays.filter(h => h !== holiday);
+            updateHolidaysList();
+        }
+        
+        // Remove custom holiday range
+        function removeCustomHolidayRange(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            
+            // Remove all dates in the range
+            const currentDate = new Date(start);
+            while (currentDate <= end) {
+                const dateString = currentDate.toISOString().split('T')[0];
+                customHolidays = customHolidays.filter(h => h !== dateString);
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            
+            updateHolidaysList();
+        }
+
+        // Clear custom holidays
+        function clearCustomHolidays() {
+            customHolidays = [];
+            updateHolidaysList();
+        }
+        
+        // Clear first holiday inputs
+        function clearFirstHolidayInputs() {
+            console.log('clearFirstHolidayInputs called'); // Debug log
+            const fromDate = document.getElementById('holidayFromDate');
+            const toDate = document.getElementById('holidayToDate');
+            
+            if (fromDate && toDate) {
+                fromDate.value = '';
+                toDate.value = '';
+                console.log('Inputs cleared successfully'); // Debug log
+            } else {
+                console.log('Input elements not found'); // Debug log
+            }
+        }
+
+        // Clear form and results
+        function clearForm() {
+            // Reset form fields
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('startDate').value = tomorrow.toISOString().split('T')[0];
+            document.getElementById('chaptersPerDay').value = '3';
+            document.getElementById('skipWeekends').checked = true;
+            document.getElementById('skipHolidays').checked = true;
+            
+            // Clear holiday inputs
+            document.getElementById('holidayFromDate').value = '';
+            document.getElementById('holidayToDate').value = '';
+            
+            // Clear custom holidays
+            customHolidays = [];
+            updateHolidaysList();
+            
+            // Clear dynamic holiday inputs
+            document.getElementById('dynamicHolidayInputs').innerHTML = '';
+            holidayInputRows = [];
+            
+            // Hide results
+            document.getElementById('resultSection').style.display = 'none';
+            document.getElementById('loading').style.display = 'none';
+            
+            // Clear current reading plan
+            currentReadingPlan = [];
+            
+            // Reset overview display
+            document.getElementById('totalDays').textContent = '0';
+            document.getElementById('totalWeeks').textContent = '0';
+            document.getElementById('completionDate').textContent = '-';
+            document.getElementById('skippedDays').textContent = '0';
+        }
+
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                weekday: 'long'
+            });
+        }
+
+        // Check if it's a weekday
+        function isWeekday(date) {
+            const day = date.getDay();
+            return day >= 1 && day <= 5; // 周一到周五
+        }
+
+        // Check if it's a holiday
+        function isHoliday(date) {
+            const dateString = date.toISOString().split('T')[0];
+            return usHolidays.includes(dateString) || customHolidays.includes(dateString);
+        }
+
+        // Get chapter name
+        function getChapterName(chapterNumber) {
+            let currentChapter = 1;
+            for (let book of bibleBooks) {
+                if (chapterNumber <= currentChapter + book.chapters - 1) {
+                    const chapterInBook = chapterNumber - currentChapter + 1;
+                    return `${book.name} ${chapterInBook}`;
+                }
+                currentChapter += book.chapters;
+            }
+            return `Chapter ${chapterNumber}`;
+        }
+
+        // Generate reading plan
+        function generateReadingPlan() {
+            const startDate = new Date(document.getElementById('startDate').value);
+            const chaptersPerDay = parseInt(document.getElementById('chaptersPerDay').value);
+            const skipWeekends = document.getElementById('skipWeekends').checked;
+            const skipHolidays = document.getElementById('skipHolidays').checked;
+
+            let currentDate = new Date(startDate);
+            let currentChapter = 1;
+            const plan = [];
+            let dayNumber = 1;
+            let skippedDays = 0;
+
+            while (currentChapter <= 1189) {
+                // 检查是否应该跳过这一天
+                let shouldSkip = false;
+                
+                if (skipWeekends && !isWeekday(currentDate)) {
+                    shouldSkip = true;
+                }
+                
+                if (skipHolidays && isHoliday(currentDate)) {
+                    shouldSkip = true;
+                }
+
+                if (!shouldSkip) {
+                    // 计算今天要读的章节
+                    const endChapter = Math.min(currentChapter + chaptersPerDay - 1, 1189);
+                    const chapters = [];
+                    
+                    for (let i = currentChapter; i <= endChapter; i++) {
+                        chapters.push(getChapterName(i));
+                    }
+
+                    plan.push({
+                        day: dayNumber,
+                        date: new Date(currentDate),
+                        chapters: chapters,
+                        startChapter: currentChapter,
+                        endChapter: endChapter
+                    });
+
+                    currentChapter = endChapter + 1;
+                    dayNumber++;
+                } else {
+                    skippedDays++;
+                }
+
+                // 移动到下一天
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+
+            return { plan, skippedDays, totalDays: dayNumber - 1 };
+        }
+
+        // Form submission handling
+        document.getElementById('readingPlanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultSection').style.display = 'none';
+
+            // Simulate loading time
+            setTimeout(() => {
+                const result = generateReadingPlan();
+                currentReadingPlan = result.plan;
+                
+                // Update overview information
+                document.getElementById('totalDays').textContent = result.totalDays;
+                document.getElementById('totalWeeks').textContent = Math.ceil(result.totalDays / 7);
+                document.getElementById('skippedDays').textContent = result.skippedDays;
+                
+                if (result.plan.length > 0) {
+                    const completionDate = result.plan[result.plan.length - 1].date;
+                    document.getElementById('completionDate').textContent = formatDate(completionDate.toISOString().split('T')[0]);
+                }
+
+                // Plan is ready for export
+
+                // Hide loading state, show results
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('resultSection').style.display = 'block';
+            }, 1000);
+        });
+
+        // Export functions
+        function exportToCSV() {
+            if (currentReadingPlan.length === 0) {
+                alert('Please generate a reading plan first!');
+                return;
+            }
+
+            let csvContent = "Day,Date,Reading Chapters\n";
+            currentReadingPlan.forEach(day => {
+                const dateStr = day.date.toISOString().split('T')[0];
+                csvContent += `${day.day},${dateStr},"${day.chapters.join(', ')}"\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'bible_reading_plan.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+    <!-- JavaScript Files -->
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
