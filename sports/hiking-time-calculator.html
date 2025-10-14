@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiking Time Calculator — Plan Your 5-Hour Outdoor Adventure Easily</title>
+    <meta name="description" content="Use our Hiking Time Calculator to estimate how long your trail will take. Input distance, elevation, and pace to avoid fatigue, plan your schedule, and enjoy a safe outdoor adventure. Get instant, accurate hiking time estimates for any trail.">
+    <meta name="keywords" content="hiking time calculator, hiking duration, Naismith's rule, hiking time estimate, walking time calculator, hike planning">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/sports/hiking-time-calculator.html">
+    
+    <!-- CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Hiking Time Calculator — Plan Your 5-Hour Outdoor Adventure Easily",
+        "description": "Use our Hiking Time Calculator to estimate how long your trail will take. Input distance, elevation, and pace to avoid fatigue, plan your schedule, and enjoy a safe outdoor adventure. Get instant, accurate hiking time estimates for any trail.",
+        "url": "https://www.calculatorquote.com/sports/hiking-time-calculator.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Web Browser",
+        "keywords": [
+            "hiking time calculator",
+            "hiking duration calculator",
+            "Naismith's rule calculator",
+            "walking time calculator",
+            "hike time estimate",
+            "hiking time estimate",
+            "how long to hike",
+            "hiking time calculation",
+            "best hiking trails in the rocky mountains for sunset time",
+            "best time to go hiking",
+            "fastest time hiking appalachian trail",
+            "fastest time hiking the appalachian trail"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Calculator Tools"
+        }
+    }
+    </script>
+    
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            margin-top: 0;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        .calculator-header h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .subtitle {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .section-text {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .section-title {
+            color: #303030;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        .subsection-title {
+            color: #303030;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .instruction-bar {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-row .input-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #eb5424;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            background-color: white;
+        }
+
+        .input-group select:focus {
+            border-color: #eb5424;
+        }
+
+        .input-help {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #eb5424;
+        }
+
+        .unit {
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #eb5424;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .results {
+            flex: 1;
+            padding: 25px;
+            background: none;
+            border-radius: 0;
+            border: none;
+        }
+
+        .result-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result-section.show {
+            display: flex;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #eb5424;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .result-value {
+            font-weight: 500;
+            color: #eb5424;
+        }
+
+        .hiking-time-highlight {
+            background: #fff3e0;
+            border: 1px solid #ffcc02;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .hiking-time-highlight h4 {
+            color: #e65100;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hiking-time-highlight p {
+            color: #e65100;
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-section h3 {
+            color: #303030;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            color: #303030;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            color: #606060;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .disclaimer p {
+            color: #888;
+            margin: 0;
+            font-size: 0.9em;
+            font-weight: 400;
+        }
+
+        /* Tips */
+        .tips {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .tips h4 {
+            color: #1976D2;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .tips ul {
+            color: #1976D2;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .tips li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .form-row-three {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-row-three .input-group {
+                margin-bottom: 20px;
+            }
+
+            .input-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .input-row .input-group {
+                margin-bottom: 20px;
+            }
+
+            .input-field-container {
+                flex-wrap: wrap;
+            }
+
+            .input-field-container input {
+                max-width: none;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .instruction-bar {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="../sports/index.html">Sports Calculators</a>
+                                    <span>/</span>
+                                    <span>Hiking Time Calculator</span>
+                                </div>
+                                <div class="calculator-header">
+                                    <h1>Hiking Time Calculator — Plan a 5-Hour Outdoor Adventure</h1>
+                                    <p class="subtitle">Planning a hike but unsure how long it will take? Our Hiking Time Calculator helps outdoor enthusiasts estimate trail duration based on distance, elevation, and pace. Avoid fatigue, manage your schedule, and prepare supplies confidently. Enter your trail details and get accurate results instantly.</p>
+                                </div>
+                                <div id="hikingCalculator">
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="groundConditions">Ground Conditions</label>
+                    <select id="groundConditions" name="groundConditions">
+                        <option value="roads">Roads and Paths</option>
+                        <option value="other">Other Ground</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="descentSlope">Descent Slope</label>
+                    <select id="descentSlope" name="descentSlope">
+                        <option value="gentle">Gentle (5-12 degrees)</option>
+                        <option value="steep">Steep (above 12 degrees)</option>
+                        <option value="none">No Descent</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="ascent">Total Ascent</label>
+                    <div class="input-field-container">
+                        <input type="number" id="ascent" name="ascent" placeholder="0" min="0">
+                        <select id="ascentUnit" name="ascentUnit" style="max-width: 100px;">
+                            <option value="feet">feet</option>
+                            <option value="meters">meters</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="descent">Total Descent</label>
+                    <div class="input-field-container">
+                        <input type="number" id="descent" name="descent" placeholder="0" min="0">
+                        <select id="descentUnit" name="descentUnit" style="max-width: 100px;">
+                            <option value="feet">feet</option>
+                            <option value="meters">meters</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="distance">Distance</label>
+                    <div class="input-field-container">
+                        <input type="number" id="distance" name="distance" placeholder="0.0" step="0.1" min="0">
+                        <select id="distanceUnit" name="distanceUnit" style="max-width: 150px;">
+                            <option value="miles">miles</option>
+                            <option value="km">kilometers</option>
+                            <option value="meters">meters</option>
+                            <option value="yards">yards</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="breakTime">Break Time</label>
+                    <div class="input-field-container">
+                        <input type="number" id="breakTime" name="breakTime" placeholder="0" min="0">
+                        <select id="breakTimeUnit" name="breakTimeUnit" style="max-width: 140px;">
+                            <option value="minutes">minutes</option>
+                            <option value="hours">hours</option>
+                            <option value="hours-minutes">hours/minutes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button type="button" class="btn-calculate" onclick="calculateHikingTime()">Calculate</button>
+                <button type="button" class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+        
+        <div class="result-section" id="result-section">
+            <div class="results">
+                <h2>Hiking Time Estimate</h2>
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+        
+                                <!-- Disclaimer -->
+                                <div class="disclaimer">
+                                    <p>* This calculator provides estimates based on Naismith's rule. Actual hiking times may vary based on fitness level, weather, and other conditions.</p>
+                                </div>
+
+                                <h2 class="section-title">Hiking Time Calculator — Plan a 5-Hour Outdoor Adventure 🥾</h2>
+                                
+                                <p>Planning a hike 🧗 can feel tricky if you don't know how long it will take. Our Hiking Time Calculator helps hikers, travelers, and outdoor lovers plan their trails with ease. Whether you are curious about Mount Fuji hiking time, checking Diamond Head hiking time, or figuring out a local trail, this tool gives quick and accurate results. Enter your trail distance, elevation gain, and average pace to see your estimated hiking time. It helps you avoid fatigue, schedule breaks, and finish your hike safely.</p>
+                                
+                                <h2 class="section-title">How the Hiking Time Calculator Works 🧗</h2>
+                                
+                                <p>Our Hiking Time Calculator estimates your total hiking time by applying the classic Naismith Rule, with corrections for terrain and descent. Here's how it works:</p>
+                                
+                                <p><strong>Distance:</strong> Enter the total trail length in miles or kilometers. Naismith's Rule suggests 1 hour for every 3 miles (5 km) of flat terrain.</p>
+                                
+                                <p><strong>Elevation Gain:</strong> Input total ascent in feet or meters. The calculator adds 1 hour for every 2,000 feet (600 meters) of uphill.</p>
+                                
+                                <p><strong>Descent:</strong> Enter the total downhill. For gentle slopes (5–12°), subtract 10 minutes per 300 meters. For steeper slopes (>12°), add 10 minutes per 300 meters.</p>
+                                
+                                <p><strong>Ground Conditions:</strong> Choose the terrain type. On roads or easy paths, the pace is 3 mph (5 km/h). On rough ground, it slows to 2.5 mph (4 km/h).</p>
+                                
+                                <p><strong>Break Time:</strong> Include any planned rest breaks in minutes.</p>
+                                
+                                <p><strong>Formula:</strong></p>
+                                <p>Total Time = (Distance ÷ Walking Speed) + (Elevation Gain ÷ 2,000 × 60) + (Descent Correction) + Break Time</p>
+                                
+                                <p>This method provides a reliable estimate for planning your hike, helping you finish safely and on time 🥾.</p>
+                                
+                                <p>This calculator works for many scenarios. Find the best time to go hiking nearby, plan a trip to Banff for hiking, or estimate tougher trails like Mount Fuji hiking time 🧗. Knowing your estimated hiking time helps you pack smart, schedule rests, and stay safe on the trail.</p>
+                                
+                                <h2 class="section-title">Why You Should Use This Calculator</h2>
+                                
+                                <p>Every hike is different. Your speed may change based on fitness, trail difficulty, or weather. This tool gives reliable estimates, but adjust for personal conditions. Combine it with our <a href="calories-burned-calculator.html">Calorie Calculator</a> to see how many calories you burn 🧗. Knowing both your hiking time and energy use helps you plan meals, water, and gear for a better experience.</p>
+                                
+                                <p>Ready to start your adventure? Enter your trail details to get instant results. Then check out our other tools to track calories, monitor fitness, and plan outdoor trips. Make every hike safe, fun, and perfectly timed 🥾!</p>
+
+                                <h2 class="section-title">Hiking Time Calculator FAQ — Plan Your Trail Safely and Easily 🧗</h2>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q1: What is hiking time?</strong></p>
+                                    <p class="faq-answer">A: Keep in mind that hikes are measured in total roundtrip distance, therefore a 5 mile roundtrip hike will be 2.5 miles up and 2.5 miles down. For an idea of how long it takes to do a hike, consider that the average time it takes to walk a mile is 20 minutes, give or take a bit.</p>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q2: What is the hiking time rule?</strong></p>
+                                    <p class="faq-answer">A: The original Naismith's rule from 1892 says that one should allow one hour per three miles on the map and an additional hour per 2000 feet of ascent. It is included in the last sentence of his report from a trip. The basic rule assumes hikers of reasonable fitness, on typical terrain, and under normal conditions.</p>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q3: How to calculate hiking time?</strong></p>
+                                    <p class="faq-answer">A: One of the most simple and well-known ways to calculate hiking time is Naismith's Rule. So a 6-mile hike with 2,000 feet in elevation gain should take 3 hours (2hrs + 1 hr). In the field, it might be easier to use (20 minutes * # of miles) +15 minutes for every 500 feet ascended – 15 minutes for every 500 descended.</p>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q4: How long is a 1 hour hike?</strong></p>
+                                    <p class="faq-answer">A: Naismith's rule: Allow 1 hour for every 3 miles (5 km) forward + 1 hour for every 2000 feet (600 m) of ascent. This means that the average walking time for a mile according to Naismith is 20 minutes.</p>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q5: How many km per hour hiking?</strong></p>
+                                    <p class="faq-answer">A: Properly estimate the length of your hike before you leave. The average speed of travel on a nature trail is 2 to 2.5 km per hour for a beginner. First time hiker? Opt for shorter trails with little elevation gain.</p>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <p class="faq-question"><strong>Q6: What does long distance hiking do to your body?</strong></p>
+                                    <p class="faq-answer">A: The combination of walking for extended periods and carrying a backpack provides a full-body workout that enhances cardiovascular health, strengthens muscles, and improves endurance. It also promotes weight loss and the varied terrain can challenge your balance and agility.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Global error handling
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+        });
+
+        function calculateHikingTime() {
+            console.log('Calculate button clicked'); // Debug log
+            try {
+                // Get form values
+                const distance = parseFloat(document.getElementById('distance').value) || 0;
+                const distanceUnit = document.getElementById('distanceUnit').value;
+                const ascent = parseFloat(document.getElementById('ascent').value) || 0;
+                const ascentUnit = document.getElementById('ascentUnit').value;
+                const descent = parseFloat(document.getElementById('descent').value) || 0;
+                const descentUnit = document.getElementById('descentUnit').value;
+                const breakTime = parseFloat(document.getElementById('breakTime').value) || 0;
+                const breakTimeUnit = document.getElementById('breakTimeUnit').value;
+                const groundConditions = document.getElementById('groundConditions').value;
+                const descentSlope = document.getElementById('descentSlope').value;
+                
+                console.log('Input values:', { distance, distanceUnit, ascent, ascentUnit, descent, descentUnit, breakTime, groundConditions, descentSlope }); // Debug log
+                
+                // Validate input
+                if (distance <= 0) {
+                    alert('Please enter a valid distance greater than 0.');
+                    return;
+                }
+                
+                // Convert distance to miles for Naismith's rule calculation
+                let distanceInMiles = distance;
+                switch(distanceUnit) {
+                    case 'km':
+                        distanceInMiles = distance * 0.621371;
+                        break;
+                    case 'meters':
+                        distanceInMiles = distance * 0.000621371;
+                        break;
+                    case 'yards':
+                        distanceInMiles = distance * 0.000568182;
+                        break;
+                    case 'miles':
+                    default:
+                        distanceInMiles = distance;
+                        break;
+                }
+                
+                // Convert ascent to feet for Naismith's rule calculation
+                let ascentInFeet = ascent;
+                if (ascentUnit === 'meters') {
+                    ascentInFeet = ascent * 3.28084; // Convert meters to feet
+                }
+                
+                // Convert descent to feet for calculation
+                let descentInFeet = descent;
+                if (descentUnit === 'meters') {
+                    descentInFeet = descent * 3.28084; // Convert meters to feet
+                }
+                
+                // Convert break time to minutes for calculation
+                let breakTimeInMinutes = breakTime;
+                if (breakTimeUnit === 'hours') {
+                    breakTimeInMinutes = breakTime * 60; // Convert hours to minutes
+                } else if (breakTimeUnit === 'hours-minutes') {
+                    // For hours/minutes format, assume the input is in decimal hours (e.g., 1.5 = 1 hour 30 minutes)
+                    breakTimeInMinutes = breakTime * 60;
+                }
+                // If breakTimeUnit is 'minutes', no conversion needed
+                
+                // Calculate base time using Naismith's rule
+                let baseTime = (distanceInMiles / 3) + (ascentInFeet / 2000); // hours
+                
+                // Apply ground condition corrections (Aitken corrections)
+                if (groundConditions === 'other') {
+                    baseTime = baseTime * (3 / 2.5); // Reduce speed from 3 mph to 2.5 mph
+                }
+                
+                // Apply descent corrections (Langmuir corrections)
+                if (descentInFeet > 0) {
+                    const descentMeters = descentInFeet * 0.3048; // Convert feet to meters
+                    const descent300mUnits = descentMeters / 300;
+                    
+                    if (descentSlope === 'gentle') {
+                        baseTime -= descent300mUnits * (10 / 60); // Subtract 10 minutes per 300m
+                    } else if (descentSlope === 'steep') {
+                        baseTime += descent300mUnits * (10 / 60); // Add 10 minutes per 300m
+                    }
+                }
+                
+                // Add break time
+                const totalTime = baseTime + (breakTimeInMinutes / 60); // Convert break time to hours
+                
+                // Format time
+                const hours = Math.floor(totalTime);
+                const minutes = Math.round((totalTime - hours) * 60);
+                
+                const formatTime = (h, m) => {
+                    if (h === 0) return `${m} minutes`;
+                    if (h === 1) return `1 hour ${m > 0 ? `and ${m} minutes` : ''}`;
+                    return `${h} hours ${m > 0 ? `and ${m} minutes` : ''}`;
+                };
+                
+                // Display results
+                const resultsContent = document.getElementById('resultsContent');
+                resultsContent.innerHTML = `
+                    <div class="hiking-time-highlight">
+                        <h4>Estimated Hiking Time</h4>
+                        <p><strong>${formatTime(hours, minutes)}</strong></p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Based on Naismith's rule with terrain and descent corrections</p>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Distance:</span>
+                        <span class="result-value">${distance} ${distanceUnit}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Ascent:</span>
+                        <span class="result-value">${ascent} ${ascentUnit}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Descent:</span>
+                        <span class="result-value">${descent} ${descentUnit}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Break Time:</span>
+                        <span class="result-value">${breakTime} ${breakTimeUnit}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Ground Conditions:</span>
+                        <span class="result-value">${groundConditions === 'roads' ? 'Roads and Paths' : 'Other Ground'}</span>
+                    </div>
+                `;
+                
+                document.getElementById('result-section').classList.add('show');
+                
+                // Scroll to results
+                document.getElementById('result-section').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+            } catch (error) {
+                console.error('Calculation error:', error);
+                alert('An error occurred while calculating. Please check your input and try again.');
+            }
+        }
+        
+        // Clear inputs function
+        function clearInputs() {
+            document.getElementById('distance').value = '';
+            document.getElementById('distanceUnit').value = 'miles';
+            document.getElementById('ascent').value = '';
+            document.getElementById('ascentUnit').value = 'feet';
+            document.getElementById('descent').value = '';
+            document.getElementById('descentUnit').value = 'feet';
+            document.getElementById('breakTime').value = '';
+            document.getElementById('breakTimeUnit').value = 'minutes';
+            document.getElementById('groundConditions').value = 'roads';
+            document.getElementById('descentSlope').value = 'gentle';
+            document.getElementById('result-section').classList.remove('show');
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default values
+            document.getElementById('groundConditions').value = 'roads';
+            document.getElementById('descentSlope').value = 'gentle';
+            document.getElementById('distanceUnit').value = 'miles';
+            document.getElementById('ascentUnit').value = 'feet';
+            document.getElementById('descentUnit').value = 'feet';
+            document.getElementById('breakTimeUnit').value = 'minutes';
+            
+            // Add event listeners to calculate button as backup
+            const calculateBtn = document.querySelector('.btn-calculate');
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    calculateHikingTime();
+                });
+            }
+            
+            // Add event listener to clear button as backup
+            const clearBtn = document.querySelector('.btn-clear');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    clearInputs();
+                });
+            }
+        });
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
