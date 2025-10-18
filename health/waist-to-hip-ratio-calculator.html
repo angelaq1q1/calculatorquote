@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waist-to-Hip Ratio Calculator - Free Online WHR Calculator</title>
-    <meta name="description" content="Calculate your waist-to-hip ratio (WHR) for free. Get instant health risk assessment based on WHO standards. Supports both metric and imperial units.">
+    <title>Waist-to-Hip Ratio Calculator | Check If Your Waist Raises Health Risk by 30%</title>
+    <meta name="description" content="Your waist-to-hip ratio reveals key health risks like heart disease and diabetes. 📏 Use our free Waist-to-Hip Ratio Calculator to check your number, understand your body type, and take control of your health today. ❤️">
     <meta name="keywords" content="waist to hip ratio, WHR calculator, health assessment, body fat distribution, cardiovascular risk">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculatorquote.com/health/waist-to-hip-ratio-calculator.html">
-    <meta property="og:title" content="Waist-to-Hip Ratio Calculator - Free Online WHR Calculator">
-    <meta property="og:description" content="Calculate your waist-to-hip ratio (WHR) for free. Get instant health risk assessment based on WHO standards.">
+    <meta property="og:title" content="Waist-to-Hip Ratio Calculator | Check If Your Waist Raises Health Risk by 30%">
+    <meta property="og:description" content="Your waist-to-hip ratio reveals key health risks like heart disease and diabetes. 📏 Use our free Waist-to-Hip Ratio Calculator to check your number, understand your body type, and take control of your health today. ❤️">
     <meta property="og:image" content="https://calculatorquote.com/images/waist-hip-ratio-calculator-og.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://calculatorquote.com/health/waist-to-hip-ratio-calculator.html">
-    <meta property="twitter:title" content="Waist-to-Hip Ratio Calculator - Free Online WHR Calculator">
-    <meta property="twitter:description" content="Calculate your waist-to-hip ratio (WHR) for free. Get instant health risk assessment based on WHO standards.">
+    <meta property="twitter:title" content="Waist-to-Hip Ratio Calculator | Check If Your Waist Raises Health Risk by 30%">
+    <meta property="twitter:description" content="Your waist-to-hip ratio reveals key health risks like heart disease and diabetes. 📏 Use our free Waist-to-Hip Ratio Calculator to check your number, understand your body type, and take control of your health today. ❤️">
     <meta property="twitter:image" content="https://calculatorquote.com/images/waist-hip-ratio-calculator-og.jpg">
 
     <!-- JSON-LD Structured Data -->
@@ -26,11 +26,12 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Waist-to-Hip Ratio Calculator",
-      "description": "Calculate your waist-to-hip ratio (WHR) for free. Get instant health risk assessment based on WHO standards.",
+      "name": "Waist-to-Hip Ratio Calculator | Check If Your Waist Raises Health Risk by 30%",
+      "description": "Your waist-to-hip ratio reveals key health risks like heart disease and diabetes. 📏 Use our free Waist-to-Hip Ratio Calculator to check your number, understand your body type, and take control of your health today. ❤️",
       "url": "https://calculatorquote.com/health/waist-to-hip-ratio-calculator.html",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
+      "keywords": "normal hip to waist ratio, how to measure hips waist, shoulder to waist ratio, good waist hip ratio, waist to hip ratio, WHR calculator, health assessment, body fat distribution, cardiovascular risk",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -120,6 +121,12 @@
             text-align: left;
         }
 
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         .input-group {
             margin-bottom: 20px;
         }
@@ -144,7 +151,6 @@
             border-radius: 5px;
             font-size: 1em;
             outline: none;
-            max-width: 120px;
         }
 
         .input-field-container select {
@@ -154,7 +160,8 @@
             border-radius: 5px;
             font-size: 1em;
             outline: none;
-            max-width: 120px;
+            background-color: white;
+            max-width: 100px;
         }
 
         .input-field-container input:focus,
@@ -162,16 +169,6 @@
             border-color: #eb5424;
         }
 
-        .unit {
-            padding: 12px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            color: #eb5424;
-            font-weight: 500;
-            min-width: 60px;
-            text-align: center;
-        }
 
         .gender-selection {
             margin-bottom: 20px;
@@ -351,6 +348,15 @@
                 padding: 20px;
             }
 
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-row .input-group {
+                margin-bottom: 20px;
+            }
+
             .input-field-container {
                 flex-wrap: wrap;
             }
@@ -425,37 +431,33 @@
             <span>Waist-to-Hip Ratio Calculator</span>
         </div>
 
-        <h1>Free Online Waist-to-Hip Ratio Calculator – Know Your Health Risks</h1>
-        <div class="description">Worried about your body shape or health? Weight alone doesn't show fat distribution, which affects heart disease and diabetes risk. Our Waist to Hip Ratio Calculator measures your waist and hips instantly. See your ratio, understand your health, and make smarter choices for diet, exercise, and lifestyle today.</div>
+        <h1>Waist-to-Hip Ratio Calculator: See If Your Waist Size Raises Health Risk by 30%</h1>
+        <div class="description">Your waist size can reveal more about your health than you think. 📏 A high waist-to-hip ratio increases your risk of heart disease and diabetes by up to 30%. Use our calculator to check your ratio, understand your risk level, and take steps toward better health today. ❤️</div>
 
         <div class="calculator">
             <form id="whrForm">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <label for="waist">Waist Circumference:</label>
-                            <div class="input-field-container">
-                                <input type="number" id="waist" name="waist" step="0.1" min="0" placeholder="Enter waist measurement" class="form-control">
-                                <select id="waistUnit" name="waistUnit" class="form-control">
-                                    <option value="cm">cm</option>
-                                    <option value="in">inches</option>
-                                </select>
-                            </div>
-                            <div class="error" id="waistError">Please enter a valid waist measurement</div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="waist">Waist Circumference:</label>
+                        <div class="input-field-container">
+                            <input type="number" id="waist" name="waist" step="0.1" min="0" placeholder="Enter waist measurement">
+                            <select id="waistUnit" name="waistUnit">
+                                <option value="cm">cm</option>
+                                <option value="in">inches</option>
+                            </select>
                         </div>
+                        <div class="error" id="waistError">Please enter a valid waist measurement</div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <label for="hip">Hip Circumference:</label>
-                            <div class="input-field-container">
-                                <input type="number" id="hip" name="hip" step="0.1" min="0" placeholder="Enter hip measurement" class="form-control">
-                                <select id="hipUnit" name="hipUnit" class="form-control">
-                                    <option value="cm">cm</option>
-                                    <option value="in">inches</option>
-                                </select>
-                            </div>
-                            <div class="error" id="hipError">Please enter a valid hip measurement</div>
+                    <div class="input-group">
+                        <label for="hip">Hip Circumference:</label>
+                        <div class="input-field-container">
+                            <input type="number" id="hip" name="hip" step="0.1" min="0" placeholder="Enter hip measurement">
+                            <select id="hipUnit" name="hipUnit">
+                                <option value="cm">cm</option>
+                                <option value="in">inches</option>
+                            </select>
                         </div>
+                        <div class="error" id="hipError">Please enter a valid hip measurement</div>
                     </div>
                 </div>
 
@@ -504,7 +506,7 @@
                 <div id="risk-category-box" class="risk-category"></div>
             </div>
 
-            <div class="tips">
+            <div class="tips" id="health-tips" style="display: none;">
                 <h3>💡 Health Tips</h3>
                 <div class="row">
                     <div class="col-md-12">
@@ -518,37 +520,68 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-        <!-- FAQ Section -->
-        <div class="calculator-container" style="max-width: 800px; margin: 0 auto 20px auto; padding: 30px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);">
-            <h3 style="color: #333; font-size: 1.5em; margin: 30px 0 20px; font-weight: 500;">❓ FAQ – because we know what you're thinking</h3>
-            <div class="row">
-                <div class="col-md-12">
-        
-                    <div class="faq-item" style="margin-bottom: 20px;">
-                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q1: Why is waist-hip ratio important?</strong></p>
-                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio (WHR) is an important health indicator because it measures the distribution of body fat. A higher WHR indicates more abdominal fat, which is associated with increased health risks including cardiovascular disease, diabetes, and metabolic syndrome. Unlike BMI, WHR specifically identifies where fat is stored in your body, making it a more accurate predictor of health risks related to obesity.</p>
-                    </div>
-                    
-                    <div class="faq-item" style="margin-bottom: 20px;">
-                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q2: How should I measure waist and hips?</strong></p>
-                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: <strong>Waist measurement:</strong> Stand straight and measure around the narrowest part of your waist, usually just above the belly button. Don't suck in your stomach or pull the tape too tight.<br><strong>Hip measurement:</strong> Measure around the widest part of your hips and buttocks. The tape should be parallel to the floor and snug but not tight. For best results, measure in the morning before eating, wear minimal clothing, and use a flexible measuring tape.</p>
-                    </div>
-                    
-                    <div class="faq-item" style="margin-bottom: 20px;">
-                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q3: How do I calculate the waist to hip ratio?</strong></p>
-                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The waist-to-hip ratio is calculated by dividing your waist circumference by your hip circumference. The formula is: <strong>WHR = Waist Circumference ÷ Hip Circumference</strong>. For example, if your waist is 80 cm and your hips are 100 cm, your WHR would be 0.8. The ratio is expressed as a decimal number, and the interpretation depends on your gender and the resulting value.</p>
-                    </div>
-        
-                    <div class="faq-item" style="margin-bottom: 20px;">
-                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q4: How does the waist to hip ratio calculator work?</strong></p>
-                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Our calculator automatically computes your WHR by dividing your waist measurement by your hip measurement. Simply enter your waist and hip measurements in either centimeters or inches, select your gender, and click calculate. The calculator will instantly provide your WHR value and assess your health risk level based on established guidelines: for women, a WHR ≤0.80 is healthy, 0.81-0.85 is moderate risk, and >0.85 is high risk. For men, the thresholds are ≤0.90, 0.91-0.95, and >0.95 respectively.</p>
+            <!-- Main Content Section -->
+            <div style="margin-top: 40px; padding-top: 30px;">
+                <h2 style="color: #333; font-size: 1.6em; margin: 0 0 20px 0; font-weight: 500;">Waist-to-Hip Ratio Calculator: Understand Your Body and Health Risks</h2>
+                
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">Your body shape can reveal more about your health than your weight. 📊 The Waist-to-Hip Ratio Calculator helps you see the balance between your waist and hips. This simple ratio is a clear sign of heart and metabolic health. It works for anyone who wants to check their normal hip to waist ratio or find out if they have an hourglass waist to hip ratio. The tool gives fast, accurate results and helps you understand what your body is really telling you.</p>
+
+                <h3 style="color: #333; font-size: 1.4em; margin: 30px 0 15px 0; font-weight: 500;">How the Calculator Works and Why It Matters</h3>
+                
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">The calculator compares your waist and hip measurements to find a ratio. A good waist hip ratio for women is usually below 0.85, while for men it is below 0.90. If your number is higher, it may mean there is too much fat around your waist. Doctors say that extra belly fat increases the risk of heart disease, diabetes, and other health problems.</p>
+
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">To use the calculator, measure your waist at the narrowest part and your hips at the widest part. Then divide your waist size by your hip size. For example, if your waist is 30 inches and your hips are 40 inches, your waist to hip ratio is 0.75. That is considered a healthy or hourglass waist to hip ratio.</p>
+
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">If your result is a 0.6 waist to hip ratio, your body is in great balance, and your risk level is lower. But if your ratio is higher than normal, it may be time to make a few changes — like eating better, moving more, and managing stress. This ratio is not about looks. It is about keeping your body healthy and balanced.</p>
+
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">Tracking your ratio over time is also a good idea. Even small changes, such as losing one inch from your waist or building stronger hips, can make a real difference. The calculator helps you see your progress clearly and stay motivated.</p>
+
+                <h3 style="color: #333; font-size: 1.4em; margin: 30px 0 15px 0; font-weight: 500;">Start Tracking Your Progress Today</h3>
+                
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left;">Your body deserves care and understanding. 💪 Use the Waist-to-Hip Ratio Calculator to see where you stand and make smart choices for your health. Whether you want to reach a good waist hip ratio or track your progress after changing your routine, this tool gives you the insight you need.</p>
+
+                <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 0; text-align: left;">After you check your ratio, try our other free health tools — such as the BMI calculator, calorie intake planner, or body fat estimator. Each one helps you learn more about your body and stay on track toward better health and confidence. Start now and take your first step toward a stronger, healthier you. 🌿</p>
+
+                <!-- FAQ Section -->
+                <h3 style="color: #333; font-size: 1.5em; margin: 40px 0 20px; font-weight: 500;">❓ Frequently Asked Questions About Fence Installation Costs</h3>
+                <div class="row">
+                    <div class="col-md-12">
+            
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q1: What is the ideal waist-to-hip ratio?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: For WHR, the upper limit is considered to be 0.90 for men and 0.85 for women.</p>
+                        </div>
+                        
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q2: Is 0.86 a good waist-to-hip ratio?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: According to a report from the World Health Organization (WHO), a healthy waist-to-hip ratio is 0.85 or less for women and 0.9 or less for men. The WHO remarked that individuals whose waist-to-hip ratios are higher are at a greater risk for developing chronic conditions.</p>
+                        </div>
+                        
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q3: What's the most attractive hip to waist ratio?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Some researchers have found that the waist–hip ratio is a significant measure of female attractiveness. Women with a 0.7 WHR are usually rated as more attractive by men from various cultures.</p>
+                        </div>
+            
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q4: What celebrity has a 0.7 waist-to-hip ratio?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: A waist-to-hip ratio of 0.7 - or a waist measurement exactly 70 per cent of the hip circumference - scored the highest marks. Examples include some of the world's most beautiful women. Marilyn Monroe, modern-day starlet Jessica Alba and Victoria's Secret model Alessandra Ambrosio all possess the perfect figure.</p>
+                        </div>
+
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q5: What body shape is considered most healthy?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Any body shape can be healthy. It's when you're living with overweight or obesity that your natural shape can become a health risk. Eating well and exercising regularly are key to keeping your weight in a healthy range and keeping your body strong.</p>
+                        </div>
+
+                        <div class="faq-item" style="margin-bottom: 20px;">
+                            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 500; margin-bottom: 10px;"><strong>Q6: What waist size is considered curvy?</strong></p>
+                            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: This means that the waist measurement must be 75% or less than the hip measurement. A common problem for curvy girls are jeans. Often times jeans that fit your hips will be very loose at the waistband. With waist to hips of 24″-34″, my waist is 75% of my hips & I am curvy.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
@@ -646,6 +679,9 @@
 
             // Show results
             document.getElementById('result-section').style.display = 'block';
+            
+            // Show health tips
+            document.getElementById('health-tips').style.display = 'block';
         }
 
         function assessRisk(whr, gender) {
@@ -693,6 +729,7 @@
             document.getElementById('risk-category-box').className = 'risk-category';
             
             document.getElementById('result-section').style.display = 'none';
+            document.getElementById('health-tips').style.display = 'none';
             clearErrors();
         }
 
