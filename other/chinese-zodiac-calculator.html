@@ -40,9 +40,9 @@
     <!-- Template CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
         body, *:not(.material-icons) {
@@ -63,6 +63,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -418,7 +419,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START CHINESE ZODIAC CALCULATOR -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -551,13 +552,13 @@
     </footer>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 
     <script>
         // Chinese Zodiac Data
@@ -693,22 +694,32 @@
             document.getElementById('zodiacResult').style.display = 'none';
         }
 
-        // Input validation
-        document.getElementById('birthYear').addEventListener('input', function() {
-            const year = parseInt(this.value);
-            if (year < 1900 || year > 2030) {
-                this.setCustomValidity('Please enter a year between 1900 and 2030');
-            } else {
-                this.setCustomValidity('');
+        // Wait for DOM to be fully loaded before adding event listeners
+        window.addEventListener('DOMContentLoaded', function() {
+            // Input validation
+            const birthYearInput = document.getElementById('birthYear');
+            const birthDayInput = document.getElementById('birthDay');
+            
+            if (birthYearInput) {
+                birthYearInput.addEventListener('input', function() {
+                    const year = parseInt(this.value);
+                    if (year < 1900 || year > 2030) {
+                        this.setCustomValidity('Please enter a year between 1900 and 2030');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                });
             }
-        });
-
-        document.getElementById('birthDay').addEventListener('input', function() {
-            const day = parseInt(this.value);
-            if (day < 1 || day > 31) {
-                this.setCustomValidity('Please enter a day between 1 and 31');
-            } else {
-                this.setCustomValidity('');
+            
+            if (birthDayInput) {
+                birthDayInput.addEventListener('input', function() {
+                    const day = parseInt(this.value);
+                    if (day < 1 || day > 31) {
+                        this.setCustomValidity('Please enter a day between 1 and 31');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                });
             }
         });
     </script>
