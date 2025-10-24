@@ -17,7 +17,7 @@
         "name": "Other Calculators",
         "description": "Free other calculators for 2025. Calculate dates, percentages, random numbers, passwords, time zones, grades, job worth, immigration points, and more. Essential utility tools for everyday life.",
         "url": "https://www.calculatorquote.com/other/",
-        "mainEntity": {
+        "mainEntityOfPage": {
             "@type": "ItemList",
             "name": "Other Calculator Tools",
             "itemListElement": [
@@ -191,7 +191,7 @@
                     "name": "Bible Reading Plan Calculator",
                     "url": "https://www.calculatorquote.com/other/bible-reading-plan-calculator.html",
                     "description": "Calculate how long it takes to read the Bible and create a personalized reading schedule",
-                    "applicationCategory": "EducationalApplication",
+                    "applicationCategory": "Education",
                     "operatingSystem": "All",
                     "offers": {
                         "@type": "Offer",
@@ -270,7 +270,7 @@
     
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
-        body, * {
+        body, p, h1, h2, h3, h4, h5, h6, a, li, span {
             font-family: 'Raleway', sans-serif !important;
         }
         
@@ -309,8 +309,9 @@
         
         /* 使导航栏和内容区域无缝连接 */
         .navbar-fixed-top {
-            position: relative !important;
-            top: 0 !important;
+            position: sticky !important;
+            top: 0;
+            z-index: 999;
         }
         
         body {
@@ -371,6 +372,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
             border: 1px solid #e0e0e0;
+            cursor: pointer;
         }
 
         .calculator-card:hover {
@@ -469,7 +471,7 @@
                                 Other Calculators
                             </div>
 
-                            <div class="page-title">🔧 Other Calculators Suite: Tackle Odd Problems Before Costs Escalate</div>
+                            <h1 class="page-title">🔧 Other Calculators Suite: Tackle Odd Problems Before Costs Escalate</h1>
                             <div class="page-description">👉 Our Other Calculators Suite helps you solve uncommon but important problems fast. From date calculators and discount estimators to area and unit converters, these tools save time and prevent costly mistakes. Stop guessing—get accurate results in seconds and make smarter choices today.</div>
 
                             <div class="calculator-grid">
