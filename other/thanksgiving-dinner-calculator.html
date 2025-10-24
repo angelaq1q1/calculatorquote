@@ -13,9 +13,9 @@
     <!-- Template CSS Files -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -98,6 +98,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
 
@@ -372,7 +373,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START THANKSGIVING DINNER CALCULATOR -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -498,22 +499,40 @@
     </footer>
     
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
     
     <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing Thanksgiving calculator...');
+            
+            // Initialize page
+            initializePage();
+        });
+        
         // Calculate Thanksgiving dinner portions
         function calculateThanksgiving() {
             console.log('Calculate button clicked!');
             
-            const adults = parseInt(document.getElementById('adults').value) || 0;
-            const children = parseInt(document.getElementById('children').value) || 0;
-            const wantsLeftovers = document.getElementById('leftovers').checked;
+            // Check if elements exist before accessing them
+            const adultsInput = document.getElementById('adults');
+            const childrenInput = document.getElementById('children');
+            const leftoversInput = document.getElementById('leftovers');
+            
+            if (!adultsInput || !childrenInput || !leftoversInput) {
+                console.error('Required form elements not found');
+                return;
+            }
+            
+            const adults = parseInt(adultsInput.value) || 0;
+            const children = parseInt(childrenInput.value) || 0;
+            const wantsLeftovers = leftoversInput.checked;
             
             console.log('Values:', { adults, children, wantsLeftovers });
             
@@ -554,8 +573,16 @@
                 turkeyAmount = turkeyAmount * 1.3;
             }
             
-            // Update display
-            document.getElementById('result').innerHTML = '<strong>Thanksgiving Shopping List Ready!</strong>';
+            // Update display - check if elements exist
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!resultElement || !breakdownElement) {
+                console.error('Result display elements not found');
+                return;
+            }
+            
+            resultElement.innerHTML = '<strong>Thanksgiving Shopping List Ready!</strong>';
             
             let breakdownHTML = '<div style="margin-bottom: 10px;"><strong>Your Thanksgiving Shopping List:</strong></div>';
             breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Turkey:</strong> ' + turkeyAmount.toFixed(1) + ' lbs</div>';
@@ -572,40 +599,69 @@
                 breakdownHTML += '<div style="margin-top: 10px; color: #2e7d32; font-weight: bold;">🍽️ Leftovers included: 30% extra turkey for delicious next-day meals!</div>';
             }
             
-            document.getElementById('breakdown').innerHTML = breakdownHTML;
+            breakdownElement.innerHTML = breakdownHTML;
             
             // Show results
-            document.getElementById('result').style.display = 'block';
-            document.getElementById('breakdown').style.display = 'block';
+            resultElement.style.display = 'block';
+            breakdownElement.style.display = 'block';
             console.log('Results displayed');
         }
         
         // Show error message
         function showError(message) {
-            document.getElementById('result').innerHTML = '<div style="color: #721c24; background: #f8d7da; padding: 15px; border-radius: 8px; margin-bottom: 20px;">' + message + '</div>';
-            document.getElementById('breakdown').style.display = 'none';
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!resultElement || !breakdownElement) {
+                console.error('Error display elements not found');
+                return;
+            }
+            
+            resultElement.innerHTML = '<div style="color: #721c24; background: #f8d7da; padding: 15px; border-radius: 8px; margin-bottom: 20px;">' + message + '</div>';
+            breakdownElement.style.display = 'none';
         }
         
         // Clear all inputs
         function clearInputs() {
-            document.getElementById('adults').value = '';
-            document.getElementById('children').value = '';
-            document.getElementById('leftovers').checked = true;
+            const adultsInput = document.getElementById('adults');
+            const childrenInput = document.getElementById('children');
+            const leftoversInput = document.getElementById('leftovers');
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!adultsInput || !childrenInput || !leftoversInput || !resultElement || !breakdownElement) {
+                console.error('Clear function elements not found');
+                return;
+            }
+            
+            adultsInput.value = '';
+            childrenInput.value = '';
+            leftoversInput.checked = true;
             
             // Hide results
-            document.getElementById('result').style.display = 'none';
-            document.getElementById('breakdown').style.display = 'none';
+            resultElement.style.display = 'none';
+            breakdownElement.style.display = 'none';
         }
         
         // Initialize page
-        window.onload = function() {
-            console.log('Page loaded, initializing...');
+        function initializePage() {
+            console.log('Initializing Thanksgiving calculator...');
+            
+            const adultsInput = document.getElementById('adults');
+            const childrenInput = document.getElementById('children');
+            const leftoversInput = document.getElementById('leftovers');
+            
+            if (!adultsInput || !childrenInput || !leftoversInput) {
+                console.error('Initialization elements not found');
+                return;
+            }
+            
             // Set default values
-            document.getElementById('adults').value = '8';
-            document.getElementById('children').value = '4';
-            document.getElementById('leftovers').checked = true;
+            adultsInput.value = '8';
+            childrenInput.value = '4';
+            leftoversInput.checked = true;
             console.log('Initialization complete');
-        };
+        }
     </script>
 
 </body>
