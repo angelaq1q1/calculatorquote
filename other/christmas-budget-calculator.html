@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Budget Calculator — Estimate Gifts, Decor & Party Costs Instantly</title>
+    <meta name="description" content="Worried about overspending this holiday season? Use our Christmas Budget Calculator to estimate costs for gifts, decorations, and parties based on your family size and plans. Stay on budget and enjoy a joyful, stress-free Christmas!">
+    <meta name="keywords" content="christmas budget calculator, holiday budget planner, christmas spending calculator, gift budget planner, christmas party budget">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/other/christmas-budget-calculator.html">
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Christmas Budget Calculator — Estimate Gifts, Decor & Party Costs Instantly",
+  "url": "https://www.calculatorquote.com/other/christmas-budget-calculator.html",
+      "description": "Worried about overspending this holiday season? Use our Christmas Budget Calculator to estimate costs for gifts, decorations, and parties based on your family size and plans. Stay on budget and enjoy a joyful, stress-free Christmas!",
+      "keywords": [
+        "christmas budget calculator",
+        "holiday budget planner",
+        "christmas spending calculator",
+        "gift budget planner",
+        "christmas party budget",
+        "holiday budget planning",
+        "christmas gift calculator",
+        "holiday expense calculator",
+        "christmas decoration budget",
+        "holiday party budget",
+        "diy christmas gift ideas on a budget",
+        "christmas gift ideas for employees on a budget",
+        "christmas decorations on a budget"
+      ],
+      "inLanguage": "en",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-01-01",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calculatorquote.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Other Calculators",
+            "item": "https://www.calculatorquote.com/other/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Christmas Budget Calculator",
+            "item": "https://www.calculatorquote.com/other/christmas-budget-calculator.html"
+          }
+        ]
+      }
+}
+</script>
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        *, body, html, div, span, h1, h2, h3, h4, h5, h6, p, a, button, input, select, label, table, th, td, nav, ul, li, footer, .navbar, .navbar-brand, .navbar-nav, .nav, .breadcrumb, .page-title, .description, .input-section, .input-group, .result, .breakdown, .content-section, .note, .btn-calculate, .btn-clear, .btn-export, .checkbox-group {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Override any existing font styles */
+        .navbar, .navbar-brand, .navbar-nav, .nav, .breadcrumb, .page-title, .description, .input-section, .input-group, .result, .breakdown, .content-section, .note, .btn-calculate, .btn-clear, .btn-export, .checkbox-group {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            padding: 40px 32px 36px 32px;
+            text-align: left;
+        }
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        .page-title {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #303030;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+        }
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 0;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group select,
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .input-group input[type="number"] {
+            width: 100%;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: auto;
+        }
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #28a745;
+            font-size: 1.15em;
+        }
+        .note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .content-section {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: left;
+        }
+        
+        .content-section h2, .content-section h3 {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .content-section ul {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5em;
+        }
+        
+        .content-section a {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        
+        .content-section a:hover {
+            color: #d4441a;
+        }
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .input-group {
+                margin-bottom: 20px;
+            }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 500px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .christmas-icon {
+            font-size: 1em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .results-table th, .results-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-table th {
+            background-color: #eb5424;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #fff3e0;
+        }
+        
+        .budget-note {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #2e7d32;
+        }
+        .hidden {
+            display: none;
+        }
+        .category-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .category-section h4 {
+            color: #eb5424;
+            margin-bottom: 15px;
+        }
+        .result-section {
+            background: linear-gradient(135deg, #eb5424, #ff6b35);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .result-section h3 {
+            margin-bottom: 20px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        .total-budget {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+        }
+        .alert-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .btn-export {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .btn-export:hover {
+            background: #218838;
+        }
+        .budget-breakdown {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #eb5424;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START CHRISTMAS BUDGET CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Other Calculators</a>
+            <span>/</span>
+            Christmas Budget Calculator
+        </div>
+        
+        <div class="page-title">Wondering How Much Christmas Will Cost? 🎄Calculate Gifts, Decor & Party Expenses Instantly🎁</div>
+        <div class="description">
+            Planning gifts, decorations, and holiday parties can quickly blow your budget. Our Christmas Budget Calculator helps you estimate total spending based on family size, gift lists, and party plans. Avoid overspending and enjoy a joyful, stress-free holiday season—calculate your budget instantly!
+        </div>
+        
+        <div class="input-section">
+            <h3 style="color: #333; margin-bottom: 20px; font-size: 1.2em;">Christmas Budget Calculator</h3>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="familyMembers">Family Members</label>
+                    <input type="number" id="familyMembers" placeholder="Enter number of family members" min="0" max="100" step="1" value="4">
+                    <div class="note">Family members to buy gifts for</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="friends">Friends</label>
+                    <input type="number" id="friends" placeholder="Enter number of friends" min="0" max="100" step="1" value="6">
+                    <div class="note">Friends to buy gifts for</div>
+                </div>
+            </div>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="colleagues">Colleagues</label>
+                    <input type="number" id="colleagues" placeholder="Enter number of colleagues" min="0" max="100" step="1" value="8">
+                    <div class="note">Colleagues to buy gifts for</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="avgGiftBudget">Average Gift Budget per Person ($)</label>
+                    <input type="number" id="avgGiftBudget" placeholder="Enter budget per person" min="0" step="0.01" value="30">
+                    <div class="note">Average amount to spend per person</div>
+                </div>
+            </div>
+            
+            <div class="checkbox-group" style="display: flex; gap: 30px; margin: 20px 0;">
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="includeDecorations" checked>
+                    <label for="includeDecorations" style="margin-left: 8px;"><strong>Include decoration costs</strong></label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="includeParty" checked>
+                    <label for="includeParty" style="margin-left: 8px;"><strong>Include party costs</strong></label>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateChristmasBudget()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+            
+            <div class="result" id="result"></div>
+            <div class="breakdown" id="breakdown" style="display:none;"></div>
+            <div class="note" style="text-align:left;">* This is an estimated budget. Actual costs may vary based on your specific needs and preferences.</div>
+        </div>
+
+        
+        <div class="content-section" style="max-width:700px;margin:32px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;">
+            <h3>Plan Your Holiday Spending With Ease</h3>
+            <div style="margin-bottom:18px;">
+                The holiday season is exciting 🎄, but it can get expensive fast. Our Christmas Budget Calculator helps families, office managers, and anyone who wants to plan holiday spending stress-free. Whether you're buying gifts, decorating your home, or hosting a party, this tool estimates your total costs in minutes. It's great for those looking for DIY Christmas gift ideas on a budget or planning Christmas gift ideas for employees on a budget. With this calculator, you can set realistic budgets, avoid overspending, and enjoy a joyful holiday season.
+            </div>
+            
+            <h3>How the Christmas Budget Calculator Works</h3>
+            <div style="margin-bottom:18px;">
+                The calculator splits costs into three main areas: gifts, decorations, and parties. For gifts, enter the number of people and assign a budget per person. This helps you plan DIY Christmas gift ideas on a budget or choose thoughtful presents for colleagues. Decorations are calculated based on how many rooms or areas you want to decorate. You can include lights, ornaments, wreaths, and other festive items to keep track of Christmas decorations on a budget.
+            </div>
+            <div style="margin-bottom:18px;">
+                For parties, enter the number of guests and your expected spending on food, drinks, and entertainment. The calculator totals all categories and shows your overall holiday cost. You can adjust numbers quickly if you need to save. Being specific with each category keeps your budget realistic. Using this tool helps you avoid last-minute overspending and keeps your holidays financially stress-free.
+            </div>
+            
+            <h3>Tips for Smart Holiday Spending</h3>
+            <div style="margin-bottom:18px;">
+                Focus on gifts and decorations that bring joy without high costs.
+            </div>
+            <div style="margin-bottom:18px;">
+                Try DIY Christmas gift ideas on a budget for personal and affordable options.
+            </div>
+            <div style="margin-bottom:18px;">
+                For colleagues or large groups, Christmas gift ideas for employees on a budget make everyone feel appreciated without overspending.
+            </div>
+            <div style="margin-bottom:18px;">
+                Track your spending as you shop and decorate to stay on budget.
+            </div>
+            
+            <h3>Take Control of Your Holiday Budget</h3>
+            <div style="margin-bottom:18px;">
+                Enjoy a stress-free Christmas 🎅! Use our Christmas Budget Calculator to plan gifts, decorations, and parties today. Knowing your spending limits lets you focus on creating joyful moments, not worrying about money. After calculating, explore our other tools to manage gift lists, plan meals, and organize holiday events. Start your budget planning now and make this season merry and affordable!
+            </div>
+        </div>
+        
+        <div class="content-section" style="max-width:700px;margin:8px auto 0 auto;padding:24px 28px 20px 28px;background:#fff;">
+            <h3>🎁 Frequently Asked Questions About Christmas Budgeting</h3>
+            <div style="margin-bottom:18px;">
+                <p><strong>Q1: What's the average Christmas budget?</strong><br>
+                A: Americans plan to spend $997.79 on holiday purchases for themselves and their families this year. That's down from last year's $1,048, but it's still a big chunk of change. Yeah, Christmas can get expensive. But remember: Those are averages based on what the average American plans to spend.</p>
+                
+                <p><strong>Q2: What is the 5 gift rule for Christmas?</strong><br>
+                A: The five gift rule consists of giving something they want, something they need, something to wear, something to read, and something to experience. If you've not heard of the Five Gift Rule, it's based upon the principle of quality over quantity.</p>
+                
+                <p><strong>Q3: How much is normal to spend on a child for Christmas?</strong><br>
+                A: How much to spend per child on Christmas gifts? Parents expect to spend $461 per child, on average, this Christmas. On the high end, 9% of parents said they will spend $1,000 or more per child. And on the low end, 4% said they'll keep it under $100.</p>
+                
+                <p><strong>Q4: How many gifts does the average child get at Christmas?</strong><br>
+                A: There is no magic number but the general consensus seems to be between three gifts potentially up to around five. There will be many factors that contribute to this decisions; how many children you have, presents other family members may buy, how old your children are and, of course, budget.</p>
+                
+                <p><strong>Q5: Is it still Christmas after 25?</strong><br>
+                A: In Western Christianity, the Christmas season is traditionally synonymous with Christmastide, which runs from December 25 (Christmas Day) to January 5 (Twelfth Night or Epiphany Eve), popularly known as the 12 Days of Christmas.</p>
+                
+                <p><strong>Q6: How to budget for xmas?</strong><br>
+                A: Tips for keeping family Christmas costs down<br>
+                1. Set your budget. From decorations and travel to presents and festive food, there's a lot to buy.<br>
+                2. Write a list.<br>
+                3. Buy second hand.<br>
+                4. Make Christmas decorations.<br>
+                5. Get your Christmas dinner for less.<br>
+                6. Make the most of your leftovers.<br>
+                7. Borrow, don't buy.<br>
+                8. Say no to nursery/preschool collections.<br>
+                9. Get cheaper travel<br>
+                10. Ask for help</p>
+            </div>
+        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CHRISTMAS BUDGET CALCULATOR -->
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing Christmas budget calculator...');
+            
+            // Initialize page
+            initializePage();
+        });
+        
+        // Calculate Christmas budget
+        function calculateChristmasBudget() {
+            console.log('Calculate button clicked!');
+            
+            // Check if elements exist before accessing them
+            const familyMembersInput = document.getElementById('familyMembers');
+            const friendsInput = document.getElementById('friends');
+            const colleaguesInput = document.getElementById('colleagues');
+            const avgGiftBudgetInput = document.getElementById('avgGiftBudget');
+            const includeDecorationsInput = document.getElementById('includeDecorations');
+            const includePartyInput = document.getElementById('includeParty');
+            
+            if (!familyMembersInput || !friendsInput || !colleaguesInput || !avgGiftBudgetInput) {
+                console.error('Required form elements not found');
+                return;
+            }
+            
+            const familyMembers = parseInt(familyMembersInput.value) || 0;
+            const friends = parseInt(friendsInput.value) || 0;
+            const colleagues = parseInt(colleaguesInput.value) || 0;
+            const avgGiftBudget = parseFloat(avgGiftBudgetInput.value) || 0;
+            const includeDecorations = includeDecorationsInput ? includeDecorationsInput.checked : false;
+            const includeParty = includePartyInput ? includePartyInput.checked : false;
+            
+            console.log('Values:', { familyMembers, friends, colleagues, avgGiftBudget, includeDecorations, includeParty });
+            
+            // Validation
+            if (familyMembers + friends + colleagues <= 0) {
+                showError('Please enter at least one person to buy gifts for.');
+                return;
+            }
+            
+            if (avgGiftBudget <= 0) {
+                showError('Please enter a valid gift budget per person.');
+                return;
+            }
+            
+            // Calculate total people
+            const totalPeople = familyMembers + friends + colleagues;
+            
+            // Calculate gift costs
+            const totalGiftCost = totalPeople * avgGiftBudget;
+            
+            // Calculate decoration costs (estimated based on number of people)
+            let decorationCost = 0;
+            if (includeDecorations) {
+                decorationCost = Math.max(50, totalPeople * 15); // Minimum $50, $15 per person
+            }
+            
+            // Calculate party costs (estimated based on number of people)
+            let partyCost = 0;
+            if (includeParty) {
+                partyCost = totalPeople * 25; // $25 per person for food and drinks
+            }
+            
+            // Calculate total budget
+            const totalBudget = totalGiftCost + decorationCost + partyCost;
+            const budgetPerPerson = totalBudget / totalPeople;
+            
+            // Update display - check if elements exist
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!resultElement || !breakdownElement) {
+                console.error('Result display elements not found');
+                return;
+            }
+            
+            resultElement.innerHTML = '<strong>Christmas Budget Ready!</strong>';
+            
+            let breakdownHTML = '<div style="margin-bottom: 10px;"><strong>Your Christmas Budget Breakdown:</strong></div>';
+            breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Total People:</strong> ' + totalPeople + '</div>';
+            breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Gift Costs:</strong> $' + totalGiftCost.toFixed(2) + '</div>';
+            
+            if (includeDecorations) {
+                breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Decoration Costs:</strong> $' + decorationCost.toFixed(2) + '</div>';
+            }
+            
+            if (includeParty) {
+                breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Party Costs:</strong> $' + partyCost.toFixed(2) + '</div>';
+            }
+            
+            breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Total Budget:</strong> $' + totalBudget.toFixed(2) + '</div>';
+            breakdownHTML += '<div style="margin-bottom: 5px;"><strong>Budget per Person:</strong> $' + budgetPerPerson.toFixed(2) + '</div>';
+            
+            if (totalBudget > 1000) {
+                breakdownHTML += '<div style="margin-top: 10px; color: #2e7d32; font-weight: bold;">💡 Consider starting your shopping early to spread costs over several months!</div>';
+            }
+            
+            breakdownElement.innerHTML = breakdownHTML;
+            
+            // Show results
+            resultElement.style.display = 'block';
+            breakdownElement.style.display = 'block';
+            console.log('Results displayed');
+        }
+        
+        // Show error message
+        function showError(message) {
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!resultElement || !breakdownElement) {
+                console.error('Error display elements not found');
+                return;
+            }
+            
+            resultElement.innerHTML = '<div style="color: #721c24; background: #f8d7da; padding: 15px; border-radius: 8px; margin-bottom: 20px;">' + message + '</div>';
+            breakdownElement.style.display = 'none';
+        }
+        
+        // Clear all inputs
+        function clearInputs() {
+            const familyMembersInput = document.getElementById('familyMembers');
+            const friendsInput = document.getElementById('friends');
+            const colleaguesInput = document.getElementById('colleagues');
+            const avgGiftBudgetInput = document.getElementById('avgGiftBudget');
+            const includeDecorationsInput = document.getElementById('includeDecorations');
+            const includePartyInput = document.getElementById('includeParty');
+            const resultElement = document.getElementById('result');
+            const breakdownElement = document.getElementById('breakdown');
+            
+            if (!familyMembersInput || !friendsInput || !colleaguesInput || !avgGiftBudgetInput || !resultElement || !breakdownElement) {
+                console.error('Clear function elements not found');
+                return;
+            }
+            
+            familyMembersInput.value = '';
+            friendsInput.value = '';
+            colleaguesInput.value = '';
+            avgGiftBudgetInput.value = '';
+            
+            if (includeDecorationsInput) includeDecorationsInput.checked = true;
+            if (includePartyInput) includePartyInput.checked = true;
+            
+            // Hide results
+            resultElement.style.display = 'none';
+            breakdownElement.style.display = 'none';
+        }
+        
+        // Initialize page
+        function initializePage() {
+            console.log('Initializing Christmas budget calculator...');
+            
+            const familyMembersInput = document.getElementById('familyMembers');
+            const friendsInput = document.getElementById('friends');
+            const colleaguesInput = document.getElementById('colleagues');
+            const avgGiftBudgetInput = document.getElementById('avgGiftBudget');
+            const includeDecorationsInput = document.getElementById('includeDecorations');
+            const includePartyInput = document.getElementById('includeParty');
+            
+            if (!familyMembersInput || !friendsInput || !colleaguesInput || !avgGiftBudgetInput) {
+                console.error('Initialization elements not found');
+                return;
+            }
+            
+            // Set default values
+            familyMembersInput.value = '4';
+            friendsInput.value = '6';
+            colleaguesInput.value = '8';
+            avgGiftBudgetInput.value = '30';
+            if (includeDecorationsInput) includeDecorationsInput.checked = true;
+            if (includePartyInput) includePartyInput.checked = true;
+            console.log('Initialization complete');
+        }
+    </script>
+</body>
+</html>
