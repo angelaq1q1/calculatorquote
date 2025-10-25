@@ -368,9 +368,9 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/templatemo-style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/templatemo-style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -405,7 +405,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START NEW YEAR RESOLUTIONS CALCULATOR -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -772,44 +772,52 @@
     </footer>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 
     <script>
-        // Show/hide resolution sections based on selection
-        document.getElementById('resolution').addEventListener('change', function() {
-            const selectedResolution = this.value;
-            const sections = document.querySelectorAll('.resolution-section');
-            
-            // Hide all sections
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Hide results when switching resolutions
-            const resultContainer = document.getElementById('result-container');
-            if (resultContainer) {
-                resultContainer.classList.remove('show');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show/hide resolution sections based on selection
+            const resolutionSelect = document.getElementById('resolution');
+            if (resolutionSelect) {
+                resolutionSelect.addEventListener('change', function() {
+                    const selectedResolution = this.value;
+                    const sections = document.querySelectorAll('.resolution-section');
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Hide results when switching resolutions
+                    const resultContainer = document.getElementById('result-container');
+                    if (resultContainer) {
+                        resultContainer.classList.remove('show');
+                    }
+                    
+                    // Show selected section
+                    if (selectedResolution) {
+                        const targetSection = document.getElementById(selectedResolution + '-section');
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                        }
+                    }
+                });
             }
-            
-            // Show selected section
-            if (selectedResolution) {
-                const targetSection = document.getElementById(selectedResolution + '-section');
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
-            }
-        });
 
-        // Form submission and calculation
-        document.getElementById('resolutionsForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculateResolution();
+            // Form submission and calculation
+            const resolutionsForm = document.getElementById('resolutionsForm');
+            if (resolutionsForm) {
+                resolutionsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    calculateResolution();
+                });
+            }
         });
 
         function calculateResolution() {
