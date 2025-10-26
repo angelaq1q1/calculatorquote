@@ -570,126 +570,194 @@
         function analyzeItem(item) {
             const itemLower = item.toLowerCase();
             
-            // 自然元素
-            if (itemLower.includes('sun') || itemLower.includes('light') || itemLower.includes('bright')) {
-                return { type: 'natural', mood: 'warm', energy: 'positive', symbol: '☀️' };
+            // 自然元素 - 更详细的分类
+            if (itemLower.includes('sun') || itemLower.includes('sunshine') || itemLower.includes('light') || itemLower.includes('bright') || itemLower.includes('day')) {
+                return { type: 'natural', mood: 'warm', energy: 'positive', symbol: '☀️', traits: ['bright', 'energetic', 'optimistic'] };
             }
-            if (itemLower.includes('moon') || itemLower.includes('night') || itemLower.includes('star')) {
-                return { type: 'natural', mood: 'mysterious', energy: 'calm', symbol: '🌙' };
+            if (itemLower.includes('moon') || itemLower.includes('night') || itemLower.includes('star') || itemLower.includes('dark')) {
+                return { type: 'natural', mood: 'mysterious', energy: 'calm', symbol: '🌙', traits: ['mysterious', 'peaceful', 'romantic'] };
             }
-            if (itemLower.includes('fire') || itemLower.includes('flame') || itemLower.includes('burn')) {
-                return { type: 'natural', mood: 'passionate', energy: 'intense', symbol: '🔥' };
+            if (itemLower.includes('fire') || itemLower.includes('flame') || itemLower.includes('burn') || itemLower.includes('hot')) {
+                return { type: 'natural', mood: 'passionate', energy: 'intense', symbol: '🔥', traits: ['passionate', 'intense', 'energetic'] };
             }
-            if (itemLower.includes('water') || itemLower.includes('ocean') || itemLower.includes('rain')) {
-                return { type: 'natural', mood: 'flowing', energy: 'gentle', symbol: '💧' };
+            if (itemLower.includes('water') || itemLower.includes('ocean') || itemLower.includes('rain') || itemLower.includes('sea') || itemLower.includes('wave')) {
+                return { type: 'natural', mood: 'flowing', energy: 'gentle', symbol: '💧', traits: ['flowing', 'adaptable', 'nurturing'] };
             }
-            if (itemLower.includes('storm') || itemLower.includes('thunder') || itemLower.includes('lightning')) {
-                return { type: 'natural', mood: 'dramatic', energy: 'powerful', symbol: '⛈️' };
+            if (itemLower.includes('storm') || itemLower.includes('thunder') || itemLower.includes('lightning') || itemLower.includes('wind')) {
+                return { type: 'natural', mood: 'dramatic', energy: 'powerful', symbol: '⛈️', traits: ['dramatic', 'powerful', 'unpredictable'] };
             }
-            
-            // 食物饮品
-            if (itemLower.includes('coffee') || itemLower.includes('tea') || itemLower.includes('drink')) {
-                return { type: 'food', mood: 'comforting', energy: 'energizing', symbol: '☕' };
-            }
-            if (itemLower.includes('chocolate') || itemLower.includes('sweet') || itemLower.includes('cake')) {
-                return { type: 'food', mood: 'indulgent', energy: 'pleasurable', symbol: '🍫' };
-            }
-            if (itemLower.includes('wine') || itemLower.includes('alcohol') || itemLower.includes('drink')) {
-                return { type: 'food', mood: 'sophisticated', energy: 'relaxing', symbol: '🍷' };
+            if (itemLower.includes('flower') || itemLower.includes('rose') || itemLower.includes('bloom') || itemLower.includes('garden') || itemLower.includes('petal')) {
+                return { type: 'natural', mood: 'beautiful', energy: 'delicate', symbol: '🌸', traits: ['beautiful', 'fragile', 'blooming'] };
             }
             
-            // 物品
-            if (itemLower.includes('book') || itemLower.includes('read') || itemLower.includes('story')) {
-                return { type: 'object', mood: 'intellectual', energy: 'contemplative', symbol: '📖' };
+            // 食物饮品 - 更丰富的分类
+            if (itemLower.includes('coffee') || itemLower.includes('tea') || itemLower.includes('caffeine') || itemLower.includes('brew')) {
+                return { type: 'food', mood: 'comforting', energy: 'energizing', symbol: '☕', traits: ['energizing', 'comforting', 'morning'] };
             }
-            if (itemLower.includes('music') || itemLower.includes('song') || itemLower.includes('melody')) {
-                return { type: 'object', mood: 'artistic', energy: 'emotional', symbol: '🎵' };
+            if (itemLower.includes('chocolate') || itemLower.includes('sweet') || itemLower.includes('cake') || itemLower.includes('candy') || itemLower.includes('dessert')) {
+                return { type: 'food', mood: 'indulgent', energy: 'pleasurable', symbol: '🍫', traits: ['sweet', 'indulgent', 'comforting'] };
             }
-            if (itemLower.includes('flower') || itemLower.includes('rose') || itemLower.includes('bloom')) {
-                return { type: 'natural', mood: 'beautiful', energy: 'delicate', symbol: '🌸' };
+            if (itemLower.includes('wine') || itemLower.includes('alcohol') || itemLower.includes('drink') || itemLower.includes('bottle')) {
+                return { type: 'food', mood: 'sophisticated', energy: 'relaxing', symbol: '🍷', traits: ['sophisticated', 'relaxing', 'elegant'] };
             }
-            
-            // 动物
-            if (itemLower.includes('cat') || itemLower.includes('kitten') || itemLower.includes('feline')) {
-                return { type: 'animal', mood: 'independent', energy: 'mysterious', symbol: '🐱' };
-            }
-            if (itemLower.includes('dog') || itemLower.includes('puppy') || itemLower.includes('canine')) {
-                return { type: 'animal', mood: 'loyal', energy: 'loving', symbol: '🐶' };
+            if (itemLower.includes('pizza') || itemLower.includes('food') || itemLower.includes('meal') || itemLower.includes('dinner')) {
+                return { type: 'food', mood: 'comforting', energy: 'satisfying', symbol: '🍕', traits: ['comforting', 'satisfying', 'shared'] };
             }
             
-            // 默认分析
-            return { type: 'general', mood: 'unique', energy: 'special', symbol: '💫' };
+            // 物品 - 更细致的分析
+            if (itemLower.includes('book') || itemLower.includes('read') || itemLower.includes('story') || itemLower.includes('page') || itemLower.includes('novel')) {
+                return { type: 'object', mood: 'intellectual', energy: 'contemplative', symbol: '📖', traits: ['wise', 'thoughtful', 'knowledgeable'] };
+            }
+            if (itemLower.includes('music') || itemLower.includes('song') || itemLower.includes('melody') || itemLower.includes('sound') || itemLower.includes('rhythm')) {
+                return { type: 'object', mood: 'artistic', energy: 'emotional', symbol: '🎵', traits: ['artistic', 'emotional', 'harmonious'] };
+            }
+            if (itemLower.includes('art') || itemLower.includes('paint') || itemLower.includes('color') || itemLower.includes('canvas')) {
+                return { type: 'object', mood: 'creative', energy: 'expressive', symbol: '🎨', traits: ['creative', 'expressive', 'colorful'] };
+            }
+            if (itemLower.includes('phone') || itemLower.includes('tech') || itemLower.includes('digital') || itemLower.includes('screen')) {
+                return { type: 'object', mood: 'modern', energy: 'connected', symbol: '📱', traits: ['connected', 'modern', 'instant'] };
+            }
+            
+            // 动物 - 更详细的性格分析
+            if (itemLower.includes('cat') || itemLower.includes('kitten') || itemLower.includes('feline') || itemLower.includes('kitty')) {
+                return { type: 'animal', mood: 'independent', energy: 'mysterious', symbol: '🐱', traits: ['independent', 'mysterious', 'graceful'] };
+            }
+            if (itemLower.includes('dog') || itemLower.includes('puppy') || itemLower.includes('canine') || itemLower.includes('pup')) {
+                return { type: 'animal', mood: 'loyal', energy: 'loving', symbol: '🐶', traits: ['loyal', 'loving', 'faithful'] };
+            }
+            if (itemLower.includes('bird') || itemLower.includes('eagle') || itemLower.includes('fly') || itemLower.includes('wing')) {
+                return { type: 'animal', mood: 'free', energy: 'soaring', symbol: '🦅', traits: ['free', 'soaring', 'inspiring'] };
+            }
+            
+            // 颜色 - 新增颜色分析
+            if (itemLower.includes('red') || itemLower.includes('pink') || itemLower.includes('crimson')) {
+                return { type: 'color', mood: 'passionate', energy: 'intense', symbol: '❤️', traits: ['passionate', 'bold', 'romantic'] };
+            }
+            if (itemLower.includes('blue') || itemLower.includes('sky') || itemLower.includes('ocean')) {
+                return { type: 'color', mood: 'calm', energy: 'peaceful', symbol: '💙', traits: ['calm', 'peaceful', 'trustworthy'] };
+            }
+            if (itemLower.includes('green') || itemLower.includes('nature') || itemLower.includes('forest')) {
+                return { type: 'color', mood: 'natural', energy: 'growing', symbol: '💚', traits: ['natural', 'growing', 'fresh'] };
+            }
+            
+            // 情感词汇 - 新增情感分析
+            if (itemLower.includes('love') || itemLower.includes('heart') || itemLower.includes('romance')) {
+                return { type: 'emotion', mood: 'loving', energy: 'warm', symbol: '💕', traits: ['loving', 'warm', 'romantic'] };
+            }
+            if (itemLower.includes('smile') || itemLower.includes('happy') || itemLower.includes('joy') || itemLower.includes('laugh')) {
+                return { type: 'emotion', mood: 'joyful', energy: 'positive', symbol: '😊', traits: ['joyful', 'positive', 'cheerful'] };
+            }
+            if (itemLower.includes('dream') || itemLower.includes('hope') || itemLower.includes('wish')) {
+                return { type: 'emotion', mood: 'hopeful', energy: 'aspirational', symbol: '✨', traits: ['hopeful', 'aspirational', 'dreamy'] };
+            }
+            
+            // 默认分析 - 更智能的默认处理
+            return { type: 'general', mood: 'unique', energy: 'special', symbol: '💫', traits: ['unique', 'special', 'one-of-a-kind'] };
         }
 
         function generateSmartQuote(itemA, itemB, quoteType) {
-            const combinations = {
-                // 温暖 + 温暖
-                'warm-warm': [
-                    "Your love radiates warmth that makes even the coldest days feel like summer ☀️",
-                    "Together you create a cozy haven where hearts find their perfect home 🏠",
-                    "Your love is like a gentle sunrise that never fades 🌅"
-                ],
-                // 温暖 + 神秘
-                'warm-mysterious': [
-                    "Your love is like sunshine meeting moonlight—impossibly beautiful ✨",
-                    "Together you create magic that defies explanation 🌟",
-                    "Your love illuminates the mysteries of the heart 💫"
-                ],
-                // 激情 + 平静
-                'intense-calm': [
-                    "Your love is like fire and water—opposites that create perfect harmony 🔥💧",
-                    "Together you balance each other in the most beautiful way ⚖️",
-                    "Your love proves that opposites don't just attract—they complete each other 💕"
-                ],
-                // 舒适 + 舒适
-                'comforting-comforting': [
-                    "Your love is like coming home to your favorite place every day 🏡",
-                    "Together you create the coziest corner of the universe 🧸",
-                    "Your love wraps around hearts like the softest blanket 🛌"
-                ],
-                // 知识 + 艺术
-                'intellectual-artistic': [
-                    "Your love writes the most beautiful story ever told 📚🎨",
-                    "Together you create poetry in motion 🎭",
-                    "Your love is a masterpiece painted with the colors of the soul 🎨"
-                ],
-                // 忠诚 + 美丽
-                'loyal-beautiful': [
-                    "Your love blooms like the most faithful flower in the garden 🌸",
-                    "Together you create beauty that lasts forever 🌺",
-                    "Your love is as constant as it is beautiful 💐"
-                ]
+            // 智能匹配逻辑 - 基于特征和类型
+            const getTemplates = (traitsA, traitsB, moodA, moodB, energyA, energyB) => {
+                const templates = [];
+                
+                // 基于特征匹配
+                const hasWarmth = traitsA.includes('warm') || traitsB.includes('warm') || traitsA.includes('bright') || traitsB.includes('bright');
+                const hasPassion = traitsA.includes('passionate') || traitsB.includes('passionate') || traitsA.includes('intense') || traitsB.includes('intense');
+                const hasCalm = traitsA.includes('calm') || traitsB.includes('calm') || traitsA.includes('peaceful') || traitsB.includes('peaceful');
+                const hasArtistic = traitsA.includes('artistic') || traitsB.includes('artistic') || traitsA.includes('creative') || traitsB.includes('creative');
+                const hasLoyal = traitsA.includes('loyal') || traitsB.includes('loyal') || traitsA.includes('faithful') || traitsB.includes('faithful');
+                const hasMysterious = traitsA.includes('mysterious') || traitsB.includes('mysterious') || traitsA.includes('independent') || traitsB.includes('independent');
+                
+                // 温暖组合
+                if (hasWarmth && (moodA === 'warm' || moodB === 'warm')) {
+                    templates.push("Your love radiates warmth that makes even the coldest days feel like summer ☀️");
+                    templates.push("Together you create a cozy haven where hearts find their perfect home 🏠");
+                    templates.push("Your love is like a gentle sunrise that never fades 🌅");
+                }
+                
+                // 激情组合
+                if (hasPassion && (energyA === 'intense' || energyB === 'intense')) {
+                    templates.push("Your love burns with a passion that lights up the darkest nights 🔥");
+                    templates.push("Together you create sparks that could power the entire world ⚡");
+                    templates.push("Your love is like a wildfire—unstoppable and beautiful 🌋");
+                }
+                
+                // 平静组合
+                if (hasCalm && (moodA === 'calm' || moodB === 'calm')) {
+                    templates.push("Your love flows like a peaceful river through the chaos of life 🌊");
+                    templates.push("Together you create a sanctuary of peace and understanding 🕊️");
+                    templates.push("Your love is like a gentle breeze on a perfect day 🌸");
+                }
+                
+                // 艺术组合
+                if (hasArtistic && (moodA === 'artistic' || moodB === 'artistic')) {
+                    templates.push("Your love paints the most beautiful masterpiece on the canvas of life 🎨");
+                    templates.push("Together you create poetry that moves the soul 📝");
+                    templates.push("Your love is a symphony that plays the sweetest melodies 🎵");
+                }
+                
+                // 忠诚组合
+                if (hasLoyal && (traitsA.includes('loyal') || traitsB.includes('loyal'))) {
+                    templates.push("Your love stands strong like an ancient oak tree through every season 🌳");
+                    templates.push("Together you create a bond that time itself cannot break ⏰");
+                    templates.push("Your love is as constant as the North Star in the night sky ⭐");
+                }
+                
+                // 神秘组合
+                if (hasMysterious && (moodA === 'mysterious' || moodB === 'mysterious')) {
+                    templates.push("Your love holds mysteries that only the two of you can understand 🔮");
+                    templates.push("Together you create magic that defies all explanation ✨");
+                    templates.push("Your love is like a beautiful enigma that gets more fascinating with time 🕰️");
+                }
+                
+                // 对比组合（激情+平静）
+                if (hasPassion && hasCalm) {
+                    templates.push("Your love is like fire and water—opposites that create perfect harmony 🔥💧");
+                    templates.push("Together you balance each other in the most beautiful way ⚖️");
+                    templates.push("Your love proves that opposites don't just attract—they complete each other 💕");
+                }
+                
+                // 温暖+神秘组合
+                if (hasWarmth && hasMysterious) {
+                    templates.push("Your love is like sunshine meeting moonlight—impossibly beautiful ✨");
+                    templates.push("Together you create magic that defies explanation 🌟");
+                    templates.push("Your love illuminates the mysteries of the heart 💫");
+                }
+                
+                // 如果没有匹配到特定组合，使用通用模板
+                if (templates.length === 0) {
+                    templates.push("Your love creates something uniquely beautiful together ✨");
+                    templates.push("Together you form a perfect harmony that the world needs 🌍");
+                    templates.push("Your love is a rare and precious combination 💎");
+                    templates.push("Your love is like a perfect recipe—all the right ingredients in perfect balance 🍳");
+                    templates.push("Together you create magic that only true love can make possible 🪄");
+                }
+                
+                return templates;
             };
-
-            // 根据能量和情绪匹配
-            const energyKey = `${itemA.energy}-${itemB.energy}`;
-            const reverseKey = `${itemB.energy}-${itemA.energy}`;
             
-            let templates = [];
+            // 获取模板
+            let templates = getTemplates(itemA.traits, itemB.traits, itemA.mood, itemB.mood, itemA.energy, itemB.energy);
             
-            if (combinations[energyKey]) {
-                templates = combinations[energyKey];
-            } else if (combinations[reverseKey]) {
-                templates = combinations[reverseKey];
-            } else {
-                // 通用模板
-                templates = [
-                    "Your love creates something uniquely beautiful together ✨",
-                    "Together you form a perfect harmony that the world needs 🌍",
-                    "Your love is a rare and precious combination 💎"
-                ];
-            }
-
             // 根据类型调整语气
             if (quoteType === 'funny') {
-                templates = templates.map(template => template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐/g, '😂'));
-                templates = templates.map(template => template + " (And somehow it actually works! 😄)");
+                templates = templates.map(template => {
+                    // 替换表情符号为搞笑版本
+                    template = template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐|🔥|⚡|🌋|🌊|🕊️|🎵|🌳|⏰|⭐|🔮|🕰️|💧|🍳|🪄/g, '😂');
+                    return template + " (And somehow it actually works! 😄)";
+                });
             } else if (quoteType === 'nerdy') {
-                templates = templates.map(template => template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐/g, '🧮'));
-                templates = templates.map(template => template + " (Compatibility: 100% 📊)");
+                templates = templates.map(template => {
+                    // 替换表情符号为科技版本
+                    template = template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐|🔥|⚡|🌋|🌊|🕊️|🎵|🌳|⏰|⭐|🔮|🕰️|💧|🍳|🪄/g, '🧮');
+                    return template + " (Compatibility: 100% 📊)";
+                });
             } else if (quoteType === 'sweet') {
-                templates = templates.map(template => template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐/g, '🥰'));
-                templates = templates.map(template => template + " (So adorable! 🐰)");
+                templates = templates.map(template => {
+                    // 替换表情符号为可爱版本
+                    template = template.replace(/✨|🌟|💫|💕|💎|🌍|🏠|🌅|⚖️|🧸|🛌|📚|🎨|🎭|🌸|🌺|💐|🔥|⚡|🌋|🌊|🕊️|🎵|🌳|⏰|⭐|🔮|🕰️|💧|🍳|🪄/g, '🥰');
+                    return template + " (So adorable! 🐰)";
+                });
             }
 
             return templates[Math.floor(Math.random() * templates.length)];
@@ -697,7 +765,6 @@
 
         function shareToInstagram() {
             const result = document.getElementById('result').innerText;
-            const text = encodeURIComponent(result + " 💕 Generated with @CalculatorQuote");
             // Instagram doesn't have direct sharing API, so we'll copy to clipboard and open Instagram
             navigator.clipboard.writeText(result).then(function() {
                 alert('Quote copied! Now you can paste it in your Instagram story or post! 📷');
