@@ -17,7 +17,7 @@
         "name": "Easter Bible Verse Generator – Find Daily Hope & Faith Renewal",
         "description": "Find daily Bible verses that inspire hope and faith. ✝️ Use our Easter Bible Verse Generator to reconnect with God's Word and renew your spirit every day. 🌿",
         "url": "https://www.calculatorquote.com/other/easter-bible-verse-generator.html",
-        "applicationCategory": "Utility",
+        "applicationCategory": "Bible/Religious Tools",
         "operatingSystem": "All",
         "offers": {
             "@type": "Offer",
@@ -303,14 +303,29 @@
             transform: translateY(-1px);
         }
 
-        .btn-share.copy { background: #6c757d; }
-        .btn-share.copy:hover { background: #5a6268; }
+        .btn-share.copy { 
+            background: #6c757d; 
+            transition: background-color 0.3s;
+        }
+        .btn-share.copy:hover { 
+            background: #5a6268; 
+        }
 
-        .btn-share.instagram { background: #E4405F; }
-        .btn-share.instagram:hover { background: #c13584; }
+        .btn-share.instagram { 
+            background: #E4405F; 
+            transition: background-color 0.3s;
+        }
+        .btn-share.instagram:hover { 
+            background: #c13584; 
+        }
 
-        .btn-share.pinterest { background: #BD081C; }
-        .btn-share.pinterest:hover { background: #a00e1a; }
+        .btn-share.pinterest { 
+            background: #BD081C; 
+            transition: background-color 0.3s;
+        }
+        .btn-share.pinterest:hover { 
+            background: #a00e1a; 
+        }
 
         .content-section {
             color: #606060;
@@ -398,9 +413,9 @@
                     <div class="calculator-container">
                         <div class="breadcrumb">
                             <a href="../index.html">Home</a>
-                            <span>/</span>
+                            <span aria-hidden="true">/</span>
                             <a href="index.html">Other Calculators</a>
-                            <span>/</span>
+                            <span aria-hidden="true">/</span>
                             Easter Bible Verse Generator
                         </div>
 
@@ -412,8 +427,8 @@
                                 <p style="color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 30px; text-align: left;">Use Bible verses Easter quotes to inspire, uplift, and share the story of Christ's resurrection with loved ones. After finding your favorite Easter Day Bible Quotes, explore other tools to create cards, messages, or devotionals. Click "Generate" to create your Promise Card from Jesus Christ ✝️. Sharing these scriptures can become a meaningful tradition. It reminds us of God's love and the promise of new life.</p>
                                 
                                 <div class="buttons">
-                                    <button class="btn-generate" onclick="generatePromise()">Generate</button>
-                                    <button class="btn-clear" onclick="clearPromise()">Clear</button>
+                                    <button class="btn-generate" id="generate-btn">Generate</button>
+                                    <button class="btn-clear" id="clear-btn">Clear</button>
                                 </div>
                                 
                                 <div id="promise-card" class="promise-card">
@@ -422,9 +437,9 @@
                                     <p id="reflection" class="reflection"></p>
                                     
                                     <div class="share-buttons">
-                                        <button class="btn-share copy" onclick="copyToClipboard()">📋 Copy Verse</button>
-                                        <button class="btn-share instagram" onclick="shareToInstagram()">📷 Share on Instagram</button>
-                                        <button class="btn-share pinterest" onclick="shareToPinterest()">📌 Share on Pinterest</button>
+                                        <button class="btn-share copy" id="copy-btn">📋 Copy Verse</button>
+                                        <button class="btn-share instagram" id="instagram-btn">📷 Share on Instagram</button>
+                                        <button class="btn-share pinterest" id="pinterest-btn">📌 Share on Pinterest</button>
                                     </div>
                                 </div>
                             </div>
@@ -452,9 +467,10 @@
                                 <h4>Bring Easter Joy with Scripture and Explore More</h4>
                                 <p>Using Bible verses Easter quotes, you can inspire, uplift, and share the story of Christ's resurrection with loved ones. After finding your favorite Easter Day Bible Quotes, explore other tools to create cards, messages, or devotionals. Sharing these scriptures can become a meaningful tradition. It reminds us of God's love and the promise of new life. Start now, pick your verses, and let Easter shine with words that touch hearts 💖.</p>
                                 
-                                <h3>Easter Day Bible Quotes FAQ – Your Questions Answered ✝️</h3>
-                                
-                                <p><strong>Q1: What Bible verse is for Easter?</strong></p>
+                                <section aria-label="FAQ">
+                                    <h3>Easter Day Bible Quotes FAQ – Your Questions Answered ✝️</h3>
+                                    
+                                    <p><strong>Q1: What Bible verse is for Easter?</strong></p>
                                 <p>A: Ephesians 1:20: "God's power was at work in Christ when God raised him from the dead and sat him at God's right side in the heavens." Luke 24:34: "The Lord is risen indeed!" 1 Corinthians 15:4: "He was buried, [and] he was raised on the third day according to the Scriptures."</p>
                                 
                                 <p><strong>Q2: What is a powerful quote on Easter?</strong></p>
@@ -469,8 +485,9 @@
                                 <p><strong>Q5: What is a powerful Easter message?</strong></p>
                                 <p>A: The resurrection reminds us that even when everything feels dead, Jesus brings life. Even when the world says it's over, Jesus speaks a better word. He didn't stay in the grave—and you don't have to stay in yours, either. As we approach Easter, let's remember: this isn't just a holiday.</p>
                                 
-                                <p><strong>Q6: What is a good blessing for Easter?</strong></p>
-                                <p>A: We praise you in this Easter season. Change our lives, change our hearts to be messengers of Easter joy and hope. We make our prayer through Jesus Christ, our risen Lord forever. Amen.</p>
+                                    <p><strong>Q6: What is a good blessing for Easter?</strong></p>
+                                    <p>A: We praise you in this Easter season. Change our lives, change our hearts to be messengers of Easter joy and hope. We make our prayer through Jesus Christ, our risen Lord forever. Amen.</p>
+                                </section>
                             </div>
                         </main>
                     </div>
@@ -579,7 +596,7 @@
             document.getElementById("verse").innerText = `"${selectedPromise.verse}"`;
             document.getElementById("reference").innerText = `— ${selectedPromise.reference}`;
             document.getElementById("reflection").innerText = selectedPromise.reflection;
-            document.getElementById("promise-card").style.background = bg;
+            document.getElementById("promise-card").style.backgroundImage = bg;
             document.getElementById("promise-card").classList.add('show');
         }
 
@@ -639,6 +656,39 @@
             const url = encodeURIComponent(window.location.href);
             window.open(`https://pinterest.com/pin/create/button/?url=${url}&description=${text}`, '_blank');
         }
+
+        // Add event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate button
+            const generateBtn = document.getElementById('generate-btn');
+            if (generateBtn) {
+                generateBtn.addEventListener('click', generatePromise);
+            }
+
+            // Clear button
+            const clearBtn = document.getElementById('clear-btn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearPromise);
+            }
+
+            // Copy button
+            const copyBtn = document.getElementById('copy-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', copyToClipboard);
+            }
+
+            // Instagram button
+            const instagramBtn = document.getElementById('instagram-btn');
+            if (instagramBtn) {
+                instagramBtn.addEventListener('click', shareToInstagram);
+            }
+
+            // Pinterest button
+            const pinterestBtn = document.getElementById('pinterest-btn');
+            if (pinterestBtn) {
+                pinterestBtn.addEventListener('click', shareToPinterest);
+            }
+        });
     </script>
 </body>
 </html>
