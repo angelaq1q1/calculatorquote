@@ -622,27 +622,41 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/custom.js"></script>
-
     <script>
-        document.getElementById('windowCleaningCalculator').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculateWindowCleaning();
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('windowCleaningCalculator');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    calculateWindowCleaning();
+                });
+            }
         });
 
         function calculateWindowCleaning() {
-            // Get input values
-            const windowCount = parseFloat(document.getElementById('windowCount').value) || 0;
-            const windowWidth = parseFloat(document.getElementById('windowWidth').value) || 0;
-            const windowHeight = parseFloat(document.getElementById('windowHeight').value) || 0;
-            const widthUnit = document.getElementById('widthUnit').value;
-            const heightUnit = document.getElementById('heightUnit').value;
-            const windowType = parseFloat(document.getElementById('windowType').value) || 1;
-            const cleaningFrequency = parseFloat(document.getElementById('cleaningFrequency').value) || 1;
-            const pricePerSqft = parseFloat(document.getElementById('pricePerSqft').value) || 1.5;
+            // Get input values with existence checks
+            const windowCountEl = document.getElementById('windowCount');
+            const windowWidthEl = document.getElementById('windowWidth');
+            const windowHeightEl = document.getElementById('windowHeight');
+            const widthUnitEl = document.getElementById('widthUnit');
+            const heightUnitEl = document.getElementById('heightUnit');
+            const windowTypeEl = document.getElementById('windowType');
+            const cleaningFrequencyEl = document.getElementById('cleaningFrequency');
+            const pricePerSqftEl = document.getElementById('pricePerSqft');
+            
+            if (!windowCountEl || !windowWidthEl || !windowHeightEl || !widthUnitEl || !heightUnitEl || !windowTypeEl || !cleaningFrequencyEl || !pricePerSqftEl) {
+                console.error('Required form elements not found');
+                return;
+            }
+            
+            const windowCount = parseFloat(windowCountEl.value) || 0;
+            const windowWidth = parseFloat(windowWidthEl.value) || 0;
+            const windowHeight = parseFloat(windowHeightEl.value) || 0;
+            const widthUnit = widthUnitEl.value;
+            const heightUnit = heightUnitEl.value;
+            const windowType = parseFloat(windowTypeEl.value) || 1;
+            const cleaningFrequency = parseFloat(cleaningFrequencyEl.value) || 1;
+            const pricePerSqft = parseFloat(pricePerSqftEl.value) || 1.5;
 
             // Convert to feet if needed
             const widthInFeet = widthUnit === 'cm' ? windowWidth / 30.48 : windowWidth;
@@ -671,35 +685,56 @@
             const monthlyCost = totalCost / (cleaningFrequency === 0.9 ? 4.33 : (cleaningFrequency === 0.8 ? 1 : (cleaningFrequency === 0.7 ? 0.25 : (cleaningFrequency === 0.6 ? 0.17 : 0))));
             const annualCost = totalCost / (cleaningFrequency === 0.9 ? 0.25 : (cleaningFrequency === 0.8 ? 0.083 : (cleaningFrequency === 0.7 ? 0.25 : (cleaningFrequency === 0.6 ? 0.5 : 1))));
 
-            // Display results
-            document.getElementById('totalArea').textContent = totalArea.toFixed(1);
-            document.getElementById('basePrice').textContent = '$' + basePrice.toFixed(2);
-            document.getElementById('additionalCost').textContent = '$' + additionalCost.toFixed(2);
-            document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+            // Display results with existence checks
+            const totalAreaEl = document.getElementById('totalArea');
+            const basePriceEl = document.getElementById('basePrice');
+            const additionalCostEl = document.getElementById('additionalCost');
+            const totalCostEl = document.getElementById('totalCost');
+            const monthlyCostEl = document.getElementById('monthlyCost');
+            const annualCostEl = document.getElementById('annualCost');
+            const frequencyInfoEl = document.getElementById('frequencyInfo');
+            const resultsEl = document.getElementById('results');
+            
+            if (totalAreaEl) totalAreaEl.textContent = totalArea.toFixed(1);
+            if (basePriceEl) basePriceEl.textContent = '$' + basePrice.toFixed(2);
+            if (additionalCostEl) additionalCostEl.textContent = '$' + additionalCost.toFixed(2);
+            if (totalCostEl) totalCostEl.textContent = '$' + totalCost.toFixed(2);
 
             // Show recurring service info if not one-time
             if (cleaningFrequency < 1) {
-                document.getElementById('monthlyCost').textContent = monthlyCost.toFixed(2);
-                document.getElementById('annualCost').textContent = annualCost.toFixed(2);
-                document.getElementById('frequencyInfo').style.display = 'block';
+                if (monthlyCostEl) monthlyCostEl.textContent = monthlyCost.toFixed(2);
+                if (annualCostEl) annualCostEl.textContent = annualCost.toFixed(2);
+                if (frequencyInfoEl) frequencyInfoEl.style.display = 'block';
             } else {
-                document.getElementById('frequencyInfo').style.display = 'none';
+                if (frequencyInfoEl) frequencyInfoEl.style.display = 'none';
             }
 
             // Show results
-            document.getElementById('results').style.display = 'block';
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            if (resultsEl) {
+                resultsEl.style.display = 'block';
+                resultsEl.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         function clearInputs() {
-            document.getElementById('windowCount').value = '';
-            document.getElementById('windowWidth').value = '';
-            document.getElementById('windowHeight').value = '';
-            document.getElementById('widthUnit').value = 'ft';
-            document.getElementById('heightUnit').value = 'ft';
-            document.getElementById('windowType').value = '1.2';
-            document.getElementById('cleaningFrequency').value = '0.8';
-            document.getElementById('pricePerSqft').value = '1.5';
+            const windowCountEl = document.getElementById('windowCount');
+            const windowWidthEl = document.getElementById('windowWidth');
+            const windowHeightEl = document.getElementById('windowHeight');
+            const widthUnitEl = document.getElementById('widthUnit');
+            const heightUnitEl = document.getElementById('heightUnit');
+            const windowTypeEl = document.getElementById('windowType');
+            const cleaningFrequencyEl = document.getElementById('cleaningFrequency');
+            const pricePerSqftEl = document.getElementById('pricePerSqft');
+            const resultsEl = document.getElementById('results');
+            
+            if (windowCountEl) windowCountEl.value = '';
+            if (windowWidthEl) windowWidthEl.value = '';
+            if (windowHeightEl) windowHeightEl.value = '';
+            if (widthUnitEl) widthUnitEl.value = 'ft';
+            if (heightUnitEl) heightUnitEl.value = 'ft';
+            if (windowTypeEl) windowTypeEl.value = '1.2';
+            if (cleaningFrequencyEl) cleaningFrequencyEl.value = '0.8';
+            if (pricePerSqftEl) pricePerSqftEl.value = '1.5';
             
             // Clear checkboxes
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -707,8 +742,17 @@
                 checkbox.checked = false;
             });
             
-            document.getElementById('results').style.display = 'none';
+            if (resultsEl) resultsEl.style.display = 'none';
         }
     </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 </html>
