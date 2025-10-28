@@ -55,7 +55,62 @@
     <!-- Template CSS -->
     <link href="../css/templatemo-style.css" rel="stylesheet">
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
+         crossorigin="anonymous"></script>
+    
     <style>
+        /* 修复汉堡菜单三条线显示 */
+        .navbar-toggle .icon-bar {
+            display: block !important;
+            width: 22px !important;
+            height: 2px !important;
+            background-color: #eb5424 !important;
+            border-radius: 1px !important;
+            margin: 4px 0 !important;
+            border: none !important;
+            float: none !important;
+        }
+        
+        /* 确保所有三个icon-bar都显示 */
+        .navbar-toggle span.icon-bar {
+            display: block !important;
+            width: 22px !important;
+            height: 2px !important;
+            background-color: #eb5424 !important;
+            border-radius: 1px !important;
+            margin: 4px 0 !important;
+            border: none !important;
+            float: none !important;
+        }
+        
+        /* 覆盖Bootstrap默认样式 */
+        .navbar-default .navbar-toggle .icon-bar {
+            display: block !important;
+            width: 22px !important;
+            height: 2px !important;
+            background-color: #eb5424 !important;
+            border-radius: 1px !important;
+            margin: 4px 0 !important;
+            border: none !important;
+            float: none !important;
+        }
+        
+        /* 强制显示所有三条线 */
+        .navbar-toggle .icon-bar:nth-child(1),
+        .navbar-toggle .icon-bar:nth-child(2),
+        .navbar-toggle .icon-bar:nth-child(3) {
+            display: block !important;
+            width: 22px !important;
+            height: 2px !important;
+            background-color: #eb5424 !important;
+            border-radius: 1px !important;
+            margin: 4px 0 !important;
+            border: none !important;
+            float: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
         /* Calculator specific styles */
         .calculator {
             background-color: #f8f9fa;
@@ -236,7 +291,7 @@
             word-break: break-word;
         }
         .page-description h3 {
-            color: #eb5424;
+            color: #000000;
             font-size: 20px;
             font-weight: bold;
             letter-spacing: 1px;
@@ -269,7 +324,7 @@
         }
         
         .content-section h2, .content-section h3 {
-            color: #eb5424;
+            color: #000000;
             font-size: 20px;
             font-weight: bold;
             letter-spacing: 1px;
