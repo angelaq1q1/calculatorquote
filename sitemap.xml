@@ -663,6 +663,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://www.calculatorquote.com/pet/dog-age-calculator.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Blog Pages -->
     <url>
         <loc>https://www.calculatorquote.com/blog/</loc>
