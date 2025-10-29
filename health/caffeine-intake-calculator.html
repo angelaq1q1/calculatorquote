@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Caffeine Intake Calculator – Find Your Safe Limit for Better Sleep</title>
+    <meta name="description" content="Worried coffee or energy drinks will ruin your sleep? Use our Daily Caffeine Intake Calculator to quickly find your safe daily caffeine limit and enjoy energy without sleepless nights.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Daily Caffeine Intake Calculator – Find Your Safe Limit for Better Sleep",
+      "url": "https://www.calculatorquote.com/health/caffeine-intake-calculator.html",
+      "description": "Worried coffee or energy drinks will ruin your sleep? Use our Daily Caffeine Intake Calculator to quickly find your safe daily caffeine limit and enjoy energy without sleepless nights.",
+      "keywords": ["caffeine calculator", "caffeine intake", "coffee calculator", "daily caffeine", "caffeine overdose"],
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much caffeine should I have a day?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For adults, the maximum daily caffeine intake should not exceed 400 mg. This is equivalent to about 3-4 cups of coffee or 2-3 energy drinks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a lethal dose of caffeine?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The lethal dose of caffeine is estimated to be around 10 grams, which would require consuming about 70 cups of coffee or 125 energy drinks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much caffeine is in different drinks?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Caffeine content varies: a cup of coffee (8 oz) has about 95 mg, a cup of tea has about 50 mg, energy drinks have about 80 mg, and cola has about 40 mg per can."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much caffeine is in a 5 hour energy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A regular 5-hour Energy shot contains approximately 200 mg of caffeine, which is equivalent to about 2 cups of coffee. The extra strength version contains about 230 mg of caffeine."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take for caffeine to kick in?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Caffeine typically begins to take effect within 15-45 minutes after consumption. Peak caffeine levels in the bloodstream occur around 1 hour after intake, and the effects can last 3-5 hours depending on individual metabolism."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the safe caffeine intake during pregnancy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pregnant women should limit caffeine intake to 200 mg per day or less according to health guidelines. This is about 1-2 cups of coffee per day. Excessive caffeine during pregnancy may increase risks to the baby."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the normal caffeine intake per day?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For healthy adults, the normal recommended caffeine intake is up to 400 mg per day (about 3-4 cups of coffee). Teenagers should limit to 100 mg, pregnant women to 200 mg, and children should generally avoid caffeine or limit to 45 mg per day."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Caffeine Intake Calculator",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .instruction-bar {
+            display: none;
+        }
+
+        .caffeine-source {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .caffeine-source h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .source-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: end;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field-container input,
+        .input-field-container select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-field-container input:focus,
+        .input-field-container select:focus {
+            border-color: #eb5424;
+        }
+
+        .unit {
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #eb5424;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .result-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .results {
+            flex: 1;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #eb5424;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .caffeine-status {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .status-safe { 
+            background-color: #e8f5e9; 
+            color: #2e7d32; 
+            border: 2px solid #4caf50;
+        }
+        .status-moderate { 
+            background-color: #fff3e0; 
+            color: #e65100; 
+            border: 2px solid #ff9800;
+        }
+        .status-high { 
+            background-color: #ffebee; 
+            color: #c62828; 
+            border: 2px solid #f44336;
+        }
+
+        .add-source-btn {
+            background-color: #ff9966;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-source-btn:hover {
+            background-color: #ff7f50;
+        }
+
+        .remove-source-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .remove-source-btn:hover {
+            background-color: #c82333;
+        }
+
+        @media (max-width: 768px) {
+            .instruction-bar {
+                font-size: 1em;
+            }
+            
+            .result-section {
+                flex-direction: column;
+            }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            .source-inputs {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Health Calculators</a>
+            <span>/</span>
+            Caffeine Intake Calculator
+        </div>
+
+        <h1>Daily Caffeine Intake Calculator: Know Your Limit to Sleep Better Tonight</h1>
+        <div class="description">Worried that your coffee or energy drink will keep you up at night? Use our calculator to find your safe daily caffeine limit. Enter your drinks and timing to enjoy energy without losing sleep.</div>
+
+        <div class="instruction-bar">
+            Enter your caffeine sources and click Calculate
+        </div>
+
+        <div class="caffeine-source" style="margin-bottom: 30px;">
+            <h3>I am a:</h3>
+            <div class="source-inputs" style="grid-template-columns: 1fr;">
+                <div class="input-group">
+                    <label for="user-type">User Type:</label>
+                    <div class="input-field-container">
+                        <select id="user-type" onchange="updateRecommendedLimit()">
+                            <option value="adult">Adult (18+ years)</option>
+                            <option value="pregnant">Pregnant Woman</option>
+                            <option value="teenager">Teenager (13-17 years)</option>
+                            <option value="child">Child (under 13 years)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <span style="color: #666; font-size: 0.9em;">Recommended daily limit: <span id="user-limit-display" style="font-weight: 600;">400 mg</span></span>
+            </div>
+        </div>
+
+        <div id="caffeine-sources">
+            <div class="caffeine-source" data-source="1">
+                <h3>Caffeine Source 1</h3>
+                <div class="source-inputs">
+                    <div class="input-group">
+                        <label for="source1-type">Source Type:</label>
+                        <div class="input-field-container">
+                            <select id="source1-type" onchange="updateCaffeineContent(1)">
+                                <option value="coffee-cup">Cup of Tea (190g)</option>
+                                <option value="coffee-mug">Mug of Filter Coffee (350g)</option>
+                                <option value="instant-coffee">Mug of Instant Coffee (350g)</option>
+                                <option value="cola">Can of Cola (330ml)</option>
+                                <option value="energy-drink">Energy Drink (250ml)</option>
+                                <option value="espresso">Shot of Espresso</option>
+                                <option value="green-tea">Cup of Green Tea (190g)</option>
+                                <option value="chocolate">Bar of Plain Chocolate</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="source1-quantity">Quantity:</label>
+                        <div class="input-field-container">
+                            <input type="number" id="source1-quantity" min="0" step="0.1" value="1" onchange="calculateTotalCaffeine()">
+                            <div class="unit" id="source1-unit">cup(s)</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="color: #666; font-size: 0.9em;">Caffeine per unit: <span id="source1-caffeine-per-unit">50</span> mg</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="add-source-btn" onclick="addCaffeineSource()">+ Add Another Source</button>
+
+        <div class="buttons">
+            <button class="btn-calculate" onclick="calculateTotalCaffeine()">Calculate</button>
+            <button class="btn-clear" onclick="clearAllInputs()">Clear</button>
+        </div>
+
+        <div class="result-section" id="result-section" style="display: none;">
+            <div class="results">
+                <h2>Your Daily Caffeine Intake</h2>
+                <p>Total Caffeine: <span id="total-caffeine" class="value">0</span> mg</p>
+                <p>Status: <span id="caffeine-status-text" class="value">-</span></p>
+                <div id="caffeine-status-box" class="caffeine-status"></div>
+                <p>Your Recommended Daily Limit: <span id="recommended-limit" class="value">400 mg</span></p>
+                <p>Percentage of Your Limit: <span id="percentage-limit" class="value">0%</span></p>
+                <p style="margin-top: 15px; padding: 10px; background-color: #fff; border-radius: 5px;">
+                    <strong>Note:</strong> <span id="user-type-note" style="color: #666; font-size: 0.95em;">For adults, the maximum recommended intake is 400 mg per day.</span>
+                </p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.3em; font-weight: 500;">Find Your Safe Caffeine Limit: Enjoy Coffee Without Losing Sleep ☕</h3>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Do you ever wonder how much coffee or energy drinks you can safely drink each day? Our Daily Caffeine Intake Calculator can help you. It shows your personal caffeine limit. You can enjoy your drinks without losing sleep 😴. This tool is great for coffee lovers, students, busy workers, and anyone who needs caffeine to stay alert. It also works for parents and nursing mothers 🤱. You can check caffeine intake while breastfeeding. Just enter your drinks, how much you drink, and when you drink them. The calculator gives you instant advice for your body.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">The calculator adds up all your caffeine for the day. It also shows how long it stays in your body ⏰. Most adults can handle a normal caffeine intake per day of 200–400 mg. But everyone is different. Each drink has a different amount. For example, caffeine per cup of coffee can be 70 to 150 mg. The calculator checks your drinks and timing. It estimates how much caffeine is in your blood at different times.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">You might ask, how long does caffeine stay in your system? If you drink coffee late, caffeine can still be in your body at bedtime. That can make it hard to sleep 💤. Nursing mothers should also be careful. Caffeine can pass into breast milk. Our tool gives simple advice. It helps you plan your drinks. You can stay awake and alert ⚡. You can also avoid jitters and sleep problems.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Knowing your caffeine limit is easy. You can drink coffee, tea, or energy drinks without worrying about losing sleep. Enter your usual drinks and see how small changes can make a big difference 📊. Timing and amount matter.</p>
+        
+        <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Don't stop with caffeine. Try our other calculators too. Check your sleep, hydration, and nutrition 🥗. These tools help you make better choices every day. Start with the Daily Caffeine Intake Calculator. Then explore our other tools. Enjoy your drinks and feel good without hurting your sleep ✨.</p>
+
+        <h4 style="color: #333; font-size: 1.3em; margin: 30px 0 20px; font-weight: 500;">Caffeine Questions Answered: Your Safe Limits and Sleep Tips ☕</h4>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q1: How much caffeine is okay in a day? ✅</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Up to 400 milligrams (mg) of caffeine a day seems safe for most adults. That's about the amount of caffeine in four cups of brewed coffee ☕, 10 cans of cola or two "energy shot" drinks.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q2: What are the side effects of caffeine? ⚠️</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Mild adverse effects of caffeine include anxiety 😰, restlessness, fidgeting, insomnia, facial flushing, increased urination, irritability, muscle twitches or tremors, agitation, tachycardia or irregular heart rate ❤️, and gastrointestinal irritation.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q3: Is 200mg of caffeine a lot at once? 🤔</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Further, the EFSA indicates that, for most people, up to 200 mg of caffeine at once doesn't raise health concerns, even "when consumed less than two hours prior to intense physical exercise" 💪. However, they caution that 100 mg of caffeine taken close to bedtime may affect sleep quality 😴.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q4: Who should avoid caffeine? 🚫</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Experts recommend that some people avoid caffeine. These include people with gut troubles like acid reflux, people who have trouble sleeping 💤, and people who have high blood pressure or heart problems. Children 👶, teens, and women who are pregnant 🤰 or breastfeeding are often advised to stay away from caffeine, too.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q5: What organs is caffeine bad for? 🫀</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Digestive and excretory systems. Caffeine increases the amount of acid in your stomach, which may cause heartburn 🔥 or an upset stomach.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 20px;">
+            <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q6: Can caffeine make you sleepy? 😴</strong></p>
+            <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Coffee may contribute to feelings of daytime sleepiness because of the speed it's metabolized or because you've developed a tolerance to caffeine. Coffee can also affect how well you sleep 🌙, which can create a cycle of drinking more coffee throughout the day and sleeping poorly at night.</p>
+        </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Caffeine content per unit (in mg)
+        const caffeineContent = {
+            'coffee-cup': { mg: 50, unit: 'cup(s)', name: 'Cup of Tea (190g)' },
+            'coffee-mug': { mg: 140, unit: 'mug(s)', name: 'Mug of Filter Coffee (350g)' },
+            'instant-coffee': { mg: 100, unit: 'mug(s)', name: 'Mug of Instant Coffee (350g)' },
+            'cola': { mg: 40, unit: 'can(s)', name: 'Can of Cola (330ml)' },
+            'energy-drink': { mg: 80, unit: 'can(s)', name: 'Energy Drink (250ml)' },
+            'espresso': { mg: 45, unit: 'shot(s)', name: 'Shot of Espresso' },
+            'green-tea': { mg: 40, unit: 'cup(s)', name: 'Cup of Green Tea (190g)' },
+            'chocolate': { mg: 25, unit: 'bar(s)', name: 'Bar of Plain Chocolate' }
+        };
+
+        // Recommended caffeine limits by user type (in mg)
+        const caffeineLimits = {
+            'adult': { 
+                limit: 400, 
+                note: 'For adults, the maximum recommended intake is 400 mg per day (about 3-4 cups of coffee).',
+                safeLow: 200,
+                safeHigh: 400
+            },
+            'pregnant': { 
+                limit: 200, 
+                note: 'Pregnant women should limit caffeine intake to 200 mg per day to minimize health risks to the baby.',
+                safeLow: 100,
+                safeHigh: 200
+            },
+            'teenager': { 
+                limit: 100, 
+                note: 'Teenagers (13-17 years) should limit caffeine to 100 mg per day as their bodies are still developing.',
+                safeLow: 50,
+                safeHigh: 100
+            },
+            'child': { 
+                limit: 45, 
+                note: 'Children under 13 should generally avoid caffeine. If consumed, it should not exceed 45 mg per day.',
+                safeLow: 0,
+                safeHigh: 45
+            }
+        };
+
+        let sourceCount = 1;
+
+        function updateRecommendedLimit() {
+            const userType = document.getElementById('user-type').value;
+            const limitInfo = caffeineLimits[userType];
+            
+            // Update the display in the user type selector
+            document.getElementById('user-limit-display').textContent = limitInfo.limit + ' mg';
+            
+            // Recalculate if results are showing
+            if (document.getElementById('result-section').style.display !== 'none') {
+                calculateTotalCaffeine();
+            }
+        }
+
+        function updateCaffeineContent(sourceNumber) {
+            const selectElement = document.getElementById(`source${sourceNumber}-type`);
+            const caffeinePerUnitElement = document.getElementById(`source${sourceNumber}-caffeine-per-unit`);
+            const unitElement = document.getElementById(`source${sourceNumber}-unit`);
+            
+            const selectedType = selectElement.value;
+            const content = caffeineContent[selectedType];
+            
+            caffeinePerUnitElement.textContent = content.mg;
+            unitElement.textContent = content.unit;
+            
+            calculateTotalCaffeine();
+        }
+
+        function addCaffeineSource() {
+            sourceCount++;
+            const sourcesContainer = document.getElementById('caffeine-sources');
+            
+            const newSource = document.createElement('div');
+            newSource.className = 'caffeine-source';
+            newSource.setAttribute('data-source', sourceCount);
+            newSource.innerHTML = `
+                <h3>Caffeine Source ${sourceCount} 
+                    <button class="remove-source-btn" onclick="removeCaffeineSource(${sourceCount})">Remove</button>
+                </h3>
+                <div class="source-inputs">
+                    <div class="input-group">
+                        <label for="source${sourceCount}-type">Source Type:</label>
+                        <div class="input-field-container">
+                            <select id="source${sourceCount}-type" onchange="updateCaffeineContent(${sourceCount})">
+                                <option value="coffee-cup">Cup of Tea (190g)</option>
+                                <option value="coffee-mug">Mug of Filter Coffee (350g)</option>
+                                <option value="instant-coffee">Mug of Instant Coffee (350g)</option>
+                                <option value="cola">Can of Cola (330ml)</option>
+                                <option value="energy-drink">Energy Drink (250ml)</option>
+                                <option value="espresso">Shot of Espresso</option>
+                                <option value="green-tea">Cup of Green Tea (190g)</option>
+                                <option value="chocolate">Bar of Plain Chocolate</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="source${sourceCount}-quantity">Quantity:</label>
+                        <div class="input-field-container">
+                            <input type="number" id="source${sourceCount}-quantity" min="0" step="0.1" value="1" onchange="calculateTotalCaffeine()">
+                            <div class="unit" id="source${sourceCount}-unit">cup(s)</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="color: #666; font-size: 0.9em;">Caffeine per unit: <span id="source${sourceCount}-caffeine-per-unit">50</span> mg</span>
+                </div>
+            `;
+            
+            sourcesContainer.appendChild(newSource);
+            updateCaffeineContent(sourceCount);
+        }
+
+        function removeCaffeineSource(sourceNumber) {
+            const sourceElement = document.querySelector(`[data-source="${sourceNumber}"]`);
+            if (sourceElement) {
+                sourceElement.remove();
+                calculateTotalCaffeine();
+            }
+        }
+
+        function calculateTotalCaffeine() {
+            let totalCaffeine = 0;
+            
+            // Calculate caffeine from all sources
+            for (let i = 1; i <= sourceCount; i++) {
+                const sourceElement = document.querySelector(`[data-source="${i}"]`);
+                if (sourceElement) {
+                    const typeSelect = document.getElementById(`source${i}-type`);
+                    const quantityInput = document.getElementById(`source${i}-quantity`);
+                    
+                    if (typeSelect && quantityInput) {
+                        const selectedType = typeSelect.value;
+                        const quantity = parseFloat(quantityInput.value) || 0;
+                        const caffeinePerUnit = caffeineContent[selectedType].mg;
+                        
+                        totalCaffeine += quantity * caffeinePerUnit;
+                    }
+                }
+            }
+            
+            // Get user type and limits
+            const userType = document.getElementById('user-type').value;
+            const limitInfo = caffeineLimits[userType];
+            const maxLimit = limitInfo.limit;
+            const safeLow = limitInfo.safeLow;
+            const safeHigh = limitInfo.safeHigh;
+            
+            // Update results
+            document.getElementById('total-caffeine').textContent = Math.round(totalCaffeine);
+            document.getElementById('recommended-limit').textContent = maxLimit + ' mg';
+            document.getElementById('user-type-note').textContent = limitInfo.note;
+            
+            // Determine status based on user type
+            let status, statusClass, statusText;
+            const percentage = (totalCaffeine / maxLimit) * 100;
+            
+            if (totalCaffeine <= safeLow) {
+                status = 'Safe';
+                statusClass = 'status-safe';
+                statusText = 'Your caffeine intake is within safe limits. ✅';
+            } else if (totalCaffeine <= safeHigh) {
+                status = 'Moderate';
+                statusClass = 'status-moderate';
+                statusText = 'Your caffeine intake is moderate. Consider monitoring your consumption. ⚠️';
+            } else {
+                status = 'High';
+                statusClass = 'status-high';
+                statusText = 'Your caffeine intake exceeds recommended limits. Consider reducing consumption. ❌';
+            }
+            
+            document.getElementById('caffeine-status-text').textContent = status;
+            document.getElementById('caffeine-status-box').className = `caffeine-status ${statusClass}`;
+            document.getElementById('caffeine-status-box').textContent = statusText;
+            document.getElementById('percentage-limit').textContent = Math.round(percentage) + '%';
+            
+            // Show results
+            document.getElementById('result-section').style.display = 'flex';
+        }
+
+        function clearAllInputs() {
+            // Reset all quantity inputs
+            for (let i = 1; i <= sourceCount; i++) {
+                const quantityInput = document.getElementById(`source${i}-quantity`);
+                if (quantityInput) {
+                    quantityInput.value = '1';
+                }
+            }
+            
+            // Reset results
+            document.getElementById('total-caffeine').textContent = '0';
+            document.getElementById('caffeine-status-text').textContent = '-';
+            document.getElementById('caffeine-status-box').className = 'caffeine-status';
+            document.getElementById('caffeine-status-box').textContent = '';
+            document.getElementById('percentage-limit').textContent = '0%';
+            
+            // Hide results
+            document.getElementById('result-section').style.display = 'none';
+        }
+
+        // Initialize calculator
+        window.onload = function() {
+            updateCaffeineContent(1);
+            updateRecommendedLimit();
+            document.getElementById('result-section').style.display = 'none';
+        };
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
