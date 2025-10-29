@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Loan Payoff Calculator – Pay Off Debt Faster</title>
+    <meta name="description" content="Use our free Student Loan Payoff Calculator to see how small extra payments can save you thousands and shorten your repayment time. Plan your debt-free future today.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Student Loan Payoff Calculator – Pay Off Debt Faster",
+      "url": "https://www.calculatorquote.com/financial/student-loan-calculator.html",
+      "description": "Use our free Student Loan Payoff Calculator to see how small extra payments can save you thousands and shorten your repayment time. Plan your debt-free future today.",
+      "keywords": ["student loan calculator", "loan payment calculator", "student debt calculator", "federal student loan", "private student loan"],
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I calculate the loan balance on a student loan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To calculate your loan balance, you need your monthly payment amount, interest rate, and remaining term. Use the loan amortization formula or an online calculator to determine your current balance based on these values."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a National Student Loan Data System?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The National Student Loan Data System (NSLDS) is the U.S. government's central database for tracking federal student loans and grants. It helps manage student loans by providing details like loan balances, interest rates, and repayment status in one place."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a Perkins loan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A Perkins Loan was a type of federal student loan for students with exceptional financial need. It had a low fixed interest rate of 5% and offered loans of up to $5,500 per year for undergraduates and $8,000 per year for graduates. The Perkins Loan program ended in 2017."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between federal and private student loans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Federal student loans are funded by the government with fixed interest rates (typically 4.45% for undergraduates), while private student loans come from banks with variable rates (around 7.99%). Federal loans offer benefits like income-driven repayment plans, loan forgiveness options, and interest subsidization."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are private student loans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Private student loans are non-federal loans issued by banks, credit unions, or online lenders. They typically have variable interest rates, require credit checks, and offer less flexible repayment options compared to federal loans. However, they can help cover costs beyond federal loan limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are ABE student loans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ABE (Adult Basic Education) student loans are financial aid options for adults pursuing basic education or GED programs. These programs help adults complete their high school equivalency and may qualify for certain federal and state financial aid programs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get private student loans with no cosigner?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it is possible to get private student loans without a cosigner, but it typically requires a strong credit history and stable income. Some lenders offer no-cosigner loans specifically for students, though these may have higher interest rates. Graduate students and those with established credit are more likely to qualify."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the maximum student loan amount for lifetime undergraduates?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For federal student loans, dependent undergraduates can borrow up to $31,000 in total (with no more than $23,000 in subsidized loans). Independent undergraduates can borrow up to $57,500 in total (with no more than $23,000 in subsidized loans). Graduate students can borrow up to $138,500 total, including undergraduate loans."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Student Loan Calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+        .input-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #e8f5e8;
+            border-radius: 12px;
+            border: 1px solid #4caf50;
+            display: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 40px auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #eb5424;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .info-box {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .info-box p {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <section class="tm-home">
+        <div class="main-content-wrapper">
+            <div class="content-area">
+                <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span>/</span>
+                        <a href="index.html">Financial Calculators</a>
+                        <span>/</span>
+                        Student Loan Calculator
+                    </div>
+
+                    <h1>Student Loan Payoff Calculator: Discover How Small Changes Can Cut Years Off Debt</h1>
+                    <div class="description">Struggling with student debt? Use our free calculator to see how small extra payments can save you thousands and help you become debt-free faster. Adjust your balance, rate, and payment to plan your payoff today.</div>
+
+                    <div class="input-section">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan-balance">Loan Balance ($):</label>
+                                <input type="number" id="loan-balance" min="0" step="100" placeholder="e.g., 10000">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest-rate">Interest Rate (% per year):</label>
+                                <input type="number" id="interest-rate" min="0" max="30" step="0.01" placeholder="e.g., 5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="term-type">Remaining Term Input Type:</label>
+                            <select id="term-type" onchange="toggleTermInputs()">
+                                <option value="years-months">Years + Months</option>
+                                <option value="months-only">Months Only</option>
+                            </select>
+                        </div>
+                        <div class="form-row" id="years-months-inputs">
+                            <div class="form-group">
+                                <label for="remaining-years">Remaining Term:</label>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="number" id="remaining-years" min="0" max="30" step="1" placeholder="e.g., 5" style="flex: 1;">
+                                    <span style="color: #666; font-weight: 500;">Years</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="remaining-months-part">&nbsp;</label>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="number" id="remaining-months-part" min="0" max="11" step="1" value="0" placeholder="0-11" style="flex: 1;">
+                                    <span style="color: #666; font-weight: 500;">Months</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="months-only-input" style="display: none;">
+                            <label for="remaining-months-total">Remaining Term:</label>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <input type="number" id="remaining-months-total" min="0" step="1" placeholder="e.g., 60" style="flex: 1;">
+                                <span style="color: #666; font-weight: 500;">Months</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateLoan()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+
+                    <div class="result-section" id="result-section">
+                        <div class="results">
+                            <h2>Calculation Results</h2>
+                            <p id="calculated-value-display" style="font-size: 1.5em; color: #eb5424; font-weight: 600; margin: 15px 0;">Monthly Payment: $0.00</p>
+                            <p>Loan Balance: <span id="loan-balance-result" class="value">$0</span></p>
+                            <p>Interest Rate: <span id="interest-rate-result" class="value">0%</span></p>
+                            <p>Remaining Term: <span id="remaining-term-result" class="value">0 months</span></p>
+                            <p>Total Interest Paid: <span id="total-interest" class="value">$0</span></p>
+                            <p>Total Amount Paid: <span id="total-paid" class="value">$0</span></p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.3em; font-weight: 500;">🎓 How to Pay Off Student Loans Faster — Simple Steps to Save Money and Time</h3>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Paying off student loans can feel like a never-ending task 😓. If you're trying to clear your student debt faster, our Student Loan Payoff Calculator can help. It's designed for anyone with federal or private loans 💼, including Navy Federal student loans or credit union student loans. This simple tool shows how small extra payments can save you thousands of dollars 💰 in interest and help you become debt-free sooner.</p>
+                    
+                    <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">How the Student Loan Payoff Calculator Works ⚙️</h4>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Start by entering your loan balance, interest rate, and monthly payment 📊. The calculator instantly estimates how long it will take to pay off your debt. If you increase your monthly payment, even by a small amount, you'll see how that change reduces both your total interest and payoff time ⏰.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">For example, if you add $50 each month toward your student loan 📈, you might shorten your repayment term by years. The calculator helps you visualize these savings so you can make informed financial decisions 🎯.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">When using the calculator, it's important to understand the difference between subsidized and unsubsidized student loans 📚. With subsidized loans, the government covers interest while you're in school. Unsubsidized loans, however, start collecting interest right away ⚠️. This small difference can greatly affect how much you'll owe in the long run.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Many borrowers also ask, "Do student loans affect your credit score 💳?" The short answer is yes. Paying on time can build your credit ✅, while missed payments can lower your score. Using a payoff plan helps you stay on track and protect your financial reputation.</p>
+                    
+                    <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">Take Control of Your Student Debt 💪</h4>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Paying off your loans doesn't have to be stressful 😌. Use our Student Loan Payoff Calculator to test different payment plans and interest scenarios. It's a smart way to plan your future 🌟 and avoid years of unnecessary debt.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Once you've mapped out your student loan payoff 🗺️, explore our other free tools — like our Budget Planner or Debt-to-Income Ratio Calculator — to keep improving your financial health 📈. The path to financial freedom starts with one calculation 🚀.</p>
+
+                    <h4 style="color: #333; font-size: 1.3em; margin: 30px 0 20px; font-weight: 500;">Student Loan Payoff FAQs — Everything You Need to Know</h4>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q1: What is a student loan? 💡</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: A federal student loan is money borrowed from the federal government 🏛️ to help pay for your education, that must be repaid with interest.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q2: Who qualifies for a student loan? ✔️</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: To qualify for a student loan you'll need the following: Your latest exam results 📝. A statement of tuition fees, textbooks, equipment and accommodation. Proof of registration at an institution that is approved by the South African Qualifications Authority.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q3: How does a student loan work? 🔄</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: How Education Loans Work? For those students who apply for an Education Loan 🎓, it is not necessary to pay the amount immediately; the repayment tenure starts from months or year, after the completion of the course. And in some cases, it can be extended from 5 to 7 years ⏳. The interest rate varies as per the banks.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q4: Are student loans a good or bad thing? 🤔</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Borrowing money to pay for college is not a bad thing. In fact, it's how most students pay for college 🎓. However, borrowing can go bad if you take too much ⚠️. You will spend decades of your life repaying that burden, which can sometimes create a domino effect in how you save and spend for a lifetime.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q5: Can anyone qualify for a student loan? 🙋</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Eligibility Requirements 📋. Our general eligibility requirements include that you have financial need for need-based aid, are a U.S. citizen or eligible noncitizen 🇺🇸, and are enrolled in an eligible degree or certificate program at an eligible college or career/trade school.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q6: How do people pay off student loans? 💵</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Repayment plans based on your income 💼 are a smart choice to lower your payment. The lower your income—or the larger your family size—the less you'll pay each month 📉. If you don't pick a repayment plan, your loan servicer will place you on the Standard Repayment Plan (a 10-year fixed payment repayment plan).</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Toggle between term input methods
+        function toggleTermInputs() {
+            const termType = document.getElementById('term-type').value;
+            const yearsMonthsInputs = document.getElementById('years-months-inputs');
+            const monthsOnlyInput = document.getElementById('months-only-input');
+            
+            if (termType === 'years-months') {
+                yearsMonthsInputs.style.display = 'grid';
+                monthsOnlyInput.style.display = 'none';
+                document.getElementById('remaining-months-total').value = '';
+            } else {
+                yearsMonthsInputs.style.display = 'none';
+                monthsOnlyInput.style.display = 'block';
+                document.getElementById('remaining-years').value = '';
+                document.getElementById('remaining-months-part').value = '0';
+            }
+        }
+
+        // Calculate loan payment using amortization formula
+        function calculateMonthlyPayment(principal, annualRate, months) {
+            if (months === 0) return 0;
+            const monthlyRate = annualRate / 12 / 100;
+            if (monthlyRate === 0) return principal / months;
+            return principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+        }
+
+        // Calculate loan balance from monthly payment
+        function calculateLoanBalance(payment, annualRate, months) {
+            if (months === 0) return 0;
+            const monthlyRate = annualRate / 12 / 100;
+            if (monthlyRate === 0) return payment * months;
+            return payment * (Math.pow(1 + monthlyRate, months) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, months));
+        }
+
+        // Calculate remaining months from loan balance and payment
+        function calculateRemainingMonths(principal, annualRate, payment) {
+            const monthlyRate = annualRate / 12 / 100;
+            if (monthlyRate === 0) return principal / payment;
+            if (payment <= principal * monthlyRate) return Infinity; // Payment too small
+            return Math.log(payment / (payment - principal * monthlyRate)) / Math.log(1 + monthlyRate);
+        }
+
+        // Calculate interest rate (using iterative approach)
+        function calculateInterestRate(principal, months, payment) {
+            let low = 0, high = 30;
+            let mid, calcPayment;
+            
+            for (let i = 0; i < 100; i++) {
+                mid = (low + high) / 2;
+                calcPayment = calculateMonthlyPayment(principal, mid, months);
+                
+                if (Math.abs(calcPayment - payment) < 0.01) {
+                    return mid;
+                }
+                
+                if (calcPayment < payment) {
+                    high = mid;
+                } else {
+                    low = mid;
+                }
+            }
+            return mid;
+        }
+
+        function calculateLoan() {
+            const loanBalance = parseFloat(document.getElementById('loan-balance').value) || null;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || null;
+            
+            // Get total months based on input type
+            const termType = document.getElementById('term-type').value;
+            let totalMonths = 0;
+            
+            if (termType === 'years-months') {
+                const years = parseInt(document.getElementById('remaining-years').value) || 0;
+                const months = parseInt(document.getElementById('remaining-months-part').value) || 0;
+                totalMonths = years * 12 + months;
+            } else {
+                totalMonths = parseInt(document.getElementById('remaining-months-total').value) || 0;
+            }
+            
+            // Count how many values are provided
+            let providedCount = 0;
+            if (loanBalance !== null) providedCount++;
+            if (interestRate !== null) providedCount++;
+            if (totalMonths > 0) providedCount++;
+            
+            if (providedCount < 3) {
+                alert('Please enter all 3 values (Loan Balance, Interest Rate, and Remaining Term) to calculate Monthly Payment.');
+                return;
+            }
+            
+            // Calculate monthly payment
+            const monthlyPayment = calculateMonthlyPayment(loanBalance, interestRate, totalMonths);
+            const totalPaid = monthlyPayment * totalMonths;
+            const totalInterest = totalPaid - loanBalance;
+            
+            // Display all results
+            document.getElementById('calculated-value-display').textContent = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+            document.getElementById('loan-balance-result').textContent = `$${loanBalance.toFixed(2)}`;
+            document.getElementById('interest-rate-result').textContent = `${interestRate.toFixed(2)}%`;
+            
+            const displayYears = Math.floor(totalMonths / 12);
+            const displayMonths = totalMonths % 12;
+            if (displayYears > 0) {
+                document.getElementById('remaining-term-result').textContent = `${displayYears} years ${displayMonths} months (${totalMonths} months)`;
+            } else {
+                document.getElementById('remaining-term-result').textContent = `${totalMonths} months`;
+            }
+            
+            document.getElementById('total-interest').textContent = `$${totalInterest.toFixed(2)}`;
+            document.getElementById('total-paid').textContent = `$${totalPaid.toFixed(2)}`;
+            document.getElementById('result-section').style.display = 'block';
+        }
+
+        function clearInputs() {
+            document.getElementById('loan-balance').value = '';
+            document.getElementById('interest-rate').value = '';
+            document.getElementById('remaining-years').value = '';
+            document.getElementById('remaining-months-part').value = '0';
+            document.getElementById('remaining-months-total').value = '';
+            document.getElementById('term-type').value = 'years-months';
+            toggleTermInputs();
+            document.getElementById('result-section').style.display = 'none';
+        }
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
