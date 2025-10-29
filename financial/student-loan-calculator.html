@@ -123,6 +123,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -515,19 +516,26 @@
     <script>
         // Toggle between term input methods
         function toggleTermInputs() {
-            const termType = document.getElementById('term-type').value;
+            const termTypeEl = document.getElementById('term-type');
             const yearsMonthsInputs = document.getElementById('years-months-inputs');
             const monthsOnlyInput = document.getElementById('months-only-input');
+            const remainingMonthsTotal = document.getElementById('remaining-months-total');
+            const remainingYears = document.getElementById('remaining-years');
+            const remainingMonthsPart = document.getElementById('remaining-months-part');
+            
+            if (!termTypeEl || !yearsMonthsInputs || !monthsOnlyInput) return;
+            
+            const termType = termTypeEl.value;
             
             if (termType === 'years-months') {
                 yearsMonthsInputs.style.display = 'grid';
                 monthsOnlyInput.style.display = 'none';
-                document.getElementById('remaining-months-total').value = '';
+                if (remainingMonthsTotal) remainingMonthsTotal.value = '';
             } else {
                 yearsMonthsInputs.style.display = 'none';
                 monthsOnlyInput.style.display = 'block';
-                document.getElementById('remaining-years').value = '';
-                document.getElementById('remaining-months-part').value = '0';
+                if (remainingYears) remainingYears.value = '';
+                if (remainingMonthsPart) remainingMonthsPart.value = '0';
             }
         }
 
@@ -578,19 +586,34 @@
         }
 
         function calculateLoan() {
-            const loanBalance = parseFloat(document.getElementById('loan-balance').value) || null;
-            const interestRate = parseFloat(document.getElementById('interest-rate').value) || null;
+            const loanBalanceEl = document.getElementById('loan-balance');
+            const interestRateEl = document.getElementById('interest-rate');
+            const termTypeEl = document.getElementById('term-type');
+            
+            if (!loanBalanceEl || !interestRateEl || !termTypeEl) {
+                console.error('Required input elements not found');
+                return;
+            }
+            
+            const loanBalance = parseFloat(loanBalanceEl.value) || null;
+            const interestRate = parseFloat(interestRateEl.value) || null;
             
             // Get total months based on input type
-            const termType = document.getElementById('term-type').value;
+            const termType = termTypeEl.value;
             let totalMonths = 0;
             
             if (termType === 'years-months') {
-                const years = parseInt(document.getElementById('remaining-years').value) || 0;
-                const months = parseInt(document.getElementById('remaining-months-part').value) || 0;
+                const remainingYearsEl = document.getElementById('remaining-years');
+                const remainingMonthsPartEl = document.getElementById('remaining-months-part');
+                if (!remainingYearsEl || !remainingMonthsPartEl) return;
+                
+                const years = parseInt(remainingYearsEl.value) || 0;
+                const months = parseInt(remainingMonthsPartEl.value) || 0;
                 totalMonths = years * 12 + months;
             } else {
-                totalMonths = parseInt(document.getElementById('remaining-months-total').value) || 0;
+                const remainingMonthsTotalEl = document.getElementById('remaining-months-total');
+                if (!remainingMonthsTotalEl) return;
+                totalMonths = parseInt(remainingMonthsTotalEl.value) || 0;
             }
             
             // Count how many values are provided
@@ -609,33 +632,51 @@
             const totalPaid = monthlyPayment * totalMonths;
             const totalInterest = totalPaid - loanBalance;
             
-            // Display all results
-            document.getElementById('calculated-value-display').textContent = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
-            document.getElementById('loan-balance-result').textContent = `$${loanBalance.toFixed(2)}`;
-            document.getElementById('interest-rate-result').textContent = `${interestRate.toFixed(2)}%`;
+            // Display all results with element existence checks
+            const calculatedValueEl = document.getElementById('calculated-value-display');
+            const loanBalanceResultEl = document.getElementById('loan-balance-result');
+            const interestRateResultEl = document.getElementById('interest-rate-result');
+            const remainingTermResultEl = document.getElementById('remaining-term-result');
+            const totalInterestEl = document.getElementById('total-interest');
+            const totalPaidEl = document.getElementById('total-paid');
+            const resultSectionEl = document.getElementById('result-section');
+            
+            if (calculatedValueEl) calculatedValueEl.textContent = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+            if (loanBalanceResultEl) loanBalanceResultEl.textContent = `$${loanBalance.toFixed(2)}`;
+            if (interestRateResultEl) interestRateResultEl.textContent = `${interestRate.toFixed(2)}%`;
             
             const displayYears = Math.floor(totalMonths / 12);
             const displayMonths = totalMonths % 12;
-            if (displayYears > 0) {
-                document.getElementById('remaining-term-result').textContent = `${displayYears} years ${displayMonths} months (${totalMonths} months)`;
-            } else {
-                document.getElementById('remaining-term-result').textContent = `${totalMonths} months`;
+            if (remainingTermResultEl) {
+                if (displayYears > 0) {
+                    remainingTermResultEl.textContent = `${displayYears} years ${displayMonths} months (${totalMonths} months)`;
+                } else {
+                    remainingTermResultEl.textContent = `${totalMonths} months`;
+                }
             }
             
-            document.getElementById('total-interest').textContent = `$${totalInterest.toFixed(2)}`;
-            document.getElementById('total-paid').textContent = `$${totalPaid.toFixed(2)}`;
-            document.getElementById('result-section').style.display = 'block';
+            if (totalInterestEl) totalInterestEl.textContent = `$${totalInterest.toFixed(2)}`;
+            if (totalPaidEl) totalPaidEl.textContent = `$${totalPaid.toFixed(2)}`;
+            if (resultSectionEl) resultSectionEl.style.display = 'block';
         }
 
         function clearInputs() {
-            document.getElementById('loan-balance').value = '';
-            document.getElementById('interest-rate').value = '';
-            document.getElementById('remaining-years').value = '';
-            document.getElementById('remaining-months-part').value = '0';
-            document.getElementById('remaining-months-total').value = '';
-            document.getElementById('term-type').value = 'years-months';
+            const loanBalanceEl = document.getElementById('loan-balance');
+            const interestRateEl = document.getElementById('interest-rate');
+            const remainingYearsEl = document.getElementById('remaining-years');
+            const remainingMonthsPartEl = document.getElementById('remaining-months-part');
+            const remainingMonthsTotalEl = document.getElementById('remaining-months-total');
+            const termTypeEl = document.getElementById('term-type');
+            const resultSectionEl = document.getElementById('result-section');
+            
+            if (loanBalanceEl) loanBalanceEl.value = '';
+            if (interestRateEl) interestRateEl.value = '';
+            if (remainingYearsEl) remainingYearsEl.value = '';
+            if (remainingMonthsPartEl) remainingMonthsPartEl.value = '0';
+            if (remainingMonthsTotalEl) remainingMonthsTotalEl.value = '';
+            if (termTypeEl) termTypeEl.value = 'years-months';
             toggleTermInputs();
-            document.getElementById('result-section').style.display = 'none';
+            if (resultSectionEl) resultSectionEl.style.display = 'none';
         }
     </script>
 
