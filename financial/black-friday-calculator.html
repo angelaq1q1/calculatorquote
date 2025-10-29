@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Friday Calculator – Quickly See Your Savings on Every Deal</title>
+    <meta name="description" content="Use our Black Friday Calculator to instantly calculate savings on every item. Enter prices, discounts, and quantities to plan your budget and avoid overspending this holiday season.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Black Friday Calculator – Quickly See Your Savings on Every Deal",
+      "url": "https://www.calculatorquote.com/financial/black-friday-calculator.html",
+      "description": "Use our Black Friday Calculator to instantly calculate savings on every item. Enter prices, discounts, and quantities to plan your budget and avoid overspending this holiday season.",
+      "keywords": ["black friday calculator", "black friday deals", "discount calculator", "savings calculator", "shopping calculator"],
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "When is Black Friday 2025?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Black Friday 2025 is on November 28th. It always falls on the first Friday after Thanksgiving in the United States."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Black Friday worth it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Black Friday can offer genuine savings, but research shows that 87% of popular items may be found at a cheaper price at another time of the year. Use price comparison tools and check historical prices before making purchases."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a double discount?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A double discount means two discounts are applied sequentially, not added together. For example, 50% + 30% doesn't mean 80% off. First, 50% is taken off, then 30% is taken from the new price, resulting in a 65% total discount."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does 2 for 1 mean?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2 for 1 means you buy one item and get a second one for free. This is effectively a 50% discount on two items if both cost the same. If prices differ, the cheaper item is typically the free one."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the best Black Friday furniture deals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Black Friday furniture deals typically offer 30-70% off on sofas, beds, dining sets, and home office furniture. Major retailers like Ashley Furniture, IKEA, Wayfair, and local furniture stores usually participate. Use our calculator to compare discounts and ensure you're getting genuine savings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Rebecca Black Friday about?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rebecca Black's song 'Friday' became a viral internet phenomenon in 2011. While not directly related to Black Friday shopping, the song is often referenced in Black Friday marketing and memes due to the shared word 'Friday' in both contexts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When is Meijer Black Friday 2025?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Meijer Black Friday 2025 will be on November 28th, the day after Thanksgiving. Meijer typically starts Black Friday deals online earlier in the week and opens stores on Thanksgiving evening or early Black Friday morning with doorbusters on electronics, toys, and household items."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Peacock have Black Friday deals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Peacock (NBCUniversal's streaming service) typically offers Black Friday deals with discounted annual subscriptions, often up to 75% off for Premium and Premium Plus plans. These deals usually run from Black Friday through Cyber Monday."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Black Friday Calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .input-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .deal-type-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #e8f5e8;
+            border-radius: 12px;
+            border: 1px solid #4caf50;
+            display: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 40px auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .results p {
+            margin: 0;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .results .value {
+            color: #eb5424;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .deal-quality {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .deal-quality.great {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .deal-quality.good {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+
+        .deal-quality.poor {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+
+        @media (max-width: 768px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <section class="tm-home">
+        <div class="main-content-wrapper">
+            <div class="content-area">
+                <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span>/</span>
+                        <a href="index.html">Financial Calculators</a>
+                        <span>/</span>
+                        Black Friday Calculator
+                    </div>
+
+                    <h1>Black Friday Calculator: Quickly See How Much You'll Save</h1>
+                    <div class="description">Black Friday shopping is tricky with endless deals. Our Black Friday Calculator helps you find total savings fast. Enter item prices, discounts, and quantities to plan your budget, avoid overspending, and maximize this year's holiday sales.</div>
+
+                    <div class="input-section">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="original-price">Original Price ($)</label>
+                                <input type="number" id="original-price" min="0" step="0.01" placeholder="e.g., 100.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="discount-percent">Discount (%)</label>
+                                <input type="number" id="discount-percent" min="0" max="100" step="0.1" placeholder="e.g., 20">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" id="quantity" min="1" step="1" value="1" placeholder="e.g., 1">
+                            </div>
+                            <div class="form-group">
+                                <label for="tax-shipping">Tax / Shipping ($) (optional)</label>
+                                <input type="number" id="tax-shipping" min="0" step="0.01" placeholder="e.g., 5.00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="coupon-percent">Extra Coupon / Discount Code (%) (optional)</label>
+                            <input type="number" id="coupon-percent" min="0" max="100" step="0.1" placeholder="e.g., 10">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateDeal()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+
+                    <p style="text-align: left; color: #999; font-size: 0.85em; margin-top: -20px; margin-bottom: 20px;">* All prices are assumed to include tax</p>
+
+                    <div class="result-section" id="result-section">
+                        <div class="results">
+                            <h2>Your Savings Summary</h2>
+                            <p>Discount per Item: <span id="discount-per-item" class="value">$0.00</span></p>
+                            <p>Price per Item (After Discount): <span id="price-per-item" class="value">$0.00</span></p>
+                            <p>Total Price (Before Tax/Shipping): <span id="total-before-tax" class="value">$0.00</span></p>
+                            <p style="color: #4caf50; font-weight: 600; font-size: 1.2em;">💰 Total Savings: <span id="total-savings" style="color: #4caf50;">$0.00</span></p>
+                            <p style="font-size: 1.3em; font-weight: 700; margin-top: 15px;">Final Total (With Tax/Shipping): <span id="final-total" class="value">$0.00</span></p>
+                            <p style="color: #666; font-size: 0.95em; margin-top: 10px;">You're saving <span id="savings-percent" style="color: #4caf50; font-weight: 600;">0%</span> on this purchase!</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.3em; font-weight: 500;">Black Friday Calculator 2025: See Your Savings Instantly</h3>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">The Black Friday 2025 season is here 🎉, and it can feel overwhelming. So many deals happen at once, it's easy to get confused. Our Black Friday Calculator helps you see exactly how much you'll save. It's perfect for anyone shopping for electronics 📱, clothes, or home goods. Just enter the item price, discount, and quantity. The calculator will show your total savings and final cost. This way, you can plan your budget and avoid overspending during black Friday deals.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Shopping during Black Friday Cyber Monday deals can be tricky. Some offers only last a few hours ⏰. Others require special coupons. Our calculator makes it easy. It calculates your savings for each item by applying the discount. If you buy multiple items, it adds everything up. You can even include taxes or shipping to see the total cost. This is especially helpful when checking the best buy deal of the day 🔥. The calculator lets you compare deals and see which ones save the most. Always check the details of each promotion. Some discounts may not combine.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Using the Black Friday Calculator helps you shop smarter. You can see how much money you save 💰 and plan your purchases. It prevents impulse buys and helps you stick to a budget. You will know which deals are worth it ✅ and which ones to skip. This tool works well for anyone who wants to make the most of Black Friday 2025 and Cyber Monday. It keeps your spending under control while still enjoying the excitement of holiday sales.</p>
+                    
+                    <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">Ready to save more this holiday season 🎄? Try our other calculators to track gift budgets 🎁, estimate shipping costs, or plan overall holiday spending. Our tools make shopping easier and more organized. Start with the Black Friday Calculator now and see your savings instantly. Plan your purchases with confidence and make the most of Black Friday deals this year.</p>
+
+                    <h4 style="color: #333; font-size: 1.3em; margin: 30px 0 20px; font-weight: 500;">Black Friday Calculator FAQ – Tips to Save More</h4>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q1: When exactly is Black Friday? 📅</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Since Black Friday is tied to Thanksgiving, its date shifts from year to year. However, it consistently lands on the Friday after the fourth Thursday of November. Knowing the exact date well in advance gives shoppers plenty of time to plan their purchases and set a budget for the deals ahead.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q2: What is so special about Black Friday?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Black Friday is a term commonly used to refer to the Friday after Thanksgiving, when retailers have traditionally kicked off the holiday shopping season 🎄 with deep discounts.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q3: Why is it called Black Friday?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Many people believe "Black Friday" got the name because it is when retail stores get out of the red and into the black. But the name "Black Friday" actually came to prominence because of a logistical nightmare caused by the annual Army vs. Navy football game 🏈 in Philadelphia during the 1960's.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q4: How long will Black Friday last?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Black Friday deals typically last for four days 📆 with the last day (Cyber Monday) often seeing further reductions. However, we always see early Black Friday deals dropping throughout November, including on 'Fake Friday' which is a week before the event (November 21).</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q5: Why do people like Black Friday?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The timing of Black Friday is one of the main reasons that it is so successful. Traditionally Black Friday marks the end of Thanksgiving celebrations, and marks the beginning of the Christmas period 🎅. For many people then, Black Friday is the perfect opportunity to buy Christmas gifts 🎁 at discounted prices.</p>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: 20px;">
+                        <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q6: How long do Black Friday sales last?</strong></p>
+                        <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The main sale period is the four-day event from Black Friday to Cyber Monday. In 2025, this will be from Friday, November 28, to Monday, December 1. Many retailers begin sales in the weeks leading up to Black Friday, and some stores may extend their sales past Cyber Monday, because why not 😊?</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function calculateDeal() {
+            // Get input values
+            const price = parseFloat(document.getElementById('original-price').value) || 0;
+            const discountPercent = parseFloat(document.getElementById('discount-percent').value) || 0;
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const taxShipping = parseFloat(document.getElementById('tax-shipping').value) || 0;
+            const couponPercent = parseFloat(document.getElementById('coupon-percent').value) || 0;
+            
+            // Validate inputs
+            if (price === 0) {
+                alert('Please enter the original price.');
+                return;
+            }
+            
+            // Calculate discount amount per item
+            const discountAmount = price * (discountPercent / 100);
+            
+            // Calculate price per item after discount
+            let pricePerItem = price - discountAmount;
+            
+            // Apply coupon if exists (discount on already discounted price)
+            if (couponPercent > 0) {
+                pricePerItem = pricePerItem * (1 - couponPercent / 100);
+            }
+            
+            // Calculate total price before tax/shipping
+            const totalBeforeTax = pricePerItem * quantity;
+            
+            // Calculate total savings
+            const totalSavings = (price - pricePerItem) * quantity;
+            
+            // Calculate final total with tax/shipping
+            const finalTotal = totalBeforeTax + taxShipping;
+            
+            // Calculate savings percentage
+            const savingsPercent = ((totalSavings / (price * quantity)) * 100).toFixed(1);
+            
+            // Display results
+            document.getElementById('discount-per-item').textContent = `$${discountAmount.toFixed(2)}`;
+            document.getElementById('price-per-item').textContent = `$${pricePerItem.toFixed(2)}`;
+            document.getElementById('total-before-tax').textContent = `$${totalBeforeTax.toFixed(2)}`;
+            document.getElementById('total-savings').textContent = `$${totalSavings.toFixed(2)}`;
+            document.getElementById('final-total').textContent = `$${finalTotal.toFixed(2)}`;
+            document.getElementById('savings-percent').textContent = `${savingsPercent}%`;
+            
+            document.getElementById('result-section').style.display = 'block';
+        }
+
+        function clearInputs() {
+            document.getElementById('original-price').value = '';
+            document.getElementById('discount-percent').value = '';
+            document.getElementById('quantity').value = '1';
+            document.getElementById('tax-shipping').value = '';
+            document.getElementById('coupon-percent').value = '';
+            document.getElementById('result-section').style.display = 'none';
+        }
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
