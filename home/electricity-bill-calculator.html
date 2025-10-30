@@ -7,13 +7,13 @@
     <meta name="description" content="Calculate your monthly electricity costs with our tool. Identify high-energy appliances, understand your bill, and discover easy ways to save money every month.">
     <link rel="canonical" href="https://www.calculatorquote.com/home/electricity-bill-calculator.html">
     <!-- Template CSS Files -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        body, * { font-family: 'Raleway', sans-serif !important; }
+        body, * { font-family: 'Raleway', sans-serif !important; font-feature-settings: 'liga'; -webkit-font-feature-settings: 'liga'; -moz-font-feature-settings: 'liga'; }
         body {
             background: #ffffff;
             min-height: 100vh;
@@ -368,7 +368,7 @@
         </div>
     </nav>
     <!-- END NAVIGATION -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -493,10 +493,8 @@ High electricity bills do not have to surprise you. Our Electricity Bill Calcula
       'AU-NSW': 0.30, 'AU-VIC': 0.28, 'AU-QLD': 0.23,
     };
     const avgRateUSA = 0.16, avgRateAU = 0.26;
-    document.getElementById('region').addEventListener('change', function() {
-      let val = this.value;
-      document.getElementById('rate').value = regionData[val] ? regionData[val] : '';
-    });
+    var regionElem = document.getElementById('region');
+    if(regionElem){ regionElem.addEventListener('change', function() { let val = this.value; var rateElem = document.getElementById('rate'); if(rateElem) rateElem.value = regionData[val] ? regionData[val] : ''; }); }
     // 单位交互逻辑
     const unitSelect = document.getElementById('unitSelect');
     const unitInput = document.querySelector('.unit-input');
@@ -601,7 +599,9 @@ High electricity bills do not have to surprise you. Our Electricity Bill Calcula
       document.getElementById('advice').style.display = 'none';
       document.getElementById('recommend').style.display = 'none';
     }
-    window.onload=function(){ clearForm(); }
+    window.addEventListener('DOMContentLoaded', function() {
+      clearForm();
+    });
     </script>
     <script type="application/ld+json">
 {
@@ -620,12 +620,12 @@ High electricity bills do not have to surprise you. Our Electricity Bill Calcula
     "keywords": "electricity bill calculator, energy saving, appliance costs, household power usage, save on electricity, power consumption, bills, home energy analysis, reduce electric bill, houston electricity bill increase, why is my electric bill so high, central illinois electric bills spike, pay electric bill online"
 }
 </script>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 </html>
