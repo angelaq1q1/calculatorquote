@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculator – See Which Appliances Drain $100+</title>
+    <meta name="description" content="Calculate your monthly electricity costs with our tool. Identify high-energy appliances, understand your bill, and discover easy ways to save money every month.">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/electricity-bill-calculator.html">
+    <!-- Template CSS Files -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body, * { font-family: 'Raleway', sans-serif !important; }
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 36px;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+        }
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .input-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="text"],
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #eb5424;
+            font-size: 1.15em;
+        }
+        .breakdown {
+            margin: 18px auto 0 auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: #444;
+            font-size: 1em;
+        }
+        .advice, .recommend {
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            background: #fff;
+            font-size: 1.08em;
+            color: #333;
+            line-height: 1.7;
+            padding: 22px 28px 18px 28px;
+            border-radius: 14px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(235, 84, 36, 0.07);
+        }
+        .device-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+        .device-table th, .device-table td {
+            border: 1px solid #e0e0e0;
+            padding: 6px 10px;
+            text-align: center;
+            font-size: 0.97em;
+        }
+        .device-table th { background: #fafafa; }
+        .plus-btn, .delete-btn {
+            background: #eb5424; color: #fff; border: none; border-radius: 4px;font-size: 1em; padding: 3px 14px; cursor:pointer; }
+        .delete-btn { background: #aaa; margin-left: 6px; }
+        .unit-radio {
+            margin-right: 10px;
+        }
+        .recommend-btn {
+            background: #ffd129;
+            color: #eb5424;
+            font-size: 1.12em;
+            font-weight: 600;
+            border: 1.5px solid #eb5424;
+            border-radius: 6px;
+            padding: 8px 24px;
+            margin: 16px 6px 4px 6px;
+            display: inline-block;
+            transition: background .25s;
+        }
+        .recommend-btn:hover { background: #ffe467; }
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 10px;
+            margin-bottom: 12px;
+        }
+        .input-group input[type="number"]#usage {
+            border-radius: 5px;
+            border-right: 1px solid #ddd;
+            padding-right: 56px!important;
+        }
+        #inlineUnitTrigger {
+            pointer-events: auto;
+            transition:background 0.15s;
+        }
+        #inlineUnitTrigger:hover {
+            background: #f0ebee;
+        }
+        #unitDropdown div:hover {
+            background:#e8f2ff;
+        }
+        .unit-group-wrap {
+            position:relative;
+            display:flex;
+            align-items:stretch;
+            width:100%;
+        }
+        .unit-input {
+            flex:1;
+            min-width:80px;
+            padding-right:64px!important;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size:1em;
+            height:40px;
+            background: #fff;
+            transition: border-color 0.22s;
+            box-sizing:border-box;
+        }
+        .unit-input:focus {
+            outline:none;
+            border-color: #eb5424;
+            z-index:2;
+        }
+        .unit-append {
+            display:flex;
+            align-items:center;
+            position:absolute;
+            right:0; top:0; bottom:0;
+            background: #f7f7f7;
+            color: #666;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 5px 5px 0;
+            font-size: 0.98em;
+            min-width: 56px;
+            padding: 0 18px 0 10px;
+            cursor:pointer;
+            z-index:3;
+            transition: background 0.16s, color 0.16s;
+        }
+        .unit-append:hover, .unit-append.active {
+            background:#fce5db;
+            color: #d43d1a;
+        }
+        .unit-dropdown {
+            display:none;
+            position:absolute;
+            right:0;top:103%;
+            min-width:80px;
+            background:#fff;
+            box-shadow:0 8px 18px rgba(100,56,34,0.10);
+            border:1.5px solid #eadede;
+            border-radius: 0 0 8px 8px;
+            z-index:10;
+            font-size:1em;
+            padding: 2px 0;
+        }
+        .unit-item {
+            padding:9px 16px; cursor:pointer; color:#444; background:transparent;transition:background 0.18s,color 0.15s;
+        }
+        .unit-item:hover {
+            background:#fae7e0;color:#eb5424;
+        }
+        .unit-item:first-child { border-radius:0; }
+        .unit-item:last-child { border-radius:0 0 8px 8px; }
+        .unit-divider {
+            height:1px;
+            background:#f3f3f3;
+            margin:0 5px;
+        }
+        /* Fence Height式统一核心部分，冗余和非冲突class全部移除，只保留真正用到的unit-input结构和样式并同步宽度对齐 */
+        .unit-input {
+          display: flex;
+          align-items: center;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 0 10px;
+          background: #fff;
+          width: 100%;
+        }
+        .unit-input:focus-within {
+          border-color: #eb5424;
+        }
+        .unit-input input[type="number"] {
+          flex: 1 1 auto;
+          border: none;
+          outline: none;
+          padding: 10px 0;
+          margin: 0;
+          width: auto;
+          font-size: 1em;
+          background: transparent;
+        }
+        .unit-input select {
+          border: none;
+          outline: none;
+          background: transparent;
+          padding: 10px 0 10px 8px;
+          margin: 0;
+          width: auto;
+          min-width: 110px;
+          font-size: 1em;
+          color: #555;
+          appearance: none;
+        }
+        .unit-input select:focus {
+          outline: none;
+          background: #fff7f3;
+          color: #eb5424;
+        }
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #eb5424;
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+                margin: 0;
+                padding: 24px;
+                box-shadow: none;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .main-content-wrapper {
+                padding: 0 6px;
+            }
+            .content-area {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Home & Garden</a>
+                                    <span>/</span>
+                                    Electricity Bill Calculator
+                                </div>
+                                <h1>Electricity Bill Calculator: See How Your Appliances Are Draining $100+ a Month</h1>
+                                <div class="description">
+Use our Electricity Bill Calculator to check which appliances are consuming the most energy. Understand your monthly costs and discover simple ways to save—start lowering your electricity bill today!
+                                </div>
+                                <div class="input-section">
+                                    <div class="flex-row">
+                                        <div class="input-group" style="flex:1; min-width:160px; margin-right:12px;">
+                                            <label>Region:</label>
+                                            <select id="region">
+                                                <option value="CA">California (CA, $0.26/kWh)</option>
+                                                <option value="TX">Texas (TX, $0.12/kWh)</option>
+                                                <option value="NY">New York (NY, $0.19/kWh)</option>
+                                                <option value="MA">Massachusetts (MA, $0.22/kWh)</option>
+                                                <option value="FL">Florida (FL, $0.13/kWh)</option>
+                                                <option value="WA">Washington (WA, $0.10/kWh)</option>
+                                                <option value="AU-NSW">Australia - NSW (AU-NSW, $0.30/kWh)</option>
+                                                <option value="AU-VIC">Australia - VIC (AU-VIC, $0.28/kWh)</option>
+                                                <option value="AU-QLD">Australia - QLD (AU-QLD, $0.23/kWh)</option>
+                                                <option value="OTHER">Custom/Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group" style="flex:1; min-width:140px;">
+                                            <label>Billing Period:</label>
+                                            <select id="period">
+                                                <option value="month">Monthly Bill</option>
+                                                <option value="year">Annual Bill</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="flex-row">
+                                        <div class="input-group" style="flex:1; min-width:170px; margin-right:12px;">
+                                            <label for="rate">Unit Electricity Rate <span style="color:#888">($/kWh)</span>:</label>
+                                            <input type="number" id="rate" min="0.01" step="0.01" placeholder="E.g. 0.15">
+                                        </div>
+                                        <div class="input-group" style="flex:1; min-width:170px;">
+                                            <label for="usage">Usage</label>
+                                            <div class="unit-input">
+                                                <input type="number" id="usage" min="0" step="0.01" required>
+                                                <select id="unitSelect" style="min-width:110px;">
+                                                    <option value="kWh">kWh</option>
+                                                    <option value="Wh">Wh</option>
+                                                    <option value="MWh">MWh</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label style="display:block;font-weight:600;">Appliance Breakdown (Optional):</label>
+                                        <table class="device-table" id="deviceTable">
+                                          <thead><tr><th>Device</th><th>Wattage (W)</th><th>Hours/Day</th><th>Days</th><th>Action</th></tr></thead>
+                                          <tbody></tbody>
+                                        </table>
+                                        <button type="button" class="plus-btn" onclick="addDeviceRow()">+ Add Device Row</button>
+                                        <span style="color:#777;font-size:0.95em;margin-left:12px;">Total usage from above included automatically</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="solar">Solar Generation Offset (kWh):</label>
+                                        <input type="number" id="solar" min="0" step="0.01" placeholder="If using solar, enter kWh offset">
+                                    </div>
+                                    <div class="buttons" style="max-width: 400px; margin: 25px auto 0 auto; display: flex; flex-direction: row; gap: 18px; justify-content: center;">
+                                        <button type="button" class="btn-calculate" onclick="calculateBill()">Calculate</button>
+                                        <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+                                    </div>
+                                </div>
+                                <div><span style="font-size:1.25em;font-weight:bold;">Stop Overpaying: See Which Appliances Are Driving Your Electricity Bill Up!</span><br><br>
+Do you ever ask yourself, “why is my electric bill so high”? Our Electricity Bill Calculator can help. It works for anyone—homeowners, renters, or small business owners. You can check your monthly energy costs fast. If you noticed a Houston electricity bill increase or a sudden Central Illinois electric bills spike, this tool gives clear answers. Enter your usage, see which appliances use the most power, and find ways to cut costs. This calculator puts you in control. You will know where your money goes and how to save on your next bill.<br><br>
+The calculator looks at your energy use and rates. First, enter your monthly electricity usage in kilowatt-hours (kWh) or your last bill amount. Then, list the main appliances you use every day. Include air conditioners, heaters, fridges, or washing machines. Add how many hours each runs. The tool will show how much each appliance costs you.<br><br>
+If you face a Central Illinois electric bills spike, this calculator can help you spot the cause. For people who pay with Atlantic Electric bill pay, you can compare the results with your real bill. Remember, rates can change, meters can be off, and some devices use energy even when off. Using this tool often helps you see patterns early. You can then make small changes to save money.<br><br>
+High electricity bills do not have to surprise you. Our Electricity Bill Calculator shows why your costs go up. It works for a Houston electricity bill increase or any monthly check. You can find out which appliances use the most power. After using it, try our other calculators. You can plan your budget, check energy-efficient devices, or track seasonal costs. Small changes can make a big difference. Start now, see how much you can save, and take control of your energy use. Your next bill could be lower than you expect. Try the calculator today!
+                                </div>
+                                <div style="margin-top:32px;"><span style="font-size:1.25em;font-weight:bold;">Electricity Bill Questions: Answers to Common Concerns</span><br><br>
+                                    <b>Q1. What is the meaning of electricity bill?</b><br>
+                                    A: An electric bill, also commonly referred to as an electricity bill or power bill, is a statement issued by an electricity provider detailing the amount of electricity consumed by a consumer (individual, household, or business) over a specific period, typically a month.<br><br>
+                                    <b>Q2. What is another name for the electric bill?</b><br>
+                                    A: The conversation revolves around what people call their utility bills, with various terms being used such as electric bill, light bill, power bill, and energy bill, depending on the location and personal preference.<br><br>
+                                    <b>Q3. What costs most in an electricity bill?</b><br>
+                                    A: Let's start with what uses the most electricity in your home — the air conditioner and heater. Heating and cooling account for a whopping 32.1% of your home's electricity consumption.<br><br>
+                                    <b>Q4. How do I know my electric bill?</b><br>
+                                    A: There are two ways to view your electronic bills.<br>1. Via email notification. Click the link to your electric bill in the bill notification sent to your registered email address.<br>2. Via Meralco Online. Log in to your My Meralco Account and access the View Bills facility.<br><br>
+                                    <b>Q5. What uses the most electricity at home?</b><br>
+                                    A: Which home appliances use the most electricity?<br>1. Heating and cooling: 45-50% The largest electricity consumer in the average household is your heating and cooling appliance.<br>2. Water heater: 12%<br>3. Lighting: 9-12%<br>4. Refrigerator: 8%<br>5. Washer and dryer: 5%<br>6. Electric oven: 3%<br>7. Dishwasher: 2%<br>8. TV and cable box: 2%<br><br>
+                                    <b>Q6. How do they calculate the electricity bill?</b><br>
+                                    A: Bills are built by taking readings in order to convert them into kilowatt hours (also known as units, or shortened to kWh), which is then used to establish your charge. A kilowatt (KW) is 1,000 watts of electricity. A kilowatt hour (kWh) is 1,000 watts of electricity consumed for 1 hour.
+                                </div>
+                                <div class="result" id="result"></div>
+                                <div class="breakdown" id="breakdown" style="display:none;"></div>
+                                <div class="advice" id="advice" style="display:none;"></div>
+                                <div class="recommend" id="recommend" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+    <script>
+    const regionData = {
+      'CA': 0.26, 'TX': 0.12, 'NY': 0.19, 'MA': 0.22, 'FL': 0.13, 'WA': 0.10,
+      'AU-NSW': 0.30, 'AU-VIC': 0.28, 'AU-QLD': 0.23,
+    };
+    const avgRateUSA = 0.16, avgRateAU = 0.26;
+    document.getElementById('region').addEventListener('change', function() {
+      let val = this.value;
+      document.getElementById('rate').value = regionData[val] ? regionData[val] : '';
+    });
+    // 单位交互逻辑
+    const unitSelect = document.getElementById('unitSelect');
+    const unitInput = document.querySelector('.unit-input');
+    unitInput.addEventListener('focus',()=>{
+      unitInput.style.borderColor='#eb5424';
+    });
+    unitInput.addEventListener('blur',()=>{
+      unitInput.style.borderColor='#ddd';
+    });
+    document.getElementById('unitSelect').addEventListener('change', updateUnitLabel);
+    function updateUnitLabel() {
+      // document.getElementById('usageUnit').innerText = unitSelect.value;
+    }
+    let deviceRowCount = 0;
+    function addDeviceRow() {
+      const table = document.getElementById('deviceTable').getElementsByTagName('tbody')[0];
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td><input type="text" placeholder="e.g. Air Conditioner" style="width:110px;"></td>
+        <td><input type="number" min="1" step="1" placeholder="Watt" style="width:80px;"></td>
+        <td><input type="number" min="0" step="0.1" placeholder="Hours" style="width:60px;"></td>
+        <td><input type="number" min="1" step="1" placeholder="Days" style="width:55px;"></td>
+        <td><button class="delete-btn" type="button" onclick="this.parentNode.parentNode.remove()">&#128465;</button></td>
+      `;
+    }
+    function sumDevicesKwh() {
+      let t = 0;
+      document.querySelectorAll('#deviceTable tbody tr').forEach(row => {
+        const cells = row.querySelectorAll('td input');
+        const [name, watt, h, days] = [cells[0].value, +cells[1].value, +cells[2].value, +cells[3].value];
+        if (watt && h && days) t += watt*h*days/1000;
+      });
+      return t;
+    }
+    function getUsageVal() {
+      let v = parseFloat(document.getElementById('usage').value) || 0;
+      const unit = unitSelect.value;
+      if (unit === 'Wh') v = v/1000;
+      if (unit === 'MWh') v = v*1000;
+      return v;
+    }
+    function calculateBill() {
+      let deviceKwh = sumDevicesKwh();
+      let usageTotal = getUsageVal();
+      usageTotal = Math.max(usageTotal, deviceKwh);
+      let rate = parseFloat(document.getElementById('rate').value)||0.12;
+      let solar = parseFloat(document.getElementById('solar').value)||0;
+      let billingPeriod = document.getElementById('period').value;
+      let region = document.getElementById('region').value;
+      let kwhUsed = usageTotal;
+      let detail = '';
+      if (deviceKwh>0 || usageTotal>0) {
+          if (deviceKwh>0) detail += `Total usage from appliance breakdown: ${deviceKwh.toFixed(2)} kWh`;
+      }
+      let fee = 0;
+      fee = kwhUsed * rate;
+      detail += `<br>Total usage: ${kwhUsed}kWh × Rate $${rate.toFixed(2)}/kWh = $${fee.toFixed(2)}`;
+      if (solar>0) {
+        let beforeSolar = fee;
+        let afterUsage = Math.max(kwhUsed-solar, 0);
+        fee = afterUsage * rate;
+        detail += `<br>After applying ${solar} kWh solar generation, final bill ≈ $${fee.toFixed(2)}`;
+      }
+      let annual = fee, periodLabel = 'monthly';
+      if (billingPeriod === 'year') {
+        fee = fee * 12;
+        periodLabel = 'annual';
+      } else {
+        annual = fee * 12;
+      }
+      let recommendHTML = '', advice = '';
+      if (fee > 100 && billingPeriod !== 'year') {
+        advice = '💡 Your monthly bill exceeds $100. Consider: <b>shopping for better rates, shifting loads to off-peak, or upgrading to energy-efficient appliances</b>.';
+        recommendHTML += '<a class="recommend-btn" href="https://www.chooseenergy.com/" target="_blank">Compare Local Energy Rates</a>';
+        recommendHTML += '<a class="recommend-btn" href="tel:1-800-123-4567">Call Now For Cheaper Power</a>';
+      }
+      if (fee>1200 && billingPeriod==='year') {
+        advice += '<br>⚠️ Annual cost exceeds $1,200. Consider efficient usage and time-of-use adjustments.';
+      }
+      document.getElementById('result').innerHTML = `Your estimated ${periodLabel} electricity bill: <b>$${fee.toFixed(2)}</b>`;
+      document.getElementById('breakdown').style.display = 'block';
+      document.getElementById('breakdown').innerHTML =
+        `Total: ${kwhUsed.toFixed(2)} kWh @ $${rate.toFixed(2)}<br>`+
+        detail +
+        `<br><b>Yearly projection: $${annual.toFixed(2)}  (≈ $${(annual/12).toFixed(2)} per month)</b>`;
+      document.getElementById('advice').style.display = advice ? 'block' : 'none';
+      document.getElementById('advice').innerHTML = advice;
+      document.getElementById('recommend').style.display = recommendHTML ? 'block' : 'none';
+      document.getElementById('recommend').innerHTML = recommendHTML;
+    }
+    function clearForm() {
+      document.getElementById('region').value = 'CA';
+      document.getElementById('rate').value = regionData['CA'];
+      document.getElementById('usage').value = '';
+      document.getElementById('solar').value = '';
+      document.getElementById('period').value = 'month';
+      unitSelect.value = 'kWh';
+      updateUnitLabel();
+      document.querySelector('#deviceTable tbody').innerHTML = '';
+      document.getElementById('result').innerHTML = '';
+      document.getElementById('breakdown').style.display = 'none';
+      document.getElementById('advice').style.display = 'none';
+      document.getElementById('recommend').style.display = 'none';
+    }
+    window.onload=function(){ clearForm(); }
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Electricity Bill Calculator – See Which Appliances Drain $100+",
+    "description": "Calculate your monthly electricity costs with our tool. Identify high-energy appliances, understand your bill, and discover easy ways to save money every month.",
+    "url": "https://www.calculatorquote.com/home/electricity-bill-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "keywords": "electricity bill calculator, energy saving, appliance costs, household power usage, save on electricity, power consumption, bills, home energy analysis, reduce electric bill, houston electricity bill increase, why is my electric bill so high, central illinois electric bills spike, pay electric bill online"
+}
+</script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
