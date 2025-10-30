@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Bill Calculator – Find Hidden Leaks & Cut Your Costs Fast</title>
+    <meta name="description" content="Is your water bill $50+ higher this month? Use our free Water Bill Calculator to spot leaks, track household usage, and discover how to reduce your costs instantly.">
+    <link rel="canonical" href="https://www.calculatorquote.com/home/water-bill-calculator.html">
+    <!-- Template CSS Files (relative paths for subdirectory) -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body, * { font-family: 'Raleway', sans-serif !important; }
+        body { background: #ffffff; min-height: 100vh; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-area { flex: 1; max-width: 800px; }
+        .calculator-container { max-width: 900px; margin: 0 auto; padding: 32px; background-color: #fff; border-radius: 2px; box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08); }
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #606060; margin: 0 8px; }
+        h1 { color: #303030; font-size: 1.75em; font-weight: 300; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .description { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 28px; text-align: left; }
+        .input-section { background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-group input[type="number"], .input-group input[type="text"], .input-group select { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; width: 100%; }
+        .flex-row { display: flex; flex-wrap: wrap; gap: 0 12px; }
+        .btn-primary-cta { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; min-width: 120px; }
+        .btn-primary-cta:hover { background-color: #d4441a; }
+        .btn-secondary { background-color: #f5c6cb; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; min-width: 120px; }
+        .btn-secondary:hover { background-color: #f1aeb5; }
+        .result { margin-top: 18px; font-weight: bold; text-align: center; color: #eb5424; font-size: 1.15em; }
+        .breakdown { margin: 18px auto 0 auto; max-width: 700px; background: #f8f9fa; border-radius: 8px; padding: 16px 20px; color: #444; font-size: 1em; }
+        .advice { margin: 24px auto 0 auto; max-width: 700px; background: #fff; font-size: 1.05em; color: #333; line-height: 1.7; padding: 18px 22px; border-radius: 12px; border: 1.5px solid #e0e0e0; box-shadow: 0 2px 8px rgba(235, 84, 36, 0.07); }
+        .note { color: #666; font-size: 0.94em; }
+        /* Combined unit input (number + unit inside one border) */
+        .unit-input {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0 10px;
+            background: #fff;
+        }
+        .unit-input:focus-within {
+            border-color: #eb5424;
+        }
+        .unit-input input[type="number"] {
+            flex: 1 1 auto;
+            border: none;
+            outline: none;
+            padding: 10px 0;
+            margin: 0;
+            width: auto;
+        }
+        .unit-input select {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 10px 0 10px 8px;
+            margin: 0;
+            width: auto;
+            min-width: 90px;
+        }
+        @media (max-width: 768px) {
+            .calculator-container { margin: 0; padding: 24px; box-shadow: none; }
+            .main-content-wrapper { padding: 0 10px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Home &amp; Garden</a>
+                                    <span>/</span>
+                                    Water Bill Calculator
+                                </div>
+                                <h1>Water Bill Calculator: Find Out Why Your Bill Is $50+ Higher This Month</h1>
+                                <div class="description">
+                                    Noticed your water bill is higher than usual? You’re not alone. Use our Water Bill Calculator to see where that extra $50+ is coming from. Track your household water use, spot hidden leaks, and understand your true costs. Start saving money and water with just a few quick steps today.
+                                </div>
+
+                                <div class="input-section">
+                                    <div class="flex-row">
+                                        <div class="input-group" style="flex:1; min-width: 170px; margin-right: 12px;">
+                                            <label for="location">Location (Optional):</label>
+                                            <select id="location">
+                                                <option value="">Select location (optional)</option>
+                                                <option value="CA-LA">Los Angeles, CA</option>
+                                                <option value="TX-AUS">Austin, TX</option>
+                                                <option value="NYC">New York City, NY</option>
+                                                <option value="WA-SEA">Seattle, WA</option>
+                                                <option value="CUSTOM">Custom</option>
+                                            </select>
+                                            <div id="locationNote" class="note" style="margin-top:6px; display:none;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-row">
+                                        <div class="input-group" style="flex:1; min-width: 180px; margin-right: 12px;">
+                                            <label for="usage">Water Usage</label>
+                                            <div class="unit-input">
+                                                <input type="number" id="usage" min="0" step="0.01" placeholder="e.g. 3000">
+                                                <select id="unit">
+                                                    <option value="gallons">gallons</option>
+                                                    <option value="liters">liters</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-group" style="flex:1; min-width: 180px;">
+                                            <label for="waterRate">Water Rate per <span id="rateUnitLabel1">gallon</span> ($):</label>
+                                            <input type="number" id="waterRate" min="0" step="0.0001" placeholder="e.g. 0.005">
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-row">
+                                        <div class="input-group" style="flex:1; min-width: 180px; margin-right: 12px;">
+                                            <label for="sewerRate">Sewer Charge per <span id="rateUnitLabel2">gallon</span> ($, optional):</label>
+                                            <input type="number" id="sewerRate" min="0" step="0.0001" placeholder="e.g. 0.004">
+                                        </div>
+                                        <div class="input-group" style="flex:1; min-width: 180px;">
+                                            <label for="fixedFee">Fixed Service Fee ($/month):</label>
+                                            <input type="number" id="fixedFee" min="0" step="0.01" placeholder="e.g. 10">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Move buttons out here -->
+                                <div class="buttons" style="max-width: 420px; margin: 18px auto 0 auto; display:flex; gap: 14px; justify-content:center;">
+                                    <button type="button" class="btn-primary-cta" id="calcBtn">Calculate</button>
+                                    <button type="button" class="btn-secondary" id="clearBtn">Clear</button>
+                                </div>
+                                
+                                <!-- User Explanatory Copy -->
+                                <div class="water-bill-explanation" style="border:none; border-radius:10px; margin:28px 0 10px 0; padding:26px 22px; background:#fff; color:#303030; line-height:1.8; font-size:1.04em; max-width:700px;">
+                                    <strong style="font-size:1.2em;">Why Is My Water Bill So High? 💧 Use Our Calculator to Find Out</strong><br><br>
+                                    Is your water bill higher than usual? 📈 You are not alone. Many homeowners and renters notice a jump and do not know why. Our Water Bill Calculator helps you see where that extra $50+ is coming from. Whether you need to pay your Veolia water bill 💳, check a Cape Coral water bill 🏡, or understand a Wilmington water bill, this tool gives clear answers. It is simple to use. Enter your usage, and it shows which appliances and habits use the most water 🚿. You can spot leaks and control your costs quickly.<br><br>
+                                    The calculator estimates your monthly water bill using your household’s water use and rates. First, enter your usage in gallons or cubic meters. Then enter the price per unit from your utility. The tool calculates your total bill and compares it with your current charges. 💡<br><br>
+                                    <strong>Common reasons for a $50+ increase include:</strong><br>
+                                    <ul style="margin-bottom:10px; margin-top:2px;">
+                                        <li>Leaky faucets, toilets, or irrigation systems. 🚰</li>
+                                        <li>Seasonal changes, like watering gardens or filling pools. 🌳</li>
+                                        <li>Billing errors or rate changes by your utility. 🧾</li>
+                                    </ul>
+                                    If you live in areas served by Veolia, Cape Coral, or Wilmington utilities, the tool helps you check if your charges make sense. You can also use it before you pay your Cape Coral water bill online or through a 7 Brew customer portal.<br><br>
+                                    <em>Tip:</em> Always confirm the cost per gallon or cubic meter on your latest bill. Small rate changes can add up. Checking your usage monthly helps you spot problems and avoid surprises. 📊<br><br>
+                                    High water bills do not have to be a mystery. Use our Water Bill Calculator to understand every dollar you spend. Find leaks, track daily use, and see where you can save. Small changes can cut your costs and save water.<br><br>
+                                    Want to go further? Try our Electricity Bill Calculator ⚡ or Household Budget Calculator 💰 to track other utilities. Start now, compare your bills, and take control of your home costs today. Understanding your bills is the first step to saving money and energy.
+                                </div>
+
+                                <div style="max-width:700px; margin:12px 0 6px 0; color:#303030; font-size:1.2em;">
+                                    <strong>Water Bill Questions – Find Out How to Lower Your Costs</strong>
+                                </div>
+
+                                <!-- FAQ Section added after explanatory copy -->
+                                <div class="water-bill-faq" style="max-width:700px; margin:16px 0 4px 0; padding:0 2px; color:#303030; font-size:1.03em; line-height:1.75;">
+                                    <div style="margin-bottom:14px;"><span style="font-weight:700;">Q1 Why is the water bill so high?</span><br>
+                                    <span>A:</span> A high water bill is most commonly caused by hidden leaks in toilets, faucets, or pipes, or by increased water usage due to seasonal activities, more people in the household, or new habits. To find the reason, check for leaks, monitor your water meter when no water is being used, and compare your current usage to past bills to see if it has increased.</div>
+
+                                    <div style="margin-bottom:14px;"><span style="font-weight:700;">Q2 Is it cheaper to be on a water meter?</span><br>
+                                    <span>A:</span> Changing to a water meter may benefit you if you don't use much water. It may also be worth changing to a meter if your property has a high rateable value. This is because some water bills are based on the rateable value of the property.</div>
+
+                                    <div style="margin-bottom:14px;"><span style="font-weight:700;">Q3 What raises your water bill the most?</span><br>
+                                    <span>A:</span> The most common cause for a high water bill is running water from your toilet. A continuously running toilet can waste up to 200 gallons a day or more depending on the volume flow down the drain. This can cause a terrible increase to a family's typical water use, so fix toilet leaks as soon as possible.</div>
+
+                                    <div style="margin-bottom:14px;"><span style="font-weight:700;">Q4 How much is water per day?</span><br>
+                                    <span>A:</span> Most adults need about 2 to 2.5 litres of fluid a day, which is around 8 glasses. You get most of the fluid you need from drinks, but some also comes from the foods you eat, such as soups, stews, fruit, and vegetables. You need to make sure that you replace the amount of fluid your body loses each day.</div>
+
+                                    <div style="margin-bottom:14px;"><span style="font-weight:700;">Q5 Why do water bills go up?</span><br>
+                                    <span>A:</span> Why have water bills increased? To deliver the things you've told us matter most, such as minimising flooding, reducing storm overflows, fixing more leaks, and protecting the environment, we need to increase bills. Hear from our people, who are customers too, on what you can expect and where the money will be invested.</div>
+
+                                    <div style="margin-bottom:6px;"><span style="font-weight:700;">Q6 Is 4000 gallons of water a month a lot?</span><br>
+                                    <span>A:</span> Typically, an average family of four uses 4000-5000 gallons of water a month.</div>
+                                </div>
+
+                                <div class="result" id="result"></div>
+                                <div class="breakdown" id="breakdown" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+    (function(){
+      const locationPresets = {
+        // Rates per unit follow the currently selected unit; defaults are per gallon
+        'CA-LA': { unit: 'gallons', waterRate: 0.0062, sewerRate: 0.0048, fixedFee: 12, note: 'Typical residential combined rates (Los Angeles).' },
+        'TX-AUS': { unit: 'gallons', waterRate: 0.0042, sewerRate: 0.0036, fixedFee: 9, note: 'Typical Austin rates with base service fee.' },
+        'NYC':   { unit: 'gallons', waterRate: 0.0060, sewerRate: 0.0060, fixedFee: 0, note: 'NYC charges similar water and sewer rates.' },
+        'WA-SEA':{ unit: 'gallons', waterRate: 0.0050, sewerRate: 0.0045, fixedFee: 11, note: 'Seattle average residential rates.' }
+      };
+
+      function byId(id){ return document.getElementById(id); }
+      function setText(id, text){ var el = byId(id); if(el){ el.textContent = text; } }
+      function show(el){ if(el){ el.style.display = 'block'; } }
+      function hide(el){ if(el){ el.style.display = 'none'; } }
+
+      function updateUnitLabels(){
+        var unitSel = byId('unit');
+        if(!unitSel) return;
+        var unit = unitSel.value === 'liters' ? 'liter' : 'gallon';
+        setText('usageUnitLabel', unitSel.value === 'liters' ? 'liters' : 'gallons');
+        setText('rateUnitLabel1', unit);
+        setText('rateUnitLabel2', unit);
+      }
+
+      function applyLocationPreset(){
+        var locEl = byId('location');
+        if(!locEl) return;
+        var key = locEl.value;
+        var noteEl = byId('locationNote');
+        if(!key){ hide(noteEl); return; }
+        if(key === 'CUSTOM'){ hide(noteEl); return; }
+        var preset = locationPresets[key];
+        if(!preset) { hide(noteEl); return; }
+        var unitSel = byId('unit');
+        if(unitSel) unitSel.value = preset.unit || 'gallons';
+        if(byId('waterRate')) byId('waterRate').value = preset.waterRate;
+        if(byId('sewerRate')) byId('sewerRate').value = preset.sewerRate;
+        if(byId('fixedFee')) byId('fixedFee').value = preset.fixedFee;
+        updateUnitLabels();
+        if(noteEl){ noteEl.innerHTML = 'Preset applied: ' + preset.note; show(noteEl); }
+      }
+
+      function parseNum(id){ var el = byId(id); var v = el ? parseFloat(el.value) : NaN; return isNaN(v) ? 0 : v; }
+
+      function calculate(){
+        var usage = parseNum('usage');
+        var waterRate = parseNum('waterRate');
+        var sewerRate = parseNum('sewerRate');
+        var fixedFee = parseNum('fixedFee');
+
+        // Total Bill = (Usage × (WaterRate + SewerRate)) + FixedFee
+        var waterCostOnly = usage * waterRate;
+        var sewerCostOnly = usage * sewerRate;
+        var total = waterCostOnly + sewerCostOnly + fixedFee;
+        var dailyAvg = total / 30;
+
+        var resultEl = byId('result');
+        var breakdownEl = byId('breakdown');
+        var adviceEl = byId('advice');
+        if(resultEl){ resultEl.innerHTML = 'Your estimated monthly water bill: <b>$' + total.toFixed(2) + '</b>'; }
+        if(breakdownEl){
+          breakdownEl.innerHTML =
+            '💧 Water cost only: $' + waterCostOnly.toFixed(2) +
+            '<br>🌊 Sewer/Drainage cost: $' + sewerCostOnly.toFixed(2) +
+            '<br>🧾 Fixed service fee: $' + fixedFee.toFixed(2) +
+            '<br>📊 Daily average cost: $' + dailyAvg.toFixed(2);
+          show(breakdownEl);
+        }
+
+        // Savings tips estimation based on reducing shower time by 5 minutes/day
+        var unit = (byId('unit') ? byId('unit').value : 'gallons');
+        var perMinute = unit === 'liters' ? 7.6 : 2.0; // ~2 gpm or ~7.6 L/min
+        var savedUnits = 5 * perMinute * 30; // 5 minutes per day × 30 days
+        var perUnitCombinedRate = waterRate + sewerRate;
+        var potentialSavings = savedUnits * perUnitCombinedRate;
+        var tipsHtml = '💡 Reducing your daily shower time by 5 minutes could save up to <b>$' + potentialSavings.toFixed(2) + '</b> per month.' +
+                       '<br>🔧 Fixing small leaks may reduce your bill by <b>10–15%</b>.';
+        if(adviceEl){ adviceEl.innerHTML = tipsHtml; show(adviceEl); }
+      }
+
+      function clearForm(){
+        if(byId('location')) byId('location').value = '';
+        if(byId('unit')) { byId('unit').value = 'gallons'; }
+        if(byId('usage')) byId('usage').value = '';
+        if(byId('waterRate')) byId('waterRate').value = '';
+        if(byId('sewerRate')) byId('sewerRate').value = '';
+        if(byId('fixedFee')) byId('fixedFee').value = '';
+        updateUnitLabels();
+        var noteEl = byId('locationNote'); if(noteEl) hide(noteEl);
+        var r = byId('result'); if(r) r.innerHTML = '';
+        var b = byId('breakdown'); if(b){ b.innerHTML = ''; hide(b); }
+        var a = byId('advice'); if(a){ a.innerHTML = ''; hide(a); }
+      }
+
+      window.addEventListener('DOMContentLoaded', function(){
+        // Bind events safely
+        var unitSel = byId('unit'); if(unitSel){ unitSel.addEventListener('change', updateUnitLabels); }
+        var locSel = byId('location'); if(locSel){ locSel.addEventListener('change', applyLocationPreset); }
+        var calcBtn = byId('calcBtn'); if(calcBtn){ calcBtn.addEventListener('click', calculate); }
+        var clearBtn = byId('clearBtn'); if(clearBtn){ clearBtn.addEventListener('click', clearForm); }
+        // Initialize
+        updateUnitLabels();
+        clearForm();
+      });
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Water Bill Calculator – Find Hidden Leaks & Cut Your Costs Fast",
+      "description": "Is your water bill $50+ higher this month? Use our free Water Bill Calculator to spot leaks, track household usage, and discover how to reduce your costs instantly.",
+      "url": "https://www.calculatorquote.com/home/water-bill-calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "keywords": "water bill calculator, sewer charge, water usage, gallons, liters, utility bill, city of winston salem water bill, 7 brew customer portal, tucson water bill pay, pay peco bill online"
+    }
+    </script>
+
+    <!-- Template JS Files (relative paths for subdirectory) -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
