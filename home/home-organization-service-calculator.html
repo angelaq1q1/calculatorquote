@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home Organization Calculator – Keep Your Belongings Easy to Find After Moving</title>
     <meta name="description" content="Just moved? Use our Home Organization Calculator to plan storage, organize boxes, and keep your belongings easy to access. Make unpacking simple and enjoy a tidy, stress-free home from day one.">
+    <meta name="keywords" content="home organization calculator, storage space calculator, home organization service, storage planner, declutter calculator, home organization cost, storage estimate, moving organization calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://www.calculatorquote.com/home/home-organization-service-calculator.html">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -347,9 +351,11 @@
 
         // Breakdown
         let breakdownHTML = '';
-        breakdownHTML += '<b>物品类型空间分布 (ft³)：</b><br>';
-        breakdownHTML += Object.entries(breakdown).map(([k,v])=>`${formatTypeLabel(k)}: ${v.toFixed(2)}`).join('<br>');
-        breakdownHTML += `<br><small>整理优先级效率：${organizationPriorityFactor[prio] || 1.0}（${prio==='simple'?'自己操作':'半专业/专业'}）</small>`;
+        breakdownHTML += '<b>Item Type Space Distribution (ft³):</b><br>';
+        breakdownHTML += Object.entries(breakdown).map(([k,v])=>`${formatTypeLabel(k)}: ${v.toFixed(2)} ft³`).join('<br>');
+        const pref = document.getElementById('preference').value;
+        const prefLabel = pref === 'simple' ? 'DIY' : (pref === 'medium' ? 'Semi-Professional' : 'Professional');
+        breakdownHTML += `<br><small>Storage Efficiency Factor: ${eff.toFixed(2)} (${prefLabel} organization method)</small>`;
 
         if (roomFt3 > 0) {
             breakdownHTML += `<br><br><b>Room volume (ft³):</b> ${roomFt3.toFixed(2)}`;
@@ -361,22 +367,22 @@
         document.getElementById('breakdown').innerHTML = breakdownHTML;
 
         // Recommendations
-        let recommendHTML = '<b>建议收纳用品分配：</b><br>';
-        recommendHTML += `中号收纳箱：约 <b>${rec.boxes}</b> 个<br>`;
-        recommendHTML += `抽屉：约 <b>${rec.drawers}</b> 个<br>`;
-        recommendHTML += `衣橱：约 <b>${rec.wardrobes}</b> 个`;
+        let recommendHTML = '<b>Recommended Storage Units:</b><br>';
+        recommendHTML += `Medium Storage Boxes: approximately <b>${rec.boxes}</b> units<br>`;
+        recommendHTML += `Drawers: approximately <b>${rec.drawers}</b> units<br>`;
+        recommendHTML += `Wardrobes: approximately <b>${rec.wardrobes}</b> units`;
         document.getElementById('recommend').style.display = 'block';
         document.getElementById('recommend').innerHTML = recommendHTML;
 
         // Tips
         const tips = [
-            '利用垂直空间：高柜/搁板提升利用率',
-            '同类物品收纳统一编号、区分高频和低频',
-            '真空收纳袋可压缩衣物、被褥体积',
-            '空间较小或预计收纳不足，建议咨询专业整理服务',
-            '定期整理、丢弃不常用物品' 
+            'Use vertical space: Tall cabinets and shelves improve space utilization',
+            'Organize similar items together with consistent labeling, separate frequently used from rarely used items',
+            'Vacuum storage bags can compress clothing and bedding volume significantly',
+            'If space is limited or insufficient, consider consulting professional organization services',
+            'Regularly declutter and discard unused items to maintain organization'
         ];
-        document.getElementById('advice').innerHTML = '<b>整理建议：</b><br>' + tips.map(t=>`• ${t}`).join('<br>');
+        document.getElementById('advice').innerHTML = '<b>Organization Tips:</b><br>' + tips.map(t=>`• ${t}`).join('<br>');
         document.getElementById('advice').style.display = 'block';
     }
 
@@ -406,14 +412,71 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "WebPage",
   "name": "Home Organization Calculator – Keep Your Belongings Easy to Find After Moving",
   "description": "Just moved? Use our Home Organization Calculator to plan storage, organize boxes, and keep your belongings easy to access. Make unpacking simple and enjoy a tidy, stress-free home from day one.",
   "url": "https://www.calculatorquote.com/home/home-organization-service-calculator.html",
-  "applicationCategory": "HomeApplication",
-  "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "keywords": "home organization calculator, storage space estimate, storage planner, box count, drawer count, wardrobe size, declutter, home organization, better homes and gardens eight cube organizer, organic modern home decor, home organization books, home organization system"
+  "inLanguage": "en",
+  "datePublished": "2025-01-30T00:00:00Z",
+  "dateModified": "2025-01-30T00:00:00Z",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalculatorQuote",
+    "url": "https://www.calculatorquote.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.calculatorquote.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "WebApplication",
+    "name": "Home Organization Calculator",
+    "description": "Plan storage space, organize boxes, and estimate home organization service costs after moving.",
+    "applicationCategory": "HomeApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "keywords": [
+      "home organization calculator",
+      "storage space estimate",
+      "storage planner",
+      "box count",
+      "drawer count",
+      "wardrobe size",
+      "declutter",
+      "home organization",
+      "better homes and gardens eight cube organizer",
+      "organic modern home decor",
+      "home organization books",
+      "home organization system"
+    ]
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.calculatorquote.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home & Garden",
+        "item": "https://www.calculatorquote.com/home/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Home Organization Service Calculator",
+        "item": "https://www.calculatorquote.com/home/home-organization-service-calculator.html"
+      }
+    ]
+  }
 }
     </script>
 
