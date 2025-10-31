@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Cycle Calculator – Stop Feeling Tired After 8 Hours of Sleep | Find Your Ideal Rest Time</title>
+    <meta name="description" content="Even after sleeping 8 hours, do you still wake up tired? Our free Sleep Cycle Calculator reveals your perfect sleep and wake times based on natural cycles. Discover how to wake up energized, improve rest quality, and start every day refreshed.">
+    <meta name="keywords" content="sleep calculator, sleep cycle calculator, bedtime calculator, wake up time calculator, sleep schedule, REM sleep, deep sleep, sleep cycles">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sleep Cycle Calculator – Stop Feeling Tired After 8 Hours of Sleep | Find Your Ideal Rest Time",
+      "url": "https://www.calculatorquote.com/health/sleep-calculator.html",
+      "description": "Even after sleeping 8 hours, do you still wake up tired? Our free Sleep Cycle Calculator reveals your perfect sleep and wake times based on natural cycles. Discover how to wake up energized, improve rest quality, and start every day refreshed.",
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long is one sleep cycle?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On average, one sleep cycle lasts 90 to 110 minutes. At the extremes, this can range from 80 to 120 minutes per cycle."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many sleep cycles per night do we need?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On average, we should experience 5-6 complete sleep cycles per night. With a 90-minute cycle length, this means sleeping for 7.5 to 9 hours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What time should I go to bed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best bedtime depends on your desired wake-up time and sleep cycles. Our calculator helps you find the optimal bedtime by calculating backwards from your target wake time, accounting for your typical time to fall asleep (usually 10-20 minutes) and 90-minute sleep cycles."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why wake up at the end of a sleep cycle?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Waking up at the end of a sleep cycle (during light sleep) makes you feel more refreshed and alert. Waking up in the middle of deep sleep or REM sleep can leave you feeling groggy and tired."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does closing your eyes count as sleep?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, closing your eyes alone does not count as sleep. True sleep requires entering different sleep stages (light sleep, deep sleep, and REM sleep) that occur in 90-minute cycles. Simply resting with your eyes closed may provide some relaxation, but it does not provide the same restorative benefits as actual sleep."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a sleep tracker and how does sleep tracking work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A sleep tracker is a device or app that monitors your sleep patterns, including duration, sleep stages, and quality. Sleep tracking uses sensors to detect movement, heart rate, or brain activity to identify when you're in different sleep stages. Our sleep calculator can help you plan optimal sleep times that work alongside sleep tracking to improve your rest quality."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long till 7 am?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use our sleep calculator to find out how long until 7 am from your current time. Enter 7:00 AM as your target wake-up time, and the calculator will show you the best bedtime options based on 90-minute sleep cycles to wake up refreshed at 7 am."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to boost REM sleep?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To boost REM sleep, maintain a consistent sleep schedule, get 7-9 hours of sleep per night, avoid alcohol and caffeine before bedtime, create a dark and quiet sleep environment, and manage stress. REM sleep occurs during the later cycles of your sleep, so ensuring you complete 5-6 full 90-minute sleep cycles is essential for adequate REM sleep."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Sleep Calculator",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .calculator-section h3:hover {
+            color: #eb5424;
+        }
+        
+        .calculator-section h3::after {
+            content: '▼';
+            font-size: 0.8em;
+            color: #eb5424;
+            transition: transform 0.3s;
+        }
+        
+        .calculator-section.collapsed h3::after {
+            transform: rotate(-90deg);
+        }
+        
+        .calculator-section.collapsed .section-content {
+            display: none;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            box-sizing: border-box;
+            height: 44px;
+            line-height: 20px;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #eb5424;
+        }
+        
+        .result-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .result-box h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .result-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .result-item.recommended {
+            background-color: #e8f5e9;
+        }
+        
+        .result-item.not-recommended {
+            background-color: #fff3e0;
+        }
+        
+        .result-item.minimal {
+            background-color: #ffebee;
+        }
+        
+        .result-time {
+            font-weight: 600;
+            color: #eb5424;
+            font-size: 1.1em;
+        }
+        
+        .result-info {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .risk-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .risk-level {
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .risk-low {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .risk-medium {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+        
+        .risk-high {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .checkbox-group {
+            margin-top: 15px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+        
+        .custom-cycle-input {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .custom-cycle-input.active {
+            display: block;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 40px auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+            
+            .result-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Health Calculators</a>
+                                    <span>/</span>
+                                    Sleep Calculator
+                                </div>
+
+                                <h1>Sleeping 8 Hours but Still Tired? Find Out Your Ideal Sleep Cycle</h1>
+                                <div class="description">
+                                    Sleeping more doesn't always mean better rest. Use our free Sleep Cycle Calculator to find the perfect time to fall asleep and wake up. Discover how many hours of sleep your body really needs to feel refreshed every day.
+                                </div>
+
+                                <!-- Bedtime Calculator Section -->
+                                <div class="calculator-section" id="bedtime-section">
+                                    <h3 onclick="toggleSection('bedtime-section')">Your sleeping times</h3>
+                                    <div class="section-content">
+                                        <p style="margin-bottom: 20px; color: #666;">Enter your <strong>time to fall asleep</strong> and select your approximate <strong>target waking up time</strong>, and expect your results here.</p>
+                                        
+                                        <div class="input-group">
+                                            <label for="fall-asleep-time">Time to fall asleep (minutes):</label>
+                                            <input type="number" id="fall-asleep-time" min="0" max="120" value="15" placeholder="15">
+                                            <small style="color: #666; display: block; margin-top: 5px;">Usually takes 10-20 minutes. Default is 15 minutes.</small>
+                                        </div>
+                                        
+                                        <div class="input-group">
+                                            <label for="wake-up-time">Target waking up time:</label>
+                                            <select id="wake-up-time"></select>
+                                        </div>
+                                        
+                                        <div class="input-group">
+                                            <label for="sleep-cycle-length">Sleep cycle length (minutes):</label>
+                                            <input type="number" id="sleep-cycle-length" min="60" max="120" value="90" placeholder="90">
+                                            <small style="color: #666; display: block; margin-top: 5px;">Average sleep cycle is 90 minutes (can range from 80-120 minutes).</small>
+                                        </div>
+                                        
+                                        <div class="checkbox-group">
+                                            <label>
+                                                <input type="checkbox" id="custom-cycle-checkbox" onchange="toggleCustomCycle()">
+                                                Enter custom sleep cycle lengths
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="custom-cycle-input" id="custom-cycle-input">
+                                            <div class="input-group">
+                                                <label>Custom cycle lengths (comma-separated, in minutes):</label>
+                                                <input type="text" id="custom-cycles" placeholder="90,90,90,90,90">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="buttons">
+                                            <button class="btn-calculate" onclick="calculateBedtime()">Calculate</button>
+                                            <button class="btn-clear" onclick="clearBedtimeResults()">Clear</button>
+                                        </div>
+                                        
+                                        <div class="result-box" id="bedtime-results" style="display: none;">
+                                            <h4>Recommended Bedtime Options:</h4>
+                                            <div id="bedtime-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Wake-up Time Calculator Section -->
+                                <div class="calculator-section" id="wakeup-section">
+                                    <h3 onclick="toggleSection('wakeup-section')">Your wake-up times</h3>
+                                    <div class="section-content">
+                                        <p style="margin-bottom: 20px; color: #666;">Find your resulting wake-up times based on your sleeping habits and desired sleep time.</p>
+                                        
+                                        <div class="input-group">
+                                            <label for="bedtime-time">Bedtime:</label>
+                                            <select id="bedtime-time"></select>
+                                        </div>
+                                        
+                                        <div class="input-group">
+                                            <label for="fall-asleep-time-wakeup">Time to fall asleep (minutes):</label>
+                                            <input type="number" id="fall-asleep-time-wakeup" min="0" max="120" value="15" placeholder="15">
+                                        </div>
+                                        
+                                        <div class="input-group">
+                                            <label for="sleep-cycle-length-wakeup">Sleep cycle length (minutes):</label>
+                                            <input type="number" id="sleep-cycle-length-wakeup" min="60" max="120" value="90" placeholder="90">
+                                        </div>
+                                        
+                                        <div class="buttons">
+                                            <button class="btn-calculate" onclick="calculateWakeUp()">Calculate</button>
+                                            <button class="btn-clear" onclick="clearWakeUpResults()">Clear</button>
+                                        </div>
+                                        
+                                        <div class="result-box" id="wakeup-results" style="display: none;">
+                                            <h4>Recommended Wake-up Times:</h4>
+                                            <div id="wakeup-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sleep Risk Calculator Section -->
+                                <div class="calculator-section" id="risk-section">
+                                    <h3 onclick="toggleSection('risk-section')">How dangerous is my sleep routine?</h3>
+                                    <div class="section-content">
+                                        <p style="margin-bottom: 20px; color: #666;">Select the number of hours you normally sleep at night. You will see by what percentage you are more likely to die prematurely when compared with a person who sleeps for 7 hours every night.</p>
+                                        
+                                        <div class="input-group">
+                                            <label for="night-sleep-hours">Night-time sleep duration (hours):</label>
+                                            <select id="night-sleep-hours">
+                                                <option value="">Select hours...</option>
+                                                <option value="4">4 hours</option>
+                                                <option value="5">5 hours</option>
+                                                <option value="6">6 hours</option>
+                                                <option value="7">7 hours (Baseline)</option>
+                                                <option value="8">8 hours</option>
+                                                <option value="9">9 hours</option>
+                                                <option value="10">10 hours</option>
+                                                <option value="11">11 hours</option>
+                                                <option value="12">12 hours</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="buttons">
+                                            <button class="btn-calculate" onclick="calculateRisk()">Calculate</button>
+                                            <button class="btn-clear" onclick="clearRiskResults()">Clear</button>
+                                        </div>
+                                        
+                                        <div class="risk-box" id="risk-results" style="display: none;">
+                                            <h4>Mortality Risk Assessment</h4>
+                                            <p id="risk-description"></p>
+                                            <div id="risk-level" class="risk-level"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.3em; font-weight: 500;">💤 Sleep Cycle Calculator: Find Out Why 8 Hours Might Not Be Enough</h3>
+                                
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Many people believe that sleeping eight hours a night means good rest — but that's not always true. You might sleep longer and still wake up tired. That happens because good sleep depends on your sleep cycles, not just total hours. Our Sleep Cycle Calculator helps you discover how long you should sleep and when to wake up. It's made for anyone who wants to feel more alert, focused, and rested every day.
+                                </p>
+                                
+                                <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">How Sleep Cycles Actually Work</h4>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Your body moves through several stages in a sleep cycle, from light sleep to deep sleep and then REM. One full cycle usually lasts about 90 minutes. Most adults need about four to six cycles per night. If you wake up in the middle of one, you may feel heavy and confused, even after a long night of rest.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    The calculator helps you plan your bedtime and wake-up time so you can wake up between cycles — not during them. For example, if you go to bed at 10:30 PM, it will suggest ideal wake times like 5:30 AM, 7:00 AM, or 8:30 AM. This small change can make a big difference in how you feel when the alarm rings.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Everyone's circadian rhythm sleep cycle is slightly different. Stress, caffeine, or screen time can shift when you actually fall asleep. For best results, enter your real bedtime — not just when you get in bed.
+                                </p>
+                                
+                                <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">Why Sleep Timing Matters</h4>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Knowing how long a sleep cycle is and how many sleep cycles per night you need can change your mornings completely. Instead of chasing an "8-hour rule," try aiming for full cycles — such as 6 hours (4 cycles) or 7.5 hours (5 cycles). You'll likely wake up more refreshed and less moody.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    If you often wonder, "How many sleep cycles do I need?" — our calculator gives you a clear answer. It does all the math and shows the best times to wake up naturally.
+                                </p>
+                                
+                                <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">Start Sleeping Smarter Tonight</h4>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Better sleep doesn't mean more hours. It means smarter timing. Use our Sleep Cycle Calculator to find your best rest schedule today. Once you get your result, check out our other tools — like the Caffeine Intake Calculator or Stress Level Estimator — to build healthier daily habits that help you sleep better and stay focused.
+                                </p>
+
+                                <h4 style="color: #333; font-size: 1.3em; margin: 30px 0 20px; font-weight: 500;">Sleep Smarter: Common Questions About Sleep Cycles, Timing, and Rest</h4>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q1: Is a sleep cycle 90 minutes?</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: One cycle normally takes about 90 to 120 minutes before another begins. Most people go through four or five cycles per night (assuming they get a full eight hours of sleep).</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q2: What is the hardest stage of sleep?</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: These four sleep stages are called non-rapid eye movement (non-REM) sleep, and its most prominent feature is the slow-wave (stage IV) sleep. It is most difficult to awaken people from slow-wave sleep; hence it is considered to be the deepest stage of sleep.</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q3: How many hours do Japanese people sleep?</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: On average, Japanese sleep about 7 hours and 20 minutes a night, - the least among 33 OECD member countries. And the number of insomniacs is growing. But even as more people suffer from insomnia, help can be hard to find.</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q4: How long do Chinese sleep?</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The pooled mean sleep duration of 21 studies with available data was 6.82 hours/day (95% CI: 6.59-7.05 hours/day).</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q5: Who sleeps for 90% of the day?</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Koalas are thickset arboreal marsupials with a thick grey fur. Found only living in Australia, they mainly live in the eucalyptus trees and spend around 22 hours of their time sleeping (90%). They spend the other 10% of their day eating and sitting around.</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q6: Why does sleeping more than 7 hours increase health risks? ⚠️</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Research shows that consistently sleeping more than 8 hours per night is associated with increased health risks. Several theories explain this: (1) <strong>Underlying health conditions</strong> - excessive sleep may be a symptom of underlying health issues like depression, sleep apnea, or other medical conditions that require more rest; (2) <strong>Reduced physical activity</strong> - longer sleep means less time for exercise and daily activities, which are important for health; (3) <strong>Circadian rhythm disruption</strong> - sleeping too much can disrupt your body's natural 24-hour cycle, affecting hormone regulation and metabolism; (4) <strong>Sleep quality vs. quantity</strong> - longer sleep doesn't always mean better sleep quality, and fragmented or poor-quality sleep over extended periods can be detrimental. It's important to note that individual needs vary, and some people may genuinely need 8-9 hours of sleep. However, consistently sleeping 9+ hours may warrant a discussion with a healthcare provider.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Generate time options (15-minute intervals)
+        function generateTimeOptions() {
+            const times = [];
+            for (let hour = 0; hour < 24; hour++) {
+                for (let minute = 0; minute < 60; minute += 15) {
+                    const h = hour.toString().padStart(2, '0');
+                    const m = minute.toString().padStart(2, '0');
+                    const time12 = format12Hour(hour, minute);
+                    times.push({ value: `${h}:${m}`, label: time12 });
+                }
+            }
+            return times;
+        }
+
+        function format12Hour(hour, minute) {
+            const h = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+            const m = minute.toString().padStart(2, '0');
+            const ampm = hour < 12 ? 'AM' : 'PM';
+            return `${h}:${m} ${ampm}`;
+        }
+
+        function formatTime24to12(time24) {
+            const [h, m] = time24.split(':').map(Number);
+            return format12Hour(h, m);
+        }
+
+        // Initialize time select dropdowns
+        function initializeTimeSelects() {
+            const times = generateTimeOptions();
+            const wakeUpSelect = document.getElementById('wake-up-time');
+            const bedtimeSelect = document.getElementById('bedtime-time');
+            
+            times.forEach(time => {
+                const option1 = new Option(time.label, time.value);
+                const option2 = new Option(time.label, time.value);
+                wakeUpSelect.add(option1);
+                bedtimeSelect.add(option2);
+            });
+            
+            // Set default values
+            wakeUpSelect.value = '07:15';
+            bedtimeSelect.value = '22:00';
+        }
+
+        // Toggle section collapse
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('collapsed');
+        }
+
+        // Toggle custom cycle input
+        function toggleCustomCycle() {
+            const checkbox = document.getElementById('custom-cycle-checkbox');
+            const customInput = document.getElementById('custom-cycle-input');
+            customInput.classList.toggle('active', checkbox.checked);
+        }
+
+        // Convert time string to minutes since midnight
+        function timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        // Convert minutes since midnight to time string
+        function minutesToTime(minutes) {
+            minutes = minutes % (24 * 60); // Handle overflow
+            if (minutes < 0) minutes += 24 * 60; // Handle negative
+            const hours = Math.floor(minutes / 60);
+            const mins = minutes % 60;
+            return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+        }
+
+        // Round to nearest 15 minutes
+        function roundTo15Minutes(minutes) {
+            return Math.round(minutes / 15) * 15;
+        }
+
+        // Calculate bedtime options
+        function calculateBedtime() {
+            const fallAsleepTime = parseInt(document.getElementById('fall-asleep-time').value) || 15;
+            const wakeUpTimeStr = document.getElementById('wake-up-time').value;
+            const useCustom = document.getElementById('custom-cycle-checkbox').checked;
+            
+            if (!wakeUpTimeStr) {
+                document.getElementById('bedtime-results').style.display = 'none';
+                return;
+            }
+            
+            let cycleLengths;
+            if (useCustom) {
+                const customCycles = document.getElementById('custom-cycles').value;
+                if (customCycles) {
+                    cycleLengths = customCycles.split(',').map(x => parseInt(x.trim())).filter(x => !isNaN(x) && x > 0);
+                    if (cycleLengths.length === 0) {
+                        cycleLengths = [90];
+                    }
+                } else {
+                    cycleLengths = [90];
+                }
+            } else {
+                const cycleLength = parseInt(document.getElementById('sleep-cycle-length').value) || 90;
+                cycleLengths = [cycleLength];
+            }
+            
+            const wakeUpMinutes = timeToMinutes(wakeUpTimeStr);
+            const results = [];
+            
+            // Calculate for 1-6 cycles
+            for (let cycles = 1; cycles <= 6; cycles++) {
+                let totalSleepMinutes = 0;
+                if (useCustom && cycleLengths.length >= cycles) {
+                    totalSleepMinutes = cycleLengths.slice(0, cycles).reduce((a, b) => a + b, 0);
+                } else {
+                    const cycleLength = cycleLengths[0];
+                    totalSleepMinutes = cycles * cycleLength;
+                }
+                
+                const bedtimeMinutes = wakeUpMinutes - totalSleepMinutes - fallAsleepTime;
+                const bedtimeTime = minutesToTime(bedtimeMinutes);
+                const bedtimeTimeRounded = minutesToTime(roundTo15Minutes(bedtimeMinutes));
+                
+                const hours = Math.floor(totalSleepMinutes / 60);
+                const mins = totalSleepMinutes % 60;
+                const durationText = mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+                
+                let category = '';
+                let recommendation = '';
+                
+                if (cycles === 6) {
+                    category = 'recommended';
+                    recommendation = 'Best for recovery (6 cycles)';
+                } else if (cycles === 5) {
+                    category = 'recommended';
+                    recommendation = 'Ideal sleep duration (5 cycles)';
+                } else if (cycles === 4) {
+                    category = 'minimal';
+                    recommendation = 'Minimum recommended (4 cycles)';
+                } else {
+                    category = 'not-recommended';
+                    recommendation = `${cycles} cycle(s) - Not recommended`;
+                }
+                
+                results.push({
+                    time: bedtimeTimeRounded,
+                    cycles: cycles,
+                    duration: durationText,
+                    category: category,
+                    recommendation: recommendation
+                });
+            }
+            
+            displayBedtimeResults(results);
+        }
+
+        // Display bedtime results
+        function displayBedtimeResults(results) {
+            const container = document.getElementById('bedtime-list');
+            container.innerHTML = '';
+            
+            results.forEach(result => {
+                const div = document.createElement('div');
+                div.className = `result-item ${result.category}`;
+                div.innerHTML = `
+                    <div>
+                        <div class="result-time">${formatTime24to12(result.time)}</div>
+                        <div class="result-info">${result.recommendation} - ${result.duration} total</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            document.getElementById('bedtime-results').style.display = 'block';
+        }
+
+        // Clear bedtime results
+        function clearBedtimeResults() {
+            document.getElementById('bedtime-results').style.display = 'none';
+            document.getElementById('bedtime-list').innerHTML = '';
+        }
+
+        // Clear wake-up results
+        function clearWakeUpResults() {
+            document.getElementById('wakeup-results').style.display = 'none';
+            document.getElementById('wakeup-list').innerHTML = '';
+        }
+
+        // Clear risk results
+        function clearRiskResults() {
+            document.getElementById('risk-results').style.display = 'none';
+            document.getElementById('night-sleep-hours').value = '';
+        }
+
+        // Calculate wake-up time options
+        function calculateWakeUp() {
+            const bedtimeTimeStr = document.getElementById('bedtime-time').value;
+            const fallAsleepTime = parseInt(document.getElementById('fall-asleep-time-wakeup').value) || 15;
+            const cycleLength = parseInt(document.getElementById('sleep-cycle-length-wakeup').value) || 90;
+            
+            if (!bedtimeTimeStr) {
+                document.getElementById('wakeup-results').style.display = 'none';
+                return;
+            }
+            
+            const bedtimeMinutes = timeToMinutes(bedtimeTimeStr);
+            const actualSleepStart = bedtimeMinutes + fallAsleepTime;
+            const results = [];
+            
+            // Calculate for 1-6 cycles
+            for (let cycles = 1; cycles <= 6; cycles++) {
+                const totalSleepMinutes = cycles * cycleLength;
+                const wakeUpMinutes = actualSleepStart + totalSleepMinutes;
+                const wakeUpTime = minutesToTime(wakeUpMinutes);
+                const wakeUpTimeRounded = minutesToTime(roundTo15Minutes(wakeUpMinutes));
+                
+                const hours = Math.floor(totalSleepMinutes / 60);
+                const mins = totalSleepMinutes % 60;
+                const durationText = mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+                
+                let category = '';
+                let recommendation = '';
+                
+                if (cycles === 6) {
+                    category = 'recommended';
+                    recommendation = 'Best for recovery (6 cycles)';
+                } else if (cycles === 5) {
+                    category = 'recommended';
+                    recommendation = 'Ideal sleep duration (5 cycles)';
+                } else if (cycles === 4) {
+                    category = 'minimal';
+                    recommendation = 'Minimum recommended (4 cycles)';
+                } else {
+                    category = 'not-recommended';
+                    recommendation = `${cycles} cycle(s) - Not recommended`;
+                }
+                
+                results.push({
+                    time: wakeUpTimeRounded,
+                    cycles: cycles,
+                    duration: durationText,
+                    category: category,
+                    recommendation: recommendation
+                });
+            }
+            
+            displayWakeUpResults(results);
+        }
+
+        // Display wake-up results
+        function displayWakeUpResults(results) {
+            const container = document.getElementById('wakeup-list');
+            container.innerHTML = '';
+            
+            results.forEach(result => {
+                const div = document.createElement('div');
+                div.className = `result-item ${result.category}`;
+                div.innerHTML = `
+                    <div>
+                        <div class="result-time">${formatTime24to12(result.time)}</div>
+                        <div class="result-info">${result.recommendation} - ${result.duration} total</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            document.getElementById('wakeup-results').style.display = 'block';
+        }
+
+        // Calculate sleep risk
+        function calculateRisk() {
+            const hours = parseInt(document.getElementById('night-sleep-hours').value);
+            
+            if (!hours) {
+                document.getElementById('risk-results').style.display = 'none';
+                return;
+            }
+            
+            // Risk percentages based on research
+            // These are approximate values based on the meta-analysis mentioned
+            let riskPercent = 0;
+            let riskLevel = '';
+            let riskClass = '';
+            let description = '';
+            
+            if (hours === 7) {
+                riskPercent = 0;
+                riskLevel = 'Baseline (Optimal)';
+                riskClass = 'risk-low';
+                description = `Sleeping ${hours} hours per night is the baseline reference point. This is considered the optimal sleep duration for most adults.`;
+            } else if (hours <= 5) {
+                riskPercent = 12; // Approximate for 5 hours or less
+                riskLevel = 'High Risk';
+                riskClass = 'risk-high';
+                description = `Sleeping ${hours} hours per night increases your premature mortality risk by approximately ${riskPercent}% compared to someone who sleeps 7 hours.`;
+            } else if (hours === 6) {
+                riskPercent = 6;
+                riskLevel = 'Moderate Risk';
+                riskClass = 'risk-medium';
+                description = `Sleeping ${hours} hours per night increases your premature mortality risk by approximately ${riskPercent}% compared to someone who sleeps 7 hours.`;
+            } else if (hours === 8) {
+                riskPercent = 4;
+                riskLevel = 'Slight Risk';
+                riskClass = 'risk-medium';
+                description = `Sleeping ${hours} hours per night increases your premature mortality risk by approximately ${riskPercent}% compared to someone who sleeps 7 hours.`;
+            } else if (hours >= 9) {
+                riskPercent = 12 + (hours - 9) * 2; // Progressive increase for 9+ hours
+                riskLevel = 'High Risk';
+                riskClass = 'risk-high';
+                description = `Sleeping ${hours} hours per night increases your premature mortality risk by approximately ${riskPercent}% compared to someone who sleeps 7 hours.`;
+            }
+            
+            document.getElementById('risk-description').textContent = description;
+            const riskLevelDiv = document.getElementById('risk-level');
+            if (hours === 7) {
+                riskLevelDiv.textContent = `${riskLevel}: ${riskPercent}% increased risk (Baseline)`;
+            } else {
+                riskLevelDiv.textContent = `${riskLevel}: ${riskPercent}% increased risk`;
+            }
+            riskLevelDiv.className = `risk-level ${riskClass}`;
+            document.getElementById('risk-results').style.display = 'block';
+        }
+
+        // Add event listeners
+        function addEventListeners() {
+            // Bedtime calculator - removed real-time calculation, now only triggered by Calculate button
+            
+            // Wake-up calculator - removed real-time calculation, now only triggered by Calculate button
+            
+            // Risk calculator - removed real-time calculation, now only triggered by Calculate button
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            initializeTimeSelects();
+            addEventListeners();
+            // No longer calculate initial results automatically
+        };
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
