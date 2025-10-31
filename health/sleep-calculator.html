@@ -99,9 +99,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
 
     <style>
         body, * {
@@ -121,6 +121,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -453,7 +454,7 @@
     <!-- END NAVIGATION -->
 
     <!-- Main Content -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -704,6 +705,8 @@
             const wakeUpSelect = document.getElementById('wake-up-time');
             const bedtimeSelect = document.getElementById('bedtime-time');
             
+            if (!wakeUpSelect || !bedtimeSelect) return;
+            
             times.forEach(time => {
                 const option1 = new Option(time.label, time.value);
                 const option2 = new Option(time.label, time.value);
@@ -719,14 +722,18 @@
         // Toggle section collapse
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
-            section.classList.toggle('collapsed');
+            if (section) {
+                section.classList.toggle('collapsed');
+            }
         }
 
         // Toggle custom cycle input
         function toggleCustomCycle() {
             const checkbox = document.getElementById('custom-cycle-checkbox');
             const customInput = document.getElementById('custom-cycle-input');
-            customInput.classList.toggle('active', checkbox.checked);
+            if (checkbox && customInput) {
+                customInput.classList.toggle('active', checkbox.checked);
+            }
         }
 
         // Convert time string to minutes since midnight
@@ -751,19 +758,27 @@
 
         // Calculate bedtime options
         function calculateBedtime() {
-            const fallAsleepTime = parseInt(document.getElementById('fall-asleep-time').value) || 15;
-            const wakeUpTimeStr = document.getElementById('wake-up-time').value;
-            const useCustom = document.getElementById('custom-cycle-checkbox').checked;
+            const fallAsleepInput = document.getElementById('fall-asleep-time');
+            const wakeUpSelect = document.getElementById('wake-up-time');
+            const customCheckbox = document.getElementById('custom-cycle-checkbox');
+            const bedtimeResults = document.getElementById('bedtime-results');
+            
+            if (!fallAsleepInput || !wakeUpSelect || !bedtimeResults) return;
+            
+            const fallAsleepTime = parseInt(fallAsleepInput.value) || 15;
+            const wakeUpTimeStr = wakeUpSelect.value;
+            const useCustom = customCheckbox ? customCheckbox.checked : false;
             
             if (!wakeUpTimeStr) {
-                document.getElementById('bedtime-results').style.display = 'none';
+                bedtimeResults.style.display = 'none';
                 return;
             }
             
             let cycleLengths;
             if (useCustom) {
-                const customCycles = document.getElementById('custom-cycles').value;
-                if (customCycles) {
+                const customCyclesInput = document.getElementById('custom-cycles');
+                if (customCyclesInput && customCyclesInput.value) {
+                    const customCycles = customCyclesInput.value;
                     cycleLengths = customCycles.split(',').map(x => parseInt(x.trim())).filter(x => !isNaN(x) && x > 0);
                     if (cycleLengths.length === 0) {
                         cycleLengths = [90];
@@ -772,7 +787,8 @@
                     cycleLengths = [90];
                 }
             } else {
-                const cycleLength = parseInt(document.getElementById('sleep-cycle-length').value) || 90;
+                const cycleLengthInput = document.getElementById('sleep-cycle-length');
+                const cycleLength = cycleLengthInput ? parseInt(cycleLengthInput.value) || 90 : 90;
                 cycleLengths = [cycleLength];
             }
             
@@ -829,6 +845,10 @@
         // Display bedtime results
         function displayBedtimeResults(results) {
             const container = document.getElementById('bedtime-list');
+            const resultsBox = document.getElementById('bedtime-results');
+            
+            if (!container || !resultsBox) return;
+            
             container.innerHTML = '';
             
             results.forEach(result => {
@@ -843,35 +863,51 @@
                 container.appendChild(div);
             });
             
-            document.getElementById('bedtime-results').style.display = 'block';
+            resultsBox.style.display = 'block';
         }
 
         // Clear bedtime results
         function clearBedtimeResults() {
-            document.getElementById('bedtime-results').style.display = 'none';
-            document.getElementById('bedtime-list').innerHTML = '';
+            const resultsBox = document.getElementById('bedtime-results');
+            const container = document.getElementById('bedtime-list');
+            
+            if (resultsBox) resultsBox.style.display = 'none';
+            if (container) container.innerHTML = '';
         }
 
         // Clear wake-up results
         function clearWakeUpResults() {
-            document.getElementById('wakeup-results').style.display = 'none';
-            document.getElementById('wakeup-list').innerHTML = '';
+            const resultsBox = document.getElementById('wakeup-results');
+            const container = document.getElementById('wakeup-list');
+            
+            if (resultsBox) resultsBox.style.display = 'none';
+            if (container) container.innerHTML = '';
         }
 
         // Clear risk results
         function clearRiskResults() {
-            document.getElementById('risk-results').style.display = 'none';
-            document.getElementById('night-sleep-hours').value = '';
+            const resultsBox = document.getElementById('risk-results');
+            const hoursSelect = document.getElementById('night-sleep-hours');
+            
+            if (resultsBox) resultsBox.style.display = 'none';
+            if (hoursSelect) hoursSelect.value = '';
         }
 
         // Calculate wake-up time options
         function calculateWakeUp() {
-            const bedtimeTimeStr = document.getElementById('bedtime-time').value;
-            const fallAsleepTime = parseInt(document.getElementById('fall-asleep-time-wakeup').value) || 15;
-            const cycleLength = parseInt(document.getElementById('sleep-cycle-length-wakeup').value) || 90;
+            const bedtimeSelect = document.getElementById('bedtime-time');
+            const fallAsleepInput = document.getElementById('fall-asleep-time-wakeup');
+            const cycleLengthInput = document.getElementById('sleep-cycle-length-wakeup');
+            const wakeupResults = document.getElementById('wakeup-results');
+            
+            if (!bedtimeSelect || !wakeupResults) return;
+            
+            const bedtimeTimeStr = bedtimeSelect.value;
+            const fallAsleepTime = fallAsleepInput ? parseInt(fallAsleepInput.value) || 15 : 15;
+            const cycleLength = cycleLengthInput ? parseInt(cycleLengthInput.value) || 90 : 90;
             
             if (!bedtimeTimeStr) {
-                document.getElementById('wakeup-results').style.display = 'none';
+                wakeupResults.style.display = 'none';
                 return;
             }
             
@@ -922,6 +958,10 @@
         // Display wake-up results
         function displayWakeUpResults(results) {
             const container = document.getElementById('wakeup-list');
+            const resultsBox = document.getElementById('wakeup-results');
+            
+            if (!container || !resultsBox) return;
+            
             container.innerHTML = '';
             
             results.forEach(result => {
@@ -936,15 +976,22 @@
                 container.appendChild(div);
             });
             
-            document.getElementById('wakeup-results').style.display = 'block';
+            resultsBox.style.display = 'block';
         }
 
         // Calculate sleep risk
         function calculateRisk() {
-            const hours = parseInt(document.getElementById('night-sleep-hours').value);
+            const hoursSelect = document.getElementById('night-sleep-hours');
+            const riskResults = document.getElementById('risk-results');
+            const riskDescription = document.getElementById('risk-description');
+            const riskLevelDiv = document.getElementById('risk-level');
+            
+            if (!hoursSelect || !riskResults || !riskDescription || !riskLevelDiv) return;
+            
+            const hours = parseInt(hoursSelect.value);
             
             if (!hours) {
-                document.getElementById('risk-results').style.display = 'none';
+                riskResults.style.display = 'none';
                 return;
             }
             
@@ -982,15 +1029,14 @@
                 description = `Sleeping ${hours} hours per night increases your premature mortality risk by approximately ${riskPercent}% compared to someone who sleeps 7 hours.`;
             }
             
-            document.getElementById('risk-description').textContent = description;
-            const riskLevelDiv = document.getElementById('risk-level');
+            riskDescription.textContent = description;
             if (hours === 7) {
                 riskLevelDiv.textContent = `${riskLevel}: ${riskPercent}% increased risk (Baseline)`;
             } else {
                 riskLevelDiv.textContent = `${riskLevel}: ${riskPercent}% increased risk`;
             }
             riskLevelDiv.className = `risk-level ${riskClass}`;
-            document.getElementById('risk-results').style.display = 'block';
+            riskResults.style.display = 'block';
         }
 
         // Add event listeners
@@ -1003,21 +1049,21 @@
         }
 
         // Initialize on page load
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
             initializeTimeSelects();
             addEventListeners();
             // No longer calculate initial results automatically
-        };
+        });
     </script>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 </html>
 
