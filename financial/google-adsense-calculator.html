@@ -89,7 +89,11 @@
     </script>
     
     <style>
-        body, * { font-family: 'Raleway', sans-serif !important; }
+        body, * { 
+            font-family: 'Raleway', sans-serif !important; 
+            -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
+        }
         body { background: #ffffff; min-height: 100vh; }
         .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .content-area { flex: 1; max-width: 800px; }
@@ -327,85 +331,112 @@
     </footer>
 
     <script>
-        function calculateAdSense() {
-            // Get input values
-            const pageviews = parseFloat(document.getElementById('pageviews').value) || 0;
-            const adsPerPage = parseFloat(document.getElementById('adsPerPage').value) || 0;
-            const ctr = parseFloat(document.getElementById('ctr').value) || 0;
-            const cpc = parseFloat(document.getElementById('cpc').value) || 0;
-
-            // Hide error message
-            document.getElementById('errorMessage').classList.remove('show');
-            document.getElementById('errorMessage').textContent = '';
-
-            // Validation
-            if (pageviews <= 0) {
-                showError('Please enter a valid number of pageviews (greater than 0).');
-                return;
-            }
-            if (adsPerPage <= 0 || adsPerPage > 3) {
-                showError('Number of ads per page must be between 1 and 3.');
-                return;
-            }
-            if (ctr < 0 || ctr > 100) {
-                showError('Click-through rate must be between 0% and 100%.');
-                return;
-            }
-            if (cpc <= 0) {
-                showError('Please enter a valid cost per click (greater than 0).');
-                return;
-            }
-
-            // Calculate Ad Impressions
-            const adImpressions = pageviews * adsPerPage;
-
-            // Calculate Number of Clicks
-            // CTR is in percentage, so divide by 100
-            const numClicks = Math.round(adImpressions * (ctr / 100));
-
-            // Calculate Google AdSense Revenue
-            // Formula: Revenue = Pageviews × Ads per Page × CTR × CPC
-            // Which simplifies to: Revenue = Ad Impressions × CTR × CPC
-            // Or: Revenue = Clicks × CPC
-            const revenue = numClicks * cpc;
-
-            // Display results
-            document.getElementById('result').innerHTML = `Estimated Monthly AdSense Revenue: <b>$${revenue.toFixed(2)}</b>`;
-            
-            document.getElementById('totalRevenue').textContent = `$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            document.getElementById('adImpressions').textContent = adImpressions.toLocaleString('en-US');
-            document.getElementById('numClicks').textContent = numClicks.toLocaleString('en-US');
-            document.getElementById('estimatedRevenue').textContent = `$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            
-            document.getElementById('resultsSection').classList.add('show');
-        }
-
-        function showError(message) {
-            const errorDiv = document.getElementById('errorMessage');
-            errorDiv.textContent = message;
-            errorDiv.classList.add('show');
-            document.getElementById('resultsSection').classList.remove('show');
-        }
-
-        function clearForm() {
-            document.getElementById('pageviews').value = '';
-            document.getElementById('adsPerPage').value = '';
-            document.getElementById('ctr').value = '';
-            document.getElementById('cpc').value = '';
-            document.getElementById('result').innerHTML = '';
-            document.getElementById('errorMessage').classList.remove('show');
-            document.getElementById('resultsSection').classList.remove('show');
-        }
-
-        // Allow Enter key to trigger calculation
+        // Ensure all DOM operations are safe and wrapped in DOMContentLoaded
         document.addEventListener('DOMContentLoaded', function() {
-            const inputs = ['pageviews', 'adsPerPage', 'ctr', 'cpc'];
-            inputs.forEach(id => {
-                document.getElementById(id).addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        calculateAdSense();
-                    }
-                });
+            // Get all required elements with existence checks
+            const pageviewsEl = document.getElementById('pageviews');
+            const adsPerPageEl = document.getElementById('adsPerPage');
+            const ctrEl = document.getElementById('ctr');
+            const cpcEl = document.getElementById('cpc');
+            const errorMessageEl = document.getElementById('errorMessage');
+            const resultEl = document.getElementById('result');
+            const totalRevenueEl = document.getElementById('totalRevenue');
+            const adImpressionsEl = document.getElementById('adImpressions');
+            const numClicksEl = document.getElementById('numClicks');
+            const estimatedRevenueEl = document.getElementById('estimatedRevenue');
+            const resultsSectionEl = document.getElementById('resultsSection');
+
+            // Make functions globally available but safe
+            window.calculateAdSense = function() {
+                if (!pageviewsEl || !adsPerPageEl || !ctrEl || !cpcEl || !errorMessageEl || 
+                    !resultEl || !totalRevenueEl || !adImpressionsEl || !numClicksEl || 
+                    !estimatedRevenueEl || !resultsSectionEl) {
+                    console.error('Required elements not found');
+                    return;
+                }
+
+                // Get input values
+                const pageviews = parseFloat(pageviewsEl.value) || 0;
+                const adsPerPage = parseFloat(adsPerPageEl.value) || 0;
+                const ctr = parseFloat(ctrEl.value) || 0;
+                const cpc = parseFloat(cpcEl.value) || 0;
+
+                // Hide error message
+                errorMessageEl.classList.remove('show');
+                errorMessageEl.textContent = '';
+
+                // Validation
+                if (pageviews <= 0) {
+                    showError('Please enter a valid number of pageviews (greater than 0).');
+                    return;
+                }
+                if (adsPerPage <= 0 || adsPerPage > 3) {
+                    showError('Number of ads per page must be between 1 and 3.');
+                    return;
+                }
+                if (ctr < 0 || ctr > 100) {
+                    showError('Click-through rate must be between 0% and 100%.');
+                    return;
+                }
+                if (cpc <= 0) {
+                    showError('Please enter a valid cost per click (greater than 0).');
+                    return;
+                }
+
+                // Calculate Ad Impressions
+                const adImpressions = pageviews * adsPerPage;
+
+                // Calculate Number of Clicks
+                // CTR is in percentage, so divide by 100
+                const numClicks = Math.round(adImpressions * (ctr / 100));
+
+                // Calculate Google AdSense Revenue
+                // Formula: Revenue = Pageviews × Ads per Page × CTR × CPC
+                // Which simplifies to: Revenue = Ad Impressions × CTR × CPC
+                // Or: Revenue = Clicks × CPC
+                const revenue = numClicks * cpc;
+
+                // Display results
+                resultEl.innerHTML = `Estimated Monthly AdSense Revenue: <b>$${revenue.toFixed(2)}</b>`;
+                
+                totalRevenueEl.textContent = `$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                adImpressionsEl.textContent = adImpressions.toLocaleString('en-US');
+                numClicksEl.textContent = numClicks.toLocaleString('en-US');
+                estimatedRevenueEl.textContent = `$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                
+                resultsSectionEl.classList.add('show');
+            };
+
+            window.showError = function(message) {
+                if (!errorMessageEl || !resultsSectionEl) return;
+                errorMessageEl.textContent = message;
+                errorMessageEl.classList.add('show');
+                resultsSectionEl.classList.remove('show');
+            };
+
+            window.clearForm = function() {
+                if (!pageviewsEl || !adsPerPageEl || !ctrEl || !cpcEl || !resultEl || 
+                    !errorMessageEl || !resultsSectionEl) return;
+                
+                pageviewsEl.value = '';
+                adsPerPageEl.value = '';
+                ctrEl.value = '';
+                cpcEl.value = '';
+                resultEl.innerHTML = '';
+                errorMessageEl.classList.remove('show');
+                resultsSectionEl.classList.remove('show');
+            };
+
+            // Allow Enter key to trigger calculation
+            const inputs = [pageviewsEl, adsPerPageEl, ctrEl, cpcEl];
+            inputs.forEach(el => {
+                if (el) {
+                    el.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            window.calculateAdSense();
+                        }
+                    });
+                }
             });
         });
     </script>
