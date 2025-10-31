@@ -112,6 +112,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -569,7 +570,7 @@
     <!-- END NAVIGATION -->
 
     <!-- Main Content -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -821,6 +822,8 @@
         // Add food entry
         function addFoodEntry() {
             const container = document.getElementById('food-entries');
+            if (!container) return;
+            
             const entryId = `entry-${entryCounter++}`;
             
             const entryDiv = document.createElement('div');
@@ -857,13 +860,20 @@
             `;
             
             container.appendChild(entryDiv);
-            document.getElementById('empty-state').style.display = 'none';
+            const emptyState = document.getElementById('empty-state');
+            if (emptyState) {
+                emptyState.style.display = 'none';
+            }
         }
 
         // Update food sugar info
         function updateFoodSugar(entryId, index) {
-            const foodName = document.getElementById(`food-name-${index}`).value.trim();
+            const foodNameInput = document.getElementById(`food-name-${index}`);
             const infoDiv = document.getElementById(`food-info-${index}`);
+            
+            if (!foodNameInput || !infoDiv) return;
+            
+            const foodName = foodNameInput.value.trim();
             
             if (foodDatabase[foodName.toLowerCase()]) {
                 const food = foodDatabase[foodName.toLowerCase()];
@@ -887,9 +897,11 @@
             
             // Show empty state if no entries
             const container = document.getElementById('food-entries');
-            if (container.children.length === 0) {
-                document.getElementById('empty-state').style.display = 'block';
-                document.getElementById('results-section').style.display = 'none';
+            if (container && container.children.length === 0) {
+                const emptyState = document.getElementById('empty-state');
+                const resultsSection = document.getElementById('results-section');
+                if (emptyState) emptyState.style.display = 'block';
+                if (resultsSection) resultsSection.style.display = 'none';
             }
         }
 
@@ -944,33 +956,51 @@
         // Clear all entries
         function clearAllEntries() {
             const container = document.getElementById('food-entries');
-            container.innerHTML = '';
+            if (container) {
+                container.innerHTML = '';
+            }
             entryCounter = 0;
             foodEntries = [];
-            document.getElementById('results-section').style.display = 'none';
-            document.getElementById('empty-state').style.display = 'block';
+            const resultsSection = document.getElementById('results-section');
+            const emptyState = document.getElementById('empty-state');
+            if (resultsSection) resultsSection.style.display = 'none';
+            if (emptyState) emptyState.style.display = 'block';
         }
 
         // Display results
         function displayResults(totalSugar) {
+            const resultsSection = document.getElementById('results-section');
+            if (!resultsSection) return;
+            
             if (foodEntries.length === 0) {
-                document.getElementById('results-section').style.display = 'none';
+                resultsSection.style.display = 'none';
                 return;
             }
             
-            document.getElementById('results-section').style.display = 'block';
-            document.getElementById('total-sugar').textContent = totalSugar.toFixed(1) + 'g';
+            resultsSection.style.display = 'block';
+            const totalSugarEl = document.getElementById('total-sugar');
+            if (totalSugarEl) {
+                totalSugarEl.textContent = totalSugar.toFixed(1) + 'g';
+            }
             
-            const userType = document.getElementById('user-type').value;
+            const userTypeEl = document.getElementById('user-type');
+            if (!userTypeEl) return;
+            
+            const userType = userTypeEl.value;
             let dailyLimit = sugarLimits[userType];
             
             if (userType === 'custom') {
-                dailyLimit = parseFloat(document.getElementById('custom-sugar-limit').value) || 36;
+                const customLimitEl = document.getElementById('custom-sugar-limit');
+                if (customLimitEl) {
+                    dailyLimit = parseFloat(customLimitEl.value) || 36;
+                }
             }
             
             const percentage = (totalSugar / dailyLimit) * 100;
             const progressBar = document.getElementById('progress-bar');
-            progressBar.style.width = Math.min(percentage, 100) + '%';
+            if (progressBar) {
+                progressBar.style.width = Math.min(percentage, 100) + '%';
+            }
             
             let statusClass = 'status-safe';
             let statusText = 'Great! You\'re within the recommended limit.';
@@ -986,13 +1016,22 @@
                 progressClass = 'progress-warning';
             }
             
-            document.getElementById('status-indicator').className = `status-indicator ${statusClass}`;
-            document.getElementById('status-indicator').textContent = statusText;
-            progressBar.className = `progress-bar ${progressClass}`;
-            progressBar.textContent = percentage.toFixed(0) + '%';
+            const statusIndicator = document.getElementById('status-indicator');
+            if (statusIndicator) {
+                statusIndicator.className = `status-indicator ${statusClass}`;
+                statusIndicator.textContent = statusText;
+            }
             
-            document.getElementById('daily-limit-comparison').textContent = 
-                `You've consumed ${totalSugar.toFixed(1)}g of ${dailyLimit}g daily limit`;
+            if (progressBar) {
+                progressBar.className = `progress-bar ${progressClass}`;
+                progressBar.textContent = percentage.toFixed(0) + '%';
+            }
+            
+            const dailyLimitComparison = document.getElementById('daily-limit-comparison');
+            if (dailyLimitComparison) {
+                dailyLimitComparison.textContent = 
+                    `You've consumed ${totalSugar.toFixed(1)}g of ${dailyLimit}g daily limit`;
+            }
             
             // Display food list
             displayFoodList();
@@ -1007,6 +1046,8 @@
         // Display food list
         function displayFoodList() {
             const container = document.getElementById('food-items');
+            if (!container) return;
+            
             container.innerHTML = '';
             
             // Sort by sugar content (highest first)
@@ -1028,6 +1069,8 @@
             const highSugarItems = foodEntries.filter(item => item.sugar >= 20);
             const warningDiv = document.getElementById('high-sugar-warning');
             
+            if (!warningDiv) return;
+            
             if (highSugarItems.length > 0) {
                 warningDiv.style.display = 'block';
                 warningDiv.className = 'high-sugar-warning';
@@ -1048,6 +1091,8 @@
         // Display recommendations
         function displayRecommendations(totalSugar, dailyLimit, percentage) {
             const recDiv = document.getElementById('recommendations');
+            if (!recDiv) return;
+            
             recDiv.style.display = 'block';
             recDiv.className = 'recommendations';
             
@@ -1079,39 +1124,45 @@
 
         // Update sugar limit
         function updateSugarLimit() {
-            const userType = document.getElementById('user-type').value;
+            const userTypeEl = document.getElementById('user-type');
+            if (!userTypeEl) return;
+            
+            const userType = userTypeEl.value;
             const customLimitGroup = document.getElementById('custom-limit-group');
             const dailyLimitDisplay = document.getElementById('daily-limit-display');
             
             if (userType === 'custom') {
-                customLimitGroup.style.display = 'block';
-                const customLimit = parseFloat(document.getElementById('custom-sugar-limit').value) || 36;
-                sugarLimits['custom'] = customLimit;
-                dailyLimitDisplay.textContent = customLimit + 'g';
+                if (customLimitGroup) customLimitGroup.style.display = 'block';
+                const customLimitEl = document.getElementById('custom-sugar-limit');
+                if (customLimitEl) {
+                    const customLimit = parseFloat(customLimitEl.value) || 36;
+                    sugarLimits['custom'] = customLimit;
+                    if (dailyLimitDisplay) dailyLimitDisplay.textContent = customLimit + 'g';
+                }
             } else {
-                customLimitGroup.style.display = 'none';
+                if (customLimitGroup) customLimitGroup.style.display = 'none';
                 const limit = sugarLimits[userType];
-                dailyLimitDisplay.textContent = limit + 'g';
+                if (dailyLimitDisplay) dailyLimitDisplay.textContent = limit + 'g';
             }
         }
 
         // Initialize on page load
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
             updateSugarLimit();
             // Add initial food entry
             addFoodEntry();
-        };
+        });
 
     </script>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 </html>
 
