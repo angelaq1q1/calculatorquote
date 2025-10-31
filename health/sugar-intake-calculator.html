@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugar Intake Calculator – Track Daily Sugar and Protect Your Health</title>
+    <meta name="description" content="Worried about how much sugar you eat daily? Use our free Sugar Intake Calculator to track sugar in your meals, spot hidden sources, and learn simple tips to reduce intake. Take control of your diet and improve your health starting today.">
+    <meta name="keywords" content="sugar calculator, sugar intake calculator, daily sugar limit, added sugar calculator, sugar consumption tracker, sugar content, dietary sugar">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sugar Intake Calculator – Track Daily Sugar and Protect Your Health",
+      "url": "https://www.calculatorquote.com/health/sugar-intake-calculator.html",
+      "description": "Worried about how much sugar you eat daily? Use our free Sugar Intake Calculator to track sugar in your meals, spot hidden sources, and learn simple tips to reduce intake. Take control of your diet and improve your health starting today.",
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the daily recommended sugar intake?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The American Heart Association recommends no more than 36g (9 teaspoons) of added sugar per day for men and 25g (6 teaspoons) for women. Children should have even less, typically 12-24g depending on age."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I track my sugar intake?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use our sugar intake calculator to add foods and beverages you consume throughout the day. Enter the food name and serving size, and we'll calculate the total sugar content and compare it against recommended limits."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What foods are high in sugar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Common high-sugar foods include sodas, fruit juices, candy, pastries, ice cream, and processed snacks. Even seemingly healthy foods like flavored yogurt and granola bars can contain significant amounts of added sugar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the daily sugar intake recommendations?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Daily sugar intake recommendations vary by age and gender. Adult men should limit added sugar to no more than 36g (9 teaspoons) per day, while adult women should limit to 25g (6 teaspoons) per day. Children aged 2-3 should have no more than 12g, ages 4-8 should limit to 16g, ages 9-13 should limit to 20g, and teens 14-18 should limit to 24g per day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the average sugar intake per day?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The average American consumes about 77g (17 teaspoons) of added sugar per day, which is significantly higher than the recommended limits. This is more than double the recommended daily intake for adult women and nearly double for adult men. Most of this sugar comes from sugary beverages, snacks, and processed foods."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many grams of sugar in a cup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The amount of sugar in a cup varies depending on the type of food or beverage. For reference, one cup of granulated white sugar contains approximately 200g of sugar. However, when measuring sugar content in foods, a cup of cola contains about 39g of sugar, a cup of orange juice contains about 22g, and a cup of apple juice contains about 24g of sugar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many grams in a tablespoon of sugar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "One tablespoon of granulated white sugar contains approximately 12.5g (or about 12g) of sugar. This is equivalent to about 3 teaspoons, since one teaspoon contains approximately 4g of sugar. When tracking sugar intake, it's helpful to know that common measurements like pancake syrup (1 tbsp) contain about 14g, maple syrup (1 tbsp) contains about 12g, and honey (1 tbsp) contains about 17g of sugar."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Sugar Intake Calculator",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .settings-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .settings-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .food-input-row .input-group label {
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+        
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .food-input-row .input-group input {
+            padding: 10px 8px;
+            font-size: 0.95em;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #eb5424;
+        }
+        
+        .food-entry {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .food-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .food-entry-header h4 {
+            color: #333;
+            font-size: 1em;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .remove-food-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background-color 0.3s;
+        }
+        
+        .remove-food-btn:hover {
+            background-color: #c82333;
+        }
+        
+        .food-input-row {
+            display: grid;
+            grid-template-columns: 1.5fr 0.7fr 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 900px) {
+            .food-input-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+        
+        .add-food-btn {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 25px auto 25px auto;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .add-food-btn:hover {
+            background-color: #d43d1a;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+        
+        @media (max-width: 768px) {
+            .add-food-btn {
+                max-width: 100%;
+                padding: 15px;
+            }
+            
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+        
+        .result-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .total-sugar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .total-sugar-value {
+            font-size: 3em;
+            font-weight: 600;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .total-sugar-label {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .status-indicator {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        
+        .status-safe {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+        
+        .status-warning {
+            background-color: #fff3e0;
+            color: #e65100;
+            border: 2px solid #ff9800;
+        }
+        
+        .status-danger {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+        
+        .progress-bar-container {
+            background-color: #e9ecef;
+            height: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .progress-safe {
+            background-color: #4caf50;
+        }
+        
+        .progress-warning {
+            background-color: #ff9800;
+        }
+        
+        .progress-danger {
+            background-color: #f44336;
+        }
+        
+        .food-list {
+            margin-top: 20px;
+        }
+        
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .food-item-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .food-item-sugar {
+            color: #eb5424;
+            font-weight: 600;
+        }
+        
+        .high-sugar-warning {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .high-sugar-warning h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .high-sugar-warning ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .recommendations {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .recommendations h4 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .recommendations ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .recommendations li {
+            margin-bottom: 8px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+        
+        .empty-state-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Health Calculators</a>
+                                    <span>/</span>
+                                    Sugar Intake Calculator
+                                </div>
+
+                                <h1>Sugar Intake Calculator: See How Your Daily Sugar Could Be Harming You</h1>
+                                <div class="description">
+                                    Worried about how much sugar you eat each day? Our Sugar Intake Calculator helps you track your daily sugar consumption and identify hidden sources in your meals. Spot excess sugar, understand its impact on your health, and get simple tips to reduce intake. Take control of your diet today!
+                                </div>
+
+                                <!-- Settings Section -->
+                                <div class="settings-section">
+                                    <h3>Daily Sugar Goal Settings</h3>
+                                    <div class="input-row">
+                                        <div class="input-group">
+                                            <label for="user-type">User Type:</label>
+                                            <select id="user-type" onchange="updateSugarLimit()">
+                                                <option value="male-adult">Adult Male (≤36g/day)</option>
+                                                <option value="female-adult">Adult Female (≤25g/day)</option>
+                                                <option value="child-2-3">Child 2-3 years (≤12g/day)</option>
+                                                <option value="child-4-8">Child 4-8 years (≤16g/day)</option>
+                                                <option value="child-9-13">Child 9-13 years (≤20g/day)</option>
+                                                <option value="teen-14-18">Teen 14-18 years (≤24g/day)</option>
+                                                <option value="custom">Custom Limit</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group" id="custom-limit-group" style="display: none;">
+                                            <label for="custom-sugar-limit">Custom Daily Limit (grams):</label>
+                                            <input type="number" id="custom-sugar-limit" min="0" max="200" step="1" placeholder="Enter limit" onchange="updateSugarLimit()">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Daily Sugar Limit: <strong id="daily-limit-display">36g</strong></label>
+                                    </div>
+                                </div>
+
+                                <!-- Food Entry Section -->
+                                <div id="food-entries">
+                                    <!-- Food entries will be added here dynamically -->
+                                </div>
+
+                                <button class="add-food-btn" onclick="addFoodEntry()">+ Add Food/Drink</button>
+                                
+                                <div class="buttons">
+                                    <button class="btn-calculate" onclick="calculateButton()">Calculate</button>
+                                    <button class="btn-clear" onclick="clearAllEntries()">Clear</button>
+                                </div>
+
+                                <!-- Results Section -->
+                                <div class="result-box" id="results-section" style="display: none;">
+                                    <div class="total-sugar">
+                                        <div class="total-sugar-label">Total Daily Sugar Intake</div>
+                                        <div class="total-sugar-value" id="total-sugar">0g</div>
+                                        <div id="status-indicator" class="status-indicator"></div>
+                                    </div>
+                                    
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" id="progress-bar" style="width: 0%;">0%</div>
+                                    </div>
+                                    
+                                    <div id="daily-limit-comparison" style="text-align: center; color: #666; margin-top: 10px;"></div>
+                                    
+                                    <div class="food-list" id="food-list">
+                                        <h4 style="margin-bottom: 15px; color: #333;">Food Breakdown:</h4>
+                                        <div id="food-items"></div>
+                                    </div>
+                                    
+                                    <div id="high-sugar-warning" style="display: none;"></div>
+                                    
+                                    <div id="recommendations" style="display: none;"></div>
+                                </div>
+
+                                <div id="empty-state" class="empty-state">
+                                    <div class="empty-state-icon">🍽️</div>
+                                    <p>Add foods and drinks to start tracking your sugar intake!</p>
+                                </div>
+
+                                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #333; font-size: 1.3em; font-weight: 500;">🍭 Sugar Intake Calculator: Track Your Daily Sugar and Stay Healthy</h3>
+                                
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Do you know how much sugar you eat every day? 🍰 Many people underestimate it. Sugar hides in drinks 🥤, snacks, and sauces. Our Sugar Intake Calculator helps you see your total daily sugar, spot hidden sources, and understand the effects on your health 💚. This tool is perfect for anyone who wants to manage weight, boost energy ⚡, or eat smarter. By tracking sugar in your meals, you can make better choices and reduce health risks quickly.
+                                </p>
+                                
+                                <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">How the Calculator Works</h4>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    The calculator adds up sugar from everything you eat and drink. It uses standard references like how many grams in a tablespoon of sugar and 1 tablespoon sugar calories to calculate totals 📊. You enter items for breakfast 🍳, lunch, dinner, and snacks.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    For example, one tablespoon of sugar is about 12–15 grams and has roughly 50 calories. A sweetened coffee ☕ in the morning plus a dessert in the evening can quickly add up. The calculator shows your total sugar and compares it with daily sugar intake recommendations.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Most adults should limit added sugar to around 25–36 grams a day. But the average sugar intake per day in many countries is much higher 📈. Our calculator helps you spot hidden sugar in sauces 🍯, drinks, and snacks that you might not notice.
+                                </p>
+                                
+                                <h4 style="color: #333; font-size: 1.2em; margin: 30px 0 15px; font-weight: 500;">Why Monitoring Sugar Matters</h4>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Tracking sugar helps your energy ⚡, weight, and overall health. Eating too much sugar can cause tiredness 😴, weight gain, and higher risk of long-term health problems. Knowing how many grams in a tablespoon of sugar and your daily total makes it easier to plan meals 🍽️ without overdoing it.
+                                </p>
+                                <p style="color: #666; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px;">
+                                    Use our Sugar Intake Calculator to understand your sugar habits. Once you know your intake, check out our other tools, like the Calorie Calculator or Caffeine Intake Calculator, to improve your diet and daily routine. Small changes now can lead to more energy, better health 💪, and long-term wellness ✨.
+                                </p>
+
+                                <h4 style="color: #333; font-size: 1.3em; margin: 30px 0 20px; font-weight: 500;">❓Sugar Intake FAQs: Track, Reduce, and Stay Healthy</h4>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q1: How much sugar intake is okay in a day? 🍬</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: World Health Organization recommendations - The World Health Organization (WHO) recommends that sugar should only make up 10% or less of your daily energy intake. This equals about 12 teaspoons (50 grams) of sugar per day for an adult. 📊</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q2: What are the signs of too much sugar intake? ⚠️</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Spotting the red flags - Weight gain 📈. "Sugary foods and drinks are often high in calories and low in nutritional value," Masoud says. Acne breakouts 🫘. Reaching for multiple snacks. Mood swings and irritability 😤. Lack of energy 💤. Craving more sugar. Tossing and turning at night 🌙.</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q3: What is the meaning of sugar intake? 🍯</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Sugar intake is defined as the consumption of sugars, particularly 'free sugars' which include those added to foods and those naturally present in honey, syrups, and fruit juices. 🧃</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q4: How do I flush sugar out of my system? 💧</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Drinking water and staying hydrated is important for managing blood sugar, also known as blood glucose. "Water helps your kidneys filter out excess sugar through urine," says Khan. "So, the more hydrated you are, the more urine production you'll have, which flushes out sugar in the body." 🔄</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q5: What does a sugar face look like? 👤</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: Here are the tell-tale signs on your face that sugar is the culprit aging your skin: The surface of your skin looks hard and shiny. Deep, crosshatch lines appear along your upper lip. Discoloration and hyperpigmentation mark your skin. 🪞</p>
+                                </div>
+                                
+                                <div class="faq-item" style="margin-bottom: 20px;">
+                                    <p class="faq-question" style="color: #333; font-size: 1.1em; font-weight: 700; margin-bottom: 10px;"><strong>Q6: What do 7 days of no sugar do? ✨</strong></p>
+                                    <p class="faq-answer" style="color: #666; font-size: 1.1em; line-height: 1.6;">A: The result: I feel so much more energised ⚡, less bloated, more alert, better sleep 😴, better mood 😊, less food noise, Less cravings to cap off all my meals with a pudding, I feel more positive and in control. I believe I do have will power 💪 I just never committed to using it. I feel like it gets easier as the days pass. 📅</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Food database with sugar content per serving
+        const foodDatabase = {
+            // Beverages
+            'cola (can 12oz)': { sugar: 39, unit: 'can', serving: '12oz' },
+            'cola (bottle 20oz)': { sugar: 65, unit: 'bottle', serving: '20oz' },
+            'orange juice (cup)': { sugar: 22, unit: 'cup', serving: '8oz' },
+            'apple juice (cup)': { sugar: 24, unit: 'cup', serving: '8oz' },
+            'energy drink (can)': { sugar: 27, unit: 'can', serving: '8.4oz' },
+            'sweet tea (cup)': { sugar: 22, unit: 'cup', serving: '8oz' },
+            'coffee with sugar (tsp)': { sugar: 4, unit: 'tsp', serving: '1 tsp' },
+            'hot chocolate (cup)': { sugar: 24, unit: 'cup', serving: '8oz' },
+            'sports drink (bottle)': { sugar: 21, unit: 'bottle', serving: '20oz' },
+            
+            // Snacks & Candy
+            'chocolate bar (1 bar)': { sugar: 24, unit: 'bar', serving: '1.55oz' },
+            'candy bar (snickers)': { sugar: 20, unit: 'bar', serving: '1.86oz' },
+            'cookies (oreo, 3 pieces)': { sugar: 14, unit: 'serving', serving: '3 cookies' },
+            'donut (glazed)': { sugar: 12, unit: 'donut', serving: '1 donut' },
+            'muffin (blueberry)': { sugar: 27, unit: 'muffin', serving: '1 muffin' },
+            'cake slice (chocolate)': { sugar: 35, unit: 'slice', serving: '1 slice' },
+            'ice cream (cup)': { sugar: 21, unit: 'cup', serving: '1/2 cup' },
+            'granola bar': { sugar: 12, unit: 'bar', serving: '1 bar' },
+            
+            // Breakfast
+            'cereal (frosted flakes, cup)': { sugar: 11, unit: 'cup', serving: '3/4 cup' },
+            'cereal (honey nut cheerios, cup)': { sugar: 9, unit: 'cup', serving: '3/4 cup' },
+            'pancake syrup (tbsp)': { sugar: 14, unit: 'tbsp', serving: '1 tbsp' },
+            'maple syrup (tbsp)': { sugar: 12, unit: 'tbsp', serving: '1 tbsp' },
+            'yogurt (flavored, 6oz)': { sugar: 19, unit: 'container', serving: '6oz' },
+            'yogurt (greek, flavored, 6oz)': { sugar: 15, unit: 'container', serving: '6oz' },
+            
+            // Desserts
+            'chocolate chip cookie': { sugar: 6, unit: 'cookie', serving: '1 cookie' },
+            'brownie': { sugar: 18, unit: 'piece', serving: '1 piece' },
+            'pie slice (apple)': { sugar: 23, unit: 'slice', serving: '1 slice' },
+            'pudding (cup)': { sugar: 19, unit: 'cup', serving: '4oz' },
+            
+            // Condiments & Spreads
+            'ketchup (tbsp)': { sugar: 4, unit: 'tbsp', serving: '1 tbsp' },
+            'bbq sauce (tbsp)': { sugar: 6, unit: 'tbsp', serving: '1 tbsp' },
+            'jam/jelly (tbsp)': { sugar: 12, unit: 'tbsp', serving: '1 tbsp' },
+            'nutella (tbsp)': { sugar: 11, unit: 'tbsp', serving: '1 tbsp' },
+            'honey (tbsp)': { sugar: 17, unit: 'tbsp', serving: '1 tbsp' },
+            
+            // Fruits (natural sugar, but included for tracking)
+            'apple (medium)': { sugar: 19, unit: 'apple', serving: '1 medium' },
+            'banana (medium)': { sugar: 14, unit: 'banana', serving: '1 medium' },
+            'orange (medium)': { sugar: 12, unit: 'orange', serving: '1 medium' },
+            'grapes (cup)': { sugar: 15, unit: 'cup', serving: '1 cup' },
+            
+            // Other
+            'bread (white, slice)': { sugar: 1.5, unit: 'slice', serving: '1 slice' },
+            'protein bar': { sugar: 15, unit: 'bar', serving: '1 bar' },
+            'canned fruit (cup)': { sugar: 30, unit: 'cup', serving: '1 cup' },
+        };
+
+        // Sugar limits by user type
+        const sugarLimits = {
+            'male-adult': 36,
+            'female-adult': 25,
+            'child-2-3': 12,
+            'child-4-8': 16,
+            'child-9-13': 20,
+            'teen-14-18': 24,
+            'custom': 36
+        };
+
+        let foodEntries = [];
+        let entryCounter = 0;
+
+        // Initialize
+        function initializeFoodDatabase() {
+            const foodSelect = document.getElementById('food-select-0');
+            if (!foodSelect) return;
+            
+            const sortedFoods = Object.keys(foodDatabase).sort();
+            foodSelect.innerHTML = '<option value="">Select or type food name...</option>';
+            sortedFoods.forEach(food => {
+                const option = document.createElement('option');
+                option.value = food;
+                option.textContent = `${food} (${foodDatabase[food].sugar}g per ${foodDatabase[food].unit})`;
+                foodSelect.appendChild(option);
+            });
+        }
+
+        // Add food entry
+        function addFoodEntry() {
+            const container = document.getElementById('food-entries');
+            const entryId = `entry-${entryCounter++}`;
+            
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'food-entry';
+            entryDiv.id = entryId;
+            entryDiv.innerHTML = `
+                <div class="food-entry-header">
+                    <h4>Food Entry #${entryCounter}</h4>
+                    <button class="remove-food-btn" onclick="removeFoodEntry('${entryId}')">Remove</button>
+                </div>
+                <div class="food-input-row">
+                    <div class="input-group">
+                        <label>Food/Drink Name:</label>
+                        <input type="text" id="food-name-${entryCounter-1}" list="food-datalist-${entryCounter-1}" 
+                               placeholder="Food/Drink..." onchange="updateFoodSugar('${entryId}', ${entryCounter-1})">
+                        <datalist id="food-datalist-${entryCounter-1}">
+                            ${Object.keys(foodDatabase).sort().map(food => 
+                                `<option value="${food}">${food} (${foodDatabase[food].sugar}g per ${foodDatabase[food].unit})</option>`
+                            ).join('')}
+                        </datalist>
+                    </div>
+                    <div class="input-group">
+                        <label>Quantity:</label>
+                        <input type="number" id="food-quantity-${entryCounter-1}" min="0" step="0.1" 
+                               value="1" placeholder="1" onchange="calculateTotal()">
+                    </div>
+                    <div class="input-group">
+                        <label>Custom Sugar (g):</label>
+                        <input type="number" id="custom-sugar-${entryCounter-1}" min="0" step="0.1" 
+                               placeholder="Manual entry" onchange="calculateTotal()">
+                    </div>
+                </div>
+                <div id="food-info-${entryCounter-1}" style="color: #666; font-size: 0.9em; margin-top: 5px;"></div>
+            `;
+            
+            container.appendChild(entryDiv);
+            document.getElementById('empty-state').style.display = 'none';
+        }
+
+        // Update food sugar info
+        function updateFoodSugar(entryId, index) {
+            const foodName = document.getElementById(`food-name-${index}`).value.trim();
+            const infoDiv = document.getElementById(`food-info-${index}`);
+            
+            if (foodDatabase[foodName.toLowerCase()]) {
+                const food = foodDatabase[foodName.toLowerCase()];
+                infoDiv.innerHTML = `Found: ${food.sugar}g per ${food.unit} (${food.serving})`;
+                infoDiv.style.color = '#4caf50';
+            } else if (foodName) {
+                infoDiv.innerHTML = 'Not found in database. Please enter sugar amount manually.';
+                infoDiv.style.color = '#ff9800';
+            } else {
+                infoDiv.innerHTML = '';
+            }
+        }
+
+        // Remove food entry
+        function removeFoodEntry(entryId) {
+            const entry = document.getElementById(entryId);
+            if (entry) {
+                entry.remove();
+            }
+            foodEntries = foodEntries.filter(e => e.id !== entryId);
+            
+            // Show empty state if no entries
+            const container = document.getElementById('food-entries');
+            if (container.children.length === 0) {
+                document.getElementById('empty-state').style.display = 'block';
+                document.getElementById('results-section').style.display = 'none';
+            }
+        }
+
+        // Calculate total sugar (internal function, doesn't display)
+        function calculateTotal() {
+            const entries = document.querySelectorAll('.food-entry');
+            let totalSugar = 0;
+            const foodItems = [];
+            
+            entries.forEach((entry, index) => {
+                const foodNameInput = entry.querySelector(`input[type="text"]`);
+                const quantityInput = entry.querySelector(`input[type="number"]:not([id*="custom-sugar"])`);
+                const customSugarInput = entry.querySelector(`input[id*="custom-sugar"]`);
+                
+                if (!foodNameInput || !quantityInput) return;
+                
+                const foodName = foodNameInput.value.trim().toLowerCase();
+                const quantity = parseFloat(quantityInput.value) || 0;
+                const customSugar = parseFloat(customSugarInput?.value) || 0;
+                
+                let sugarPerUnit = 0;
+                
+                if (foodDatabase[foodName]) {
+                    sugarPerUnit = foodDatabase[foodName].sugar;
+                } else if (customSugar > 0) {
+                    sugarPerUnit = customSugar;
+                }
+                
+                if (quantity > 0 && sugarPerUnit > 0) {
+                    const entrySugar = quantity * sugarPerUnit;
+                    totalSugar += entrySugar;
+                    
+                    foodItems.push({
+                        name: foodNameInput.value || 'Unknown',
+                        quantity: quantity,
+                        sugar: entrySugar,
+                        sugarPerUnit: sugarPerUnit
+                    });
+                }
+            });
+            
+            foodEntries = foodItems;
+            return totalSugar;
+        }
+        
+        // Calculate button handler - displays results
+        function calculateButton() {
+            const totalSugar = calculateTotal();
+            displayResults(totalSugar);
+        }
+        
+        // Clear all entries
+        function clearAllEntries() {
+            const container = document.getElementById('food-entries');
+            container.innerHTML = '';
+            entryCounter = 0;
+            foodEntries = [];
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('empty-state').style.display = 'block';
+        }
+
+        // Display results
+        function displayResults(totalSugar) {
+            if (foodEntries.length === 0) {
+                document.getElementById('results-section').style.display = 'none';
+                return;
+            }
+            
+            document.getElementById('results-section').style.display = 'block';
+            document.getElementById('total-sugar').textContent = totalSugar.toFixed(1) + 'g';
+            
+            const userType = document.getElementById('user-type').value;
+            let dailyLimit = sugarLimits[userType];
+            
+            if (userType === 'custom') {
+                dailyLimit = parseFloat(document.getElementById('custom-sugar-limit').value) || 36;
+            }
+            
+            const percentage = (totalSugar / dailyLimit) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = Math.min(percentage, 100) + '%';
+            
+            let statusClass = 'status-safe';
+            let statusText = 'Great! You\'re within the recommended limit.';
+            let progressClass = 'progress-safe';
+            
+            if (percentage >= 100) {
+                statusClass = 'status-danger';
+                statusText = `⚠️ Exceeded limit by ${(totalSugar - dailyLimit).toFixed(1)}g`;
+                progressClass = 'progress-danger';
+            } else if (percentage >= 80) {
+                statusClass = 'status-warning';
+                statusText = '⚠️ Close to daily limit. Consider reducing sugar intake.';
+                progressClass = 'progress-warning';
+            }
+            
+            document.getElementById('status-indicator').className = `status-indicator ${statusClass}`;
+            document.getElementById('status-indicator').textContent = statusText;
+            progressBar.className = `progress-bar ${progressClass}`;
+            progressBar.textContent = percentage.toFixed(0) + '%';
+            
+            document.getElementById('daily-limit-comparison').textContent = 
+                `You've consumed ${totalSugar.toFixed(1)}g of ${dailyLimit}g daily limit`;
+            
+            // Display food list
+            displayFoodList();
+            
+            // Display high sugar warning
+            displayHighSugarWarning();
+            
+            // Display recommendations
+            displayRecommendations(totalSugar, dailyLimit, percentage);
+        }
+
+        // Display food list
+        function displayFoodList() {
+            const container = document.getElementById('food-items');
+            container.innerHTML = '';
+            
+            // Sort by sugar content (highest first)
+            const sorted = [...foodEntries].sort((a, b) => b.sugar - a.sugar);
+            
+            sorted.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'food-item';
+                div.innerHTML = `
+                    <span class="food-item-name">${item.name} × ${item.quantity}</span>
+                    <span class="food-item-sugar">${item.sugar.toFixed(1)}g</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Display high sugar warning
+        function displayHighSugarWarning() {
+            const highSugarItems = foodEntries.filter(item => item.sugar >= 20);
+            const warningDiv = document.getElementById('high-sugar-warning');
+            
+            if (highSugarItems.length > 0) {
+                warningDiv.style.display = 'block';
+                warningDiv.className = 'high-sugar-warning';
+                warningDiv.innerHTML = `
+                    <h4>⚠️ High-Sugar Foods Detected</h4>
+                    <ul>
+                        ${highSugarItems.map(item => 
+                            `<li><strong>${item.name}</strong>: ${item.sugar.toFixed(1)}g of sugar</li>`
+                        ).join('')}
+                    </ul>
+                    <p style="margin-top: 10px; color: #666;">Consider replacing these with lower-sugar alternatives.</p>
+                `;
+            } else {
+                warningDiv.style.display = 'none';
+            }
+        }
+
+        // Display recommendations
+        function displayRecommendations(totalSugar, dailyLimit, percentage) {
+            const recDiv = document.getElementById('recommendations');
+            recDiv.style.display = 'block';
+            recDiv.className = 'recommendations';
+            
+            let recommendations = [];
+            
+            if (percentage >= 100) {
+                recommendations.push('Reduce consumption of high-sugar beverages and snacks');
+                recommendations.push('Replace sugary drinks with water or unsweetened beverages');
+                recommendations.push('Choose whole fruits instead of fruit juices');
+                recommendations.push('Read nutrition labels to identify hidden sugars');
+                recommendations.push('Gradually reduce sugar in your diet rather than cutting it all at once');
+            } else if (percentage >= 80) {
+                recommendations.push('You\'re approaching your daily limit. Monitor remaining meals carefully');
+                recommendations.push('Opt for water or unsweetened drinks for the rest of the day');
+                recommendations.push('Choose snacks with lower sugar content');
+            } else {
+                recommendations.push('Good job staying within limits!');
+                recommendations.push('Continue to be mindful of hidden sugars in processed foods');
+                recommendations.push('Maintain a balanced diet with plenty of whole foods');
+            }
+            
+            recDiv.innerHTML = `
+                <h4>💡 Dietary Recommendations</h4>
+                <ul>
+                    ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Update sugar limit
+        function updateSugarLimit() {
+            const userType = document.getElementById('user-type').value;
+            const customLimitGroup = document.getElementById('custom-limit-group');
+            const dailyLimitDisplay = document.getElementById('daily-limit-display');
+            
+            if (userType === 'custom') {
+                customLimitGroup.style.display = 'block';
+                const customLimit = parseFloat(document.getElementById('custom-sugar-limit').value) || 36;
+                sugarLimits['custom'] = customLimit;
+                dailyLimitDisplay.textContent = customLimit + 'g';
+            } else {
+                customLimitGroup.style.display = 'none';
+                const limit = sugarLimits[userType];
+                dailyLimitDisplay.textContent = limit + 'g';
+            }
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            updateSugarLimit();
+            // Add initial food entry
+            addFoodEntry();
+        };
+
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
