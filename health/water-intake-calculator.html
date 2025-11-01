@@ -117,9 +117,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
@@ -154,6 +154,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -357,6 +358,77 @@
         .faq-item {
             margin-bottom: 20px;
         }
+
+        /* Navigation styles */
+        .navbar-default {
+            background: #fff !important;
+            border: none !important;
+            -webkit-box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .navbar-default .navbar-brand {
+            color: #212227 !important;
+            font-weight: bold !important;
+            font-size: 30px !important;
+            line-height: 45px !important;
+            padding: 10px 0 0 12px !important;
+        }
+        
+        .navbar-default .navbar-nav li a {
+            color: #202020 !important;
+            font-size: 13px !important;
+            font-weight: bold !important;
+            line-height: 45px !important;
+            letter-spacing: 1px !important;
+            padding: 0 15px !important;
+        }
+        
+        .navbar-default .navbar-nav li a:hover,
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #eb5424 !important;
+            background-color: transparent !important;
+        }
+        
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #eb5424 !important;
+            background-color: transparent !important;
+        }
+        
+        .navbar-default .navbar-toggle {
+            border: none !important;
+            padding-top: 10px !important;
+        }
+        
+        .navbar-default .navbar-toggle .icon-bar,
+        .navbar-default .navbar-toggle .icon.icon-bar {
+            background: #eb5424 !important;
+            border-color: transparent !important;
+            display: block !important;
+            width: 22px !important;
+            height: 2px !important;
+            border-radius: 1px !important;
+            margin: 4px 0 !important;
+        }
+        
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: transparent !important;
+        }
+        
+        .navbar-nav {
+            margin: 0 !important;
+        }
+        
+        .navbar-collapse {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
     </style>
 </head>
 <body>
@@ -365,9 +437,9 @@
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
@@ -506,13 +578,13 @@
     </footer>
 
     <!-- Template JavaScript Files -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/imagesloaded.min.js"></script>
-    <script src="../js/isotope.js"></script>
-    <script src="../js/jquery.nav.js"></script>
-    <script src="../js/smoothscroll.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/jquery.nav.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
 
     <script>
         // Water intake data based on Dietary Reference Intakes (Institute of Medicine 2005)
@@ -537,8 +609,12 @@
         const ML_PER_OUNCE = 29.5735;
 
         function updateGenderOptions() {
-            const ageCategory = document.getElementById('age-category').value;
+            const ageCategoryEl = document.getElementById('age-category');
             const genderGroup = document.getElementById('gender-group');
+            
+            if (!ageCategoryEl || !genderGroup) return;
+            
+            const ageCategory = ageCategoryEl.value;
             
             // Show gender selection only for ages 9-13 and above
             if (ageCategory === '9-13' || ageCategory === '14-18' || 
@@ -550,8 +626,19 @@
         }
 
         function calculateWaterIntake() {
-            const ageCategory = document.getElementById('age-category').value;
+            const ageCategoryEl = document.getElementById('age-category');
             const genderSelect = document.getElementById('gender');
+            const totalWaterEl = document.getElementById('total-water');
+            const beverageWaterEl = document.getElementById('beverage-water');
+            const cupsWaterEl = document.getElementById('cups-water');
+            const resultSection = document.getElementById('result-section');
+            
+            if (!ageCategoryEl || !totalWaterEl || !beverageWaterEl || !cupsWaterEl || !resultSection) {
+                console.error('Required DOM elements not found');
+                return;
+            }
+            
+            const ageCategory = ageCategoryEl.value;
             const gender = (genderSelect && genderSelect.style.display !== 'none') ? genderSelect.value : 'male';
             
             // Get water intake data
@@ -576,22 +663,26 @@
             const beverageWaterCups = Math.round(beverageWaterOz / OUNCES_PER_CUP);
             
             // Display results
-            document.getElementById('total-water').textContent = totalWaterL + ' L / day';
-            document.getElementById('beverage-water').textContent = beverageWaterL + ' L (≈ ' + beverageWaterCups + ' cups) / day';
-            document.getElementById('cups-water').textContent = beverageWaterCups + ' cups (8 oz each)';
+            totalWaterEl.textContent = totalWaterL + ' L / day';
+            beverageWaterEl.textContent = beverageWaterL + ' L (≈ ' + beverageWaterCups + ' cups) / day';
+            cupsWaterEl.textContent = beverageWaterCups + ' cups (8 oz each)';
             
             // Show result section
-            document.getElementById('result-section').style.display = 'block';
+            resultSection.style.display = 'block';
             
             // Scroll to results
-            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function clearInputs() {
-            document.getElementById('age-category').value = 'infant-0-6';
-            document.getElementById('gender').value = 'male';
+            const ageCategoryEl = document.getElementById('age-category');
+            const genderEl = document.getElementById('gender');
+            const resultSection = document.getElementById('result-section');
+            
+            if (ageCategoryEl) ageCategoryEl.value = 'infant-0-6';
+            if (genderEl) genderEl.value = 'male';
             updateGenderOptions();
-            document.getElementById('result-section').style.display = 'none';
+            if (resultSection) resultSection.style.display = 'none';
         }
 
         // Initialize on page load
