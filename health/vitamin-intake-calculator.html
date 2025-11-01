@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitamin Intake Calculator — Check Your Daily Vitamin Needs</title>
+    <meta name="description" content="Not sure if you're getting enough vitamins? Use our Vitamin Intake Calculator to quickly check your daily vitamin needs and avoid fatigue, low energy, and nutrient gaps.">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Vitamin Intake Calculator — Check Your Daily Vitamin Needs",
+  "url": "https://www.calculatorquote.com/health/vitamin-intake-calculator.html",
+  "description": "Not sure if you're getting enough vitamins? Use our Vitamin Intake Calculator to quickly check your daily vitamin needs and avoid fatigue, low energy, and nutrient gaps.",
+  "mainEntity": [
+    {
+      "@type": "Calculator",
+      "name": "Vitamin Intake Calculator",
+      "description": "Daily vitamin recommendations by age, gender, weight, and health status.",
+      "url": "https://www.calculatorquote.com/health/vitamin-intake-calculator.html",
+      "keywords": [
+        "Vitamin calculator",
+        "Daily vitamin intake",
+        "Vitamin requirements",
+        "Vitamin recommendations",
+        "Vitamin needs calculator",
+        "Multivitamin calculator",
+        "Vitamin deficiency calculator",
+        "vitamin b12 recommended daily intake",
+        "recommended vitamin c daily intake",
+        "daily intake of vitamin a",
+        "recommended daily vitamin b12 intake"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much vitamins do I need per day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daily vitamin needs vary by age, gender, and health status. Use our Vitamin Intake Calculator to get personalized recommendations based on your specific profile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the daily recommended amounts for vitamins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recommended Daily Allowances (RDAs) vary for each vitamin. For example, adults typically need 75-90 mg of vitamin C, 600-800 IU of vitamin D, and varying amounts of B vitamins depending on age and gender."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        body, * { font-family: 'Raleway', sans-serif !important; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #ffffff; min-height: 100vh; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-area { flex: 1; max-width: 800px; }
+        .calculator-container { max-width: 900px; margin: 0 auto 20px auto; padding: 40px 50px; background-color: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); }
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #666; margin: 0 8px; }
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .input-section { background-color: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        @media (max-width: 768px) { 
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .calculator-container { padding: 30px 25px; }
+        }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-field-container { display: flex; align-items: center; gap: 10px; }
+        .input-field-container input, .input-field-container select { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .input-field-container input:focus, .input-field-container select:focus { border-color: #eb5424; }
+        .unit { padding: 12px; background-color: #f8f8f8; border: 1px solid #ddd; border-radius: 2px; color: #eb5424; font-weight: 500; min-width: 60px; text-align: center; }
+        .btn-calculate { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 400px; margin: 25px auto 0 auto; }
+        .results { padding: 25px; background-color: #f8f9fa; border-radius: 10px; border: none; display: none; margin-top: 20px; }
+        .results h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .results p { margin: 0; padding: 8px 0; font-size: 1.1em; color: #333; }
+        .value { color: #eb5424; font-weight: 500; margin-left: 8px; }
+        .info-text { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left; }
+        .vitamin-list { margin-top: 15px; }
+        .vitamin-item { padding: 10px; margin-bottom: 8px; background-color: #fff; border-radius: 3px; }
+        .vitamin-name { font-weight: 600; color: #333; }
+        .vitamin-amount { color: #eb5424; font-weight: 500; }
+        .calculator-container h2, .calculator-container h3 { font-size: 1.5em; font-weight: 400; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table th, table td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        table th { background-color: #f8f9fa; font-weight: 600; color: #333; }
+        table td { color: #606060; }
+        @media (max-width: 768px) { table { font-size: 0.9em; } table th, table td { padding: 8px; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home">
+        <div class="main-content-wrapper">
+            <div class="content-area">
+                <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span>/</span>
+                        <a href="index.html">Health Calculators</a>
+                        <span>/</span>
+                        Vitamin Intake Calculator
+                    </div>
+
+                    <h1>Vitamin Intake Calculator — Find Out If You're Getting Enough Daily Vitamins</h1>
+                    <p class="info-text">Not sure if you're getting enough vitamins? Use our Vitamin Intake Calculator to quickly check your daily needs based on age and gender. Avoid fatigue, low energy, and nutrient gaps by discovering your ideal intake and adjusting your diet or supplements today.</p>
+
+                    <div class="input-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="unit-system">Units:</label>
+                                <div class="input-field-container">
+                                    <select id="unit-system">
+                                        <option value="metric">Metric (kg)</option>
+                                        <option value="imperial">US (lbs)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="gender">Gender:</label>
+                                <div class="input-field-container">
+                                    <select id="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="age">Age:</label>
+                                <div class="input-field-container">
+                                    <input type="number" id="age" min="1" max="120" value="30">
+                                    <div class="unit">years</div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="weight">Weight:</label>
+                                <div class="input-field-container">
+                                    <input type="number" id="weight" min="1" step="0.1" value="70">
+                                    <div class="unit" id="weight-unit">kg</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="pregnancy">Pregnancy Status (if female):</label>
+                            <div class="input-field-container">
+                                <select id="pregnancy">
+                                    <option value="none">Not pregnant</option>
+                                    <option value="pregnant">Pregnant</option>
+                                    <option value="lactating">Lactating</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="health-status">Health Status:</label>
+                            <div class="input-field-container">
+                                <select id="health-status">
+                                    <option value="healthy">Generally healthy</option>
+                                    <option value="deficiency">Risk of deficiency</option>
+                                    <option value="chronic">Chronic condition</option>
+                                    <option value="active">Very active/athlete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateVitamins()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+
+                    <div class="results" id="results" style="display: none;">
+                        <h2>Recommended Daily Vitamin Intake</h2>
+                        <div class="vitamin-list" id="vitamin-list"></div>
+                        <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                            <strong>Note:</strong> These are general recommendations based on RDA (Recommended Dietary Allowance) and may vary based on individual needs. Consult with a healthcare provider for personalized advice.
+                        </p>
+                    </div>
+
+                    <h2 style="margin: 24px 0 16px; color: #303030; font-weight: 400;">Vitamin Intake Calculator — Discover How Much Vitamins You Really Need Daily</h2>
+                    <p class="info-text">Do you ever wonder if you get enough vitamins every day? Our Vitamin Intake Calculator can help 💊. It shows your ideal daily vitamin amounts based on your age and gender. It is perfect for adults, seniors, and pregnant women who want to stay healthy and energized. With just a few clicks, you can see what your body needs to feel its best.</p>
+
+                    <h3 style="margin: 18px 0 8px; color: #303030; font-weight: 400;">How the Calculator Works</h3>
+                    <p class="info-text">This tool gives a simple guideline for daily vitamin intake. After selecting your age and gender, it shows the right amount for each vitamin. For example, it can tell you the daily recommended vitamin C intake to support your immune system 🛡️. It also shows the recommended vitamin B12 intake, which keeps your nerves and blood healthy.</p>
+                    <p class="info-text">You can check the daily intake of vitamin A for vision and skin health. The calculator also shows what is the recommended daily intake of vitamin D3, which helps keep your bones strong 💪. These numbers are based on standard health advice for most adults.</p>
+                    <p class="info-text">Keep in mind, this calculator is for generally healthy people. If you have health conditions, like kidney disease, or if you are pregnant, ask your doctor before making changes. Vitamins come from both food and supplements 🥗. Eating fruits, vegetables, and fortified foods helps you reach your daily targets. Using this calculator regularly can help you see if you are under- or over-consuming vitamins.</p>
+
+                    <p class="info-text">Knowing your vitamin needs can improve how you feel every day. Use this Vitamin Intake Calculator to avoid fatigue, stay energized, and support your overall health ✅. Check your daily numbers and adjust your diet or supplements if needed.</p>
+                    <p class="info-text">Want to take your wellness further? Try our BMI Calculator, Calorie Needs Estimator, or Daily Water Intake Calculator. Each tool helps you track and improve a different part of your health 📊. Start today and see how small changes can make a big difference.</p>
+
+                    <h2 style="margin-bottom: 16px; color: #303030; font-weight: 400;">Your Vitamin Questions Answered — Daily Intake, Supplements, and More</h2>
+
+                    <p class="info-text"><strong>Q1. How much vitamin should I take daily?</strong></p>
+                    <p class="info-text">A:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vitamin/Mineral</th>
+                                <th>Recommended daily allowance (RDA) for men</th>
+                                <th>Recommended daily allowance (RDA) for women</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Vitamin A</td>
+                                <td>900 mcg</td>
+                                <td>700 mcg</td>
+                            </tr>
+                            <tr>
+                                <td>Vitamin C</td>
+                                <td>90 mg</td>
+                                <td>75 mg</td>
+                            </tr>
+                            <tr>
+                                <td>Vitamin D</td>
+                                <td>15 mcg</td>
+                                <td>15 mcg</td>
+                            </tr>
+                            <tr>
+                                <td>Vitamin E</td>
+                                <td>15 mg</td>
+                                <td>15 mg</td>
+                            </tr>
+                            <tr>
+                                <td>Calcium</td>
+                                <td>Ages 31–50: 1,000 mg;<br>Ages 51-70: 1,000 mg;<br>Ages 71 and above: 1,200 mg</td>
+                                <td>Ages 31–50: 1,000 mg;<br>Ages 51-70: 1,200 mg;<br>Ages 71 and above : 1,200 mg</td>
+                            </tr>
+                            <tr>
+                                <td>Iron</td>
+                                <td>Ages 19–50: 8 mg;<br>Ages 51 and above : 8 mg</td>
+                                <td>Ages 19–50: 18 mg;<br>Ages 51 and above : 8 mg</td>
+                            </tr>
+                            <tr>
+                                <td>Zinc</td>
+                                <td>11 mg</td>
+                                <td>8 mg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="info-text"><strong>Q2. What are the top 3 most important vitamins?</strong></p>
+                    <p class="info-text">A: B vitamins and folic acid. vitamin C. vitamin D 💊.</p>
+
+                    <p class="info-text"><strong>Q3. What is the best way to intake vitamins?</strong></p>
+                    <p class="info-text">A: Multivitamins are usually well-absorbed with food 🍽️. You can take them with breakfast, lunch, or dinner. Just avoid taking them on an empty stomach to prevent upsetting your stomach. Fat-Soluble Vitamins, including vitamins A, D, E, and K, are much better absorbed when taken with fat in the food.</p>
+
+                    <p class="info-text"><strong>Q4. What are the 13 vitamins your body needs?</strong></p>
+                    <p class="info-text">A: There are 13 essential vitamins — vitamins A, C, D, E, K, and the B vitamins (thiamine, riboflavin, niacin, pantothenic acid, biotin, B6, B12, and folate). Vitamins have different jobs to help keep the body working properly ⚙️.</p>
+
+                    <p class="info-text"><strong>Q5. Can I take 7 vitamins everyday?</strong></p>
+                    <p class="info-text">A: Any supplement you take in too large a dose can cause side effects ⚠️. You should only take the doses recommended on the product label or by your health care provider. Vitamins A, D, E and K are fat-soluble vitamins. That means they're stored in your liver and fatty tissue.</p>
+
+                    <p class="info-text"><strong>Q6. Which food has all 13 vitamins?</strong></p>
+                    <p class="info-text">A: There's no single food that provides all 13 essential vitamins at once. Some foods, such as eggs 🥚, leafy green vegetables, and whole grains, are packed with a variety of important vitamins and minerals, but it's still important to eat a variety of nutritious foods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    <script>
+        function lbsToKg(lbs) { return lbs * 0.45359237; }
+
+        // Vitamin RDAs based on age, gender, and health status
+        function getVitaminRDAs(age, gender, pregnancy, healthStatus) {
+            const vitamins = {
+                vitaminA: { male: { adult: 900, senior: 900 }, female: { adult: 700, senior: 700, pregnant: 770, lactating: 1300 }, unit: 'mcg RAE' },
+                vitaminC: { male: { adult: 90, senior: 90 }, female: { adult: 75, senior: 75, pregnant: 85, lactating: 120 }, unit: 'mg' },
+                vitaminD: { male: { adult: 600, senior: 800 }, female: { adult: 600, senior: 800, pregnant: 600, lactating: 600 }, unit: 'IU' },
+                vitaminE: { male: { adult: 15, senior: 15 }, female: { adult: 15, senior: 15, pregnant: 15, lactating: 19 }, unit: 'mg' },
+                vitaminK: { male: { adult: 120, senior: 120 }, female: { adult: 90, senior: 90, pregnant: 90, lactating: 90 }, unit: 'mcg' },
+                thiamine: { male: { adult: 1.2, senior: 1.2 }, female: { adult: 1.1, senior: 1.1, pregnant: 1.4, lactating: 1.4 }, unit: 'mg' },
+                riboflavin: { male: { adult: 1.3, senior: 1.3 }, female: { adult: 1.1, senior: 1.1, pregnant: 1.4, lactating: 1.6 }, unit: 'mg' },
+                niacin: { male: { adult: 16, senior: 16 }, female: { adult: 14, senior: 14, pregnant: 18, lactating: 17 }, unit: 'mg' },
+                vitaminB6: { male: { adult: 1.3, senior: 1.7 }, female: { adult: 1.3, senior: 1.5, pregnant: 1.9, lactating: 2.0 }, unit: 'mg' },
+                folate: { male: { adult: 400, senior: 400 }, female: { adult: 400, senior: 400, pregnant: 600, lactating: 500 }, unit: 'mcg' },
+                vitaminB12: { male: { adult: 2.4, senior: 2.4 }, female: { adult: 2.4, senior: 2.4, pregnant: 2.6, lactating: 2.8 }, unit: 'mcg' },
+                biotin: { male: { adult: 30, senior: 30 }, female: { adult: 30, senior: 30, pregnant: 30, lactating: 35 }, unit: 'mcg' },
+                pantothenic: { male: { adult: 5, senior: 5 }, female: { adult: 5, senior: 5, pregnant: 6, lactating: 7 }, unit: 'mg' }
+            };
+
+            const isSenior = age >= 51;
+            const ageKey = isSenior ? 'senior' : 'adult';
+            const genderData = vitamins.vitaminA[gender] || vitamins.vitaminA.male;
+            
+            let pregnancyKey = ageKey;
+            if (gender === 'female') {
+                if (pregnancy === 'pregnant') pregnancyKey = 'pregnant';
+                else if (pregnancy === 'lactating') pregnancyKey = 'lactating';
+            }
+
+            const results = {};
+            
+            // Adjust for health status
+            let multiplier = 1.0;
+            if (healthStatus === 'deficiency') multiplier = 1.2;
+            else if (healthStatus === 'chronic') multiplier = 1.15;
+            else if (healthStatus === 'active') multiplier = 1.1;
+
+            for (const [vitaminName, data] of Object.entries(vitamins)) {
+                const genderVit = data[gender] || data.male;
+                let baseValue = genderVit[pregnancyKey] || genderVit[ageKey];
+                
+                // Special adjustments
+                if (vitaminName === 'vitaminD' && isSenior) {
+                    baseValue = 800;
+                }
+                if (vitaminName === 'vitaminB12' && isSenior) {
+                    baseValue = 2.4; // Same but often recommended higher via supplements
+                }
+                if (vitaminName === 'vitaminC' && healthStatus === 'active') {
+                    baseValue *= 1.2; // Athletes may need more
+                }
+                
+                results[vitaminName] = {
+                    value: Math.round(baseValue * multiplier * 10) / 10,
+                    unit: data.unit,
+                    displayName: formatVitaminName(vitaminName)
+                };
+            }
+
+            return results;
+        }
+
+        function formatVitaminName(name) {
+            const names = {
+                vitaminA: 'Vitamin A',
+                vitaminC: 'Vitamin C',
+                vitaminD: 'Vitamin D',
+                vitaminE: 'Vitamin E',
+                vitaminK: 'Vitamin K',
+                thiamine: 'Thiamine (B1)',
+                riboflavin: 'Riboflavin (B2)',
+                niacin: 'Niacin (B3)',
+                vitaminB6: 'Vitamin B6',
+                folate: 'Folate (B9)',
+                vitaminB12: 'Vitamin B12',
+                biotin: 'Biotin (B7)',
+                pantothenic: 'Pantothenic Acid (B5)'
+            };
+            return names[name] || name;
+        }
+
+        function calculateVitamins() {
+            const age = parseInt(document.getElementById('age').value, 10);
+            const gender = document.getElementById('gender').value;
+            const pregnancy = document.getElementById('pregnancy').value;
+            const healthStatus = document.getElementById('health-status').value;
+            const weightInput = parseFloat(document.getElementById('weight').value);
+
+            if (isNaN(age) || age < 1 || age > 120) {
+                alert('Please enter a valid age (1-120 years).');
+                return;
+            }
+
+            if (isNaN(weightInput) || weightInput <= 0) {
+                alert('Please enter a valid weight.');
+                return;
+            }
+
+            const vitamins = getVitaminRDAs(age, gender, pregnancy, healthStatus);
+            const vitaminList = document.getElementById('vitamin-list');
+            vitaminList.innerHTML = '';
+
+            for (const [key, data] of Object.entries(vitamins)) {
+                const item = document.createElement('div');
+                item.className = 'vitamin-item';
+                item.innerHTML = `<span class="vitamin-name">${data.displayName}:</span> <span class="vitamin-amount">${data.value} ${data.unit}</span>`;
+                vitaminList.appendChild(item);
+            }
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function clearInputs() {
+            document.getElementById('unit-system').value = 'metric';
+            document.getElementById('gender').value = 'male';
+            document.getElementById('age').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('pregnancy').value = 'none';
+            document.getElementById('health-status').value = 'healthy';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        document.getElementById('unit-system').addEventListener('change', function() {
+            const isImperial = this.value === 'imperial';
+            document.getElementById('weight-unit').textContent = isImperial ? 'lbs' : 'kg';
+        });
+
+        // Hide pregnancy field if gender is male
+        document.getElementById('gender').addEventListener('change', function() {
+            const pregnancyGroup = document.getElementById('pregnancy').parentElement.parentElement;
+            if (this.value === 'male') {
+                pregnancyGroup.style.display = 'none';
+                document.getElementById('pregnancy').value = 'none';
+            } else {
+                pregnancyGroup.style.display = 'block';
+            }
+        });
+
+        // Initialize
+        window.onload = function() {
+            const gender = document.getElementById('gender').value;
+            if (gender === 'male') {
+                document.getElementById('pregnancy').parentElement.parentElement.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
+
