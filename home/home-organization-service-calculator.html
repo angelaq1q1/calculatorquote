@@ -40,6 +40,14 @@
       },
       "mainEntity": [
         {
+          "@type": "Calculator",
+          "name": "Home Organization Calculator",
+          "description": "Plan storage space, organize boxes, and estimate home organization service costs after moving.",
+          "url": "https://www.calculatorquote.com/home/home-organization-service-calculator.html",
+          "applicationCategory": "HomeApplication",
+          "operatingSystem": "Any"
+        },
+        {
           "@type": "WebApplication",
           "name": "Home Organization Calculator",
           "description": "Plan storage space, organize boxes, and estimate home organization service costs after moving.",
@@ -324,15 +332,15 @@
                                     <div style="font-weight:700; font-size:1.1em; margin-bottom:12px;">Home Organization FAQs: Keep Your Belongings Easy to Find After Moving</div>
                                     <div style="margin-bottom:16px;">
                                         <span style="font-weight:700;">Q1. What does home organization mean?</span><br>
-                                        <span>A：Organization Is About Making Life EASIER. When you edit out the unnecessary and excess things in your space, create systems, and give everything a home based on you, your family, and your lifestyle, you experience less stress and frustration, save time and money, and lessen your mental load.</span>
+                                        <span>A: Organization Is About Making Life EASIER. When you edit out the unnecessary and excess things in your space, create systems, and give everything a home based on you, your family, and your lifestyle, you experience less stress and frustration, save time and money, and lessen your mental load.</span>
                                     </div>
                                     <div style="margin-bottom:16px;">
                                         <span style="font-weight:700;">Q2. Which room should you declutter first?</span><br>
-                                        <span>A：Tackle the task in stages, concentrating on one area at a time using a decluttering checklist. Begin with the spaces that need it most, working room by room or section by section, such as focusing on kitchen cabinets first.</span>
+                                        <span>A: Tackle the task in stages, concentrating on one area at a time using a decluttering checklist. Begin with the spaces that need it most, working room by room or section by section, such as focusing on kitchen cabinets first.</span>
                                     </div>
                                     <div style="margin-bottom:16px;">
                                         <span style="font-weight:700;">Q3. What are the 7 steps to organize a home filing system?</span><br>
-                                        <span>A：</span>
+                                        <span>A: </span>
                                         <ol style="margin-top:8px; padding-left: 22px;">
                                             <li>Separate documents by type.</li>
                                             <li>Use chronological and alphabetical order.</li>
@@ -345,15 +353,15 @@
                                     </div>
                                     <div style="margin-bottom:16px;">
                                         <span style="font-weight:700;">Q4. Why can't I organize my house?</span><br>
-                                        <span>A：You keep too much stuff. It's like rearranging the deck chairs in the Titanic. If every wardrobe, drawer, and cupboard is packed to capacity, even the most brilliant organisation will fail. Many people resist decluttering because they feel wasteful getting rid of things they spent money on.</span>
+                                        <span>A: You keep too much stuff. It's like rearranging the deck chairs in the Titanic. If every wardrobe, drawer, and cupboard is packed to capacity, even the most brilliant organisation will fail. Many people resist decluttering because they feel wasteful getting rid of things they spent money on.</span>
                                     </div>
                                     <div style="margin-bottom:16px;">
                                         <span style="font-weight:700;">Q5. How to categorize home items?</span><br>
-                                        <span>A：Categorize by Similarity — Group items that are the same type or similar (e.g., snacks, oils, cans, nuts, carbs in a pantry). Categorize by Function — Group items that are different but typically used at the same time.</span>
+                                        <span>A: Categorize by Similarity — Group items that are the same type or similar (e.g., snacks, oils, cans, nuts, carbs in a pantry). Categorize by Function — Group items that are different but typically used at the same time.</span>
                                     </div>
                                     <div style="margin-bottom:4px;">
                                         <span style="font-weight:700;">Q6. How to organize bills and paperwork at home?</span><br>
-                                        <span>A：Stop searching high and low for papers and receipts. Use a lidded file box for important documents. Stackable storage containers are also an option. Designate an hour each month to sort through the containers to stay organized.</span>
+                                        <span>A: Stop searching high and low for papers and receipts. Use a lidded file box for important documents. Stackable storage containers are also an option. Designate an hour each month to sort through the containers to stay organized.</span>
                                     </div>
                                 </div>
                             </div>
@@ -401,33 +409,20 @@
         wardrobe: 15.0  // typical wardrobe volume (approx 3ft W × 2ft D × 2.5ft H)
     };
 
-    function addItemRow() {
-        const tbody = document.querySelector('#itemTable tbody');
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>
-                <select style="min-width:150px;">
-                    <option value="clothes">Clothes</option>
-                    <option value="shoes">Shoes</option>
-                    <option value="books">Books</option>
-                    <option value="kitchen">Kitchen Items</option>
-                    <option value="sports">Sports Gear</option>
-                    <option value="toys">Toys/Misc</option>
-                    <option value="bedding">Bedding/Pillows</option>
-                </select>
-            </td>
-            <td><input type="number" min="0" step="1" placeholder="Quantity" style="width:120px;"></td>
-            <td><button class="delete-btn" type="button" onclick="this.parentNode.parentNode.remove()">Delete</button></td>
-        `;
-        tbody.appendChild(row);
-    }
 
     function getItemsBreakdown() {
-        const rows = document.querySelectorAll('#itemTable tbody tr');
+        const tbody = document.querySelector('#itemTable tbody');
+        if (!tbody) return {};
+        
+        const rows = tbody.querySelectorAll('tr');
         const breakdown = {};
         rows.forEach(r => {
-            const type = r.querySelector('select').value;
-            const qty = parseInt(r.querySelector('input').value || '0', 10);
+            const selectEl = r.querySelector('select');
+            const inputEl = r.querySelector('input');
+            if (!selectEl || !inputEl) return;
+            
+            const type = selectEl.value;
+            const qty = parseInt(inputEl.value || '0', 10);
             if (!qty || qty <= 0) return;
             const avg = averageVolumeByItem[type] || 0.1;
             const vol = qty * avg; // volume = quantity × average per item
@@ -441,19 +436,29 @@
     }
 
     function getEfficiencyFactor() {
-        const pref = document.getElementById('preference').value;
+        const prefEl = document.getElementById('preference');
+        if (!prefEl) return 1.0;
+        const pref = prefEl.value;
         return efficiencyFactorByPref[pref] || 1.0;
     }
 
     function getRoomVolumeFt3() {
-        const areaM2 = parseFloat(document.getElementById('areaM2').value) || 0;
-        if (areaM2 > 0) {
-            // 1 m² * 2.8 m (default height) = 2.8 m³; 1 m³ = 35.3147 ft³
-            return areaM2 * 2.8 * 35.3147;
+        const areaM2El = document.getElementById('areaM2');
+        if (areaM2El) {
+            const areaM2 = parseFloat(areaM2El.value) || 0;
+            if (areaM2 > 0) {
+                // 1 m² * 2.8 m (default height) = 2.8 m³; 1 m³ = 35.3147 ft³
+                return areaM2 * 2.8 * 35.3147;
+            }
         }
-        const L = parseFloat(document.getElementById('lenFt').value) || 0;
-        const W = parseFloat(document.getElementById('widFt').value) || 0;
-        const H = parseFloat(document.getElementById('htFt').value) || 0;
+        const lenEl = document.getElementById('lenFt');
+        const widEl = document.getElementById('widFt');
+        const htEl = document.getElementById('htFt');
+        if (!lenEl || !widEl || !htEl) return 0;
+        
+        const L = parseFloat(lenEl.value) || 0;
+        const W = parseFloat(widEl.value) || 0;
+        const H = parseFloat(htEl.value) || 0;
         if (L > 0 && W > 0 && H > 0) return L * W * H;
         return 0;
     }
@@ -476,6 +481,17 @@
     }
 
     function calculateStorage() {
+        const resultEl = document.getElementById('result');
+        const breakdownEl = document.getElementById('breakdown');
+        const recommendEl = document.getElementById('recommend');
+        const adviceEl = document.getElementById('advice');
+        const preferenceEl = document.getElementById('preference');
+        
+        if (!resultEl || !breakdownEl || !recommendEl || !adviceEl || !preferenceEl) {
+            console.error('Required DOM elements not found');
+            return;
+        }
+
         const breakdown = getItemsBreakdown();
         const sumFt3 = sumVolumes(breakdown);
         const eff = getEfficiencyFactor();
@@ -494,13 +510,13 @@
         let unitNum = Math.ceil(totalNeededFt3 / unitFt3);
         let totalPrice = unitNum * pricePerUnit;
         let priceTip = `<div style='margin-top:8px; color:#eb5424; font-size:1.08em;'>Estimated Service Price: <b>$${totalPrice}</b> <span style='color:#999;font-size:0.97em;'>(200 USD per 30 ft³, calculated by needed space)</span></div>`;
-        document.getElementById('result').innerHTML = `Estimated Storage Space Needed: <b>${totalNeededFt3.toFixed(2)} ft³</b> (≈ ${totalNeededM3.toFixed(2)} m³)` + serviceDesc + priceTip;
+        resultEl.innerHTML = `Estimated Storage Space Needed: <b>${totalNeededFt3.toFixed(2)} ft³</b> (≈ ${totalNeededM3.toFixed(2)} m³)` + serviceDesc + priceTip;
 
         // Breakdown
         let breakdownHTML = '';
         breakdownHTML += '<b>Item Type Space Distribution (ft³):</b><br>';
         breakdownHTML += Object.entries(breakdown).map(([k,v])=>`${formatTypeLabel(k)}: ${v.toFixed(2)} ft³`).join('<br>');
-        const pref = document.getElementById('preference').value;
+        const pref = preferenceEl.value;
         const prefLabel = pref === 'simple' ? 'DIY' : (pref === 'medium' ? 'Semi-Professional' : 'Professional');
         breakdownHTML += `<br><small>Storage Efficiency Factor: ${eff.toFixed(2)} (${prefLabel} organization method)</small>`;
 
@@ -510,16 +526,16 @@
             breakdownHTML += `<br><b>Estimated remaining (ft³):</b> ${remainingFt3.toFixed(2)}`;
         }
 
-        document.getElementById('breakdown').style.display = 'block';
-        document.getElementById('breakdown').innerHTML = breakdownHTML;
+        breakdownEl.style.display = 'block';
+        breakdownEl.innerHTML = breakdownHTML;
 
         // Recommendations
         let recommendHTML = '<b>Recommended Storage Units:</b><br>';
         recommendHTML += `Medium Storage Boxes: approximately <b>${rec.boxes}</b> units<br>`;
         recommendHTML += `Drawers: approximately <b>${rec.drawers}</b> units<br>`;
         recommendHTML += `Wardrobes: approximately <b>${rec.wardrobes}</b> units`;
-        document.getElementById('recommend').style.display = 'block';
-        document.getElementById('recommend').innerHTML = recommendHTML;
+        recommendEl.style.display = 'block';
+        recommendEl.innerHTML = recommendHTML;
 
         // Tips
         const tips = [
@@ -529,22 +545,57 @@
             'If space is limited or insufficient, consider consulting professional organization services',
             'Regularly declutter and discard unused items to maintain organization'
         ];
-        document.getElementById('advice').innerHTML = '<b>Organization Tips:</b><br>' + tips.map(t=>`• ${t}`).join('<br>');
-        document.getElementById('advice').style.display = 'block';
+        adviceEl.innerHTML = '<b>Organization Tips:</b><br>' + tips.map(t=>`• ${t}`).join('<br>');
+        adviceEl.style.display = 'block';
     }
 
     function clearForm() {
-        document.getElementById('roomType').value = 'bedroom';
-        document.getElementById('preference').value = 'simple';
-        document.querySelector('#itemTable tbody').innerHTML = '';
-        document.getElementById('areaM2').value = '';
-        document.getElementById('lenFt').value = '';
-        document.getElementById('widFt').value = '';
-        document.getElementById('htFt').value = '';
-        document.getElementById('result').innerHTML = '';
-        document.getElementById('breakdown').style.display = 'none';
-        document.getElementById('recommend').style.display = 'none';
-        document.getElementById('advice').style.display = 'none';
+        const roomTypeEl = document.getElementById('roomType');
+        const preferenceEl = document.getElementById('preference');
+        const tbodyEl = document.querySelector('#itemTable tbody');
+        const areaM2El = document.getElementById('areaM2');
+        const lenFtEl = document.getElementById('lenFt');
+        const widFtEl = document.getElementById('widFt');
+        const htFtEl = document.getElementById('htFt');
+        const resultEl = document.getElementById('result');
+        const breakdownEl = document.getElementById('breakdown');
+        const recommendEl = document.getElementById('recommend');
+        const adviceEl = document.getElementById('advice');
+
+        if (roomTypeEl) roomTypeEl.value = 'bedroom';
+        if (preferenceEl) preferenceEl.value = 'simple';
+        if (tbodyEl) tbodyEl.innerHTML = '';
+        if (areaM2El) areaM2El.value = '';
+        if (lenFtEl) lenFtEl.value = '';
+        if (widFtEl) widFtEl.value = '';
+        if (htFtEl) htFtEl.value = '';
+        if (resultEl) resultEl.innerHTML = '';
+        if (breakdownEl) breakdownEl.style.display = 'none';
+        if (recommendEl) recommendEl.style.display = 'none';
+        if (adviceEl) adviceEl.style.display = 'none';
+    }
+
+    function addItemRow() {
+        const tbody = document.querySelector('#itemTable tbody');
+        if (!tbody) return;
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <select style="min-width:150px;">
+                    <option value="clothes">Clothes</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="books">Books</option>
+                    <option value="kitchen">Kitchen Items</option>
+                    <option value="sports">Sports Gear</option>
+                    <option value="toys">Toys/Misc</option>
+                    <option value="bedding">Bedding/Pillows</option>
+                </select>
+            </td>
+            <td><input type="number" min="0" step="1" placeholder="Quantity" style="width:120px;"></td>
+            <td><button class="delete-btn" type="button" onclick="this.parentNode.parentNode.remove()">Delete</button></td>
+        `;
+        tbody.appendChild(row);
     }
 
     window.addEventListener('DOMContentLoaded', function() {
