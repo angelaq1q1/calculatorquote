@@ -40,6 +40,14 @@
       },
       "mainEntity": [
         {
+          "@type": "Calculator",
+          "name": "House Cleaning Calculator",
+          "description": "Estimate house cleaning costs and time based on home size, rooms, and cleaning type.",
+          "url": "https://www.calculatorquote.com/home/house-cleaning-calculator.html",
+          "applicationCategory": "HomeApplication",
+          "operatingSystem": "Any"
+        },
+        {
           "@type": "WebApplication",
           "name": "House Cleaning Calculator",
           "description": "Estimate house cleaning costs and time based on home size, rooms, and cleaning type.",
@@ -384,10 +392,23 @@
         };
 
         function calculateCleaning() {
-            const homeSize = parseFloat(document.getElementById('homeSize').value);
-            const bedrooms = parseInt(document.getElementById('bedrooms').value) || 0;
-            const bathrooms = parseInt(document.getElementById('bathrooms').value) || 1;
-            const cleaningType = document.getElementById('cleaningType').value;
+            const homeSizeEl = document.getElementById('homeSize');
+            const bedroomsEl = document.getElementById('bedrooms');
+            const bathroomsEl = document.getElementById('bathrooms');
+            const cleaningTypeEl = document.getElementById('cleaningType');
+            const resultEl = document.getElementById('result');
+            const breakdownEl = document.getElementById('breakdown');
+            const recommendEl = document.getElementById('recommend');
+
+            if (!homeSizeEl || !bedroomsEl || !bathroomsEl || !cleaningTypeEl || !resultEl || !breakdownEl || !recommendEl) {
+                console.error('Required DOM elements not found');
+                return;
+            }
+
+            const homeSize = parseFloat(homeSizeEl.value);
+            const bedrooms = parseInt(bedroomsEl.value) || 0;
+            const bathrooms = parseInt(bathroomsEl.value) || 1;
+            const cleaningType = cleaningTypeEl.value;
 
             if (!homeSize || homeSize < 100) {
                 alert('Please enter a valid home size (at least 100 sq ft).');
@@ -413,19 +434,24 @@
             let additionalCost = 0;
             let additionalTimeHours = 0;
             
-            if (document.getElementById('windows').checked) {
+            const windowsEl = document.getElementById('windows');
+            const ovenEl = document.getElementById('oven');
+            const fridgeEl = document.getElementById('fridge');
+            const cabinetEl = document.getElementById('cabinet');
+            
+            if (windowsEl && windowsEl.checked) {
                 additionalCost += ADDITIONAL_SERVICES.windows;
                 additionalTimeHours += ADDITIONAL_TIME.windows;
             }
-            if (document.getElementById('oven').checked) {
+            if (ovenEl && ovenEl.checked) {
                 additionalCost += ADDITIONAL_SERVICES.oven;
                 additionalTimeHours += ADDITIONAL_TIME.oven;
             }
-            if (document.getElementById('fridge').checked) {
+            if (fridgeEl && fridgeEl.checked) {
                 additionalCost += ADDITIONAL_SERVICES.fridge;
                 additionalTimeHours += ADDITIONAL_TIME.fridge;
             }
-            if (document.getElementById('cabinet').checked) {
+            if (cabinetEl && cabinetEl.checked) {
                 additionalCost += ADDITIONAL_SERVICES.cabinet;
                 additionalTimeHours += ADDITIONAL_TIME.cabinet;
             }
@@ -456,7 +482,7 @@
             }
 
             // Display results
-            document.getElementById('result').innerHTML = `Estimated Cost: <b>$${Math.round(totalCost).toLocaleString()}</b> | Estimated Time: <b>${timeString}</b>`;
+            resultEl.innerHTML = `Estimated Cost: <b>$${Math.round(totalCost).toLocaleString()}</b> | Estimated Time: <b>${timeString}</b>`;
 
             // Breakdown
             let breakdownHTML = '<b>Cost Breakdown:</b><br>';
@@ -473,8 +499,8 @@
             }
             breakdownHTML += `<b>Total: ${timeString}</b>`;
 
-            document.getElementById('breakdown').style.display = 'block';
-            document.getElementById('breakdown').innerHTML = breakdownHTML;
+            breakdownEl.style.display = 'block';
+            breakdownEl.innerHTML = breakdownHTML;
 
             // Recommendations
             const cleaningTypeNames = {
@@ -490,22 +516,34 @@
             recommendHTML += `• Consider scheduling ${cleaningType === 'regular' ? 'weekly or bi-weekly' : cleaningType === 'deep' ? 'quarterly' : 'as needed'} maintenance<br>`;
             recommendHTML += `• Get quotes from 2-3 cleaning services for comparison`;
             
-            document.getElementById('recommend').style.display = 'block';
-            document.getElementById('recommend').innerHTML = recommendHTML;
+            recommendEl.style.display = 'block';
+            recommendEl.innerHTML = recommendHTML;
         }
 
         function clearForm() {
-            document.getElementById('homeSize').value = '';
-            document.getElementById('bedrooms').value = '3';
-            document.getElementById('bathrooms').value = '2';
-            document.getElementById('cleaningType').value = 'regular';
-            document.getElementById('windows').checked = false;
-            document.getElementById('oven').checked = false;
-            document.getElementById('fridge').checked = false;
-            document.getElementById('cabinet').checked = false;
-            document.getElementById('result').innerHTML = '';
-            document.getElementById('breakdown').style.display = 'none';
-            document.getElementById('recommend').style.display = 'none';
+            const homeSizeEl = document.getElementById('homeSize');
+            const bedroomsEl = document.getElementById('bedrooms');
+            const bathroomsEl = document.getElementById('bathrooms');
+            const cleaningTypeEl = document.getElementById('cleaningType');
+            const windowsEl = document.getElementById('windows');
+            const ovenEl = document.getElementById('oven');
+            const fridgeEl = document.getElementById('fridge');
+            const cabinetEl = document.getElementById('cabinet');
+            const resultEl = document.getElementById('result');
+            const breakdownEl = document.getElementById('breakdown');
+            const recommendEl = document.getElementById('recommend');
+
+            if (homeSizeEl) homeSizeEl.value = '';
+            if (bedroomsEl) bedroomsEl.value = '3';
+            if (bathroomsEl) bathroomsEl.value = '2';
+            if (cleaningTypeEl) cleaningTypeEl.value = 'regular';
+            if (windowsEl) windowsEl.checked = false;
+            if (ovenEl) ovenEl.checked = false;
+            if (fridgeEl) fridgeEl.checked = false;
+            if (cabinetEl) cabinetEl.checked = false;
+            if (resultEl) resultEl.innerHTML = '';
+            if (breakdownEl) breakdownEl.style.display = 'none';
+            if (recommendEl) recommendEl.style.display = 'none';
         }
 
         window.addEventListener('DOMContentLoaded', function() {
