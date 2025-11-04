@@ -515,80 +515,80 @@
                         Maternity Insurance Calculator
                     </div>
 
-            <h1>Compare Maternity Insurance Plans – Save Up to 30% on Pregnancy Coverage</h1>
-            <div class="description">
-                Expecting a baby soon and worried about high insurance costs? Our Maternity Insurance Calculator lets you quickly compare plans and see potential savings. Whether you're choosing a private hospital or public care, you can find the best coverage and save up to 30% before your pregnancy begins.
-            </div>
-
-            <div class="input-section">
-                <div class="input-row">
-                    <div class="input-group">
-                        <label for="mother-age">Age of Mother *</label>
-                        <select id="mother-age" required>
-                            <option value="">Select age range</option>
-                            <option value="20-30">20-30 years</option>
-                            <option value="31-40">31-40 years</option>
-                            <option value="41-45">41-45 years</option>
-                            <option value="45+">45+ years</option>
-                        </select>
+                    <h1>Compare Maternity Insurance Plans – Save Up to 30% on Pregnancy Coverage</h1>
+                    <div class="description">
+                        Expecting a baby soon and worried about high insurance costs? Our Maternity Insurance Calculator lets you quickly compare plans and see potential savings. Whether you're choosing a private hospital or public care, you can find the best coverage and save up to 30% before your pregnancy begins.
                     </div>
 
-                    <div class="input-group">
-                        <label for="pregnancy-type">Pregnancy Type *</label>
-                        <select id="pregnancy-type" required>
-                            <option value="">Select pregnancy type</option>
-                            <option value="normal">Normal Pregnancy</option>
-                            <option value="high-risk">High-Risk Pregnancy</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-row">
-                    <div class="input-group">
-                        <label for="coverage-type">Coverage Type *</label>
-                        <select id="coverage-type" required>
-                            <option value="">Select coverage type</option>
-                            <option value="basic">Basic (Prenatal + Delivery)</option>
-                            <option value="comprehensive">Comprehensive (Includes Pre/Post Care, Complications, Hospital)</option>
-                            <option value="premium">Premium (Advanced Private Care, Delivery Options)</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="hospital-type">Hospital Type *</label>
-                        <select id="hospital-type" required>
-                            <option value="">Select hospital type</option>
-                            <option value="public">Public Hospital</option>
-                            <option value="private">Private Hospital</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-row">
-                    <div class="input-group full-width">
-                        <label>Additional Coverage Options (Select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="postnatal-care" value="postnatal-care">
-                                <label for="postnatal-care">Postnatal Care</label>
+                    <div class="input-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="mother-age">Age of Mother *</label>
+                                <select id="mother-age" required>
+                                    <option value="">Select age range</option>
+                                    <option value="20-30">20-30 years</option>
+                                    <option value="31-40">31-40 years</option>
+                                    <option value="41-45">41-45 years</option>
+                                    <option value="45+">45+ years</option>
+                                </select>
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="newborn-insurance" value="newborn-insurance">
-                                <label for="newborn-insurance">Newborn Insurance</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="prenatal-extended" value="prenatal-extended">
-                                <label for="prenatal-extended">Extended Prenatal Care</label>
+
+                            <div class="input-group">
+                                <label for="pregnancy-type">Pregnancy Type *</label>
+                                <select id="pregnancy-type" required>
+                                    <option value="">Select pregnancy type</option>
+                                    <option value="normal">Normal Pregnancy</option>
+                                    <option value="high-risk">High-Risk Pregnancy</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="buttons">
-                    <button class="btn-calculate" onclick="calculateInsurance()">Calculate</button>
-                    <button class="btn-clear" onclick="clearForm()">Clear</button>
-                </div>
-            </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="coverage-type">Coverage Type *</label>
+                                <select id="coverage-type" required>
+                                    <option value="">Select coverage type</option>
+                                    <option value="basic">Basic (Prenatal + Delivery)</option>
+                                    <option value="comprehensive">Comprehensive (Includes Pre/Post Care, Complications, Hospital)</option>
+                                    <option value="premium">Premium (Advanced Private Care, Delivery Options)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="hospital-type">Hospital Type *</label>
+                                <select id="hospital-type" required>
+                                    <option value="">Select hospital type</option>
+                                    <option value="public">Public Hospital</option>
+                                    <option value="private">Private Hospital</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group full-width">
+                                <label>Additional Coverage Options (Select all that apply)</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="postnatal-care" value="postnatal-care">
+                                        <label for="postnatal-care">Postnatal Care</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="newborn-insurance" value="newborn-insurance">
+                                        <label for="newborn-insurance">Newborn Insurance</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="prenatal-extended" value="prenatal-extended">
+                                        <label for="prenatal-extended">Extended Prenatal Care</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn-calculate" onclick="calculateInsurance()">Calculate</button>
+                            <button class="btn-clear" onclick="clearForm()">Clear</button>
+                        </div>
+                    </div>
 
                     <div class="result-section" id="results">
                         <div class="results">
