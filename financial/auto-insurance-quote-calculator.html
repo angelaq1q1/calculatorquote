@@ -132,6 +132,16 @@
             -webkit-font-feature-settings: 'liga';
         }
         
+        /* Explicitly set Raleway for all text elements */
+        body, p, div, span, h1, h2, h3, h4, h5, h6, 
+        input, textarea, select, button, label, 
+        table, th, td, ul, li, ol, a, 
+        .breadcrumb, .description, .input-group, 
+        .result-label, .result-value, .plan-card, 
+        .faq, .howitworks, footer {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
         /* Ensure Material Icons use their own font */
         .material-icons {
             font-family: 'Material Icons' !important;
