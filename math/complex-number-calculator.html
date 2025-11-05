@@ -113,9 +113,9 @@
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
     <style>
         /* Ensure Raleway font is applied to all elements except Material Icons */
         body, * {
@@ -454,7 +454,6 @@
                     <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
                     <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
                     <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
-                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -504,8 +503,8 @@
                             <div class="error-message" id="errorMessage"></div>
                             
                             <div class="buttons">
-                                <button class="btn-calculate" onclick="calculateComplex()">Calculate</button>
-                                <button class="btn-clear" onclick="clearAll()">Clear</button>
+                                <button class="btn-calculate" id="btnCalculate">Calculate</button>
+                                <button class="btn-clear" id="btnClear">Clear</button>
                             </div>
                         </div>
                         
@@ -607,9 +606,9 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/smoothscroll.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/smoothscroll.js"></script>
     <script>
         // Complex number class
         class Complex {
@@ -746,18 +745,30 @@
         // Calculate all complex number operations
         function calculateComplex() {
             try {
+                // Check if elements exist
+                const z1RealEl = document.getElementById('z1Real');
+                const z1ImagEl = document.getElementById('z1Imag');
+                const z2RealEl = document.getElementById('z2Real');
+                const z2ImagEl = document.getElementById('z2Imag');
+                const errorMsg = document.getElementById('errorMessage');
+                const resultsSection = document.getElementById('resultsSection');
+                
+                if (!z1RealEl || !z1ImagEl || !z2RealEl || !z2ImagEl || !errorMsg || !resultsSection) {
+                    console.error('Required elements not found');
+                    return;
+                }
+                
                 // Get input values
-                const z1Real = parseFloat(document.getElementById('z1Real').value) || 0;
-                const z1Imag = parseFloat(document.getElementById('z1Imag').value) || 0;
-                const z2Real = parseFloat(document.getElementById('z2Real').value) || 0;
-                const z2Imag = parseFloat(document.getElementById('z2Imag').value) || 0;
+                const z1Real = parseFloat(z1RealEl.value) || 0;
+                const z1Imag = parseFloat(z1ImagEl.value) || 0;
+                const z2Real = parseFloat(z2RealEl.value) || 0;
+                const z2Imag = parseFloat(z2ImagEl.value) || 0;
                 
                 // Create complex numbers
                 const z1 = new Complex(z1Real, z1Imag);
                 const z2 = new Complex(z2Real, z2Imag);
                 
                 // Hide error message
-                const errorMsg = document.getElementById('errorMessage');
                 errorMsg.classList.remove('active');
                 
                 // Calculate operations
@@ -787,48 +798,86 @@
                 }
                 
                 // Display polar forms
-                document.getElementById('polarZ1').textContent = formatPolar(z1, 'z₁');
-                document.getElementById('polarZ2').textContent = formatPolar(z2, 'z₂');
+                const polarZ1El = document.getElementById('polarZ1');
+                const polarZ2El = document.getElementById('polarZ2');
+                if (polarZ1El) polarZ1El.textContent = formatPolar(z1, 'z₁');
+                if (polarZ2El) polarZ2El.textContent = formatPolar(z2, 'z₂');
                 
                 // Display results
-                document.getElementById('sumResult').textContent = sum.toString();
-                document.getElementById('diffResult').textContent = diff.toString();
-                document.getElementById('prodResult').textContent = prod.toString();
-                document.getElementById('quotResult').textContent = quot ? quot.toString() : "Undefined";
-                document.getElementById('powerResult').textContent = power ? power.toString() : "Undefined";
-                document.getElementById('logResult').textContent = log ? log.toString() : "Undefined";
+                const sumResultEl = document.getElementById('sumResult');
+                const diffResultEl = document.getElementById('diffResult');
+                const prodResultEl = document.getElementById('prodResult');
+                const quotResultEl = document.getElementById('quotResult');
+                const powerResultEl = document.getElementById('powerResult');
+                const logResultEl = document.getElementById('logResult');
+                
+                if (sumResultEl) sumResultEl.textContent = sum.toString();
+                if (diffResultEl) diffResultEl.textContent = diff.toString();
+                if (prodResultEl) prodResultEl.textContent = prod.toString();
+                if (quotResultEl) quotResultEl.textContent = quot ? quot.toString() : "Undefined";
+                if (powerResultEl) powerResultEl.textContent = power ? power.toString() : "Undefined";
+                if (logResultEl) logResultEl.textContent = log ? log.toString() : "Undefined";
                 
                 // Show results section
-                document.getElementById('resultsSection').classList.add('active');
+                resultsSection.classList.add('active');
                 
             } catch (error) {
                 const errorMsg = document.getElementById('errorMessage');
-                errorMsg.textContent = "Error: " + error.message;
-                errorMsg.classList.add('active');
+                if (errorMsg) {
+                    errorMsg.textContent = "Error: " + error.message;
+                    errorMsg.classList.add('active');
+                }
             }
         }
         
         // Clear all inputs and results
         function clearAll() {
-            document.getElementById('z1Real').value = '';
-            document.getElementById('z1Imag').value = '';
-            document.getElementById('z2Real').value = '';
-            document.getElementById('z2Imag').value = '';
+            const z1RealEl = document.getElementById('z1Real');
+            const z1ImagEl = document.getElementById('z1Imag');
+            const z2RealEl = document.getElementById('z2Real');
+            const z2ImagEl = document.getElementById('z2Imag');
+            const resultsSection = document.getElementById('resultsSection');
+            const errorMsg = document.getElementById('errorMessage');
             
-            document.getElementById('resultsSection').classList.remove('active');
-            document.getElementById('errorMessage').classList.remove('active');
+            if (z1RealEl) z1RealEl.value = '';
+            if (z1ImagEl) z1ImagEl.value = '';
+            if (z2RealEl) z2RealEl.value = '';
+            if (z2ImagEl) z2ImagEl.value = '';
+            
+            if (resultsSection) resultsSection.classList.remove('active');
+            if (errorMsg) errorMsg.classList.remove('active');
         }
         
-        // Allow Enter key to calculate
+        // Initialize when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
+            // Allow Enter key to calculate
             const inputs = ['z1Real', 'z1Imag', 'z2Real', 'z2Imag'];
             inputs.forEach(id => {
-                document.getElementById(id).addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        calculateComplex();
-                    }
-                });
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            calculateComplex();
+                        }
+                    });
+                }
             });
+            
+            // Attach event listeners to buttons
+            const btnCalculate = document.getElementById('btnCalculate');
+            const btnClear = document.getElementById('btnClear');
+            
+            if (btnCalculate) {
+                btnCalculate.addEventListener('click', calculateComplex);
+            }
+            
+            if (btnClear) {
+                btnClear.addEventListener('click', clearAll);
+            }
+            
+            // Make functions globally available for backward compatibility
+            window.calculateComplex = calculateComplex;
+            window.clearAll = clearAll;
         });
     </script>
 </body>
