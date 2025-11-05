@@ -144,7 +144,7 @@
         /* Ensure Raleway font is applied to all elements except Material Icons */
         body, * {
             font-family: 'Raleway', sans-serif !important;
-            font-feature-settings: 'liga';
+            font-feature-settings: 'liga' on;
             -webkit-font-feature-settings: 'liga';
         }
         
@@ -171,7 +171,7 @@
             white-space: nowrap;
             word-wrap: normal;
             direction: ltr;
-            font-feature-settings: 'liga';
+            font-feature-settings: 'liga' on;
             -webkit-font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
@@ -716,231 +716,261 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/smoothscroll.js"></script>
     <script>
-        let inputCount = 6;
-        const maxInputs = 30;
+        // Wait for DOM to be fully loaded before executing any code
+        document.addEventListener('DOMContentLoaded', function() {
+            let inputCount = 6;
+            const maxInputs = 30;
 
-        // Add input field
-        function addInputField() {
-            if (inputCount >= maxInputs) {
-                alert('Maximum ' + maxInputs + ' inputs allowed');
-                return;
-            }
-            inputCount++;
-            const container = document.getElementById('dataInputsContainer');
-            const newInput = document.createElement('input');
-            newInput.type = 'number';
-            newInput.className = 'data-input';
-            newInput.placeholder = 'x' + inputCount;
-            newInput.step = 'any';
-            container.appendChild(newInput);
-        }
-
-        // Remove input field
-        function removeInputField() {
-            const container = document.getElementById('dataInputsContainer');
-            const inputs = container.querySelectorAll('.data-input');
-            if (inputs.length <= 6) {
-                alert('Minimum 6 inputs required');
-                return;
-            }
-            container.removeChild(inputs[inputs.length - 1]);
-            inputCount--;
-        }
-
-        // Get all data values
-        function getDataValues() {
-            const inputs = document.querySelectorAll('.data-input');
-            const values = [];
-            inputs.forEach(input => {
-                const value = parseFloat(input.value);
-                if (!isNaN(value) && input.value.trim() !== '') {
-                    values.push(value);
+            // Add input field
+            function addInputField() {
+                if (inputCount >= maxInputs) {
+                    alert('Maximum ' + maxInputs + ' inputs allowed');
+                    return;
                 }
-            });
-            return values;
-        }
-
-        // Calculate mean
-        function calculateMean(data) {
-            if (data.length === 0) return null;
-            const sum = data.reduce((a, b) => a + b, 0);
-            return sum / data.length;
-        }
-
-        // Calculate median
-        function calculateMedian(data) {
-            if (data.length === 0) return null;
-            const sorted = [...data].sort((a, b) => a - b);
-            const mid = Math.floor(sorted.length / 2);
-            if (sorted.length % 2 === 0) {
-                return (sorted[mid - 1] + sorted[mid]) / 2;
-            } else {
-                return sorted[mid];
+                inputCount++;
+                const container = document.getElementById('dataInputsContainer');
+                if (!container) return;
+                const newInput = document.createElement('input');
+                newInput.type = 'number';
+                newInput.className = 'data-input';
+                newInput.placeholder = 'x' + inputCount;
+                newInput.step = 'any';
+                container.appendChild(newInput);
             }
-        }
 
-        // Calculate mode
-        function calculateMode(data) {
-            if (data.length === 0) return null;
-            const frequency = {};
-            data.forEach(value => {
-                frequency[value] = (frequency[value] || 0) + 1;
-            });
-            
-            const maxFrequency = Math.max(...Object.values(frequency));
-            if (maxFrequency === 1 && Object.keys(frequency).length === data.length) {
-                return null; // No mode
+            // Remove input field
+            function removeInputField() {
+                const container = document.getElementById('dataInputsContainer');
+                if (!container) return;
+                const inputs = container.querySelectorAll('.data-input');
+                if (inputs.length <= 6) {
+                    alert('Minimum 6 inputs required');
+                    return;
+                }
+                container.removeChild(inputs[inputs.length - 1]);
+                inputCount--;
             }
-            
-            const modes = Object.keys(frequency)
-                .filter(key => frequency[key] === maxFrequency)
-                .map(key => parseFloat(key));
-            
-            return modes.length === 1 ? modes[0] : modes;
-        }
 
-        // Calculate range
-        function calculateRange(data) {
-            if (data.length === 0) return null;
-            return Math.max(...data) - Math.min(...data);
-        }
-
-        // Calculate midrange
-        function calculateMidrange(data) {
-            if (data.length === 0) return null;
-            return (Math.max(...data) + Math.min(...data)) / 2;
-        }
-
-        // Format number for display
-        function formatNumber(num) {
-            if (num === null || num === undefined) return '-';
-            // Round to 4 decimal places if needed
-            if (Math.abs(num) < 0.0001) return num.toExponential(4);
-            return Math.round(num * 10000) / 10000;
-        }
-
-        // Generate calculation steps
-        function generateSteps(data, mean, median, mode, range, midrange) {
-            const sorted = [...data].sort((a, b) => a - b);
-            const min = Math.min(...data);
-            const max = Math.max(...data);
-            const sum = data.reduce((a, b) => a + b, 0);
-            
-            let stepsHtml = '<div class="step-item"><strong>Step 1: Sort the data</strong><br>';
-            stepsHtml += 'Sorted data: ' + sorted.join(', ') + '</div>';
-            
-            stepsHtml += '<div class="step-item"><strong>Step 2: Calculate Mean</strong><br>';
-            stepsHtml += 'Mean = (Sum of all values) / (Number of values)<br>';
-            stepsHtml += 'Mean = (' + data.join(' + ') + ') / ' + data.length + '<br>';
-            stepsHtml += 'Mean = ' + sum + ' / ' + data.length + ' = <code>' + formatNumber(mean) + '</code></div>';
-            
-            stepsHtml += '<div class="step-item"><strong>Step 3: Calculate Median</strong><br>';
-            if (data.length % 2 === 0) {
-                const mid1 = sorted[data.length / 2 - 1];
-                const mid2 = sorted[data.length / 2];
-                stepsHtml += 'Even number of values: Median = Average of two middle values<br>';
-                stepsHtml += 'Median = (' + mid1 + ' + ' + mid2 + ') / 2 = <code>' + formatNumber(median) + '</code></div>';
-            } else {
-                const mid = sorted[Math.floor(data.length / 2)];
-                stepsHtml += 'Odd number of values: Median = Middle value<br>';
-                stepsHtml += 'Median = <code>' + formatNumber(median) + '</code></div>';
+            // Get all data values
+            function getDataValues() {
+                const inputs = document.querySelectorAll('.data-input');
+                const values = [];
+                inputs.forEach(input => {
+                    const value = parseFloat(input.value);
+                    if (!isNaN(value) && input.value.trim() !== '') {
+                        values.push(value);
+                    }
+                });
+                return values;
             }
-            
-            stepsHtml += '<div class="step-item"><strong>Step 4: Calculate Mode</strong><br>';
-            if (mode === null) {
-                stepsHtml += 'No mode: All values occur the same number of times.</div>';
-            } else if (Array.isArray(mode)) {
-                stepsHtml += 'Multiple modes found: ' + mode.join(', ') + '<br>';
-                stepsHtml += 'Mode = <code>' + mode.join(', ') + '</code></div>';
-            } else {
+
+            // Calculate mean
+            function calculateMean(data) {
+                if (data.length === 0) return null;
+                const sum = data.reduce((a, b) => a + b, 0);
+                return sum / data.length;
+            }
+
+            // Calculate median
+            function calculateMedian(data) {
+                if (data.length === 0) return null;
+                const sorted = [...data].sort((a, b) => a - b);
+                const mid = Math.floor(sorted.length / 2);
+                if (sorted.length % 2 === 0) {
+                    return (sorted[mid - 1] + sorted[mid]) / 2;
+                } else {
+                    return sorted[mid];
+                }
+            }
+
+            // Calculate mode
+            function calculateMode(data) {
+                if (data.length === 0) return null;
                 const frequency = {};
                 data.forEach(value => {
                     frequency[value] = (frequency[value] || 0) + 1;
                 });
-                const maxFreq = Math.max(...Object.values(frequency));
-                stepsHtml += 'Most frequent value: ' + mode + ' (appears ' + maxFreq + ' time' + (maxFreq > 1 ? 's' : '') + ')<br>';
-                stepsHtml += 'Mode = <code>' + formatNumber(mode) + '</code></div>';
-            }
-            
-            stepsHtml += '<div class="step-item"><strong>Step 5: Calculate Range</strong><br>';
-            stepsHtml += 'Range = Maximum - Minimum<br>';
-            stepsHtml += 'Range = ' + max + ' - ' + min + ' = <code>' + formatNumber(range) + '</code></div>';
-            
-            stepsHtml += '<div class="step-item"><strong>Step 6: Calculate Midrange</strong><br>';
-            stepsHtml += 'Midrange = (Maximum + Minimum) / 2<br>';
-            stepsHtml += 'Midrange = (' + max + ' + ' + min + ') / 2 = <code>' + formatNumber(midrange) + '</code></div>';
-            
-            return stepsHtml;
-        }
-
-        // Main calculation function
-        function calculateAll() {
-            const errorMsg = document.getElementById('errorMessage');
-            errorMsg.classList.remove('active');
-            
-            const data = getDataValues();
-            
-            if (data.length === 0) {
-                errorMsg.textContent = 'Please enter at least one number.';
-                errorMsg.classList.add('active');
-                return;
-            }
-            
-            if (data.length > maxInputs) {
-                errorMsg.textContent = 'Maximum ' + maxInputs + ' numbers allowed.';
-                errorMsg.classList.add('active');
-                return;
-            }
-            
-            // Calculate all measures
-            const mean = calculateMean(data);
-            const median = calculateMedian(data);
-            const mode = calculateMode(data);
-            const range = calculateRange(data);
-            const midrange = calculateMidrange(data);
-            
-            // Display results
-            document.getElementById('meanResult').textContent = formatNumber(mean);
-            document.getElementById('medianResult').textContent = formatNumber(median);
-            
-            if (mode === null) {
-                document.getElementById('modeResult').innerHTML = '<span class="no-mode">No mode</span>';
-            } else if (Array.isArray(mode)) {
-                document.getElementById('modeResult').innerHTML = '<span class="mode-result">' + mode.map(m => formatNumber(m)).join(', ') + '</span>';
-            } else {
-                document.getElementById('modeResult').textContent = formatNumber(mode);
-            }
-            
-            document.getElementById('rangeResult').textContent = formatNumber(range);
-            document.getElementById('midrangeResult').textContent = formatNumber(midrange);
-            
-            // Generate and display steps
-            const stepsHtml = generateSteps(data, mean, median, mode, range, midrange);
-            document.getElementById('stepsContent').innerHTML = stepsHtml;
-            
-            // Show results section
-            document.getElementById('resultsSection').classList.add('active');
-            
-            // Scroll to results
-            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        // Clear all inputs
-        function clearAll() {
-            const inputs = document.querySelectorAll('.data-input');
-            inputs.forEach(input => input.value = '');
-            document.getElementById('resultsSection').classList.remove('active');
-            document.getElementById('errorMessage').classList.remove('active');
-        }
-
-        // Allow Enter key to calculate (using event delegation for dynamically added inputs)
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('dataInputsContainer');
-            container.addEventListener('keypress', function(e) {
-                if (e.target.classList.contains('data-input') && e.key === 'Enter') {
-                    calculateAll();
+                
+                const maxFrequency = Math.max(...Object.values(frequency));
+                if (maxFrequency === 1 && Object.keys(frequency).length === data.length) {
+                    return null; // No mode
                 }
-            });
+                
+                const modes = Object.keys(frequency)
+                    .filter(key => frequency[key] === maxFrequency)
+                    .map(key => parseFloat(key));
+                
+                return modes.length === 1 ? modes[0] : modes;
+            }
+
+            // Calculate range
+            function calculateRange(data) {
+                if (data.length === 0) return null;
+                return Math.max(...data) - Math.min(...data);
+            }
+
+            // Calculate midrange
+            function calculateMidrange(data) {
+                if (data.length === 0) return null;
+                return (Math.max(...data) + Math.min(...data)) / 2;
+            }
+
+            // Format number for display
+            function formatNumber(num) {
+                if (num === null || num === undefined) return '-';
+                // Round to 4 decimal places if needed
+                if (Math.abs(num) < 0.0001) return num.toExponential(4);
+                return Math.round(num * 10000) / 10000;
+            }
+
+            // Generate calculation steps
+            function generateSteps(data, mean, median, mode, range, midrange) {
+                const sorted = [...data].sort((a, b) => a - b);
+                const min = Math.min(...data);
+                const max = Math.max(...data);
+                const sum = data.reduce((a, b) => a + b, 0);
+                
+                let stepsHtml = '<div class="step-item"><strong>Step 1: Sort the data</strong><br>';
+                stepsHtml += 'Sorted data: ' + sorted.join(', ') + '</div>';
+                
+                stepsHtml += '<div class="step-item"><strong>Step 2: Calculate Mean</strong><br>';
+                stepsHtml += 'Mean = (Sum of all values) / (Number of values)<br>';
+                stepsHtml += 'Mean = (' + data.join(' + ') + ') / ' + data.length + '<br>';
+                stepsHtml += 'Mean = ' + sum + ' / ' + data.length + ' = <code>' + formatNumber(mean) + '</code></div>';
+                
+                stepsHtml += '<div class="step-item"><strong>Step 3: Calculate Median</strong><br>';
+                if (data.length % 2 === 0) {
+                    const mid1 = sorted[data.length / 2 - 1];
+                    const mid2 = sorted[data.length / 2];
+                    stepsHtml += 'Even number of values: Median = Average of two middle values<br>';
+                    stepsHtml += 'Median = (' + mid1 + ' + ' + mid2 + ') / 2 = <code>' + formatNumber(median) + '</code></div>';
+                } else {
+                    const mid = sorted[Math.floor(data.length / 2)];
+                    stepsHtml += 'Odd number of values: Median = Middle value<br>';
+                    stepsHtml += 'Median = <code>' + formatNumber(median) + '</code></div>';
+                }
+                
+                stepsHtml += '<div class="step-item"><strong>Step 4: Calculate Mode</strong><br>';
+                if (mode === null) {
+                    stepsHtml += 'No mode: All values occur the same number of times.</div>';
+                } else if (Array.isArray(mode)) {
+                    stepsHtml += 'Multiple modes found: ' + mode.join(', ') + '<br>';
+                    stepsHtml += 'Mode = <code>' + mode.join(', ') + '</code></div>';
+                } else {
+                    const frequency = {};
+                    data.forEach(value => {
+                        frequency[value] = (frequency[value] || 0) + 1;
+                    });
+                    const maxFreq = Math.max(...Object.values(frequency));
+                    stepsHtml += 'Most frequent value: ' + mode + ' (appears ' + maxFreq + ' time' + (maxFreq > 1 ? 's' : '') + ')<br>';
+                    stepsHtml += 'Mode = <code>' + formatNumber(mode) + '</code></div>';
+                }
+                
+                stepsHtml += '<div class="step-item"><strong>Step 5: Calculate Range</strong><br>';
+                stepsHtml += 'Range = Maximum - Minimum<br>';
+                stepsHtml += 'Range = ' + max + ' - ' + min + ' = <code>' + formatNumber(range) + '</code></div>';
+                
+                stepsHtml += '<div class="step-item"><strong>Step 6: Calculate Midrange</strong><br>';
+                stepsHtml += 'Midrange = (Maximum + Minimum) / 2<br>';
+                stepsHtml += 'Midrange = (' + max + ' + ' + min + ') / 2 = <code>' + formatNumber(midrange) + '</code></div>';
+                
+                return stepsHtml;
+            }
+
+            // Main calculation function
+            function calculateAll() {
+                const errorMsg = document.getElementById('errorMessage');
+                if (!errorMsg) return;
+                
+                errorMsg.classList.remove('active');
+                
+                const data = getDataValues();
+                
+                if (data.length === 0) {
+                    errorMsg.textContent = 'Please enter at least one number.';
+                    errorMsg.classList.add('active');
+                    return;
+                }
+                
+                if (data.length > maxInputs) {
+                    errorMsg.textContent = 'Maximum ' + maxInputs + ' numbers allowed.';
+                    errorMsg.classList.add('active');
+                    return;
+                }
+                
+                // Calculate all measures
+                const mean = calculateMean(data);
+                const median = calculateMedian(data);
+                const mode = calculateMode(data);
+                const range = calculateRange(data);
+                const midrange = calculateMidrange(data);
+                
+                // Display results with element existence checks
+                const meanResult = document.getElementById('meanResult');
+                const medianResult = document.getElementById('medianResult');
+                const modeResult = document.getElementById('modeResult');
+                const rangeResult = document.getElementById('rangeResult');
+                const midrangeResult = document.getElementById('midrangeResult');
+                const stepsContent = document.getElementById('stepsContent');
+                const resultsSection = document.getElementById('resultsSection');
+                
+                if (meanResult) meanResult.textContent = formatNumber(mean);
+                if (medianResult) medianResult.textContent = formatNumber(median);
+                
+                if (modeResult) {
+                    if (mode === null) {
+                        modeResult.innerHTML = '<span class="no-mode">No mode</span>';
+                    } else if (Array.isArray(mode)) {
+                        modeResult.innerHTML = '<span class="mode-result">' + mode.map(m => formatNumber(m)).join(', ') + '</span>';
+                    } else {
+                        modeResult.textContent = formatNumber(mode);
+                    }
+                }
+                
+                if (rangeResult) rangeResult.textContent = formatNumber(range);
+                if (midrangeResult) midrangeResult.textContent = formatNumber(midrange);
+                
+                // Generate and display steps
+                if (stepsContent) {
+                    const stepsHtml = generateSteps(data, mean, median, mode, range, midrange);
+                    stepsContent.innerHTML = stepsHtml;
+                }
+                
+                // Show results section
+                if (resultsSection) {
+                    resultsSection.classList.add('active');
+                    // Scroll to results
+                    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Clear all inputs
+            function clearAll() {
+                const inputs = document.querySelectorAll('.data-input');
+                inputs.forEach(input => input.value = '');
+                
+                const resultsSection = document.getElementById('resultsSection');
+                const errorMessage = document.getElementById('errorMessage');
+                
+                if (resultsSection) resultsSection.classList.remove('active');
+                if (errorMessage) errorMessage.classList.remove('active');
+            }
+
+            // Expose functions to global scope for onclick handlers
+            window.addInputField = addInputField;
+            window.removeInputField = removeInputField;
+            window.calculateAll = calculateAll;
+            window.clearAll = clearAll;
+
+            // Allow Enter key to calculate (using event delegation for dynamically added inputs)
+            const container = document.getElementById('dataInputsContainer');
+            if (container) {
+                container.addEventListener('keypress', function(e) {
+                    if (e.target.classList.contains('data-input') && e.key === 'Enter') {
+                        calculateAll();
+                    }
+                });
+            }
         });
     </script>
 </body>
