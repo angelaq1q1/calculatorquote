@@ -1005,23 +1005,26 @@
         
         // Clear inputs function
         function clearInputs() {
-            const activeMethod = document.querySelector('.method-content.active').id;
-            
-            if (activeMethod === 'base-height') {
-                document.getElementById('base').value = '';
-                document.getElementById('height').value = '';
-            } else if (activeMethod === 'three-sides') {
-                document.getElementById('side-a').value = '';
-                document.getElementById('side-b').value = '';
-                document.getElementById('side-c').value = '';
-            } else if (activeMethod === 'two-sides-angle') {
-                document.getElementById('sas-side-a').value = '';
-                document.getElementById('sas-side-b').value = '';
-                document.getElementById('angle-gamma').value = '';
-            } else if (activeMethod === 'two-angles-side') {
-                document.getElementById('asa-side-a').value = '';
-                document.getElementById('angle-beta').value = '';
-                document.getElementById('asa-angle-gamma').value = '';
+            const activeContent = document.querySelector('.method-content.active');
+            if (activeContent) {
+                const activeMethod = activeContent.id;
+                
+                if (activeMethod === 'base-height') {
+                    document.getElementById('base').value = '';
+                    document.getElementById('height').value = '';
+                } else if (activeMethod === 'three-sides') {
+                    document.getElementById('side-a').value = '';
+                    document.getElementById('side-b').value = '';
+                    document.getElementById('side-c').value = '';
+                } else if (activeMethod === 'two-sides-angle') {
+                    document.getElementById('sas-side-a').value = '';
+                    document.getElementById('sas-side-b').value = '';
+                    document.getElementById('angle-gamma').value = '';
+                } else if (activeMethod === 'two-angles-side') {
+                    document.getElementById('asa-side-a').value = '';
+                    document.getElementById('angle-beta').value = '';
+                    document.getElementById('asa-angle-gamma').value = '';
+                }
             }
             
             // Hide result and error
@@ -1033,15 +1036,18 @@
         // Allow Enter key to trigger calculation
         document.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                const activeMethod = document.querySelector('.method-content.active').id;
-                if (activeMethod === 'base-height') {
-                    calculateBaseHeight();
-                } else if (activeMethod === 'three-sides') {
-                    calculateThreeSides();
-                } else if (activeMethod === 'two-sides-angle') {
-                    calculateSAS();
-                } else if (activeMethod === 'two-angles-side') {
-                    calculateASA();
+                const activeContent = document.querySelector('.method-content.active');
+                if (activeContent) {
+                    const activeMethod = activeContent.id;
+                    if (activeMethod === 'base-height') {
+                        calculateBaseHeight();
+                    } else if (activeMethod === 'three-sides') {
+                        calculateThreeSides();
+                    } else if (activeMethod === 'two-sides-angle') {
+                        calculateSAS();
+                    } else if (activeMethod === 'two-angles-side') {
+                        calculateASA();
+                    }
                 }
             }
         });
