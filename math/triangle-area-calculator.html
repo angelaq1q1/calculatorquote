@@ -152,8 +152,6 @@
         }
         
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
@@ -161,6 +159,7 @@
             background: #ffffff;
             min-height: 100vh;
         }
+        
 
         .calculator-container {
             max-width: 800px;
@@ -528,9 +527,9 @@
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
                 </button>
                 <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
             </div>
@@ -552,7 +551,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START TRIANGLE AREA CALCULATOR -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 1px; background: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -843,213 +842,253 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/smoothscroll.js"></script>
     <script>
-        // Method tab switching
-        document.querySelectorAll('.method-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.method-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.method-content').forEach(c => c.classList.remove('active'));
+        // Wait for DOM to be fully loaded before executing JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Convert degrees to radians
+            function toRadians(degrees) {
+                return degrees * (Math.PI / 180);
+            }
+            
+            // Show formula info in result container
+            function showFormulaInfo(title, description) {
+                const formulaInfo = document.getElementById('formula-info');
+                const formulaTitle = document.getElementById('formula-title');
+                const formulaDescription = document.getElementById('formula-description');
                 
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding content
-                const method = this.getAttribute('data-method');
-                document.getElementById(method).classList.add('active');
-                
-                // Hide result and error
-                document.getElementById('result-container').classList.remove('show');
-                document.getElementById('error-message').classList.remove('show');
-                hideFormulaInfo();
-            });
-        });
-        
-        // Convert degrees to radians
-        function toRadians(degrees) {
-            return degrees * (Math.PI / 180);
-        }
-        
-        // Show formula info in result container
-        function showFormulaInfo(title, description) {
-            const formulaInfo = document.getElementById('formula-info');
-            const formulaTitle = document.getElementById('formula-title');
-            const formulaDescription = document.getElementById('formula-description');
-            
-            formulaTitle.textContent = title;
-            formulaDescription.innerHTML = description;
-            formulaInfo.style.display = 'block';
-        }
-        
-        // Hide formula info
-        function hideFormulaInfo() {
-            const formulaInfo = document.getElementById('formula-info');
-            formulaInfo.style.display = 'none';
-        }
-        
-        // Base & Height calculation
-        function calculateBaseHeight() {
-            const base = parseFloat(document.getElementById('base').value);
-            const height = parseFloat(document.getElementById('height').value);
-            const errorMsg = document.getElementById('error-message');
-            const resultContainer = document.getElementById('result-container');
-            const resultValue = document.getElementById('result-value');
-            
-            if (isNaN(base) || isNaN(height) || base <= 0 || height <= 0) {
-                errorMsg.textContent = 'Please enter valid positive numbers for both base and height.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            const area = 0.5 * base * height;
-            resultValue.textContent = area.toFixed(2);
-            resultContainer.classList.add('show');
-            errorMsg.classList.remove('show');
-            showFormulaInfo('Formula: Area = 0.5 × base × height', 'The most straightforward formula for triangle area. Simply multiply the base length by the height and divide by 2.');
-        }
-        
-        // Three Sides (SSS) - Heron's Formula
-        function calculateThreeSides() {
-            const a = parseFloat(document.getElementById('side-a').value);
-            const b = parseFloat(document.getElementById('side-b').value);
-            const c = parseFloat(document.getElementById('side-c').value);
-            const errorMsg = document.getElementById('error-message');
-            const resultContainer = document.getElementById('result-container');
-            const resultValue = document.getElementById('result-value');
-            
-            if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
-                errorMsg.textContent = 'Please enter valid positive numbers for all three sides.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            // Check triangle inequality
-            if (a + b <= c || a + c <= b || b + c <= a) {
-                errorMsg.textContent = 'The three sides do not form a valid triangle. The sum of any two sides must be greater than the third side.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            // Heron's formula
-            const s = (a + b + c) / 2;
-            const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-            
-            resultValue.textContent = area.toFixed(2);
-            resultContainer.classList.add('show');
-            errorMsg.classList.remove('show');
-            showFormulaInfo('Formula: Heron\'s Formula', 'Area = 0.25 × √((a + b + c) × (-a + b + c) × (a - b + c) × (a + b - c))<br>Where s = (a + b + c) / 2, then Area = √(s × (s - a) × (s - b) × (s - c))');
-        }
-        
-        // Two Sides & Angle (SAS)
-        function calculateSAS() {
-            const a = parseFloat(document.getElementById('sas-side-a').value);
-            const b = parseFloat(document.getElementById('sas-side-b').value);
-            const gamma = parseFloat(document.getElementById('angle-gamma').value);
-            const errorMsg = document.getElementById('error-message');
-            const resultContainer = document.getElementById('result-container');
-            const resultValue = document.getElementById('result-value');
-            
-            if (isNaN(a) || isNaN(b) || isNaN(gamma) || a <= 0 || b <= 0 || gamma <= 0 || gamma >= 180) {
-                errorMsg.textContent = 'Please enter valid positive numbers. Side lengths must be positive, and angle must be between 0 and 180 degrees.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            const area = 0.5 * a * b * Math.sin(toRadians(gamma));
-            
-            resultValue.textContent = area.toFixed(2);
-            resultContainer.classList.add('show');
-            errorMsg.classList.remove('show');
-            showFormulaInfo('Formula: Area = 0.5 × a × b × sin(γ)', 'Use this formula when you know two sides and the angle between them. The angle should be in degrees.');
-        }
-        
-        // Two Angles & Side (ASA)
-        function calculateASA() {
-            const a = parseFloat(document.getElementById('asa-side-a').value);
-            const beta = parseFloat(document.getElementById('angle-beta').value);
-            const gamma = parseFloat(document.getElementById('asa-angle-gamma').value);
-            const errorMsg = document.getElementById('error-message');
-            const resultContainer = document.getElementById('result-container');
-            const resultValue = document.getElementById('result-value');
-            
-            if (isNaN(a) || isNaN(beta) || isNaN(gamma) || a <= 0 || beta <= 0 || gamma <= 0 || beta >= 180 || gamma >= 180) {
-                errorMsg.textContent = 'Please enter valid positive numbers. Side length must be positive, and angles must be between 0 and 180 degrees.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            if (beta + gamma >= 180) {
-                errorMsg.textContent = 'The sum of the two angles must be less than 180 degrees for a valid triangle.';
-                errorMsg.classList.add('show');
-                resultContainer.classList.remove('show');
-                hideFormulaInfo();
-                return;
-            }
-            
-            const area = (a * a * Math.sin(toRadians(beta)) * Math.sin(toRadians(gamma))) / (2 * Math.sin(toRadians(beta + gamma)));
-            
-            resultValue.textContent = area.toFixed(2);
-            resultContainer.classList.add('show');
-            errorMsg.classList.remove('show');
-            showFormulaInfo('Formula: Area = a² × sin(β) × sin(γ) / (2 × sin(β + γ))', 'Use this formula when you know two angles and the side between them. All angles should be in degrees.');
-        }
-        
-        // Clear inputs function
-        function clearInputs() {
-            const activeContent = document.querySelector('.method-content.active');
-            if (activeContent) {
-                const activeMethod = activeContent.id;
-                
-                if (activeMethod === 'base-height') {
-                    document.getElementById('base').value = '';
-                    document.getElementById('height').value = '';
-                } else if (activeMethod === 'three-sides') {
-                    document.getElementById('side-a').value = '';
-                    document.getElementById('side-b').value = '';
-                    document.getElementById('side-c').value = '';
-                } else if (activeMethod === 'two-sides-angle') {
-                    document.getElementById('sas-side-a').value = '';
-                    document.getElementById('sas-side-b').value = '';
-                    document.getElementById('angle-gamma').value = '';
-                } else if (activeMethod === 'two-angles-side') {
-                    document.getElementById('asa-side-a').value = '';
-                    document.getElementById('angle-beta').value = '';
-                    document.getElementById('asa-angle-gamma').value = '';
+                if (formulaInfo && formulaTitle && formulaDescription) {
+                    formulaTitle.textContent = title;
+                    formulaDescription.innerHTML = description;
+                    formulaInfo.style.display = 'block';
                 }
             }
             
-            // Hide result and error
-            document.getElementById('result-container').classList.remove('show');
-            document.getElementById('error-message').classList.remove('show');
-            hideFormulaInfo();
-        }
-        
-        // Allow Enter key to trigger calculation
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+            // Hide formula info
+            function hideFormulaInfo() {
+                const formulaInfo = document.getElementById('formula-info');
+                if (formulaInfo) {
+                    formulaInfo.style.display = 'none';
+                }
+            }
+            
+            // Base & Height calculation
+            function calculateBaseHeight() {
+                const base = parseFloat(document.getElementById('base').value);
+                const height = parseFloat(document.getElementById('height').value);
+                const errorMsg = document.getElementById('error-message');
+                const resultContainer = document.getElementById('result-container');
+                const resultValue = document.getElementById('result-value');
+                
+                if (!errorMsg || !resultContainer || !resultValue) return;
+                
+                if (isNaN(base) || isNaN(height) || base <= 0 || height <= 0) {
+                    errorMsg.textContent = 'Please enter valid positive numbers for both base and height.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                const area = 0.5 * base * height;
+                resultValue.textContent = area.toFixed(2);
+                resultContainer.classList.add('show');
+                errorMsg.classList.remove('show');
+                showFormulaInfo('Formula: Area = 0.5 × base × height', 'The most straightforward formula for triangle area. Simply multiply the base length by the height and divide by 2.');
+            }
+            
+            // Three Sides (SSS) - Heron's Formula
+            function calculateThreeSides() {
+                const a = parseFloat(document.getElementById('side-a').value);
+                const b = parseFloat(document.getElementById('side-b').value);
+                const c = parseFloat(document.getElementById('side-c').value);
+                const errorMsg = document.getElementById('error-message');
+                const resultContainer = document.getElementById('result-container');
+                const resultValue = document.getElementById('result-value');
+                
+                if (!errorMsg || !resultContainer || !resultValue) return;
+                
+                if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+                    errorMsg.textContent = 'Please enter valid positive numbers for all three sides.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                // Check triangle inequality
+                if (a + b <= c || a + c <= b || b + c <= a) {
+                    errorMsg.textContent = 'The three sides do not form a valid triangle. The sum of any two sides must be greater than the third side.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                // Heron's formula
+                const s = (a + b + c) / 2;
+                const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+                
+                resultValue.textContent = area.toFixed(2);
+                resultContainer.classList.add('show');
+                errorMsg.classList.remove('show');
+                showFormulaInfo('Formula: Heron\'s Formula', 'Area = 0.25 × √((a + b + c) × (-a + b + c) × (a - b + c) × (a + b - c))<br>Where s = (a + b + c) / 2, then Area = √(s × (s - a) × (s - b) × (s - c))');
+            }
+            
+            // Two Sides & Angle (SAS)
+            function calculateSAS() {
+                const a = parseFloat(document.getElementById('sas-side-a').value);
+                const b = parseFloat(document.getElementById('sas-side-b').value);
+                const gamma = parseFloat(document.getElementById('angle-gamma').value);
+                const errorMsg = document.getElementById('error-message');
+                const resultContainer = document.getElementById('result-container');
+                const resultValue = document.getElementById('result-value');
+                
+                if (!errorMsg || !resultContainer || !resultValue) return;
+                
+                if (isNaN(a) || isNaN(b) || isNaN(gamma) || a <= 0 || b <= 0 || gamma <= 0 || gamma >= 180) {
+                    errorMsg.textContent = 'Please enter valid positive numbers. Side lengths must be positive, and angle must be between 0 and 180 degrees.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                const area = 0.5 * a * b * Math.sin(toRadians(gamma));
+                
+                resultValue.textContent = area.toFixed(2);
+                resultContainer.classList.add('show');
+                errorMsg.classList.remove('show');
+                showFormulaInfo('Formula: Area = 0.5 × a × b × sin(γ)', 'Use this formula when you know two sides and the angle between them. The angle should be in degrees.');
+            }
+            
+            // Two Angles & Side (ASA)
+            function calculateASA() {
+                const a = parseFloat(document.getElementById('asa-side-a').value);
+                const beta = parseFloat(document.getElementById('angle-beta').value);
+                const gamma = parseFloat(document.getElementById('asa-angle-gamma').value);
+                const errorMsg = document.getElementById('error-message');
+                const resultContainer = document.getElementById('result-container');
+                const resultValue = document.getElementById('result-value');
+                
+                if (!errorMsg || !resultContainer || !resultValue) return;
+                
+                if (isNaN(a) || isNaN(beta) || isNaN(gamma) || a <= 0 || beta <= 0 || gamma <= 0 || beta >= 180 || gamma >= 180) {
+                    errorMsg.textContent = 'Please enter valid positive numbers. Side length must be positive, and angles must be between 0 and 180 degrees.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                if (beta + gamma >= 180) {
+                    errorMsg.textContent = 'The sum of the two angles must be less than 180 degrees for a valid triangle.';
+                    errorMsg.classList.add('show');
+                    resultContainer.classList.remove('show');
+                    hideFormulaInfo();
+                    return;
+                }
+                
+                const area = (a * a * Math.sin(toRadians(beta)) * Math.sin(toRadians(gamma))) / (2 * Math.sin(toRadians(beta + gamma)));
+                
+                resultValue.textContent = area.toFixed(2);
+                resultContainer.classList.add('show');
+                errorMsg.classList.remove('show');
+                showFormulaInfo('Formula: Area = a² × sin(β) × sin(γ) / (2 × sin(β + γ))', 'Use this formula when you know two angles and the side between them. All angles should be in degrees.');
+            }
+            
+            // Clear inputs function
+            function clearInputs() {
                 const activeContent = document.querySelector('.method-content.active');
                 if (activeContent) {
                     const activeMethod = activeContent.id;
+                    
                     if (activeMethod === 'base-height') {
-                        calculateBaseHeight();
+                        const baseEl = document.getElementById('base');
+                        const heightEl = document.getElementById('height');
+                        if (baseEl) baseEl.value = '';
+                        if (heightEl) heightEl.value = '';
                     } else if (activeMethod === 'three-sides') {
-                        calculateThreeSides();
+                        const sideA = document.getElementById('side-a');
+                        const sideB = document.getElementById('side-b');
+                        const sideC = document.getElementById('side-c');
+                        if (sideA) sideA.value = '';
+                        if (sideB) sideB.value = '';
+                        if (sideC) sideC.value = '';
                     } else if (activeMethod === 'two-sides-angle') {
-                        calculateSAS();
+                        const sasSideA = document.getElementById('sas-side-a');
+                        const sasSideB = document.getElementById('sas-side-b');
+                        const angleGamma = document.getElementById('angle-gamma');
+                        if (sasSideA) sasSideA.value = '';
+                        if (sasSideB) sasSideB.value = '';
+                        if (angleGamma) angleGamma.value = '';
                     } else if (activeMethod === 'two-angles-side') {
-                        calculateASA();
+                        const asaSideA = document.getElementById('asa-side-a');
+                        const angleBeta = document.getElementById('angle-beta');
+                        const asaAngleGamma = document.getElementById('asa-angle-gamma');
+                        if (asaSideA) asaSideA.value = '';
+                        if (angleBeta) angleBeta.value = '';
+                        if (asaAngleGamma) asaAngleGamma.value = '';
                     }
                 }
+                
+                // Hide result and error
+                const resultContainer = document.getElementById('result-container');
+                const errorMsg = document.getElementById('error-message');
+                if (resultContainer) resultContainer.classList.remove('show');
+                if (errorMsg) errorMsg.classList.remove('show');
+                hideFormulaInfo();
             }
+            
+            // Make functions globally available for onclick handlers
+            window.calculateBaseHeight = calculateBaseHeight;
+            window.calculateThreeSides = calculateThreeSides;
+            window.calculateSAS = calculateSAS;
+            window.calculateASA = calculateASA;
+            window.clearInputs = clearInputs;
+            
+            // Method tab switching
+            document.querySelectorAll('.method-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.method-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.method-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const method = this.getAttribute('data-method');
+                    const methodElement = document.getElementById(method);
+                    if (methodElement) {
+                        methodElement.classList.add('active');
+                    }
+                    
+                    // Hide result and error
+                    const resultContainer = document.getElementById('result-container');
+                    const errorMsg = document.getElementById('error-message');
+                    if (resultContainer) resultContainer.classList.remove('show');
+                    if (errorMsg) errorMsg.classList.remove('show');
+                    hideFormulaInfo();
+                });
+            });
+            
+            // Allow Enter key to trigger calculation
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const activeContent = document.querySelector('.method-content.active');
+                    if (activeContent) {
+                        const activeMethod = activeContent.id;
+                        if (activeMethod === 'base-height') {
+                            calculateBaseHeight();
+                        } else if (activeMethod === 'three-sides') {
+                            calculateThreeSides();
+                        } else if (activeMethod === 'two-sides-angle') {
+                            calculateSAS();
+                        } else if (activeMethod === 'two-angles-side') {
+                            calculateASA();
+                        }
+                    }
+                }
+            });
         });
     </script>
 </body>
