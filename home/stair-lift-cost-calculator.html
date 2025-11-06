@@ -455,7 +455,7 @@
         const stairType = document.getElementById('stairType').value;
         const location = document.getElementById('location').value;
         const stairLengthOption = document.getElementById('stairLength').value;
-        const numFloors = parseInt(document.getElementById('numFloors').value) || 1;
+        const numFloorsInput = parseInt(document.getElementById('numFloors').value);
         const weightCapacity = document.getElementById('weightCapacity').value;
         
         // Validate straight staircase length
@@ -465,6 +465,16 @@
             adviceEl.style.display = 'none';
             return;
         }
+        
+        // Validate number of floors
+        if (isNaN(numFloorsInput) || numFloorsInput < 1) {
+            resultEl.innerHTML = '<span style="color:#d32f2f;">Please enter a valid number of floors (at least 1).</span>';
+            breakdownEl.style.display = 'none';
+            adviceEl.style.display = 'none';
+            return;
+        }
+        
+        const numFloors = numFloorsInput;
         
         // Convert option to actual length value
         const stairLength = stairType === 'straight' ? STAIR_LENGTH_MAP[stairLengthOption] : 0;
@@ -520,22 +530,22 @@
             addOnsList.push('Extended Warranty');
         }
         
-        // Calculate total
-        const totalCost = baseCost + typeAdjustment + locationAdjustment + floorAdjustment + weightCapacityAdjustment + addOnsTotal;
+        // Calculate total (round to nearest dollar for display)
+        const totalCost = Math.round(baseCost + typeAdjustment + locationAdjustment + floorAdjustment + weightCapacityAdjustment + addOnsTotal);
         
         // Display result
         resultEl.innerHTML = `Total Estimated Cost: <b>$${totalCost.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b>`;
         
         // Display breakdown
         let breakdownHTML = '<b>Cost Breakdown:</b><br><br>';
-        breakdownHTML += `<div style="margin-bottom:8px;">Base Installation Cost: <b>$${baseCost.toLocaleString()}</b></div>`;
-        breakdownHTML += `<div style="margin-bottom:8px;">Staircase Type (${typeLabel}): <b>$${typeAdjustment.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 2})}</b></div>`;
-        breakdownHTML += `<div style="margin-bottom:8px;">Location (${locationLabel}): <b>$${locationAdjustment.toLocaleString()}</b></div>`;
-        breakdownHTML += `<div style="margin-bottom:8px;">Floor Adjustment (${numFloors} floor${numFloors > 1 ? 's' : ''}): <b>$${floorAdjustment.toLocaleString()}</b></div>`;
-        breakdownHTML += `<div style="margin-bottom:8px;">Weight Capacity (${weightCapacityLabel}): <b>$${weightCapacityAdjustment.toLocaleString()}</b></div>`;
+        breakdownHTML += `<div style="margin-bottom:8px;">Base Installation Cost: <b>$${baseCost.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
+        breakdownHTML += `<div style="margin-bottom:8px;">Staircase Type (${typeLabel}): <b>$${Math.round(typeAdjustment).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
+        breakdownHTML += `<div style="margin-bottom:8px;">Location (${locationLabel}): <b>$${locationAdjustment.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
+        breakdownHTML += `<div style="margin-bottom:8px;">Floor Adjustment (${numFloors} floor${numFloors > 1 ? 's' : ''}): <b>$${floorAdjustment.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
+        breakdownHTML += `<div style="margin-bottom:8px;">Weight Capacity (${weightCapacityLabel}): <b>$${weightCapacityAdjustment.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
         
         if (addOnsTotal > 0) {
-            breakdownHTML += `<div style="margin-bottom:8px;">Custom Features (${addOnsList.join(', ')}): <b>$${addOnsTotal.toLocaleString()}</b></div>`;
+            breakdownHTML += `<div style="margin-bottom:8px;">Custom Features (${addOnsList.join(', ')}): <b>$${addOnsTotal.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</b></div>`;
         } else {
             breakdownHTML += `<div style="margin-bottom:8px;">Custom Features: <b>$0</b> (none selected)</div>`;
         }
