@@ -60,20 +60,27 @@
   </script>
   
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
   
   <!-- Template CSS -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/font-awesome.min.css" rel="stylesheet">
-  <link href="../css/templatemo-style.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/templatemo-style.css" rel="stylesheet">
   <style>
-    /* Global font setting - Raleway for all text */
-    body, body *, 
-    input, select, button, 
-    table, td, th, 
-    .formula-box {
+    /* Ensure Raleway font is applied to all elements */
+    body, * {
+      font-family: 'Raleway', sans-serif !important;
+      font-feature-settings: 'liga';
+      -webkit-font-feature-settings: 'liga';
+    }
+    
+    /* Explicitly set Raleway for all text elements */
+    body, p, div, span, h1, h2, h3, h4, h5, h6, 
+    input, textarea, select, button, label, 
+    table, th, td, ul, li, ol, a, 
+    .breadcrumb, .description, .input-group, 
+    .result-label, .result-value, .plan-card, 
+    .faq, .howitworks, footer {
       font-family: 'Raleway', sans-serif !important;
     }
     
@@ -92,9 +99,9 @@
       flex: 1;
       max-width: 900px;
       background: #fff;
-      border-radius: 2px;
-      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
-      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+      padding: 40px 50px;
     }
 
     .container {
@@ -108,9 +115,10 @@
       padding: 0 40px;
     }
     .breadcrumb {
-      margin-bottom: 20px;
-      font-size: 1em;
-      color: #666;
+      margin-bottom: 24px;
+      font-size: 16px;
+      color: #606060;
+      text-align: left;
     }
     .breadcrumb a {
       color: #eb5424;
@@ -118,85 +126,95 @@
       transition: color 0.3s;
     }
     .breadcrumb a:hover {
-      color: #d43d1a;
+      color: #d4441a;
     }
     .breadcrumb span {
-      color: #666;
+      color: #606060;
       margin: 0 8px;
     }
     .page-title {
+      color: #303030;
       font-size: 1.5em;
       font-weight: 300;
-      color: #303030;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
       text-align: left;
     }
     h2 {
-      color: #333;
-      font-size: 1.2em;
+      color: #303030;
+      font-size: 1.1em;
       margin: 20px 0 14px 0;
-      font-weight: 600;
+      font-weight: 700;
     }
     h3 {
-      color: #333;
+      color: #303030;
       font-size: 1.1em;
       margin: 15px 0 10px 0;
       font-weight: 600;
     }
     .intro-text {
-      font-size: 1em;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      color: #666;
+      color: #606060;
+      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 40px;
+      text-align: left;
     }
     .content-section {
-      margin: 30px 0 20px 0;
-      padding: 0;
+      margin: 32px auto 0 auto;
+      max-width: 740px;
+      padding: 28px 34px 18px 34px;
+      border-radius: 12px;
+      color: #303030;
+      font-size: 1.07em;
+      line-height: 1.7;
       background: transparent;
       border: none !important;
-      border-radius: 0;
       box-shadow: none !important;
       outline: none;
     }
     .formula-box {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 15px;
       margin: 15px 0;
       font-family: 'Raleway', sans-serif;
-      font-size: 1.1em;
+      font-size: 16px;
     }
     .faq-section {
-      margin: 30px 0 20px 0;
-      padding: 0;
-      background: transparent;
-      border: none !important;
-      border-radius: 0;
-      box-shadow: none !important;
-      outline: none;
+      margin: 28px auto 0 auto;
+      max-width: 740px;
+      padding: 28px 34px 18px 34px;
+      border-radius: 12px;
+      color: #303030;
+      font-size: 1.05em;
+      line-height: 1.7;
     }
     .faq-item {
-      margin-bottom: 15px;
-      padding-bottom: 15px;
+      margin-bottom: 16px;
+      padding-bottom: 0;
     }
     .faq-item:last-child {
       margin-bottom: 0;
     }
     .faq-question {
-      font-weight: normal;
-      color: #333;
+      font-weight: 700;
+      color: #303030;
       margin-bottom: 8px;
       font-size: 1.1em;
     }
     .faq-answer {
-      color: #666;
-      line-height: 1.6;
+      color: #303030;
+      line-height: 1.7;
     }
 
-    .card { border:1px solid #e9ecef; border-radius:10px; padding:20px; background-color: #f8f9fa; }
+    .card { 
+      border: 1px solid #e9ecef; 
+      border-radius: 12px; 
+      padding: 25px; 
+      background-color: #f8f9fa; 
+    }
     .input-group {
       margin-bottom: 20px;
     }
@@ -205,19 +223,22 @@
       margin-bottom: 8px;
       color: #333;
       font-weight: 500;
-      font-size: 1em;
     }
     input[type="number"], select { 
-      width:100%; 
-      padding:12px; 
-      border:1px solid #ddd; 
-      border-radius:5px; 
-      font-size:1em; 
-      outline:none; 
-      margin-top:6px;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: all 0.3s;
+      background-color: #fff;
+      outline: none;
+      margin-top: 6px;
     }
     input[type="number"]:focus, select:focus {
-      border-color: #2196F3;
+      outline: none;
+      border-color: #eb5424;
+      box-shadow: 0 0 0 2px rgba(235, 84, 36, 0.1);
     }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
     .buttons {
@@ -258,19 +279,38 @@
       background-color: #f1aeb5;
     }
     .result { 
-      margin-top:32px; 
-      padding:28px 22px; 
-      background:#f8f9fa; 
-      border-radius:10px; 
-      border:1px solid #e9ecef; 
-      font-size:1.08em; 
-      color:#222; 
-      min-height:40px; 
+      margin-top: 30px; 
+      padding: 25px; 
+      background: #f8f9fa; 
+      border-radius: 12px; 
+      border: 1px solid #e9ecef; 
+      font-size: 16px; 
+      color: #303030; 
+      min-height: 40px; 
     }
-    table { width:100%; border-collapse:collapse; margin-top:8px; }
-    td, th { padding:6px 8px; border-bottom:1px solid #eee; text-align:left; }
-    .muted { color:#666; font-size:0.95rem; }
-    .small { font-size:0.92rem; }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 8px; 
+    }
+    td, th { 
+      padding: 6px 8px; 
+      border-bottom: 1px solid #eee; 
+      text-align: left; 
+      font-size: 16px;
+      color: #303030;
+    }
+    th {
+      font-weight: 600;
+      color: #303030;
+    }
+    .muted { 
+      color: #666; 
+      font-size: 14px; 
+    }
+    .small { 
+      font-size: 14px; 
+    }
     .checkbox-group {
       display: flex;
       align-items: center;
@@ -294,7 +334,7 @@
         padding: 0 15px;
       }
       .content-wrapper {
-        padding: 20px;
+        padding: 30px 25px;
       }
       .page-title {
         font-size: 1.2em !important;
@@ -378,8 +418,8 @@
         margin: 15px 0 8px 0;
       }
       .content-section p, .faq-answer {
-        font-size: 0.95em;
-        line-height: 1.6;
+        font-size: 1.05em;
+        line-height: 1.7;
       }
       .faq-question {
         font-size: 1em;
@@ -1001,9 +1041,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/smoothscroll.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/smoothscroll.js"></script>
 </body>
 </html>
 
