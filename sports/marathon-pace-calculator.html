@@ -823,47 +823,43 @@
     // Switch between pace and time calculation modes
     function switchMode(mode) {
       currentMode = mode;
-      document.getElementById('mode-pace').classList.toggle('active', mode === 'pace');
-      document.getElementById('mode-time').classList.toggle('active', mode === 'time');
-      document.getElementById('pace-mode').style.display = mode === 'pace' ? 'block' : 'none';
-      document.getElementById('time-mode').style.display = mode === 'time' ? 'block' : 'none';
-      document.getElementById('output').style.display = 'none';
-      document.getElementById('error').textContent = '';
+      const modePace = document.getElementById('mode-pace');
+      const modeTime = document.getElementById('mode-time');
+      const paceMode = document.getElementById('pace-mode');
+      const timeMode = document.getElementById('time-mode');
+      const output = document.getElementById('output');
+      const error = document.getElementById('error');
+      
+      if (modePace) modePace.classList.toggle('active', mode === 'pace');
+      if (modeTime) modeTime.classList.toggle('active', mode === 'time');
+      if (paceMode) paceMode.style.display = mode === 'pace' ? 'block' : 'none';
+      if (timeMode) timeMode.style.display = mode === 'time' ? 'block' : 'none';
+      if (output) output.style.display = 'none';
+      if (error) error.textContent = '';
     }
 
     // Update distance when event type changes
     function updateDistance(eventTypeSelectId, distanceInputId, unitSelectId) {
-      const eventType = document.getElementById(eventTypeSelectId).value;
+      const eventTypeSelect = document.getElementById(eventTypeSelectId);
       const distanceInput = document.getElementById(distanceInputId);
       const unitSelect = document.getElementById(unitSelectId);
       
+      if (!eventTypeSelect || !distanceInput || !unitSelect) return;
+      
+      const eventType = eventTypeSelect.value;
+      
       if (eventType !== 'custom') {
         const distanceKm = EVENT_DISTANCES[eventType];
-        if (unitSelect.value === 'km') {
-          distanceInput.value = distanceKm.toFixed(3);
-        } else {
-          // Convert to miles
-          distanceInput.value = (distanceKm / 1.60934).toFixed(3);
+        if (distanceKm !== undefined) {
+          if (unitSelect.value === 'km') {
+            distanceInput.value = distanceKm.toFixed(3);
+          } else {
+            // Convert to miles
+            distanceInput.value = (distanceKm / 1.60934).toFixed(3);
+          }
         }
       }
     }
-
-    // Setup event listeners for event type changes
-    document.getElementById('event-type').addEventListener('change', function() {
-      updateDistance('event-type', 'distance', 'unit');
-    });
-    
-    document.getElementById('event-type-time').addEventListener('change', function() {
-      updateDistance('event-type-time', 'distance-time', 'unit-time');
-    });
-
-    document.getElementById('unit').addEventListener('change', function() {
-      updateDistance('event-type', 'distance', 'unit');
-    });
-
-    document.getElementById('unit-time').addEventListener('change', function() {
-      updateDistance('event-type-time', 'distance-time', 'unit-time');
-    });
 
     // Utility functions
     function toSeconds(h, m, s) {
@@ -897,163 +893,264 @@
     }
 
     // Main calculate function
-    document.getElementById('calc').addEventListener('click', function () {
-      const errorDiv = document.getElementById('error');
-      const outputDiv = document.getElementById('output');
-      errorDiv.textContent = '';
-      outputDiv.style.display = 'none';
+    function setupCalculateButton() {
+      const calcBtn = document.getElementById('calc');
+      if (!calcBtn) return;
+      
+      calcBtn.addEventListener('click', function () {
+        const errorDiv = document.getElementById('error');
+        const outputDiv = document.getElementById('output');
+        if (!errorDiv || !outputDiv) return;
+        
+        errorDiv.textContent = '';
+        outputDiv.style.display = 'none';
 
-      if (currentMode === 'pace') {
-        // Calculate pace from time
-        const distance = safeNumber(document.getElementById('distance').value);
-        const unit = document.getElementById('unit').value;
-        const h = safeNumber(document.getElementById('time-hours').value);
-        const m = safeNumber(document.getElementById('time-minutes').value);
-        const s = safeNumber(document.getElementById('time-seconds').value);
+        if (currentMode === 'pace') {
+          // Calculate pace from time
+          const distanceInput = document.getElementById('distance');
+          const unitSelect = document.getElementById('unit');
+          const timeHours = document.getElementById('time-hours');
+          const timeMinutes = document.getElementById('time-minutes');
+          const timeSeconds = document.getElementById('time-seconds');
+          
+          if (!distanceInput || !unitSelect || !timeHours || !timeMinutes || !timeSeconds) return;
+          
+          const distance = safeNumber(distanceInput.value);
+          const unit = unitSelect.value;
+          const h = safeNumber(timeHours.value);
+          const m = safeNumber(timeMinutes.value);
+          const s = safeNumber(timeSeconds.value);
 
-        // Validation
-        if (distance <= 0) {
-          errorDiv.textContent = 'Please enter a valid distance.';
-          return;
-        }
-        const totalSec = toSeconds(h, m, s);
-        if (totalSec <= 0) {
-          errorDiv.textContent = 'Please enter a valid target time.';
-          return;
-        }
+          // Validation
+          if (distance <= 0) {
+            errorDiv.textContent = 'Please enter a valid distance.';
+            return;
+          }
+          const totalSec = toSeconds(h, m, s);
+          if (totalSec <= 0) {
+            errorDiv.textContent = 'Please enter a valid target time.';
+            return;
+          }
 
-        // Convert to km for calculations
-        const distanceKm = unit === 'km' ? distance : distance * 1.60934;
-        const totalMinutes = totalSec / 60;
+          // Convert to km for calculations
+          const distanceKm = unit === 'km' ? distance : distance * 1.60934;
+          const totalMinutes = totalSec / 60;
 
-        // Calculate pace (minutes per km and per mile)
-        const pacePerKm = totalMinutes / distanceKm;
-        const pacePerMile = pacePerKm * 1.60934;
+          // Calculate pace (minutes per km and per mile)
+          const pacePerKm = totalMinutes / distanceKm;
+          const pacePerMile = pacePerKm * 1.60934;
 
-        // Calculate speed (km/h and mph)
-        const speedKmh = (distanceKm / totalSec) * 3600;
-        const speedMph = speedKmh / 1.60934;
+          // Calculate speed (km/h and mph)
+          const speedKmh = (distanceKm / totalSec) * 3600;
+          const speedMph = speedKmh / 1.60934;
 
-        // Build outputs
-        const outputs = [];
-        outputs.push(['Required Pace (per km)', formatPace(pacePerKm)]);
-        outputs.push(['Required Pace (per mile)', formatPace(pacePerMile)]);
-        outputs.push(['Average Speed', `${speedKmh.toFixed(2)} km/h (${speedMph.toFixed(2)} mph)`]);
-        outputs.push(['Total Distance', `${distanceKm.toFixed(3)} km (${(distanceKm / 1.60934).toFixed(3)} miles)`]);
-        outputs.push(['Target Time', formatTimeSeconds(totalSec)]);
+          // Build outputs
+          const outputs = [];
+          outputs.push(['Required Pace (per km)', formatPace(pacePerKm)]);
+          outputs.push(['Required Pace (per mile)', formatPace(pacePerMile)]);
+          outputs.push(['Average Speed', `${speedKmh.toFixed(2)} km/h (${speedMph.toFixed(2)} mph)`]);
+          outputs.push(['Total Distance', `${distanceKm.toFixed(3)} km (${(distanceKm / 1.60934).toFixed(3)} miles)`]);
+          outputs.push(['Target Time', formatTimeSeconds(totalSec)]);
 
-        // Fill the UI table
-        const tbody = document.getElementById('outputsTable');
-        tbody.innerHTML = '';
-        outputs.forEach(([k,v]) => {
-          const tr = document.createElement('tr');
-          const td1 = document.createElement('td'); td1.textContent = k;
-          const td2 = document.createElement('td'); td2.textContent = v;
-          tr.appendChild(td1); tr.appendChild(td2);
-          tbody.appendChild(tr);
-        });
+          // Fill the UI table
+          const tbody = document.getElementById('outputsTable');
+          if (tbody) {
+            tbody.innerHTML = '';
+            outputs.forEach(([k,v]) => {
+              const tr = document.createElement('tr');
+              const td1 = document.createElement('td'); td1.textContent = k;
+              const td2 = document.createElement('td'); td2.textContent = v;
+              tr.appendChild(td1); tr.appendChild(td2);
+              tbody.appendChild(tr);
+            });
+          }
 
-        // Summary text
-        const resultSummary = document.getElementById('resultSummary');
-        resultSummary.innerHTML = `To complete ${distanceKm.toFixed(3)} km in ${formatTimeSeconds(totalSec)}, you need to maintain a pace of <strong>${formatPace(pacePerKm)} per km</strong> (${formatPace(pacePerMile)} per mile).`;
+          // Summary text
+          const resultSummary = document.getElementById('resultSummary');
+          if (resultSummary) {
+            resultSummary.innerHTML = `To complete ${distanceKm.toFixed(3)} km in ${formatTimeSeconds(totalSec)}, you need to maintain a pace of <strong>${formatPace(pacePerKm)} per km</strong> (${formatPace(pacePerMile)} per mile).`;
+          }
 
-      } else {
-        // Calculate time from pace
-        const distance = safeNumber(document.getElementById('distance-time').value);
-        const unit = document.getElementById('unit-time').value;
-        const paceMin = safeNumber(document.getElementById('pace-minutes').value);
-        const paceSec = safeNumber(document.getElementById('pace-seconds').value);
-        const paceUnit = document.getElementById('pace-unit').value;
-
-        // Validation
-        if (distance <= 0) {
-          errorDiv.textContent = 'Please enter a valid distance.';
-          return;
-        }
-        const paceTotalSec = paceMin * 60 + paceSec;
-        if (paceTotalSec <= 0) {
-          errorDiv.textContent = 'Please enter a valid pace.';
-          return;
-        }
-
-        // Convert distance to km
-        const distanceKm = unit === 'km' ? distance : distance * 1.60934;
-
-        // Calculate total time
-        let totalSec;
-        if (paceUnit === 'km') {
-          // Pace is per km, so multiply by distance in km
-          totalSec = paceTotalSec * distanceKm;
         } else {
-          // Pace is per mile, so convert distance to miles first
-          const distanceMiles = distanceKm / 1.60934;
-          totalSec = paceTotalSec * distanceMiles;
+          // Calculate time from pace
+          const distanceTimeInput = document.getElementById('distance-time');
+          const unitTimeSelect = document.getElementById('unit-time');
+          const paceMinutesInput = document.getElementById('pace-minutes');
+          const paceSecondsInput = document.getElementById('pace-seconds');
+          const paceUnitSelect = document.getElementById('pace-unit');
+          
+          if (!distanceTimeInput || !unitTimeSelect || !paceMinutesInput || !paceSecondsInput || !paceUnitSelect) return;
+          
+          const distance = safeNumber(distanceTimeInput.value);
+          const unit = unitTimeSelect.value;
+          const paceMin = safeNumber(paceMinutesInput.value);
+          const paceSec = safeNumber(paceSecondsInput.value);
+          const paceUnit = paceUnitSelect.value;
+
+          // Validation
+          if (distance <= 0) {
+            errorDiv.textContent = 'Please enter a valid distance.';
+            return;
+          }
+          const paceTotalSec = paceMin * 60 + paceSec;
+          if (paceTotalSec <= 0) {
+            errorDiv.textContent = 'Please enter a valid pace.';
+            return;
+          }
+
+          // Convert distance to km
+          const distanceKm = unit === 'km' ? distance : distance * 1.60934;
+
+          // Calculate total time
+          let totalSec;
+          if (paceUnit === 'km') {
+            // Pace is per km, so multiply by distance in km
+            totalSec = paceTotalSec * distanceKm;
+          } else {
+            // Pace is per mile, so convert distance to miles first
+            const distanceMiles = distanceKm / 1.60934;
+            totalSec = paceTotalSec * distanceMiles;
+          }
+
+          // Calculate pace (minutes per km and per mile) for display
+          const totalMinutes = totalSec / 60;
+          const pacePerKm = totalMinutes / distanceKm;
+          const pacePerMile = pacePerKm * 1.60934;
+
+          // Calculate speed (km/h and mph)
+          const speedKmh = (distanceKm / totalSec) * 3600;
+          const speedMph = speedKmh / 1.60934;
+
+          // Build outputs
+          const outputs = [];
+          outputs.push(['Estimated Time', formatTimeSeconds(totalSec, true)]);
+          outputs.push(['Average Pace (per km)', formatPace(pacePerKm)]);
+          outputs.push(['Average Pace (per mile)', formatPace(pacePerMile)]);
+          outputs.push(['Average Speed', `${speedKmh.toFixed(2)} km/h (${speedMph.toFixed(2)} mph)`]);
+          outputs.push(['Total Distance', `${distanceKm.toFixed(3)} km (${(distanceKm / 1.60934).toFixed(3)} miles)`]);
+
+          // Fill the UI table
+          const tbody = document.getElementById('outputsTable');
+          if (tbody) {
+            tbody.innerHTML = '';
+            outputs.forEach(([k,v]) => {
+              const tr = document.createElement('tr');
+              const td1 = document.createElement('td'); td1.textContent = k;
+              const td2 = document.createElement('td'); td2.textContent = v;
+              tr.appendChild(td1); tr.appendChild(td2);
+              tbody.appendChild(tr);
+            });
+          }
+
+          // Summary text
+          const resultSummary = document.getElementById('resultSummary');
+          if (resultSummary) {
+            resultSummary.innerHTML = `At a pace of ${formatPace(paceTotalSec / 60)} per ${paceUnit === 'km' ? 'km' : 'mile'}, you will complete ${distanceKm.toFixed(3)} km in approximately <strong>${formatTimeSeconds(totalSec, true)}</strong>.`;
+          }
         }
 
-        // Calculate pace (minutes per km and per mile) for display
-        const totalMinutes = totalSec / 60;
-        const pacePerKm = totalMinutes / distanceKm;
-        const pacePerMile = pacePerKm * 1.60934;
-
-        // Calculate speed (km/h and mph)
-        const speedKmh = (distanceKm / totalSec) * 3600;
-        const speedMph = speedKmh / 1.60934;
-
-        // Build outputs
-        const outputs = [];
-        outputs.push(['Estimated Time', formatTimeSeconds(totalSec, true)]);
-        outputs.push(['Average Pace (per km)', formatPace(pacePerKm)]);
-        outputs.push(['Average Pace (per mile)', formatPace(pacePerMile)]);
-        outputs.push(['Average Speed', `${speedKmh.toFixed(2)} km/h (${speedMph.toFixed(2)} mph)`]);
-        outputs.push(['Total Distance', `${distanceKm.toFixed(3)} km (${(distanceKm / 1.60934).toFixed(3)} miles)`]);
-
-        // Fill the UI table
-        const tbody = document.getElementById('outputsTable');
-        tbody.innerHTML = '';
-        outputs.forEach(([k,v]) => {
-          const tr = document.createElement('tr');
-          const td1 = document.createElement('td'); td1.textContent = k;
-          const td2 = document.createElement('td'); td2.textContent = v;
-          tr.appendChild(td1); tr.appendChild(td2);
-          tbody.appendChild(tr);
-        });
-
-        // Summary text
-        const resultSummary = document.getElementById('resultSummary');
-        resultSummary.innerHTML = `At a pace of ${formatPace(paceTotalSec / 60)} per ${paceUnit === 'km' ? 'km' : 'mile'}, you will complete ${distanceKm.toFixed(3)} km in approximately <strong>${formatTimeSeconds(totalSec, true)}</strong>.`;
-      }
-
-      outputDiv.style.display = 'block';
-    });
+        if (outputDiv) outputDiv.style.display = 'block';
+      });
+    }
 
     // Clear button functionality
-    document.getElementById('clear').addEventListener('click', function () {
-      // Reset pace mode
-      document.getElementById('distance').value = '42.195';
-      document.getElementById('unit').value = 'km';
-      document.getElementById('time-hours').value = '4';
-      document.getElementById('time-minutes').value = '0';
-      document.getElementById('time-seconds').value = '0';
-      document.getElementById('event-type').value = 'marathon';
+    function setupClearButton() {
+      const clearBtn = document.getElementById('clear');
+      if (!clearBtn) return;
       
-      // Reset time mode
-      document.getElementById('distance-time').value = '42.195';
-      document.getElementById('unit-time').value = 'km';
-      document.getElementById('pace-minutes').value = '5';
-      document.getElementById('pace-seconds').value = '41';
-      document.getElementById('pace-unit').value = 'km';
-      document.getElementById('event-type-time').value = 'marathon';
+      clearBtn.addEventListener('click', function () {
+        // Reset pace mode
+        const distance = document.getElementById('distance');
+        const unit = document.getElementById('unit');
+        const timeHours = document.getElementById('time-hours');
+        const timeMinutes = document.getElementById('time-minutes');
+        const timeSeconds = document.getElementById('time-seconds');
+        const eventType = document.getElementById('event-type');
+        
+        if (distance) distance.value = '42.195';
+        if (unit) unit.value = 'km';
+        if (timeHours) timeHours.value = '4';
+        if (timeMinutes) timeMinutes.value = '0';
+        if (timeSeconds) timeSeconds.value = '0';
+        if (eventType) eventType.value = 'marathon';
+        
+        // Reset time mode
+        const distanceTime = document.getElementById('distance-time');
+        const unitTime = document.getElementById('unit-time');
+        const paceMinutes = document.getElementById('pace-minutes');
+        const paceSeconds = document.getElementById('pace-seconds');
+        const paceUnit = document.getElementById('pace-unit');
+        const eventTypeTime = document.getElementById('event-type-time');
+        
+        if (distanceTime) distanceTime.value = '42.195';
+        if (unitTime) unitTime.value = 'km';
+        if (paceMinutes) paceMinutes.value = '5';
+        if (paceSeconds) paceSeconds.value = '41';
+        if (paceUnit) paceUnit.value = 'km';
+        if (eventTypeTime) eventTypeTime.value = 'marathon';
+        
+        // Clear error and output
+        const error = document.getElementById('error');
+        const output = document.getElementById('output');
+        if (error) error.textContent = '';
+        if (output) output.style.display = 'none';
+      });
+    }
+
+    // Setup event listeners for event type changes
+    function setupEventListeners() {
+      const eventType = document.getElementById('event-type');
+      const eventTypeTime = document.getElementById('event-type-time');
+      const unit = document.getElementById('unit');
+      const unitTime = document.getElementById('unit-time');
       
-      // Clear error and output
-      document.getElementById('error').textContent = '';
-      document.getElementById('output').style.display = 'none';
-    });
+      if (eventType) {
+        eventType.addEventListener('change', function() {
+          updateDistance('event-type', 'distance', 'unit');
+        });
+      }
+      
+      if (eventTypeTime) {
+        eventTypeTime.addEventListener('change', function() {
+          updateDistance('event-type-time', 'distance-time', 'unit-time');
+        });
+      }
+
+      if (unit) {
+        unit.addEventListener('change', function() {
+          updateDistance('event-type', 'distance', 'unit');
+        });
+      }
+
+      if (unitTime) {
+        unitTime.addEventListener('change', function() {
+          updateDistance('event-type-time', 'distance-time', 'unit-time');
+        });
+      }
+    }
 
     // Optional: press Enter to calculate
-    document.querySelectorAll('input').forEach(inp => {
-      inp.addEventListener('keydown', function(e){
-        if (e.key === 'Enter') { e.preventDefault(); document.getElementById('calc').click(); }
+    function setupEnterKeyListeners() {
+      const inputs = document.querySelectorAll('input');
+      const calcBtn = document.getElementById('calc');
+      if (!calcBtn) return;
+      
+      inputs.forEach(inp => {
+        inp.addEventListener('keydown', function(e){
+          if (e.key === 'Enter') { 
+            e.preventDefault(); 
+            calcBtn.click(); 
+          }
+        });
       });
+    }
+
+    // Initialize all functionality when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      setupEventListeners();
+      setupCalculateButton();
+      setupClearButton();
+      setupEnterKeyListeners();
     });
   </script>
                     </div>
