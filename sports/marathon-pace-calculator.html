@@ -983,11 +983,11 @@
         let totalSec;
         if (paceUnit === 'km') {
           // Pace is per km, so multiply by distance in km
-          totalSec = (paceTotalSec / 60) * distanceKm * 60;
+          totalSec = paceTotalSec * distanceKm;
         } else {
           // Pace is per mile, so convert distance to miles first
           const distanceMiles = distanceKm / 1.60934;
-          totalSec = (paceTotalSec / 60) * distanceMiles * 60;
+          totalSec = paceTotalSec * distanceMiles;
         }
 
         // Calculate pace (minutes per km and per mile) for display
