@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Salary Calculator – Convert Hourly Wage to Annual, Daily & Monthly Income</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="Instantly convert your hourly wage to annual, daily, weekly, or monthly income. Adjust for holidays and vacation to get accurate salary estimates in seconds.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="salary calculator, hourly to salary, annual salary calculator, wage calculator, salary converter, hourly wage calculator, yearly salary calculator, salary per hour, gross salary calculator, income calculator">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Salary Calculator – Convert Hourly Wage to Annual, Daily & Monthly Income">
+  <meta property="og:description" content="Instantly convert your hourly wage to annual, daily, weekly, or monthly income. Adjust for holidays and vacation to get accurate salary estimates in seconds.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.calculatorquote.com/financial/salary-calculator.html">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Salary Calculator – Convert Hourly Wage to Annual, Daily & Monthly Income",
+    "description": "Instantly convert your hourly wage to annual, daily, weekly, or monthly income. Adjust for holidays and vacation to get accurate salary estimates in seconds.",
+    "url": "https://www.calculatorquote.com/financial/salary-calculator.html",
+    "inLanguage": "en",
+    "keywords": [
+      "salary calculator",
+      "hourly to salary",
+      "annual salary calculator",
+      "wage calculator",
+      "salary converter",
+      "hourly wage calculator",
+      "yearly salary calculator",
+      "post tax salary calculator",
+      "calculate annual salary from hourly",
+      "take home salary calculator nyc",
+      "adp salary calculator"
+    ],
+    "datePublished": "2025-01-30T00:00:00Z",
+    "dateModified": "2025-01-30T00:00:00Z",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalculatorQuote",
+      "url": "https://www.calculatorquote.com"
+    },
+    "mainEntity": [
+      {
+        "@type": "Calculator",
+        "name": "Salary Calculator",
+        "description": "Calculate salary and gross annual income from hourly, daily, weekly, biweekly, or monthly pay",
+        "url": "https://www.calculatorquote.com/financial/salary-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Template CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
+  <style>
+    /* Global font setting - Raleway for all text */
+    body, body *, 
+    input, select, button, 
+    table, td, th, 
+    .formula-box {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    /* Custom styles for salary calculator */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .breadcrumb {
+      margin-bottom: 20px;
+      font-size: 1em;
+      color: #666;
+    }
+    .breadcrumb a {
+      color: #eb5424;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover {
+      color: #d43d1a;
+    }
+    .breadcrumb span {
+      color: #666;
+      margin: 0 8px;
+    }
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    h2 {
+      color: #333;
+      font-size: 1.2em;
+      margin: 20px 0 14px 0;
+      font-weight: 600;
+    }
+    h3 {
+      color: #333;
+      font-size: 1.1em;
+      margin: 15px 0 10px 0;
+      font-weight: 600;
+    }
+    .intro-text {
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #666;
+    }
+    .content-section {
+      margin: 30px 0 20px 0;
+      padding: 0;
+      background: transparent;
+      border: none !important;
+      border-radius: 0;
+      box-shadow: none !important;
+      outline: none;
+    }
+    .formula-box {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1em;
+    }
+    .faq-section {
+      margin: 30px 0 20px 0;
+      padding: 0;
+      background: transparent;
+      border: none !important;
+      border-radius: 0;
+      box-shadow: none !important;
+      outline: none;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-question {
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+    .faq-answer {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .card { border:1px solid #e9ecef; border-radius:10px; padding:20px; background-color: #f8f9fa; }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 1em;
+    }
+    input[type="number"], select { 
+      width:100%; 
+      padding:12px; 
+      border:1px solid #ddd; 
+      border-radius:5px; 
+      font-size:1em; 
+      outline:none; 
+      margin-top:6px;
+    }
+    input[type="number"]:focus, select:focus {
+      border-color: #2196F3;
+    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    
+    .btn-calculate {
+      background-color: #eb5424;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-calculate:hover {
+      background-color: #d43d1a;
+    }
+    
+    .btn-clear {
+      background-color: #f5c6cb;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      min-width: 120px;
+    }
+    
+    .btn-clear:hover {
+      background-color: #f1aeb5;
+    }
+    .result { 
+      margin-top:32px; 
+      padding:28px 22px; 
+      background:#f8f9fa; 
+      border-radius:10px; 
+      border:1px solid #e9ecef; 
+      font-size:1.08em; 
+      color:#222; 
+      min-height:40px; 
+    }
+    table { width:100%; border-collapse:collapse; margin-top:8px; }
+    td, th { padding:6px 8px; border-bottom:1px solid #eee; text-align:left; }
+    .muted { color:#666; font-size:0.95rem; }
+    .small { font-size:0.92rem; }
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+    @media (max-width: 1024px) {
+      .main-container {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 15px;
+      }
+      .content-wrapper {
+        padding: 20px;
+      }
+      .page-title {
+        font-size: 1.2em !important;
+        margin-bottom: 25px;
+      }
+      .intro-text {
+        font-size: 0.95em;
+        margin-bottom: 25px;
+      }
+      .card {
+        padding: 20px;
+      }
+      .grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px;
+      }
+      input[type="number"], select {
+        padding: 12px;
+        font-size: 0.95em;
+        min-height: 44px;
+        box-sizing: border-box;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 100%;
+      }
+      .btn-calculate, .btn-clear {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        min-height: 48px;
+        touch-action: manipulation;
+      }
+      .result {
+        padding: 20px 15px;
+        font-size: 0.95em;
+      }
+      table {
+        font-size: 0.9em;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table thead {
+        display: none;
+      }
+      table tbody {
+        display: block;
+      }
+      table tr {
+        display: block;
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: #fff;
+      }
+      table td {
+        display: block;
+        padding: 4px 0;
+        border: none;
+        text-align: left;
+      }
+      table td:first-child {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 4px;
+        font-size: 0.95em;
+      }
+      table td:last-child {
+        color: #666;
+        font-size: 1em;
+      }
+      h2 {
+        font-size: 1.1em;
+        margin: 20px 0 12px 0;
+      }
+      h3 {
+        font-size: 1em;
+        margin: 15px 0 8px 0;
+      }
+      .content-section p, .faq-answer {
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+      .faq-question {
+        font-size: 1em;
+      }
+      .formula-box {
+        padding: 12px;
+        font-size: 0.95em;
+      }
+      footer {
+        padding: 25px 20px 0 20px !important;
+        margin-top: 35px !important;
+      }
+      footer nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      footer nav a {
+        margin: 0 8px !important;
+        font-size: 0.95em;
+      }
+      footer nav span {
+        display: inline;
+      }
+      footer div {
+        font-size: 0.95em !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-container {
+        padding: 0 10px;
+      }
+      .content-wrapper {
+        padding: 15px;
+      }
+      .page-title {
+        font-size: 1.1em !important;
+        margin-bottom: 20px;
+      }
+      .card {
+        padding: 12px;
+      }
+      input[type="number"], select {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        min-height: 44px;
+        box-sizing: border-box;
+      }
+      .result {
+        padding: 15px 12px;
+        font-size: 0.9em;
+      }
+      table {
+        font-size: 0.85em;
+      }
+      table tr {
+        padding: 8px;
+      }
+      table td:first-child {
+        font-size: 0.9em;
+      }
+      table td:last-child {
+        font-size: 0.95em;
+      }
+      .breadcrumb {
+        font-size: 0.9em;
+      }
+      footer {
+        padding: 20px 15px 0 15px !important;
+        margin-top: 30px !important;
+      }
+      footer nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      footer nav a {
+        margin: 0 !important;
+        padding: 4px 0;
+      }
+      footer nav span {
+        display: none;
+      }
+      footer div {
+        font-size: 0.9em !important;
+        margin-top: 12px;
+      }
+    }
+
+    /* Navigation alignment */
+    .navbar, .navbar *, 
+    .navbar-brand, .navbar-nav, .navbar-nav a,
+    footer, footer * {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    .navbar {
+        min-height: 60px;
+        padding: 10px 0;
+    }
+    
+    .navbar-header {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li a {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+    }
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .navbar-collapse {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile navigation button positioning */
+    @media (max-width: 767px) {
+        .navbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-toggle {
+            float: right !important;
+            margin-right: 15px;
+            margin-top: 8px;
+        }
+        
+        .navbar-brand {
+            float: left !important;
+        }
+    }
+
+    /* Footer links styling */
+    .tm-contact nav a {
+        color: #eb5424 !important;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .tm-contact nav a:hover {
+        color: #d4441a !important;
+    }
+
+  </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-container">
+                    <div class="content-wrapper">
+                        <!-- Breadcrumb -->
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            <a href="index.html">Financial</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            Salary Calculator
+                        </div>
+                        
+                        <h1 class="page-title">Salary Calculator – Convert Hourly Wage to Annual Salary</h1>
+                        <div class="intro-text">Instantly convert your hourly wage to annual salary. Calculate daily, weekly, monthly, and yearly income, adjusting for holidays and vacation for accurate estimates.</div>
+
+                        <div class="card" role="region" aria-label="Salary calculator">
+                            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div class="input-group">
+                                    <label for="pay-frequency">I get paid:</label>
+                                    <select id="pay-frequency" aria-label="pay frequency">
+                                        <option value="hour">Per hour</option>
+                                        <option value="day">Per day</option>
+                                        <option value="week">Per week</option>
+                                        <option value="biweek">Per two weeks</option>
+                                        <option value="month">Per month</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="pay-amount">Pay per <span id="pay-unit">hour</span>:</label>
+                                    <div style="position: relative; display: flex; align-items: center;">
+                                        <span style="position: absolute; left: 12px; color: #666; font-size: 1em; z-index: 1;">$</span>
+                                        <input id="pay-amount" type="number" min="0" step="0.01" value="20" placeholder="0.00" style="padding-left: 28px;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Work Schedule:</label>
+                                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div>
+                                        <label for="hours-per-week" style="font-size: 0.9em; font-weight: normal;">Hours per week:</label>
+                                        <input id="hours-per-week" type="number" min="0" max="168" step="0.5" value="40" placeholder="40" />
+                                    </div>
+                                    <div>
+                                        <label for="days-per-week" style="font-size: 0.9em; font-weight: normal;">Days per week:</label>
+                                        <input id="days-per-week" type="number" min="0" max="7" step="1" value="5" placeholder="5" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="adjust-holidays" />
+                                    <label for="adjust-holidays" style="margin: 0; font-weight: normal;">Adjust for holidays and vacation</label>
+                                </div>
+                            </div>
+
+                            <div id="holiday-section" style="display: none;">
+                                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="input-group" style="margin-bottom: 0;">
+                                        <label for="holidays" style="font-size: 0.9em; font-weight: normal;">Holidays per year:</label>
+                                        <input id="holidays" type="number" min="0" step="1" value="8" placeholder="8" />
+                                    </div>
+                                    <div class="input-group" style="margin-bottom: 0;">
+                                        <label for="vacation" style="font-size: 0.9em; font-weight: normal;">Paid vacation per year:</label>
+                                        <input id="vacation" type="number" min="0" step="1" value="15" placeholder="15" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button id="calc" class="btn-calculate">Calculate</button>
+                                <button id="clear" class="btn-clear">Clear</button>
+                            </div>
+
+                            <div id="error" class="muted" role="alert" style="margin-top:8px;"></div>
+                            
+                            <div id="output" class="result" style="display:none;">
+                                <div id="resultSummary" style="font-weight: bold; margin-bottom: 15px; font-size: 1.1em;"></div>
+
+                                <table aria-live="polite">
+                                    <thead>
+                                        <tr><th>Period</th><th>Amount</th></tr>
+                                    </thead>
+                                    <tbody id="outputsTable">
+                                        <!-- filled by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h2>See Your Take-Home Pay Fast – North Carolina Salary Calculator</h2>
+                            
+                            <h3>Know Exactly What You'll Earn</h3>
+                            <p>Do you want to know how much you will make after taxes? Our post tax salary calculator is here to help. It works for full-time workers, hourly employees, and freelancers. The salary calculator North Carolina version shows your take-home pay quickly. You do not need to guess or stress about deductions. It calculates federal, state, and local taxes instantly. This tool is perfect for budgeting, comparing job offers, or planning your finances. It gives you a clear view of your income. You can start making smarter money decisions today.</p>
+                            
+                            <h3>How the Calculator Works and Why It Helps</h3>
+                            <p>The calculator is simple to use. Enter your gross salary or hourly wage. Then choose if it is weekly, biweekly, or monthly. Select North Carolina to include state taxes. The calculator automatically factors in federal tax, state tax, Social Security, and Medicare. You can also adjust for holidays and vacation days. This gives an accurate post tax salary estimate.</p>
+                            
+                            <p>Many people wonder how much taxes are deducted from paycheck. It can be confusing. Different states have different rates. Your filing status and deductions change the results. With this tool, you do not have to calculate manually. Enter your numbers and get results in seconds. It works for freelancers too. You can see your income daily, weekly, monthly, or yearly. This helps with budgeting, savings, or comparing jobs. Knowing your post tax salary is the first step to planning smarter.</p>
+                            
+                            <h3>Take Charge of Your Money Today</h3>
+                            <p>Are you ready to see how much you will make after taxes? Use our post tax salary calculator now. It gives you instant results and helps you plan your budget. Once you know your take-home pay, you can make better decisions. You can compare jobs, set savings goals, or prepare for bills. Don't stop there. Try our other tools like mortgage calculators, loan estimators, and budget planners. They help you understand your money fully. Start now and take control of your finances with confidence.</p>
+                        </div>
+
+                        <div class="faq-section">
+                            <h2>💼 Salary Calculator FAQ – Answers About Take-Home Pay and Taxes</h2>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q1:</strong> <strong>How do I calculate my salary?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> To calculate your salary, multiply your hourly wage by the number of hours worked per week, then multiply that number by the total number of weeks in a year (52). For example, if you make $25 per hour and work 40 hours per week, your annual salary is 25 × 40 × 52 = $52,000.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q2:</strong> <strong>How much is $25 an hour annually for 40 hours?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> $52,000 per year. In the following examples, the salary-to-hourly calculations are based on a standard 40-hour workweek: $52,000 per year is $25 an hour. $75,000 per year is $36.06 an hour. $100,000 per year is $48.08 an hour.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q3:</strong> <strong>What is $38,000 a year hourly?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> If you're earning $38,000 annually, your hourly wage is approximately $18.27. To calculate this, divide your yearly salary by the average number of working hours per year — typically 2080 hours (52 weeks × 40 hours). So, $38,000 divided by 2080 equals an hourly income of $18.27.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q4:</strong> <strong>What are common salary negotiation tips?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> Articulate what more you could do or what other value-added duties would offset costs. Explain how these added duties justify a salary increase. Research what other people in similar positions are doing and make sure what you're asking isn't out of line.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q5:</strong> <strong>Is it better to be hourly or salary?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> The Bottom Line. There are both pros and cons to being an hourly employee, and the same can be said of salaried employees. But salaried employees enjoy more benefits for the most part, such as paid vacation and sick days, retirement accounts, and other employer-sponsored benefits.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q6:</strong> <strong>Is 40000 a year a good salary?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> As an individual, you may find that $40,000 is a good entry-level salary. Couples living the DINK lifestyle (which stands for dual income, no kids) and who each make $40,000 would be well above the median household income. Plus, they would have the additional costs of raising children as part of their budget.</div>
+                            </div>
+                        </div>
+
+  <script>
+    // Constants
+    const WORKING_DAYS_PER_YEAR = 260;
+    const WORKING_WEEKS_PER_YEAR = 52;
+
+    // Format currency
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(amount);
+    }
+
+    // Safe number parsing
+    function safeNumber(v) {
+      const n = Number(v);
+      return isFinite(n) && n >= 0 ? n : 0;
+    }
+
+    // Update pay unit label
+    function updatePayUnit() {
+      const payFrequency = document.getElementById('pay-frequency');
+      const payUnit = document.getElementById('pay-unit');
+      if (!payFrequency || !payUnit) return;
+      
+      const units = {
+        'hour': 'hour',
+        'day': 'day',
+        'week': 'week',
+        'biweek': 'two weeks',
+        'month': 'month'
+      };
+      payUnit.textContent = units[payFrequency.value] || 'hour';
+    }
+
+    // Show/hide holiday section
+    function toggleHolidaySection() {
+      const checkbox = document.getElementById('adjust-holidays');
+      const section = document.getElementById('holiday-section');
+      if (!checkbox || !section) return;
+      section.style.display = checkbox.checked ? 'block' : 'none';
+    }
+
+    // Main calculate function
+    function setupCalculateButton() {
+      const calcBtn = document.getElementById('calc');
+      if (!calcBtn) return;
+      
+      calcBtn.addEventListener('click', function () {
+        const errorDiv = document.getElementById('error');
+        const outputDiv = document.getElementById('output');
+        if (!errorDiv || !outputDiv) return;
+        
+        errorDiv.textContent = '';
+        outputDiv.style.display = 'none';
+
+        // Get inputs
+        const payFrequency = document.getElementById('pay-frequency');
+        const payAmount = document.getElementById('pay-amount');
+        const hoursPerWeek = document.getElementById('hours-per-week');
+        const daysPerWeek = document.getElementById('days-per-week');
+        const adjustHolidays = document.getElementById('adjust-holidays');
+        const holidays = document.getElementById('holidays');
+        const vacation = document.getElementById('vacation');
+        
+        if (!payFrequency || !payAmount || !hoursPerWeek || !daysPerWeek || !adjustHolidays) return;
+
+        const payFreq = payFrequency.value;
+        const pay = safeNumber(payAmount.value);
+        const hoursWeek = safeNumber(hoursPerWeek.value);
+        const daysWeek = safeNumber(daysPerWeek.value);
+        const adjust = adjustHolidays.checked;
+        const holidaysDays = adjust && holidays ? safeNumber(holidays.value) : 0;
+        const vacationDays = adjust && vacation ? safeNumber(vacation.value) : 0;
+
+        // Validation
+        if (pay <= 0) {
+          errorDiv.textContent = 'Please enter a valid pay amount.';
+          return;
+        }
+        if (hoursWeek <= 0 || hoursWeek > 168) {
+          errorDiv.textContent = 'Please enter valid hours per week (1-168).';
+          return;
+        }
+        if (daysWeek <= 0 || daysWeek > 7) {
+          errorDiv.textContent = 'Please enter valid days per week (1-7).';
+          return;
+        }
+
+        // Calculate base values
+        let hourlyPay = 0;
+        let dailyPay = 0;
+        let weeklyPay = 0;
+        let biweeklyPay = 0;
+        let semimonthlyPay = 0;
+        let monthlyPay = 0;
+        let quarterlyPay = 0;
+        let yearlyPay = 0;
+
+        // Convert input to hourly pay first
+        const hoursPerDay = hoursWeek / daysWeek;
+        
+        switch (payFreq) {
+          case 'hour':
+            hourlyPay = pay;
+            break;
+          case 'day':
+            hourlyPay = pay / hoursPerDay;
+            break;
+          case 'week':
+            hourlyPay = pay / hoursWeek;
+            break;
+          case 'biweek':
+            hourlyPay = pay / (hoursWeek * 2);
+            break;
+          case 'month':
+            // Monthly to hourly: monthly / (hours per week * 52 / 12)
+            hourlyPay = pay / (hoursWeek * 52 / 12);
+            break;
+        }
+
+        // Calculate base daily pay (not adjusted)
+        const baseDailyPay = hourlyPay * hoursPerDay;
+        const baseWeeklyPay = hourlyPay * hoursWeek;
+        
+        // Calculate yearly pay
+        if (adjust) {
+          const workingDays = WORKING_DAYS_PER_YEAR - holidaysDays - vacationDays;
+          yearlyPay = baseDailyPay * workingDays;
+        } else {
+          yearlyPay = baseDailyPay * WORKING_DAYS_PER_YEAR;
+        }
+        
+        // Calculate all periods from yearly pay (consistent approach)
+        dailyPay = yearlyPay / WORKING_DAYS_PER_YEAR;
+        hourlyPay = dailyPay / hoursPerDay;
+        weeklyPay = yearlyPay / WORKING_WEEKS_PER_YEAR;
+        biweeklyPay = weeklyPay * 2;
+        semimonthlyPay = yearlyPay / 24;
+        monthlyPay = yearlyPay / 12;
+        quarterlyPay = yearlyPay / 4;
+
+        // Build outputs
+        const outputs = [];
+        outputs.push(['Daily pay', formatCurrency(dailyPay)]);
+        outputs.push(['Weekly pay', formatCurrency(weeklyPay)]);
+        outputs.push(['Biweekly pay', formatCurrency(biweeklyPay)]);
+        outputs.push(['Semi-monthly pay', formatCurrency(semimonthlyPay)]);
+        outputs.push(['Monthly pay', formatCurrency(monthlyPay)]);
+        outputs.push(['Quarterly pay', formatCurrency(quarterlyPay)]);
+        outputs.push(['Yearly pay (Gross Annual Income)', formatCurrency(yearlyPay)]);
+
+        // Fill the UI table
+        const tbody = document.getElementById('outputsTable');
+        if (tbody) {
+          tbody.innerHTML = '';
+          outputs.forEach(([k, v]) => {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            td1.textContent = k;
+            const td2 = document.createElement('td');
+            td2.textContent = v;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tbody.appendChild(tr);
+          });
+        }
+
+        // Summary text
+        const resultSummary = document.getElementById('resultSummary');
+        if (resultSummary) {
+          const adjustmentText = adjust 
+            ? ` (adjusted for ${holidaysDays} holidays and ${vacationDays} vacation days)`
+            : ' (not adjusted for holidays and vacation)';
+          resultSummary.innerHTML = `Your gross annual income is <strong>${formatCurrency(yearlyPay)}</strong>${adjustmentText}.`;
+        }
+
+        if (outputDiv) outputDiv.style.display = 'block';
+      });
+    }
+
+    // Clear button functionality
+    function setupClearButton() {
+      const clearBtn = document.getElementById('clear');
+      if (!clearBtn) return;
+      
+      clearBtn.addEventListener('click', function () {
+        const payAmount = document.getElementById('pay-amount');
+        const payFrequency = document.getElementById('pay-frequency');
+        const hoursPerWeek = document.getElementById('hours-per-week');
+        const daysPerWeek = document.getElementById('days-per-week');
+        const adjustHolidays = document.getElementById('adjust-holidays');
+        const holidays = document.getElementById('holidays');
+        const vacation = document.getElementById('vacation');
+        const error = document.getElementById('error');
+        const output = document.getElementById('output');
+        
+        if (payAmount) payAmount.value = '20';
+        if (payFrequency) payFrequency.value = 'hour';
+        if (hoursPerWeek) hoursPerWeek.value = '40';
+        if (daysPerWeek) daysPerWeek.value = '5';
+        if (adjustHolidays) adjustHolidays.checked = false;
+        if (holidays) holidays.value = '8';
+        if (vacation) vacation.value = '15';
+        if (error) error.textContent = '';
+        if (output) output.style.display = 'none';
+        
+        updatePayUnit();
+        toggleHolidaySection();
+      });
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+      const payFrequency = document.getElementById('pay-frequency');
+      const adjustHolidays = document.getElementById('adjust-holidays');
+      
+      if (payFrequency) {
+        payFrequency.addEventListener('change', updatePayUnit);
+      }
+      
+      if (adjustHolidays) {
+        adjustHolidays.addEventListener('change', toggleHolidaySection);
+      }
+    }
+
+    // Optional: press Enter to calculate
+    function setupEnterKeyListeners() {
+      const inputs = document.querySelectorAll('input');
+      const calcBtn = document.getElementById('calc');
+      if (!calcBtn) return;
+      
+      inputs.forEach(inp => {
+        inp.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            calcBtn.click();
+          }
+        });
+      });
+    }
+
+    // Initialize all functionality when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      updatePayUnit();
+      toggleHolidaySection();
+      setupEventListeners();
+      setupCalculateButton();
+      setupClearButton();
+      setupEnterKeyListeners();
+    });
+  </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+</body>
+</html>
+
