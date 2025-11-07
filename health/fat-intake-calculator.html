@@ -205,7 +205,7 @@
                                 <div class="input-field-container">
                                     <select id="unit-system">
                                         <option value="metric">Metric (kg, cm)</option>
-                                        <option value="imperial">Imperial (lbs, ft/in)</option>
+                                        <option value="imperial">Imperial (lbs, inches)</option>
                                     </select>
                                 </div>
                             </div>
@@ -338,13 +338,6 @@
         // Conversion functions
         function lbsToKg(lbs) { return lbs * 0.45359237; }
         function kgToLbs(kg) { return kg / 0.45359237; }
-        function ftInToCm(feet, inches) { return (feet * 30.48) + (inches * 2.54); }
-        function cmToFtIn(cm) {
-            const totalInches = cm / 2.54;
-            const feet = Math.floor(totalInches / 12);
-            const inches = Math.round(totalInches % 12);
-            return { feet, inches };
-        }
 
         // Calculate BMR using Mifflin-St Jeor Equation
         function calculateBMR(weightKg, heightCm, age, gender) {
@@ -389,8 +382,7 @@
             // Convert to metric if needed
             let heightCm, weightKg;
             if (unitSystem === 'imperial') {
-                // For imperial, we'll assume height is entered as total inches or feet+inches
-                // For simplicity, assuming height is entered as total inches
+                // For imperial, height is entered as total inches (e.g., 70 inches = 5'10")
                 heightCm = heightValue * 2.54;
                 weightKg = lbsToKg(weightValue);
             } else {
