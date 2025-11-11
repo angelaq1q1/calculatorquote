@@ -77,7 +77,8 @@
         .results, .results *, .message, .message *,
         .recommendations, .recommendations *,
         footer, footer * { 
-            font-family: 'Raleway', sans-serif !important; 
+            font-family: 'Raleway', sans-serif !important;
+            font-feature-settings: normal;
         }
         body { background: #ffffff; min-height: 100vh; }
         .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -139,9 +140,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
             </div>
@@ -233,7 +234,7 @@
                         <div class="recommendations" id="recommendations"></div>
                     </div>
 
-                    <h2 style="margin: 24px 0 16px; color: #303030; font-weight: 400;">Daily Biotin Dosage Calculator – Find the Right Dose to Prevent Hair Loss</h2>
+                    <h2 style="margin: 24px 0 16px; color: #303030; font-weight: 600; font-size: 1.3em;">Daily Biotin Dosage Calculator – Find the Right Dose to Prevent Hair Loss</h2>
                     <p class="info-text">If you see more hair on your pillow or in the shower drain, your biotin daily dosage might be off. Biotin, also called vitamin B7, helps support strong hair, nails, and skin. Taking too little can slow growth, while taking too much may cause side effects. Our Daily Biotin Dosage Calculator helps you find your ideal biotin dosage for hair growth based on your age, gender, diet, and lifestyle. It's perfect for anyone dealing with hair thinning, shedding, or slow regrowth.</p>
 
                     <h3 style="margin: 24px 0 16px; color: #303030; font-weight: 500; font-size: 1.3em;">How the Calculator Works</h3>
@@ -252,11 +253,11 @@
                     <p class="info-text">For the best results, combine your calculated dosage with a nutrient-rich diet. Include eggs, nuts, seeds, and whole grains. Biotin alone won't solve every hair problem. But it can strengthen strands and support growth when paired with good habits and scalp care.</p>
 
                     <h3 style="margin: 24px 0 16px; color: #303030; font-weight: 500; font-size: 1.3em;">Next Steps for Hair Health</h3>
-                    <p class="info-text">After finding your optimal biotin daily dosage, check your overall hair condition. Use our <a href="hair-loss-risk-calculator.html" style="color: #eb5424; text-decoration: none;">Hair Loss Risk Calculator</a> to see what other factors, like stress or hormones, may affect your hair. If you wear wigs or extensions, try our <a href="wig-cap-size-calculator.html" style="color: #eb5424; text-decoration: none;">Wig Cap Size Calculator</a> to find the perfect fit.</p>
+                    <p class="info-text">After finding your optimal biotin daily dosage, check your overall hair condition. Use our <a href="hair-loss-risk-calculator.html" style="color: #eb5424; text-decoration: none;">Hair Loss Risk Calculator</a> to see what other factors, like stress or hormones, may affect your hair. If you wear wigs or extensions, try our <a href="../other/wig-cap-size-calculator.html" style="color: #eb5424; text-decoration: none;">Wig Cap Size Calculator</a> to find the perfect fit.</p>
 
                     <p class="info-text">Taking care of your hair starts with the right information. Use our Biotin Dosage Calculator today to personalize your intake. Build stronger, healthier hair safely and naturally.</p>
 
-                    <h2 style="margin-bottom: 16px; color: #303030; font-weight: 400;">Frequently Asked Questions About Biotin</h2>
+                    <h2 style="margin-bottom: 16px; color: #303030; font-weight: 600; font-size: 1.1em;">Biotin Dosage FAQs: Answers About Hair Growth, Safety, and Daily Intake</h2>
 
                     <p class="info-text"><strong>Q1. Is 10000 mcg of biotin too much?</strong></p>
                     <p class="info-text">A: Over-the-counter (OTC) supplements for hair or nail growth may contain high doses of biotin, such as 5,000 to 10,000 mcg. High doses of biotin haven't been shown to cause harm in healthy people, and there aren't usually any noticeable side effects if you take too much.</p>
@@ -299,7 +300,9 @@
     <script src="../js/smoothscroll.js"></script>
     <script src="../js/custom.js"></script>
     <script>
-        function getBaseByAge(age, pregnancy) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make functions globally available
+            window.getBaseByAge = function(age, pregnancy) {
             // Base recommendations by age group (NIH guidelines)
             if (age === '<18') {
                 return 20; // Children/teens baseline (simplified, could be 20-25 based on specific age)
@@ -315,14 +318,25 @@
             
             // Default adult recommendation (18-50 or >50, base is same)
             return 30;
-        }
+            };
 
-        function calculateBiotin() {
+            window.calculateBiotin = function() {
             // Get input values
-            var age = document.getElementById('age').value;
-            var gender = document.getElementById('gender').value;
-            var pregnancy = document.getElementById('pregnancy').value;
-            var diet = document.getElementById('diet').value;
+            var ageEl = document.getElementById('age');
+            var genderEl = document.getElementById('gender');
+            var pregnancyEl = document.getElementById('pregnancy');
+            var dietEl = document.getElementById('diet');
+            
+            // Element existence check
+            if (!ageEl || !genderEl || !pregnancyEl || !dietEl) {
+                console.error('Required form elements not found');
+                return;
+            }
+            
+            var age = ageEl.value;
+            var gender = genderEl.value;
+            var pregnancy = pregnancyEl.value;
+            var diet = dietEl.value;
             
             // Get base recommendation
             var base = getBaseByAge(age, pregnancy);
@@ -362,11 +376,23 @@
             // Calculate final recommendation
             var recommendedBiotin = base + adjustment;
             
+            // Element existence checks
+            var dosageDisplay = document.getElementById('dosage-display');
+            var messageDiv = document.getElementById('message');
+            var rangeBarDiv = document.getElementById('dosage-range-bar');
+            var warningBox = document.getElementById('warning-box');
+            var recommendationsDiv = document.getElementById('recommendations');
+            var resultsDiv = document.getElementById('results');
+            
+            if (!dosageDisplay || !messageDiv || !rangeBarDiv || !warningBox || !recommendationsDiv || !resultsDiv) {
+                console.error('Required result elements not found');
+                return;
+            }
+            
             // Display results
-            document.getElementById('dosage-display').textContent = recommendedBiotin + ' mcg/day';
+            dosageDisplay.textContent = recommendedBiotin + ' mcg/day';
             
             // Determine message and styling
-            var messageDiv = document.getElementById('message');
             var messageClass = 'message-safe';
             var messageText = '';
             
@@ -385,7 +411,6 @@
             messageDiv.textContent = messageText;
             
             // Create dosage range bar
-            var rangeBarDiv = document.getElementById('dosage-range-bar');
             var markerPosition = Math.min(100, (recommendedBiotin / 120) * 100); // Scale to 120 mcg max for display
             if (recommendedBiotin > 120) {
                 markerPosition = 100;
@@ -402,7 +427,6 @@
                 '</div>';
             
             // Show warning if over 100 mcg
-            var warningBox = document.getElementById('warning-box');
             if (recommendedBiotin > 100) {
                 warningBox.style.display = 'block';
                 warningBox.innerHTML = '<strong>⚠️ Warning:</strong> Excess biotin may cause false lab test results and skin rashes. Always consult your doctor before taking high doses.';
@@ -411,7 +435,6 @@
             }
             
             // Add recommendations
-            var recommendationsDiv = document.getElementById('recommendations');
             var recommendationText = '';
             
             if (recommendedBiotin <= 100) {
@@ -433,19 +456,27 @@
             recommendationsDiv.innerHTML = recommendationText;
             
             // Show results
-            document.getElementById('results').style.display = 'block';
+            resultsDiv.style.display = 'block';
             
             // Scroll to results
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            };
 
-        function clearInputs() {
-            document.getElementById('age').value = '18-50';
-            document.getElementById('gender').value = 'female';
-            document.getElementById('pregnancy').value = 'no';
-            document.getElementById('diet').value = 'regular';
-            document.getElementById('results').style.display = 'none';
-        }
+            window.clearInputs = function() {
+            var ageEl = document.getElementById('age');
+            var genderEl = document.getElementById('gender');
+            var pregnancyEl = document.getElementById('pregnancy');
+            var dietEl = document.getElementById('diet');
+            var resultsDiv = document.getElementById('results');
+            
+            // Element existence checks
+            if (ageEl) ageEl.value = '18-50';
+            if (genderEl) genderEl.value = 'female';
+            if (pregnancyEl) pregnancyEl.value = 'no';
+            if (dietEl) dietEl.value = 'regular';
+            if (resultsDiv) resultsDiv.style.display = 'none';
+            };
+        });
     </script>
 </body>
 </html>
