@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequent Cavities or Weak Enamel? Calculate Your Safe Daily Fluoride</title>
+    <meta name="description" content="Low fluoride intake can weaken enamel and increase cavities. Use our Fluoride Dosage Calculator to discover your safe daily amount, protect your teeth, and maintain a healthy smile with a personalized plan.">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Frequent Cavities or Weak Enamel? Calculate Your Safe Daily Fluoride",
+  "url": "https://www.calculatorquote.com/health/fluoride-dosage-calculator.html",
+  "description": "Low fluoride intake can weaken enamel and increase cavities. Use our Fluoride Dosage Calculator to discover your safe daily amount, protect your teeth, and maintain a healthy smile with a personalized plan.",
+  "mainEntity": [
+    {
+      "@type": "Calculator",
+      "name": "Fluoride Dosage Calculator",
+      "description": "Calculate your recommended daily fluoride intake based on age, weight, health status, and supplement type.",
+      "url": "https://www.calculatorquote.com/health/fluoride-dosage-calculator.html",
+      "keywords": [
+        "fluoride dosage calculator",
+        "fluoride intake calculator",
+        "daily fluoride recommendation",
+        "fluoride supplement calculator",
+        "optimal fluoride dosage",
+        "fluoride requirements",
+        "fluoride daily dosage",
+        "fluoride dosage for children",
+        "fluoride dosage for adults",
+        "safe fluoride intake",
+        "fluoride toothpaste",
+        "fluoride treatment",
+        "fluoride mouthwash",
+        "side effects of fluoride in water"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the recommended daily fluoride intake?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The recommended daily fluoride intake varies by age. Infants 0-6 months need 0.01 mg/day, children 1-3 years need 0.7 mg/day, children 4-8 years need 1.0 mg/day, teens 9-13 years need 2.0 mg/day, and adults need 3.0 mg/day. These amounts include fluoride from all sources: food, water, and supplements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you take too much fluoride?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, excessive fluoride intake can cause dental fluorosis (white spots on teeth) in children and skeletal fluorosis in severe cases. Children under 8 should not exceed 1.3-2.2 mg/day depending on age, while adults should not exceed 10 mg/day. Always consult your dentist or doctor before taking fluoride supplements."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, body *, body *::before, body *::after,
+        input, select, textarea, button, 
+        h1, h2, h3, h4, h5, h6,
+        p, span, div, a, label, li, ul, ol,
+        .navbar, .navbar *, .breadcrumb, .breadcrumb *,
+        .calculator-container, .calculator-container *,
+        .results, .results *, .message, .message *,
+        .recommendations, .recommendations *,
+        footer, footer * { 
+            font-family: 'Raleway', sans-serif !important;
+            font-feature-settings: normal;
+        }
+        body { background: #ffffff; min-height: 100vh; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .content-area { flex: 1; max-width: 800px; }
+        .calculator-container { max-width: 900px; margin: 0 auto 20px auto; padding: 40px 50px; background-color: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); }
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #666; margin: 0 8px; }
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .input-group { margin-bottom: 20px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        @media (max-width: 768px) { 
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .main-content-wrapper { padding: 0 20px; }
+            .calculator-container { padding: 30px 25px; }
+        }
+        @media (max-width: 480px) {
+            .main-content-wrapper { padding: 0 15px; }
+            .calculator-container { padding: 25px 20px; }
+        }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-field-container { display: flex; align-items: center; gap: 10px; }
+        .input-field-container input, .input-field-container select { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .input-field-container input:focus, .input-field-container select:focus { border-color: #eb5424; }
+        .unit { padding: 12px; background-color: #f8f8f8; border: 1px solid #ddd; border-radius: 2px; color: #eb5424; font-weight: 500; min-width: 60px; text-align: center; }
+        .btn-calculate { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 400px; margin: 25px auto 0 auto; }
+        .results { padding: 25px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; display: none; margin-top: 20px; }
+        .results h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .results p { margin: 0; padding: 8px 0; font-size: 1.1em; color: #333; }
+        .dosage-display { font-size: 1.8em; font-weight: 600; color: #eb5424; margin: 15px 0; padding: 15px; background-color: #fff; border-radius: 8px; text-align: center; }
+        .message { margin: 15px 0; padding: 15px; border-radius: 8px; font-size: 1.1em; line-height: 1.6; }
+        .message-safe { background-color: #d4edda; color: #155724; }
+        .message-warning { background-color: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
+        .message-danger { background-color: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+        .value { color: #eb5424; font-weight: 500; margin-left: 8px; }
+        .info-text { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left; }
+        .recommendations { margin-top: 15px; padding: 15px; background-color: #e7f3ff; border-radius: 5px; }
+        .recommendations h3 { color: #1976D2; margin-bottom: 10px; font-size: 1.1em; }
+        .recommendations ul { margin: 0; padding-left: 20px; }
+        .recommendations li { margin: 8px 0; color: #333; }
+        .calculator-container h2, .calculator-container h3 { font-size: 1.5em; font-weight: 400; }
+        .warning-box { margin: 15px 0; padding: 15px; background-color: #fff3cd; border-left: 4px solid #ffc107; border-radius: 5px; }
+        .warning-box strong { color: #856404; }
+        .safe-limit-box { margin: 15px 0; padding: 15px; background-color: #d1ecf1; border-radius: 5px; }
+        .safe-limit-box strong { color: #0c5460; }
+        .optional-label { color: #888; font-size: 0.9em; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home">
+        <div class="main-content-wrapper">
+            <div class="content-area">
+                <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span>/</span>
+                        <a href="index.html">Health Calculators</a>
+                        <span>/</span>
+                        Fluoride Dosage Calculator
+                    </div>
+
+                    <h1>Frequent Cavities or Weak Enamel? Calculate Your Safe Daily Fluoride</h1>
+                    <p class="info-text">Low fluoride intake can weaken your enamel and increase cavities. Use our Fluoride Dosage Calculator to find your safe daily amount, protect your teeth, and maintain a healthy smile with a personalized plan.</p>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="age">Age:</label>
+                            <div class="input-field-container">
+                                <select id="age">
+                                    <option value="0-6months">Infants (0-6 months)</option>
+                                    <option value="7-12months">Infants (7-12 months)</option>
+                                    <option value="1-3years">Children (1-3 years)</option>
+                                    <option value="4-8years">Children (4-8 years)</option>
+                                    <option value="9-13years">Teens (9-13 years)</option>
+                                    <option value="14-18years">Teens (14-18 years)</option>
+                                    <option value="19-70years" selected>Adults (19-70 years)</option>
+                                    <option value="70+">Elderly (70+)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="healthStatus">Health Status:</label>
+                            <div class="input-field-container">
+                                <select id="healthStatus">
+                                    <option value="normal" selected>Normal</option>
+                                    <option value="pregnant">Pregnant / Breastfeeding</option>
+                                    <option value="lowExposure">Low fluoride exposure / Dental risk</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="weight">Weight <span class="optional-label">(Optional)</span>:</label>
+                            <div class="input-field-container">
+                                <input type="number" id="weight" placeholder="Enter weight" min="0" step="0.1">
+                                <select id="weightUnit">
+                                    <option value="kg" selected>kg</option>
+                                    <option value="lbs">lbs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="supplementType">Supplement Type <span class="optional-label">(Optional)</span>:</label>
+                            <div class="input-field-container">
+                                <select id="supplementType">
+                                    <option value="none" selected>None / Not specified</option>
+                                    <option value="tablets">Tablets</option>
+                                    <option value="drops">Drops</option>
+                                    <option value="toothpaste">Toothpaste</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateFluoride()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+
+                    <div class="results" id="results" style="display: none;">
+                        <h2>Your Recommended Fluoride Intake</h2>
+                        <div class="dosage-display" id="dosage-display">0 mg/day</div>
+                        <div class="message" id="message"></div>
+                        <div class="safe-limit-box" id="safe-limit-box"></div>
+                        <div class="warning-box" id="warning-box" style="display: none;"></div>
+                        <div class="recommendations" id="recommendations"></div>
+                    </div>
+
+                    <h2 style="margin: 24px 0 16px; color: #303030; font-weight: 600; font-size: 1.3em;">Calculate Your Daily Fluoride Intake to Protect Teeth & Prevent Cavities</h2>
+
+                    <h3 style="margin: 24px 0 16px; color: #303030; font-weight: 500; font-size: 1.3em;">Why Your Body Needs Fluoride</h3>
+                    <p class="info-text"><strong>Protect Your Teeth with the Right Fluoride Intake</strong></p>
+                    <p class="info-text">Strong, healthy teeth need more than brushing. Fluoride is essential for enamel protection and cavity prevention. Our Fluoride Dosage Calculator helps children, adults, and pregnant women find the safe daily amount of fluoride. Without enough fluoride, teeth weaken, enamel wears down, and cavities become more likely. Regular use of fluoride toothpaste, fluoride rinse, or a professional fluoride treatment at dentist helps maintain optimal fluoride levels. This tool guides you to supplement fluoride safely and effectively, keeping your smile strong and healthy.</p>
+
+                    <h3 style="margin: 24px 0 16px; color: #303030; font-weight: 500; font-size: 1.3em;">How the Calculator Works</h3>
+                    <p class="info-text"><strong>Calculate Your Personalized Fluoride Dose</strong></p>
+                    <p class="info-text">The calculator uses age and health status to suggest safe fluoride intake. Children receive doses that protect enamel without overexposure. Adults, including pregnant and breastfeeding women, get intake recommendations within safe limits while boosting dental protection.</p>
+
+                    <p class="info-text">Recommended fluoride amounts differ by age: infants need tiny doses via drops or fluoride toothpaste, children 1–8 years need 0.7–1 mg daily, and adults need about 3 mg. The calculator also explains when fluoride mouthwash or a fluoride treatment at dentist may be helpful.</p>
+
+                    <p class="info-text">Too much fluoride can cause dental fluorosis in children or other health issues if intake is excessive. The tool considers all fluoride sources—water, toothpaste, rinses, and supplements—and warns if your total intake nears the safe upper limit. This calculator is a guide, not a substitute for professional dental advice.</p>
+
+                    <h3 style="margin: 24px 0 16px; color: #303030; font-weight: 500; font-size: 1.3em;">Take Action for Healthy Teeth</h3>
+                    <p class="info-text"><strong>Protect Your Smile and Explore More Tools</strong></p>
+                    <p class="info-text">Use our Fluoride Dosage Calculator to prevent cavities and strengthen enamel. After calculating your safe daily intake, consider adding fluoride rinse, fluoride toothpaste, or occasional fluoride treatment at dentist to your routine.</p>
+
+                    <p class="info-text">For broader health management, explore our related tools: the Hair Loss Risk Calculator for nutrition insights, Biotin Dosage Calculator for stronger hair, and Wig Cap Size Calculator for personalized hair solutions. Start with the Fluoride Dosage Calculator today and ensure your teeth stay strong, your smile stays bright, and your dental care is safe and precise.</p>
+
+                    <h2 style="margin-bottom: 16px; color: #303030; font-weight: 600; font-size: 1.1em;">❓ Common Questions About Fluoride Dosage</h2>
+
+                    <p class="info-text"><strong>Q1. Are there benefits to ingesting fluoride?</strong></p>
+                    <p class="info-text">A: Drinking fluoridated water keeps teeth strong and reduces cavities by about 25% in children and adults. This results in less mouth pain, fewer fillings or teeth pulled, and fewer missed days of work and school.</p>
+
+                    <p class="info-text"><strong>Q2. Is it safe to eat fluoride?</strong></p>
+                    <p class="info-text">A: While large amounts of fluoride can be dangerous, it's very difficult to reach toxic levels with properly fluoridated water and over-the-counter products that contain fluoride. Talk to your dentist to learn more and find out if you need professional fluoride treatments.</p>
+
+                    <p class="info-text"><strong>Q3. Is fluoride good for intake?</strong></p>
+                    <p class="info-text">A: Fluoride intake has both beneficial effects – in reducing the incidence of dental caries – and negative effects – in causing tooth enamel and skeletal fluorosis following prolonged high exposure.</p>
+
+                    <p class="info-text"><strong>Q4. Why do dentists not use fluoride anymore?</strong></p>
+                    <p class="info-text">A: Unfortunately, ingesting or exposing yourself to too much fluoride can cause numerous health problems. Some of the problems that have been linked to ingesting or being exposed to too much fluoride include: Arthritis. Increased risk of bone fractures.</p>
+
+                    <p class="info-text"><strong>Q5. Can fluoride damage be reversed?</strong></p>
+                    <p class="info-text">A: With a standardized early diagnosis, elimination of fluoride intake and supplementation of a diet rich in essential nutrients and antioxidants, we have shown that the fluorosis can be reversed.</p>
+
+                    <p class="info-text"><strong>Q6. Why no coffee after fluoride?</strong></p>
+                    <p class="info-text">A: Most dentists suggest waiting at least 30 minutes to an hour after a fluoride treatment before drinking coffee. Here's why: Temperature Matters – Hot drinks like coffee can soften the fluoride coating, making it less effective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Base recommended daily fluoride intake (mg/day) - NIH/CDC guidelines
+            window.getBaseFluorideRequirement = function(age, healthStatus) {
+                // Handle pregnancy/breastfeeding first (overrides age)
+                if (healthStatus === 'pregnant') {
+                    return 3.0; // Pregnant/Breastfeeding: 3.0 mg/day
+                }
+                
+                // Age-based requirements
+                switch(age) {
+                    case '0-6months':
+                        return 0.01; // 0-6 months: 0.01 mg/day
+                    case '7-12months':
+                        return 0.5; // 7-12 months: 0.5 mg/day
+                    case '1-3years':
+                        return 0.7; // 1-3 years: 0.7 mg/day
+                    case '4-8years':
+                        return 1.0; // 4-8 years: 1.0 mg/day
+                    case '9-13years':
+                        return 2.0; // 9-13 years: 2.0 mg/day
+                    case '14-18years':
+                        return 3.0; // 14-18 years: 3.0 mg/day
+                    case '19-70years':
+                        return 3.0; // Adults (19-70): 3.0 mg/day
+                    case '70+':
+                        return 3.0; // Elderly (70+): 3.0 mg/day
+                    default:
+                        return 3.0; // Default fallback
+                }
+            };
+
+            // Upper safe limit (mg/day) by age group
+            window.getUpperLimit = function(age) {
+                switch(age) {
+                    case '0-6months':
+                        return 0.1;
+                    case '7-12months':
+                        return 0.5;
+                    case '1-3years':
+                        return 1.3;
+                    case '4-8years':
+                        return 2.2;
+                    case '9-13years':
+                    case '14-18years':
+                    case '19-70years':
+                    case '70+':
+                        return 10.0;
+                    default:
+                        return 10.0;
+                }
+            };
+
+            // Average weight for age group (kg) - for weight adjustment
+            window.getAverageWeight = function(age) {
+                switch(age) {
+                    case '0-6months':
+                        return 7; // ~7 kg
+                    case '7-12months':
+                        return 9; // ~9 kg
+                    case '1-3years':
+                        return 13; // ~13 kg
+                    case '4-8years':
+                        return 22; // ~22 kg
+                    case '9-13years':
+                        return 40; // ~40 kg
+                    case '14-18years':
+                        return 60; // ~60 kg
+                    case '19-70years':
+                        return 70; // ~70 kg
+                    case '70+':
+                        return 65; // ~65 kg
+                    default:
+                        return 70;
+                }
+            };
+
+            window.calculateFluoride = function() {
+                // Get input values
+                var ageEl = document.getElementById('age');
+                var healthStatusEl = document.getElementById('healthStatus');
+                var weightEl = document.getElementById('weight');
+                var weightUnitEl = document.getElementById('weightUnit');
+                var supplementTypeEl = document.getElementById('supplementType');
+                
+                // Element existence check
+                if (!ageEl || !healthStatusEl) {
+                    console.error('Required form elements not found');
+                    return;
+                }
+                
+                var age = ageEl.value;
+                var healthStatus = healthStatusEl.value;
+                var weight = weightEl ? parseFloat(weightEl.value) : null;
+                var weightUnit = weightUnitEl ? weightUnitEl.value : 'kg';
+                var supplementType = supplementTypeEl ? supplementTypeEl.value : 'none';
+                
+                // Get base fluoride requirement
+                var baseDosage = getBaseFluorideRequirement(age, healthStatus);
+                
+                // Adjust for pregnancy/breastfeeding (slight increase 0-0.2 mg/day)
+                if (healthStatus === 'pregnant') {
+                    baseDosage += 0.1; // Add 0.1 mg/day for pregnancy/breastfeeding
+                }
+                
+                // Adjust for low fluoride exposure / dental risk
+                if (healthStatus === 'lowExposure') {
+                    baseDosage += 0.2; // Slight increase for those at risk
+                }
+                
+                // Weight adjustment (optional)
+                var adjustedDosage = baseDosage;
+                if (weight && weight > 0) {
+                    // Convert weight to kg if needed
+                    var weightKg = weightUnit === 'lbs' ? weight * 0.453592 : weight;
+                    
+                    // Get average weight for age group
+                    var avgWeight = getAverageWeight(age);
+                    
+                    // Adjust dosage proportionally (only if weight is significantly different)
+                    if (avgWeight > 0) {
+                        var weightRatio = weightKg / avgWeight;
+                        // Only adjust if weight is more than 20% different from average
+                        if (weightRatio < 0.8 || weightRatio > 1.2) {
+                            adjustedDosage = baseDosage * weightRatio;
+                        }
+                    }
+                }
+                
+                // Get upper limit
+                var upperLimit = getUpperLimit(age);
+                
+                // Safety check: cap at upper limit
+                if (adjustedDosage > upperLimit) {
+                    adjustedDosage = upperLimit;
+                }
+                
+                // Round to 2 decimal places
+                adjustedDosage = Math.round(adjustedDosage * 100) / 100;
+                
+                // Element existence checks
+                var dosageDisplay = document.getElementById('dosage-display');
+                var messageDiv = document.getElementById('message');
+                var safeLimitBox = document.getElementById('safe-limit-box');
+                var warningBox = document.getElementById('warning-box');
+                var recommendationsDiv = document.getElementById('recommendations');
+                var resultsDiv = document.getElementById('results');
+                
+                if (!dosageDisplay || !messageDiv || !safeLimitBox || !warningBox || !recommendationsDiv || !resultsDiv) {
+                    console.error('Required result elements not found');
+                    return;
+                }
+                
+                // Display results
+                dosageDisplay.textContent = adjustedDosage + ' mg/day';
+                
+                // Determine message and styling
+                var messageClass = 'message-safe';
+                var messageText = '';
+                
+                if (adjustedDosage <= upperLimit) {
+                    messageClass = 'message-safe';
+                    messageText = 'Your recommended fluoride intake is within safe limits. This amount includes fluoride from all sources: food, water, and supplements.';
+                } else {
+                    messageClass = 'message-danger';
+                    messageText = 'Your calculated fluoride dosage exceeds the recommended safe limit. Please consult your dentist or doctor before taking supplements.';
+                }
+                
+                messageDiv.className = 'message ' + messageClass;
+                messageDiv.textContent = messageText;
+                
+                // Display safe limit information
+                var ageLabel = ageEl.options[ageEl.selectedIndex].text;
+                safeLimitBox.innerHTML = '<strong>⚠️ Upper Safe Limit:</strong> ' + upperLimit + ' mg/day (for ' + ageLabel.toLowerCase() + ')';
+                
+                // Show warning if at or near upper limit
+                if (adjustedDosage >= upperLimit * 0.9) {
+                    warningBox.style.display = 'block';
+                    warningBox.innerHTML = '<strong>⚠️ Important:</strong> Your calculated dosage (' + adjustedDosage + ' mg/day) is at or near the upper safe limit of ' + upperLimit + ' mg/day. This includes fluoride from ALL sources (food, water, and supplements). Consult your dentist before taking any fluoride supplements.';
+                } else {
+                    warningBox.style.display = 'none';
+                }
+                
+                // Add recommendations
+                var recommendationText = '';
+                
+                if (adjustedDosage <= upperLimit) {
+                    recommendationText = '<h3>💡 Tips:</h3><ul>' +
+                        '<li><strong>Check your water:</strong> If your water supply is fluoridated, you may already be getting adequate fluoride. Contact your local water authority to check fluoride levels.</li>' +
+                        '<li><strong>Use fluoride toothpaste:</strong> Most toothpaste contains fluoride, which contributes to your daily intake. Use a pea-sized amount for children.</li>' +
+                        '<li><strong>For children:</strong> Monitor fluoride intake carefully. Excessive intake can cause dental fluorosis (white spots on teeth). Never exceed the upper limits without medical supervision.</li>' +
+                        '<li><strong>Consult your dentist:</strong> Before taking fluoride supplements, especially for children, consult your dentist or pediatrician. They can assess your specific needs based on your dental health and water supply.</li>' +
+                        '<li><strong>Total intake matters:</strong> Remember that this recommendation includes fluoride from all sources: food, water, and supplements. Don\'t double-count if you\'re already getting fluoride from multiple sources.</li>';
+                    
+                    if (supplementType !== 'none') {
+                        recommendationText += '<li><strong>Supplement form:</strong> You selected ' + supplementType + ' as your supplement type. Follow the manufacturer\'s instructions and your dentist\'s recommendations for dosage.</li>';
+                    }
+                    
+                    recommendationText += '</ul>';
+                } else {
+                    recommendationText = '<h3>💡 Important Recommendations:</h3><ul>' +
+                        '<li><strong>Consult your dentist immediately</strong> before taking fluoride supplements at this dosage</li>' +
+                        '<li>High doses of fluoride can cause dental fluorosis in children and skeletal fluorosis in severe cases</li>' +
+                        '<li>If you need this much fluoride, it should be under strict medical supervision</li>' +
+                        '<li>Consider dietary sources first and work with a healthcare provider to determine the right supplementation approach</li>' +
+                        '<li>Check your water supply - you may already be getting adequate fluoride from fluoridated water</li>' +
+                        '</ul>';
+                }
+                
+                recommendationsDiv.innerHTML = recommendationText;
+                
+                // Show results
+                resultsDiv.style.display = 'block';
+                
+                // Scroll to results
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            };
+
+            window.clearInputs = function() {
+                var ageEl = document.getElementById('age');
+                var healthStatusEl = document.getElementById('healthStatus');
+                var weightEl = document.getElementById('weight');
+                var weightUnitEl = document.getElementById('weightUnit');
+                var supplementTypeEl = document.getElementById('supplementType');
+                var resultsDiv = document.getElementById('results');
+                
+                // Element existence checks
+                if (ageEl) ageEl.value = '19-70years';
+                if (healthStatusEl) healthStatusEl.value = 'normal';
+                if (weightEl) weightEl.value = '';
+                if (weightUnitEl) weightUnitEl.value = 'kg';
+                if (supplementTypeEl) supplementTypeEl.value = 'none';
+                if (resultsDiv) resultsDiv.style.display = 'none';
+            };
+        });
+    </script>
+</body>
+</html>
+
