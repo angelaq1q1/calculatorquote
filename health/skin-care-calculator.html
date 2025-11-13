@@ -136,7 +136,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Health",
+            "name": "Health Calculators",
             "item": "https://www.calculatorquote.com/health/"
           },
           {
@@ -168,6 +168,8 @@
         .description { color:#606060; font-size:16px; line-height:30px; margin-bottom: 40px; text-align:left; }
         .input-section { background:#f8f9fa; padding:20px; border-radius:10px; margin-bottom: 20px; }
         .input-group { margin-bottom: 20px; }
+        .input-group-row { display:flex; gap:15px; margin-bottom: 20px; }
+        .input-group-row .input-group { flex:1; margin-bottom: 0; }
         .input-group label { display:block; margin-bottom:8px; color:#333; font-weight:500; }
         .input-group select, .input-group input[type="number"] { padding:10px; border:1px solid #ddd; border-radius:5px; font-size:1em; width:100%; }
         .checkbox-group { display:flex; flex-wrap:wrap; gap:15px; margin-top:8px; }
@@ -195,6 +197,8 @@
             .content-area { max-width:100%; }
             h1 { font-size:1.5em; }
             .input-section { padding: 16px; }
+            .input-group-row { flex-direction: column; gap: 0; }
+            .input-group-row .input-group { margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -232,7 +236,7 @@
                                 <div class="breadcrumb">
                                     <a href="../index.html">Home</a>
                                     <span>/</span>
-                                    <a href="index.html">Health</a>
+                                    <a href="index.html">Health Calculators</a>
                                     <span>/</span>
                                     Skin Care Calculator
                                 </div>
@@ -242,27 +246,29 @@
                                 </div>
 
                                 <div class="input-section">
-                                    <div class="input-group">
-                                        <label>Age Group <span style="color:#999;">(required)</span></label>
-                                        <select id="ageGroup">
-                                            <option value="">Select age group</option>
-                                            <option value="under20">Under 20</option>
-                                            <option value="20-30">20-30</option>
-                                            <option value="31-40">31-40</option>
-                                            <option value="41-50">41-50</option>
-                                            <option value="50plus">50+</option>
-                                        </select>
-                                    </div>
+                                    <div class="input-group-row">
+                                        <div class="input-group">
+                                            <label>Age Group <span style="color:#999;">(required)</span></label>
+                                            <select id="ageGroup">
+                                                <option value="">Select age group</option>
+                                                <option value="under20">Under 20</option>
+                                                <option value="20-30">20-30</option>
+                                                <option value="31-40">31-40</option>
+                                                <option value="41-50">41-50</option>
+                                                <option value="50plus">50+</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="input-group">
-                                        <label>Skin Type <span style="color:#999;">(required)</span></label>
-                                        <select id="skinType">
-                                            <option value="">Select skin type</option>
-                                            <option value="dry">Dry</option>
-                                            <option value="oily">Oily</option>
-                                            <option value="combination">Combination</option>
-                                            <option value="sensitive">Sensitive</option>
-                                        </select>
+                                        <div class="input-group">
+                                            <label>Skin Type <span style="color:#999;">(required)</span></label>
+                                            <select id="skinType">
+                                                <option value="">Select skin type</option>
+                                                <option value="dry">Dry</option>
+                                                <option value="oily">Oily</option>
+                                                <option value="combination">Combination</option>
+                                                <option value="sensitive">Sensitive</option>
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="input-group">
@@ -329,9 +335,15 @@
                                     </div>
 
                                     <div class="buttons">
-                                        <button type="button" class="btn-primary-calc" onclick="calculateSkincare()">Calculate</button>
-                                        <button type="button" class="btn-secondary" onclick="clearForm()">Clear</button>
+                                        <button type="button" class="btn-primary-calc" id="calculateBtn" onclick="if(typeof calculateSkincare === 'function') calculateSkincare();">Calculate</button>
+                                        <button type="button" class="btn-secondary" id="clearBtn" onclick="if(typeof clearForm === 'function') clearForm();">Clear</button>
                                     </div>
+
+                                    <div class="result" id="result"></div>
+                                    <div class="result-section" id="basicRoutine"></div>
+                                    <div class="result-section" id="specialConcerns"></div>
+                                    <div class="result-section" id="usageGuide"></div>
+                                    <div class="result-section" id="lifestyleTips"></div>
                                 </div>
 
                                 <div class="howitworks" id="howItWorks" style="margin: 32px auto 0 auto; max-width: 740px; border-radius: 12px; padding: 28px 34px 18px 34px; color: #303030; font-size:1.07em; line-height:1.7;">
@@ -369,12 +381,6 @@
                                         <span>A: It can also lead to a dull complexion and skin dryness, which may result in premature fine lines and wrinkles. With overconsumption of caffeine, the area around the eyes can appear sunken, and any imperfections, such as fine lines and wrinkles, can become more pronounced.</span>
                                     </div>
                                 </div>
-
-                                <div class="result" id="result"></div>
-                                <div class="result-section" id="basicRoutine"></div>
-                                <div class="result-section" id="specialConcerns"></div>
-                                <div class="result-section" id="usageGuide"></div>
-                                <div class="result-section" id="lifestyleTips"></div>
                             </div>
                         </div>
                     </div>
@@ -645,8 +651,41 @@
             if (lifestyleTipsEl) lifestyleTipsEl.style.display = 'none';
         }
 
-        window.addEventListener('DOMContentLoaded', function() {
+        // Make functions globally available
+        window.calculateSkincare = calculateSkincare;
+        window.clearForm = clearForm;
+
+        // Initialize when DOM is ready and all scripts are loaded
+        window.initializeCalculator = function() {
             clearForm();
+            
+            // Bind event listeners to buttons
+            const calculateBtn = document.getElementById('calculateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            if (calculateBtn) {
+                // Remove any existing listeners and add new one
+                calculateBtn.removeEventListener('click', calculateSkincare);
+                calculateBtn.addEventListener('click', calculateSkincare);
+            }
+            
+            if (clearBtn) {
+                clearBtn.removeEventListener('click', clearForm);
+                clearBtn.addEventListener('click', clearForm);
+            }
+        };
+
+        // Try multiple initialization methods to ensure it works
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', window.initializeCalculator);
+        } else {
+            // DOM already loaded
+            window.initializeCalculator();
+        }
+
+        // Also initialize after all scripts load (fallback)
+        window.addEventListener('load', function() {
+            window.initializeCalculator();
         });
     </script>
 
@@ -657,6 +696,17 @@
     <script src="../js/jquery.nav.js"></script>
     <script src="../js/smoothscroll.js"></script>
     <script src="../js/custom.js"></script>
+    <script>
+        // Re-initialize after all scripts are loaded (jQuery ready)
+        if (typeof jQuery !== 'undefined') {
+            jQuery(document).ready(function($) {
+                initializeCalculator();
+            });
+        } else {
+            // Fallback if jQuery not available
+            window.addEventListener('load', initializeCalculator);
+        }
+    </script>
 </body>
 </html>
 
