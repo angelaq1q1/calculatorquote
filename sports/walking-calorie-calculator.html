@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Step-to-Calorie Calculator: See How Many Calories Your Steps Burn</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="Walked 3,000 or 10,000 steps? Use our step-to-calorie calculator to find your real calorie burn based on weight, pace, and terrain. Get accurate, personalized results instantly.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="walking calorie calculator, calories burned walking, walking calories, calories walking, walking calorie burn, treadmill calorie calculator, calories burned walking calculator, walking calories per hour, how many calories does walking burn">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Step-to-Calorie Calculator: See How Many Calories Your Steps Burn">
+  <meta property="og:description" content="Walked 3,000 or 10,000 steps? Use our step-to-calorie calculator to find your real calorie burn based on weight, pace, and terrain. Get accurate, personalized results instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.calculatorquote.com/sports/walking-calorie-calculator.html">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Step-to-Calorie Calculator: See How Many Calories Your Steps Burn",
+    "description": "Walked 3,000 or 10,000 steps? Use our step-to-calorie calculator to find your real calorie burn based on weight, pace, and terrain. Get accurate, personalized results instantly.",
+    "url": "https://www.calculatorquote.com/sports/walking-calorie-calculator.html",
+    "inLanguage": "en",
+    "keywords": [
+      "walking calorie calculator",
+      "calories burned walking",
+      "walking calories",
+      "calories walking",
+      "walking calorie burn",
+      "treadmill calorie calculator",
+      "calories burned walking calculator",
+      "walking calories per hour",
+      "how many calories does walking burn",
+      "calories burned walking 10000 steps",
+      "walking calorie burn calculator",
+      "how many calories does walking a mile burn",
+      "calories walking a mile",
+      "how many calories burned in walking 10000 steps"
+    ],
+    "datePublished": "2025-01-31T00:00:00Z",
+    "dateModified": "2025-01-31T00:00:00Z",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalculatorQuote",
+      "url": "https://www.calculatorquote.com"
+    },
+    "mainEntity": [
+      {
+        "@type": "Calculator",
+        "name": "Walking Calorie Calculator",
+        "description": "Calculate calories burned walking based on weight, slope, distance, time, and speed",
+        "url": "https://www.calculatorquote.com/sports/walking-calorie-calculator.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Template CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
+  <style>
+    /* Global font setting - Raleway for all text */
+    body, body *, 
+    input, select, button, 
+    table, td, th {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    /* Custom styles for walking calorie calculator */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .breadcrumb {
+      margin-bottom: 20px;
+      font-size: 1em;
+      color: #666;
+    }
+    .breadcrumb a {
+      color: #eb5424;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover {
+      color: #d43d1a;
+    }
+    .breadcrumb span {
+      color: #666;
+      margin: 0 8px;
+    }
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    h2 {
+      color: #333;
+      font-size: 1.2em;
+      margin: 20px 0 14px 0;
+      font-weight: 600;
+    }
+    h3 {
+      color: #333;
+      font-size: 1.1em;
+      margin: 15px 0 10px 0;
+      font-weight: 600;
+    }
+    .intro-text {
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #666;
+    }
+    .content-section {
+      margin: 30px 0 20px 0;
+      padding: 0;
+      background: transparent;
+      border: none !important;
+      border-radius: 0;
+      box-shadow: none !important;
+      outline: none;
+    }
+    .content-section a {
+      color: #eb5424;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .content-section a:hover {
+      color: #d43d1a;
+      text-decoration: underline;
+    }
+    .formula-box {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1em;
+    }
+    .faq-section {
+      margin: 30px 0 20px 0;
+      padding: 0;
+      background: transparent;
+      border: none !important;
+      border-radius: 0;
+      box-shadow: none !important;
+      outline: none;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-question {
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+    .faq-answer {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .card { border:1px solid #e9ecef; border-radius:10px; padding:20px; background-color: #f8f9fa; }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 1em;
+    }
+    .input-group-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .input-group-row .input-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    input[type="number"], select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      max-width: 400px;
+      margin: 25px auto 0 auto;
+    }
+    .btn-calculate {
+      background-color: #eb5424;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .btn-calculate:hover {
+      background-color: #d43d1a;
+    }
+    .btn-clear {
+      background-color: #f5c6cb;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .btn-clear:hover {
+      background-color: #f1aeb5;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+      display: none;
+    }
+    .result h3 {
+      color: #eb5424;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+    .result-item {
+      margin: 12px 0;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    .result-label {
+      color: #666;
+      font-size: 0.95em;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .result-value {
+      color: #333;
+      font-size: 1.1em;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .muted {
+      color: #999;
+      font-size: 0.9em;
+    }
+    .error {
+      color: #d32f2f;
+      font-size: 0.9em;
+      margin-top: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e9ecef;
+    }
+    table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #333;
+    }
+    table tr:hover {
+      background: #f8f9fa;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 20px;
+      }
+      .content-wrapper {
+        padding: 24px;
+      }
+      .page-title {
+        font-size: 1.3em;
+        margin-bottom: 25px;
+      }
+      .card {
+        padding: 16px;
+      }
+      .input-group-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .input-group-row .input-group {
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 1.1em;
+        margin: 15px 0 10px 0;
+      }
+      h3 {
+        font-size: 1em;
+        margin: 15px 0 8px 0;
+      }
+      .content-section p, .faq-answer {
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+      .faq-question {
+        font-size: 1em;
+      }
+      .formula-box {
+        padding: 12px;
+        font-size: 0.95em;
+      }
+      .buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 100%;
+      }
+      .btn-calculate,
+      .btn-clear {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+      }
+      footer {
+        padding: 25px 20px 0 20px !important;
+        margin-top: 35px !important;
+      }
+      footer nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      footer nav a {
+        margin: 0 8px !important;
+        font-size: 0.95em;
+      }
+      footer nav span {
+        display: inline;
+      }
+      footer div {
+        font-size: 0.95em !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-container {
+        padding: 0 10px;
+      }
+      .content-wrapper {
+        padding: 15px;
+      }
+      .page-title {
+        font-size: 1.1em !important;
+        margin-bottom: 20px;
+      }
+      .card {
+        padding: 12px;
+      }
+      input[type="number"], select {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        min-height: 44px;
+        box-sizing: border-box;
+      }
+      .result {
+        padding: 15px 12px;
+        font-size: 0.9em;
+      }
+      table {
+        font-size: 0.85em;
+      }
+      table tr {
+        padding: 8px;
+      }
+      table td:first-child {
+        font-size: 0.9em;
+      }
+      table td:last-child {
+        font-size: 0.95em;
+      }
+      .breadcrumb {
+        font-size: 0.9em;
+      }
+      footer {
+        padding: 20px 15px 0 15px !important;
+        margin-top: 30px !important;
+      }
+      footer nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      footer nav a {
+        margin: 0 !important;
+        padding: 4px 0;
+      }
+      footer nav span {
+        display: none;
+      }
+      footer div {
+        font-size: 0.9em !important;
+        margin-top: 12px;
+      }
+    }
+
+    /* Navigation alignment */
+    .navbar, .navbar *, 
+    .navbar-brand, .navbar-nav, .navbar-nav a,
+    footer, footer * {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    .navbar {
+        min-height: 60px;
+        padding: 10px 0;
+    }
+    
+    .navbar-header {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li a {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+    }
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .navbar-collapse {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Mobile navigation button positioning */
+    @media (max-width: 767px) {
+        .navbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-toggle {
+            float: right !important;
+            margin-right: 15px;
+            margin-top: 8px;
+        }
+        
+        .navbar-brand {
+            float: left !important;
+        }
+    }
+
+    /* Footer links styling */
+    .tm-contact nav a {
+        color: #eb5424 !important;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .tm-contact nav a:hover {
+        color: #d4441a !important;
+    }
+
+  </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-container">
+                    <div class="content-wrapper">
+                        <!-- Breadcrumb -->
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            <a href="index.html">Sports Calculators</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            Walking Calorie Calculator
+                        </div>
+                        
+                        <h1 class="page-title">Walked 3,000 or 10,000 Steps? Calculate Your Real Calorie Burn Now</h1>
+                        <div class="intro-text">Walking 3,000 or 10,000 steps isn't the same for everyone. Your calorie burn depends on weight, pace, and walking terrain. Use our step-to-calorie calculator to get accurate, personalized results—so you finally stop guessing and start tracking real progress.</div>
+
+                        <div class="card" role="region" aria-label="Walking calorie calculator">
+                            <div class="input-group-row">
+                                <div class="input-group">
+                                    <label for="weight">Your Weight:</label>
+                                    <input id="weight" type="number" min="1" step="0.1" placeholder="Enter weight" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="weight-unit">Unit:</label>
+                                    <select id="weight-unit" aria-label="weight unit">
+                                        <option value="kg">kilograms (kg)</option>
+                                        <option value="lbs" selected>pounds (lbs)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group-row">
+                                <div class="input-group">
+                                    <label for="gender">Gender:</label>
+                                    <select id="gender" aria-label="gender">
+                                        <option value="male" selected>Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="slope">Slope (%):</label>
+                                    <select id="slope" aria-label="slope">
+                                        <option value="-5">-5% (downhill)</option>
+                                        <option value="-4">-4%</option>
+                                        <option value="-3">-3%</option>
+                                        <option value="-2">-2%</option>
+                                        <option value="-1">-1%</option>
+                                        <option value="0" selected>0% (flat)</option>
+                                        <option value="1">1%</option>
+                                        <option value="2">2%</option>
+                                        <option value="3">3%</option>
+                                        <option value="4">4%</option>
+                                        <option value="5">5% (uphill)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Enter two of the following:</label>
+                                <div class="muted" style="margin-bottom: 10px;">The calculator will automatically calculate the third value.</div>
+                            </div>
+
+                            <div class="input-group-row">
+                                <div class="input-group">
+                                    <label for="distance">Distance:</label>
+                                    <input id="distance" type="number" min="0" step="0.1" placeholder="Enter distance" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="distance-unit">Unit:</label>
+                                    <select id="distance-unit" aria-label="distance unit">
+                                        <option value="km" selected>kilometers (km)</option>
+                                        <option value="mi">miles (mi)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group-row">
+                                <div class="input-group">
+                                    <label for="time">Walking Time (minutes):</label>
+                                    <input id="time" type="number" min="0" step="0.1" placeholder="Enter time" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="speed">Walking Speed:</label>
+                                    <input id="speed" type="number" min="0" step="0.1" placeholder="Enter speed" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="speed-unit">Unit:</label>
+                                    <select id="speed-unit" aria-label="speed unit">
+                                        <option value="kmh" selected>km/h</option>
+                                        <option value="mph">mph</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button id="calc" class="btn-calculate">Calculate</button>
+                                <button id="clear" class="btn-clear">Clear</button>
+                            </div>
+
+                            <div id="error" class="error" role="alert" style="display:none; margin-top:8px;"></div>
+                            
+                            <div id="output" class="result" style="display:none;">
+                                <h3>Results</h3>
+                                <div id="resultContent"></div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h2>🚶 How Many Calories Does Walking Burn?</h2>
+                            <p>Walking is one of the most accessible yet most underrated forms of physical activity. You've probably heard the famous "10,000 steps a day will make you thinner and healthier" sentiment a thousand times. But we have to admit — the slogan's popularity is well deserved! Although the whole 10k thing might be a bit of an overkill for some, it is true that walking at least 7,000–8,000 steps a day has <strong>several health benefits</strong>, with the extra advantage of being a cheap, accessible and a convenient form of physical exercise!</p>
+                            
+                            <h3>🧮 How This Walking Calorie Calculator Works</h3>
+                            <p>Each time you perform any exercise, such as walking or running, you burn some calories. The amount depends on a few factors: your speed, the duration of exercising, your weight, and the slope. Intuitively, if the grade is negative (you're on a decline), you burn fewer calories than if it is positive. For extreme slopes, use our <a href="hiking-time-calculator.html">hiking calculator</a> instead.</p>
+                            
+                            <p>This walking calorie calculator uses equations based on data presented in the "Energy Cost of Running" study by R. Margaria, P. Cerretelli, P. Aghemo, and G. Sassi. The calculator considers the surface inclination, so you can be sure that the result will be as precise as possible.</p>
+                            
+                            <p>You can use this calculator in two ways: either to estimate the treadmill calorie loss or the calories burned walking (for example, when you walk your dog).</p>
+                            
+                            <h3>Real-Life Use Cases</h3>
+                            <p>Many people use this tool after checking their daily step count on a phone or fitness watch. Let's say you walked 3,000 steps during lunch. The calculator can show how many calories you burned before you grab dinner. If you hit 10,000 steps, you can see whether your walk burned 300, 400, or even more calories. If you walk uphill or carry groceries, the result will change too. This helps you see how different walking habits affect your calorie burn.</p>
+                            
+                            <p>It also works well for people who mix walking with other workouts. If you walk to warm up before the gym, or cool down after a run, the tool gives you a clear picture of how walking fits into your total energy use.</p>
+                            
+                            <h3>Tips and Things to Keep in Mind</h3>
+                            <p>Try to enter the most accurate numbers you can. Your step count should come from your phone or watch. Your pace can be estimated, but if you know your average speed, you will get a tighter estimate. Remember that weather, temperature, and incline also affect calorie burn, so treat the result as a strong estimate, not a medical measurement.</p>
+                            
+                            <h3>Track More, Guess Less</h3>
+                            <p>Walking is simple. Tracking your progress should be simple too. Use this step-to-calorie calculator whenever you want to understand how your steps turn into real energy use. After checking your results, try our other fitness tools to track distance, pace, BMI, heart rate zones, and more. These tools help you plan smarter workouts, stay motivated, and reach your goals with confidence.</p>
+                        </div>
+
+                        <div class="faq-section">
+                            <h2>🚶 Common Questions About Steps and Calorie Burn</h2>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q1: How many calories do you burn in a 30 minute walk?</strong></div>
+                                <div class="faq-answer">A: A 30-minute walk can burn around 100 to 200 calories. The total will vary based on factors like your body weight, walking speed, and the overall intensity of your walk.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q2: How many calories do 10,000 steps actually burn?</strong></div>
+                                <div class="faq-answer">A: Most rough estimates revolve around 100 calories burned per mile for a 180-pound person. How many miles are 10,000 steps? On average, 10,000 steps are going to come out to be roughly 5 miles. So assuming you weigh 180 pounds, then yes, by simple mathematics, 100 calories x 5 miles equals 500 calories.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q3: How long is a 200 calorie walk?</strong></div>
+                                <div class="faq-answer">A: Jogging or walking. "If you like to hit the snooze button, running after your day is a fantastic way to release your office tension." A 25-minute jog will burn 218 calories; if you walk briskly, you'll need to walk about 45 minutes to burn 200 calories.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q4: Can I burn 500 calories in 30 minutes?</strong></div>
+                                <div class="faq-answer">A: A 30-minute run burns between 200-500 calories. This is an ideal amount for those who are following a weight loss regimen.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q5: Is it better to walk on a treadmill or outside?</strong></div>
+                                <div class="faq-answer">A: For most people, a combination of both will offer the most benefits. That said, it's also important to consider your unique needs and circumstances. If you don't live in an area where walking outside is an option, you can absolutely benefit from walking solely on a treadmill.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q6: How to lose 2kg in a week by walking?</strong></div>
+                                <div class="faq-answer">A: Power walking in intervals. It can be an effective way to increase the intensity of walks. To try it, a person should first walk at a typical pace for about 5 to 10 minutes to warm up. Then they can increase to an uncomfortable but sustainable pace for 10 to 15 seconds before returning to a typical walking pace.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        // Convert weight to kilograms
+        function convertToKg(weight, unit) {
+            if (unit === 'lbs') {
+                return weight / 2.20462;
+            }
+            return weight;
+        }
+
+        // Convert distance to kilometers
+        function convertToKm(distance, unit) {
+            if (unit === 'mi') {
+                return distance * 1.60934;
+            }
+            return distance;
+        }
+
+        // Convert speed to km/h
+        function convertToKmh(speed, unit) {
+            if (unit === 'mph') {
+                return speed * 1.60934;
+            }
+            return speed;
+        }
+
+        // Calculate MET value based on speed and slope
+        // Based on equations from "Energy Cost of Running" by R. Margaria et al.
+        function calculateMET(speedKmh, slopePercent) {
+            // Base MET for walking on flat surface
+            // MET values increase with speed and slope
+            let baseMET;
+            
+            if (speedKmh < 3.2) {
+                baseMET = 2.0;
+            } else if (speedKmh < 4.0) {
+                baseMET = 2.8;
+            } else if (speedKmh < 5.0) {
+                baseMET = 3.0;
+            } else if (speedKmh < 6.4) {
+                baseMET = 3.5;
+            } else {
+                baseMET = 3.8;
+            }
+            
+            // Adjust for slope
+            // Positive slope increases MET, negative decreases it
+            const slopeAdjustment = slopePercent * 0.1;
+            const met = baseMET + slopeAdjustment;
+            
+            // Ensure MET is at least 1.0
+            return Math.max(1.0, met);
+        }
+
+        // Calculate calories burned
+        // Formula: Calories = MET × weight(kg) × time(hours)
+        function calculateCalories(met, weightKg, timeHours) {
+            return met * weightKg * timeHours;
+        }
+
+        // Main calculation function
+        function performCalculation() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const weightUnit = document.getElementById('weight-unit').value;
+            const gender = document.getElementById('gender').value;
+            const slope = parseFloat(document.getElementById('slope').value);
+            const distance = parseFloat(document.getElementById('distance').value);
+            const distanceUnit = document.getElementById('distance-unit').value;
+            const time = parseFloat(document.getElementById('time').value);
+            const speed = parseFloat(document.getElementById('speed').value);
+            const speedUnit = document.getElementById('speed-unit').value;
+            
+            const errorEl = document.getElementById('error');
+            const outputEl = document.getElementById('output');
+            const resultContentEl = document.getElementById('resultContent');
+            
+            // Validation
+            if (!weight || weight <= 0) {
+                errorEl.textContent = 'Please enter a valid weight.';
+                errorEl.style.display = 'block';
+                outputEl.style.display = 'none';
+                return;
+            }
+            
+            // Check how many of distance, time, speed are provided
+            const hasDistance = distance && distance > 0;
+            const hasTime = time && time > 0;
+            const hasSpeed = speed && speed > 0;
+            
+            const providedCount = (hasDistance ? 1 : 0) + (hasTime ? 1 : 0) + (hasSpeed ? 1 : 0);
+            
+            if (providedCount < 2) {
+                errorEl.textContent = 'Please enter at least two of: distance, time, or speed.';
+                errorEl.style.display = 'block';
+                outputEl.style.display = 'none';
+                return;
+            }
+            
+            errorEl.style.display = 'none';
+            
+            // Convert weight to kg
+            const weightKg = convertToKg(weight, weightUnit);
+            
+            // Convert distance to km
+            let distanceKm = hasDistance ? convertToKm(distance, distanceUnit) : null;
+            
+            // Convert speed to km/h
+            let speedKmh = hasSpeed ? convertToKmh(speed, speedUnit) : null;
+            
+            // Calculate time in hours
+            let timeHours = hasTime ? time / 60 : null;
+            
+            // Calculate missing value
+            if (!hasDistance && hasTime && hasSpeed) {
+                // distance = speed × time
+                distanceKm = speedKmh * timeHours;
+            } else if (hasDistance && !hasTime && hasSpeed) {
+                // time = distance / speed
+                timeHours = distanceKm / speedKmh;
+            } else if (hasDistance && hasTime && !hasSpeed) {
+                // speed = distance / time
+                speedKmh = distanceKm / timeHours;
+            }
+            
+            // Calculate MET value
+            const met = calculateMET(speedKmh, slope);
+            
+            // Calculate calories burned
+            const calories = calculateCalories(met, weightKg, timeHours);
+            
+            // Calculate weight lost (calories / 7700)
+            const weightLostKg = calories / 7700;
+            const weightLostLbs = weightLostKg * 2.20462;
+            
+            // Display results
+            let html = '<div class="result-item">';
+            html += '<div class="result-label">Calories Burned:</div>';
+            html += '<div class="result-value">' + calories.toFixed(1) + ' kcal</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">Weight Lost:</div>';
+            html += '<div class="result-value">' + weightLostKg.toFixed(4) + ' kg (' + weightLostLbs.toFixed(4) + ' lbs)</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">Distance:</div>';
+            html += '<div class="result-value">' + distanceKm.toFixed(2) + ' km (' + (distanceKm / 1.60934).toFixed(2) + ' miles)</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">Walking Time:</div>';
+            html += '<div class="result-value">' + (timeHours * 60).toFixed(1) + ' minutes (' + timeHours.toFixed(2) + ' hours)</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">Walking Speed:</div>';
+            html += '<div class="result-value">' + speedKmh.toFixed(2) + ' km/h (' + (speedKmh / 1.60934).toFixed(2) + ' mph)</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">MET Value:</div>';
+            html += '<div class="result-value">' + met.toFixed(2) + '</div>';
+            html += '</div>';
+            
+            html += '<div class="result-item">';
+            html += '<div class="result-label">Slope:</div>';
+            html += '<div class="result-value">' + slope + '% ' + (slope > 0 ? '(uphill)' : slope < 0 ? '(downhill)' : '(flat)') + '</div>';
+            html += '</div>';
+            
+            resultContentEl.innerHTML = html;
+            outputEl.style.display = 'block';
+        }
+
+        // Clear function
+        function clearCalculator() {
+            document.getElementById('weight').value = '';
+            document.getElementById('distance').value = '';
+            document.getElementById('time').value = '';
+            document.getElementById('speed').value = '';
+            document.getElementById('output').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+        }
+
+        // Event listeners
+        document.getElementById('calc').addEventListener('click', performCalculation);
+        document.getElementById('clear').addEventListener('click', clearCalculator);
+        
+        // Allow Enter key to calculate
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) {
+                e.preventDefault();
+                performCalculation();
+            }
+        });
+    </script>
+</body>
+</html>
+

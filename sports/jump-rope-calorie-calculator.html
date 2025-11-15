@@ -260,14 +260,15 @@
       border-color: #d4441a;
     }
     .buttons {
-      display: flex;
-      gap: 14px;
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      max-width: 400px;
+      margin: 25px auto 0 auto;
     }
     .btn-calculate {
-      flex: 1;
-      background: #eb5424;
-      color: #fff;
+      background-color: #eb5424;
+      color: white;
       border: none;
       padding: 12px 25px;
       border-radius: 5px;
@@ -276,12 +277,11 @@
       transition: background-color 0.3s;
     }
     .btn-calculate:hover {
-      background: #d4441a;
+      background-color: #d43d1a;
     }
     .btn-clear {
-      flex: 1;
-      background: #f5c6cb;
-      color: #fff;
+      background-color: #f5c6cb;
+      color: white;
       border: none;
       padding: 12px 25px;
       border-radius: 5px;
@@ -290,7 +290,7 @@
       transition: background-color 0.3s;
     }
     .btn-clear:hover {
-      background: #f1aeb5;
+      background-color: #f1aeb5;
     }
     .result {
       margin-top: 20px;
@@ -390,6 +390,17 @@
       .formula-box {
         padding: 12px;
         font-size: 0.95em;
+      }
+      .buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 100%;
+      }
+      .btn-calculate,
+      .btn-clear {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
       }
       footer {
         padding: 25px 20px 0 20px !important;
@@ -772,15 +783,15 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="tm-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <p class="tm-footer-copyright-text">Copyright &copy; 2025 CalculatorQuote</p>
-                </div>
-            </div>
-        </div>
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
     <script src="../js/jquery-1.11.3.min.js"></script>
