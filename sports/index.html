@@ -231,6 +231,8 @@
         /* Ensure Raleway font is applied to all elements except Material Icons */
         body, * {
             font-family: 'Raleway', sans-serif !important;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
         }
         
         /* Ensure Material Icons use their own font */
@@ -364,6 +366,15 @@
                 padding: 0 10px;
             }
         }
+        
+        /* Navigation alignment */
+        .navbar, .navbar *, 
+        .navbar-brand, .navbar-nav, .navbar-nav a,
+        footer, footer * {
+            font-family: 'Raleway', sans-serif !important;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+        }
     </style>
 </head>
 <body>
@@ -396,7 +407,7 @@
     <!-- END NAVIGATION -->
 
     <!-- START SPORTS CALCULATORS -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 20px; padding-bottom: 0.5px;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 20px; padding-bottom: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
