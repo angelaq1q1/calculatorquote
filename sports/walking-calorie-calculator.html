@@ -761,198 +761,233 @@
     <script src="../js/jquery-1.11.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script>
-        // Convert weight to kilograms
-        function convertToKg(weight, unit) {
-            if (unit === 'lbs') {
-                return weight / 2.20462;
+        // Wait for DOM to be fully loaded before executing JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Convert weight to kilograms
+            function convertToKg(weight, unit) {
+                if (unit === 'lbs') {
+                    return weight / 2.20462;
+                }
+                return weight;
             }
-            return weight;
-        }
 
-        // Convert distance to kilometers
-        function convertToKm(distance, unit) {
-            if (unit === 'mi') {
-                return distance * 1.60934;
+            // Convert distance to kilometers
+            function convertToKm(distance, unit) {
+                if (unit === 'mi') {
+                    return distance * 1.60934;
+                }
+                return distance;
             }
-            return distance;
-        }
 
-        // Convert speed to km/h
-        function convertToKmh(speed, unit) {
-            if (unit === 'mph') {
-                return speed * 1.60934;
-            }
-            return speed;
-        }
-
-        // Calculate MET value based on speed and slope
-        // Based on equations from "Energy Cost of Running" by R. Margaria et al.
-        function calculateMET(speedKmh, slopePercent) {
-            // Base MET for walking on flat surface
-            // MET values increase with speed and slope
-            let baseMET;
-            
-            if (speedKmh < 3.2) {
-                baseMET = 2.0;
-            } else if (speedKmh < 4.0) {
-                baseMET = 2.8;
-            } else if (speedKmh < 5.0) {
-                baseMET = 3.0;
-            } else if (speedKmh < 6.4) {
-                baseMET = 3.5;
-            } else {
-                baseMET = 3.8;
-            }
-            
-            // Adjust for slope
-            // Positive slope increases MET, negative decreases it
-            const slopeAdjustment = slopePercent * 0.1;
-            const met = baseMET + slopeAdjustment;
-            
-            // Ensure MET is at least 1.0
-            return Math.max(1.0, met);
-        }
-
-        // Calculate calories burned
-        // Formula: Calories = MET × weight(kg) × time(hours)
-        function calculateCalories(met, weightKg, timeHours) {
-            return met * weightKg * timeHours;
-        }
-
-        // Main calculation function
-        function performCalculation() {
-            const weight = parseFloat(document.getElementById('weight').value);
-            const weightUnit = document.getElementById('weight-unit').value;
-            const gender = document.getElementById('gender').value;
-            const slope = parseFloat(document.getElementById('slope').value);
-            const distance = parseFloat(document.getElementById('distance').value);
-            const distanceUnit = document.getElementById('distance-unit').value;
-            const time = parseFloat(document.getElementById('time').value);
-            const speed = parseFloat(document.getElementById('speed').value);
-            const speedUnit = document.getElementById('speed-unit').value;
-            
-            const errorEl = document.getElementById('error');
-            const outputEl = document.getElementById('output');
-            const resultContentEl = document.getElementById('resultContent');
-            
-            // Validation
-            if (!weight || weight <= 0) {
-                errorEl.textContent = 'Please enter a valid weight.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
-            }
-            
-            // Check how many of distance, time, speed are provided
-            const hasDistance = distance && distance > 0;
-            const hasTime = time && time > 0;
-            const hasSpeed = speed && speed > 0;
-            
-            const providedCount = (hasDistance ? 1 : 0) + (hasTime ? 1 : 0) + (hasSpeed ? 1 : 0);
-            
-            if (providedCount < 2) {
-                errorEl.textContent = 'Please enter at least two of: distance, time, or speed.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
-            }
-            
-            errorEl.style.display = 'none';
-            
-            // Convert weight to kg
-            const weightKg = convertToKg(weight, weightUnit);
-            
-            // Convert distance to km
-            let distanceKm = hasDistance ? convertToKm(distance, distanceUnit) : null;
-            
             // Convert speed to km/h
-            let speedKmh = hasSpeed ? convertToKmh(speed, speedUnit) : null;
-            
-            // Calculate time in hours
-            let timeHours = hasTime ? time / 60 : null;
-            
-            // Calculate missing value
-            if (!hasDistance && hasTime && hasSpeed) {
-                // distance = speed × time
-                distanceKm = speedKmh * timeHours;
-            } else if (hasDistance && !hasTime && hasSpeed) {
-                // time = distance / speed
-                timeHours = distanceKm / speedKmh;
-            } else if (hasDistance && hasTime && !hasSpeed) {
-                // speed = distance / time
-                speedKmh = distanceKm / timeHours;
+            function convertToKmh(speed, unit) {
+                if (unit === 'mph') {
+                    return speed * 1.60934;
+                }
+                return speed;
             }
-            
-            // Calculate MET value
-            const met = calculateMET(speedKmh, slope);
-            
+
+            // Calculate MET value based on speed and slope
+            // Based on equations from "Energy Cost of Running" by R. Margaria et al.
+            function calculateMET(speedKmh, slopePercent) {
+                // Base MET for walking on flat surface
+                // MET values increase with speed and slope
+                let baseMET;
+                
+                if (speedKmh < 3.2) {
+                    baseMET = 2.0;
+                } else if (speedKmh < 4.0) {
+                    baseMET = 2.8;
+                } else if (speedKmh < 5.0) {
+                    baseMET = 3.0;
+                } else if (speedKmh < 6.4) {
+                    baseMET = 3.5;
+                } else {
+                    baseMET = 3.8;
+                }
+                
+                // Adjust for slope
+                // Positive slope increases MET, negative decreases it
+                const slopeAdjustment = slopePercent * 0.1;
+                const met = baseMET + slopeAdjustment;
+                
+                // Ensure MET is at least 1.0
+                return Math.max(1.0, met);
+            }
+
             // Calculate calories burned
-            const calories = calculateCalories(met, weightKg, timeHours);
-            
-            // Calculate weight lost (calories / 7700)
-            const weightLostKg = calories / 7700;
-            const weightLostLbs = weightLostKg * 2.20462;
-            
-            // Display results
-            let html = '<div class="result-item">';
-            html += '<div class="result-label">Calories Burned:</div>';
-            html += '<div class="result-value">' + calories.toFixed(1) + ' kcal</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Weight Lost:</div>';
-            html += '<div class="result-value">' + weightLostKg.toFixed(4) + ' kg (' + weightLostLbs.toFixed(4) + ' lbs)</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Distance:</div>';
-            html += '<div class="result-value">' + distanceKm.toFixed(2) + ' km (' + (distanceKm / 1.60934).toFixed(2) + ' miles)</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Walking Time:</div>';
-            html += '<div class="result-value">' + (timeHours * 60).toFixed(1) + ' minutes (' + timeHours.toFixed(2) + ' hours)</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Walking Speed:</div>';
-            html += '<div class="result-value">' + speedKmh.toFixed(2) + ' km/h (' + (speedKmh / 1.60934).toFixed(2) + ' mph)</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">MET Value:</div>';
-            html += '<div class="result-value">' + met.toFixed(2) + '</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Slope:</div>';
-            html += '<div class="result-value">' + slope + '% ' + (slope > 0 ? '(uphill)' : slope < 0 ? '(downhill)' : '(flat)') + '</div>';
-            html += '</div>';
-            
-            resultContentEl.innerHTML = html;
-            outputEl.style.display = 'block';
-        }
-
-        // Clear function
-        function clearCalculator() {
-            document.getElementById('weight').value = '';
-            document.getElementById('distance').value = '';
-            document.getElementById('time').value = '';
-            document.getElementById('speed').value = '';
-            document.getElementById('output').style.display = 'none';
-            document.getElementById('error').style.display = 'none';
-        }
-
-        // Event listeners
-        document.getElementById('calc').addEventListener('click', performCalculation);
-        document.getElementById('clear').addEventListener('click', clearCalculator);
-        
-        // Allow Enter key to calculate
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) {
-                e.preventDefault();
-                performCalculation();
+            // Formula: Calories = MET × weight(kg) × time(hours)
+            function calculateCalories(met, weightKg, timeHours) {
+                return met * weightKg * timeHours;
             }
+
+            // Main calculation function
+            function performCalculation() {
+                const weightEl = document.getElementById('weight');
+                const weightUnitEl = document.getElementById('weight-unit');
+                const genderEl = document.getElementById('gender');
+                const slopeEl = document.getElementById('slope');
+                const distanceEl = document.getElementById('distance');
+                const distanceUnitEl = document.getElementById('distance-unit');
+                const timeEl = document.getElementById('time');
+                const speedEl = document.getElementById('speed');
+                const speedUnitEl = document.getElementById('speed-unit');
+                const errorEl = document.getElementById('error');
+                const outputEl = document.getElementById('output');
+                const resultContentEl = document.getElementById('resultContent');
+                
+                // Check if all required elements exist
+                if (!weightEl || !weightUnitEl || !genderEl || !slopeEl || !distanceEl || 
+                    !distanceUnitEl || !timeEl || !speedEl || !speedUnitEl || !errorEl || 
+                    !outputEl || !resultContentEl) {
+                    console.error('Required DOM elements not found');
+                    return;
+                }
+                
+                const weight = parseFloat(weightEl.value);
+                const weightUnit = weightUnitEl.value;
+                const gender = genderEl.value;
+                const slope = parseFloat(slopeEl.value);
+                const distance = parseFloat(distanceEl.value);
+                const distanceUnit = distanceUnitEl.value;
+                const time = parseFloat(timeEl.value);
+                const speed = parseFloat(speedEl.value);
+                const speedUnit = speedUnitEl.value;
+                
+                // Validation
+                if (!weight || weight <= 0) {
+                    errorEl.textContent = 'Please enter a valid weight.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                // Check how many of distance, time, speed are provided
+                const hasDistance = distance && distance > 0;
+                const hasTime = time && time > 0;
+                const hasSpeed = speed && speed > 0;
+                
+                const providedCount = (hasDistance ? 1 : 0) + (hasTime ? 1 : 0) + (hasSpeed ? 1 : 0);
+                
+                if (providedCount < 2) {
+                    errorEl.textContent = 'Please enter at least two of: distance, time, or speed.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                errorEl.style.display = 'none';
+                
+                // Convert weight to kg
+                const weightKg = convertToKg(weight, weightUnit);
+                
+                // Convert distance to km
+                let distanceKm = hasDistance ? convertToKm(distance, distanceUnit) : null;
+                
+                // Convert speed to km/h
+                let speedKmh = hasSpeed ? convertToKmh(speed, speedUnit) : null;
+                
+                // Calculate time in hours
+                let timeHours = hasTime ? time / 60 : null;
+                
+                // Calculate missing value
+                if (!hasDistance && hasTime && hasSpeed) {
+                    // distance = speed × time
+                    distanceKm = speedKmh * timeHours;
+                } else if (hasDistance && !hasTime && hasSpeed) {
+                    // time = distance / speed
+                    timeHours = distanceKm / speedKmh;
+                } else if (hasDistance && hasTime && !hasSpeed) {
+                    // speed = distance / time
+                    speedKmh = distanceKm / timeHours;
+                }
+                
+                // Calculate MET value
+                const met = calculateMET(speedKmh, slope);
+                
+                // Calculate calories burned
+                const calories = calculateCalories(met, weightKg, timeHours);
+                
+                // Calculate weight lost (calories / 7700)
+                const weightLostKg = calories / 7700;
+                const weightLostLbs = weightLostKg * 2.20462;
+                
+                // Display results
+                let html = '<div class="result-item">';
+                html += '<div class="result-label">Calories Burned:</div>';
+                html += '<div class="result-value">' + calories.toFixed(1) + ' kcal</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Weight Lost:</div>';
+                html += '<div class="result-value">' + weightLostKg.toFixed(4) + ' kg (' + weightLostLbs.toFixed(4) + ' lbs)</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Distance:</div>';
+                html += '<div class="result-value">' + distanceKm.toFixed(2) + ' km (' + (distanceKm / 1.60934).toFixed(2) + ' miles)</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Walking Time:</div>';
+                html += '<div class="result-value">' + (timeHours * 60).toFixed(1) + ' minutes (' + timeHours.toFixed(2) + ' hours)</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Walking Speed:</div>';
+                html += '<div class="result-value">' + speedKmh.toFixed(2) + ' km/h (' + (speedKmh / 1.60934).toFixed(2) + ' mph)</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">MET Value:</div>';
+                html += '<div class="result-value">' + met.toFixed(2) + '</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Slope:</div>';
+                html += '<div class="result-value">' + slope + '% ' + (slope > 0 ? '(uphill)' : slope < 0 ? '(downhill)' : '(flat)') + '</div>';
+                html += '</div>';
+                
+                resultContentEl.innerHTML = html;
+                outputEl.style.display = 'block';
+            }
+
+            // Clear function
+            function clearCalculator() {
+                const weightEl = document.getElementById('weight');
+                const distanceEl = document.getElementById('distance');
+                const timeEl = document.getElementById('time');
+                const speedEl = document.getElementById('speed');
+                const outputEl = document.getElementById('output');
+                const errorEl = document.getElementById('error');
+                
+                if (weightEl) weightEl.value = '';
+                if (distanceEl) distanceEl.value = '';
+                if (timeEl) timeEl.value = '';
+                if (speedEl) speedEl.value = '';
+                if (outputEl) outputEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'none';
+            }
+
+            // Event listeners with element existence checks
+            const calcBtn = document.getElementById('calc');
+            const clearBtn = document.getElementById('clear');
+            
+            if (calcBtn) {
+                calcBtn.addEventListener('click', performCalculation);
+            }
+            
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearCalculator);
+            }
+            
+            // Allow Enter key to calculate
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) {
+                    e.preventDefault();
+                    performCalculation();
+                }
+            });
         });
     </script>
 </body>

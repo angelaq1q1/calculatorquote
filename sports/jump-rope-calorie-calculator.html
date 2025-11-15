@@ -804,210 +804,257 @@
             fast: 12.3    // 120–160 skips/minute
         };
 
-        // Switch between calculation modes
-        function switchMode(mode) {
-            const caloriesMode = document.getElementById('calories-mode');
-            const timeMode = document.getElementById('time-mode');
-            const btnCalories = document.getElementById('mode-calories');
-            const btnTime = document.getElementById('mode-time');
-            
-            if (mode === 'calories') {
-                caloriesMode.style.display = 'block';
-                timeMode.style.display = 'none';
-                btnCalories.classList.add('active');
-                btnTime.classList.remove('active');
-            } else {
-                caloriesMode.style.display = 'none';
-                timeMode.style.display = 'block';
-                btnCalories.classList.remove('active');
-                btnTime.classList.add('active');
-            }
-            
-            // Clear results when switching modes
-            document.getElementById('output').style.display = 'none';
-            document.getElementById('error').style.display = 'none';
-        }
+        // Wait for DOM to be fully loaded before executing JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Switch between calculation modes
+            window.switchMode = function(mode) {
+                const caloriesMode = document.getElementById('calories-mode');
+                const timeMode = document.getElementById('time-mode');
+                const btnCalories = document.getElementById('mode-calories');
+                const btnTime = document.getElementById('mode-time');
+                const outputEl = document.getElementById('output');
+                const errorEl = document.getElementById('error');
+                
+                if (!caloriesMode || !timeMode || !btnCalories || !btnTime) {
+                    console.error('Required DOM elements not found for switchMode');
+                    return;
+                }
+                
+                if (mode === 'calories') {
+                    caloriesMode.style.display = 'block';
+                    timeMode.style.display = 'none';
+                    btnCalories.classList.add('active');
+                    btnTime.classList.remove('active');
+                } else {
+                    caloriesMode.style.display = 'none';
+                    timeMode.style.display = 'block';
+                    btnCalories.classList.remove('active');
+                    btnTime.classList.add('active');
+                }
+                
+                // Clear results when switching modes
+                if (outputEl) outputEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'none';
+            };
 
-        // Convert weight to kilograms
-        function convertToKg(weight, unit) {
-            if (unit === 'lbs') {
-                return weight / 2.20462;
+            // Convert weight to kilograms
+            function convertToKg(weight, unit) {
+                if (unit === 'lbs') {
+                    return weight / 2.20462;
+                }
+                return weight;
             }
-            return weight;
-        }
 
-        // Calculate calorie rate per minute
-        function calculateCalorieRate(met, weightKg) {
-            return (met * weightKg * 7) / 400;
-        }
-
-        // Calculate calories burned
-        function calculateCalories() {
-            const jumpRate = document.getElementById('jump-rate').value;
-            const weight = parseFloat(document.getElementById('weight').value);
-            const weightUnit = document.getElementById('weight-unit').value;
-            const jumpingTime = parseFloat(document.getElementById('jumping-time').value);
-            
-            const errorEl = document.getElementById('error');
-            const outputEl = document.getElementById('output');
-            const resultTitleEl = document.getElementById('resultTitle');
-            const resultContentEl = document.getElementById('resultContent');
-            
-            // Validation
-            if (!weight || weight <= 0) {
-                errorEl.textContent = 'Please enter a valid weight.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
-            }
-            
-            if (!jumpingTime || jumpingTime <= 0) {
-                errorEl.textContent = 'Please enter a valid jumping time.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
-            }
-            
-            errorEl.style.display = 'none';
-            
-            // Convert weight to kg
-            const weightKg = convertToKg(weight, weightUnit);
-            
-            // Get MET value
-            const met = MET_VALUES[jumpRate];
-            
             // Calculate calorie rate per minute
-            const calorieRate = calculateCalorieRate(met, weightKg);
-            
-            // Calculate total calories
-            const totalCalories = calorieRate * jumpingTime;
-            
-            // Display results
-            resultTitleEl.textContent = 'Calories Burned';
-            let html = '<div class="result-item">';
-            html += '<div class="result-label">Calorie Burn Rate:</div>';
-            html += '<div class="result-value">' + calorieRate.toFixed(2) + ' calories per minute</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Total Calories Burned:</div>';
-            html += '<div class="result-value">' + totalCalories.toFixed(1) + ' calories</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Jumping Time:</div>';
-            html += '<div class="result-value">' + jumpingTime.toFixed(1) + ' minutes</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">MET Value:</div>';
-            html += '<div class="result-value">' + met + '</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Your Weight:</div>';
-            html += '<div class="result-value">' + weight.toFixed(1) + ' ' + (weightUnit === 'kg' ? 'kg' : 'lbs') + '</div>';
-            html += '</div>';
-            
-            resultContentEl.innerHTML = html;
-            outputEl.style.display = 'block';
-        }
+            function calculateCalorieRate(met, weightKg) {
+                return (met * weightKg * 7) / 400;
+            }
 
-        // Calculate time needed to burn target calories
-        function calculateTime() {
-            const jumpRate = document.getElementById('jump-rate-time').value;
-            const weight = parseFloat(document.getElementById('weight-time').value);
-            const weightUnit = document.getElementById('weight-unit-time').value;
-            const targetCalories = parseFloat(document.getElementById('target-calories').value);
+            // Calculate calories burned
+            function calculateCalories() {
+                const jumpRateEl = document.getElementById('jump-rate');
+                const weightEl = document.getElementById('weight');
+                const weightUnitEl = document.getElementById('weight-unit');
+                const jumpingTimeEl = document.getElementById('jumping-time');
+                const errorEl = document.getElementById('error');
+                const outputEl = document.getElementById('output');
+                const resultTitleEl = document.getElementById('resultTitle');
+                const resultContentEl = document.getElementById('resultContent');
+                
+                // Check if all required elements exist
+                if (!jumpRateEl || !weightEl || !weightUnitEl || !jumpingTimeEl || 
+                    !errorEl || !outputEl || !resultTitleEl || !resultContentEl) {
+                    console.error('Required DOM elements not found for calculateCalories');
+                    return;
+                }
+                
+                const jumpRate = jumpRateEl.value;
+                const weight = parseFloat(weightEl.value);
+                const weightUnit = weightUnitEl.value;
+                const jumpingTime = parseFloat(jumpingTimeEl.value);
+                
+                // Validation
+                if (!weight || weight <= 0) {
+                    errorEl.textContent = 'Please enter a valid weight.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                if (!jumpingTime || jumpingTime <= 0) {
+                    errorEl.textContent = 'Please enter a valid jumping time.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                errorEl.style.display = 'none';
+                
+                // Convert weight to kg
+                const weightKg = convertToKg(weight, weightUnit);
+                
+                // Get MET value
+                const met = MET_VALUES[jumpRate];
+                
+                // Calculate calorie rate per minute
+                const calorieRate = calculateCalorieRate(met, weightKg);
+                
+                // Calculate total calories
+                const totalCalories = calorieRate * jumpingTime;
+                
+                // Display results
+                resultTitleEl.textContent = 'Calories Burned';
+                let html = '<div class="result-item">';
+                html += '<div class="result-label">Calorie Burn Rate:</div>';
+                html += '<div class="result-value">' + calorieRate.toFixed(2) + ' calories per minute</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Total Calories Burned:</div>';
+                html += '<div class="result-value">' + totalCalories.toFixed(1) + ' calories</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Jumping Time:</div>';
+                html += '<div class="result-value">' + jumpingTime.toFixed(1) + ' minutes</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">MET Value:</div>';
+                html += '<div class="result-value">' + met + '</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Your Weight:</div>';
+                html += '<div class="result-value">' + weight.toFixed(1) + ' ' + (weightUnit === 'kg' ? 'kg' : 'lbs') + '</div>';
+                html += '</div>';
+                
+                resultContentEl.innerHTML = html;
+                outputEl.style.display = 'block';
+            }
+
+            // Calculate time needed to burn target calories
+            function calculateTime() {
+                const jumpRateEl = document.getElementById('jump-rate-time');
+                const weightEl = document.getElementById('weight-time');
+                const weightUnitEl = document.getElementById('weight-unit-time');
+                const targetCaloriesEl = document.getElementById('target-calories');
+                const errorEl = document.getElementById('error');
+                const outputEl = document.getElementById('output');
+                const resultTitleEl = document.getElementById('resultTitle');
+                const resultContentEl = document.getElementById('resultContent');
+                
+                // Check if all required elements exist
+                if (!jumpRateEl || !weightEl || !weightUnitEl || !targetCaloriesEl || 
+                    !errorEl || !outputEl || !resultTitleEl || !resultContentEl) {
+                    console.error('Required DOM elements not found for calculateTime');
+                    return;
+                }
+                
+                const jumpRate = jumpRateEl.value;
+                const weight = parseFloat(weightEl.value);
+                const weightUnit = weightUnitEl.value;
+                const targetCalories = parseFloat(targetCaloriesEl.value);
+                
+                // Validation
+                if (!weight || weight <= 0) {
+                    errorEl.textContent = 'Please enter a valid weight.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                if (!targetCalories || targetCalories <= 0) {
+                    errorEl.textContent = 'Please enter a valid target calories.';
+                    errorEl.style.display = 'block';
+                    outputEl.style.display = 'none';
+                    return;
+                }
+                
+                errorEl.style.display = 'none';
+                
+                // Convert weight to kg
+                const weightKg = convertToKg(weight, weightUnit);
+                
+                // Get MET value
+                const met = MET_VALUES[jumpRate];
+                
+                // Calculate calorie rate per minute
+                const calorieRate = calculateCalorieRate(met, weightKg);
+                
+                // Calculate time needed
+                const timeNeeded = targetCalories / calorieRate;
+                
+                // Display results
+                resultTitleEl.textContent = 'Time Needed to Burn Target Calories';
+                let html = '<div class="result-item">';
+                html += '<div class="result-label">Time Required:</div>';
+                html += '<div class="result-value">' + timeNeeded.toFixed(1) + ' minutes (' + (timeNeeded / 60).toFixed(2) + ' hours)</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Calorie Burn Rate:</div>';
+                html += '<div class="result-value">' + calorieRate.toFixed(2) + ' calories per minute</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Target Calories:</div>';
+                html += '<div class="result-value">' + targetCalories.toFixed(0) + ' calories</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">MET Value:</div>';
+                html += '<div class="result-value">' + met + '</div>';
+                html += '</div>';
+                
+                html += '<div class="result-item">';
+                html += '<div class="result-label">Your Weight:</div>';
+                html += '<div class="result-value">' + weight.toFixed(1) + ' ' + (weightUnit === 'kg' ? 'kg' : 'lbs') + '</div>';
+                html += '</div>';
+                
+                resultContentEl.innerHTML = html;
+                outputEl.style.display = 'block';
+            }
+
+            // Main calculate function
+            function performCalculation() {
+                const caloriesMode = document.getElementById('calories-mode');
+                if (caloriesMode && caloriesMode.style.display !== 'none') {
+                    calculateCalories();
+                } else {
+                    calculateTime();
+                }
+            }
+
+            // Clear function
+            function clearCalculator() {
+                const weightEl = document.getElementById('weight');
+                const jumpingTimeEl = document.getElementById('jumping-time');
+                const weightTimeEl = document.getElementById('weight-time');
+                const targetCaloriesEl = document.getElementById('target-calories');
+                const outputEl = document.getElementById('output');
+                const errorEl = document.getElementById('error');
+                
+                if (weightEl) weightEl.value = '';
+                if (jumpingTimeEl) jumpingTimeEl.value = '';
+                if (weightTimeEl) weightTimeEl.value = '';
+                if (targetCaloriesEl) targetCaloriesEl.value = '';
+                if (outputEl) outputEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'none';
+            }
+
+            // Event listeners with element existence checks
+            const calcBtn = document.getElementById('calc');
+            const clearBtn = document.getElementById('clear');
             
-            const errorEl = document.getElementById('error');
-            const outputEl = document.getElementById('output');
-            const resultTitleEl = document.getElementById('resultTitle');
-            const resultContentEl = document.getElementById('resultContent');
-            
-            // Validation
-            if (!weight || weight <= 0) {
-                errorEl.textContent = 'Please enter a valid weight.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
+            if (calcBtn) {
+                calcBtn.addEventListener('click', performCalculation);
             }
             
-            if (!targetCalories || targetCalories <= 0) {
-                errorEl.textContent = 'Please enter a valid target calories.';
-                errorEl.style.display = 'block';
-                outputEl.style.display = 'none';
-                return;
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearCalculator);
             }
-            
-            errorEl.style.display = 'none';
-            
-            // Convert weight to kg
-            const weightKg = convertToKg(weight, weightUnit);
-            
-            // Get MET value
-            const met = MET_VALUES[jumpRate];
-            
-            // Calculate calorie rate per minute
-            const calorieRate = calculateCalorieRate(met, weightKg);
-            
-            // Calculate time needed
-            const timeNeeded = targetCalories / calorieRate;
-            
-            // Display results
-            resultTitleEl.textContent = 'Time Needed to Burn Target Calories';
-            let html = '<div class="result-item">';
-            html += '<div class="result-label">Time Required:</div>';
-            html += '<div class="result-value">' + timeNeeded.toFixed(1) + ' minutes (' + (timeNeeded / 60).toFixed(2) + ' hours)</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Calorie Burn Rate:</div>';
-            html += '<div class="result-value">' + calorieRate.toFixed(2) + ' calories per minute</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Target Calories:</div>';
-            html += '<div class="result-value">' + targetCalories.toFixed(0) + ' calories</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">MET Value:</div>';
-            html += '<div class="result-value">' + met + '</div>';
-            html += '</div>';
-            
-            html += '<div class="result-item">';
-            html += '<div class="result-label">Your Weight:</div>';
-            html += '<div class="result-value">' + weight.toFixed(1) + ' ' + (weightUnit === 'kg' ? 'kg' : 'lbs') + '</div>';
-            html += '</div>';
-            
-            resultContentEl.innerHTML = html;
-            outputEl.style.display = 'block';
-        }
-
-        // Main calculate function
-        function performCalculation() {
-            const caloriesMode = document.getElementById('calories-mode');
-            if (caloriesMode.style.display !== 'none') {
-                calculateCalories();
-            } else {
-                calculateTime();
-            }
-        }
-
-        // Clear function
-        function clearCalculator() {
-            document.getElementById('weight').value = '';
-            document.getElementById('jumping-time').value = '';
-            document.getElementById('weight-time').value = '';
-            document.getElementById('target-calories').value = '';
-            document.getElementById('output').style.display = 'none';
-            document.getElementById('error').style.display = 'none';
-        }
-
-        // Event listeners
-        document.getElementById('calc').addEventListener('click', performCalculation);
-        document.getElementById('clear').addEventListener('click', clearCalculator);
+        });
     </script>
 </body>
 </html>
