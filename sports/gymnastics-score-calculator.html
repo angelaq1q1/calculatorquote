@@ -77,7 +77,8 @@
     table, td, th, 
     .formula-box {
       font-family: 'Raleway', sans-serif !important;
-      font-feature-settings: normal;
+      font-feature-settings: 'liga';
+      -webkit-font-feature-settings: 'liga';
     }
     
     /* Custom styles for gymnastics score calculator */
@@ -97,7 +98,7 @@
       background: #fff;
       border-radius: 2px;
       box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
-      padding: 40px 60px;
+      padding: 40px;
     }
 
     .container {
@@ -108,7 +109,7 @@
     .content-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 80px;
+      padding: 0 40px;
     }
     .breadcrumb {
       margin-bottom: 20px;
@@ -163,6 +164,15 @@
       box-shadow: none !important;
       outline: none;
     }
+    .content-section a {
+      color: #eb5424;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .content-section a:hover {
+      color: #d43d1a;
+      text-decoration: underline;
+    }
     .formula-box {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
@@ -191,12 +201,13 @@
     .faq-question {
       font-weight: normal;
       color: #333;
+      font-size: 1.05em;
       margin-bottom: 8px;
-      font-size: 1.1em;
     }
     .faq-answer {
       color: #666;
       line-height: 1.6;
+      font-size: 0.95em;
     }
 
     .card { 
