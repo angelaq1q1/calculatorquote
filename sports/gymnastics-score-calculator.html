@@ -67,9 +67,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
   
   <!-- Template CSS -->
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/css/templatemo-style.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
   <style>
     /* Global font setting - Raleway for all text */
     body, body *, 
@@ -593,6 +593,8 @@
     .navbar-brand, .navbar-nav, .navbar-nav a,
     footer, footer * {
       font-family: 'Raleway', sans-serif !important;
+      font-feature-settings: 'liga';
+      -webkit-font-feature-settings: 'liga';
     }
     
     .navbar {
@@ -640,7 +642,7 @@
         display: flex;
         align-items: center;
     }
-    
+
     /* Mobile navigation button positioning */
     @media (max-width: 767px) {
         .navbar-header {
@@ -1192,9 +1194,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/smoothscroll.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
