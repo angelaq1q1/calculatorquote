@@ -88,7 +88,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/templatemo-style.css" rel="stylesheet">
     <style>
-        body, * { font-family: 'Raleway', sans-serif !important; }
+        body, * { font-family: 'Raleway', sans-serif !important; font-feature-settings: normal; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #ffffff; min-height: 100vh; }
         .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -138,9 +138,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
             </div>
@@ -353,12 +353,24 @@
         };
 
         function calculateOmega3() {
+            // Get input elements with existence checks
+            const ageEl = document.getElementById('age');
+            const weightEl = document.getElementById('weight');
+            const goalEl = document.getElementById('goal');
+            const epaPerCapsuleEl = document.getElementById('epa-per-capsule');
+            const dhaPerCapsuleEl = document.getElementById('dha-per-capsule');
+
+            if (!ageEl || !weightEl || !goalEl) {
+                alert('Calculator elements not found. Please refresh the page.');
+                return;
+            }
+
             // Get input values
-            const age = parseFloat(document.getElementById('age').value);
-            const weight = parseFloat(document.getElementById('weight').value);
-            const goal = document.getElementById('goal').value;
-            const epaPerCapsule = parseFloat(document.getElementById('epa-per-capsule').value) || 0;
-            const dhaPerCapsule = parseFloat(document.getElementById('dha-per-capsule').value) || 0;
+            const age = parseFloat(ageEl.value);
+            const weight = parseFloat(weightEl.value);
+            const goal = goalEl.value;
+            const epaPerCapsule = parseFloat(epaPerCapsuleEl ? epaPerCapsuleEl.value : 0) || 0;
+            const dhaPerCapsule = parseFloat(dhaPerCapsuleEl ? dhaPerCapsuleEl.value : 0) || 0;
 
             // Validation
             if (!age || age < 1 || age > 120) {
@@ -394,7 +406,7 @@
                 recommendedDose = 200;
             }
 
-            // Display results
+            // Display results - with existence checks
             const resultsDiv = document.getElementById('results');
             const dosageDisplay = document.getElementById('dosage-display');
             const totalDoseEl = document.getElementById('total-dose');
@@ -406,39 +418,48 @@
             const capsuleCalculation = document.getElementById('capsule-calculation');
             const warningBox = document.getElementById('warning-box');
 
+            if (!resultsDiv || !dosageDisplay || !totalDoseEl || !explanationBox) {
+                alert('Results display elements not found. Please refresh the page.');
+                return;
+            }
+
             dosageDisplay.textContent = recommendedDose + ' mg/day';
             totalDoseEl.textContent = recommendedDose + ' mg EPA + DHA';
 
             // EPA/DHA breakdown (for pregnancy, focus on DHA; for others, typical 60:40 EPA:DHA ratio)
-            if (goal === 'pregnancy') {
-                // Pregnancy: focus on DHA (200-300 mg DHA)
-                const dhaAmount = Math.min(recommendedDose, 300);
-                const epaAmount = Math.max(0, recommendedDose - dhaAmount);
-                epaDhaBreakdown.style.display = 'block';
-                epaDhaValue.textContent = 'EPA: ~' + Math.round(epaAmount) + ' mg, DHA: ~' + Math.round(dhaAmount) + ' mg (DHA-focused)';
-            } else {
-                // Typical ratio: 60% EPA, 40% DHA
-                const epaAmount = Math.round(recommendedDose * 0.6);
-                const dhaAmount = Math.round(recommendedDose * 0.4);
-                epaDhaBreakdown.style.display = 'block';
-                epaDhaValue.textContent = 'EPA: ~' + epaAmount + ' mg, DHA: ~' + dhaAmount + ' mg';
+            if (epaDhaBreakdown && epaDhaValue) {
+                if (goal === 'pregnancy') {
+                    // Pregnancy: focus on DHA (200-300 mg DHA)
+                    const dhaAmount = Math.min(recommendedDose, 300);
+                    const epaAmount = Math.max(0, recommendedDose - dhaAmount);
+                    epaDhaBreakdown.style.display = 'block';
+                    epaDhaValue.textContent = 'EPA: ~' + Math.round(epaAmount) + ' mg, DHA: ~' + Math.round(dhaAmount) + ' mg (DHA-focused)';
+                } else {
+                    // Typical ratio: 60% EPA, 40% DHA
+                    const epaAmount = Math.round(recommendedDose * 0.6);
+                    const dhaAmount = Math.round(recommendedDose * 0.4);
+                    epaDhaBreakdown.style.display = 'block';
+                    epaDhaValue.textContent = 'EPA: ~' + epaAmount + ' mg, DHA: ~' + dhaAmount + ' mg';
+                }
             }
 
             // Capsule calculation
-            if (epaPerCapsule > 0 && dhaPerCapsule > 0) {
-                const totalPerCapsule = epaPerCapsule + dhaPerCapsule;
-                const capsulesNeededValue = Math.ceil(recommendedDose / totalPerCapsule);
-                capsuleResult.style.display = 'block';
-                capsulesNeeded.textContent = capsulesNeededValue + ' capsules/day';
-                
-                capsuleCalculation.style.display = 'block';
-                capsuleCalculation.innerHTML = '<h3>Capsule Calculation Details</h3>' +
-                    '<p><strong>Your supplement:</strong> ' + epaPerCapsule + ' mg EPA + ' + dhaPerCapsule + ' mg DHA = ' + totalPerCapsule + ' mg per capsule</p>' +
-                    '<p><strong>Recommended daily dose:</strong> ' + recommendedDose + ' mg</p>' +
-                    '<p><strong>Calculation:</strong> ' + recommendedDose + ' ÷ ' + totalPerCapsule + ' = ' + capsulesNeededValue + ' capsules per day</p>';
-            } else {
-                capsuleResult.style.display = 'none';
-                capsuleCalculation.style.display = 'none';
+            if (capsuleResult && capsulesNeeded && capsuleCalculation) {
+                if (epaPerCapsule > 0 && dhaPerCapsule > 0) {
+                    const totalPerCapsule = epaPerCapsule + dhaPerCapsule;
+                    const capsulesNeededValue = Math.ceil(recommendedDose / totalPerCapsule);
+                    capsuleResult.style.display = 'block';
+                    capsulesNeeded.textContent = capsulesNeededValue + ' capsules/day';
+                    
+                    capsuleCalculation.style.display = 'block';
+                    capsuleCalculation.innerHTML = '<h3>Capsule Calculation Details</h3>' +
+                        '<p><strong>Your supplement:</strong> ' + epaPerCapsule + ' mg EPA + ' + dhaPerCapsule + ' mg DHA = ' + totalPerCapsule + ' mg per capsule</p>' +
+                        '<p><strong>Recommended daily dose:</strong> ' + recommendedDose + ' mg</p>' +
+                        '<p><strong>Calculation:</strong> ' + recommendedDose + ' ÷ ' + totalPerCapsule + ' = ' + capsulesNeededValue + ' capsules per day</p>';
+                } else {
+                    capsuleResult.style.display = 'none';
+                    capsuleCalculation.style.display = 'none';
+                }
             }
 
             // Explanation
@@ -446,16 +467,18 @@
             explanationBox.innerHTML = '<h3>' + explanation.title + '</h3><p>' + explanation.text + '</p>';
 
             // Warnings
-            warningBox.style.display = 'none';
-            if (goal === 'triglycerides' && recommendedDose >= 2000) {
-                warningBox.style.display = 'block';
-                warningBox.innerHTML = '<strong>⚠️ Medical Supervision Required:</strong> Doses of 2000-4000 mg/day for high triglycerides should only be used under medical supervision. Please consult with your healthcare provider before starting this dosage.';
-            } else if (age < 18 && recommendedDose > weight * 15) {
-                warningBox.style.display = 'block';
-                warningBox.innerHTML = '<strong>⚠️ Medical Supervision Recommended:</strong> This dosage exceeds 15 mg/kg for children. Please consult with a pediatrician before using this amount.';
-            } else if (recommendedDose > 3000) {
-                warningBox.style.display = 'block';
-                warningBox.innerHTML = '<strong>⚠️ High Dose Warning:</strong> Doses above 3000 mg/day should be discussed with a healthcare provider. High doses may interact with medications or cause side effects.';
+            if (warningBox) {
+                warningBox.style.display = 'none';
+                if (goal === 'triglycerides' && recommendedDose >= 2000) {
+                    warningBox.style.display = 'block';
+                    warningBox.innerHTML = '<strong>⚠️ Medical Supervision Required:</strong> Doses of 2000-4000 mg/day for high triglycerides should only be used under medical supervision. Please consult with your healthcare provider before starting this dosage.';
+                } else if (age < 18 && recommendedDose > weight * 15) {
+                    warningBox.style.display = 'block';
+                    warningBox.innerHTML = '<strong>⚠️ Medical Supervision Recommended:</strong> This dosage exceeds 15 mg/kg for children. Please consult with a pediatrician before using this amount.';
+                } else if (recommendedDose > 3000) {
+                    warningBox.style.display = 'block';
+                    warningBox.innerHTML = '<strong>⚠️ High Dose Warning:</strong> Doses above 3000 mg/day should be discussed with a healthcare provider. High doses may interact with medications or cause side effects.';
+                }
             }
 
             // Show results
@@ -464,14 +487,23 @@
         }
 
         function clearInputs() {
-            document.getElementById('age').value = '';
-            document.getElementById('weight').value = '';
-            document.getElementById('goal').value = '';
-            document.getElementById('supplement-type').value = '';
-            document.getElementById('epa-per-capsule').value = '';
-            document.getElementById('dha-per-capsule').value = '';
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('capsule-info').style.display = 'none';
+            const ageEl = document.getElementById('age');
+            const weightEl = document.getElementById('weight');
+            const goalEl = document.getElementById('goal');
+            const supplementTypeEl = document.getElementById('supplement-type');
+            const epaPerCapsuleEl = document.getElementById('epa-per-capsule');
+            const dhaPerCapsuleEl = document.getElementById('dha-per-capsule');
+            const resultsEl = document.getElementById('results');
+            const capsuleInfoEl = document.getElementById('capsule-info');
+
+            if (ageEl) ageEl.value = '';
+            if (weightEl) weightEl.value = '';
+            if (goalEl) goalEl.value = '';
+            if (supplementTypeEl) supplementTypeEl.value = '';
+            if (epaPerCapsuleEl) epaPerCapsuleEl.value = '';
+            if (dhaPerCapsuleEl) dhaPerCapsuleEl.value = '';
+            if (resultsEl) resultsEl.style.display = 'none';
+            if (capsuleInfoEl) capsuleInfoEl.style.display = 'none';
         }
 
         // Show/hide capsule info based on supplement type
@@ -485,8 +517,10 @@
                         capsuleInfo.style.display = 'grid';
                     } else {
                         capsuleInfo.style.display = 'none';
-                        document.getElementById('epa-per-capsule').value = '';
-                        document.getElementById('dha-per-capsule').value = '';
+                        const epaEl = document.getElementById('epa-per-capsule');
+                        const dhaEl = document.getElementById('dha-per-capsule');
+                        if (epaEl) epaEl.value = '';
+                        if (dhaEl) dhaEl.value = '';
                     }
                 });
             }
