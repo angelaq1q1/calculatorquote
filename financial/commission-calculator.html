@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sales Commission Calculator – Instantly See Your Earnings Today</title>
+    <meta name="description" content="Confused about your sales commission? Our Sales Commission Calculator instantly calculates your earnings for real estate agents, freelancers, and salespeople. Know exactly how much you'll earn from every deal—fast, accurate, and stress-free. Try it now!">
+    <meta name="keywords" content="commission calculator, sales commission calculator, commission rate calculator, calculate commission, sales commission, commission percentage calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/commission-calculator.html">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sales Commission Calculator – Instantly See Your Earnings Today",
+      "description": "Confused about your sales commission? Our Sales Commission Calculator instantly calculates your earnings for real estate agents, freelancers, and salespeople. Know exactly how much you'll earn from every deal—fast, accurate, and stress-free. Try it now!",
+      "url": "https://www.calculatorquote.com/financial/commission-calculator.html",
+      "mainEntity": [
+        {
+          "@type": "Calculator",
+          "name": "Sales Commission Calculator – Instantly See Your Earnings Today",
+          "description": "Confused about your sales commission? Our Sales Commission Calculator instantly calculates your earnings for real estate agents, freelancers, and salespeople. Know exactly how much you'll earn from every deal—fast, accurate, and stress-free. Try it now!",
+          "url": "https://www.calculatorquote.com/financial/commission-calculator.html",
+          "alternateName": [
+            "sales commission calculator",
+            "real estate agent commission calculator",
+            "paycheck calculator with commission",
+            "commission calculator sales"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do you calculate commission?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Commission is calculated by multiplying the sales amount by the commission rate percentage and dividing by 100. For example, if sales are $10,000 and commission rate is 5%, the commission would be $10,000 × 5 ÷ 100 = $500."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical commission rate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Typical commission rates vary by industry. Real estate agents typically earn 5-6% of the sale price. Sales professionals in retail may earn 1-3%, while B2B sales can range from 5-20% depending on the product and industry. Some industries use tiered commission structures with different rates for different sales thresholds."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you calculate 5% commission?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To calculate 5% commission, multiply the sales amount by 0.05 (or divide by 20). For example, $10,000 × 0.05 = $500 commission. Alternatively, you can multiply by 5 and divide by 100: $10,000 × 5 ÷ 100 = $500."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        body, * { font-family: 'Raleway', sans-serif !important; font-feature-settings: normal; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #ffffff; min-height: 100vh; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-area { flex: 1; max-width: 900px; }
+        .calculator-container { max-width: 900px; margin: 0 auto 20px auto; padding: 40px 50px; background-color: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); }
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #666; margin: 0 8px; }
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .info-text { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; text-align: left; }
+        .input-section { background-color: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .input-group input:focus, .input-group select:focus { border-color: #eb5424; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .optional-section { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #ddd; }
+        .optional-section label { color: #666; font-size: 0.95em; }
+        .checkbox-group { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+        .checkbox-group input[type="checkbox"] { width: auto; margin: 0; }
+        .tier-section { margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .tier-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; align-items: end; }
+        .tier-row:last-child { margin-bottom: 0; }
+        .btn-calculate { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 400px; margin: 25px auto 0 auto; }
+        .results { padding: 25px; background-color: #f8f9fa; border-radius: 10px; display: none; margin-top: 20px; }
+        .results h2 { color: #333; margin-bottom: 20px; font-size: 1.5em; }
+        .result-item { margin-bottom: 15px; padding: 15px; background-color: #fff; border-radius: 8px; }
+        .result-label { display: block; color: #666; font-size: 0.95em; margin-bottom: 8px; }
+        .result-value { display: block; color: #eb5424; font-weight: 600; font-size: 1.3em; }
+        .commission-display { font-size: 2em; font-weight: 600; color: #eb5424; margin: 20px 0; padding: 20px; background-color: #fff; border-radius: 8px; text-align: center; border: 2px solid #eb5424; }
+        .explanation-box { margin-top: 20px; padding: 20px; background-color: #e7f3ff; border-radius: 8px; }
+        .explanation-box h3 { color: #1976D2; margin-bottom: 10px; font-size: 1.2em; }
+        .explanation-box p { color: #333; line-height: 1.6; margin-bottom: 10px; }
+        .calculation-details { margin-top: 20px; padding: 20px; background-color: #fff3cd; border-radius: 8px; }
+        .calculation-details h3 { color: #856404; margin-bottom: 10px; font-size: 1.2em; }
+        .calculation-details p { color: #333; line-height: 1.6; margin-bottom: 8px; }
+        .info-section { margin-top: 30px; padding: 25px; background-color: #fff; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .info-section h3 { color: #303030; margin-bottom: 15px; font-size: 1.3em; font-weight: 600; }
+        .info-section h4 { color: #303030; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; font-weight: 600; }
+        .info-section p { color: #606060; line-height: 1.8; margin-bottom: 15px; font-size: 16px; }
+        .info-section table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: #fff; }
+        .info-section table th, .info-section table td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        .info-section table th { background-color: #f8f9fa; color: #333; font-weight: 600; }
+        .info-section table td { color: #606060; }
+        .info-section table tr:nth-child(even) { background-color: #f8f9fa; }
+        @media (max-width: 768px) { 
+            .calculator-container { padding: 30px 25px; }
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .tier-row { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home & Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home">
+        <div class="main-content-wrapper">
+            <div class="content-area">
+                <div class="calculator-container">
+                    <div class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span>/</span>
+                        <a href="index.html">Financial Calculators</a>
+                        <span>/</span>
+                        Commission Calculator
+                    </div>
+
+                    <h1>Calculate Your Sales Commission Fast – See How Much You Earn Today</h1>
+                    <p class="info-text">Struggling to figure out your sales commission? Whether you're a real estate agent, freelancer, or salesperson, calculating your earnings can be confusing and time-consuming. Our Sales Commission Calculator instantly computes your exact payout, so you know how much you'll earn from every deal—accurate, fast, and stress-free.</p>
+
+                    <div class="input-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="sales-amount">Sales Amount ($):</label>
+                                <input type="number" id="sales-amount" min="0" step="0.01" placeholder="Enter sales amount" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="commission-rate">Commission Rate (%):</label>
+                                <input type="number" id="commission-rate" min="0" max="100" step="0.01" placeholder="Enter commission rate" required>
+                            </div>
+                        </div>
+
+                        <div class="optional-section">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="use-tiered" onchange="toggleTieredCommission()">
+                                <label for="use-tiered">Use Tiered Commission Structure</label>
+                            </div>
+                            
+                            <div id="tiered-section" style="display: none;">
+                                <div class="tier-section">
+                                    <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Set up tiered commission rates based on sales thresholds:</p>
+                                    <div class="tier-row">
+                                        <div class="input-group">
+                                            <label for="tier1-threshold">Tier 1: Up to ($):</label>
+                                            <input type="number" id="tier1-threshold" min="0" step="0.01" placeholder="Threshold">
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="tier1-rate">Rate (%):</label>
+                                            <input type="number" id="tier1-rate" min="0" max="100" step="0.01" placeholder="Rate">
+                                        </div>
+                                        <div class="input-group">
+                                            <label style="visibility: hidden;">Placeholder</label>
+                                            <span style="display: block; padding: 12px; color: #666; font-size: 0.9em;">Tier 1</span>
+                                        </div>
+                                    </div>
+                                    <div class="tier-row">
+                                        <div class="input-group">
+                                            <label for="tier2-threshold">Tier 2: Up to ($):</label>
+                                            <input type="number" id="tier2-threshold" min="0" step="0.01" placeholder="Threshold">
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="tier2-rate">Rate (%):</label>
+                                            <input type="number" id="tier2-rate" min="0" max="100" step="0.01" placeholder="Rate">
+                                        </div>
+                                        <div class="input-group">
+                                            <label style="visibility: hidden;">Placeholder</label>
+                                            <span style="display: block; padding: 12px; color: #666; font-size: 0.9em;">Tier 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="tier-row">
+                                        <div class="input-group">
+                                            <label for="tier3-threshold">Tier 3: Above ($):</label>
+                                            <input type="number" id="tier3-threshold" min="0" step="0.01" placeholder="Threshold">
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="tier3-rate">Rate (%):</label>
+                                            <input type="number" id="tier3-rate" min="0" max="100" step="0.01" placeholder="Rate">
+                                        </div>
+                                        <div class="input-group">
+                                            <label style="visibility: hidden;">Placeholder</label>
+                                            <span style="display: block; padding: 12px; color: #666; font-size: 0.9em;">Tier 3+</span>
+                                        </div>
+                                    </div>
+                                    <p style="color: #666; font-size: 0.85em; margin-top: 10px;">Note: Commission is calculated progressively. Each tier applies only to the amount within that tier's range.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-calculate" onclick="calculateCommission()">Calculate</button>
+                        <button class="btn-clear" onclick="clearInputs()">Clear</button>
+                    </div>
+
+                    <div class="results" id="results" style="display: none;">
+                        <h2>Commission Calculation Results</h2>
+                        <div class="commission-display" id="commission-display">$0.00</div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Sales Amount:</span>
+                            <span class="result-value" id="sales-display">$0.00</span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Commission Rate:</span>
+                            <span class="result-value" id="rate-display">0%</span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Total Commission:</span>
+                            <span class="result-value" id="total-commission">$0.00</span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span class="result-label">Net Amount (Sales - Commission):</span>
+                            <span class="result-value" id="net-amount">$0.00</span>
+                        </div>
+
+                        <div id="tiered-breakdown" style="display: none;">
+                            <div class="calculation-details">
+                                <h3>Tiered Commission Breakdown</h3>
+                                <div id="tiered-details"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Sales Commission Calculator – See Exactly What You Earn Today</h3>
+                        
+                        <h4>Know Your Earnings Fast</h4>
+                        <p>Figuring out your commission doesn't have to be hard. Whether you are a real estate agent, freelancer, or salesperson, you need to know exactly how much you earn from each deal. Our sales commission calculator makes it simple and fast. Just enter a few numbers, and you can instantly see your total sales earnings. No more guesswork or complicated spreadsheets. This commission calculator helps you focus on what matters most: selling more and earning more.</p>
+
+                        <h4>How This Calculator Works</h4>
+                        <p>Using this commission calculator is easy. Enter the total sale amount and your commission rate. The calculator works for fixed percentages or tiered rates.</p>
+
+                        <h4>Example: Tiered Commission for Annual Sales</h4>
+                        <p>Suppose your yearly sales total is $50,000. Your company uses a tiered commission structure:</p>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sales Range</th>
+                                    <th>Commission Rate</th>
+                                    <th>Calculation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$0 – $10,000</td>
+                                    <td>5%</td>
+                                    <td>$10,000 × 5% = $500</td>
+                                </tr>
+                                <tr>
+                                    <td>$10,001 – $30,000</td>
+                                    <td>7%</td>
+                                    <td>$20,000 × 7% = $1,400</td>
+                                </tr>
+                                <tr>
+                                    <td>$30,001 – $50,000</td>
+                                    <td>10%</td>
+                                    <td>$20,000 × 10% = $2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p><strong>Total commission = $500 + $1,400 + $2,000 = $3,900</strong></p>
+
+                        <p>Using the calculator, you just enter the total sales and define your tiered rates. The tool instantly shows your total sales earnings, no manual math needed. This method works for any salesperson, freelancer, or agent whose commission rate changes with the sale amount.</p>
+
+                        <p>Remember, some companies may take fees or taxes out of your commission. Check your contract to be sure. The calculator gives exact numbers, but it does not include bonuses, split commissions, or extra incentives. Using the sales commission calculator regularly helps you track your sales earnings, plan your month, and find ways to earn more.</p>
+
+                        <h4>Take Control of Your Income</h4>
+                        <p>Start tracking your income today with our commission calculator. It is fast, simple, and made for anyone who earns by commission. After calculating your earnings, try our other tools to manage your money and plan better. Check out our salary calculators, bonus planners, and tax tools. Each tool helps you make smart choices and reach your money goals. Don't leave your earnings to chance—use this commission calculator and stay on top of your sales earnings every day.</p>
+
+                        <h3 style="margin-top: 40px;">Sales Commission Calculator FAQs – Everything You Need to Know</h3>
+                        
+                        <p><strong>Q1: What do you mean by sales commission?</strong></p>
+                        <p>A: A sales commission is the additional income a salesperson earns based on the number of sales they've made. Salespeople typically earn a base salary plus commission.</p>
+
+                        <p><strong>Q2: What is a typical sales commission?</strong></p>
+                        <p>A: The industry average for sales commission typically falls between 20% and 30% of gross margins. At the low end, sales professionals may earn 5% of a sale, while straight commission structures allow a 100% commission.</p>
+
+                        <p><strong>Q3: How do you negotiate a higher commission?</strong></p>
+                        <p>A: 8 tips for successfully pitching higher commission rates</p>
+                        <p>1. Lean into the negotiation process. ...</p>
+                        <p>2. Create a clear case. ...</p>
+                        <p>3. Focus on value for brands. ...</p>
+                        <p>4. Present the big picture. ...</p>
+                        <p>5. Play to the brand's strengths. ...</p>
+                        <p>6. Keep performance incentives in your back pocket. ...</p>
+                        <p>7. Continue refining your message. ...</p>
+                        <p>8. Remember that you have leverage.</p>
+
+                        <p><strong>Q4: How many Americans make $500,000 a year?</strong></p>
+                        <p>A: While just 0.79 percent of jobs in the country paid more than $500,000 per year, that's well more than 1 million positions. Per the Quarterly Census of Employment and Wages, average annual employment in the United States during 2023 was 153,140,899, or 131,289,681 if only the private sector is included.</p>
+
+                        <p><strong>Q5: How do I calculate my sales commission if I have a tiered rate?</strong></p>
+                        <p>A: With a tiered commission structure, your commission rate changes based on the sales amount. Use our sales commission calculator: enter your total sales and the rates for each tier. The calculator instantly shows your total sales earnings without any manual math. It works for real estate agents, freelancers, and salespeople.</p>
+
+                        <p><strong>Q6: Does this calculator include taxes or fees?</strong></p>
+                        <p>A: No, the commission calculator shows your earnings before any deductions. Some companies may deduct taxes, fees, or split commissions from your payout. Always check your contract or pay plan. You can add bonuses or other incentives manually to get your true total sales earnings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        function toggleTieredCommission() {
+            const checkbox = document.getElementById('use-tiered');
+            const tieredSection = document.getElementById('tiered-section');
+            
+            if (checkbox && tieredSection) {
+                tieredSection.style.display = checkbox.checked ? 'block' : 'none';
+                if (!checkbox.checked) {
+                    // Clear tiered inputs
+                    const tierInputs = ['tier1-threshold', 'tier1-rate', 'tier2-threshold', 'tier2-rate', 'tier3-threshold', 'tier3-rate'];
+                    tierInputs.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.value = '';
+                    });
+                }
+            }
+        }
+
+        function calculateCommission() {
+            // Get input elements with existence checks
+            const salesAmountEl = document.getElementById('sales-amount');
+            const commissionRateEl = document.getElementById('commission-rate');
+            const useTieredEl = document.getElementById('use-tiered');
+            
+            if (!salesAmountEl || !commissionRateEl) {
+                alert('Calculator elements not found. Please refresh the page.');
+                return;
+            }
+
+            // Get input values
+            const salesAmount = parseFloat(salesAmountEl.value) || 0;
+            const commissionRate = parseFloat(commissionRateEl.value) || 0;
+            const useTiered = useTieredEl ? useTieredEl.checked : false;
+
+            // Validation
+            if (salesAmount <= 0) {
+                alert('Please enter a valid sales amount greater than 0.');
+                return;
+            }
+            if (commissionRate < 0 || commissionRate > 100) {
+                alert('Please enter a valid commission rate between 0 and 100%.');
+                return;
+            }
+
+            let totalCommission = 0;
+            let tieredBreakdown = '';
+            let isTiered = false;
+            let tieredRates = []; // Store tier rates for display
+
+            // Calculate commission
+            if (useTiered) {
+                // Tiered commission calculation
+                const tier1Threshold = parseFloat(document.getElementById('tier1-threshold')?.value) || 0;
+                const tier1Rate = parseFloat(document.getElementById('tier1-rate')?.value) || 0;
+                const tier2Threshold = parseFloat(document.getElementById('tier2-threshold')?.value) || 0;
+                const tier2Rate = parseFloat(document.getElementById('tier2-rate')?.value) || 0;
+                const tier3Threshold = parseFloat(document.getElementById('tier3-threshold')?.value) || 0;
+                const tier3Rate = parseFloat(document.getElementById('tier3-rate')?.value) || 0;
+
+                if (tier1Threshold > 0 || tier2Threshold > 0 || tier3Threshold > 0) {
+                    isTiered = true;
+                    let remaining = salesAmount;
+                    let tier1Commission = 0;
+                    let tier2Commission = 0;
+                    let tier3Commission = 0;
+                    
+                    // Collect tier rates for display
+                    if (tier1Rate > 0) tieredRates.push(tier1Rate + '%');
+                    if (tier2Rate > 0) tieredRates.push(tier2Rate + '%');
+                    if (tier3Rate > 0) tieredRates.push(tier3Rate + '%');
+
+                    // Tier 1
+                    if (tier1Threshold > 0 && tier1Rate > 0 && remaining > 0) {
+                        const tier1Amount = Math.min(remaining, tier1Threshold);
+                        tier1Commission = tier1Amount * (tier1Rate / 100);
+                        remaining -= tier1Amount;
+                        tieredBreakdown += `<p><strong>Tier 1:</strong> $${tier1Amount.toFixed(2)} × ${tier1Rate}% = $${tier1Commission.toFixed(2)}</p>`;
+                    }
+
+                    // Tier 2
+                    if (tier2Threshold > tier1Threshold && tier2Rate > 0 && remaining > 0) {
+                        const tier2Amount = Math.min(remaining, tier2Threshold - tier1Threshold);
+                        tier2Commission = tier2Amount * (tier2Rate / 100);
+                        remaining -= tier2Amount;
+                        tieredBreakdown += `<p><strong>Tier 2:</strong> $${tier2Amount.toFixed(2)} × ${tier2Rate}% = $${tier2Commission.toFixed(2)}</p>`;
+                    }
+
+                    // Tier 3
+                    if (tier3Threshold > tier2Threshold && tier3Rate > 0 && remaining > 0) {
+                        const tier3Amount = remaining;
+                        tier3Commission = tier3Amount * (tier3Rate / 100);
+                        tieredBreakdown += `<p><strong>Tier 3+:</strong> $${tier3Amount.toFixed(2)} × ${tier3Rate}% = $${tier3Commission.toFixed(2)}</p>`;
+                    }
+
+                    totalCommission = tier1Commission + tier2Commission + tier3Commission;
+                } else {
+                    // Fallback to simple calculation if tiers not set up
+                    totalCommission = salesAmount * (commissionRate / 100);
+                }
+            } else {
+                // Simple commission calculation
+                totalCommission = salesAmount * (commissionRate / 100);
+            }
+
+            const netAmount = salesAmount - totalCommission;
+
+            // Display results - with existence checks
+            const resultsDiv = document.getElementById('results');
+            const commissionDisplay = document.getElementById('commission-display');
+            const salesDisplay = document.getElementById('sales-display');
+            const rateDisplay = document.getElementById('rate-display');
+            const totalCommissionEl = document.getElementById('total-commission');
+            const netAmountEl = document.getElementById('net-amount');
+            const tieredBreakdownDiv = document.getElementById('tiered-breakdown');
+            const tieredDetails = document.getElementById('tiered-details');
+
+            if (!resultsDiv || !commissionDisplay || !salesDisplay || !rateDisplay || !totalCommissionEl || !netAmountEl) {
+                alert('Results display elements not found. Please refresh the page.');
+                return;
+            }
+
+            // Format currency
+            const formatCurrency = (amount) => {
+                return '$' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            };
+
+            commissionDisplay.textContent = formatCurrency(totalCommission);
+            salesDisplay.textContent = formatCurrency(salesAmount);
+            // Display tiered rates if applicable, otherwise show single rate
+            if (isTiered && tieredRates.length > 0) {
+                rateDisplay.textContent = 'Tiered Structure (' + tieredRates.join(' / ') + ')';
+            } else {
+                rateDisplay.textContent = commissionRate + '%';
+            }
+            totalCommissionEl.textContent = formatCurrency(totalCommission);
+            netAmountEl.textContent = formatCurrency(netAmount);
+
+            // Show tiered breakdown if applicable
+            if (isTiered && tieredBreakdownDiv && tieredDetails) {
+                tieredBreakdownDiv.style.display = 'block';
+                tieredDetails.innerHTML = tieredBreakdown;
+            } else {
+                if (tieredBreakdownDiv) tieredBreakdownDiv.style.display = 'none';
+            }
+
+            // Show results
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function clearInputs() {
+            const salesAmountEl = document.getElementById('sales-amount');
+            const commissionRateEl = document.getElementById('commission-rate');
+            const useTieredEl = document.getElementById('use-tiered');
+            const resultsEl = document.getElementById('results');
+            const tieredSectionEl = document.getElementById('tiered-section');
+
+            if (salesAmountEl) salesAmountEl.value = '';
+            if (commissionRateEl) commissionRateEl.value = '';
+            if (useTieredEl) {
+                useTieredEl.checked = false;
+                if (tieredSectionEl) tieredSectionEl.style.display = 'none';
+            }
+            
+            const tierInputs = ['tier1-threshold', 'tier1-rate', 'tier2-threshold', 'tier2-rate', 'tier3-threshold', 'tier3-rate'];
+            tierInputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            
+            if (resultsEl) resultsEl.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
