@@ -95,9 +95,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
 
     <style>
         body, * {
@@ -117,6 +117,7 @@
             word-wrap: normal;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
             -webkit-font-smoothing: antialiased;
         }
         
@@ -451,7 +452,7 @@
     <!-- END NAVIGATION -->
 
     <!-- Main Content -->
-    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 0.5px;">
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0px; padding-bottom: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -615,8 +616,8 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script>
         // Blood type inheritance logic
         // Genotypes: A = AA or AO, B = BB or BO, AB = AB, O = OO
@@ -712,13 +713,23 @@
         }
 
         function calculateBloodType() {
-            const motherABO = document.getElementById('mother-abo').value;
-            const motherRh = document.getElementById('mother-rh').value;
-            const fatherABO = document.getElementById('father-abo').value;
-            const fatherRh = document.getElementById('father-rh').value;
-            
+            const motherABOEl = document.getElementById('mother-abo');
+            const motherRhEl = document.getElementById('mother-rh');
+            const fatherABOEl = document.getElementById('father-abo');
+            const fatherRhEl = document.getElementById('father-rh');
             const errorEl = document.getElementById('error');
             const outputEl = document.getElementById('output');
+            
+            // Element existence checks
+            if (!motherABOEl || !motherRhEl || !fatherABOEl || !fatherRhEl || !errorEl || !outputEl) {
+                console.error('Required DOM elements not found');
+                return;
+            }
+            
+            const motherABO = motherABOEl.value;
+            const motherRh = motherRhEl.value;
+            const fatherABO = fatherABOEl.value;
+            const fatherRh = fatherRhEl.value;
             
             // Validation
             if (!motherABO || !motherRh || !fatherABO || !fatherRh) {
@@ -738,34 +749,38 @@
             
             // Display ABO results
             const aboResultsEl = document.getElementById('blood-type-results');
-            aboResultsEl.innerHTML = '';
-            
-            const aboTypes = ['A', 'B', 'AB', 'O'];
-            aboTypes.forEach(type => {
-                if (aboProbs[type] !== undefined) {
-                    const item = document.createElement('div');
-                    item.className = 'blood-type-item';
-                    item.innerHTML = `
-                        <div class="type">${type}</div>
-                        <div class="probability">${aboProbs[type].toFixed(1)}%</div>
-                    `;
-                    aboResultsEl.appendChild(item);
-                }
-            });
+            if (aboResultsEl) {
+                aboResultsEl.innerHTML = '';
+                
+                const aboTypes = ['A', 'B', 'AB', 'O'];
+                aboTypes.forEach(type => {
+                    if (aboProbs[type] !== undefined) {
+                        const item = document.createElement('div');
+                        item.className = 'blood-type-item';
+                        item.innerHTML = `
+                            <div class="type">${type}</div>
+                            <div class="probability">${aboProbs[type].toFixed(1)}%</div>
+                        `;
+                        aboResultsEl.appendChild(item);
+                    }
+                });
+            }
             
             // Display Rh results
             const rhResultsEl = document.getElementById('rh-results-content');
-            rhResultsEl.innerHTML = '';
-            
-            ['+', '-'].forEach(rh => {
-                const item = document.createElement('div');
-                item.className = 'rh-item';
-                item.innerHTML = `
-                    <div class="type">Rh${rh === '+' ? '+' : '-'}</div>
-                    <div class="probability">${rhProbs[rh].toFixed(1)}%</div>
-                `;
-                rhResultsEl.appendChild(item);
-            });
+            if (rhResultsEl) {
+                rhResultsEl.innerHTML = '';
+                
+                ['+', '-'].forEach(rh => {
+                    const item = document.createElement('div');
+                    item.className = 'rh-item';
+                    item.innerHTML = `
+                        <div class="type">Rh${rh === '+' ? '+' : '-'}</div>
+                        <div class="probability">${rhProbs[rh].toFixed(1)}%</div>
+                    `;
+                    rhResultsEl.appendChild(item);
+                });
+            }
             
             // Generate Punnett square
             generatePunnettSquare(motherABO, fatherABO);
@@ -782,10 +797,20 @@
             const motherGeno = motherGenotypes[0];
             const fatherGeno = fatherGenotypes[0];
             
+            if (!motherGeno || !fatherGeno) {
+                return;
+            }
+            
             const motherAlleles = getAllelesFromGenotype(motherGeno);
             const fatherAlleles = getAllelesFromGenotype(fatherGeno);
             
             const table = document.getElementById('punnett-table');
+            const punnettSquare = document.getElementById('punnett-square');
+            
+            if (!table || !punnettSquare) {
+                return;
+            }
+            
             table.innerHTML = '';
             
             // Create header row
@@ -816,24 +841,34 @@
                 table.appendChild(row);
             });
             
-            document.getElementById('punnett-square').style.display = 'block';
+            punnettSquare.style.display = 'block';
         }
 
         function clearCalculator() {
-            document.getElementById('mother-abo').value = '';
-            document.getElementById('mother-rh').value = '';
-            document.getElementById('father-abo').value = '';
-            document.getElementById('father-rh').value = '';
-            document.getElementById('output').style.display = 'none';
-            document.getElementById('error').style.display = 'none';
+            const motherABOEl = document.getElementById('mother-abo');
+            const motherRhEl = document.getElementById('mother-rh');
+            const fatherABOEl = document.getElementById('father-abo');
+            const fatherRhEl = document.getElementById('father-rh');
+            const outputEl = document.getElementById('output');
+            const errorEl = document.getElementById('error');
+            
+            if (motherABOEl) motherABOEl.value = '';
+            if (motherRhEl) motherRhEl.value = '';
+            if (fatherABOEl) fatherABOEl.value = '';
+            if (fatherRhEl) fatherRhEl.value = '';
+            if (outputEl) outputEl.style.display = 'none';
+            if (errorEl) errorEl.style.display = 'none';
         }
 
-        // Allow Enter key to calculate
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.target.tagName === 'SELECT') {
-                e.preventDefault();
-                calculateBloodType();
-            }
+        // Wait for DOM to be ready before attaching event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Allow Enter key to calculate
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.target.tagName === 'SELECT') {
+                    e.preventDefault();
+                    calculateBloodType();
+                }
+            });
         });
     </script>
 </body>
