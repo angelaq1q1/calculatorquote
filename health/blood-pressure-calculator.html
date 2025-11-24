@@ -87,9 +87,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/templatemo-style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
 
     <style>
         body, * {
@@ -617,9 +617,26 @@
         <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
     </footer>
 
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script>
+        // Wait for DOM to be ready before initializing
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize event listeners
+            const sbpInput = document.getElementById('systolic');
+            const dbpInput = document.getElementById('diastolic');
+            
+            if (sbpInput && dbpInput) {
+                [sbpInput, dbpInput].forEach(input => {
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            calculateBloodPressure();
+                        }
+                    });
+                });
+            }
+        });
+
         function showError(message) {
             const errorEl = document.getElementById('errorMessage');
             if (errorEl) {
@@ -801,19 +818,25 @@
             const dbpInput = document.getElementById('diastolic');
             const resultSection = document.getElementById('resultSection');
             
+            // Element existence checks
+            if (!sbpInput || !dbpInput || !resultSection) {
+                showError('Calculator elements not found. Please refresh the page.');
+                return;
+            }
+            
             const sbp = parseFloat(sbpInput.value);
             const dbp = parseFloat(dbpInput.value);
 
             // Validation
             if (isNaN(sbp) || sbp <= 0) {
                 showError('Please enter a valid systolic blood pressure reading.');
-                sbpInput.focus();
+                if (sbpInput) sbpInput.focus();
                 return;
             }
 
             if (isNaN(dbp) || dbp <= 0) {
                 showError('Please enter a valid diastolic blood pressure reading.');
-                dbpInput.focus();
+                if (dbpInput) dbpInput.focus();
                 return;
             }
 
@@ -833,68 +856,73 @@
             // Get category information
             const categoryInfo = getCategoryInfo(result.category);
 
-            // Update BP reading display
-            document.getElementById('bpValue').textContent = `${sbp}/${dbp}`;
-            document.getElementById('bpLabel').textContent = 'mmHg';
+            // Update BP reading display with existence checks
+            const bpValueEl = document.getElementById('bpValue');
+            const bpLabelEl = document.getElementById('bpLabel');
+            if (bpValueEl) bpValueEl.textContent = `${sbp}/${dbp}`;
+            if (bpLabelEl) bpLabelEl.textContent = 'mmHg';
 
-            // Update category box
+            // Update category box with existence checks
             const categoryBox = document.getElementById('categoryBox');
-            categoryBox.className = 'category-box ' + result.category;
-            document.getElementById('categoryName').textContent = categoryInfo.name;
-            document.getElementById('explanation').textContent = categoryInfo.explanation;
+            const categoryNameEl = document.getElementById('categoryName');
+            const explanationEl = document.getElementById('explanation');
+            
+            if (categoryBox) {
+                categoryBox.className = 'category-box ' + result.category;
+            }
+            if (categoryNameEl) categoryNameEl.textContent = categoryInfo.name;
+            if (explanationEl) explanationEl.textContent = categoryInfo.explanation;
 
-            // Update warning box
+            // Update warning box with existence checks
             const warningBox = document.getElementById('warningBox');
-            if (categoryInfo.warning) {
-                warningBox.style.display = 'block';
-                document.getElementById('warningTitle').textContent = 'Important Notice';
-                document.getElementById('warningText').textContent = categoryInfo.warning;
-                if (result.category === 'crisis') {
-                    warningBox.className = 'warning-box crisis';
+            const warningTitleEl = document.getElementById('warningTitle');
+            const warningTextEl = document.getElementById('warningText');
+            
+            if (warningBox) {
+                if (categoryInfo.warning) {
+                    warningBox.style.display = 'block';
+                    if (warningTitleEl) warningTitleEl.textContent = 'Important Notice';
+                    if (warningTextEl) warningTextEl.textContent = categoryInfo.warning;
+                    if (result.category === 'crisis') {
+                        warningBox.className = 'warning-box crisis';
+                    } else {
+                        warningBox.className = 'warning-box';
+                    }
                 } else {
-                    warningBox.className = 'warning-box';
+                    warningBox.style.display = 'none';
                 }
-            } else {
-                warningBox.style.display = 'none';
             }
 
-            // Update recommendations
+            // Update recommendations with existence checks
             const recommendationsList = document.getElementById('recommendationsList');
-            recommendationsList.innerHTML = '';
-            categoryInfo.recommendations.forEach(rec => {
-                const li = document.createElement('li');
-                li.textContent = rec;
-                recommendationsList.appendChild(li);
-            });
+            if (recommendationsList) {
+                recommendationsList.innerHTML = '';
+                categoryInfo.recommendations.forEach(rec => {
+                    const li = document.createElement('li');
+                    li.textContent = rec;
+                    recommendationsList.appendChild(li);
+                });
+            }
 
             // Show results
-            resultSection.style.display = 'block';
-            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (resultSection) {
+                resultSection.style.display = 'block';
+                resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
 
         function clearResults() {
             const resultSection = document.getElementById('resultSection');
-            document.getElementById('systolic').value = '';
-            document.getElementById('diastolic').value = '';
+            const sbpInput = document.getElementById('systolic');
+            const dbpInput = document.getElementById('diastolic');
+            
+            if (sbpInput) sbpInput.value = '';
+            if (dbpInput) dbpInput.value = '';
             if (resultSection) {
                 resultSection.style.display = 'none';
             }
             hideError();
         }
-
-        // Allow Enter key to trigger calculation
-        document.addEventListener('DOMContentLoaded', function() {
-            const sbpInput = document.getElementById('systolic');
-            const dbpInput = document.getElementById('diastolic');
-            
-            [sbpInput, dbpInput].forEach(input => {
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        calculateBloodPressure();
-                    }
-                });
-            });
-        });
     </script>
 </body>
 </html>
