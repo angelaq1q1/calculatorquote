@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Golf Handicap Calculator – Calculate Your Handicap in 2 Minutes</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="Use our Golf Handicap Calculator to quickly convert your scores into an accurate Handicap Index. In just 2 minutes, discover your level, improve your game, and plan your next round with confidence.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="golf handicap calculator, USGA handicap calculator, golf handicap index calculator, course handicap calculator, handicap index, golf score calculator, slope rating calculator, course rating calculator, golf handicap formula, USGA handicap formula">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Golf Handicap Calculator – Calculate Your USGA Handicap Index">
+  <meta property="og:description" content="Calculate your USGA Golf Handicap Index with our free Golf Handicap Calculator. Enter your scores, course rating, and slope rating to get your official handicap instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.calculatorquote.com/sports/golf-handicap-calculator.html">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Golf Handicap Calculator – Calculate Your Handicap in 2 Minutes",
+    "description": "Use our Golf Handicap Calculator to quickly convert your scores into an accurate Handicap Index. In just 2 minutes, discover your level, improve your game, and plan your next round with confidence.",
+    "url": "https://www.calculatorquote.com/sports/golf-handicap-calculator.html",
+    "inLanguage": "en",
+    "keywords": [
+      "golf handicap calculator",
+      "USGA handicap calculator",
+      "golf handicap index calculator",
+      "course handicap calculator",
+      "handicap index",
+      "golf score calculator",
+      "slope rating calculator",
+      "course rating calculator"
+    ],
+    "datePublished": "2025-01-30T00:00:00Z",
+    "dateModified": "2025-01-30T00:00:00Z",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalculatorQuote",
+      "url": "https://www.calculatorquote.com"
+    },
+    "mainEntity": [
+      {
+        "@type": "Calculator",
+        "name": "Golf Handicap Calculator",
+        "description": "Calculate your USGA Handicap Index based on your golf scores, course rating, and slope rating",
+        "url": "https://www.calculatorquote.com/sports/golf-handicap-calculator.html",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "golf handicap calculator",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A golf handicap calculator converts your recent 18-hole scores, course ratings, and slope ratings into an official Handicap Index so you can compare your playing ability with golfers on any course."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "what does a handicap mean in golf",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your golf handicap represents your potential scoring ability compared to par; it shows how many strokes you can expect to receive to play evenly with other golfers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "how is a golf handicap calculated",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A golf handicap is calculated by turning each round into a differential using the USGA formula, selecting the lowest differentials based on rounds played, averaging them, and multiplying by 0.96 to get your Handicap Index."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "how to figure out your golf handicap",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Track at least five rounds, note each score’s course rating and slope rating, compute the differentials, keep the required best differentials, average them, and apply the 0.96 multiplier to find your Handicap Index."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Template CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/templatemo-style.css" rel="stylesheet">
+  <style>
+    /* Global font setting - Raleway for all text */
+    body, body *, 
+    input, select, button, 
+    table, td, th, 
+    .formula-box {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    /* Custom styles for golf handicap calculator */
+    .main-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px 0 rgba(50, 50, 50, 0.08);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .breadcrumb {
+      margin-bottom: 20px;
+      font-size: 1em;
+      color: #666;
+    }
+    .breadcrumb a {
+      color: #eb5424;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover {
+      color: #d43d1a;
+    }
+    .breadcrumb span {
+      color: #666;
+      margin: 0 8px;
+    }
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    h2 {
+      color: #333;
+      font-size: 1.2em;
+      margin: 20px 0 14px 0;
+      font-weight: 600;
+    }
+    h3 {
+      color: #333;
+      font-size: 1.1em;
+      margin: 15px 0 10px 0;
+      font-weight: 600;
+    }
+    .intro-text {
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #333;
+      font-size: 0.95em;
+    }
+    .input-group input[type="number"],
+    .input-group input[type="text"],
+    .input-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    .input-group input[type="number"]:focus,
+    .input-group input[type="text"]:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: #eb5424;
+    }
+    .grid {
+      display: grid;
+      gap: 10px;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .btn-calculate, .btn-clear, .btn-add-round {
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 500;
+    }
+    .btn-calculate {
+      background-color: #eb5424;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .btn-calculate:hover {
+      background-color: #d43d1a;
+    }
+    .btn-clear {
+      background-color: #f5c6cb;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 16px;
+      min-width: 120px;
+    }
+    .btn-clear:hover {
+      background-color: #f1aeb5;
+    }
+    .btn-add-round {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 0.9em;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    .btn-add-round:hover {
+      background-color: #45a049;
+    }
+    .btn-remove {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.85em;
+    }
+    .btn-remove:hover {
+      background-color: #da190b;
+    }
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      border-left: 4px solid #eb5424;
+    }
+    .result table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .result table th,
+    .result table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .result table th {
+      background-color: #f0f0f0;
+      font-weight: 600;
+      color: #333;
+    }
+    .result table tr:last-child td {
+      border-bottom: none;
+    }
+    .muted {
+      color: #d32f2f;
+      font-size: 0.9em;
+      margin-top: 8px;
+    }
+    .round-entry {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .round-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .round-number {
+      font-weight: 600;
+      color: #333;
+    }
+    .round-inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .round-inputs input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .content-section {
+      margin-top: 40px;
+      line-height: 1.8;
+    }
+    .content-section p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .formula-box {
+      background: #f5f5f5;
+      padding: 15px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95em;
+      border-radius: 4px;
+    }
+    .faq-section {
+      margin-top: 40px;
+    }
+    .faq-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+    }
+    .faq-question {
+      font-size: 1.05em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .faq-answer {
+      color: #555;
+      line-height: 1.7;
+    }
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196F3;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .info-box strong {
+      color: #1976D2;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 20px;
+      }
+      .content-wrapper {
+        padding: 20px;
+      }
+      .page-title {
+        font-size: 1.2em;
+        margin-bottom: 25px;
+      }
+      .card {
+        padding: 20px;
+      }
+      .round-inputs {
+        grid-template-columns: 1fr;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+      .btn-calculate, .btn-clear {
+        width: 100%;
+      }
+      h2 {
+        font-size: 1.1em;
+        margin: 15px 0 10px 0;
+      }
+      h3 {
+        font-size: 1em;
+        margin: 15px 0 8px 0;
+      }
+      .content-section p, .faq-answer {
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+      .faq-question {
+        font-size: 1em;
+      }
+      .formula-box {
+        padding: 12px;
+        font-size: 0.95em;
+      }
+      footer {
+        padding: 25px 20px 0 20px !important;
+        margin-top: 35px !important;
+      }
+      footer nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      footer nav a {
+        margin: 0 8px !important;
+        font-size: 0.95em;
+      }
+      footer nav span {
+        display: inline;
+      }
+      footer div {
+        font-size: 0.95em !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-container {
+        padding: 0 10px;
+      }
+      .content-wrapper {
+        padding: 15px;
+      }
+      .page-title {
+        font-size: 1.1em !important;
+        margin-bottom: 20px;
+      }
+      .card {
+        padding: 12px;
+      }
+      input[type="number"], select {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        min-height: 44px;
+        box-sizing: border-box;
+      }
+      .result {
+        padding: 15px 12px;
+        font-size: 0.9em;
+      }
+      table {
+        font-size: 0.85em;
+      }
+      table tr {
+        padding: 8px;
+      }
+      table td:first-child {
+        font-size: 0.9em;
+      }
+      table td:last-child {
+        font-size: 0.95em;
+      }
+      .breadcrumb {
+        font-size: 0.9em;
+      }
+      footer {
+        padding: 20px 15px 0 15px !important;
+        margin-top: 30px !important;
+      }
+      footer nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      footer nav a {
+        margin: 0 !important;
+        padding: 4px 0;
+      }
+      footer nav span {
+        display: none;
+      }
+      footer div {
+        font-size: 0.9em !important;
+        margin-top: 12px;
+      }
+    }
+
+    /* Navigation alignment */
+    .navbar, .navbar *, 
+    .navbar-brand, .navbar-nav, .navbar-nav a,
+    footer, footer * {
+      font-family: 'Raleway', sans-serif !important;
+    }
+    
+    .navbar {
+        min-height: 60px;
+        padding: 10px 0;
+    }
+    
+    .navbar-header {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .navbar-nav li a {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+    }
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .navbar-collapse {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile navigation button positioning */
+    @media (max-width: 767px) {
+        .navbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-toggle {
+            float: right !important;
+            margin-right: 15px;
+            margin-top: 8px;
+        }
+        
+        .navbar-brand {
+            float: left !important;
+        }
+    }
+
+    /* Footer links styling */
+    .tm-contact nav a {
+        color: #eb5424 !important;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .tm-contact nav a:hover {
+        color: #d4441a !important;
+    }
+
+  </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-container">
+                    <div class="content-wrapper">
+                        <!-- Breadcrumb -->
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            <a href="index.html">Sports Calculators</a>
+                            <span>&nbsp;/&nbsp;</span>
+                            Golf Handicap Calculator
+                        </div>
+                        
+                        <h1 class="page-title">Calculate Your Golf Handicap in 2 Minutes – Know Exactly How You Stand on the Course</h1>
+                        <div class="intro-text">Struggling to track your golf performance? Our Golf Handicap Calculator quickly converts your scores into an accurate Handicap Index. In just 2 minutes, see where you stand, improve your game, and plan your next round with confidence.</div>
+
+                        <div class="card" role="region" aria-label="Golf handicap calculator">
+                            <div class="input-group">
+                                <label for="rounds-count">Number of Rounds (5-20):</label>
+                                <input type="number" id="rounds-count" min="5" max="20" value="5" />
+                                <small style="color: #666; font-size: 0.9em; display: block; margin-top: 5px;">You need at least 5 rounds to calculate a handicap. Maximum 20 rounds.</small>
+                            </div>
+
+                            <div id="rounds-container">
+                                <!-- Round entries will be dynamically added here -->
+                            </div>
+
+                            <div style="margin-top: 20px;">
+                                <button class="btn-add-round" id="add-round-btn">+ Add Round</button>
+                            </div>
+
+                            <div class="buttons">
+                                <button id="calc" class="btn-calculate">Calculate</button>
+                                <button id="clear" class="btn-clear">Clear</button>
+                            </div>
+
+                            <div id="error" class="muted" role="alert" style="margin-top:8px;"></div>
+                            
+                            <div id="output" class="result" style="display:none;">
+                                <div id="resultSummary" style="font-weight: bold; margin-bottom: 15px; font-size: 1.1em;"></div>
+
+                                <table aria-live="polite">
+                                    <thead>
+                                        <tr><th>Metric</th><th>Value</th></tr>
+                                    </thead>
+                                    <tbody id="outputsTable">
+                                        <!-- filled by JS -->
+                                    </tbody>
+                                </table>
+
+                                <div id="course-handicap-section" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd;">
+                                    <h3 style="margin-bottom: 15px;">Calculate Course Handicap for Specific Course</h3>
+                                    <div class="input-group" style="margin-bottom: 15px;">
+                                        <label for="course-rating-input">Course Rating:</label>
+                                        <input type="number" id="course-rating-input" step="0.1" placeholder="e.g., 72.0" />
+                                    </div>
+                                    <div class="input-group" style="margin-bottom: 15px;">
+                                        <label for="slope-rating-input">Slope Rating:</label>
+                                        <input type="number" id="slope-rating-input" min="55" max="155" placeholder="e.g., 113" />
+                                    </div>
+                                    <div class="input-group" style="margin-bottom: 15px;">
+                                        <label for="par-input">Par:</label>
+                                        <input type="number" id="par-input" placeholder="e.g., 72" />
+                                    </div>
+                                    <button id="calc-course-handicap" class="btn-calculate" style="margin-top: 10px;">Calculate Course Handicap</button>
+                                    <div id="course-handicap-result" style="margin-top: 15px; padding: 15px; background: #e8f5e9; border-radius: 4px; display: none;">
+                                        <strong>Course Handicap: <span id="course-handicap-value"></span></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h2>Quickly Calculate Your Golf Handicap – See Where You Really Stand</h2>
+                            <p>Do you want to know your true golf level? Our handicap golf calculator makes it easy. Whether you play casually, join a club, or prepare for a tournament, this tool gives you fast and accurate results. Many golfers struggle with figuring their scores across different courses. With this calculator, you can enter your recent rounds and course info and instantly get your Handicap Index. If you have ever wondered, “how to calculate handicap golf” or asked, “how is a golf handicap calculated,” this tool solves the problem quickly.</p>
+                            
+                            <h3>How the Golf Handicap Calculator Works</h3>
+                            <p>Our calculator uses a simple method based on official rules. You start by entering 5–20 recent rounds. Include your total scores, course rating, and slope rating. The calculator computes a differential for each round using this formula:</p>
+                            
+                            <div class="formula-box">
+                                <strong>Differential = (Score − Course Rating) × 113 ÷ Slope Rating</strong>
+                            </div>
+                            
+                            <p>Next, it picks the lowest differentials based on the number of rounds played. Then it averages them and multiplies by 0.96. The result is your Handicap Index, showing your skill level compared to par.</p>
+                            
+                            <p>This removes confusion and guesswork. Whether you want to track progress, compare scores with friends, or prepare for a tournament, it gives fast and accurate results. Remember to use up-to-date course ratings and slopes. Different courses can change your handicap, so accuracy matters. This method ensures your scores stay fair and consistent.</p>
+                            
+                            <h3>Why You Should Use This Calculator</h3>
+                            <p>Calculating your golf handicap manually takes time and can be confusing. Our handicap golf calculator makes it simple. You spend less time on math and more time improving your game. Knowing your Handicap Index helps you plan better and track progress.</p>
+                            
+                            <p>Don’t stop with just this tool. Check out our other golf tools. You can track scores, measure distances, and manage your game smarter. Each tool works with the calculator to improve your experience. Start using our handicap golf calculator today. See your true level, play smarter, and enjoy every round.</p>
+                        </div>
+
+                        <div class="faq-section">
+                            <h2>⛳ Golf Handicap Calculator – Common Questions</h2>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q1:</strong> <strong>How many rounds do I need to calculate a handicap?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> You need a minimum of 5 rounds to calculate a USGA Handicap Index. The calculator can use up to 20 rounds, selecting your best performances based on the number of rounds entered.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q2:</strong> <strong>What is the difference between Handicap Index and Course Handicap?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> Your Handicap Index is a universal number that represents your potential ability. Course Handicap is specific to each course and adjusts your Handicap Index based on that course's difficulty (Slope Rating) and par. Course Handicap tells you how many strokes you receive on that particular course.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q3:</strong> <strong>Where do I find Course Rating and Slope Rating?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> Course Rating and Slope Rating are usually printed on the scorecard or posted at the golf course. You can also find them on the course's website or by asking the pro shop. Course Rating typically ranges from 65 to 75, while Slope Rating ranges from 55 to 155.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q4:</strong> <strong>Why does the calculator multiply by 0.96?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> The 0.96 multiplier is a USGA adjustment factor that ensures handicaps represent potential ability rather than average performance. This factor helps prevent handicaps from being too high and ensures fair competition.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q5:</strong> <strong>What is a good golf handicap?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> Handicap ranges vary widely. A scratch golfer (handicap 0) plays at par. Most recreational golfers have handicaps between 10 and 30. Professional golfers typically have negative handicaps (better than scratch). Your handicap reflects your potential, so lower is better.</div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question"><strong>Q6:</strong> <strong>How often should I update my handicap?</strong></div>
+                                <div class="faq-answer"><strong>A:</strong> Your handicap should be updated after each round you play. As you add more recent scores, your handicap will reflect your current playing ability. The calculator uses your most recent 20 rounds, so regularly updating ensures accuracy.</div>
+                            </div>
+                        </div>
+
+  <script>
+    // Mapping of rounds to number of best scores used
+    const ROUNDS_TO_SCORES_USED = {
+      5: 1,
+      6: 2,
+      7: 2,
+      8: 2,
+      9: 3,
+      10: 3,
+      11: 3,
+      12: 4,
+      13: 4,
+      14: 4,
+      15: 5,
+      16: 5,
+      17: 6,
+      18: 7,
+      19: 8,
+      20: 10
+    };
+
+    let roundsData = [];
+
+    // Initialize rounds when page loads
+    function initializeRounds() {
+      const roundsCount = parseInt(document.getElementById('rounds-count').value) || 5;
+      updateRoundsContainer(roundsCount);
+    }
+
+    // Update rounds container based on count
+    function updateRoundsContainer(count) {
+      const container = document.getElementById('rounds-container');
+      if (!container) return;
+
+      container.innerHTML = '';
+      roundsData = [];
+
+      for (let i = 0; i < count; i++) {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'round-entry';
+        roundDiv.id = `round-${i + 1}`;
+        
+        roundDiv.innerHTML = `
+          <div class="round-header">
+            <span class="round-number">Round ${i + 1}</span>
+          </div>
+          <div class="round-inputs">
+            <div>
+              <label for="score-${i + 1}" style="font-size: 0.9em; margin-bottom: 5px; display: block;">Score (18 holes):</label>
+              <input type="number" id="score-${i + 1}" min="50" max="200" placeholder="e.g., 85" />
+            </div>
+            <div>
+              <label for="course-rating-${i + 1}" style="font-size: 0.9em; margin-bottom: 5px; display: block;">Course Rating:</label>
+              <input type="number" id="course-rating-${i + 1}" step="0.1" min="50" max="80" placeholder="e.g., 72.0" />
+            </div>
+            <div>
+              <label for="slope-rating-${i + 1}" style="font-size: 0.9em; margin-bottom: 5px; display: block;">Slope Rating:</label>
+              <input type="number" id="slope-rating-${i + 1}" min="55" max="155" placeholder="e.g., 113" />
+            </div>
+          </div>
+        `;
+        
+        container.appendChild(roundDiv);
+        roundsData.push({
+          score: null,
+          courseRating: null,
+          slopeRating: null
+        });
+      }
+    }
+
+    // Calculate differential for a single round
+    function calculateDifferential(score, courseRating, slopeRating) {
+      if (!score || !courseRating || !slopeRating) return null;
+      return ((score - courseRating) * 113) / slopeRating;
+    }
+
+    // Get number of scores to use based on rounds played
+    function getScoresToUse(roundsCount) {
+      return ROUNDS_TO_SCORES_USED[roundsCount] || Math.floor(roundsCount / 2);
+    }
+
+    // Calculate handicap index
+    function calculateHandicapIndex() {
+      const roundsCount = parseInt(document.getElementById('rounds-count').value) || 5;
+      
+      // Validate rounds count
+      if (roundsCount < 5 || roundsCount > 20) {
+        return { error: 'Number of rounds must be between 5 and 20.' };
+      }
+
+      // Collect all round data
+      const differentials = [];
+      
+      for (let i = 0; i < roundsCount; i++) {
+        const score = parseFloat(document.getElementById(`score-${i + 1}`).value);
+        const courseRating = parseFloat(document.getElementById(`course-rating-${i + 1}`).value);
+        const slopeRating = parseFloat(document.getElementById(`slope-rating-${i + 1}`).value);
+
+        // Validate inputs
+        if (!score || !courseRating || !slopeRating) {
+          return { error: `Please fill in all fields for Round ${i + 1}.` };
+        }
+
+        if (slopeRating < 55 || slopeRating > 155) {
+          return { error: `Slope Rating for Round ${i + 1} must be between 55 and 155.` };
+        }
+
+        const differential = calculateDifferential(score, courseRating, slopeRating);
+        if (differential !== null) {
+          differentials.push({
+            round: i + 1,
+            score: score,
+            courseRating: courseRating,
+            slopeRating: slopeRating,
+            differential: differential
+          });
+        }
+      }
+
+      if (differentials.length < 5) {
+        return { error: 'You need at least 5 valid rounds to calculate a handicap.' };
+      }
+
+      // Sort by differential (ascending - lower is better)
+      differentials.sort((a, b) => a.differential - b.differential);
+
+      // Get number of scores to use
+      const scoresToUse = getScoresToUse(roundsCount);
+
+      // Select best differentials
+      const selectedDifferentials = differentials.slice(0, scoresToUse);
+
+      // Calculate average
+      const sum = selectedDifferentials.reduce((acc, d) => acc + d.differential, 0);
+      const average = sum / selectedDifferentials.length;
+
+      // Apply 0.96 multiplier
+      const handicapIndex = average * 0.96;
+
+      return {
+        handicapIndex: Math.round(handicapIndex * 10) / 10, // Round to 1 decimal
+        allDifferentials: differentials,
+        selectedDifferentials: selectedDifferentials,
+        scoresToUse: scoresToUse
+      };
+    }
+
+    // Calculate course handicap
+    function calculateCourseHandicap(handicapIndex, courseRating, slopeRating, par) {
+      if (!handicapIndex || !courseRating || !slopeRating || par === undefined) {
+        return null;
+      }
+      const courseHandicap = (handicapIndex * slopeRating / 113) + (courseRating - par);
+      return Math.round(courseHandicap);
+    }
+
+    // Setup calculate button
+    function setupCalculateButton() {
+      const calcBtn = document.getElementById('calc');
+      if (!calcBtn) return;
+
+      calcBtn.addEventListener('click', function() {
+        const errorDiv = document.getElementById('error');
+        const outputDiv = document.getElementById('output');
+        if (!errorDiv || !outputDiv) return;
+
+        errorDiv.textContent = '';
+        outputDiv.style.display = 'none';
+
+        const result = calculateHandicapIndex();
+
+        if (result.error) {
+          errorDiv.textContent = result.error;
+          return;
+        }
+
+        // Build outputs
+        const outputs = [];
+        outputs.push(['Handicap Index', result.handicapIndex.toFixed(1)]);
+        outputs.push(['Rounds Used', `${result.selectedDifferentials.length} of ${result.allDifferentials.length}`]);
+        outputs.push(['Average Differential', (result.selectedDifferentials.reduce((acc, d) => acc + d.differential, 0) / result.selectedDifferentials.length).toFixed(2)]);
+
+        // Fill the UI table
+        const tbody = document.getElementById('outputsTable');
+        if (tbody) {
+          tbody.innerHTML = '';
+          outputs.forEach(([k, v]) => {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            td1.textContent = k;
+            const td2 = document.createElement('td');
+            td2.textContent = v;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tbody.appendChild(tr);
+          });
+        }
+
+        // Summary text
+        const resultSummary = document.getElementById('resultSummary');
+        if (resultSummary) {
+          resultSummary.innerHTML = `Your USGA Handicap Index is <strong>${result.handicapIndex.toFixed(1)}</strong>. This is based on your best ${result.selectedDifferentials.length} differential(s) from ${result.allDifferentials.length} rounds.`;
+        }
+
+        // Store handicap index for course handicap calculation
+        outputDiv.dataset.handicapIndex = result.handicapIndex;
+
+        outputDiv.style.display = 'block';
+      });
+    }
+
+    // Setup course handicap calculation
+    function setupCourseHandicapButton() {
+      const calcCourseBtn = document.getElementById('calc-course-handicap');
+      if (!calcCourseBtn) return;
+
+      calcCourseBtn.addEventListener('click', function() {
+        const outputDiv = document.getElementById('output');
+        if (!outputDiv || outputDiv.style.display === 'none') {
+          alert('Please calculate your Handicap Index first.');
+          return;
+        }
+
+        const handicapIndex = parseFloat(outputDiv.dataset.handicapIndex);
+        const courseRating = parseFloat(document.getElementById('course-rating-input').value);
+        const slopeRating = parseFloat(document.getElementById('slope-rating-input').value);
+        const par = parseFloat(document.getElementById('par-input').value);
+
+        if (!handicapIndex || !courseRating || !slopeRating || par === undefined) {
+          alert('Please fill in all fields for Course Handicap calculation.');
+          return;
+        }
+
+        if (slopeRating < 55 || slopeRating > 155) {
+          alert('Slope Rating must be between 55 and 155.');
+          return;
+        }
+
+        const courseHandicap = calculateCourseHandicap(handicapIndex, courseRating, slopeRating, par);
+        
+        const resultDiv = document.getElementById('course-handicap-result');
+        const valueSpan = document.getElementById('course-handicap-value');
+        
+        if (resultDiv && valueSpan) {
+          valueSpan.textContent = courseHandicap;
+          resultDiv.style.display = 'block';
+        }
+      });
+    }
+
+    // Setup clear button
+    function setupClearButton() {
+      const clearBtn = document.getElementById('clear');
+      if (!clearBtn) return;
+
+      clearBtn.addEventListener('click', function() {
+        const roundsCount = document.getElementById('rounds-count');
+        if (roundsCount) roundsCount.value = '5';
+        
+        updateRoundsContainer(5);
+
+        // Clear course handicap inputs
+        const courseRatingInput = document.getElementById('course-rating-input');
+        const slopeRatingInput = document.getElementById('slope-rating-input');
+        const parInput = document.getElementById('par-input');
+        if (courseRatingInput) courseRatingInput.value = '';
+        if (slopeRatingInput) slopeRatingInput.value = '';
+        if (parInput) parInput.value = '';
+
+        const error = document.getElementById('error');
+        const output = document.getElementById('output');
+        const courseHandicapResult = document.getElementById('course-handicap-result');
+        
+        if (error) error.textContent = '';
+        if (output) output.style.display = 'none';
+        if (courseHandicapResult) courseHandicapResult.style.display = 'none';
+      });
+    }
+
+    // Setup add round button
+    function setupAddRoundButton() {
+      const addRoundBtn = document.getElementById('add-round-btn');
+      if (!addRoundBtn) return;
+
+      addRoundBtn.addEventListener('click', function() {
+        const roundsCount = parseInt(document.getElementById('rounds-count').value) || 5;
+        if (roundsCount >= 20) {
+          alert('Maximum 20 rounds allowed.');
+          return;
+        }
+        document.getElementById('rounds-count').value = roundsCount + 1;
+        updateRoundsContainer(roundsCount + 1);
+      });
+    }
+
+    // Setup rounds count change listener
+    function setupRoundsCountListener() {
+      const roundsCountInput = document.getElementById('rounds-count');
+      if (!roundsCountInput) return;
+
+      roundsCountInput.addEventListener('change', function() {
+        const count = parseInt(this.value) || 5;
+        if (count < 5) {
+          this.value = 5;
+          alert('Minimum 5 rounds required.');
+        } else if (count > 20) {
+          this.value = 20;
+          alert('Maximum 20 rounds allowed.');
+        }
+        updateRoundsContainer(parseInt(this.value));
+      });
+    }
+
+    // Initialize all functionality when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeRounds();
+      setupCalculateButton();
+      setupClearButton();
+      setupAddRoundButton();
+      setupRoundsCountListener();
+      setupCourseHandicapButton();
+    });
+  </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+</body>
+</html>
+
