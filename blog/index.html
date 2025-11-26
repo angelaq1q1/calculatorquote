@@ -250,12 +250,6 @@
             text-decoration: underline;
         }
 
-        .article-date {
-            color: #888;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
 
         @media (max-width: 768px) {
             .blog-container {
@@ -342,82 +336,70 @@
                 
                 <div class="article-item">
                     <h3><a href="7-rules-to-expand-your-lucky-surface-in-your-career.html">7 Rules to Expand Your Lucky Surface in Your Career</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="0"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-use-a-matrix-calculator-to-save-money.html">How to Use a Matrix Calculator to Optimize Robotics Movements and Save &#36;5,000 on Production</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="1"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-detect-and-fix-skewed-3D-animations.html">How to Detect and Fix Skewed 3D Animations with Matrix Calculator | Save &#36;200+ Per Project</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="3"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-predict-match-outcomes.html">How to Predict Match Outcomes by Comparing Home and Away Performance and Save 50% of Your Analysis Time</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="4"></span></div>
+                </div>
+
+                <div class="article-item">
+                    <h3><a href="how-to-master-football-formations.html">How to Master Football Formations, H2H Stats, and Score Predictions Like a Pro</a></h3>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-stop-termites.html">How to Stop Termites - Avoid &#36;5,000 Damage</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="5"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-estimate-your-roof-costs.html">How to Estimate Your Roof Costs Without Wasting &#36;500 or More</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="6"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-calculate-time-differences.html">How to Calculate Time Differences to Save 30 Minutes per Week</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="7"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="9-best-online-jobs-from-home.html">9 Best Online Jobs From Home To Make &#36;1,000+ A Month</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="8"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-find-pet-insurance-quotes.html">How to Find Pet Insurance Quotes When Rising Vet Bills Make Pet Insurance Cost Hard to Afford</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="9"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-make-100USD-a-day.html">How To Make 100USD A Day &#8211; 10 Real Ways To Make Extra Money</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="10"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-remove-mold-in-8-steps.html">How to Safely Remove Mold from a Crawl Space in 8 Steps</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="12"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-negotiate-hospital-bills.html">How to Negotiate Hospital Bills in 10 Minutes and Cut Costs by 50%</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="15"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-use-matrix-calculator.html">How to Use a Matrix Calculator for Education and Research in 2025 (Step-by-Step Guide)</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="17"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-use-solar-panel-cost-calculator.html">How to Use a Solar Panel Cost Calculator for Home Energy Savings in 2025</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="20"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="9-habits-to-boost-your-happiness.html">9 Simple Habits That Can Instantly Boost Your Happiness</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="24"></span></div>
                 </div>
 
                 <div class="article-item">
                     <h3><a href="how-to-cut-home-expenses.html">How to Cut Unexpected Home Expenses by Planning Smart Energy Solutions</a></h3>
-                    <div class="article-date">Published: <span class="dynamic-date" data-days-ago="31"></span></div>
                 </div>
 
             </div>
@@ -447,16 +429,7 @@
     <script src="../js/custom.js"></script>
     
     <script>
-        // Dynamic date generation for article publication dates
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateElements = document.querySelectorAll('.dynamic-date');
-            dateElements.forEach(el => {
-                const daysAgo = parseInt(el.dataset.daysAgo) || 0;
-                const d = new Date();
-                d.setDate(d.getDate() - daysAgo);
-                el.textContent = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-            });
-        });
+        // No publication date script needed; dates removed per request
     </script>
 </body>
 </html>
