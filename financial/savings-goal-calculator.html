@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goal Calculator: Plan $5k–$20k Faster &amp; Smarter</title>
+    <meta name="description" content="Reach your $5k–$20k savings goal with a clear monthly plan. Enter your goal, timeline, and current savings to get instant projections and a personalized savings strategy.">
+    <meta name="keywords" content="savings goal calculator, savings target calculator, how much to save each month, saving plan calculator, reach savings goal">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/savings-goal-calculator.html">
+
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Savings Goal Calculator: Plan $5k–$20k Faster & Smarter",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/financial/savings-goal-calculator.html",
+      "description": "Reach your $5k–$20k savings goal with a clear monthly plan. Enter your goal, timeline, and current savings to get instant projections and a personalized savings strategy.",
+      "keywords": [
+        "savings goal calculator",
+        "savings target calculator",
+        "monthly savings needed",
+        "how much to save each month",
+        "saving plan calculator",
+        "reach savings goal with interest",
+        "savings accounts singapore budgeting goal-setting features 2025",
+        "americans mostly doubt reaching $1m retirement savings goal",
+        "compare features of leading savings goal apps",
+        "how to choose the right savings account for goals"
+      ],
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
+
+    <style>
+        /* Global font */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        .material-icons {
+            font-family: 'Material Icons' !important;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 50px;
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #303030;
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-bottom: 24px;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .input-section {
+            padding: 22px 24px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .input-section h2 {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 24px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px 11px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.98em;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #333;
+            box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.08);
+        }
+
+        .note {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .buttons {
+            margin: 20px auto 0 auto;
+            display: flex;
+            gap: 12px;
+            max-width: 420px;
+            justify-content: center;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d4441a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            background-color: #f8d7da;
+            color: #721c24;
+            font-size: 0.9em;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .results-section {
+            display: none;
+            margin-top: 26px;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1.1fr;
+            gap: 18px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #eb5424 0%, #d4441a 100%);
+            color: white;
+            padding: 18px 20px;
+            border-radius: 10px;
+        }
+
+        .highlight-card h3 {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .highlight-card .value {
+            font-size: 1.7em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .highlight-card .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .summary-card {
+            background-color: #fff8e6;
+            border-radius: 10px;
+            padding: 16px 18px;
+            border: 1px solid #ffe4b3;
+            font-size: 0.95em;
+            color: #6b4a1f;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .summary-row span:first-child {
+            font-weight: 500;
+        }
+
+        .summary-row span:last-child {
+            font-weight: 600;
+        }
+
+        .info-section {
+            margin-top: 32px;
+            padding: 0 4px 4px 4px;
+        }
+
+        .info-section h2 {
+            font-size: 1.2em;
+            color: #303030;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .info-section p {
+            font-size: 0.97em;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .info-section ul {
+            margin-left: 18px;
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .info-section li {
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content-wrapper {
+                padding: 0 20px;
+            }
+
+            .calculator-container {
+                padding: 22px 24px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-content-wrapper {
+                padding: 0 15px;
+            }
+
+            .calculator-container {
+                padding: 18px 18px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- MAIN CONTENT -->
+    <section style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Financial Calculators</a>
+                                    <span>/</span>
+                                    Savings Goal Calculator
+                                </div>
+
+                                <h1>Planning a $5k to $20k Savings Goal? Find Out Your Timeline and Monthly Plan Instantly</h1>
+                                <div class="description">
+                                    Trying to reach a savings goal but unsure how long it will take or how much you need to set aside each month? Whether you’re saving for a big purchase or building an emergency fund, this tool removes the guesswork. Enter your goal, timeline, and current savings to get a clear, personalized savings plan instantly.
+                                </div>
+
+                                <div class="input-section">
+                                    <h2>Saving Objective</h2>
+                                    <div class="input-grid">
+                                        <div class="input-group">
+                                            <label for="targetAmount">Savings Goal Amount ($)</label>
+                                            <input type="number" id="targetAmount" min="0" step="100" placeholder="e.g. 100000">
+                                            <div class="note">Total amount you want to have at the end.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="currentSavings">Current Savings ($)</label>
+                                            <input type="number" id="currentSavings" min="0" step="100" placeholder="e.g. 5000" value="0">
+                                            <div class="note">Your starting balance today.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="yearsToGoal">Time to Goal (years)</label>
+                                            <input type="number" id="yearsToGoal" min="0.1" step="0.1" placeholder="e.g. 10">
+                                            <div class="note">How many years until you need the money.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="inflationRate">Inflation Rate (% per year, optional)</label>
+                                            <input type="number" id="inflationRate" min="0" max="30" step="0.1" placeholder="e.g. 3">
+                                            <div class="note">Used to show your goal in today's money.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-section">
+                                    <h2>Saving Conditions</h2>
+                                    <div class="input-grid">
+                                        <div class="input-group">
+                                            <label for="interestRate">Expected Return / Interest Rate (% per year)</label>
+                                            <input type="number" id="interestRate" min="0" max="50" step="0.1" placeholder="e.g. 7">
+                                            <div class="note">Average annual rate of return on your savings/investment.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="compounding">Compounding Frequency</label>
+                                            <select id="compounding">
+                                                <option value="yearly">Yearly</option>
+                                                <option value="semiannual">Semi-annually</option>
+                                                <option value="quarterly">Quarterly</option>
+                                                <option value="monthly" selected>Monthly</option>
+                                                <option value="weekly">Weekly</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="contributionFrequency">Contribution Frequency</label>
+                                            <select id="contributionFrequency">
+                                                <option value="yearly">Yearly</option>
+                                                <option value="semiannual">Semi-annually</option>
+                                                <option value="quarterly">Quarterly</option>
+                                                <option value="monthly" selected>Monthly</option>
+                                                <option value="weekly">Weekly</option>
+                                            </select>
+                                            <div class="note">How often you plan to add new savings.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="paymentTiming">Contribution Timing</label>
+                                            <select id="paymentTiming">
+                                                <option value="end" selected>End of each period</option>
+                                                <option value="beginning">Beginning of each period</option>
+                                            </select>
+                                            <div class="note">Beginning = pays slightly more thanks to extra compounding.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons">
+                                        <button type="button" class="btn-calculate" id="calculateBtn">Calculate</button>
+                                        <button type="button" class="btn-clear" id="clearBtn">Clear</button>
+                                    </div>
+                                    <div id="errorMessage" class="error-message"></div>
+                                </div>
+
+                                <div id="resultsSection" class="results-section">
+                                    <div class="results-grid">
+                                        <div class="highlight-card">
+                                            <h3>Required Regular Contribution</h3>
+                                            <div class="value" id="requiredContribution">$0</div>
+                                            <div class="label" id="contributionLabel">per month</div>
+                                        </div>
+                                        <div class="summary-card">
+                                            <div class="summary-row">
+                                                <span>Total of Your Contributions:</span>
+                                                <span id="totalContributions">$0</span>
+                                            </div>
+                                            <div class="summary-row">
+                                                <span>Interest / Investment Growth:</span>
+                                                <span id="totalInterest">$0</span>
+                                            </div>
+                                            <div class="summary-row">
+                                                <span>Future Value Reached:</span>
+                                                <span id="futureValue">$0</span>
+                                            </div>
+                                            <div class="summary-row" id="inflationRow" style="display:none; margin-top:6px;">
+                                                <span>Goal in Today's Money:</span>
+                                                <span id="inflationAdjustedGoal">$0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h2>How to Reach a $5k–$20k Savings Goal in 2025: Your Simple Monthly Plan Starts Here</h2>
+                                    <p>
+                                        Saving money often feels harder than it should. Many people want to save but do not know where to start. This Savings Goal Calculator gives you a simple way to plan your steps. It works for anyone who wants to save for an emergency fund, a new purchase, or a long-term goal. It also helps people who are comparing savings accounts or building better goal-setting habits for 2025.
+                                    </p>
+
+                                    <h2>How This Calculator Builds Your Plan</h2>
+                                    <p>
+                                        This tool uses your goal amount, your timeline, and your current savings. It shows the monthly contribution you need to stay on track. It also updates instantly when you change the timeline or goal. This makes the tool useful for budgeting because you can try different scenarios before committing.
+                                    </p>
+                                    <p>
+                                        Many users face the same problem: they do not know if their plan is realistic. This calculator solves that by showing numbers you can understand and follow. When you change your settings, the tool adjusts your monthly amount so you can decide what fits your life right now.
+                                    </p>
+
+                                    <h2>Why Real Scenarios Matter When You Save</h2>
+                                    <p>
+                                        Many people want simple guidance when they save. For example, people reviewing savings accounts in Singapore often check interest rates to see how much faster they can reach their goal. People in the United States face a different challenge. Recent reports show that Americans mostly doubt reaching a $1M retirement savings goal, which makes shorter savings goals feel more important.
+                                    </p>
+                                    <p>
+                                        This calculator helps you break down any amount into small steps. It also works well if you want to compare features of leading savings goal apps. Some apps offer automatic transfers. Some support multiple goals. Others help you track your progress each week. When you know your numbers, you can choose the tools that match your habits.
+                                    </p>
+                                    <p>
+                                        If you are unsure how to start, you can also use this calculator to decide how to choose the right savings account for goals. A good account should be easy to use. It should offer helpful features. It should also help you build strong saving habits without stress.
+                                    </p>
+
+                                    <h2>When You Should Adjust Your Savings Plan</h2>
+                                    <p>
+                                        Life changes fast. Your savings plan should change with it. You can increase your monthly contribution when your income grows. You can slow down when you face new bills. What matters most is consistency. Small steps build confidence. Reliable habits create long-term results.
+                                    </p>
+
+                                    <h2>Start Your Savings Plan Today</h2>
+                                    <p>
+                                        You now have a simple way to understand your savings goal. You can see how long it will take. You can see what you need to save each month. You can also plan future goals using the same method.
+                                    </p>
+                                    <p>
+                                        After you finish your calculation, explore the other tools on our site. You can check your budget, review your bills, and plan long-term savings. Every step helps you build a clear and confident financial future.
+                                    </p>
+                                </div>
+
+                                <div class="info-section">
+                                    <h2>Savings Goals FAQ: Everything You Need to Know</h2>
+
+                                    <p><strong>Q1: What is a good savings goal?</strong></p>
+                                    <p>A: One rule of thumb is to save 10% to 15% of your paycheck each pay period. Another savings strategy is the “50/20/30” rule: set aside 50% of your paycheck for your needs, 20% for your savings & debt, and 30% for your wants.</p>
+
+                                    <p><strong>Q2: How to make a savings goal?</strong></p>
+                                    <p>A: 
+                                        1. Choose a specific savings goal.<br>
+                                        2. Set a savings deadline.<br>
+                                        3. Create a different account for each goal.<br>
+                                        4. Track your goals.<br>
+                                        5. Break your goals down into smaller chunks.<br>
+                                        6. Automate your goals.
+                                    </p>
+
+                                    <p><strong>Q3: What is the best savings strategy?</strong></p>
+                                    <p>A: Tips<br>
+                                        • Pay yourself first. Put away first the money you want to set aside for goals.<br>
+                                        • Put bonuses and raises toward savings.<br>
+                                        • Make saving a habit. It's not difficult once you start.<br>
+                                        • Revisit your spending plan every few months to be sure you are on track. Income and expenses change over time.
+                                    </p>
+
+                                    <p><strong>Q4: Is it better to save or invest money?</strong></p>
+                                    <p>A: The pros and cons of investing — Saving is definitely safer than investing, though it will likely not result in the most wealth accumulated over the long run. Investing products such as stocks can have much higher returns than savings accounts and CDs.</p>
+
+                                    <p><strong>Q5: How much should I keep in savings?</strong></p>
+                                    <p>A: Though it depends on your financial situation, you should try to have enough savings to cover three to six months of expenses in case of an emergency. Stashing 20% of your monthly income is a good way to start building your savings.</p>
+
+                                    <p><strong>Q6: At what age should I have $100,000 saved?</strong></p>
+                                    <p>A: "I tell young people all the time, by the time you hit 33 years old you should have at least $100,000 saved somewhere. Make that your goal. That's the age when it's really time to start getting focused on saving. You want to be in a good place when you're 65, but it starts now!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function formatCurrency(amount) {
+            if (!isFinite(amount)) return '$0';
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        function getPeriodsPerYear(value) {
+            switch (value) {
+                case 'yearly':
+                    return 1;
+                case 'semiannual':
+                    return 2;
+                case 'quarterly':
+                    return 4;
+                case 'monthly':
+                    return 12;
+                case 'weekly':
+                    return 52;
+                default:
+                    return 1;
+            }
+        }
+
+        function calculateSavingsGoal() {
+            const targetAmount = parseFloat(document.getElementById('targetAmount').value) || 0;
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const yearsToGoal = parseFloat(document.getElementById('yearsToGoal').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const inflationRate = parseFloat(document.getElementById('inflationRate').value) || 0;
+            const compounding = document.getElementById('compounding').value;
+            const contributionFrequency = document.getElementById('contributionFrequency').value;
+            const paymentTiming = document.getElementById('paymentTiming').value;
+
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.classList.remove('show');
+            errorEl.textContent = '';
+
+            if (targetAmount <= 0) {
+                errorEl.textContent = 'Please enter a valid savings goal amount.';
+                errorEl.classList.add('show');
+                return;
+            }
+
+            if (yearsToGoal <= 0) {
+                errorEl.textContent = 'Please enter how many years you have until the goal.';
+                errorEl.classList.add('show');
+                return;
+            }
+
+            // Convert annual interest to per-period rate based on compounding
+            const compPeriodsPerYear = getPeriodsPerYear(compounding);
+            const contribPeriodsPerYear = getPeriodsPerYear(contributionFrequency);
+
+            const annualRate = interestRate / 100;
+
+            let rComp = 0;
+            if (annualRate > 0) {
+                rComp = annualRate / compPeriodsPerYear;
+            }
+
+            // Effective annual rate from compounding
+            const effectiveAnnualRate = rComp > 0
+                ? Math.pow(1 + rComp, compPeriodsPerYear) - 1
+                : 0;
+
+            // Convert effective annual rate to per-contribution rate
+            const r = contribPeriodsPerYear > 0
+                ? (effectiveAnnualRate > 0 ? Math.pow(1 + effectiveAnnualRate, 1 / contribPeriodsPerYear) - 1 : 0)
+                : 0;
+
+            const n = yearsToGoal * contribPeriodsPerYear;
+
+            // Future value of current savings grown at effective annual rate
+            const fvCurrent = effectiveAnnualRate > 0
+                ? currentSavings * Math.pow(1 + effectiveAnnualRate, yearsToGoal)
+                : currentSavings;
+
+            const fvNeededFromContrib = targetAmount - fvCurrent;
+
+            if (fvNeededFromContrib <= 0) {
+                // Already at or above goal
+                document.getElementById('requiredContribution').textContent = '$0.00';
+                document.getElementById('contributionLabel').textContent =
+                    `per ${contributionFrequency === 'weekly' ? 'week' :
+                        contributionFrequency === 'monthly' ? 'month' :
+                        contributionFrequency === 'quarterly' ? 'quarter' :
+                        contributionFrequency === 'semiannual' ? 'half-year' : 'year'}`;
+                document.getElementById('totalContributions').textContent = '$0.00';
+                document.getElementById('totalInterest').textContent = '$0.00';
+                document.getElementById('futureValue').textContent = formatCurrency(targetAmount);
+
+                // Inflation row
+                const inflationRow = document.getElementById('inflationRow');
+                const inflGoalEl = document.getElementById('inflationAdjustedGoal');
+                if (inflationRate > 0) {
+                    const infl = inflationRate / 100;
+                    const inflFactor = Math.pow(1 + infl, yearsToGoal);
+                    const realGoal = targetAmount / inflFactor;
+                    inflGoalEl.textContent = formatCurrency(realGoal);
+                    inflationRow.style.display = 'flex';
+                } else {
+                    inflationRow.style.display = 'none';
+                }
+
+                document.getElementById('resultsSection').classList.add('show');
+                return;
+            }
+
+            let payment = 0;
+
+            if (n <= 0) {
+                errorEl.textContent = 'Time horizon is too short to calculate contributions.';
+                errorEl.classList.add('show');
+                return;
+            }
+
+            if (r === 0) {
+                payment = fvNeededFromContrib / n;
+            } else {
+                const factor = Math.pow(1 + r, n);
+                const annuityFactor = (factor - 1) / r;
+                if (paymentTiming === 'end') {
+                    payment = fvNeededFromContrib * r / (factor - 1);
+                } else {
+                    // Annuity due: contributions at beginning of each period
+                    payment = fvNeededFromContrib * r / ((factor - 1) * (1 + r));
+                }
+            }
+
+            if (payment < 0) {
+                errorEl.textContent = 'Inputs lead to an invalid solution. Please adjust your goal or time horizon.';
+                errorEl.classList.add('show');
+                return;
+            }
+
+            const totalContributions = payment * n;
+            const fvTotal = fvCurrent + fvNeededFromContrib; // should be close to targetAmount
+            const totalInterest = fvTotal - currentSavings - totalContributions;
+
+            document.getElementById('requiredContribution').textContent = formatCurrency(payment);
+            const freqLabel =
+                contributionFrequency === 'weekly' ? 'per week' :
+                contributionFrequency === 'monthly' ? 'per month' :
+                contributionFrequency === 'quarterly' ? 'per quarter' :
+                contributionFrequency === 'semiannual' ? 'per half-year' :
+                'per year';
+            document.getElementById('contributionLabel').textContent = freqLabel;
+
+            document.getElementById('totalContributions').textContent = formatCurrency(totalContributions);
+            document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
+            document.getElementById('futureValue').textContent = formatCurrency(fvTotal);
+
+            const inflationRow = document.getElementById('inflationRow');
+            const inflGoalEl = document.getElementById('inflationAdjustedGoal');
+            if (inflationRate > 0) {
+                const infl = inflationRate / 100;
+                const inflFactor = Math.pow(1 + infl, yearsToGoal);
+                const realGoal = targetAmount / inflFactor;
+                inflGoalEl.textContent = formatCurrency(realGoal);
+                inflationRow.style.display = 'flex';
+            } else {
+                inflationRow.style.display = 'none';
+            }
+
+            document.getElementById('resultsSection').classList.add('show');
+        }
+
+        function clearSavingsForm() {
+            document.getElementById('targetAmount').value = '';
+            document.getElementById('currentSavings').value = '0';
+            document.getElementById('yearsToGoal').value = '';
+            document.getElementById('inflationRate').value = '';
+            document.getElementById('interestRate').value = '';
+            document.getElementById('compounding').value = 'monthly';
+            document.getElementById('contributionFrequency').value = 'monthly';
+            document.getElementById('paymentTiming').value = 'end';
+
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.classList.remove('show');
+            errorEl.textContent = '';
+
+            document.getElementById('resultsSection').classList.remove('show');
+            document.getElementById('requiredContribution').textContent = '$0.00';
+            document.getElementById('contributionLabel').textContent = 'per month';
+            document.getElementById('totalContributions').textContent = '$0.00';
+            document.getElementById('totalInterest').textContent = '$0.00';
+            document.getElementById('futureValue').textContent = '$0.00';
+            document.getElementById('inflationRow').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const calcBtn = document.getElementById('calculateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+
+            if (calcBtn) {
+                calcBtn.addEventListener('click', calculateSavingsGoal);
+            }
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearSavingsForm);
+            }
+
+            // Allow Enter key to trigger calculation when focused in the form
+            document.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    calculateSavingsGoal();
+                }
+            });
+        });
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
+
