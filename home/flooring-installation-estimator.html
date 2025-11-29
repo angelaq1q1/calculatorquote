@@ -217,11 +217,10 @@
         .calculator-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 30px;
+            padding: 50px;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
-            border: 2px solid #e0e0e0;
         }
         .breadcrumb {
             margin-bottom: 5px;
@@ -524,9 +523,7 @@
         }
         @media (max-width: 768px) {
             .calculator-container {
-                margin: 0;
-                padding: 20px;
-                box-shadow: none;
+                padding: 25px;
             }
             
             h1 {
@@ -678,6 +675,8 @@
                 <button type="button" class="btn-calculate" onclick="calculateFlooringCost()">Calculate</button>
                 <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
             </div>
+
+            <div class="note">* This calculator provides estimates based on average market rates. Actual costs may vary based on location, complexity, and contractor rates.</div>
         </div>
 
         <div class="error-message" id="errorMessage"></div>
@@ -713,7 +712,12 @@
             </div>
         </div>
 
-            <div class="note">* This calculator provides estimates based on average market rates. Actual costs may vary based on location, complexity, and contractor rates.</div>
+        <div style="margin-top:18px; text-align:left; border:1px solid #f0f0f0; border-radius:6px; padding:16px;">
+            <div style="font-weight:600; color:#303030; margin-bottom:6px;">Related Contents</div>
+            <a href="../blog/how-to-renovate-an-old-house.html" style="color:#eb5424; text-decoration:none; font-weight:600; display:inline-block;">
+                How to Renovate an Old House: A Real Family's 12-Month Transformation Story
+            </a>
+        </div>
 
             <div class="advice">
                 <h4>🏠 Flooring Installation Cost Calculator: Plan Your Project and Budget</h4>
