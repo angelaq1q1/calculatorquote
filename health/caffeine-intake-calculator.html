@@ -478,6 +478,13 @@
                         <button class="btn-clear" onclick="clearAllInputs()">Clear</button>
                     </div>
 
+                    <div style="margin-top:18px; text-align:left; border:1px solid #f0f0f0; border-radius:6px; padding:16px;">
+                        <div style="font-weight:600; color:#303030; margin-bottom:6px;">Related Contents</div>
+                        <a href="../blog/how-to-balance-your-daily-intake-and-dosage.html" style="color:#eb5424; text-decoration:none; font-weight:600; display:inline-block;">
+                            How to Balance Your Daily Intake and Dosage for Better Health
+                        </a>
+                    </div>
+
                     <div class="result-section" id="result-section">
                         <div class="results">
                             <h2>Your Daily Caffeine Intake</h2>
@@ -604,25 +611,13 @@
             const limitDisplayElement = document.getElementById('user-limit-display');
             const resultSection = document.getElementById('result-section');
             
-            console.log('updateRecommendedLimit called');
-            console.log('userTypeElement:', userTypeElement);
-            console.log('limitDisplayElement:', limitDisplayElement);
-            
-            if (!userTypeElement || !limitDisplayElement) {
-                console.log('Elements not found!');
-                return;
-            }
+            if (!userTypeElement || !limitDisplayElement) return;
             
             const userType = userTypeElement.value;
             const limitInfo = caffeineLimits[userType];
             
-            console.log('userType:', userType);
-            console.log('limitInfo:', limitInfo);
-            console.log('displayText:', limitInfo.displayText);
-            
             // Update the display in the user type selector
             limitDisplayElement.textContent = limitInfo.displayText;
-            console.log('Display updated!');
             
             // Recalculate if results are showing
             if (resultSection && resultSection.style.display !== 'none') {
