@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Fund Calculator – See How Much You Really Need</title>
+    <meta name="description" content="Worried about sudden expenses? Use our Emergency Fund Calculator to find your ideal savings amount based on income and lifestyle. Clear, simple, and fast.">
+    <meta name="keywords" content="emergency fund calculator, emergency fund, how much emergency fund, emergency savings calculator, emergency fund amount, emergency fund calculation, cfpb emergency fund 3 to 6 months recommendation, emerging market exchange traded funds, emergency fund meaning, american emergency fund reviews">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/emergency-fund-calculator.html">
+
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Emergency Fund Calculator – See How Much You Really Need",
+      "url": "https://www.calculatorquote.com/financial/emergency-fund-calculator.html",
+      "description": "Worried about sudden expenses? Use our Emergency Fund Calculator to find your ideal savings amount based on income and lifestyle. Clear, simple, and fast.",
+      "mainEntity": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Emergency Fund Calculator – See How Much You Really Need",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.calculatorquote.com/financial/emergency-fund-calculator.html",
+          "description": "Worried about sudden expenses? Use our Emergency Fund Calculator to find your ideal savings amount based on income and lifestyle. Clear, simple, and fast.",
+          "keywords": [
+            "emergency fund calculator",
+            "emergency fund",
+            "how much emergency fund",
+            "emergency savings calculator",
+            "emergency fund amount",
+            "emergency fund calculation",
+            "cfpb emergency fund 3 to 6 months recommendation",
+            "emerging market exchange traded funds",
+            "emergency fund meaning",
+            "american emergency fund reviews"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is in an emergency fund?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An emergency fund is a separate savings or bank account used to cover or offset the expense of an unforeseen situation. It shouldn't be considered a nest egg or calculated as part of a long-term savings plan for college tuition, a new car, or a vacation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much money should be in an emergency fund?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Experts recommend that you should have three to nine months of living expenses set aside. The easiest way to start an emergency fund is to start putting away small amounts every month until you reach your goal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is $10,000 enough for an emergency fund?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most financial advisors recommend having at least 3-6 months' worth of expenses stashed away. For most people, that equates to a number of at least $10,000, and can be much higher depending on your monthly expenses."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Global font */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        .material-icons {
+            font-family: 'Material Icons' !important;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 50px;
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #303030;
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-bottom: 24px;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .input-section {
+            padding: 22px 24px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .input-section h2 {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 24px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px 11px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.98em;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #333;
+            box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.08);
+        }
+
+        .note {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .buttons {
+            margin: 20px auto 0 auto;
+            display: flex;
+            gap: 12px;
+            max-width: 420px;
+            justify-content: center;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            flex: 1;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            background-color: #f8d7da;
+            color: #721c24;
+            font-size: 0.9em;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .results-section {
+            display: none;
+            margin-top: 26px;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1.1fr;
+            gap: 18px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #eb5424 0%, #d4441a 100%);
+            color: white;
+            padding: 18px 20px;
+            border-radius: 10px;
+        }
+
+        .highlight-card h3 {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .highlight-card .value {
+            font-size: 1.7em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .highlight-card .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .summary-card {
+            background-color: #fff8e6;
+            border-radius: 10px;
+            padding: 16px 18px;
+            border: 1px solid #ffe4b3;
+            font-size: 0.95em;
+            color: #6b4a1f;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .summary-row span:first-child {
+            font-weight: 500;
+        }
+
+        .summary-row span:last-child {
+            font-weight: 600;
+        }
+
+        .info-section {
+            margin-top: 32px;
+            padding: 0 4px 4px 4px;
+        }
+
+        .info-section h2 {
+            font-size: 1.2em;
+            color: #303030;
+            margin-bottom: 10px;
+            margin-top: 24px;
+            font-weight: 500;
+        }
+
+        .info-section h3 {
+            font-size: 1.1em;
+            color: #303030;
+            margin-bottom: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .info-section p {
+            font-size: 0.97em;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .info-section ul {
+            margin-left: 18px;
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .info-section li {
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content-wrapper {
+                padding: 0 20px;
+            }
+
+            .calculator-container {
+                padding: 22px 24px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-content-wrapper {
+                padding: 0 15px;
+            }
+
+            .calculator-container {
+                padding: 18px 18px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/index.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="../other/index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- MAIN CONTENT -->
+    <section style="padding-top: 0; padding-bottom: 0.5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Financial Calculators</a>
+                                    <span>/</span>
+                                    Emergency Fund Calculator
+                                </div>
+
+                                <h1>Emergency Fund Calculator – See Exactly How Much You Should Save for Safety</h1>
+                                <div class="description">
+                                    Building an emergency fund is hard when you don't know how much is enough. This simple calculator shows the amount you should save based on your monthly expenses, income stability, and financial risks. Use it to plan smarter and protect your future.
+                                </div>
+
+                                <div class="input-section">
+                                    <h2>Your Financial Information</h2>
+                                    <div class="input-grid">
+                                        <div class="input-group">
+                                            <label for="monthlyExpense">Monthly Expenses ($)</label>
+                                            <input type="number" id="monthlyExpense" min="0" step="100" placeholder="e.g. 2500">
+                                            <div class="note">The amount you usually spend on monthly expenses.</div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="monthsOfSavings">Number of Months of Savings</label>
+                                            <input type="number" id="monthsOfSavings" min="1" max="24" step="1" placeholder="e.g. 6" value="6">
+                                            <div class="note">Recommended: 3-6 months. Based on your risk appetite and personal circumstances.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons">
+                                        <button type="button" class="btn-calculate" id="calculateBtn">Calculate</button>
+                                        <button type="button" class="btn-clear" id="clearBtn">Clear</button>
+                                    </div>
+                                    <div id="errorMessage" class="error-message"></div>
+                                </div>
+
+                                <div id="resultsSection" class="results-section">
+                                    <div class="results-grid">
+                                        <div class="highlight-card">
+                                            <h3>Emergency Fund Amount</h3>
+                                            <div class="value" id="emergencyFundAmount">$0</div>
+                                            <div class="label">Total emergency fund needed</div>
+                                        </div>
+                                        <div class="summary-card">
+                                            <div class="summary-row">
+                                                <span>Monthly Expenses:</span>
+                                                <span id="displayMonthlyExpense">$0</span>
+                                            </div>
+                                            <div class="summary-row">
+                                                <span>Months of Savings:</span>
+                                                <span id="displayMonths">0 months</span>
+                                            </div>
+                                            <div class="summary-row" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #ffe4b3;">
+                                                <span>Calculation:</span>
+                                                <span id="calculationFormula">$0 × 0 = $0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h2>Find Out How Much Emergency Cash You Need Before the Next Surprise Hits</h2>
+                                    <h3>Start With a Clear Emergency Savings Goal</h3>
+                                    <p>
+                                        Everyone needs a solid plan when life takes a sudden turn. This Emergency Fund Calculator helps you see exactly how much money you may need for job loss, medical bills, car repairs, or any unexpected expense. Many people feel unsure about how much emergency savings is enough. This tool gives you a simple and clear number so you can build a stronger financial safety net. It works well for freelancers, single-income families, and anyone who wants more control over their money.
+                                    </p>
+
+                                    <h3>Understand How the Calculator Works</h3>
+                                    <p>
+                                        The Emergency Fund Calculator looks at your monthly essentials. These essentials include housing, food, transportation, insurance, childcare, and healthcare. The calculator also considers your income stability. Most experts suggest saving at least three to six months of expenses. People with unstable income or large families may need more. Some may feel safer with nine or twelve months of emergency cash. This calculator uses these guidelines to help you find your own ideal amount.
+                                    </p>
+
+                                    <h3>Enter Your Monthly Expenses and Risk Level</h3>
+                                    <p>
+                                        You only need to enter your monthly spending and choose your income stability level. The calculator uses this information to estimate your recommended emergency fund. This approach works well for people who face layoffs, contract jobs, business shifts, or sudden income drops. The results also show your current savings gap. This helps you see how much more you still need to save. The tool keeps everything simple so you can understand your financial picture in seconds.
+                                    </p>
+
+                                    <h3>Keep Your Emergency Fund Safe and Easy to Reach</h3>
+                                    <p>
+                                        Everyone should remember a few basic rules when using their emergency savings number. Your emergency fund must stay easy to access. A high-yield savings account or similar low-risk account usually works best. You may also need to balance building savings with paying off high-interest debt. Emergencies can come from many places, not only job loss. Medical bills, home repairs, and family needs can also drain your budget. Checking your income and expenses regularly will help you keep your emergency fund accurate and up to date.
+                                    </p>
+
+                                    <h3>Build a Stronger Financial Plan Today</h3>
+                                    <p>
+                                        Your emergency fund gives you peace of mind and helps you stay in control during stressful moments. This Emergency Fund Calculator gives you a simple starting point and guides you toward a clear savings goal. You can now build a realistic plan and prepare for whatever comes next. If you want more help with money planning, you can also use our Savings Goal Calculator, Budget Allocation Calculator, or Monthly Expense Calculator. These tools work together to help you build a stronger financial future.
+                                    </p>
+
+                                    <h2>❓Frequently Asked Questions About Emergency Funds</h2>
+                                    <p><strong>Q1. What is in an emergency fund?</strong></p>
+                                    <p>
+                                        A: An emergency fund is a separate savings or bank account used to cover or offset the expense of an unforeseen situation. It shouldn't be considered a nest egg or calculated as part of a long-term savings plan for college tuition, a new car, or a vacation.
+                                    </p>
+
+                                    <p><strong>Q2. How much money should be in an emergency fund?</strong></p>
+                                    <p>
+                                        A: How much money should you have in an emergency fund? Experts recommend that you should have three to nine months of living expenses set aside. How do I start an emergency fund? The easiest way to start an emergency fund is to start putting away small amounts every month until you reach your goal.
+                                    </p>
+
+                                    <p><strong>Q3. Is $10,000 enough for an emergency fund?</strong></p>
+                                    <p>
+                                        A: Reality check: most financial advisors recommend having at least 3-6 months' worth of expenses stashed away. For most people, that equates to a number of at least $10,000, and can be much higher depending on your monthly expenses.
+                                    </p>
+
+                                    <p><strong>Q4. What is the 7% rule in finance?</strong></p>
+                                    <p>
+                                        A: These rules help control risk, protect your money, and make smarter financial choices. The 7% Rule in trading means you should sell a stock if its price drops 7% below what you paid for it. This rule helps you cut losses early and protect your investment capital.
+                                    </p>
+
+                                    <p><strong>Q5. Is it better to save or invest early?</strong></p>
+                                    <p>
+                                        A: In general, you should begin building savings and pay off high-interest debt before you dive into investing, especially as protection against unexpected costs. The rule of thumb is to have at least three to six months' worth of your household income set aside in an emergency fund.
+                                    </p>
+
+                                    <p><strong>Q6. What is a good 401k balance at age 40?</strong></p>
+                                    <p>
+                                        A: Fidelity recommends having three times your salary saved by age 40, and six times by 50. With the median full-time salary for people in their 40s roughly at $70,000, that implies a target of $210,000 to $420,000 — well above the average 401(k) balance reported for that age group.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        function calculateEmergencyFund() {
+            const monthlyExpenseEl = document.getElementById('monthlyExpense');
+            const monthsOfSavingsEl = document.getElementById('monthsOfSavings');
+            const errorMessageEl = document.getElementById('errorMessage');
+            const resultsSectionEl = document.getElementById('resultsSection');
+
+            if (!monthlyExpenseEl || !monthsOfSavingsEl || !errorMessageEl || !resultsSectionEl) {
+                return;
+            }
+
+            // Get input values
+            const monthlyExpense = parseFloat(monthlyExpenseEl.value);
+            const monthsOfSavings = parseFloat(monthsOfSavingsEl.value);
+
+            // Clear previous error
+            errorMessageEl.classList.remove('show');
+            errorMessageEl.textContent = '';
+
+            // Validation
+            if (isNaN(monthlyExpense) || monthlyExpense <= 0) {
+                errorMessageEl.textContent = 'Please enter a valid monthly expense amount (greater than 0).';
+                errorMessageEl.classList.add('show');
+                resultsSectionEl.classList.remove('show');
+                return;
+            }
+
+            if (isNaN(monthsOfSavings) || monthsOfSavings < 1 || monthsOfSavings > 24) {
+                errorMessageEl.textContent = 'Please enter a valid number of months (between 1 and 24).';
+                errorMessageEl.classList.add('show');
+                resultsSectionEl.classList.remove('show');
+                return;
+            }
+
+            // Calculate emergency fund
+            const emergencyFund = monthlyExpense * monthsOfSavings;
+
+            // Display results
+            const emergencyFundAmountEl = document.getElementById('emergencyFundAmount');
+            const displayMonthlyExpenseEl = document.getElementById('displayMonthlyExpense');
+            const displayMonthsEl = document.getElementById('displayMonths');
+            const calculationFormulaEl = document.getElementById('calculationFormula');
+
+            if (emergencyFundAmountEl) {
+                emergencyFundAmountEl.textContent = formatCurrency(emergencyFund);
+            }
+            if (displayMonthlyExpenseEl) {
+                displayMonthlyExpenseEl.textContent = formatCurrency(monthlyExpense);
+            }
+            if (displayMonthsEl) {
+                displayMonthsEl.textContent = monthsOfSavings + ' month' + (monthsOfSavings !== 1 ? 's' : '');
+            }
+            if (calculationFormulaEl) {
+                calculationFormulaEl.textContent = formatCurrency(monthlyExpense) + ' × ' + monthsOfSavings + ' = ' + formatCurrency(emergencyFund);
+            }
+
+            // Show results
+            resultsSectionEl.classList.add('show');
+            resultsSectionEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function clearInputs() {
+            const monthlyExpenseEl = document.getElementById('monthlyExpense');
+            const monthsOfSavingsEl = document.getElementById('monthsOfSavings');
+            const errorMessageEl = document.getElementById('errorMessage');
+            const resultsSectionEl = document.getElementById('resultsSection');
+
+            if (monthlyExpenseEl) monthlyExpenseEl.value = '';
+            if (monthsOfSavingsEl) monthsOfSavingsEl.value = '6';
+            if (errorMessageEl) {
+                errorMessageEl.classList.remove('show');
+                errorMessageEl.textContent = '';
+            }
+            if (resultsSectionEl) resultsSectionEl.classList.remove('show');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', calculateEmergencyFund);
+            }
+
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearInputs);
+            }
+
+            // Allow Enter key to calculate
+            const monthlyExpenseEl = document.getElementById('monthlyExpense');
+            const monthsOfSavingsEl = document.getElementById('monthsOfSavings');
+
+            if (monthlyExpenseEl) {
+                monthlyExpenseEl.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculateEmergencyFund();
+                    }
+                });
+            }
+
+            if (monthsOfSavingsEl) {
+                monthsOfSavingsEl.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculateEmergencyFund();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
