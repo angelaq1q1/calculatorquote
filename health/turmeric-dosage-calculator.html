@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Title -->
+    <title>Turmeric Dosage Calculator – Estimate Your Daily Curcumin Intake</title>
+    <!-- Meta Description -->
+    <meta name="description" content="Not sure how much curcumin you get from turmeric, curry, or daily meals? Use our Turmeric Dosage Calculator to estimate your intake in seconds and compare it with general daily guidelines.">
+    <meta name="keywords" content="turmeric dosage calculator, curcumin dosage calculator, turmeric supplement, curcumin intake per day, turmeric root mg curcumin, curry powder curcumin">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/health/turmeric-dosage-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Turmeric Dosage Calculator – Estimate Your Daily Curcumin Intake">
+    <meta property="og:description" content="Enter your weight and turmeric sources to see how much curcumin you get each day and how it compares to typical recommended ranges.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.calculatorquote.com/health/turmeric-dosage-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+    <meta property="og:site_name" content="CalculatorQuote.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Turmeric Dosage Calculator – Estimate Your Daily Curcumin Intake">
+    <meta name="twitter:description" content="Quickly estimate curcumin intake from turmeric foods and supplements and compare it to safe daily ranges based on your weight.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Turmeric Dosage Calculator – Estimate Your Daily Curcumin Intake",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/health/turmeric-dosage-calculator.html",
+      "description": "Not sure how much curcumin you get from turmeric, curry, or daily meals? Use our Turmeric Dosage Calculator to estimate your intake in seconds and compare it with general daily guidelines.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "featureList": [
+        "curcumin intake from turmeric root, powder, and curry",
+        "turmeric supplement dosage estimator",
+        "recommended curcumin range by body weight",
+        "intake vs recommendation status (below, within, above)"
+      ],
+      "keywords": [
+        "turmeric dosage calculator",
+        "curcumin dosage per kg",
+        "turmeric supplement dosage",
+        "curcumin intake from food",
+        "recommended dosage of turmeric for inflammation",
+        "turmeric daily dosage",
+        "dosage turmeric for inflammation",
+        "turmeric indian cuisine"
+      ],
+      "datePublished": "2025-12-02",
+      "dateModified": "2025-12-02"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, body *, body *::before, body *::after,
+        input, select, textarea, button,
+        h1, h2, h3, h4, h5, h6,
+        p, span, div, a, label, li, ul, ol,
+        .navbar, .navbar *, .breadcrumb, .breadcrumb *,
+        .calculator-container, .calculator-container *,
+        .results-card, .results-card *,
+        footer, footer * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        body { background: #ffffff; min-height: 100vh; color: #606060; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .content-area { flex: 1; max-width: 800px; }
+        .calculator-container { max-width: 900px; margin: 0 auto 20px auto; padding: 40px 50px; background-color: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); }
+
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #666; margin: 0 8px; }
+
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .subheading { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 22px; text-align: left; }
+
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-field-container { display: flex; align-items: center; gap: 10px; }
+        .input-field-container input, .input-field-container select { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .input-field-container input:focus, .input-field-container select:focus { border-color: #eb5424; }
+
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 400px; margin: 25px auto 0 auto; }
+        .btn-calculate { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+
+        .results-card { padding: 25px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; margin-top: 20px; }
+        .results-card h3 { color: #333; margin-bottom: 15px; font-size: 1.3em; }
+        .results-card p { margin: 0; padding: 8px 0; font-size: 1.05em; color: #333; }
+        .status-text { font-weight: 600; margin-top: 8px; }
+        .status-below { color: #c0392b; }
+        .status-within { color: #27ae60; }
+        .status-above { color: #f39c12; }
+        .note { color: #606060; font-size: 0.95em; margin-top: 6px; }
+
+        .info-box { margin-top: 24px; }
+        .info-box h2 { font-size: 1.3em; font-weight: 500; color: #303030; margin-bottom: 12px; }
+        .info-box p { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 12px; }
+
+        @media (max-width: 768px) {
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .main-content-wrapper { padding: 0 20px; }
+            .calculator-container { padding: 30px 25px; }
+            .buttons { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .main-content-wrapper { padding: 0 15px; }
+            .calculator-container { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                    <li style="display:none;"><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Health Calculators</a>
+                                    <span>/</span>
+                                    Turmeric Dosage Calculator
+                                </div>
+
+                                <h1>Not Sure How Much Curcumin You Get from Food? Calculate Your Daily Turmeric Intake in Seconds</h1>
+                                <p class="subheading">It’s hard to know how much curcumin you get from turmeric, curry, or everyday meals because food labels don’t show it. Use our quick calculator to estimate your intake in seconds and compare it with general daily guidelines to adjust your diet easily.</p>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="weight">Body weight</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="weight" placeholder="e.g. 70" min="1" step="0.1">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="weightUnit">Weight unit</label>
+                                        <div class="input-field-container">
+                                            <select id="weightUnit">
+                                                <option value="kg" selected>kg</option>
+                                                <option value="lb">lbs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="freshRoot">Fresh turmeric root eaten (g)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="freshRoot" placeholder="e.g. 10" min="0" step="1">
+                                        </div>
+                                        <div class="note">Estimated 3% curcumin per 100 g fresh root.</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="powder">Turmeric powder used (g)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="powder" placeholder="e.g. 5" min="0" step="1">
+                                        </div>
+                                        <div class="note">Estimated 4% curcumin per 100 g powder (midpoint of 2–5%).</div>
+                                    </div>
+                                </div>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="curry">Curry / golden milk / sauces (g)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="curry" placeholder="e.g. 50" min="0" step="1">
+                                        </div>
+                                        <div class="note">Estimated 0.2% curcumin per 100 g curry.</div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="supplementMg">Curcumin supplement (mg per day)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="supplementMg" placeholder="e.g. 500" min="0" step="1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button id="calcBtn" class="btn-calculate">Calculate</button>
+                                    <button id="clearBtn" class="btn-clear">Clear</button>
+                                </div>
+
+                                <div class="results-card" id="recommendedCard" style="display:none;">
+                                    <h3>Recommended Curcumin Range</h3>
+                                    <p><strong>Weight‑based range:</strong> <span id="recRange">0–0</span> mg/day (0.5–2 mg/kg)</p>
+                                    <p><strong>Midpoint target (1 mg/kg):</strong> <span id="recMid">0</span> mg/day</p>
+                                </div>
+
+                                <div class="results-card" id="intakeCard" style="display:none;">
+                                    <h3>Your Estimated Curcumin Intake</h3>
+                                    <p><strong>From food:</strong> <span id="foodIntake">0</span> mg</p>
+                                    <p><strong>From supplements:</strong> <span id="suppIntake">0</span> mg</p>
+                                    <p><strong>Total intake:</strong> <span id="totalIntake">0</span> mg/day</p>
+                                    <p><strong>Percent of 1 mg/kg target:</strong> <span id="percentOfTarget">0%</span></p>
+                                    <p class="status-text" id="statusText"></p>
+                                    <p class="note">Food values are averages only. Actual curcumin content and individual absorption can vary.</p>
+                                </div>
+
+                                <div class="info-box">
+                                    <p><strong>Glow Smarter with Turmeric: A Simple Guide to Knowing Your Daily Curcumin Intake</strong></p>
+                                    <p><strong>Start Here: Understand What You Really Get from Turmeric</strong></p>
+                                    <p>Many people use turmeric every day, whether it’s for cooking, skincare, or wellness. Some mix it into drinks. Some try facial masks using turmeric. Others take organic turmeric powder or compare turmeric vs curcumin before picking a supplement. But most people don’t know how much curcumin they actually take in. This calculator helps you estimate that amount in a few seconds. It works for anyone who wants clarity—whether you use turmeric for health, beauty, or both.</p>
+
+                                    <p><strong>How the Calculator Works and Why It Matters</strong></p>
+                                    <p>The math behind the tool is simple. Turmeric only contains a small percentage of curcumin. Most kitchen turmeric powder has about 2–5% curcumin. Supplements have more. Meals and drinks dilute that number even further. The calculator uses common averages to help you estimate your daily intake based on how much turmeric you use. The goal is not medical advice. The goal is to give you a realistic picture.</p>
+                                    <p>This tool also helps you compare turmeric and curcumin. Many people think they are the same. They are not. Turmeric is the whole spice. Curcumin is one active compound inside it. That is why some people read reviews like the C.E.O. Glow Vitamin C and Turmeric Face Oil review to understand how turmeric works in skincare. The calculator keeps things clear by showing how much curcumin your turmeric may contain.</p>
+                                    <p>Use the tool when you add turmeric to meals, smoothies, or teas. Use it when you try a new supplement. Use it when you want to track your intake across the day. This helps you avoid taking too much and helps you stay aware of what you consume. If you use turmeric on your skin, like in a facial mask using turmeric, the calculator won’t measure that amount. But it still helps you understand the difference between what goes on your skin and what goes into your body.</p>
+                                    <p>If you take organic turmeric powder, check the label when possible. Brands vary. If you cannot find exact numbers, the calculator gives you a good estimate. It is a helpful way to keep your routine simple and safe.</p>
+
+                                    <p><strong>Before You Go: Keep Tracking and Explore More Tools</strong></p>
+                                    <p>If you care about wellness, skincare, or overall balance, this calculator is a great way to stay consistent. It gives you a fast and simple estimate of your curcumin intake so you can adjust your meals or supplements with ease. Use it daily or whenever your routine changes. Your body responds best when you stay aware and make small, steady improvements.</p>
+                                    <p>You can also explore the other tools on our site to support your health journey. Try our nutrition, fitness, or ingredient calculators next. Each one helps you understand what you use and how it affects your day. Start with this turmeric dosage calculator, then continue your routine with tools that keep everything clear and easy.</p>
+                                </div>
+
+                                <div class="info-box">
+                                    <h2><strong>❓Frequently Asked Questions About Turmeric and Curcumin</strong></h2>
+
+                                    <p><strong>Q1: How much turmeric is okay per day?</strong></p>
+                                    <p>A: Some experts note that up to 8 grams of turmeric per day has been used in research, but this is on the higher end and not necessary for most people. A more typical suggestion for the general population is around 500 to 1,000 mg per day, and it’s always best to talk with a healthcare provider before adding or increasing supplements.</p>
+
+                                    <p><strong>Q2: What happens to your body when you start taking turmeric?</strong></p>
+                                    <p>A: Turmeric contains curcumin, which has anti-inflammatory and antioxidant properties. Studies suggest curcumin may help reduce symptoms of depression when used alongside antidepressants and may lower certain blood fats such as triglycerides. Individual responses vary, and benefits often depend on dose, form, and consistency of use.</p>
+
+                                    <p><strong>Q3: How long does turmeric take to work?</strong></p>
+                                    <p>A: Turmeric and curcumin usually do not work overnight. For joint or inflammation support, some people may notice changes after 1–2 months of regular use. You can take turmeric as a supplement, add it to meals, or use it in drinks such as golden milk, but consistency over weeks is key.</p>
+
+                                    <p><strong>Q4: What is the best way to consume turmeric?</strong></p>
+                                    <p>A: Turmeric is absorbed better when taken with food and some fat. Many people take it shortly before or after a meal or large snack. Splitting your daily dose into two servings about 8–12 hours apart may help keep turmeric or curcumin levels steadier in your body.</p>
+
+                                    <p><strong>Q5: How many days does turmeric stay in your system?</strong></p>
+                                    <p>A: Turmeric and its active compounds generally stay in the body for about 1–2 days, so daily intake is often used in studies and routines. However, the exact duration can differ based on age, sex, weight, health status, dose, product form, and other foods or supplements you take.</p>
+
+                                    <p><strong>Q6: How long before I feel the benefits of turmeric?</strong></p>
+                                    <p>A: Survey and trial data suggest that some people feel joint or wellness benefits after 2–4 weeks of daily use, while others may need 5–8 weeks or even 9–12 weeks before noticing changes. Like many supplements, turmeric works best when you take it regularly over time and combine it with healthy lifestyle habits.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 900px; margin: 0 auto 30px; text-align: center; color: #888;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; margin: 0 12px;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; margin: 0 12px;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; margin: 0 12px;">Privacy Policy</a>
+        </nav>
+        <div>&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const CURCUMIN_PCT_FRESH = 0.03;   // 3%
+        const CURCUMIN_PCT_POWDER = 0.04;  // midpoint of 2–5%
+        const CURCUMIN_PCT_CURRY = 0.002;  // midpoint of 0.1–0.3%
+
+        function toKg(weight, unit) {
+            if (!weight || weight <= 0) return 0;
+            return unit === 'lb' ? weight * 0.453592 : weight;
+        }
+
+        function calcCurcuminFromFood(grams, pct) {
+            if (!grams || grams <= 0) return 0;
+            // grams * percentage * 1000 (to mg)
+            return grams * pct * 1000;
+        }
+
+        function formatNumber(val) {
+            if (!isFinite(val)) return '0';
+            return Number(val).toFixed(0);
+        }
+
+        function calculateTurmeric() {
+            const weightVal = parseFloat(document.getElementById('weight').value) || 0;
+            const weightUnit = document.getElementById('weightUnit').value;
+            const freshRoot = parseFloat(document.getElementById('freshRoot').value) || 0;
+            const powder = parseFloat(document.getElementById('powder').value) || 0;
+            const curry = parseFloat(document.getElementById('curry').value) || 0;
+            const supplementMg = parseFloat(document.getElementById('supplementMg').value) || 0;
+
+            const weightKg = toKg(weightVal, weightUnit);
+            const recLow = weightKg * 0.5;
+            const recMid = weightKg * 1.0;
+            const recHigh = weightKg * 2.0;
+
+            const foodFromFresh = calcCurcuminFromFood(freshRoot, CURCUMIN_PCT_FRESH);
+            const foodFromPowder = calcCurcuminFromFood(powder, CURCUMIN_PCT_POWDER);
+            const foodFromCurry = calcCurcuminFromFood(curry, CURCUMIN_PCT_CURRY);
+            const totalFood = foodFromFresh + foodFromPowder + foodFromCurry;
+            const totalIntake = totalFood + supplementMg;
+
+            const percent = recMid > 0 ? (totalIntake / recMid) * 100 : 0;
+
+            let status = '';
+            let statusClass = '';
+            if (!weightKg) {
+                status = 'Please enter a valid body weight to see recommendations.';
+                statusClass = 'status-below';
+            } else if (totalIntake < recLow) {
+                status = 'Below suggested daily curcumin range (0.5–2 mg/kg).';
+                statusClass = 'status-below';
+            } else if (totalIntake > recHigh) {
+                status = 'Above the suggested daily curcumin range (0.5–2 mg/kg). Consider lowering your dose or talking with a professional.';
+                statusClass = 'status-above';
+            } else {
+                status = 'Within the suggested daily curcumin range for your body weight.';
+                statusClass = 'status-within';
+            }
+
+            // Update UI
+            document.getElementById('recRange').textContent = `${formatNumber(recLow)}–${formatNumber(recHigh)}`;
+            document.getElementById('recMid').textContent = `${formatNumber(recMid)} mg/day`;
+
+            document.getElementById('foodIntake').textContent = `${formatNumber(totalFood)} mg`;
+            document.getElementById('suppIntake').textContent = `${formatNumber(supplementMg)} mg`;
+            document.getElementById('totalIntake').textContent = `${formatNumber(totalIntake)} mg`;
+            document.getElementById('percentOfTarget').textContent = `${percent.toFixed(0)}%`;
+
+            const statusEl = document.getElementById('statusText');
+            statusEl.textContent = status;
+            statusEl.className = `status-text ${statusClass}`;
+
+            document.getElementById('recommendedCard').style.display = 'block';
+            document.getElementById('intakeCard').style.display = 'block';
+        }
+
+        function clearTurmericForm() {
+            document.getElementById('weight').value = '';
+            document.getElementById('weightUnit').value = 'kg';
+            document.getElementById('freshRoot').value = '';
+            document.getElementById('powder').value = '';
+            document.getElementById('curry').value = '';
+            document.getElementById('supplementMg').value = '';
+
+            document.getElementById('recommendedCard').style.display = 'none';
+            document.getElementById('intakeCard').style.display = 'none';
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', calculateTurmeric);
+        document.getElementById('clearBtn').addEventListener('click', clearTurmericForm);
+    </script>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
+
