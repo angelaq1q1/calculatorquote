@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthocyanin Intake Calculator – Blueberries & Blackcurrants Daily Dose</title>
+    <meta name="description" content="Struggling to get enough anthocyanins? Use our quick calculator to see your personalized daily intake from blueberries or blackcurrants and support your eye health, antioxidants, and overall wellness.">
+    <meta name="keywords" content="anthocyanin dosage calculator, anthocyanin intake, berry antioxidants, eye health supplement, antioxidant dosage, flavonoid calculator, anthocyanin mg per day">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/health/anthocyanin-dosage-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anthocyanin Dosage Calculator: Personalize Your Daily Intake">
+    <meta property="og:description" content="Find the right anthocyanin intake for general wellness, eye health, or intensive antioxidant support. Compare recommended vs. actual intake from berries or supplements.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.calculatorquote.com/health/anthocyanin-dosage-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+    <meta property="og:site_name" content="CalculatorQuote.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anthocyanin Dosage Calculator: Personalize Your Daily Intake">
+    <meta name="twitter:description" content="Estimate anthocyanin dosage by weight, food grams, or supplement capsules. See if you meet low, standard, or high intake targets.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Anthocyanin Intake Calculator – Blueberries & Blackcurrants Daily Dose",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/health/anthocyanin-dosage-calculator.html",
+      "description": "Struggling to get enough anthocyanins? Use our quick calculator to see your personalized daily intake from blueberries or blackcurrants and support your eye health, antioxidants, and overall wellness.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-12-02",
+      "dateModified": "2025-12-02",
+      "featureList": [
+        "anthocyanin recommended range calculator",
+        "personalized dose by weight",
+        "food & supplement intake estimator",
+        "intake vs recommendation comparison"
+      ],
+      "keywords": [
+        "anthocyanins benefits",
+        "anthocyanin supplement",
+        "anthocyanin definition",
+        "blueberry anthocyanins"
+      ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+
+    <style>
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            color: #606060;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .calculator-container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 34px;
+            box-shadow: 0 6px 20px rgba(235,84,36,0.12);
+            margin: 20px auto 40px auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { margin: 0 6px; color: #b0b0b0; }
+
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .subheading {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px 28px;
+            margin-bottom: 24px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #303030;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.95em;
+            transition: border 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #eb5424;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(235,84,36,0.15);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 15px auto 30px auto;
+        }
+
+        .btn-action {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary { background-color: #eb5424; }
+        .btn-primary:hover { background-color: #d43d1a; }
+        .btn-secondary { background-color: #f5c6cb; }
+        .btn-secondary:hover { background-color: #f1aeb5; }
+
+        .results-card {
+            border: 1px solid #f1f1f1;
+            border-left: 4px solid #eb5424;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            background: #fcfcfc;
+        }
+
+        .results-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .results-card p { margin: 0; line-height: 1.6; }
+        .comparison-result { font-weight: 600; margin-top: 8px; color: #303030; }
+        .note { font-size: 0.9em; color: #777; margin-top: 10px; }
+
+        .info-box {
+            margin-top: 24px;
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .info-box h2 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #303030;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                padding: 0 20px;
+            }
+            .calculator-container { padding: 24px; }
+            .buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                    <li style="display:none;"><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Health Calculators</a>
+                                    <span>/</span>
+                                    Anthocyanin Dosage Calculator
+                                </div>
+
+                                <h1>Blueberries or Blackcurrants for Anthocyanins? Calculate Your Daily Intake in One Click</h1>
+                                <p class="subheading">Struggling to get enough anthocyanins from your diet? Whether it’s blueberries or blackcurrants, it’s hard to know your daily intake. Use our quick calculator to see your personalized dose and support your eye health, antioxidants, and overall wellness.</p>
+
+                                <div class="input-grid">
+                                    <div>
+                                        <label for="weight">Body weight</label>
+                                        <input type="number" id="weight" placeholder="e.g. 70" min="1" step="0.1">
+                                        <div class="note">kg (auto converts mg/kg formulas)</div>
+                                    </div>
+                                    <div>
+                                        <label for="intensity">Target intensity</label>
+                                        <select id="intensity">
+                                            <option value="standard" selected>Standard (150–300 mg)</option>
+                                            <option value="low">Low (50–150 mg)</option>
+                                            <option value="high">High (300–600 mg)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="foodContent">Anthocyanin per 100g food (mg)</label>
+                                        <input type="number" id="foodContent" placeholder="e.g. 150" min="0" step="1">
+                                    </div>
+                                    <div>
+                                        <label for="foodAmount">Food amount eaten (g)</label>
+                                        <input type="number" id="foodAmount" placeholder="e.g. 80" min="0" step="1">
+                                    </div>
+                                    <div>
+                                        <label for="suppContent">Anthocyanin per capsule (mg)</label>
+                                        <input type="number" id="suppContent" placeholder="e.g. 150" min="0" step="1">
+                                    </div>
+                                    <div>
+                                        <label for="suppCount">Number of capsules</label>
+                                        <input type="number" id="suppCount" placeholder="e.g. 2" min="0" step="1">
+                                    </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="btn-action btn-primary" id="calcBtn">Calculate</button>
+                                    <button class="btn-action btn-secondary" id="resetBtn">Clear</button>
+                                </div>
+
+                                <div class="results-card" id="recommendedCard" style="display:none;">
+                                    <h3>Recommended Intake</h3>
+                                    <p><strong>Range:</strong> <span id="recommendedRange">150–300</span> mg/day</p>
+                                    <p><strong>Personalized target:</strong> <span id="personalizedDose">280</span> mg/day</p>
+                                    <p class="note">Weight-based formula: Low 2 mg/kg, Standard 4 mg/kg, High 6 mg/kg.</p>
+                                </div>
+
+                                <div class="results-card" id="actualCard" style="display:none;">
+                                    <h3>Actual Intake</h3>
+                                    <p><strong>Food contribution:</strong> <span id="foodIntake">0</span> mg</p>
+                                    <p><strong>Supplement contribution:</strong> <span id="suppIntake">0</span> mg</p>
+                                    <p><strong>Total intake:</strong> <span id="totalIntake">0</span> mg</p>
+                                    <p><strong>Recommended vs actual:</strong> <span id="percentageAchieved">0%</span></p>
+                                    <p class="comparison-result" id="comparisonResult"></p>
+                                </div>
+
+                                <div class="note">Disclaimer: Anthocyanin research provides suggested ranges only and does not replace advice from a qualified healthcare professional.</div>
+
+                                <div class="info-box">
+                                    <h2>Calculate Your Daily Anthocyanin Intake from Berries &amp; Purple Foods</h2>
+                                    <p><strong>Why Track Your Anthocyanin Intake?</strong></p>
+                                    <p>Do you wonder if you get enough anthocyanins every day? Our Anthocyanin Dosage Calculator makes it simple to find out. It works with common foods like blueberries, blackcurrants, purple cabbage, and other colorful fruits and vegetables. Whether you want to support eye health, boost antioxidants, or just improve overall wellness, this tool is for you. Enter your weight and the foods you eat, and you will quickly see if your daily intake meets your body’s needs. Knowing your intake can help you make better food choices and feel confident about your nutrition.</p>
+
+                                    <p><strong>How the Calculator Works</strong></p>
+                                    <p>The calculator adds up the anthocyanin content in the foods you enter. Each food has an approximate value per 100 grams based on reliable nutrition databases. Type in the amount you eat and your body weight. The tool will estimate your total daily anthocyanin intake.</p>
+                                    <p>This works for many scenarios. If you eat berries, purple vegetables, or fruit juices often, you can check if you reach the recommended levels. If you take anthocyanin supplements, the calculator helps you stay within a safe range.</p>
+                                    <p>Remember, this is only an estimate. Individual absorption may vary. This tool does not replace professional medical advice. Always talk to a healthcare provider before changing your diet or supplement routine. The goal is to support your wellness safely, not rely on one nutrient alone. You can also use the results to plan balanced meals and track progress over weeks. Small adjustments can make a big difference over time.</p>
+
+                                    <p><strong>Tips for Using Anthocyanin-Rich Foods</strong></p>
+                                    <p>To naturally boost your intake, include a variety of colorful foods in your meals. Snack on blueberries or blackcurrants, add purple cabbage to salads, or enjoy fruit smoothies. The more variety, the more antioxidants you get. Using our Dosage Calculator, you can experiment with different combinations to see what works best for you. Tracking your intake can also help you notice patterns and improve overall diet quality.</p>
+
+                                    <p><strong>Next Steps for Better Nutrition</strong></p>
+                                    <p>After calculating your intake, you can make simple changes to reach your daily goal. Add a mix of berries, purple vegetables, and fruits to increase antioxidants naturally. Our Dosage Calculator helps you track your progress over time.</p>
+                                    <p>Don’t stop here. Explore our other nutrition tools to measure curcumin, vitamins, and minerals. You can get a clear view of your diet and make smarter choices. Start calculating today. Take the guesswork out of your anthocyanin intake. Your health will thank you, and you will feel more in control of your nutrition every day.</p>
+                                </div>
+
+                                <div class="info-box">
+                                    <h2><strong>❓Common Questions About Using the Anthocyanin Dosage Calculator</strong></h2>
+                                    <p><strong>Q1: How much anthocyanin should you eat a day?</strong></p>
+                                    <p>A: Estimating daily anthocyanin intake is challenging due to incomplete data on their quantities in food. However, it is approximated to be around 12.5 mg/day in the US, ranging from 19 to 65 mg/day for men and 18–44 mg/day for women in Europe.</p>
+
+                                    <p><strong>Q2: Is too much anthocyanin bad for you?</strong></p>
+                                    <p>A: Anthocyanin-rich foods are generally considered safe. However, the same may not always be true for anthocyanin supplements, which can provide much larger amounts of polyphenols than you would usually get from a balanced diet.</p>
+
+                                    <p><strong>Q3: What food is highest in anthocyanins?</strong></p>
+                                    <p>A: Fruits, vegetables, and grains with red, purple, blue, or black colors tend to be rich in anthocyanins. Berries usually have the highest levels, especially black elderberries and aronia berries (chokeberries). Blueberries, blackberries, raspberries, and strawberries are also excellent sources.</p>
+
+                                    <p><strong>Q4: What do anthocyanins do to the body?</strong></p>
+                                    <p>A: Cell studies, animal research, and human clinical trials suggest that anthocyanins have antioxidant and antimicrobial activity, may improve visual and neurological health, and can help protect against several non‑communicable diseases.</p>
+
+                                    <p><strong>Q5: Is anthocyanin good for the kidneys?</strong></p>
+                                    <p>A: Some research indicates that certain anthocyanins, such as those from maqui berries, could support kidney function by reducing inflammation and oxidative stress, which are key drivers of chronic kidney disease progression. Their effects on cell adhesion may also help reduce renal fibrosis risk.</p>
+
+                                    <p><strong>Q6: What do anthocyanins do to the brain?</strong></p>
+                                    <p>A: Both animal studies and randomized clinical trials show that anthocyanins can enhance cognition and provide neuroprotection. These benefits are linked to their ability to lower oxidative stress, reduce inflammation, and limit apoptosis (cell death) in brain tissue.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 900px; margin: 0 auto 30px; text-align: center; color: #888;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; margin: 0 12px;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; margin: 0 12px;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; margin: 0 12px;">Privacy Policy</a>
+        </nav>
+        <div>&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const ranges = {
+            low: { min: 50, max: 150 },
+            standard: { min: 150, max: 300 },
+            high: { min: 300, max: 600 }
+        };
+
+        const weightMultipliers = {
+            low: 2,
+            standard: 4,
+            high: 6
+        };
+
+        function formatNumber(val) {
+            if (!isFinite(val)) return '0';
+            return Number(val).toFixed(0);
+        }
+
+        function calculateIntake() {
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            const intensity = document.getElementById('intensity').value;
+            const foodContent = parseFloat(document.getElementById('foodContent').value) || 0;
+            const foodAmount = parseFloat(document.getElementById('foodAmount').value) || 0;
+            const suppContent = parseFloat(document.getElementById('suppContent').value) || 0;
+            const suppCount = parseFloat(document.getElementById('suppCount').value) || 0;
+
+            const targetRange = ranges[intensity];
+            const personalizedDose = weight > 0 ? weight * weightMultipliers[intensity] : ((targetRange.min + targetRange.max) / 2);
+
+            const foodIntake = (foodAmount / 100) * foodContent;
+            const suppIntake = suppContent * suppCount;
+            const totalIntake = foodIntake + suppIntake;
+
+            const midRecommended = personalizedDose || ((targetRange.min + targetRange.max) / 2);
+            const percentage = midRecommended > 0 ? (totalIntake / midRecommended) * 100 : 0;
+
+            let comparison = '';
+            if (totalIntake < targetRange.min) {
+                comparison = 'Below suggested daily intake.';
+            } else if (totalIntake > targetRange.max) {
+                comparison = 'Above the recommended daily range.';
+            } else {
+                comparison = 'Within the recommended intake range.';
+            }
+
+            document.getElementById('recommendedRange').textContent = `${targetRange.min}–${targetRange.max}`;
+            document.getElementById('personalizedDose').textContent = `${formatNumber(personalizedDose)} mg/day`;
+            document.getElementById('foodIntake').textContent = `${formatNumber(foodIntake)} mg`;
+            document.getElementById('suppIntake').textContent = `${formatNumber(suppIntake)} mg`;
+            document.getElementById('totalIntake').textContent = `${formatNumber(totalIntake)} mg`;
+            document.getElementById('percentageAchieved').textContent = `${percentage.toFixed(0)}% of personalized target`;
+            document.getElementById('comparisonResult').textContent = comparison;
+
+            document.getElementById('recommendedCard').style.display = 'block';
+            document.getElementById('actualCard').style.display = 'block';
+        }
+
+        function resetForm() {
+            document.getElementById('weight').value = '';
+            document.getElementById('intensity').value = 'standard';
+            document.getElementById('foodContent').value = '';
+            document.getElementById('foodAmount').value = '';
+            document.getElementById('suppContent').value = '';
+            document.getElementById('suppCount').value = '';
+            document.getElementById('recommendedCard').style.display = 'none';
+            document.getElementById('actualCard').style.display = 'none';
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', calculateIntake);
+        document.getElementById('resetBtn').addEventListener('click', resetForm);
+    </script>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
