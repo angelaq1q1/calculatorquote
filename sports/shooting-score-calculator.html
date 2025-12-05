@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Shooting Score Calculator: Turn Shot Stats into a 0–100 Rating</title>
+    <meta name="description" content="Enter your shooting stats to see accuracy, conversion rate, shooting efficiency, and a final 0–100 Shooting Score. Add optional distance and difficulty weights to reward long-range attempts and tougher chances.">
+    <meta name="keywords" content="shooting score calculator, football shooting calculator, soccer shot accuracy, conversion rate calculator, shooting efficiency, shot difficulty, shot distance bonus, soccer analytics, football stats">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/sports/shooting-score-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Shooting Score Calculator | Turn Shot Stats into a 0–100 Rating">
+    <meta property="og:description" content="See your shooting accuracy, conversion rate, efficiency, and final 0–100 Shooting Score. Add optional distance and difficulty weights for smarter context.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.calculatorquote.com/sports/shooting-score-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+    <meta property="og:site_name" content="CalculatorQuote.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shooting Score Calculator | Turn Shot Stats into a 0–100 Rating">
+    <meta name="twitter:description" content="Track shooting accuracy, conversion, efficiency, and a final Shooting Score with smart distance and difficulty weights.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; }
+        body, body *, body *::before, body *::after { font-family: 'Raleway', sans-serif !important; }
+        body { background: #ffffff; color: #606060; min-height: 100vh; }
+
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-area { flex: 1; max-width: 900px; }
+        .calculator-container { background: #fff; border-radius: 18px; box-shadow: 0 4px 12px rgba(33,150,243,0.12); padding: 40px 45px; margin: 20px auto; }
+
+        .breadcrumb { margin-bottom: 20px; font-size: 16px; color: #606060; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d43d1a; }
+        .breadcrumb span { color: #606060; margin: 0 8px; }
+
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 26px; text-transform: uppercase; letter-spacing: 1px; }
+        .subheading { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; }
+
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 16px; }
+        .input-group label { display: block; margin-bottom: 6px; color: #333; font-weight: 500; }
+        .input-group input, .input-group select {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em; outline: none;
+        }
+        .input-group input:focus, .input-group select:focus { border-color: #eb5424; }
+
+        .buttons { display: flex; gap: 14px; justify-content: center; margin: 22px 0 10px 0; }
+        .btn-primary-cta, .btn-clear {
+            border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background-color 0.25s;
+            min-width: 140px;
+        }
+        .btn-primary-cta { background-color: #eb5424; color: #fff; }
+        .btn-primary-cta:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: #fff; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+
+        .results-card { margin-top: 18px; padding: 22px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 10px; display: none; }
+        .results-card h2 { font-size: 1.25em; color: #333; margin-bottom: 12px; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .result-item { background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .result-item .label { color: #666; font-size: 0.98em; margin-bottom: 4px; }
+        .result-item .value { color: #eb5424; font-weight: 700; font-size: 1.2em; }
+        .result-item .small { color: #666; font-size: 0.9em; }
+
+        .info-box { margin-top: 26px; }
+        .info-box h2 { font-size: 1.2em; font-weight: 600; color: #303030; margin-bottom: 12px; }
+        .info-box p { color: #606060; font-size: 15px; line-height: 26px; margin-bottom: 10px; }
+        .info-box ul { margin-left: 18px; color: #606060; font-size: 15px; line-height: 1.55; }
+
+        .badge-note { display: inline-block; background: #fff3e0; color: #e65100; padding: 6px 10px; border-radius: 6px; font-size: 0.92em; margin-top: 6px; }
+
+        @media (max-width: 768px) {
+            .calculator-container { padding: 28px 22px; }
+            .buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                    <li style="display:none;"><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Sports Calculators</a>
+                                    <span>/</span>
+                                    Shooting Score Calculator
+                                </div>
+
+                                <h1>🎯 Shooting Score Calculator: Turn Shot Stats into a 0–100 Rating</h1>
+                                <p class="subheading">Enter your shooting stats to see accuracy, conversion rate, shooting efficiency, and a final 0–100 Shooting Score. Add optional distance and difficulty weights to reward long-range attempts and tougher chances.</p>
+
+                                <div class="input-grid">
+                                    <div class="input-group">
+                                        <label for="shotsAttempted">Shots Attempted</label>
+                                        <input type="number" id="shotsAttempted" min="0" placeholder="e.g. 12">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="shotsOnTarget">Shots on Target</label>
+                                        <input type="number" id="shotsOnTarget" min="0" placeholder="e.g. 7">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="goals">Goals Scored</label>
+                                        <input type="number" id="goals" min="0" placeholder="e.g. 3">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="distance">Average Shot Distance (m) <span class="small">(optional)</span></label>
+                                        <input type="number" id="distance" min="0" step="0.1" placeholder="e.g. 18">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="difficulty">Shot Difficulty (1–5) <span class="small">(optional)</span></label>
+                                        <select id="difficulty">
+                                            <option value="">Select…</option>
+                                            <option value="1">1 - Very easy</option>
+                                            <option value="2">2 - Easy</option>
+                                            <option value="3">3 - Moderate</option>
+                                            <option value="4">4 - Hard</option>
+                                            <option value="5">5 - Very hard</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="btn-primary-cta" id="calcBtn">Calculate</button>
+                                    <button class="btn-clear" id="clearBtn">Clear</button>
+                                </div>
+
+                                <div class="results-card" id="resultsCard">
+                                    <h2>Your Shooting Metrics</h2>
+                                    <div class="results-grid">
+                                        <div class="result-item">
+                                            <div class="label">Shooting Accuracy</div>
+                                            <div class="value" id="accuracyValue">--</div>
+                                            <div class="small">Shots on target ÷ shots attempted</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="label">Conversion Rate</div>
+                                            <div class="value" id="conversionValue">--</div>
+                                            <div class="small">Goals ÷ shots on target</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="label">Shooting Efficiency</div>
+                                            <div class="value" id="efficiencyValue">--</div>
+                                            <div class="small">(Accuracy × 0.6) + (Conversion × 1.4)</div>
+                                        </div>
+                                        <div class="result-item">
+                                            <div class="label">Shooting Score</div>
+                                            <div class="value" id="scoreValue">--</div>
+                                            <div class="small">0–100 with distance &amp; difficulty weights</div>
+                                        </div>
+                                    </div>
+                                    <div class="badge-note" id="weightsNote" style="display:none;"></div>
+                                </div>
+
+                                <div class="info-box">
+                                    <h2>Master Your Shooting Accuracy – Track Every Shot, On Target &amp; Goal</h2>
+                                    <p>The Shooting Score Calculator helps you understand your shooting skill in a simple way. This tool works for every player, whether you practice alone, join team drills, or play casual matches. Enter your Shots Attempted, Shots on Target, and Goals Scored to instantly see your shooting accuracy, success rate, and key stats—so you know exactly where you stand and what to improve next.</p>
+
+                                    <p><strong>What This Calculator Measures</strong></p>
+                                    <p>The calculator gives you two important numbers: your shooting accuracy and your goal conversion rate.</p>
+                                    <ul>
+                                        <li>Shots Attempted – total shots you took</li>
+                                        <li>Shots on Target – shots that were on goal</li>
+                                        <li>Goals Scored – shots that actually scored</li>
+                                    </ul>
+                                    <p>Formulas are simple:</p>
+                                    <ul>
+                                        <li>Shooting Accuracy (%) = (Shots on Target ÷ Shots Attempted) × 100</li>
+                                        <li>Goal Conversion (%) = (Goals Scored ÷ Shots on Target) × 100</li>
+                                    </ul>
+                                    <p>A higher percentage means better aim and control. Lower numbers show where to improve—timing, positioning, or shot choice. The tool gives a quick, honest picture of your current performance.</p>
+
+                                    <p><strong>How You Can Use This Calculator</strong></p>
+                                    <p>Use it during solo practice, with teammates or friends, for tracking young or amateur players, or to compare zones (corners, long shots, close-range attempts). Note: percentages can look high if you only take easy shots; results are more reliable when you track many attempts or multiple sessions.</p>
+
+                                    <p><strong>Why Tracking Your Shooting Matters</strong></p>
+                                    <p>Tracking helps you improve faster. Set simple goals like “increase shots on target by 5%” or “score 3 more goals from distance.” Watching trends over days, weeks, or months makes progress clear and boosts confidence—small gains motivate consistent practice.</p>
+
+                                    <p><strong>Start Improving Today</strong></p>
+                                    <p>Your progress starts with the first set of numbers. Use the Shooting Score Calculator before or after every practice. Log Shots Attempted, Shots on Target, and Goals Scored, then review your results. Take small steps forward each session. Explore our other tools to track skills with simple, actionable data—and see your shooting improve day by day.</p>
+
+                                    <h2>❓Common Questions About Tracking Your Shooting Stats</h2>
+                                    <p><strong>Q1. What is a good trap shooting score?</strong></p>
+                                    <p>A: National Shooting Sports Foundation research indicates that the average shooter breaks 13 out of 25 targets on the first try at trapshooting and gradually improves through the high teens into the low 20s. A perfect 25 is a reasonable goal for the novice trap shooter.</p>
+
+                                    <p><strong>Q2. What do "Shots Attempted," "Shots on Target," and "Goals Scored" mean?</strong></p>
+                                    <p>A: Shots Attempted means every shot you take. Shots on Target means the shots that go toward the goal and force a save. Goals Scored means the shots that actually go in. These three numbers give you a full view of your shooting accuracy.</p>
+
+                                    <p><strong>Q3. How do I know if my shooting accuracy is good?</strong></p>
+                                    <p>A: Your accuracy is good when your Shots on Target percentage is high and steady. Most players aim for 50% or higher, but the "right" number depends on distance and shot type. The best way to judge is to track results over time and watch for improvement.</p>
+
+                                    <p><strong>Q4. Why is my shooting percentage sometimes very high or very low?</strong></p>
+                                    <p>A: Your percentage may look high if you only take easy shots. It may look low when you shoot from long distance or under pressure. The most reliable results come from many attempts, not just a single short session.</p>
+
+                                    <p><strong>Q5. Can this calculator help me improve my shooting?</strong></p>
+                                    <p>A: Yes. The calculator shows your real performance. When you see your numbers clearly, you can set simple goals and fix weak spots. Tracking your progress makes improvement easier and motivates you to keep practicing.</p>
+
+                                    <p><strong>Q6. Can coaches and teams use this tool?</strong></p>
+                                    <p>A: Yes. Coaches can use it during training sessions to track players' accuracy. Teams can record shooting drills, compare positions, and measure progress across games. The tool works for any level, from beginners to advanced players.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function toPercent(value) {
+            if (!isFinite(value)) return '--';
+            return (value * 100).toFixed(1) + '%';
+        }
+
+        function calcDistanceWeight(dist) {
+            if (!isFinite(dist) || dist <= 0) return 0;
+            if (dist > 25) return 8;
+            if (dist > 20) return 5;
+            if (dist >= 15) return 3; // matches the provided 18m example (+3)
+            if (dist < 10) return -3;
+            return 0;
+        }
+
+        function calcDifficultyWeight(diff) {
+            if (!isFinite(diff) || diff <= 0) return 0;
+            return diff * 2;
+        }
+
+        function clampScore(val) {
+            if (!isFinite(val)) return 0;
+            return Math.max(0, Math.min(100, val));
+        }
+
+        function calculateScore() {
+            const attempted = parseFloat(document.getElementById('shotsAttempted').value) || 0;
+            const onTarget = parseFloat(document.getElementById('shotsOnTarget').value) || 0;
+            const goals = parseFloat(document.getElementById('goals').value) || 0;
+            const distance = parseFloat(document.getElementById('distance').value);
+            const difficulty = parseFloat(document.getElementById('difficulty').value);
+
+            if (attempted <= 0) { alert('Please enter shots attempted (must be greater than 0).'); return; }
+            if (onTarget < 0 || goals < 0) { alert('Shots on target and goals cannot be negative.'); return; }
+            if (onTarget > attempted) { alert('Shots on target cannot exceed shots attempted.'); return; }
+            if (goals > onTarget) { alert('Goals cannot exceed shots on target.'); return; }
+
+            const accuracy = onTarget > 0 ? (onTarget / attempted) : 0;
+            const conversion = onTarget > 0 ? (goals / onTarget) : 0;
+            const efficiency = (accuracy * 0.6) + (conversion * 1.4);
+
+            const distW = calcDistanceWeight(distance);
+            const diffW = calcDifficultyWeight(difficulty);
+            const baseScore = efficiency * 100;
+            const rawScore = baseScore + distW + diffW;
+            const finalScore = clampScore(rawScore);
+
+            document.getElementById('accuracyValue').textContent = toPercent(accuracy);
+            document.getElementById('conversionValue').textContent = toPercent(conversion);
+            document.getElementById('efficiencyValue').textContent = toPercent(efficiency);
+            document.getElementById('scoreValue').textContent = finalScore.toFixed(0);
+
+            const weightsNote = document.getElementById('weightsNote');
+            const parts = [];
+            if (isFinite(distW) && distW !== 0) parts.push(`Distance weight: ${distW > 0 ? '+' : ''}${distW}`);
+            if (isFinite(diffW) && diffW !== 0) parts.push(`Difficulty weight: ${diffW > 0 ? '+' : ''}${diffW}`);
+            if (parts.length) {
+                weightsNote.style.display = 'inline-block';
+                weightsNote.textContent = parts.join(' • ');
+            } else {
+                weightsNote.style.display = 'none';
+            }
+
+            document.getElementById('resultsCard').style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('shotsAttempted').value = '';
+            document.getElementById('shotsOnTarget').value = '';
+            document.getElementById('goals').value = '';
+            document.getElementById('distance').value = '';
+            document.getElementById('difficulty').value = '';
+            document.getElementById('resultsCard').style.display = 'none';
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', calculateScore);
+        document.getElementById('clearBtn').addEventListener('click', clearForm);
+    </script>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "🎯 Shooting Score Calculator: Turn Shot Stats into a 0–100 Rating",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/sports/shooting-score-calculator.html",
+      "description": "Enter your shooting stats to see accuracy, conversion rate, shooting efficiency, and a final 0–100 Shooting Score. Add optional distance and difficulty weights to reward long-range attempts and tougher chances.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "featureList": [
+        "shooting accuracy calculator",
+        "conversion rate from shots on target",
+        "shooting efficiency weighting goals higher than accuracy",
+        "distance and difficulty bonus for smarter scoring"
+      ],
+      "keywords": [
+        "shooting score calculator",
+        "football shooting calculator",
+        "soccer shot accuracy",
+        "shot conversion rate",
+        "shot difficulty weighting",
+        "long range shot bonus",
+        "arkadium bubble shooter high score",
+        "clay pigeon shooting score cards",
+        "army shooting scores",
+        "dead space remake shooting range score"
+      ]
+    }
+    </script>
+</body>
+</html>
+
