@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITTF Mixed Team Score Calculator | Track 15-Game Format & Match Results</title>
+    <meta name="description" content="Calculate ITTF Mixed Team World Cup scores using the official 15-game format. Track all 5 matches, game-by-game results, and see which team reaches 8 games first to win the tie.">
+    <meta name="keywords" content="ITTF mixed team calculator, table tennis team score, ITTF World Cup calculator, mixed doubles score, table tennis match calculator, 15-game format, ITTF scoring system">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/sports/ITTF-mixed-team-score-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ITTF Mixed Team Score Calculator | Track 15-Game Format & Match Results">
+    <meta property="og:description" content="Calculate ITTF Mixed Team World Cup scores using the official 15-game format. Track all 5 matches and see which team reaches 8 games first.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.calculatorquote.com/sports/ITTF-mixed-team-score-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+    <meta property="og:site_name" content="CalculatorQuote.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ITTF Mixed Team Score Calculator | Track 15-Game Format & Match Results">
+    <meta name="twitter:description" content="Track ITTF Mixed Team World Cup scores game-by-game. First team to 8 games wins the tie.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; }
+        body, body *, body *::before, body *::after { font-family: 'Raleway', sans-serif !important; }
+        body { background: #ffffff; color: #606060; min-height: 100vh; }
+
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .content-area { flex: 1; max-width: 900px; }
+        .calculator-container { background: #fff; border-radius: 18px; box-shadow: 0 4px 12px rgba(33,150,243,0.12); padding: 40px 45px; margin: 20px auto; }
+
+        .breadcrumb { margin-bottom: 20px; font-size: 16px; color: #606060; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d43d1a; }
+        .breadcrumb span { color: #606060; margin: 0 8px; }
+
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 26px; text-transform: uppercase; letter-spacing: 1px; }
+        .subheading { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 20px; }
+
+        .match-section { margin-bottom: 24px; padding: 18px; background: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; }
+        .match-section h3 { color: #eb5424; font-size: 1.1em; font-weight: 600; margin-bottom: 12px; }
+        .games-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+        .game-input { display: flex; flex-direction: column; }
+        .game-input label { font-size: 0.9em; color: #666; margin-bottom: 6px; }
+        .game-input select {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95em; outline: none;
+        }
+        .game-input select:focus { border-color: #eb5424; }
+
+        .buttons { display: flex; gap: 14px; justify-content: center; margin: 22px 0 10px 0; }
+        .btn-primary-cta, .btn-clear {
+            border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background-color 0.25s;
+            min-width: 140px;
+        }
+        .btn-primary-cta { background-color: #eb5424; color: #fff; }
+        .btn-primary-cta:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: #fff; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+
+        .results-card { margin-top: 18px; padding: 22px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 10px; display: none; }
+        .results-card h2 { font-size: 1.25em; color: #333; margin-bottom: 12px; }
+        .score-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .score-box { background: #fff; border: 2px solid #e9ecef; border-radius: 10px; padding: 16px; text-align: center; }
+        .score-box.winner { border-color: #eb5424; background: #fff3e0; }
+        .score-box .team-name { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 8px; }
+        .score-box .score-value { font-size: 2em; font-weight: 700; color: #eb5424; }
+        .score-box.winner .score-value { color: #d43d1a; }
+        .match-winner { text-align: center; font-size: 1.3em; font-weight: 700; color: #eb5424; margin: 16px 0; padding: 12px; background: #fff3e0; border-radius: 8px; }
+
+        .breakdown-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .breakdown-table th, .breakdown-table td { padding: 10px; text-align: left; border-bottom: 1px solid #e9ecef; }
+        .breakdown-table th { background: #f8f9fa; font-weight: 600; color: #333; }
+        .breakdown-table tr:hover { background: #f8f9fa; }
+        .game-winner { font-weight: 600; color: #eb5424; }
+
+        .info-box { margin-top: 26px; }
+        .info-box h2 { font-size: 1.2em; font-weight: 600; color: #303030; margin-bottom: 12px; }
+        .info-box p { color: #606060; font-size: 15px; line-height: 26px; margin-bottom: 10px; }
+        .info-box ul { margin-left: 18px; color: #606060; font-size: 15px; line-height: 1.55; }
+        .info-box a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .info-box a:hover { color: #d43d1a; text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .calculator-container { padding: 28px 22px; }
+            .buttons { flex-direction: column; }
+            .games-row { grid-template-columns: 1fr; }
+            .score-summary { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                    <li style="display:none;"><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Sports Calculators</a>
+                                    <span>/</span>
+                                    ITTF Mixed Team Score Calculator
+                                </div>
+
+                                <h1>🏓 ITTF Mixed Team Score Calculator: Track 15-Game Format & Match Results</h1>
+                                <p class="subheading">Calculate ITTF Mixed Team World Cup scores using the official 15-game format. Enter game winners for up to 5 matches (Mixed Doubles, Women's Singles, Men's Singles, Women's Doubles, Men's Doubles). The first team to reach 8 games wins the tie.</p>
+
+                                <div class="match-section" style="background: #fff3e0; border-color: #eb5424;">
+                                    <h3>Stage Selection</h3>
+                                    <div style="margin-top: 10px;">
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Select Competition Stage:</label>
+                                        <select id="stageSelect" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em;">
+                                            <option value="single">Single Match (Quick Calculator)</option>
+                                            <option value="group">Stage 1: Group Stage</option>
+                                            <option value="roundrobin">Stage 2: Round Robin Stage</option>
+                                            <option value="knockout">Stage 3: Knockout Stage (Semifinals & Finals)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="matchInputSection">
+                                <div class="match-section">
+                                    <h3>Event 1: Mixed Doubles (BO3)</h3>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Winner gets 2 games, loser gets 0 games</p>
+                                    <div class="games-row">
+                                        <div class="game-input">
+                                            <label>Game 1 Winner</label>
+                                            <select id="event1_game1">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 2 Winner</label>
+                                            <select id="event1_game2">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 3 Winner</label>
+                                            <select id="event1_game3">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="match-section">
+                                    <h3>Event 2: Women's Singles (BO3)</h3>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Winner gets 2 games, loser gets 0 games</p>
+                                    <div class="games-row">
+                                        <div class="game-input">
+                                            <label>Game 1 Winner</label>
+                                            <select id="event2_game1">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 2 Winner</label>
+                                            <select id="event2_game2">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 3 Winner</label>
+                                            <select id="event2_game3">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="match-section">
+                                    <h3>Event 3: Men's Singles (BO3)</h3>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Winner gets 2 games, loser gets 0 games</p>
+                                    <div class="games-row">
+                                        <div class="game-input">
+                                            <label>Game 1 Winner</label>
+                                            <select id="event3_game1">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 2 Winner</label>
+                                            <select id="event3_game2">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 3 Winner</label>
+                                            <select id="event3_game3">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="match-section">
+                                    <h3>Event 4: Women's Doubles / Men's Doubles (BO3)</h3>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Winner gets 2 games, loser gets 0 games (Selected by trailing team)</p>
+                                    <div class="games-row">
+                                        <div class="game-input">
+                                            <label>Game 1 Winner</label>
+                                            <select id="event4_game1">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 2 Winner</label>
+                                            <select id="event4_game2">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 3 Winner</label>
+                                            <select id="event4_game3">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="match-section">
+                                    <h3>Event 5: Men's Doubles / Women's Doubles (BO3)</h3>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Winner gets 2 games, loser gets 0 games (Remaining event)</p>
+                                    <div class="games-row">
+                                        <div class="game-input">
+                                            <label>Game 1 Winner</label>
+                                            <select id="event5_game1">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 2 Winner</label>
+                                            <select id="event5_game2">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                        <div class="game-input">
+                                            <label>Game 3 Winner</label>
+                                            <select id="event5_game3">
+                                                <option value="">Select...</option>
+                                                <option value="A">Team A</option>
+                                                <option value="B">Team B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="btn-primary-cta" id="calcBtn">Calculate</button>
+                                    <button class="btn-clear" id="clearBtn">Clear</button>
+                                </div>
+
+                                <div class="results-card" id="resultsCard">
+                                    <h2>Match Result</h2>
+                                    <div class="score-summary" id="scoreSummary"></div>
+                                    <div class="match-winner" id="matchWinner"></div>
+                                    <table class="breakdown-table" id="breakdownTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Match</th>
+                                                <th>Game 1</th>
+                                                <th>Game 2</th>
+                                                <th>Game 3</th>
+                                                <th>Match Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="breakdownBody"></tbody>
+                                    </table>
+                                </div>
+
+                                <div class="info-box">
+                                    <h2>ITTF Mixed Team World Cup – Official Competition Format (2025 Version)</h2>
+                                    <p><strong>Now Integrated Into the Olympic Table Tennis Event System</strong></p>
+                                    <p>The ITTF Mixed Team World Cup is a three-stage competition designed to showcase the full depth of mixed-gender table tennis team play. Starting from 2024–2025, this format has been officially adopted into the Olympic table tennis team event structure, marking the first time that a mixed-gender team format becomes part of the Olympic program. The structure emphasizes fairness, strategy, lineup depth, and real-time tactical choices.</p>
+
+                                    <p>The format is not only used in the World Cup. According to the ITTF's official announcement, the Mixed Team World Cup has now become a testing ground for the Los Angeles 2028 Olympic Games and the future model of global team table tennis.</p>
+
+                                    <p><strong>👉 You can read the full ITTF article here:</strong></p>
+                                    <p><a href="https://www.ittf.com/2025/12/01/ittf-mixed-team-world-cup-a-proving-ground-for-la28-and-the-future-of-team-table-tennis/" target="_blank" rel="noopener">"ITTF Mixed Team World Cup – A Proving Ground for LA28 and the Future of Team Table Tennis"</a></p>
+
+                                    <p>Below is the complete competition format, match structure, and scoring rules.</p>
+
+                                    <p><strong>Overall Match System</strong></p>
+                                    <p>Each team match uses a 15-game, first-to-8-wins format.</p>
+                                    <p>A match contains five events, and each event is played as a best-of-three (BO3) match:</p>
+                                    <ul>
+                                        <li>Mixed Doubles (always the opening event)</li>
+                                        <li>Women's Singles</li>
+                                        <li>Men's Singles</li>
+                                        <li>Women's Doubles or Men's Doubles (chosen by the trailing team)</li>
+                                        <li>Remaining doubles event</li>
+                                    </ul>
+                                    <ul>
+                                        <li>The winner of each event earns 2 games.</li>
+                                        <li>The losing side earns 0 games.</li>
+                                        <li>Teams accumulate games across all events.</li>
+                                        <li>As soon as one team reaches 8 total games, the match ends immediately.</li>
+                                        <li>Each player may participate in a maximum of two events per team match.</li>
+                                    </ul>
+                                    <p>This system rewards lineup depth, tactical planning, and strategic use of doubles players.</p>
+
+                                    <p><strong>Stage One — Group Stage (16 Teams)</strong></p>
+                                    <p>16 teams are divided into 4 groups, each containing 4 teams.</p>
+                                    <p>Groups play a round-robin format (3 matches per team).</p>
+                                    <p>Ranking rules:</p>
+                                    <ul>
+                                        <li>Match wins</li>
+                                        <li>Game difference</li>
+                                        <li>Head-to-head</li>
+                                        <li>Total games won</li>
+                                        <li>Points difference (if needed)</li>
+                                    </ul>
+                                    <p>The top two teams from each group (8 total) advance to Stage Two.</p>
+
+                                    <p><strong>Stage Two — Large Round Robin (8 Teams)</strong></p>
+                                    <p>The eight qualified teams enter a single large round-robin league.</p>
+                                    <p><strong>Olympic-style rule:</strong></p>
+                                    <p>➡️ Results from Stage One against teams from the same initial group are carried over.</p>
+                                    <p>➡️ These matches are not replayed.</p>
+                                    <p>Teams then play against the remaining opponents.</p>
+                                    <p>Ranking rules remain the same:</p>
+                                    <p>Match wins → Game difference → Head-to-head → Games won → Points difference</p>
+                                    <p>After the league is completed, the top four teams enter the Final Stage.</p>
+                                    <p>This system rewards long-term consistency and makes early matches meaningful—an important IOC-aligned design principle also highlighted in the ITTF article linked above.</p>
+
+                                    <p><strong>Stage Three — Knockout Finals</strong></p>
+                                    <p>The top four teams enter a single-elimination bracket:</p>
+                                    <ul>
+                                        <li>Semifinal 1: Rank 1 vs Rank 4</li>
+                                        <li>Semifinal 2: Rank 2 vs Rank 3</li>
+                                        <li>Final: Winners of semifinals</li>
+                                        <li>Third-place match: Losers of semifinals</li>
+                                    </ul>
+                                    <p>All knockout matches still use the 15-game, first-to-8-wins system.</p>
+                                    <p>This entire knockout structure mirrors the newly adopted Olympic Mixed Team format, ensuring full consistency between World Cup competition and LA28 event requirements.</p>
+
+                                    <p><strong>Why This Format Matters (Olympic Integration Highlight)</strong></p>
+                                    <p>The ITTF Mixed Team World Cup format has been selected as the official Olympic mixed team format.</p>
+                                    <p>Key advantages:</p>
+                                    <ul>
+                                        <li>Balanced gender participation</li>
+                                        <li>Stronger tactical depth</li>
+                                        <li>Increased entertainment value</li>
+                                        <li>More dynamic and strategic match flow</li>
+                                        <li>Modernized doubles-singles integration</li>
+                                    </ul>
+                                    <p>As emphasized in the ITTF official article 👉 <a href="https://www.ittf.com/2025/12/01/ittf-mixed-team-world-cup-a-proving-ground-for-la28-and-the-future-of-team-table-tennis/" target="_blank" rel="noopener">"A Proving Ground for LA28 and the Future of Team Table Tennis"</a>, the Mixed Team World Cup acts as the leading platform where national teams prepare for the Olympic version of the event—testing lineups, developing tactics, and earning higher ranking points toward Olympic qualification.</p>
+
+                                    <p><strong>Summary of Key Rules (Quick Reference)</strong></p>
+                                    <ul>
+                                        <li>15 total games, first to 8 wins</li>
+                                        <li>5 events, each BO3</li>
+                                        <li>Mixed Doubles always first</li>
+                                        <li>Events 4 & 5 chosen strategically by the trailing team</li>
+                                        <li>Each player may play max 2 events</li>
+                                        <li>Stage One: 4 groups → top 2 advance</li>
+                                        <li>Stage Two: 8-team league → carry-over results</li>
+                                        <li>Stage Three: Semifinals + Finals</li>
+                                        <li>Fully integrated into Olympic table tennis system</li>
+                                    </ul>
+
+                                    <h2>🏓Frequently Asked Questions – ITTF Mixed Team World Cup</h2>
+                                    <p><strong>Q1. What is the ITTF Mixed Team World Cup format?</strong></p>
+                                    <p>A: The ITTF Mixed Team World Cup uses a three-stage structure: Stage One: 16 teams in four groups; Stage Two: 8-team large round robin with carried-over results; Stage Three: Knockout semifinals, final, and third-place match. Each team match follows a 15-game, first-to-8-wins system with five BO3 events.</p>
+
+                                    <p><strong>Q2. How does scoring work in a Mixed Team match?</strong></p>
+                                    <p>A: Every event is played as a best-of-three match. The winning team earns 2 games, and the losing team earns 0 games. Games accumulate across events. The first team to reach 8 total games wins the match immediately.</p>
+
+                                    <p><strong>Q3. Why is the Mixed Team World Cup format used in the Olympics?</strong></p>
+                                    <p>A: Starting from 2024–2025, the ITTF format was officially integrated into the Olympic team table tennis system. The format was chosen for three reasons: Balanced gender representation; More strategic lineup choices; Faster, more exciting matches for global audiences.</p>
+
+                                    <p><strong>Q4. What does "the trailing team chooses the next event" mean?</strong></p>
+                                    <p>A: After the first three fixed events (Mixed Doubles, Women's Singles, Men's Singles), the team that is behind in total games gets to choose whether to play Women's Doubles or Men's Doubles next. This tactical flexibility adds momentum swings and deeper strategic planning.</p>
+
+                                    <p><strong>Q5. Can a player compete in multiple events within the same match?</strong></p>
+                                    <p>A: Yes — but with limitations. Each player may play a maximum of 2 events per team match. This rule ensures lineup balance and prevents over-reliance on a single star player.</p>
+
+                                    <p><strong>Q6. What is the purpose of carrying over results in Stage Two?</strong></p>
+                                    <p>A: In Stage Two, teams do not replay matches from Stage One against teams from the same group. Instead, those results are carried over. This ensures that every group match matters, even early ones, and rewards consistent performance across the entire tournament.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const eventNames = [
+            "Mixed Doubles",
+            "Women's Singles",
+            "Men's Singles",
+            "Women's Doubles / Men's Doubles",
+            "Men's Doubles / Women's Doubles"
+        ];
+
+        function getGameValue(eventNum, gameNum) {
+            const select = document.getElementById(`event${eventNum}_game${gameNum}`);
+            return select ? select.value : '';
+        }
+
+        // Calculate winner of a BO3 event (returns 'A', 'B', or null)
+        function calculateEventWinner(eventNum) {
+            const game1 = getGameValue(eventNum, 1);
+            const game2 = getGameValue(eventNum, 2);
+            const game3 = getGameValue(eventNum, 3);
+
+            // Check if event has any input
+            if (!game1 && !game2 && !game3) {
+                return null;
+            }
+
+            // Validate: all games must be filled if any game is filled
+            if ((game1 && (!game2 || !game3)) || (game2 && (!game1 || !game3)) || (game3 && (!game1 || !game2))) {
+                alert(`Event ${eventNum} (${eventNames[eventNum - 1]}): Please fill all three games or leave all empty.`);
+                return null;
+            }
+
+            // Count wins
+            let winsA = 0;
+            let winsB = 0;
+
+            if (game1 === 'A') winsA++;
+            else if (game1 === 'B') winsB++;
+
+            if (game2 === 'A') winsA++;
+            else if (game2 === 'B') winsB++;
+
+            if (game3 === 'A') winsA++;
+            else if (game3 === 'B') winsB++;
+
+            // BO3: first to 2 wins
+            if (winsA >= 2) return 'A';
+            if (winsB >= 2) return 'B';
+            
+            // If no one reached 2, return the one with more wins (shouldn't happen in valid input)
+            return winsA > winsB ? 'A' : (winsB > winsA ? 'B' : null);
+        }
+
+        function calculateScore() {
+            const stage = document.getElementById('stageSelect').value;
+            let teamAScore = 0;
+            let teamBScore = 0;
+            const breakdown = [];
+
+            // Process each event (BO3 format: winner gets 2 games, loser gets 0)
+            for (let event = 1; event <= 5; event++) {
+                const winner = calculateEventWinner(event);
+                
+                if (winner === null) {
+                    // Skip empty events
+                    continue;
+                }
+
+                // BO3: Winner gets 2 games, loser gets 0
+                if (winner === 'A') {
+                    teamAScore += 2;
+                } else if (winner === 'B') {
+                    teamBScore += 2;
+                }
+
+                const game1 = getGameValue(event, 1);
+                const game2 = getGameValue(event, 2);
+                const game3 = getGameValue(event, 3);
+
+                breakdown.push({
+                    event: eventNames[event - 1],
+                    winner: winner,
+                    game1: game1 || '-',
+                    game2: game2 || '-',
+                    game3: game3 || '-',
+                    gamesA: winner === 'A' ? 2 : 0,
+                    gamesB: winner === 'B' ? 2 : 0
+                });
+
+                // Stop if a team reaches 8 games
+                if (teamAScore >= 8 || teamBScore >= 8) {
+                    break;
+                }
+            }
+
+            // Display results
+            const scoreSummary = document.getElementById('scoreSummary');
+            const matchWinner = document.getElementById('matchWinner');
+            const breakdownBody = document.getElementById('breakdownBody');
+
+            scoreSummary.innerHTML = `
+                <div class="score-box ${teamAScore >= 8 ? 'winner' : ''}">
+                    <div class="team-name">Team A</div>
+                    <div class="score-value">${teamAScore}</div>
+                </div>
+                <div class="score-box ${teamBScore >= 8 ? 'winner' : ''}">
+                    <div class="team-name">Team B</div>
+                    <div class="score-value">${teamBScore}</div>
+                </div>
+            `;
+
+            if (teamAScore >= 8) {
+                matchWinner.textContent = `🏆 Team A Wins! (${teamAScore}-${teamBScore})`;
+            } else if (teamBScore >= 8) {
+                matchWinner.textContent = `🏆 Team B Wins! (${teamBScore}-${teamAScore})`;
+            } else {
+                matchWinner.textContent = `Current Score: Team A ${teamAScore} - ${teamBScore} Team B (First to 8 wins)`;
+            }
+
+            breakdownBody.innerHTML = '';
+            breakdown.forEach(item => {
+                const row = document.createElement('tr');
+                const gameResults = [];
+                [item.game1, item.game2, item.game3].forEach(g => {
+                    if (g === 'A') gameResults.push('Team A');
+                    else if (g === 'B') gameResults.push('Team B');
+                    else gameResults.push('-');
+                });
+                
+                row.innerHTML = `
+                    <td>${item.event}</td>
+                    <td class="game-winner">${gameResults[0]}</td>
+                    <td class="game-winner">${gameResults[1]}</td>
+                    <td class="game-winner">${gameResults[2]}</td>
+                    <td><strong>${item.gamesA}-${item.gamesB}</strong> (${item.winner === 'A' ? 'Team A' : 'Team B'} wins)</td>
+                `;
+                breakdownBody.appendChild(row);
+            });
+
+            document.getElementById('resultsCard').style.display = 'block';
+        }
+
+        function clearForm() {
+            for (let event = 1; event <= 5; event++) {
+                for (let game = 1; game <= 3; game++) {
+                    const select = document.getElementById(`event${event}_game${game}`);
+                    if (select) select.value = '';
+                }
+            }
+            document.getElementById('resultsCard').style.display = 'none';
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', calculateScore);
+        document.getElementById('clearBtn').addEventListener('click', clearForm);
+    </script>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ITTF Mixed Team Score Calculator | Track 15-Game Format & Match Results",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/sports/ITTF-mixed-team-score-calculator.html",
+      "description": "Calculate ITTF Mixed Team World Cup scores using the official 15-game format. Track all 5 matches, game-by-game results, and see which team reaches 8 games first to win the tie.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "featureList": [
+        "15-game format scoring system",
+        "track up to 5 matches (Mixed Doubles, Women's Singles, Men's Singles, Women's Doubles, Men's Doubles)",
+        "game-by-game breakdown",
+        "automatic winner detection when team reaches 8 games"
+      ],
+      "keywords": [
+        "ITTF mixed team calculator",
+        "table tennis team score",
+        "ITTF World Cup calculator",
+        "mixed doubles score",
+        "15-game format",
+        "ITTF scoring system"
+      ]
+    }
+    </script>
+</body>
+</html>
+
