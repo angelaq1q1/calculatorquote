@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Calculator with 30% Rule | Find How Much Rent You Can Afford</title>
+    <meta name="description" content="Use our Rent Calculator with the 30% Rule to instantly see how much rent you can afford. Avoid overspending and find your ideal monthly rent before signing a lease.">
+    <meta name="keywords" content="rent calculator, rent affordability calculator, rent to income ratio, how much rent can I afford, 30% rule rent, required income for rent">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/financial/rent-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rent Affordability Calculator – How Much Rent Can I Afford?">
+    <meta property="og:description" content="Check your rent-to-income ratio, see the 30% rule maximum rent, and find the income you need for your target rent in seconds.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.calculatorquote.com/financial/rent-calculator.html">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+    <meta property="og:site_name" content="CalculatorQuote.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rent Affordability Calculator – How Much Rent Can I Afford?">
+    <meta name="twitter:description" content="Instantly calculate your rent-to-income ratio, see the 30% rule cap, and know what income level supports your rent.">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/balance-intake-dosage-og.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Rent Calculator with 30% Rule | Find How Much Rent You Can Afford",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.calculatorquote.com/financial/rent-calculator.html",
+      "description": "Use our Rent Calculator with the 30% Rule to instantly see how much rent you can afford. Avoid overspending and find your ideal monthly rent before signing a lease.",
+      "author": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote.com",
+        "url": "https://www.calculatorquote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.calculatorquote.com/images/logo.png"
+        }
+      },
+      "featureList": [
+        "rent to income ratio calculator",
+        "30 percent rule rent limit",
+        "required income for target rent",
+        "rent affordability guidance"
+      ],
+      "keywords": [
+        "rent calculator",
+        "rent affordability calculator",
+        "rent to income ratio",
+        "how much rent can I afford",
+        "rent to income ratio calculator",
+        "30 percent rule rent",
+        "income to afford rent",
+        "rent versus income calculator",
+        "rent vs buy calculator",
+        "how much rent can i afford calculator",
+        "how to calculate pro rata rent",
+        "prorated rent calculator move in"
+      ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, body *, body *::before, body *::after,
+        input, select, textarea, button,
+        h1, h2, h3, h4, h5, h6,
+        p, span, div, a, label, li, ul, ol,
+        .navbar, .navbar *, .breadcrumb, .breadcrumb *,
+        .calculator-container, .calculator-container *,
+        .results-card, .results-card *,
+        footer, footer * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        body { background: #ffffff; min-height: 100vh; color: #606060; }
+        .main-content-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .content-area { flex: 1; max-width: 800px; }
+        .calculator-container { max-width: 900px; margin: 0 auto 20px auto; padding: 40px 50px; background-color: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); }
+
+        .breadcrumb { margin-bottom: 24px; font-size: 16px; color: #606060; text-align: left; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d4441a; }
+        .breadcrumb span { color: #606060; margin: 0 8px; }
+
+        h1 { color: #303030; font-size: 1.5em; font-weight: 300; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+        .subheading { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 22px; text-align: left; }
+
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
+        .input-field-container { display: flex; align-items: center; gap: 10px; }
+        .input-field-container input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; }
+        .input-field-container input:focus { border-color: #eb5424; }
+
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 400px; margin: 25px auto 0 auto; }
+        .btn-calculate { background-color: #eb5424; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background-color: #d43d1a; }
+        .btn-clear { background-color: #f5c6cb; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background-color: #f1aeb5; }
+
+        .results-card { padding: 25px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #e9ecef; margin-top: 20px; display: none; }
+        .results-card h2 { color: #333; margin-bottom: 15px; font-size: 1.3em; }
+        .results-card p { margin: 0; padding: 6px 0; font-size: 1.02em; color: #333; }
+        .metric-value { font-size: 1.4em; font-weight: 600; color: #eb5424; margin-left: 6px; }
+        .status-text { font-weight: 600; margin-top: 8px; }
+        .status-easy { color: #2e7d32; }
+        .status-okay { color: #558b2f; }
+        .status-tight { color: #f57c00; }
+        .status-risk { color: #c62828; }
+
+        .info-box { margin-top: 24px; }
+        .info-box h2 { font-size: 1.3em; font-weight: 500; color: #303030; margin-bottom: 12px; }
+        .info-box p { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 12px; }
+        .info-box ul { margin-left: 18px; color: #606060; font-size: 15px; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .main-content-wrapper { padding: 0 20px; }
+            .calculator-container { padding: 30px 25px; }
+            .buttons { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .main-content-wrapper { padding: 0 15px; }
+            .calculator-container { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="../home/index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                    <li style="display:none;"><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tm-home" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Financial Calculators</a>
+                                    <span>/</span>
+                                    Rent Calculator
+                                </div>
+
+                                <h1>Rent Calculator with 30% Rule: See Your Perfect Rent Number</h1>
+                                <p class="subheading">Find the right rent without guessing. Many renters overspend and break the 30% income rule. This tool shows the rent you can safely afford—instantly—before you sign anything.</p>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="monthlyIncome">Monthly gross income ($)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="monthlyIncome" placeholder="e.g. 5000" min="0" step="1">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="monthlyRent">Monthly rent you plan to pay ($)</label>
+                                        <div class="input-field-container">
+                                            <input type="number" id="monthlyRent" placeholder="e.g. 1600" min="0" step="1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="buttons">
+                                    <button id="calcBtn" class="btn-calculate">Calculate</button>
+                                    <button id="clearBtn" class="btn-clear">Clear</button>
+                                </div>
+
+                                <div class="results-card" id="resultsCard">
+                                    <h2>Your Rent Affordability Snapshot</h2>
+                                    <p><strong>Rent-to-income ratio:</strong> <span class="metric-value" id="ratioValue">0%</span></p>
+                                    <p><strong>30% rule max rent:</strong> <span class="metric-value" id="maxRent">$0</span></p>
+                                    <p><strong>Income needed for this rent (30% rule):</strong> <span class="metric-value" id="incomeNeeded">$0</span></p>
+                                    <p><strong>Your inputs:</strong> <span id="inputSummary">Income $0, Rent $0</span></p>
+                                    <p class="status-text" id="statusText"></p>
+                                    <p id="adviceText"></p>
+                                </div>
+
+                                <div class="info-box">
+                                    <h2>How the Rent Affordability Calculator Works</h2>
+                                    <p><strong>The smart way to know your perfect rent number.</strong> Finding the right place is exciting, but guessing the rent you can truly afford is stressful. Many renters overspend and break the 30% income rule. This calculator removes the guesswork: you enter your monthly income, and it shows a clear, safe rent limit—fast—before you sign anything. It fits students planning their first apartment, young professionals moving to a new city, families tracking a growing budget, and anyone who wants to avoid overspending.</p>
+                                    <p><strong>Why the 30% rule works in real life.</strong> The calculator starts with your income and applies the simple 30% guideline. This rule stays popular because it protects your budget without making life feel tight. You get a rent target that is easy to apply when touring units, comparing listings, or negotiating with a landlord. No complex formulas or financial background needed—just a number that matches your situation.</p>
+                                    <p><strong>What the numbers mean (and how to read them).</strong></p>
+                                    <ul>
+                                        <li><strong>Rent-to-income ratio:</strong> Rent ÷ Income × 100. Lower ratios leave more room for savings, debt payments, and daily costs.</li>
+                                        <li><strong>30% rule max rent:</strong> Income × 0.3. A quick ceiling many landlords and renters use to gauge affordability.</li>
+                                        <li><strong>Income needed:</strong> Rent ÷ 0.3. The monthly income that would keep a target rent within the 30% rule.</li>
+                                    </ul>
+                                    <p><strong>Typical interpretation ranges.</strong></p>
+                                    <ul>
+                                        <li><strong>Under 25%:</strong> Comfortable—room for savings and goals.</li>
+                                        <li><strong>25%–35%:</strong> Generally acceptable—common in many cities; watch other debts.</li>
+                                        <li><strong>35%–45%:</strong> Tight—consider negotiating, a roommate, or trimming costs.</li>
+                                        <li><strong>Above 45%:</strong> Risky—high housing burden can strain savings and repayments.</li>
+                                    </ul>
+                                    <p><strong>Use it before every housing decision.</strong> Many people apply the number as a filter while browsing listings so they avoid units that push finances too far. It also helps set boundaries before negotiations and protects savings goals for travel, emergencies, and future plans. Run it again anytime your life changes—raise, income dip, new roommate, or a move to a pricier city—and the rent range updates instantly.</p>
+                                    <p><strong>Pair it with related tools for a full picture.</strong> If you are comparing long-term choices, use a rent vs buy calculator to see the cost difference over time. Knowing today’s affordable rent plus the buy-vs-rent crossover keeps decisions balanced instead of emotional. If you face a mid-month move-in, pair this with a prorated rent calculator: when you sign on the 10th or 18th, you will know exactly how to calculate pro rata rent and avoid surprises.</p>
+                                    <p><strong>Why clarity matters for confidence.</strong> Once you see your rent number, you can act immediately: view places within range, negotiate with a clear ceiling, and stay on track for savings. The calculator is built for flexibility, so you can rerun it as often as you like. With a clear, income-aligned rent target, your next move becomes easier, calmer, and more affordable.</p>
+                                    <p>This calculator is for education only. Always consider utilities, transportation, insurance, and debts alongside rent before deciding.</p>
+                                    <div class="info-box" style="margin-top: 28px;">
+                                        <h2>❓Frequently Asked Questions About Rent and Affordability</h2>
+                                        <p><strong>Q1. Should rent be 30% of my income?</strong></p>
+                                        <p><strong>A:</strong> The 30% rule advises consumers spend no more than 30% of their monthly income on their mortgage or rent payments, leaving wiggle room in case of unexpected expenses, job loss, family planning, and other goals.</p>
+                                        <p><strong>Q2. How to calculate the rent?</strong></p>
+                                        <p><strong>A:</strong> To calculate your monthly rent repayment, use this simple formula to convert weekly rent into the monthly rent payment: (1) Weekly Rent ÷ 7 = Daily Rent amount. (2) Daily Rent × 365 = Yearly Rent amount. (3) Yearly Rent ÷ 12 = Monthly rent amount.</p>
+                                        <p><strong>Q3. How to calculate what to pay for rent?</strong></p>
+                                        <p><strong>A:</strong> To calculate how much rent you can afford, we multiply your gross monthly income by 20%, 30% or 40%, based on how much you want to spend. You can use the slider to change the percentage of your income you want spend on housing.</p>
+                                        <p><strong>Q4. What is Rent?</strong></p>
+                                        <p><strong>A:</strong> Rent is the amount of money a tenant pays to live in a property they do not own. It is usually paid monthly to a landlord or property manager. Rent covers the right to use the home, and sometimes it includes utilities or basic services. The cost depends on location, size, and market demand.</p>
+                                        <p><strong>Q5. What is the rent-to-income ratio or income to rent ratio?</strong></p>
+                                        <p><strong>A:</strong> The rent-to-income ratio shows how much of your income goes toward rent. Many people use the 30% rule, which means rent should be around 30% of your gross monthly income. A lower ratio gives you more room for savings and daily expenses. A higher ratio can lead to financial stress and limited flexibility.</p>
+                                        <p><strong>Q6. How much of your income should go to rent?</strong></p>
+                                        <p><strong>A:</strong> Most financial planners suggest spending no more than 30% of your monthly income on rent. This balance helps you cover all your other needs without stretching your budget. If you live in a high-cost city, you may adjust the number slightly, but staying close to the 30% rule keeps your finances safer and more predictable.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function formatCurrency(val) {
+            if (!isFinite(val)) return '$0';
+            return '$' + Number(val).toFixed(0);
+        }
+
+        function calculateRent() {
+            const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+            const rent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+
+            const resultsCard = document.getElementById('resultsCard');
+            const ratioValue = document.getElementById('ratioValue');
+            const maxRentEl = document.getElementById('maxRent');
+            const incomeNeededEl = document.getElementById('incomeNeeded');
+            const inputSummary = document.getElementById('inputSummary');
+            const statusText = document.getElementById('statusText');
+            const adviceText = document.getElementById('adviceText');
+
+            if (income <= 0 || rent <= 0) {
+                resultsCard.style.display = 'none';
+                alert('Please enter valid monthly income and rent.');
+                return;
+            }
+
+            const ratio = (rent / income) * 100;
+            const roundedRatio = isFinite(ratio) ? ratio.toFixed(1) : '0.0';
+            const maxRent = income * 0.3;
+            const incomeNeeded = rent / 0.3;
+
+            ratioValue.textContent = `${roundedRatio}%`;
+            maxRentEl.textContent = formatCurrency(maxRent);
+            incomeNeededEl.textContent = formatCurrency(incomeNeeded);
+            inputSummary.textContent = `Income ${formatCurrency(income)}, Rent ${formatCurrency(rent)}`;
+
+            let statusClass = '';
+            let statusMessage = '';
+            let advice = '';
+
+            if (ratio < 25) {
+                statusClass = 'status-easy';
+                statusMessage = 'Comfortable – rent leaves room for savings and other expenses.';
+                advice = 'Consider allocating the leftover room to savings, emergency fund, or debt payoff.';
+            } else if (ratio < 35) {
+                statusClass = 'status-okay';
+                statusMessage = 'Generally acceptable – common range for many renters.';
+                advice = 'Keep an eye on other fixed costs and avoid taking on high-interest debt.';
+            } else if (ratio < 45) {
+                statusClass = 'status-tight';
+                statusMessage = 'Tight – rent is taking a big share of income.';
+                advice = 'Negotiate rent, explore a roommate, or trim other expenses to avoid budget stress.';
+            } else {
+                statusClass = 'status-risk';
+                statusMessage = 'Risky – high housing burden may strain savings and debt payments.';
+                advice = 'Consider lowering rent, increasing income, or moving to reduce financial pressure.';
+            }
+
+            statusText.className = 'status-text ' + statusClass;
+            statusText.textContent = statusMessage;
+            adviceText.textContent = advice;
+
+            resultsCard.style.display = 'block';
+        }
+
+        function clearRentForm() {
+            document.getElementById('monthlyIncome').value = '';
+            document.getElementById('monthlyRent').value = '';
+            document.getElementById('resultsCard').style.display = 'none';
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', calculateRent);
+        document.getElementById('clearBtn').addEventListener('click', clearRentForm);
+    </script>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
