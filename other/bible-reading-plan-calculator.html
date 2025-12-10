@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,11 +237,12 @@
             font-size: 16px;
         }
         .summary-card {
-            background: #eb5424;
-            color: white;
+            background: #fdf2f0;
+            color: #303030;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
         }
         .holiday-list {
             max-height: 200px;
@@ -446,6 +447,16 @@
         input[type="date"] {
             font-family: 'Raleway', sans-serif;
             color: #333;
+            direction: ltr;
+        }
+        
+        /* Force English locale for date input display */
+        input[type="date"]::-webkit-datetime-edit-text,
+        input[type="date"]::-webkit-datetime-edit-month-field,
+        input[type="date"]::-webkit-datetime-edit-day-field,
+        input[type="date"]::-webkit-datetime-edit-year-field {
+            font-family: 'Raleway', sans-serif;
+            direction: ltr;
         }
         
         input[type="date"]::-webkit-calendar-picker-indicator {
@@ -514,7 +525,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="startDate" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" id="startDate" required>
+                        <input type="date" class="form-control" id="startDate" lang="en-US" data-locale="en-US" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="chaptersPerDay" class="form-label">Chapters Per Day</label>
@@ -555,11 +566,11 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label class="form-label" style="font-size: 14px;">From Date</label>
-                                <input type="date" class="form-control" id="holidayFromDate">
+                                <input type="date" class="form-control" id="holidayFromDate" lang="en-US" data-locale="en-US">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label" style="font-size: 14px;">To Date</label>
-                                <input type="date" class="form-control" id="holidayToDate">
+                                <input type="date" class="form-control" id="holidayToDate" lang="en-US" data-locale="en-US">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label" style="font-size: 14px;">Action</label>
@@ -594,6 +605,49 @@
                     <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
                 </div>
             </form>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Calculating your reading plan...</p>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <div class="summary-card">
+                <h4 class="mb-3">📊 Reading Plan Overview</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="totalDays">0</h5>
+                            <small>Total Reading Days</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="totalWeeks">0</h5>
+                            <small>Estimated Weeks</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="completionDate">-</h5>
+                            <small>Estimated Completion Date</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <h5 id="skippedDays">0</h5>
+                            <small>Skipped Days</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-buttons text-center">
+                <button class="btn btn-warning export-btn" onclick="exportToCSV()">
+                    <i class="fa fa-file-excel-o"></i> Export CSV
+                </button>
+            </div>
         </div>
 
         <!-- Content Section -->
@@ -646,49 +700,6 @@
                     <h4 style="color: #000; font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">Q6: What is the 555 Bible reading plan?</h4>
                     <p><strong>A:</strong> The 5x5x5 plan means we read a designated chapter for 5 minutes a day, 5 days a week and use 5 ways to go deeper with that passage. The scripture passages are already chosen and you will receive a bookmark showing these each month to place in your bible (or keep somewhere handy if you read from a device).</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>Calculating your reading plan...</p>
-        </div>
-
-        <div class="result-section" id="resultSection">
-            <div class="summary-card">
-                <h4 class="mb-3">📊 Reading Plan Overview</h4>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="text-center">
-                            <h5 id="totalDays">0</h5>
-                            <small>Total Reading Days</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="text-center">
-                            <h5 id="totalWeeks">0</h5>
-                            <small>Estimated Weeks</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="text-center">
-                            <h5 id="completionDate">-</h5>
-                            <small>Estimated Completion Date</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="text-center">
-                            <h5 id="skippedDays">0</h5>
-                            <small>Skipped Days</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="export-buttons text-center">
-                <button class="btn btn-warning export-btn" onclick="exportToCSV()">
-                    <i class="fa fa-file-excel-o"></i> Export CSV
-                </button>
             </div>
         </div>
                 </div>
@@ -795,6 +806,47 @@
 
         // Set default date on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Force all date inputs to use English locale
+            function forceEnglishLocale(input) {
+                input.setAttribute('lang', 'en-US');
+                input.setAttribute('data-locale', 'en-US');
+                input.setAttribute('x-data-locale', 'en-US');
+                
+                // Force English locale on focus/click
+                input.addEventListener('focus', function() {
+                    this.setAttribute('lang', 'en-US');
+                    this.setAttribute('data-locale', 'en-US');
+                });
+                
+                input.addEventListener('click', function() {
+                    this.setAttribute('lang', 'en-US');
+                    this.setAttribute('data-locale', 'en-US');
+                });
+            }
+            
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(forceEnglishLocale);
+            
+            // Observe for dynamically added date inputs
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.nodeType === 1) {
+                            const newDateInputs = node.querySelectorAll ? node.querySelectorAll('input[type="date"]') : [];
+                            newDateInputs.forEach(forceEnglishLocale);
+                            if (node.tagName === 'INPUT' && node.type === 'date') {
+                                forceEnglishLocale(node);
+                            }
+                        }
+                    });
+                });
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            
             // Fix timezone issue - use local date instead of UTC
             const today = new Date();
             const tomorrow = new Date();
@@ -821,11 +873,11 @@
                 <div class="row mt-3" id="${rowId}">
                     <div class="col-md-4">
                         <label class="form-label" style="font-size: 14px;">From Date</label>
-                        <input type="date" class="form-control holiday-from-date">
+                        <input type="date" class="form-control holiday-from-date" lang="en-US" data-locale="en-US">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label" style="font-size: 14px;">To Date</label>
-                        <input type="date" class="form-control holiday-to-date">
+                        <input type="date" class="form-control holiday-to-date" lang="en-US" data-locale="en-US">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label" style="font-size: 14px;">Action</label>
@@ -840,6 +892,13 @@
             const addButton = document.querySelector('button[onclick="addHolidayInputRow()"]');
             const buttonContainer = addButton.parentElement;
             buttonContainer.insertAdjacentHTML('beforebegin', rowHtml);
+            
+            // Force English locale for newly added date inputs
+            const newInputs = document.querySelectorAll(`#${rowId} input[type="date"]`);
+            newInputs.forEach(function(input) {
+                input.setAttribute('lang', 'en-US');
+                input.setAttribute('data-locale', 'en-US');
+            });
             
             holidayInputRows.push(rowId);
         }
