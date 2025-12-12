@@ -339,15 +339,16 @@
             const length = parseFloat(document.getElementById('length').value);
             const width = parseFloat(document.getElementById('width').value);
             const unit = document.getElementById('unit').value;
-            const pitchDeg = parseFloat(document.getElementById('pitch').value || 0);
+            const pitchInput = document.getElementById('pitch').value;
+            const pitchDeg = pitchInput === '' ? 0 : parseFloat(pitchInput);
             const depth = parseFloat(document.getElementById('depth').value);
             const depthUnit = document.getElementById('depthUnit').value;
             const density = parseFloat(document.getElementById('snowType').value);
 
-            if (!length || length <= 0) { document.getElementById('error-length').textContent = 'Enter a valid length.'; valid = false; }
-            if (!width || width <= 0) { document.getElementById('error-width').textContent = 'Enter a valid width.'; valid = false; }
-            if (pitchDeg < 0 || pitchDeg > 60 || isNaN(pitchDeg)) { document.getElementById('error-pitch').textContent = 'Enter pitch between 0–60°.'; valid = false; }
-            if (!depth || depth <= 0) { document.getElementById('error-depth').textContent = 'Enter a valid snow depth.'; valid = false; }
+            if (!length || length <= 0 || isNaN(length)) { document.getElementById('error-length').textContent = 'Enter a valid length.'; valid = false; }
+            if (!width || width <= 0 || isNaN(width)) { document.getElementById('error-width').textContent = 'Enter a valid width.'; valid = false; }
+            if (isNaN(pitchDeg) || pitchDeg < 0 || pitchDeg > 60) { document.getElementById('error-pitch').textContent = 'Enter pitch between 0–60°.'; valid = false; }
+            if (!depth || depth <= 0 || isNaN(depth)) { document.getElementById('error-depth').textContent = 'Enter a valid snow depth.'; valid = false; }
 
             if (!valid) {
                 document.getElementById('results').style.display = 'none';
@@ -359,7 +360,8 @@
             const depthM = toMetersDepth(depth, depthUnit);
             const areaPlan = lengthM * widthM;
             const pitchRad = pitchDeg * Math.PI / 180;
-            const areaSlope = areaPlan / Math.cos(pitchRad || 0.0001);
+            // For flat roof (pitch = 0), cos(0) = 1, so areaSlope = areaPlan
+            const areaSlope = pitchDeg === 0 ? areaPlan : areaPlan / Math.cos(pitchRad);
 
             // load (kN/m²) = depth(m) * density(kg/m³) * g / 1000
             const g = 9.80665;
