@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <title>Roof Covered in Snow? Snow Load Calculator Estimates Roof Snow Weight in 3 Minutes</title>
+    <meta name="description" content="Worried about heavy snow damaging your roof this winter? Use our Snow Load Calculator to quickly calculate snow load by entering roof size and slope. Get accurate results in just 3 minutes to protect your home and prevent costly repairs.">
+    <meta name="keywords" content="snow load calculator, roof snow weight, snow load psf, snow depth to weight, roof snow safety, snow density calculator, snow load kn m2, snow weight lbs, roof pitch snow load">
+    <link rel="canonical" href="https://calculatorquote.com/home/snow-load-calculator.html">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/templatemo-style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Roof Covered in Snow? Snow Load Calculator Estimates Roof Snow Weight in 3 Minutes",
+      "url": "https://calculatorquote.com/home/snow-load-calculator.html",
+      "description": "Worried about heavy snow damaging your roof this winter? Use our Snow Load Calculator to quickly calculate snow load by entering roof size and slope. Get accurate results in just 3 minutes to protect your home and prevent costly repairs.",
+      "applicationCategory": "HomeApplication",
+      "operatingSystem": "Web Browser",
+      "keywords": [
+        "snow load calculator",
+        "roof snow weight",
+        "snow load psf",
+        "snow depth to weight",
+        "roof snow safety",
+        "snow density calculator",
+        "snow load kn m2",
+        "snow weight lbs",
+        "roof pitch snow load",
+        "best roofing types for snow load resistance",
+        "durable retractable awnings minnesota with snow load rating",
+        "high-performance low-care gutters for minnesota snow loads",
+        "snow load by zip code"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://calculatorquote.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorquote.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Home Calculators", "item": "https://calculatorquote.com/home/" },
+          { "@type": "ListItem", "position": 3, "name": "Snow Load Calculator", "item": "https://calculatorquote.com/home/snow-load-calculator.html" }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorquote.com/home/snow-load-calculator.html">
+    <meta property="og:title" content="Roof Covered in Snow? Snow Load Calculator Estimates Roof Snow Weight in 3 Minutes">
+    <meta property="og:description" content="Worried about heavy snow damaging your roof this winter? Use our Snow Load Calculator to quickly calculate snow load by entering roof size and slope. Get accurate results in just 3 minutes to protect your home and prevent costly repairs.">
+    <meta property="og:image" content="https://calculatorquote.com/images/snow-load-calculator-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorquote.com/home/snow-load-calculator.html">
+    <meta property="twitter:title" content="Roof Covered in Snow? Snow Load Calculator Estimates Roof Snow Weight in 3 Minutes">
+    <meta property="twitter:description" content="Worried about heavy snow damaging your roof this winter? Use our Snow Load Calculator to quickly calculate snow load by entering roof size and slope. Get accurate results in just 3 minutes to protect your home and prevent costly repairs.">
+    <meta property="twitter:image" content="https://calculatorquote.com/images/snow-load-calculator-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <style>
+        * { font-family: 'Raleway', sans-serif !important; }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(50,50,50,0.08);
+            padding: 40px 32px 36px 32px;
+        }
+        .breadcrumb { margin-bottom: 20px; font-size: 1em; color: #666; }
+        .breadcrumb a { color: #eb5424; text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: #d43d1a; }
+        .breadcrumb span { color: #666; margin: 0 8px; }
+        .page-title { font-size: 1.5em; font-weight: 300; color: #000; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .description { color: #606060; font-size: 16px; line-height: 28px; margin-bottom: 28px; }
+        .calculator-section { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .section-title { color: #000; font-size: 20px; font-weight: bold; letter-spacing: 1px; margin-top: 10px; margin-bottom: 16px; }
+        .input-row { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; margin-bottom: 16px; }
+        .input-row.full { grid-template-columns: 1fr; }
+        .input-group { display: flex; flex-direction: column; gap: 6px; }
+        .input-group label { color: #333; font-weight: 500; }
+        .input-group input, .input-group select {
+            padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; outline: none; transition: border-color 0.3s;
+        }
+        .input-group input:hover, .input-group input:focus, .input-group select:hover, .input-group select:focus { border-color: #eb5424; }
+        .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 420px; margin: 20px auto 0 auto; }
+        .btn-calculate { background: #eb5424; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-calculate:hover { background: #d43d1a; }
+        .btn-clear { background: #f5c6cb; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        .btn-clear:hover { background: #f1aeb5; }
+        .result-section { margin-top: 24px; padding: 20px; background: #fdf2f0; border-radius: 10px; display: none; }
+        .result-section h2 { color: #d43d1a; margin-bottom: 12px; }
+        .result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5c6cb; }
+        .result-item:last-child { border-bottom: none; }
+        .result-label { font-weight: 500; color: #666; }
+        .result-value { font-weight: 600; color: #eb5424; }
+        .error { color: #e53935; font-size: 0.95em; }
+        .info-box { background: transparent; border: none; padding: 24px 0; margin-top: 8px; color: #666; font-size: 1.05em; line-height: 1.7; }
+        .info-box h2 { color: #303030; font-size: 1.3em; font-weight: 500; margin: 20px 0 10px; }
+        .info-box h3 { color: #303030; font-size: 1.1em; font-weight: 500; margin: 18px 0 10px; }
+        .info-box p { margin-bottom: 12px; color: #606060; font-size: 16px; line-height: 28px; }
+        .info-box ul { margin-left: 1.2em; margin-bottom: 12px; }
+        .info-box li { margin-bottom: 0.5em; color: #606060; font-size: 16px; line-height: 28px; }
+        @media (max-width: 768px) {
+            .input-row { grid-template-columns: 1fr; }
+            .buttons { grid-template-columns: 1fr; }
+            .calculator-container { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../math/index.html">Math</a></li>
+                    <li><a href="../financial/index.html">Financial</a></li>
+                    <li><a href="../health/index.html">Health</a></li>
+                    <li><a href="index.html">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html">Pet</a></li>
+                    <li><a href="../sports/index.html">Sports</a></li>
+                    <li><a href="../other/index.html">Other</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <section class="tm-padding-top-bottom-100" style="padding-top:0; padding-bottom:1px; background:#fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calculator-container">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Home</a> <span>/</span>
+                            <a href="index.html">Home Calculators</a> <span>/</span>
+                            <span>Snow Load Calculator</span>
+                        </div>
+                        <div class="page-title">Roof Covered in Snow? Calculate Snow Load in 3 Minutes</div>
+                        <div class="description">
+                            <p>Worried about heavy snow damaging your roof this winter? Homeowners need a quick way to assess snow weight and prevent costly repairs. Our Snow Load Calculator lets you enter roof size and slope, instantly estimating snow load. Stay safe and protect your home with accurate, fast results in just 3 minutes.</p>
+                        </div>
+
+                        <div class="calculator-section">
+                            <h2 class="section-title">❄️ Snow Load Calculator</h2>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="length">Roof Length</label>
+                                    <input type="number" id="length" min="0.1" step="0.1" placeholder="e.g., 40">
+                                    <div class="error" id="error-length"></div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="width">Roof Width</label>
+                                    <input type="number" id="width" min="0.1" step="0.1" placeholder="e.g., 30">
+                                    <div class="error" id="error-width"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="unit">Length/Width Unit</label>
+                                    <select id="unit">
+                                        <option value="ft">Feet (ft)</option>
+                                        <option value="m">Meters (m)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="pitch">Roof Pitch (degrees)</label>
+                                    <input type="number" id="pitch" min="0" max="60" step="1" placeholder="e.g., 20">
+                                    <div class="error" id="error-pitch"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="depth">Snow Depth</label>
+                                    <input type="number" id="depth" min="0.1" step="0.1" placeholder="e.g., 12">
+                                    <div class="error" id="error-depth"></div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="depthUnit">Depth Unit</label>
+                                    <select id="depthUnit">
+                                        <option value="in">Inches</option>
+                                        <option value="cm">Centimeters</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="snowType">Snow Type (density)</label>
+                                    <select id="snowType">
+                                        <option value="60">Fresh snow (60 kg/m³)</option>
+                                        <option value="110">Damp fresh snow (110 kg/m³)</option>
+                                        <option value="250">Settled snow (250 kg/m³)</option>
+                                        <option value="375">Wind-packed snow (375 kg/m³)</option>
+                                        <option value="750">Very wet snow (750 kg/m³)</option>
+                                        <option value="917">Ice (917 kg/m³)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="safetyNote">Reminder</label>
+                                    <input type="text" id="safetyNote" value="Results are approximate; always prioritize safety." readonly>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button class="btn-calculate" onclick="calculateSnow()">Calculate</button>
+                                <button class="btn-clear" onclick="clearForm()">Clear</button>
+                            </div>
+
+                            <div id="results" class="result-section">
+                                <h2>📊 Results</h2>
+                                <div class="result-item">
+                                    <span class="result-label">Snow Load</span>
+                                    <span class="result-value" id="loadResult">-</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Total Snow Weight</span>
+                                    <span class="result-value" id="weightResult">-</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Roof Area (plan)</span>
+                                    <span class="result-value" id="areaResult">-</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Assumed density</span>
+                                    <span class="result-value" id="densityResult">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <h2>Is Your Roof Ready for Snow? Calculate Snow Load in Minutes!</h2>
+
+                            <h3>Why You Need a Snow Load Calculator</h3>
+                            <p>Heavy snow can damage your roof if you don’t check it in time. Our Snow Load Calculator helps homeowners, builders, and DIYers quickly find out how much snow your roof can handle. Enter your roof size, slope, and location to get accurate results in minutes. Whether you are checking your roof slope for snow load or planning a project, this tool gives you clear numbers to make smart decisions. Don’t wait until snow piles up and causes costly damage.</p>
+
+                            <h3>How the Calculator Works and What to Watch</h3>
+                            <p>The calculator uses your roof measurements, slope, and local snow data to estimate snow load. Start by entering your roof slope for snow load, roof area, and roof type. The tool also considers regional data, like the Montana snow load finder, for precise results. Steep roofs usually shed snow faster. Low or flat roofs hold more snow and face higher risk.</p>
+                            <p>Keep safety in mind. Make sure your roof structure meets local codes. If you live in Minnesota, high-performance low-care gutters for Minnesota snow loads can prevent ice and water problems. You can also add durable retractable awnings Minnesota with snow load rating to protect outdoor areas safely. Check your roof after heavy snow even if calculations look fine. This prevents surprises and helps protect your home.</p>
+
+                            <h3>Stay Safe This Winter</h3>
+                            <p>Knowing your roof’s snow load is key to staying safe. Our Snow Load Calculator gives fast, clear results so you can plan maintenance, gutters, and awnings. Don’t wait until heavy snow becomes a problem. Use the calculator now and keep your home safe.</p>
+                            <p>After checking your roof, try our other helpful tools. Measure roof areas, plan drainage, or check DIY tips. Each tool helps you make smart decisions, save money, and avoid stress. Start calculating today and prepare your roof for winter safely and easily!</p>
+
+                            <h2>❓Roof Snow Load Questions – Answers for Homeowners &amp; Builders</h2>
+
+                            <p><strong>Q1. What is the snow load?</strong></p>
+                            <p>A: Snow load is the downward force on a building's roof exerted by accumulated snow and ice.</p>
+
+                            <p><strong>Q2. How to calculate snow load?</strong></p>
+                            <p>A: One approach multiplies the flat-roof load by the cosine of the roof pitch to get the load normal to the surface. Example: 10.4 lbs/ft² × cos(pitch).</p>
+
+                            <p><strong>Q3. Is snow a live or dead load?</strong></p>
+                            <p>A: Snow on the roof is a live load. The roof’s own weight and fixed equipment are dead loads.</p>
+
+                            <p><strong>Q4. What is a good snow load rating?</strong></p>
+                            <p>A: Typical guidance: light snow 10–20 psf, moderate 20–30 psf, heavy 30–40 psf.</p>
+
+                            <p><strong>Q5. What roof pitch is strongest?</strong></p>
+                            <p>A: Strength depends on materials and bracing, but steeper pitches (around 9:12 or higher) tend to shed snow better and resist uplift.</p>
+
+                            <p><strong>Q6. Can a roof support a 400 lb person?</strong></p>
+                            <p>A: It depends on roof type and condition. Many wood/shingle roofs handle ~20 psf; stronger materials like clay/metal can reach ~27 psf. Always check structural limits before loading a roof.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="max-width: 900px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function toMeters(val, unit) {
+            return unit === 'ft' ? val * 0.3048 : val;
+        }
+        function toMetersDepth(val, unit) {
+            return unit === 'in' ? val * 0.0254 : val / 100; // cm to m
+        }
+        function formatNumber(val, digits = 2) {
+            return Number(val).toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+        }
+        function clearErrors() {
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+        }
+
+        function calculateSnow() {
+            clearErrors();
+            let valid = true;
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+            const unit = document.getElementById('unit').value;
+            const pitchDeg = parseFloat(document.getElementById('pitch').value || 0);
+            const depth = parseFloat(document.getElementById('depth').value);
+            const depthUnit = document.getElementById('depthUnit').value;
+            const density = parseFloat(document.getElementById('snowType').value);
+
+            if (!length || length <= 0) { document.getElementById('error-length').textContent = 'Enter a valid length.'; valid = false; }
+            if (!width || width <= 0) { document.getElementById('error-width').textContent = 'Enter a valid width.'; valid = false; }
+            if (pitchDeg < 0 || pitchDeg > 60 || isNaN(pitchDeg)) { document.getElementById('error-pitch').textContent = 'Enter pitch between 0–60°.'; valid = false; }
+            if (!depth || depth <= 0) { document.getElementById('error-depth').textContent = 'Enter a valid snow depth.'; valid = false; }
+
+            if (!valid) {
+                document.getElementById('results').style.display = 'none';
+                return;
+            }
+
+            const lengthM = toMeters(length, unit);
+            const widthM = toMeters(width, unit);
+            const depthM = toMetersDepth(depth, depthUnit);
+            const areaPlan = lengthM * widthM;
+            const pitchRad = pitchDeg * Math.PI / 180;
+            const areaSlope = areaPlan / Math.cos(pitchRad || 0.0001);
+
+            // load (kN/m²) = depth(m) * density(kg/m³) * g / 1000
+            const g = 9.80665;
+            const loadKnm2 = depthM * density * g / 1000;
+            const loadLbsFt2 = loadKnm2 * 20.8854; // 1 kN/m² = 20.8854 lb/ft²
+
+            // Total weight = depth(m) × density(kg/m³) × area(m²) = kg
+            const totalWeightKg = depthM * density * areaSlope;
+            const totalWeightLb = totalWeightKg * 2.20462;
+
+            document.getElementById('loadResult').textContent = `${formatNumber(loadKnm2,2)} kN/m² (${formatNumber(loadLbsFt2,1)} lb/ft²)`;
+            document.getElementById('weightResult').textContent = `${formatNumber(totalWeightKg,1)} kg (${formatNumber(totalWeightLb,1)} lb)`;
+            document.getElementById('areaResult').textContent = `${formatNumber(areaPlan,2)} m² plan (${unit === 'ft' ? formatNumber(length*width,2) + ' ft²' : formatNumber(areaPlan*10.7639,2) + ' ft²'})`;
+            document.getElementById('densityResult').textContent = `${density} kg/m³`;
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('length').value = '';
+            document.getElementById('width').value = '';
+            document.getElementById('unit').value = 'ft';
+            document.getElementById('pitch').value = '';
+            document.getElementById('depth').value = '';
+            document.getElementById('depthUnit').value = 'in';
+            document.getElementById('snowType').value = '60';
+            document.getElementById('results').style.display = 'none';
+            clearErrors();
+        }
+    </script>
+
+    <!-- Template JS -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
