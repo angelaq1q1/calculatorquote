@@ -533,12 +533,13 @@
                 const presetRow = document.getElementById('sizePresetRow');
                 const customGroup = document.getElementById('sizeCustomGroup');
                 const presetSelect = document.getElementById('sizePreset');
+                const presetGroup = presetSelect.closest('.input-group');
                 
                 if (mode === 'custom') {
-                    presetSelect.style.display = 'none';
+                    if (presetGroup) presetGroup.style.display = 'none';
                     customGroup.style.display = 'flex';
                 } else {
-                    presetSelect.style.display = 'block';
+                    if (presetGroup) presetGroup.style.display = 'flex';
                     customGroup.style.display = 'none';
                 }
             });
@@ -638,8 +639,11 @@
             // Reset to preset mode
             document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
             document.querySelector('.size-btn[data-mode="preset"]').classList.add('active');
-            document.getElementById('sizePreset').style.display = 'block';
-            document.getElementById('sizeCustomGroup').style.display = 'none';
+            const presetSelect = document.getElementById('sizePreset');
+            const presetGroup = presetSelect ? presetSelect.closest('.input-group') : null;
+            const customGroup = document.getElementById('sizeCustomGroup');
+            if (presetGroup) presetGroup.style.display = 'flex';
+            if (customGroup) customGroup.style.display = 'none';
         }
     </script>
 
