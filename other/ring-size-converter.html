@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ring Size Converter – Instantly Convert US, UK, EU &amp; JP Ring Sizes</title>
+    <meta name="description" content="Buying a ring internationally can be tricky. Use our Ring Size Converter to quickly and accurately convert US, UK, EU, and JP sizes – free, easy, and perfect fit every time!">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/other/ring-size-converter.html">
+
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+
+    <style>
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
+        .material-icons {
+            font-family: 'Material Icons' !important;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+
+        h1 {
+            color: #303030;
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 24px 20px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .input-row input,
+        .input-row select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-row input {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .input-row select {
+            min-width: 130px;
+            background-color: #fff;
+        }
+
+        .input-row input:hover,
+        .input-row input:focus,
+        .input-row select:hover,
+        .input-row select:focus {
+            border-color: #eb5424;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 380px;
+            margin: 18px 0 4px 0;
+        }
+
+        .btn-primary-cta {
+            background-color: #eb5424;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary-cta:hover {
+            background-color: #d4441a;
+        }
+
+        .btn-secondary {
+            background-color: #f5c6cb;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f1aeb5;
+        }
+
+        .result-section {
+            margin-top: 18px;
+            padding: 18px 18px 12px 18px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-line {
+            font-size: 1.02em;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .result-highlight {
+            color: #eb5424;
+            font-weight: 600;
+        }
+
+        .note-text {
+            font-size: 0.92em;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .calculator-title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 5px 0 5px;
+            font-size: 1em;
+        }
+
+        .info-section ul {
+            padding-left: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info-section li {
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 22px 18px;
+                box-shadow: none;
+                border-radius: 10px;
+            }
+
+            .input-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+
+            .btn-primary-cta,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home &amp; Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="index.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Other Calculators</a>
+                                    <span>/</span>
+                                    Ring Size Converter
+                                </div>
+
+                                <h1>Ring Size Converter – Convert US, UK, EU &amp; JP Ring Sizes Instantly</h1>
+
+                                <div class="description">
+                                    Buying a ring internationally can be tricky. Don’t risk the wrong size! Use our Ring Size Converter to instantly convert US, UK, EU, and JP sizes for the perfect fit every time – fast, free, and easy.
+                                </div>
+
+                                <div class="calculator-section">
+                                    <div class="input-group">
+                                        <label for="measureType">What did you measure?</label>
+                                        <div class="input-row">
+                                            <select id="measureType">
+                                                <option value="circumference">Finger circumference</option>
+                                                <option value="diameter">Inside ring diameter</option>
+                                            </select>
+                                            <select id="unit">
+                                                <option value="mm">Millimeters (mm)</option>
+                                                <option value="inch">Inches (in)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="measureValue">Measurement value</label>
+                                        <div class="input-row">
+                                            <input type="number" id="measureValue" min="0" step="0.01" placeholder="e.g. 54.5">
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="knownSize">Or select a known US ring size (optional)</label>
+                                        <div class="input-row">
+                                            <select id="knownSize">
+                                                <option value="">Select size (optional)</option>
+                                                <option value="0">US 0</option>
+                                                <option value="0.5">US 0.5</option>
+                                                <option value="1">US 1</option>
+                                                <option value="1.5">US 1.5</option>
+                                                <option value="2">US 2</option>
+                                                <option value="2.5">US 2.5</option>
+                                                <option value="3">US 3</option>
+                                                <option value="3 3/8">US 3 3/8</option>
+                                                <option value="3 1/2">US 3 1/2</option>
+                                                <option value="3 5/8">US 3 5/8</option>
+                                                <option value="3 3/4">US 3 3/4</option>
+                                                <option value="4">US 4</option>
+                                                <option value="4 1/4">US 4 1/4</option>
+                                                <option value="4 1/2">US 4 1/2</option>
+                                                <option value="4 5/8">US 4 5/8</option>
+                                                <option value="5">US 5</option>
+                                                <option value="5 1/8">US 5 1/8</option>
+                                                <option value="5 3/8">US 5 3/8</option>
+                                                <option value="5 1/2">US 5 1/2</option>
+                                                <option value="6">US 6</option>
+                                                <option value="6 1/2">US 6 1/2</option>
+                                                <option value="7">US 7</option>
+                                                <option value="7 1/2">US 7 1/2</option>
+                                                <option value="8">US 8</option>
+                                                <option value="8 1/2">US 8 1/2</option>
+                                                <option value="8 5/8">US 8 5/8</option>
+                                                <option value="9">US 9</option>
+                                                <option value="9 1/8">US 9 1/8</option>
+                                                <option value="9 1/2">US 9 1/2</option>
+                                                <option value="9 5/8">US 9 5/8</option>
+                                                <option value="10">US 10</option>
+                                                <option value="10 1/4">US 10 1/4</option>
+                                                <option value="10 1/2">US 10 1/2</option>
+                                                <option value="10 5/8">US 10 5/8</option>
+                                                <option value="11">US 11</option>
+                                                <option value="11 1/8">US 11 1/8</option>
+                                                <option value="11 1/2">US 11 1/2</option>
+                                                <option value="11 5/8">US 11 5/8</option>
+                                                <option value="12">US 12</option>
+                                                <option value="12 1/2">US 12 1/2</option>
+                                                <option value="13">US 13</option>
+                                            </select>
+                                        </div>
+                                        <div class="note-text">
+                                            If you pick a size here, the calculator will show its typical diameter, finger circumference, and equivalent sizes in UK, EU, JP, and CH systems. You can still type your own measurement to find the nearest size.
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons">
+                                        <button type="button" class="btn-primary-cta" id="calcBtn">Convert</button>
+                                        <button type="button" class="btn-secondary" id="clearBtn">Clear</button>
+                                    </div>
+                                </div>
+
+                                <div class="result-section" id="resultSection">
+                                    <div class="result-line">
+                                        Inside ring diameter: <span class="result-highlight" id="diameterOut">–</span>
+                                    </div>
+                                    <div class="result-line">
+                                        Finger / inside circumference: <span class="result-highlight" id="circumferenceOut">–</span>
+                                    </div>
+                                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #b3d9ff;">
+                                        <div style="font-weight: 600; margin-bottom: 8px; color: #333;">Ring Size Equivalents:</div>
+                                        <div class="result-line">
+                                            <strong>US &amp; Canada size:</strong> <span class="result-highlight" id="sizeUS">–</span>
+                                        </div>
+                                        <div class="result-line">
+                                            <strong>UK &amp; Australia size:</strong> <span class="result-highlight" id="sizeUK">–</span>
+                                        </div>
+                                        <div class="result-line">
+                                            <strong>France &amp; Russia size:</strong> <span class="result-highlight" id="sizeFR">–</span>
+                                        </div>
+                                        <div class="result-line">
+                                            <strong>Germany size:</strong> <span class="result-highlight" id="sizeDE">–</span>
+                                        </div>
+                                        <div class="result-line">
+                                            <strong>Switzerland size:</strong> <span class="result-highlight" id="sizeCH">–</span>
+                                        </div>
+                                        <div class="result-line">
+                                            <strong>Japan size:</strong> <span class="result-highlight" id="sizeJP">–</span>
+                                        </div>
+                                    </div>
+                                    <div class="note-text" id="distanceNote"></div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h2 class="calculator-title">Ring Size Converter: Find the Right Ring Size in Minutes</h2>
+                                    
+                                    <h3>A Simple Way to Find the Perfect Ring Size</h3>
+                                    <p>Finding the perfect ring size can feel stressful, especially when people shop internationally or buy a ring as a gift. Our Ring Size Converter makes the process simple and clear. This tool helps anyone find the correct ring size with confidence. First-time buyers can use it easily. People planning a proposal can rely on it. Shoppers updating their jewelry collection can trust the results. Users no longer need to guess or read confusing charts. With just a few clicks, the tool converts ring size sizes across US, UK, EU, and JP systems. It works well for men, women, and teenagers. Everyone gets a comfortable and accurate fit without extra effort.</p>
+
+                                    <h3>How the Ring Size Converter Works</h3>
+                                    <p>The Ring Size Converter works in a simple and accurate way. The tool compares your measurement with standard sizing charts used worldwide. Users can measure a finger or an existing ring at home. A person can wrap a strip of paper or string around the finger. The person then marks where the ends meet. The next step is measuring the length in millimeters. This number becomes the base measurement. The converter changes that number into US, UK, EU, and JP sizes. Many users ask how to measure ring size at home, and this method gives clear results. The process works well for most finger shapes and sizes.</p>
+                                    
+                                    <p>Behind the scenes, this calculator follows the same basic geometry used by professional ring sizers: a ring is essentially a circle, so its inside circumference and inside diameter are related by a simple formula. Once we know one of these values, we can compute the other and compare it with a table of common ring sizes. The tool uses typical diameter values (in millimeters) for popular sizes from 3 to 13 across different systems. For each size, it also stores the corresponding finger circumference (diameter multiplied by π). When you enter your own measurement, the calculator converts it to millimeters, finds the diameter and circumference, and then looks for the closest standard size.</p>
+
+                                    <h3>📏 Step 1 – Measure Your Finger or an Existing Ring</h3>
+                                    <p>You can either wrap a strip of paper, string, or flexible tape around the base of your finger to get circumference, or measure the inside diameter of a ring that already fits comfortably. Make sure the ring measurement is taken across the very center of the circle, from one inner edge straight across to the other. This method answers the common question: how do you figure out the size of a ring? The answer is simple: measure what you have, and let the converter do the rest.</p>
+
+                                    <h3>🧮 Step 2 – Convert Between Diameter and Circumference</h3>
+                                    <p>Mathematically, if you know the circumference \(C\), the inside diameter \(D\) is simply \(D = C / \pi\). If you know the inside diameter, the circumference is \(C = \pi \times D\). The calculator performs these conversions automatically, handling millimeters and inches so you do not need to worry about unit changes. This automatic conversion makes it easy to use measurements from different sources, whether you have a ring size chart printable or measurements from a jeweler.</p>
+
+                                    <h3>💍 Step 3 – Match to the Nearest Standard Ring Size</h3>
+                                    <p>After computing the diameter in millimeters, the converter compares it to a list of typical ring diameters across US, UK, EU, and JP systems and picks the closest one. That size is shown as your approximate recommendation, along with how far your measurement is from the standard value. If the difference is very small, the ring should fit similarly to the one you measured. This cross-system conversion is especially useful when shopping internationally or comparing sizes from different regions.</p>
+
+                                    <h3>✅ Tips to Measure Your Finger Correctly</h3>
+                                    <p>Finger size can change during the day. Temperature and daily activity often affect finger width. Experts suggest measuring fingers at the end of the day. Fingers are usually largest at that time. This step helps users get a better fit. Ring width also matters. Wider rings often feel tighter on the finger. These rings may need a slightly larger size. Our tool considers these details when giving results. By following these steps, users learn how to measure a finger for ring size without visiting a jeweler. This method saves time and helps avoid buying the wrong size.</p>
+                                    
+                                    <ul>
+                                        <li>Measure the exact finger that will wear the ring — left and right hands can differ.</li>
+                                        <li>Try sizing at the end of the day when fingers are usually a bit larger.</li>
+                                        <li>A ring should slide over the knuckle without pain but not feel loose when you shake your hand.</li>
+                                        <li>For extra‑wide bands, you may need to go up slightly in size for comfort.</li>
+                                    </ul>
+
+                                    <h3>Shop with Confidence and Try More Jewelry Tools</h3>
+                                    <p>Finding the right ring size does not need to feel difficult anymore. The Ring Size Converter helps users shop with confidence. Users can avoid sizing mistakes and enjoy a better fit. A person can measure a finger or an existing ring. The person then enters the number into the tool. The tool instantly shows accurate ring size sizes for different regions. This method works well for gifts, engagement rings, or personal purchases. The process feels fast, simple, and reliable.</p>
+                                    
+                                    <p>Users should explore other jewelry tools on this site. Necklace length guides and bracelet size converters can also help. These tools support smarter shopping decisions. Try them today to save time and avoid frustration. Every piece of jewelry should fit well and feel comfortable.</p>
+                                    
+                                    <p>For more background on measuring and converting ring sizes, tools like the Ring Size Converter on Omni Calculator (`https://www.omnicalculator.com/everyday-life/ring-size`) also explain common sizing systems and give detailed charts.</p>
+
+                                    <h2 class="calculator-title" style="margin-top: 40px;">❓ Ring Size Conversion FAQs for Online Shopping and Gifts</h2>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q1: How do I find out my ring size?</strong></p>
+                                        <p><strong>A:</strong> To find your ring size, wrap string or paper around the base of your finger, mark the overlap, measure the length in millimeters, and use that measurement (circumference) on a ring size chart to find the corresponding size; for best accuracy, measure your knuckle too and visit a jeweler, or measure an existing ring's inner diameter.</p>
+                                        
+                                        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Method 1: Using String or Paper (Finger Circumference)</strong></p>
+                                        <ol style="padding-left: 20px; margin-bottom: 12px;">
+                                            <li style="margin-bottom: 6px;"><strong>Wrap:</strong> Take a strip of paper or non-stretchy string and wrap it snugly around the base of the finger you'll wear the ring on.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Mark:</strong> Mark the point where the paper or string overlaps with a pen.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Measure:</strong> Lay the strip flat and measure the length in millimeters (mm) from the start to the mark.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Calculate Diameter (Optional but helpful):</strong> Divide the length by 3.14 (Pi) to get the diameter.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Find Size:</strong> Use a ring size chart (found online or in stores) to match your circumference or diameter to a standard ring size.</li>
+                                        </ol>
+
+                                        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Method 2: Using an Existing Ring (Inner Diameter)</strong></p>
+                                        <ol style="padding-left: 20px; margin-bottom: 12px;">
+                                            <li style="margin-bottom: 6px;"><strong>Select Ring:</strong> Choose a ring that fits the intended finger comfortably.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Measure:</strong> Place the ring on a ruler and measure the inside diameter (the widest part of the hole) in millimeters.</li>
+                                            <li style="margin-bottom: 6px;"><strong>Check Chart:</strong> Match the diameter measurement to a ring size chart to find your size.</li>
+                                        </ol>
+
+                                        <p style="margin-top: 12px; margin-bottom: 8px;"><strong>Tips for Accuracy</strong></p>
+                                        <ul style="padding-left: 20px; margin-bottom: 12px;">
+                                            <li style="margin-bottom: 6px;">Measure when your hands are at a normal temperature (not too hot or cold).</li>
+                                            <li style="margin-bottom: 6px;">Measure your knuckle as well; if it's significantly larger, you might need a slightly larger size to get it on, says Daniel Wellington.</li>
+                                            <li style="margin-bottom: 6px;">For the most precise fit, visit a jeweler for a professional sizing.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q2: Can I measure my ring size with my phone?</strong></p>
+                                        <p><strong>A:</strong> Gemporia App — Download our free app in your phone or tablet's app store. Place a ring from the finger you wish to measure onto the screen of your device, then starting from the smallest size, use the arrows or slider to adjust the circle so it lines up with the inside edge of your chosen ring.</p>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q3: What size is Taylor Swift's ring?</strong></p>
+                                        <p><strong>A:</strong> Swift's stone is not small by any means. Grimmett estimates its size at 7 to 9 carats, while Boc believes it is "a roughly 8-carat elongated antique cushion-cut diamond," adding, "Antique cushion cuts in this very elongated shape are rare, to the point that they're quite difficult to price.</p>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q4: Is ring size 8 big for a girl?</strong></p>
+                                        <p><strong>A:</strong> Common ring sizes for women are 6 (16.5 mm), 7 (17.32 mm), and 8 (18.14 mm).</p>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q5: Do rings get bigger over time?</strong></p>
+                                        <p><strong>A:</strong> Most of the time, it's not the ring itself that's becoming tighter or looser over time. However, it's worth noting that metal can contract very, very slightly (and usually imperceptibly) in cold weather. Note: It's rarely the ring that changes—though metal can contract slightly in cold weather.</p>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <p><strong>Q6: What is the most common ring size?</strong></p>
+                                        <p><strong>A:</strong> Average Ring Sizes for Women and Men — The average ring size for women ranges from size 3 to size 9. The most purchased women's rings range between size 5 and size 7. Size 6 is the most popular. The average ring size for men ranges from size 6 to size 13.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+    (function () {
+        // Complete ring size table with all international systems
+        // Based on standard international ring sizing charts
+        var sizeTable = [
+            { diameter: 11.53, uk: null, us: 0, fr: null, de: null, jp: null, ch: null },
+            { diameter: 11.95, uk: 'A', us: 0.5, fr: null, de: null, jp: null, ch: null },
+            { diameter: 12.37, uk: 'B', us: 1, fr: null, de: null, jp: 1, ch: null },
+            { diameter: 12.78, uk: 'C', us: 1.5, fr: null, de: null, jp: null, ch: null },
+            { diameter: 13.21, uk: 'D', us: 2, fr: '41 1/2', de: '13 1/2', jp: 2, ch: '1 1/2' },
+            { diameter: 13.61, uk: 'E', us: 2.5, fr: '42 3/4', de: '13 3/4', jp: 3, ch: '2 3/4' },
+            { diameter: 14.05, uk: 'F', us: 3, fr: '44', de: '14', jp: 4, ch: '4' },
+            { diameter: 14.36, uk: 'G', us: '3 3/8', fr: '45 1/4', de: null, jp: 5, ch: '5 1/4' },
+            { diameter: 14.45, uk: 'G 1/4', us: '3 1/2', fr: null, de: '14 1/2', jp: null, ch: null },
+            { diameter: 14.56, uk: 'G 1/2', us: '3 5/8', fr: null, de: null, jp: 6, ch: null },
+            { diameter: 14.65, uk: 'H', us: '3 3/4', fr: '46 1/2', de: null, jp: null, ch: '6 1/2' },
+            { diameter: 14.86, uk: 'H 1/2', us: 4, fr: null, de: '15', jp: 7, ch: null },
+            { diameter: 15.04, uk: 'I', us: '4 1/4', fr: '47 3/4', de: null, jp: null, ch: '7 3/4' },
+            { diameter: 15.27, uk: 'I 1/2', us: '4 1/2', fr: null, de: '15 1/4', jp: 8, ch: null },
+            { diameter: 15.40, uk: 'J', us: '4 5/8', fr: '49', de: '15 1/2', jp: null, ch: '9' },
+            { diameter: 15.70, uk: 'J 1/2', us: 5, fr: null, de: '15 3/4', jp: 9, ch: null },
+            { diameter: 15.80, uk: 'K', us: '5 1/8', fr: '50', de: null, jp: null, ch: '10' },
+            { diameter: 16.00, uk: 'K 1/2', us: '5 3/8', fr: null, de: '10', jp: null, ch: null },
+            { diameter: 16.10, uk: 'L', us: '5 1/2', fr: '51 3/4', de: '16', jp: null, ch: '11 3/4' },
+            { diameter: 16.51, uk: 'M', us: 6, fr: '52 3/4', de: '16 1/2', jp: 12, ch: '12 3/4' },
+            { diameter: 16.92, uk: 'N', us: '6 1/2', fr: '54', de: '17', jp: 13, ch: '14' },
+            { diameter: 17.35, uk: 'O', us: 7, fr: '55 1/4', de: '17 1/4', jp: 14, ch: '15 1/4' },
+            { diameter: 17.75, uk: 'P', us: '7 1/2', fr: '56 1/2', de: '17 3/4', jp: 15, ch: '16 1/2' },
+            { diameter: 18.19, uk: 'Q', us: 8, fr: '57 3/4', de: '18', jp: 16, ch: '17 3/4' },
+            { diameter: 18.53, uk: 'Q 3/4', us: '8 1/2', fr: null, de: '18 1/2', jp: 17, ch: null },
+            { diameter: 18.61, uk: 'R', us: '8 5/8', fr: '59', de: null, jp: null, ch: '19' },
+            { diameter: 18.89, uk: 'R 3/4', us: 9, fr: null, de: '19', jp: 18, ch: null },
+            { diameter: 19.10, uk: 'S', us: '9 1/8', fr: '60 1/4', de: null, jp: null, ch: '20 1/4' },
+            { diameter: 19.41, uk: 'S 3/4', us: '9 1/2', fr: null, de: '19 1/2', jp: 19, ch: null },
+            { diameter: 19.51, uk: 'T', us: '9 5/8', fr: '61 1/2', de: null, jp: null, ch: '21 1/2' },
+            { diameter: 19.84, uk: 'T 1/2', us: 10, fr: null, de: '20', jp: 20, ch: null },
+            { diameter: 20.02, uk: 'U', us: '10 1/4', fr: '62 3/4', de: null, jp: 21, ch: '22 3/4' },
+            { diameter: 20.20, uk: 'U 1/2', us: '10 1/2', fr: null, de: '20 1/4', jp: 22, ch: null },
+            { diameter: 20.32, uk: 'V', us: '10 5/8', fr: '63', de: null, jp: null, ch: '23 3/4' },
+            { diameter: 20.68, uk: 'V 1/2', us: 11, fr: null, de: '20 3/4', jp: 23, ch: null },
+            { diameter: 20.76, uk: 'W', us: '11 1/8', fr: '65', de: null, jp: null, ch: '25' },
+            { diameter: 21.08, uk: 'W 3/4', us: '11 1/2', fr: null, de: '21', jp: 24, ch: null },
+            { diameter: 21.18, uk: 'X', us: '11 5/8', fr: '66 1/4', de: null, jp: null, ch: '26 1/4' },
+            { diameter: 21.49, uk: 'Y', us: 12, fr: '67 1/2', de: '21 1/4', jp: 25, ch: '27 1/2' },
+            { diameter: 21.89, uk: 'Z', us: '12 1/2', fr: '68 3/4', de: '21 3/4', jp: 26, ch: '28 3/4' },
+            { diameter: 22.33, uk: 'Z+1', us: 13, fr: null, de: '22', jp: 27, ch: null }
+        ];
+
+        function byId(id) { return document.getElementById(id); }
+
+        function round(value, decimals) {
+            var factor = Math.pow(10, decimals || 0);
+            return Math.round(value * factor) / factor;
+        }
+
+        function formatMmInch(mm) {
+            var inches = mm / 25.4;
+            return round(mm, 2) + ' mm (' + round(inches, 3) + ' in)';
+        }
+
+        function findClosestSize(diameterMm) {
+            var best = null;
+            var bestDiff = Infinity;
+            for (var i = 0; i < sizeTable.length; i++) {
+                var diff = Math.abs(sizeTable[i].diameter - diameterMm);
+                if (diff < bestDiff) {
+                    bestDiff = diff;
+                    best = sizeTable[i];
+                }
+            }
+            return { match: best, diff: bestDiff };
+        }
+
+        function formatSize(size) {
+            if (size === null || size === undefined || size === '') return '–';
+            return String(size);
+        }
+
+        function applyKnownSize() {
+            var select = byId('knownSize');
+            var val = select ? select.value : '';
+            if (!val) return;
+            
+            // Find entry by US size (handles both numeric and string values like "3 3/8")
+            var entry = null;
+            for (var i = 0; i < sizeTable.length; i++) {
+                var usSize = sizeTable[i].us;
+                if (usSize !== null) {
+                    // Compare as strings to handle fraction formats
+                    if (String(usSize) === val) {
+                        entry = sizeTable[i];
+                        break;
+                    }
+                }
+            }
+            
+            if (!entry) return;
+            var diameterMm = entry.diameter;
+            var circumferenceMm = Math.PI * diameterMm;
+
+            // Show results directly for known size
+            byId('measureType').value = 'diameter';
+            byId('unit').value = 'mm';
+            byId('measureValue').value = round(diameterMm, 2);
+
+            updateResults(diameterMm, circumferenceMm, entry, 0);
+        }
+
+        function updateResults(diameterMm, circumferenceMm, entry, diffMm) {
+            var resultSection = byId('resultSection');
+            byId('diameterOut').textContent = formatMmInch(diameterMm);
+            byId('circumferenceOut').textContent = formatMmInch(circumferenceMm);
+            
+            // Display all international sizes
+            if (entry) {
+                byId('sizeUK').textContent = formatSize(entry.uk);
+                byId('sizeUS').textContent = formatSize(entry.us);
+                byId('sizeFR').textContent = formatSize(entry.fr);
+                byId('sizeDE').textContent = formatSize(entry.de);
+                byId('sizeJP').textContent = formatSize(entry.jp);
+                byId('sizeCH').textContent = formatSize(entry.ch);
+            } else {
+                byId('sizeUK').textContent = '–';
+                byId('sizeUS').textContent = '–';
+                byId('sizeFR').textContent = '–';
+                byId('sizeDE').textContent = '–';
+                byId('sizeJP').textContent = '–';
+                byId('sizeCH').textContent = '–';
+            }
+
+            var distanceNote = byId('distanceNote');
+            if (!entry) {
+                distanceNote.textContent = 'Your measurement is outside the standard size range. You may need a custom size or to re‑measure.';
+            } else {
+                distanceNote.textContent =
+                    'This is the closest match. The difference from the standard diameter is approximately ' +
+                    round(diffMm, 2) + ' mm. Note: Not every ring size has its equivalent in all countries.';
+            }
+            resultSection.style.display = 'block';
+        }
+
+        function convert() {
+            var type = byId('measureType').value;
+            var unit = byId('unit').value;
+            var value = parseFloat(byId('measureValue').value);
+
+            if (!value || value <= 0) {
+                alert('Please enter a valid measurement value.');
+                return;
+            }
+
+            // Convert input to mm
+            var valueMm = unit === 'inch' ? value * 25.4 : value;
+
+            var diameterMm, circumferenceMm;
+            if (type === 'circumference') {
+                circumferenceMm = valueMm;
+                diameterMm = circumferenceMm / Math.PI;
+            } else {
+                diameterMm = valueMm;
+                circumferenceMm = Math.PI * diameterMm;
+            }
+
+            // Find closest size match
+            var closest = findClosestSize(diameterMm);
+            var entry = closest.match;
+            var diffMm = closest.diff;
+
+            updateResults(diameterMm, circumferenceMm, entry, diffMm);
+        }
+
+        function clearAll() {
+            if (byId('measureType')) byId('measureType').value = 'circumference';
+            if (byId('unit')) byId('unit').value = 'mm';
+            if (byId('measureValue')) byId('measureValue').value = '';
+            if (byId('knownSize')) byId('knownSize').value = '';
+            if (byId('resultSection')) {
+                byId('resultSection').style.display = 'none';
+                byId('diameterOut').textContent = '–';
+                byId('circumferenceOut').textContent = '–';
+                byId('sizeUK').textContent = '–';
+                byId('sizeUS').textContent = '–';
+                byId('sizeFR').textContent = '–';
+                byId('sizeDE').textContent = '–';
+                byId('sizeJP').textContent = '–';
+                byId('sizeCH').textContent = '–';
+                byId('distanceNote').textContent = '';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            var calcBtn = byId('calcBtn');
+            var clearBtn = byId('clearBtn');
+            var knownSizeSel = byId('knownSize');
+
+            if (calcBtn) calcBtn.addEventListener('click', convert);
+            if (clearBtn) clearBtn.addEventListener('click', clearAll);
+            if (knownSizeSel) knownSizeSel.addEventListener('change', applyKnownSize);
+
+            clearAll();
+        });
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ring Size Converter – Instantly Convert US, UK, EU & JP Ring Sizes",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "url": "https://www.calculatorquote.com/other/ring-size-converter.html",
+      "description": "Buying a ring internationally can be tricky. Use our Ring Size Converter to quickly and accurately convert US, UK, EU, and JP sizes – free, easy, and perfect fit every time!",
+      "keywords": [
+        "ring size converter",
+        "ring size calculator",
+        "ring diameter to circumference",
+        "finger circumference to ring size",
+        "US ring size chart",
+        "how to measure ring size at home",
+        "how do you figure out the size of a ring",
+        "ring size chart printable",
+        "ring size sizes"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      }
+    }
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>
+
+
