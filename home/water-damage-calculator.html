@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Damage Calculator | Estimate Repair & Restoration Costs</title>
+    <meta name="description" content="Quickly estimate your water damage repair costs. From floods to ceiling leaks, use our free calculator to find restoration prices and plan your budget smartly.">
+    <meta name="keywords" content="water damage calculator, water damage cost, flood damage estimate, water restoration cost">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.calculatorquote.com/other/water-damage-calculator.html">
+    
+    <!-- Template CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/templatemo-style.css" rel="stylesheet">
+    <style>
+        /* Ensure Raleway font is applied to all elements except Material Icons */
+        body, * {
+            font-family: 'Raleway', sans-serif !important;
+        }
+        
+        /* Ensure Material Icons use their own font */
+        .material-icons {
+            font-family: 'Material Icons' !important;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 16px;
+            color: #606060;
+            text-align: left;
+        }
+        
+        .breadcrumb a {
+            color: #eb5424;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4441a;
+        }
+        
+        .breadcrumb span {
+            color: #606060;
+            margin: 0 8px;
+        }
+        
+        h1 {
+            color: #303030;
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .description {
+            color: #606060;
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .calculator-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-row input:hover,
+        .input-row input:focus {
+            border-color: #eb5424;
+        }
+
+        .input-row select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: white;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-row select:hover,
+        .input-row select:focus {
+            border-color: #eb5424;
+        }
+
+        .checkbox-group {
+            margin-top: 15px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 400px;
+            margin: 25px auto 0 auto;
+        }
+
+        .btn-calculate {
+            background-color: #eb5424;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-calculate:hover {
+            background-color: #d43d1a;
+        }
+
+        .btn-clear {
+            background-color: #f5c6cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-clear:hover {
+            background-color: #f1aeb5;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result-section h2 {
+            color: #d4441a;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-size: 1.2em;
+            color: #eb5424;
+            margin-bottom: 10px;
+        }
+
+        .calculator-title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .info-section {
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section h3 {
+            color: #444;
+            margin: 5px 0 5px;
+            font-size: 1em;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .damage-type {
+            padding: 10px 0;
+            margin-bottom: 5px;
+        }
+
+        .cta-section {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-quote, .btn-call {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-quote {
+            background-color: #eb5424;
+            color: white;
+        }
+
+        .btn-call {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .faq-section {
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            padding: 10px 0;
+        }
+
+        .faq-item h3 {
+            color: #d4441a;
+            margin-bottom: 10px;
+        }
+
+        .related-links {
+            margin-top: 30px;
+        }
+
+        .related-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-links a {
+            color: #eb5424;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .related-links a:hover {
+            color: #d4441a;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 20px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .input-row input,
+            .input-row select {
+                width: 100%;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            .btn-calculate,
+            .btn-clear {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- START NAVIGATION -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="../index.html" class="navbar-brand">CalculatorQuote</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../index.html" class="smoothScroll">Home</a></li>
+                    <li><a href="../math/basic-calculator.html" class="smoothScroll">Math</a></li>
+                    <li><a href="../financial/index.html" class="smoothScroll">Financial</a></li>
+                    <li><a href="../health/index.html" class="smoothScroll">Health</a></li>
+                    <li><a href="../home/index.html" class="smoothScroll">Home & Garden</a></li>
+                    <li><a href="../pet/index.html" class="smoothScroll">Pet</a></li>
+                    <li><a href="../sports/index.html" class="smoothScroll">Sports</a></li>
+                    <li><a href="date-calculator.html" class="smoothScroll">Other</a></li>
+                    <li style="display: none;"><a href="../blog/index.html" class="smoothScroll">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START WATER DAMAGE CALCULATOR -->
+    <section class="tm-padding-top-bottom-100" style="padding-top: 0; padding-bottom: 0.5px; background: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content-wrapper">
+                        <div class="content-area">
+                            <div class="calculator-container">
+                                <div class="breadcrumb">
+                                    <a href="../index.html">Home</a>
+                                    <span>/</span>
+                                    <a href="index.html">Other Calculators</a>
+                                    <span>/</span>
+                                    Water Damage Calculator
+                                </div>
+
+                                <h1 class="calculator-title">Water Damage Calculator — See the Real Cost of Restoration Before You Pay</h1>
+                                
+                                <div class="description">
+                                    Dealing with a flood or leak? 💧 Use our free Water Damage Calculator to estimate repair and restoration costs in minutes. Get accurate pricing for burst pipes, basement floods, or ceiling leaks—so you can plan your budget, compare quotes, and avoid costly surprises.
+                                </div>
+
+        <div class="calculator-section">
+            <div class="input-group">
+                <label>Affected Area Size</label>
+                <div class="input-row">
+                    <input type="number" id="area" min="0" step="0.01" placeholder="Enter size">
+                    <select id="areaUnit">
+                        <option value="sqft">Square Feet</option>
+                        <option value="sqm">Square Meters</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Damage Level</label>
+                <div class="input-row">
+                    <select id="damageLevel">
+                        <option value="1">Level 1 - Minor (Slight moisture)</option>
+                        <option value="2">Level 2 - Moderate (Significant water damage)</option>
+                        <option value="3">Level 3 - Severe (Structural damage)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-row">
+                    <div style="flex: 1; margin-right: 10px;">
+                        <label>Material Type</label>
+                        <select id="materialType" style="width: 100%;">
+                            <option value="hardwood">Hardwood Floor</option>
+                            <option value="carpet">Carpet</option>
+                            <option value="concrete">Concrete</option>
+                            <option value="drywall">Drywall</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Drying Equipment Days</label>
+                        <input type="number" id="dryingDays" min="0" step="1" placeholder="Number of days" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="hasMold"> Mold Present (Requires Removal)
+                </label>
+                <label>
+                    <input type="checkbox" id="needsDemolition"> Requires Demolition & Reconstruction
+                </label>
+                <label>
+                    <input type="checkbox" id="hasInsurance"> Insurance Claim
+                </label>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculateDamage()">Calculate</button>
+                <button class="btn-clear" onclick="clearInputs()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="results">
+            <h2>Cost Breakdown</h2>
+            <div class="result-value" id="baseCost"></div>
+            <div class="result-value" id="areaCost"></div>
+            <div class="result-value" id="moldCost"></div>
+            <div class="result-value" id="demolitionCost"></div>
+            <div class="result-value" id="totalCost"></div>
+            <div class="result-note" id="insuranceNote"></div>
+        </div>
+
+                                <div class="info-section">
+                                    <h2 class="calculator-title">Water Damage Calculator – Understand Costs and Protect Your Home</h2>
+
+                                    <div class="damage-type">
+                                        <h3>When Water Strikes, Every Minute Counts</h3>
+                                        <p>Water damage can appear suddenly—from burst pipes, heavy rainfall, or flooding. It doesn’t matter if you’re a homeowner, landlord, or property manager: understanding potential damage and costs is critical. Our Water Damage Calculator helps you quickly estimate repair needs before contacting a professional. Whether it’s a minor leak, a dishwasher overflow, or major flood, this tool provides a reliable water damage repair estimate, helping you plan mitigation and avoid surprises. Acting promptly saves money, prevents structural damage, and reduces health risks caused by lingering moisture. Quick, informed action is the key to keeping your home safe and your family comfortable.</p>
+                                        <p>Even small leaks can lead to hidden problems. Water can seep under floorboards, behind cabinets, or inside walls, sometimes unnoticed for days or weeks. By knowing the potential cost and scope of repairs early, you can take action before mold or structural damage becomes severe. Homeowners like Sarah, who found a slow leak under her bathroom sink, understand how early intervention can make all the difference.</p>
+                                    </div>
+
+                                    <div class="damage-type">
+                                        <h3>How the Water Damage Calculator Works</h3>
+                                        <p>Repair costs depend on multiple factors: the affected area size, water type, damage severity, and property type. Our calculator combines these to generate a precise estimate for home water damage repair.</p>
+                                        <p>Start by measuring the flooded space accurately. Note square footage, affected materials, and water depth. The tool then calculates common repair steps: drywall replacement, floor restoration, electrical inspections, and <a href="https://www.calculatorquote.com/other/mold-removal-cost-calculator.html" style="color:#eb5424; text-decoration:none; font-weight:600;">mold remediation</a>. By accounting for each step, your flood damage cost estimates become realistic and actionable, giving you a clear idea of what to expect.</p>
+                                        <p>Water is classified scientifically into three categories. Clean water comes from pipes or faucets, gray water has some contaminants, like washing machine discharge, and black water originates from sewage or floodwater. Each type requires different handling and safety precautions. Clean water may allow DIY drying, while gray or black water often requires professional intervention. Timing is also vital: water can start causing permanent damage in hours, and mold can begin growing within 24–48 hours in damp conditions. Understanding these differences ensures the right mitigation steps.</p>
+                                        <p>Using the water mitigation equipment calculator, you can plan for pumps, dehumidifiers, moisture detectors, and other essential tools. Even minor leaks can damage wood, metal, or drywall if left untreated. Learning the science behind water damage—how water interacts with building materials, promotes microbial growth, or accelerates corrosion—helps homeowners take informed, effective action.</p>
+                                    </div>
+
+                                    <div class="damage-type">
+                                        <h3>Real Scenarios and Practical Insights</h3>
+                                        <p>Consider Sarah again. She discovered a slow leak under her bathroom sink. Water had seeped into the floorboards, unnoticed for days. Using our calculator, she realized professional repair was needed before mold developed. Quick intervention prevented structural damage and costly remediation.</p>
+                                        <p>John, managing a commercial property, faced rapid flooding after snowmelt. He used the tool to estimate total repair costs and plan mitigation. Water can carry bacteria, chemicals, and debris, affecting both property and health. By calculating potential damage, John coordinated contractors efficiently, minimized downtime, and prevented hidden issues like <a href="https://www.calculatorquote.com/other/mold-removal-cost-calculator.html" style="color:#eb5424; text-decoration:none; font-weight:600;">mold contamination</a>.</p>
+                                        <p>Even minor water exposure can trigger chemical reactions in building materials. Gypsum in drywall can weaken, metals oxidize, and wood can warp. Understanding these scientific principles highlights why timely, proper mitigation is essential. Using the calculator, you can see the potential impact on different materials and adjust your repair plan accordingly.</p>
+                                        <p>Roof water damage is another often-overlooked problem. Heavy rainfall or ice dams can allow water to seep into attics or ceilings, leading to hidden structural issues. Estimating roof water damage costs early can prevent leaks from spreading and reduce <a href="https://www.calculatorquote.com/other/mold-removal-cost-calculator.html" style="color:#eb5424; text-decoration:none; font-weight:600;">mold growth</a>. Our calculator allows users to enter roof-related areas, so property owners can plan comprehensive mitigation, covering both floors and upper structures.</p>
+                                    </div>
+
+                                    <div class="damage-type">
+                                        <h3>Take Action – Protect Your Home and Peace of Mind</h3>
+                                        <p>Water damage doesn’t wait. With our Water Damage Calculator, you can assess costs instantly and plan repairs effectively. Enter the affected area, water type, and severity to get a fast estimate for home water damage repair. This empowers you to contact certified professionals with confidence, schedule restoration promptly, and prevent further damage.</p>
+                                        <p>Don’t stop at one tool. Explore our other calculators to protect your property year-round. From snow load calculators to HVAC load tools, these resources help you make informed, science-backed maintenance decisions. Quick action, combined with understanding the mechanics of water damage, ensures your home remains safe, dry, and comfortable.</p>
+                                        <p>Mark, Lisa, Sarah, and John all learned one thing in common: preparation matters. By using our calculator, you can act fast, minimize risk, and protect your home and loved ones. Understanding both the costs and the science of water damage gives you control, reduces stress, and preserves your property for years to come. Whether it’s a kitchen leak, roof seepage, or basement flooding, taking early, informed action makes all the difference.</p>
+                                    </div>
+
+                                    <div class="faq-section">
+                                        <div class="faq-item">
+                                            <h3 style="color: #000000;">❓ Frequently Asked Questions About Water Damage Repair Costs</h3>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q1: What to do when water damage?</strong><br>
+                                                A: Here are seven ways to quick dry your home and belongings after water damage:<br>
+                                                1. Air The Space Out. Open the windows.<br>
+                                                2. Set Up A Fan.<br>
+                                                3. Use A Dehumidifier.<br>
+                                                4. Pump The Water Out.<br>
+                                                5. Utilize A Wet/Dry Shop Vac.<br>
+                                                6. Remove Water Damaged Items.<br>
+                                                7. Absorb Moisture.</p>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q2: How serious is water damage?</strong><br>
+                                                A: In severe cases, it may even cause structural damage, resulting in bulging or crumbling walls. Similarly, water-damaged floors can warp, buckle, or develop soft spots, posing a safety hazard and diminishing the overall aesthetics of your space. Mold growth is another concern in water-damaged areas.</p>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q3: What is type 3 water damage?</strong><br>
+                                                A: Category 3 water damage is more extreme. It includes: Sewage. Other contaminated water sources that may have entered an indoor environment or affected it in some way. Category 2 water that is not efficiently removed from an affected structure; it may be reclassified as Category 3.</p>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q4: How do you use water damage in a sentence?</strong><br>
+                                                A: The flood resulted in significant water damage to the basement. The insurance covered the water damage from the burst pipe. Water damage can lead to mold growth if not addressed.</p>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q5: Does water damage always turn into mold?</strong><br>
+                                                A: Big leaks or leaks that last a long time can lead to mold. But, small leaks fixed right away are less likely to cause mold. The EPA says mold might grow if water-affected areas aren't dried out in 48 hours.</p>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 15px;">
+                                                <p><strong>Q6: How worried should I be about water damage?</strong><br>
+                                                A: Water damage should be addressed promptly within 24 hours to avoid mold development. Identifying and stopping the source of water is critical in any emergency water damage situation. Contact a local water damage restoration company immediately for expert consultation and repair.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END WATER DAMAGE CALCULATOR -->
+
+    
+    <footer style="max-width: 800px; margin: 40px auto 0 auto; padding: 32px 0 0 0; text-align: center; color: #888; font-size: 1em;">
+        <nav style="margin-bottom: 8px;">
+            <a href="../about-us.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">About Us</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../terms-of-use.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Terms of Use</a>
+            <span style="color: #ccc;">|</span>
+            <a href="../privacy-policy.html" style="color: #eb5424; text-decoration: none; margin: 0 18px; transition: color 0.2s;">Privacy Policy</a>
+        </nav>
+        <div style="color: #bbb; font-size: 0.98em;">&copy; 2025 CalculatorQuote.com. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function calculateDamage() {
+            // Get input values
+            const area = parseFloat(document.getElementById('area').value);
+            const areaUnit = document.getElementById('areaUnit').value;
+            const damageLevel = parseInt(document.getElementById('damageLevel').value);
+            const materialType = document.getElementById('materialType').value;
+            const dryingDays = parseInt(document.getElementById('dryingDays').value) || 0;
+            const hasMold = document.getElementById('hasMold').checked;
+            const needsDemolition = document.getElementById('needsDemolition').checked;
+            const hasInsurance = document.getElementById('hasInsurance').checked;
+
+            if (!area || area <= 0) {
+                alert('Please enter a valid area size.');
+                return;
+            }
+
+            // Convert area to square feet if necessary
+            const areaInSqFt = areaUnit === 'sqm' ? area * 10.764 : area;
+
+            // Calculate base cost
+            const baseCost = 250;
+
+            // Calculate area cost based on damage level and material type
+            let areaCostPerSqFt = 6; // Default middle value
+            
+            // Adjust cost per square foot based on damage level
+            switch(damageLevel) {
+                case 1: areaCostPerSqFt *= 0.8; break;  // 20% less for minor damage
+                case 2: areaCostPerSqFt *= 1.0; break;  // Standard rate
+                case 3: areaCostPerSqFt *= 1.3; break;  // 30% more for severe damage
+            }
+
+            // Adjust for material type
+            const materialMultiplier = {
+                'hardwood': 1.2,
+                'carpet': 0.8,
+                'concrete': 1.0,
+                'drywall': 0.9
+            };
+            areaCostPerSqFt *= materialMultiplier[materialType];
+
+            // Calculate area cost
+            const areaCost = areaInSqFt * areaCostPerSqFt;
+
+            // Calculate mold remediation cost
+            const moldCost = hasMold ? 500 : 0;
+
+            // Calculate demolition and reconstruction cost
+            const demolitionCost = needsDemolition ? (areaInSqFt * 15) : 0;
+
+            // Add drying equipment cost ($50 per day)
+            const dryingCost = dryingDays * 50;
+
+            // Calculate total cost
+            const totalCost = baseCost + areaCost + moldCost + demolitionCost + dryingCost;
+
+            // Display results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('baseCost').textContent = `Base Service Cost: $${Math.round(baseCost).toLocaleString()}`;
+            document.getElementById('areaCost').textContent = `Area Treatment Cost: $${Math.round(areaCost).toLocaleString()} (${Math.round(areaCostPerSqFt)} per sq ft)`;
+            if (hasMold) {
+                document.getElementById('moldCost').textContent = `Mold Remediation Cost: $${Math.round(moldCost).toLocaleString()}`;
+            } else {
+                document.getElementById('moldCost').textContent = '';
+            }
+            if (needsDemolition) {
+                document.getElementById('demolitionCost').textContent = `Demolition & Reconstruction Cost: $${Math.round(demolitionCost).toLocaleString()}`;
+            } else {
+                document.getElementById('demolitionCost').textContent = '';
+            }
+            document.getElementById('totalCost').textContent = `Total Estimated Cost: $${Math.round(totalCost).toLocaleString()}`;
+            
+            if (hasInsurance) {
+                document.getElementById('insuranceNote').textContent = 'Note: Final costs may vary based on insurance coverage and policy terms.';
+            } else {
+                document.getElementById('insuranceNote').textContent = '';
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById('area').value = '';
+            document.getElementById('areaUnit').value = 'sqft';
+            document.getElementById('damageLevel').value = '1';
+            document.getElementById('materialType').value = 'hardwood';
+            document.getElementById('dryingDays').value = '';
+            document.getElementById('hasMold').checked = false;
+            document.getElementById('needsDemolition').checked = false;
+            document.getElementById('hasInsurance').checked = false;
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Water Damage Calculator | Estimate Repair & Restoration Costs",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "url": "https://www.calculatorquote.com/other/water-damage-calculator.html",
+      "description": "Quickly estimate your water damage repair costs. From floods to ceiling leaks, use our free calculator to find restoration prices and plan your budget smartly.",
+      "keywords": [
+        "water damage calculator",
+        "water damage cost",
+        "flood damage estimate",
+        "water restoration cost",
+        "water damage repair cost",
+        "flood damage calculator",
+        "mold damage cost",
+        "ceiling water damage repair",
+        "water damage restoration cost",
+        "home water damage estimate",
+        "water damage restoration near me",
+        "water damage repair near me",
+        "water damage ceiling repair",
+        "water damage mold",
+        "ceiling water damage repair",
+        "basement flood cleanup company",
+        "commercial water damage restoration",
+        "dehumidifier for water damage"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalculatorQuote",
+        "url": "https://www.calculatorquote.com"
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does water damage repair cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The average water damage repair cost ranges from $1,200 to $5,000, depending on the severity, location, and type of damage (ceiling, floor, flood, or mold)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get a free water damage estimate online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our Water Damage Repair Cost Calculator provides instant free estimates for water damage restoration, flooding, and mold remediation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the cost of repairing ceiling water damage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Repairing ceiling water damage typically costs between $500 and $2,500 depending on the extent of the water leak and drywall replacement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calculate flood damage repair costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can use our Flood Damage Cost Calculator to estimate repair costs. Flood repairs usually range from $2,000 to $8,000 depending on area size and severity."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Template JavaScript Files -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imagesloaded.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/jquery.nav.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html> 
