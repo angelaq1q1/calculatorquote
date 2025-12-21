@@ -1089,6 +1089,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://www.calculatorquote.com/pet/cat-clothing-size-calculator.html</loc>
+        <lastmod>2025-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Blog Pages -->
     <url>
         <loc>https://www.calculatorquote.com/blog/</loc>
