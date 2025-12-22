@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Prince Date Calculator – Avoid 48-Hour Quest & Puzzle Timing Mistakes</title>
-    <meta name="description" content="Missing quest deadlines in Blue Prince can cost you 48 hours of progress. Use our free Blue Prince Date Calculator to track puzzle clues, event timers, and plan your in-game tasks accurately. Never miss a clue or lose valuable time again!">
+    <meta name="description" content="Missing quest deadlines in Blue Prince can cost you 48 hours of progress. Use our free Blue Prince Date Calculator and Blue Prince Day Calculator to track puzzle clues, event timers, and plan your in-game tasks accurately. Never miss a clue or lose valuable time again!">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -62,16 +62,20 @@
             text-align: left;
         }
 
+        
+        }
+
         .input-section {
-            background-color: #f8f9fa;
+            background-color: #f5f7fa; /* light gray box for calculator */
             border-radius: 10px;
             padding: 30px;
             width: 100%;
             max-width: 600px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e6e9ec;
             margin-bottom: 40px;
             margin: 0 auto 40px auto;
             text-align: left;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
         }
 
         .input-row {
@@ -115,6 +119,7 @@
             border-color: #eb5424;
             outline: none;
         }
+        /* removed .amount-with-unit styles in favor of connected input-group style used site-wide */
 
         .date-inputs {
             display: flex;
@@ -198,7 +203,11 @@
         .result-section {
             margin-top: 30px;
             padding: 20px;
+            background-color: #f5f7fa; /* light gray box for results */
+            border: 1px solid #e6e9ec;
+            border-radius: 8px;
             display: none;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
         }
 
         .result-section h2 {
@@ -491,17 +500,75 @@
                 </div>
             </div>
 
-            <div class="input-row">
-                <div class="input-group">
-                    <label id="start-label">Start Date:</label>
-                    <input type="text" id="start-date" placeholder="YYYY-MM-DD">
+            <!-- Standard mode sub-tabs -->
+            <div class="format-toggle" id="standard-toggle" style="display:flex; flex-direction:column; gap:18px; align-items:flex-start; margin-bottom:28px;">
+                <button id="standard-range-btn" class="active" style="width:100%;">From start and ending date</button>
+                <button id="standard-sum-btn" style="width:100%;">From a date, summing or subtracting time</button>
+            </div>
+
+            <!-- Standard: range (start + end) -->
+            <div id="standard-range" style="display:block;">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label id="start-label">Start Date:</label>
+                        <input type="text" id="start-date" placeholder="YYYY-MM-DD">
+                    </div>
+
+                    <div class="input-group">
+                        <label id="end-label">End Date:</label>
+                        <input type="text" id="end-date" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Standard: sum/subtract -->
+            <div id="standard-sum" style="display:none;">
+                <div class="input-row" style="margin-bottom:12px;">
+                    <div class="input-group" style="flex:1;">
+                        <label id="start-label-sum">Start Date:</label>
+                        <input type="text" id="start-date-sum" placeholder="YYYY-MM-DD">
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <label>Days to add/subtract:</label>
-                    <input type="number" id="days-input" placeholder="Days to add/subtract">
+                <div class="input-row">
+                    <div class="input-group" style="flex:1;">
+                        <label>Amount to add/subtract:</label>
+                        <div style="display:flex; border:2px solid #e0e0e0; border-radius:8px; overflow:hidden; align-items:center;">
+                            <input type="number" id="days-input" placeholder="Enter number (use negative to subtract)" style="flex:1; border:none; padding:12px; outline:none;">
+                            <select id="unit-select" aria-label="Unit" style="width:80px; border:none; border-left:1px solid #e0e0e0; padding:12px; background:#f8f8f8; outline:none;">
+                                <option value="days">Days</option>
+                                <option value="weeks">Weeks</option>
+                                <option value="months">Months</option>
+                                <option value="years">Years</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group" style="display:flex; align-items:center; gap:6px;">
+                        <label style="display:flex; align-items:center; gap:6px; margin-top:20px;">
+                            <input type="checkbox" id="business-days-checkbox" style="margin:0;">
+                            Calculate in business days
+                        </label>
+                    </div>
                 </div>
             </div>
+
+            <!-- Blue Prince simple UI -->
+            <div id="bp-simple" style="display:none; margin-top:12px;">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="bp-start-date">Day 1 date (YYYY-MM-DD)</label>
+                        <input type="text" id="bp-start-date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="input-group">
+                        <label for="bp-day-number">Day X (number)</label>
+                        <input type="number" id="bp-day-number" placeholder="e.g. 8" min="1">
+                    </div>
+                
+                </div>
+            </div>
+
+            
 
             <div class="buttons">
                 <button class="btn-calculate" id="calculate-btn">Calculate</button>
@@ -509,9 +576,36 @@
             </div>
                         </div>
 
+                        
+
                         <div class="result-section" id="results">
                             <h2>Result</h2>
                             <div class="result-date" id="result"></div>
+                        </div>
+
+                        <div class="content-section">
+                            <h2>Why Does This Biblical Date Calculator Not Use the Modern Gregorian Calendar?</h2>
+                            <p>According to historical records summarized by Wikipedia, the Gregorian calendar is the civil dating system used by most of the world today. It was introduced in 1582 by Pope Gregory XIII to correct the inaccuracy of the earlier Julian calendar. The main improvement was an adjusted leap-year rule, which made the average year 365.2425 days—much closer to the real solar year of about 365.2422 days.</p>
+                            <p>However, this also explains why many biblical date calculations cannot rely on the modern January–December system. The Bible does not use the Gregorian calendar. Instead, most biblical timing is connected to the Hebrew (Biblical) calendar, which follows a very different structure.</p>
+
+                            <h3>The Biblical (Hebrew) Calendar</h3>
+                            <p>The Biblical calendar is lunar-solar. Months begin with the new moon, while the year stays aligned with agricultural seasons.</p>
+                            <p><strong>First Month:</strong> Nisan (Abib), beginning in spring when the barley ripens (Exodus 12:2; 13:4)</p>
+                            <p><strong>Normal Structure:</strong> 12 months, with an occasional additional month to keep festivals in their proper seasons</p>
+                            <p><strong>Key Observances:</strong> Passover (Nisan 14), biblical feasts, and sacred days</p>
+                            <p>This system connects faith, nature, worship, and agricultural life, making time measurement part of spiritual practice rather than only a civil function.</p>
+
+                            <h3>The Gregorian Calendar</h3>
+                            <p>The Gregorian calendar is completely different in its design and purpose.</p>
+                            <p><strong>Basis:</strong> Solar only, with leap years to maintain accuracy</p>
+                            <p><strong>Origin:</strong> Introduced by Pope Gregory XIII as a correction to the Julian system</p>
+                            <p><strong>First Month:</strong> January, named after the Roman god Janus</p>
+                            <p><strong>Usage:</strong> Modern global civil calendar</p>
+
+                            <h3>Simple Summary</h3>
+                            <p>The Biblical calendar is rooted in faith, sacred observances, and God-appointed seasons.</p>
+                            <p>The Gregorian calendar is a precise civil system created for international timekeeping.</p>
+                            <p>Because of this major difference, biblical date tools like this calculator rely on Biblical/Hebrew calendar principles rather than the standard Gregorian system, helping you get results that are closer to the context of Scripture and historical practice.</p>
                         </div>
 
                         <div class="content-section">
@@ -523,18 +617,50 @@
 
                             <div class="faq-item">
                                 <h3>How These Calculators Work</h3>
-                                <p>Our calculators are easy to use and precise. A baby due date calculator or ivf due date calculator adds 280 days to your last period or IVF fertilization date. The date duration calculator and days between dates calculator show how many days separate two events. You can also use the date calculator add days tool to plan ahead.</p>
-                                
-                                <p>These calculators work in many situations. Track pregnancy milestones, plan events, manage deadlines, or calculate age with a date of birth calculator 🎂. Make sure to enter correct dates and consider leap years. Using the calculate due date from IVF tool keeps your planning accurate. For general scheduling, the time and date calculator helps you see upcoming deadlines clearly. With these tools, you stay ahead of your schedule and avoid surprises.</p>
+                                <p>✅ Want to count down to an important date?</p>
+                                <p>If you are waiting for a special day and want to know how much time is left, this calculator can help you do it quickly and clearly.</p>
+                                <ol>
+                                    <li>Set today as the start date.</li>
+                                    <li>Select the date you are waiting for as the end date.</li>
+                                    <li>The calculator will show how much time remains right away.</li>
+                                </ol>
+                                <p>You can choose to display the result in days, weeks, months, or years. This way, you can always stay aware of how close your important day is.</p>
+
+                                <p>✅ Need to know the duration between two dates?</p>
+                                <p>If you want to check how long something lasted or will last, this tool makes the calculation simple and accurate.</p>
+                                <ol>
+                                    <li>Enter the start date of the period.</li>
+                                    <li>Enter the end date of the period.</li>
+                                    <li>The calculator will show the exact time difference between these two dates.</li>
+                                </ol>
+                                <p>You can clearly see how many days a school year, project, job, or trip covers.</p>
+
+                                <p>✅ Want to add or subtract time from a specific date?</p>
+                                <p>If you need to know what date it will be after a certain number of days, weeks, or months, this calculator can help you plan better.</p>
+                                <ol>
+                                    <li>Choose the start date, for example, today.</li>
+                                    <li>Enter how much time you want to add in the “time difference” field. Use a negative number to subtract (e.g. -10).</li>
+                                    <li>You can also change the unit to months or years if needed.</li>
+                                </ol>
+                                <p>The calculator will show the new end date instantly. This is useful when you want to know when a course ends, when a plan finishes, or when a countdown reaches its final day.</p>
+
+                                <p>✅ Want to know the exact in-game date in Blue Prince?</p>
+                                <p>If you are exploring the mansion in Blue Prince and want to understand the current in-game date, the Blue Prince Day Calculator gives you a clear answer.</p>
+                                <ol>
+                                    <li>Enter the known Day 1 date as your starting point.</li>
+                                    <li>Enter how many in-game days have passed in your gameplay.</li>
+                                    <li>The calculator will convert the total days into the exact current in-game date.</li>
+                                </ol>
+                                <p>This helps you stay aware of time-based puzzles, avoid missing key events, and plan each step with more confidence.</p>
                             </div>
 
                             <div class="faq-item">
-                                <h3>Get More from Our Date Tools 🚀</h3>
-                                <p>Want to stay on top of every important date? Try our other calculators like the date of conception calculator or date range calculator. Use the dates calculator to calculate days between two dates or check deadlines quickly. These tools help you plan confidently and act fast. Don't wait and risk missing important milestones. Start using our calculators today and see how easy it is to manage your schedule. Keep calculating dates and stay ahead of every event.</p>
+                                <h3>Modern Calendars, Real Calculations</h3>
+                                <p>In today’s world, most people no longer calculate dates manually. Instead, we rely on digital tools like Google Calendar, Apple Calendar, Outlook, and Notion to organize schedules, track events, and manage reminders. These platforms automatically handle leap years, month lengths, and recurring dates, so we rarely stop to think about the system behind them. However, all of these modern tools are built on the Gregorian calendar, which means they aren’t always suitable when dealing with historical timelines, biblical dates, or calendar systems that follow different rules. That’s where a dedicated date calculator becomes truly useful. It helps you clearly measure time differences, understand how different calendars work, and get accurate results without confusion—especially when your needs go beyond a simple digital calendar.</p>
                             </div>
 
                             <div class="faq-item">
-                                <h3>📅 Date & Time Calculation FAQ: Periods, Age, and Excel Formulas</h3>
+                                <h3>📅Date & Days Calculator FAQ: Time Difference, Duration, and Calendar Questions</h3>
                                 <div style="margin-bottom: 15px;">
                                     <p><strong>Q1: How can you calculate your due date?</strong><br>
                                     A: You can calculate your pregnancy due date by counting 40 weeks (280 days) from the first day of your last menstrual period. There are also online pregnancy calculators that can do this automatically.</p>
@@ -548,16 +674,16 @@
                                     A: In Excel, you can calculate the difference between two dates using the formula: =End_Date - Start_Date. This will return the number of days between the dates.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q4: How to calculate age in Excel with date of birth?</strong><br>
-                                    A: Use the formula =DATEDIF(Birth_Date, TODAY(), "Y") in Excel. It will calculate the number of full years from the birth date to today.</p>
+                                    <p><strong>Q4: How to tell the date in Blue Prince?</strong><br>
+                                    A: You need to add the number of days you have been exploring (shown on the pause screen) to that start date to figure out the date in Blue Prince. For example, if you are on “Day 22” of exploration, then the current date in the game would be Nov. 28.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q5: How can I calculate my due date of pregnancy?</strong><br>
-                                    A: You can calculate your due date by adding 280 days (or 40 weeks) to the first day of your last menstrual period. Many online calculators can provide this date instantly.</p>
+                                    <p><strong>Q5: How long is a day in Blue Prince?</strong><br>
+                                    A: In the game Blue Prince, an in-game day starts at 8 AM and progresses about 8 times faster than real-time (roughly 1 in-game hour for every 7.5 minutes real-time), but there's no strict time limit to finish a day; you can play for hours, and the day ends when you choose to "Call it a Day" or save and quit, with the next day starting fresh, though certain puzzles rely on specific in-game times.</p>
                                 </div>
                                 <div style="margin-bottom: 15px;">
-                                    <p><strong>Q6: How to tell the date in Blue Prince?</strong><br>
-                                    A: You need to add the number of days you have been exploring (shown on the pause screen) to that start date to figure out the date in Blue Prince. For example, if you are on "Day 22" of exploration, then the current date in the game would be Nov. 28.</p>
+                                    <p><strong>Q6: What calendar did God use in the Bible?</strong><br>
+                                    A: God's calendar in the Bible, also known as the Biblical or Hebrew calendar, is a lunisolar system established at Creation (Genesis 1:14) using the sun and moon for signs, seasons (appointed times or moedim), days, and years, later formalized with Israel's Exodus, marking time by lunar months (new moon to new moon) and solar cycles (seasons), with key holy days (feasts) like Passover, Pentecost, and Tabernacles pointing to Christ's work and prophetic future. Days begin at sunset, months start with the new moon, and the year begins in the spring (Abib/Nisan).</p>
                                 </div>
                             </div>
                         </div>
@@ -591,43 +717,224 @@
             });
         });
 
+        // Extra: ensure Blue Prince panel reliably shows/hides when its radio is clicked
+        const blueRadio = document.querySelector('input[name="mode"][value="blue-prince"]');
+        const stdRadio = document.querySelector('input[name="mode"][value="standard"]');
+        if (blueRadio) {
+            blueRadio.addEventListener('click', () => {
+                const bp = document.getElementById('bp-simple');
+                const stdToggle = document.getElementById('standard-toggle');
+                if (bp) bp.style.display = 'block';
+                if (stdToggle) stdToggle.style.display = 'none';
+            });
+        }
+        if (stdRadio) {
+            stdRadio.addEventListener('click', () => {
+                const bp = document.getElementById('bp-simple');
+                const stdToggle = document.getElementById('standard-toggle');
+                if (bp) bp.style.display = 'none';
+                if (stdToggle) stdToggle.style.display = 'flex';
+            });
+        }
+
+        // Blue Prince auto-compute removed — results will appear only after clicking Calculate
+
         function updateInputPlaceholder() {
             const inputStart = document.getElementById('start-date');
             const inputDays = document.getElementById('days-input');
             const startLabel = document.getElementById('start-label');
+            const bpNote = document.getElementById('bp-note');
+            const bpStartWrapper = document.getElementById('bp-start-input');
+            const bpStartInput = document.getElementById('bp-start-date');
+            const stdRange = document.getElementById('standard-range');
+            const stdSum = document.getElementById('standard-sum');
 
             if (currentMode === 'standard') {
+                // Default show range view
+                if (stdRange) stdRange.style.display = 'block';
+                if (stdSum) stdSum.style.display = 'none';
                 inputStart.placeholder = 'YYYY-MM-DD';
                 inputDays.placeholder = 'Days to add/subtract';
                 startLabel.textContent = 'Start Date:';
+                if (bpNote) bpNote.style.display = 'none';
+                if (bpStartWrapper) bpStartWrapper.style.display = 'none';
+                // show standard toggle
+                const stdToggle = document.getElementById('standard-toggle');
+                if (stdToggle) stdToggle.style.display = 'flex';
+                // hide Blue Prince specific inputs
+                const bpSimple = document.getElementById('bp-simple');
+                if (bpSimple) bpSimple.style.display = 'none';
             } else if (currentMode === 'blue-prince') {
                 inputStart.placeholder = 'Enter Blue Prince Day number';
                 inputDays.placeholder = 'Optional: add/subtract days';
                 startLabel.textContent = 'Blue Prince Day:';
+                if (bpNote) bpNote.style.display = 'block';
+                if (bpStartWrapper) bpStartWrapper.style.display = 'block';
+                if (bpStartInput && !bpStartInput.value) {
+                    bpStartInput.placeholder = 'YYYY-MM-DD';
+                }
+                // hide the standard sub-option toggle and standard panels in Blue Prince mode
+                const stdToggle = document.getElementById('standard-toggle');
+                if (stdToggle) stdToggle.style.display = 'none';
+                if (stdRange) stdRange.style.display = 'none';
+                if (stdSum) stdSum.style.display = 'none';
+                // show Blue Prince inputs
+                if (bpSimple) bpSimple.style.display = 'block';
             }
+        }
+
+        // Track which standard sub-mode is active: 'range' or 'sum'
+        let standardSubMode = 'range';
+
+        // Hook up standard toggle buttons
+        const stdRangeBtn = document.getElementById('standard-range-btn');
+        const stdSumBtn = document.getElementById('standard-sum-btn');
+        function setStandardSubMode(mode) {
+            standardSubMode = mode;
+            const stdRange = document.getElementById('standard-range');
+            const stdSum = document.getElementById('standard-sum');
+            if (stdRange && stdSum) {
+                if (mode === 'range') {
+                    stdRange.style.display = 'block';
+                    stdSum.style.display = 'none';
+                    stdRangeBtn.classList.add('active');
+                    stdSumBtn.classList.remove('active');
+                } else {
+                    stdRange.style.display = 'none';
+                    stdSum.style.display = 'block';
+                    stdRangeBtn.classList.remove('active');
+                    stdSumBtn.classList.add('active');
+                }
+            }
+        }
+        if (stdRangeBtn && stdSumBtn) {
+            stdRangeBtn.addEventListener('click', () => setStandardSubMode('range'));
+            stdSumBtn.addEventListener('click', () => setStandardSubMode('sum'));
         }
 
         // 计算按钮
         document.getElementById('calculate-btn').addEventListener('click', () => {
-            const startInput = document.getElementById('start-date').value;
             const daysInput = parseInt(document.getElementById('days-input').value, 10) || 0;
+            const unitSelect = document.getElementById('unit-select');
+            const unit = unitSelect ? unitSelect.value : 'days';
 
             let resultDate;
 
             if (currentMode === 'standard') {
-                const startDate = new Date(startInput);
-                resultDate = new Date(startDate);
-                resultDate.setDate(startDate.getDate() + daysInput);
+                if (standardSubMode === 'range') {
+                    // Standard range: calendar dates
+                    const startVal = document.getElementById('start-date').value;
+                    const endVal = document.getElementById('end-date').value;
+                    const startDate = new Date(startVal);
+                    const endDate = new Date(endVal);
+                    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+                        alert('Please enter valid start and end dates in YYYY-MM-DD format.');
+                        return;
+                    }
+                    const businessCheckbox = document.getElementById('business-days-checkbox');
+                    if (businessCheckbox && businessCheckbox.checked) {
+                        // count business days between startDate and endDate inclusive/exclusive like original: end - start
+                        function businessDaysBetween(a, b) {
+                            const start = new Date(Date.UTC(a.getFullYear(), a.getMonth(), a.getDate()));
+                            const end = new Date(Date.UTC(b.getFullYear(), b.getMonth(), b.getDate()));
+                            let inc = 0;
+                            const step = start < end ? 1 : -1;
+                            let cur = new Date(start);
+                            while (cur.getTime() !== end.getTime()) {
+                                const day = cur.getUTCDay();
+                                if (day !== 0 && day !== 6) inc += step;
+                                cur.setUTCDate(cur.getUTCDate() + step);
+                            }
+                            return Math.abs(inc);
+                        }
+                        const diffBusiness = businessDaysBetween(startDate, endDate);
+                        document.getElementById('result').textContent = `Difference: ${diffBusiness} business day(s) (from ${startVal} to ${endVal})`;
+                    } else {
+                        // difference in days
+                        const diffMs = endDate.getTime() - startDate.getTime();
+                        const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+                        document.getElementById('result').textContent = `Difference: ${diffDays} day(s) (from ${startVal} to ${endVal})`;
+                    }
+                    document.getElementById('results').style.display = 'block';
+                    return;
+                } else {
+                    // Standard sum/subtract mode
+                    const startVal = document.getElementById('start-date-sum').value;
+                    const startDate = new Date(startVal);
+                    if (isNaN(startDate.getTime())) {
+                        alert('Please enter a valid start date in YYYY-MM-DD format.');
+                        return;
+                    }
+                    resultDate = new Date(startDate);
+                    const businessCheckbox = document.getElementById('business-days-checkbox');
+                    if (unit === 'days') {
+                        if (businessCheckbox && businessCheckbox.checked) {
+                            // add business days
+                            function addBusinessDays(date, days) {
+                                const dir = days >= 0 ? 1 : -1;
+                                let remaining = Math.abs(days);
+                                const d = new Date(date);
+                                while (remaining > 0) {
+                                    d.setDate(d.getDate() + dir);
+                                    const day = d.getDay();
+                                    if (day !== 0 && day !== 6) remaining--;
+                                }
+                                return d;
+                            }
+                            resultDate = addBusinessDays(startDate, daysInput);
+                        } else {
+                            resultDate.setDate(startDate.getDate() + daysInput);
+                        }
+                    } else if (unit === 'weeks') {
+                        if (businessCheckbox && businessCheckbox.checked) {
+                            // weeks as business weeks => weeks * 5 business days
+                            function addBusinessDays(date, days) {
+                                const dir = days >= 0 ? 1 : -1;
+                                let remaining = Math.abs(days);
+                                const d = new Date(date);
+                                while (remaining > 0) {
+                                    d.setDate(d.getDate() + dir);
+                                    const day = d.getDay();
+                                    if (day !== 0 && day !== 6) remaining--;
+                                }
+                                return d;
+                            }
+                            resultDate = addBusinessDays(startDate, daysInput * 5);
+                        } else {
+                            resultDate.setDate(startDate.getDate() + daysInput * 7);
+                        }
+                    } else if (unit === 'months') {
+                        resultDate.setMonth(startDate.getMonth() + daysInput);
+                    } else if (unit === 'years') {
+                        resultDate.setFullYear(startDate.getFullYear() + daysInput);
+                    }
+                    document.getElementById('result').textContent = `Result Date: ${resultDate.toISOString().slice(0,10)}  (from ${startVal} ${daysInput>=0?'+':'-'} ${Math.abs(daysInput)} ${unit})`;
+                    document.getElementById('results').style.display = 'block';
+                    return;
+                }
             } else if (currentMode === 'blue-prince') {
-                // 假设 Day 1 对应 2025-09-01
-                const startDate = new Date('2025-09-01');
-                const dayNumber = parseInt(startInput, 10);
-                resultDate = new Date(startDate);
-                resultDate.setDate(startDate.getDate() + dayNumber - 1 + daysInput);
+                // Blue Prince calculation: CurrentDate = Day1 + (DayX - 1)
+                const bpStart = document.getElementById('bp-start-date').value;
+                const bpDay = parseInt(document.getElementById('bp-day-number').value, 10);
+                if (!bpStart || isNaN(bpDay) || bpDay < 1) {
+                    alert('请输入 Day 1 日期（YYYY-MM-DD）和有效的 Day X 数字。');
+                    return;
+                }
+                const startDate = new Date(bpStart);
+                if (isNaN(startDate.getTime())) {
+                    alert('请输入有效的 Day 1 日期，格式 YYYY-MM-DD。');
+                    return;
+                }
+                const result = new Date(startDate);
+                result.setDate(startDate.getDate() + (bpDay - 1));
+                const formatted = result.toISOString().slice(0,10);
+                document.getElementById('result').innerHTML = `<strong>Day ${bpDay} → ${formatted}</strong>`;
+                document.getElementById('results').style.display = 'block';
+                return;
             }
 
-            document.getElementById('result').textContent = `Result Date: ${resultDate.toISOString().slice(0,10)}`;
-            document.getElementById('results').style.display = 'block';
+            // fallback (shouldn't reach here)
+            alert('Unexpected mode. Please refresh the page and try again.');
         });
 
         function clearInputs() {
@@ -653,6 +960,10 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "keywords": [
+        "Blue Prince Date Calculator",
+        "Blue Prince Day Calculator"
+      ],
       "mainEntity": [
         {
           "@type": "Question",
