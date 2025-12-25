@@ -10,7 +10,7 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="9 Best Online Jobs From Home To Make $1,000+ A Month">
     <meta property="og:description" content="Looking for legitimate online jobs from home? Discover 9 proven work-from-home opportunities that can earn $1,000+ monthly.">
-    <meta property="og:image" content="https://www.calculatorquote.com/images/online-jobs-from-home.jpg">
+    <meta property="og:image" content="https://www.calculatorquote.com/images/online-jobs-from-home-og.jpg">
     <meta property="og:url" content="https://www.calculatorquote.com/blog/9-best-online-jobs-from-home.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="CalculatorQuote.com">
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="9 Best Online Jobs From Home To Make $1,000+ A Month">
     <meta name="twitter:description" content="Looking for legitimate online jobs from home? Discover 9 proven work-from-home opportunities that can earn $1,000+ monthly.">
-    <meta name="twitter:image" content="https://www.calculatorquote.com/images/online-jobs-from-home.jpg">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/images/online-jobs-from-home-og.jpg">
 
     <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://www.calculatorquote.com/images/online-jobs-from-home.jpg",
+    "url": "https://www.calculatorquote.com/images/online-jobs-from-home-og.jpg",
     "width": 1200,
     "height": 630,
     "caption": "9 Best Online Jobs From Home To Make $1,000+ A Month"
@@ -148,8 +148,11 @@
     <link rel="stylesheet" href="../css/templatemo-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body, h1, h2, h3, h4, h5, h6, p, div, span, a {
+            font-family: 'Raleway', sans-serif !important;
+        }
+
         body {
-            font-family: 'Raleway', sans-serif;
             line-height: 1.6;
             color: #606060;
             background: #ffffff;
@@ -637,7 +640,7 @@
                 // Prefer the Open Graph image if present; fall back to link[rel=image_src] or a known default
                 const ogImageMeta = document.querySelector('meta[property="og:image"]');
                 const linkImage = document.querySelector('link[rel="image_src"]');
-                const ogImageUrl = ogImageMeta && ogImageMeta.content ? ogImageMeta.content : (linkImage && linkImage.href ? linkImage.href : 'https://www.calculatorquote.com/images/online-jobs-from-home.jpg');
+                const ogImageUrl = ogImageMeta && ogImageMeta.content ? ogImageMeta.content : (linkImage && linkImage.href ? linkImage.href : 'https://www.calculatorquote.com/images/online-jobs-from-home-og.jpg');
 
                 let shareUrl = '';
                 switch (platform) {
