@@ -7,6 +7,14 @@
     <meta name="description" content="Missing quest deadlines in Blue Prince can cost you 48 hours of progress. Use our free Blue Prince Date Calculator and Blue Prince Day Calculator to track puzzle clues, event timers, and plan your in-game tasks accurately. Never miss a clue or lose valuable time again!">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Open Graph / Twitter Card image for social sharing -->
+    <meta property="og:image" content="https://www.calculatorquote.com/calculatorquote/images/date-og.jpg">
+    <meta property="og:image:alt" content="Blue Prince Date Calculator preview">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.calculatorquote.com/calculatorquote/images/date-og.jpg">
+    <link rel="image_src" href="https://www.calculatorquote.com/calculatorquote/images/date-og.jpg">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/templatemo-style.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
@@ -502,6 +510,40 @@
                 width: 100%;
                 padding: 15px;
                 font-size: 16px;
+            }
+            
+            /* Responsive adjustments for author meta row on small screens */
+            .author-meta-row {
+                flex-wrap: wrap;
+                gap: 8px;
+                align-items: center;
+            }
+            .author-avatar {
+                width: 48px;
+                height: 48px;
+                flex: 0 0 48px;
+            }
+            .author-meta {
+                flex: 1 1 auto;
+                min-width: 0; /* allow text to truncate/wrap properly */
+            }
+            .author-meta > div {
+                display: block;
+                white-space: normal;
+            }
+            .share-icons {
+                margin-left: 0;
+                margin-top: 6px;
+                order: 3;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+            }
+            .share-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
             }
         }
     </style>
