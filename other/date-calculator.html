@@ -1160,7 +1160,14 @@
                         return;
                     }
                 }
-                const pageUrl = encodeURIComponent(window.location.href);
+                let pageUrl = window.location.href;
+                // Facebook, LinkedIn, and other social platforms require publicly accessible URLs
+                // In local development (file:// protocol), use the production URL for demo purposes
+                if (pageUrl.startsWith('file://')) {
+                    pageUrl = 'https://www.calculatorquote.com/calculatorquote/other/date-calculator.html';
+                    console.log('Using production URL for social sharing (local file detected)');
+                }
+                pageUrl = encodeURIComponent(pageUrl);
                 const pageTitle = encodeURIComponent(document.querySelector('title') ? document.querySelector('title').textContent : '');
                 // Prefer the Open Graph image if present; fall back to link[rel=image_src] or a known default
                 const ogImageMeta = document.querySelector('meta[property="og:image"]');
