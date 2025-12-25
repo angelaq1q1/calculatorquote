@@ -85,6 +85,22 @@
         /* make all in-content links orange and have hover */
         .content a { color: #eb5424; text-decoration: none; transition: color 0.2s; }
         .content a:hover { color: #d4441a; text-decoration: underline; }
+        
+        /* author photo: keep proportional, float right on wide screens, stack on small screens */
+        .author-photo {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            float: right;
+            margin: 0 0 10px 20px;
+        }
+        @media (max-width: 600px) {
+            .author-photo {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -126,7 +142,7 @@
             <span>/</span>
             Author
         </div>
-        <img src="/calculatorquote/images/angelawang.jpg" alt="Angela Wang">
+        <img class="author-photo" src="/calculatorquote/images/angelawang.jpg" alt="Angela Wang">
         <h1>Angela Wang</h1>
         <p class="subtitle">Founder &amp; Creator of CalculatorQuote</p>
 
