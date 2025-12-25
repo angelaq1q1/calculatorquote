@@ -74,6 +74,11 @@ hr {
 .navbar-default .navbar-toggle .icon-bar {
   background: #eb5424;
   border-color: transparent;
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 4px 0;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus { background-color: transparent }
