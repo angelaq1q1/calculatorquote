@@ -77,6 +77,15 @@
             text-align: left;
             box-shadow: 0 1px 0 rgba(0,0,0,0.02);
         }
+        
+        /* panel wrapper to clearly enclose Mode → Calculate area */
+        .panel-gray {
+            background-color: #f5f7fa;
+            border: 1px solid #e6e9ec;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+        }
 
         .input-row {
             display: flex;
@@ -344,6 +353,42 @@
         .content-section a:hover {
             color: #d4441a;
         }
+        
+        /* Author meta small italic */
+        .author-meta {
+            margin-bottom: 18px;
+            color: #606060;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .author-meta .author-link {
+            color: #eb5424;
+            text-decoration: none;
+        }
+        .author-meta .last-updated {
+            margin-top: 6px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #606060;
+        }
+        .author-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-right: 18px;
+        }
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 25%;
+            border: 2px solid #e6e6e6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            flex-shrink: 0;
+        }
 
         /* AdSense Styles */
         .adsense-container {
@@ -369,6 +414,31 @@
             padding: 20px;
         }
 
+        /* Share icons (author row) */
+        .share-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-left: auto;
+        }
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+        .share-btn:hover { opacity: 0.92; }
+        .share-btn.pinterest { background: #bd081c; }
+        .share-btn.facebook { background: #1877f2; }
+        .share-btn.x { background: #000; }
+        .share-btn.share { background: #6c757d; }
+        .share-btn.linkedin { background: #0a66c2; }
 
         @media (max-width: 1200px) {
             .adsense-container {
@@ -484,8 +554,29 @@
                         <div class="page-description">
                             Missing a quest deadline in Blue Prince can cost you 48 hours of progress. Many players lose track of puzzle clues or event timers, leading to frustration and missed rewards. Our Blue Prince Date Calculator makes it easy: enter the dates of your tasks and get precise timing instantly. Stay on track, plan ahead, and avoid costly mistakes.
                         </div>
+                        
+                        <div class="author-meta-row">
+                            <img class="author-avatar" src="../images/angelawang.jpg" alt="Angela Wang" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23e0e0e0/><text x=%2250%25%22 y=%2255%25%22 font-size=%2210%22 text-anchor=%22middle%22 fill=%23666%22>no%20img</text></svg>';">
+                            <div class="author-meta">
+                                <div>Written by: <a href="../author/angelawang.html" class="author-link">Angela Wang</a></div>
+                                <div class="last-updated">Last Updated: December 25, 2025</div>
+                            </div>
+                            <div class="share-icons" aria-label="Share this page">
+                                <a href="#" class="share-btn share" title="Share" onclick="shareTo('generic');return false;" aria-label="Share"><i class="fa fa-share-alt"></i></a>
+                                <a href="#" class="share-btn pinterest" title="Share on Pinterest" onclick="shareTo('pinterest');return false;" aria-label="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
+                                <a href="#" class="share-btn facebook" title="Share on Facebook" onclick="shareTo('facebook');return false;" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="share-btn x" title="Share on X" onclick="shareTo('x');return false;" aria-label="Share on X">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                        <line x1="6" y1="6" x2="18" y2="18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="6" y1="18" x2="18" y2="6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="share-btn linkedin" title="Share on LinkedIn" onclick="shareTo('linkedin');return false;" aria-label="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
 
                         <div class="input-section">
+            <div class="panel-gray">
             <div class="input-group">
                 <label>Mode:</label>
                 <div class="mode-selection">
@@ -574,6 +665,7 @@
                 <button class="btn-calculate" id="calculate-btn">Calculate</button>
                 <button class="btn-clear" onclick="clearInputs()">Clear</button>
             </div>
+            </div> <!-- /.panel-gray -->
                         </div>
 
                         
@@ -941,6 +1033,51 @@
             document.getElementById('start-date').value = '';
             document.getElementById('days-input').value = '';
             document.getElementById('results').style.display = 'none';
+        }
+        
+        // Social share helpers
+        function shareTo(platform) {
+            try {
+                if (platform === 'generic') {
+                    const shareData = {
+                        title: document.querySelector('title') ? document.querySelector('title').textContent : '',
+                        url: window.location.href
+                    };
+                    if (navigator.share) {
+                        navigator.share(shareData).catch(() => {});
+                        return;
+                    } else if (navigator.clipboard) {
+                        navigator.clipboard.writeText(shareData.url).then(() => {
+                            alert('Link copied to clipboard');
+                        }).catch(() => {
+                            // fallback open share dialog
+                        });
+                        return;
+                    }
+                }
+                const pageUrl = encodeURIComponent(window.location.href);
+                const pageTitle = encodeURIComponent(document.querySelector('title') ? document.querySelector('title').textContent : '');
+                let shareUrl = '';
+                switch (platform) {
+                    case 'pinterest':
+                        shareUrl = `https://pinterest.com/pin/create/button/?url=${pageUrl}&description=${pageTitle}`;
+                        break;
+                    case 'facebook':
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                        break;
+                    case 'x':
+                        shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                        break;
+                    case 'linkedin':
+                        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                        break;
+                    default:
+                        return;
+                }
+                window.open(shareUrl, '_blank', 'noopener,noreferrer,width=600,height=400');
+            } catch (err) {
+                console.error('Share error', err);
+            }
         }
 
         // Initialize the calculator
