@@ -19,6 +19,8 @@
     <meta name="twitter:title" content="Date Calculator | CalculatorQuote">
     <meta name="twitter:description" content="Calculate date intervals easily with our Date Calculator.">
     <meta name="twitter:image" content="https://www.calculatorquote.com/images/date-og.jpg">
+    <meta name="twitter:image:alt" content="Date Calculator Tool">
+    <meta name="twitter:site" content="@CalculatorQuote">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/templatemo-style.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8831713993918492"
@@ -1172,8 +1174,10 @@
                 }
                 pageUrl = encodeURIComponent(pageUrl);
                 const pageTitle = encodeURIComponent(document.querySelector('title') ? document.querySelector('title').textContent : '');
-                // Use the specified thumbnail for all social media platforms
-                const ogImageUrl = 'https://www.calculatorquote.com/images/date-og.jpg';
+                // Prefer the Open Graph image if present; fall back to link[rel=image_src] or a known default
+                const ogImageMeta = document.querySelector('meta[property="og:image"]');
+                const linkImage = document.querySelector('link[rel="image_src"]');
+                const ogImageUrl = ogImageMeta && ogImageMeta.content ? ogImageMeta.content : (linkImage && linkImage.href ? linkImage.href : 'https://www.calculatorquote.com/images/date-og.jpg');
 
                 let shareUrl = '';
                 switch (platform) {
@@ -1185,7 +1189,7 @@
                         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
                         break;
                     case 'x':
-                        shareUrl = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}&via=CalculatorQuote`;
+                        shareUrl = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}&via=CalculatorQuote&image=${encodeURIComponent(ogImageUrl)}`;
                         break;
                     case 'linkedin':
                         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}&image=${encodeURIComponent(ogImageUrl)}`;
