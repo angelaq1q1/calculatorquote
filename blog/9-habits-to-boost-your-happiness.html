@@ -510,6 +510,11 @@
                 if (pageUrl.startsWith('file://')) {
                     pageUrl = 'https://www.calculatorquote.com/blog/9-habits-to-boost-your-happiness.html';
                     console.log('Using production URL for social sharing (local file detected)');
+                    // For X/Twitter, also log the image URL being used for debugging
+                    if (platform === 'x') {
+                        console.log('X sharing - og:image URL:', ogImageUrl);
+                        console.log('X sharing - page URL:', pageUrl);
+                    }
                 }
                 pageUrl = encodeURIComponent(pageUrl);
                 const pageTitle = encodeURIComponent(document.querySelector('title') ? document.querySelector('title').textContent : '');
@@ -528,7 +533,7 @@
                         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
                         break;
                     case 'x':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                        shareUrl = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
                         break;
                     case 'linkedin':
                         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
