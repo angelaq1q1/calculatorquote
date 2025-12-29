@@ -303,16 +303,16 @@
                 margin: 0 10px;
                 padding: 24px 20px;
             }
-
+            
             h1 {
                 font-size: 1.8em;
                 margin: 0 0 15px 0;
             }
-
+            
             .subtitle {
                 margin: 0 0 20px 0;
             }
-
+            
             .content {
                 padding: 0;
             }
@@ -416,9 +416,8 @@
                         </svg>
                     </a>
                     <a href="#" class="share-btn x" title="Share on X" onclick="shareTo('x');return false;" aria-label="Share on X">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                            <line x1="6" y1="6" x2="18" y2="18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="6" y1="18" x2="18" y2="6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="white" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
                     <a href="#" class="share-btn linkedin" title="Share on LinkedIn" onclick="shareTo('linkedin');return false;" aria-label="Share on LinkedIn">
@@ -520,6 +519,11 @@
                 if (pageUrl.startsWith('file://')) {
                     pageUrl = 'https://www.calculatorquote.com/blog/7-rules-to-expand-your-lucky-surface-in-your-career.html';
                     console.log('Using production URL for social sharing (local file detected)');
+                    // For X/Twitter, also log the image URL being used for debugging
+                    if (platform === 'x') {
+                        console.log('X sharing - og:image URL:', ogImageUrl);
+                        console.log('X sharing - page URL:', pageUrl);
+                    }
                 }
                 pageUrl = encodeURIComponent(pageUrl);
                 const pageTitle = encodeURIComponent(document.querySelector('title') ? document.querySelector('title').textContent : '');
@@ -538,7 +542,7 @@
                         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
                         break;
                     case 'x':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                        shareUrl = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
                         break;
                     case 'linkedin':
                         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
